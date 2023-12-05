@@ -105,7 +105,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::vec::Vec t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -168,7 +168,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`t`),
                                         },
                                     ),
@@ -435,13 +435,13 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
@@ -504,7 +504,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`fn((t) -> core::option::Option core::num::f32`),
                                         },
                                     ),

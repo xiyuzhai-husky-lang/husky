@@ -2,7 +2,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermContract {
-    None,
+    Pure,
     Move,
     Borrow,
     BorrowMut,
@@ -18,13 +18,13 @@ impl TermContract {
     {
         match ephem_symbol_modifier_token_group {
             Some(t) => t.into(),
-            None => TermContract::None,
+            None => TermContract::Pure,
         }
     }
 
     pub fn as_str(self) -> &'static str {
         match self {
-            TermContract::None => "",
+            TermContract::Pure => "",
             TermContract::Move => "move ",
             TermContract::Borrow => "borrow",
             TermContract::BorrowMut => "borrow mut",
@@ -38,7 +38,7 @@ impl TermContract {
 impl From<SymbolModifier> for TermContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::None => TermContract::None,
+            SymbolModifier::None => TermContract::Pure,
             SymbolModifier::Mut => TermContract::Move,
             SymbolModifier::Ref => TermContract::Borrow,
             SymbolModifier::RefMut => TermContract::BorrowMut,

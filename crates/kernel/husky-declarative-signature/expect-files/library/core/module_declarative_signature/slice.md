@@ -137,7 +137,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::Slice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -200,13 +200,13 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::usize`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::usize`),
                                         },
                                     ),
@@ -376,7 +376,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -422,7 +422,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -468,7 +468,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -514,7 +514,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -560,7 +560,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

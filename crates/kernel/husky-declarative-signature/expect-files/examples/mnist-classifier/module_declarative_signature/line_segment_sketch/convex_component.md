@@ -100,7 +100,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

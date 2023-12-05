@@ -16,7 +16,7 @@ pub enum HirEagerContract {
 impl HirEagerContract {
     fn from_term(contract: TermContract) -> Self {
         match contract {
-            TermContract::None => HirEagerContract::None,
+            TermContract::Pure => HirEagerContract::None,
             TermContract::Move => HirEagerContract::Move,
             TermContract::Borrow => HirEagerContract::Borrow,
             TermContract::BorrowMut => HirEagerContract::BorrowMut,

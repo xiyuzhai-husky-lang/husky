@@ -24,7 +24,11 @@ impl<'a> SemaExprEngine<'a> {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.place() {
                     Some(lopd_place) => match lopd_place {
-                        FluffyPlace::Const => todo!(),
+                        FluffyPlace::Const => {
+                            // ad hoc
+                            // should return err
+                            ()
+                        }
                         FluffyPlace::StackPure { location } => todo!(),
                         FluffyPlace::ImmutableStackOwned { location } => todo!(),
                         FluffyPlace::MutableStackOwned { .. } => (),

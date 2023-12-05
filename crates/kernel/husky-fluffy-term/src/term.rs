@@ -29,7 +29,7 @@ impl FluffyTerm {
         }
     }
 
-    pub(crate) fn with_place(self, place: FluffyPlace) -> Self {
+    pub fn with_place(self, place: FluffyPlace) -> Self {
         Self {
             place: Some(place),
             base: self.base,

@@ -17,13 +17,13 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),

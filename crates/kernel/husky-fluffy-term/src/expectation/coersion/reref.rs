@@ -4,23 +4,13 @@
 use super::*;
 
 impl ExpectCoersion {
-    pub(super) fn resolve_place_to_prelude_indirection(
+    pub(super) fn resolve_reref(
         &self,
         db: &::salsa::Db,
         terms: &FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        // todo: check contract
-        // match self.contract {
-        //     Contract::None => todo!(),
-        //     Contract::Move => todo!(),
-        //     Contract::Borrow => todo!(),
-        //     Contract::BorrowMut => todo!(),
-        //     Contract::Const => todo!(),
-        //     Contract::Leash => todo!(),
-        // }
-        // todo: assert that is None
-        // let (None, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
+        FluffyPlace::Transient.bind(self.contract);
         let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms) else {
             unreachable!(
                 "place should be merged with contract already, self.ty_expected = {}",
@@ -39,10 +29,11 @@ impl ExpectCoersion {
                 PreludeIndirectionTypePath::Leash => {
                     debug_assert_eq!(expected_ty_arguments.len(), 1);
                     // todo: check place
-                    try_finalize_coersion(
+                    self.try_finalize_coersion(
                         state.expectee(),
                         expected_ty_arguments[0],
                         Coersion::PlaceToLeash,
+                        FluffyPlace::Transient,
                         db,
                         terms,
                         state,

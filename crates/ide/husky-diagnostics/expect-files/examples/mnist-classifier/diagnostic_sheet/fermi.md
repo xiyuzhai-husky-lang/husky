@@ -15,6 +15,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "place error",
+                severity: Error,
+                range: [30:19, 30:49),
+            },
+        ],
     },
 }

@@ -9,6 +9,16 @@ impl<'a> SemaExprEngine<'a> {
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFluffyTerm,
     ) -> SemaExprTypeResult<FluffyTerm> {
+        self.calc_literal_expr_ty_aux(expr_idx, literal_token_idx, expectation)
+            .map(|term| term.with_place(FluffyPlace::Const))
+    }
+
+    fn calc_literal_expr_ty_aux(
+        &mut self,
+        expr_idx: SynExprIdx,
+        literal_token_idx: RegionalTokenIdx,
+        expectation: &impl ExpectFluffyTerm,
+    ) -> SemaExprTypeResult<FluffyTerm> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {

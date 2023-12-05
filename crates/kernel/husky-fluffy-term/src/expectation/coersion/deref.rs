@@ -24,11 +24,17 @@ impl ExpectCoersion {
                 match prelude_indirection_ty_path {
                     PreludeIndirectionTypePath::Ref => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 2);
-                        // todo: check expected_ty_argument_place
-                        try_finalize_coersion(
+                        self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
                             DerefCoersion::Ref,
+                            FluffyPlace::Ref {
+                                guard: Right(FluffyLifetime::from_term(
+                                    expectee_ty_arguments[0],
+                                    db,
+                                    terms,
+                                )),
+                            },
                             db,
                             terms,
                             state,
@@ -38,10 +44,11 @@ impl ExpectCoersion {
                     PreludeIndirectionTypePath::Leash => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 1);
                         // todo: check expected_ty_argument_place
-                        try_finalize_coersion(
+                        self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
                             DerefCoersion::Leash,
+                            FluffyPlace::Leashed,
                             db,
                             terms,
                             state,

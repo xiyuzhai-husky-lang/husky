@@ -970,7 +970,7 @@
                                 data: [
                                     Move,
                                     Move,
-                                    None,
+                                    Pure,
                                 ],
                             },
                             pattern_symbol_arena: Arena {

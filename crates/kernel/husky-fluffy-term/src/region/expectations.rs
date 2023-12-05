@@ -188,6 +188,17 @@ impl ExpectationState {
         self.resolve_progress = ExpectationProgress::Resolved(Err(e.into()));
         AltSome(FluffyTermEffect { subsequent_actions })
     }
+
+    pub(crate) fn set_result<Outcome: Into<FluffyTermExpectationOutcome>>(
+        &mut self,
+        result: FluffyTermExpectationResult<Outcome>,
+        subsequent_actions: FluffyTermResolveActions,
+    ) -> AltOption<FluffyTermEffect> {
+        match result {
+            Ok(outcome) => self.set_ok(outcome, subsequent_actions),
+            Err(e) => self.set_err(e, subsequent_actions),
+        }
+    }
 }
 
 #[derive(Debug, Default)]

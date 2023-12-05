@@ -566,8 +566,8 @@ SynDeclSheet {
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
                                                 BorrowMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -1074,8 +1074,8 @@ SynDeclSheet {
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
                                                 BorrowMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {

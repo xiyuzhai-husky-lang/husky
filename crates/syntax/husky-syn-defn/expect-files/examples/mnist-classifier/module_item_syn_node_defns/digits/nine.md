@@ -2830,21 +2830,21 @@
                             },
                             pattern_expr_contracts: ArenaMap {
                                 data: [
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
                                 ],
                             },
                             pattern_symbol_arena: Arena {
@@ -3647,7 +3647,7 @@
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -3926,7 +3926,7 @@
                             },
                             pattern_expr_contracts: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                             pattern_symbol_arena: Arena {
@@ -4165,7 +4165,7 @@
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -4538,7 +4538,7 @@
                             },
                             pattern_expr_contracts: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                             pattern_symbol_arena: Arena {

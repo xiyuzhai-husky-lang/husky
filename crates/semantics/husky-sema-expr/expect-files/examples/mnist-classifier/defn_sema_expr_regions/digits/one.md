@@ -634,7 +634,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -661,7 +661,7 @@
                                         ),
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -876,7 +876,7 @@
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
-                                                                    contract: None,
+                                                                    contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: Ethereal(
@@ -893,7 +893,7 @@
                                                             ),
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
-                                                                    contract: None,
+                                                                    contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: Ethereal(
@@ -919,7 +919,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -956,7 +956,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1003,7 +1003,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1050,7 +1050,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1097,7 +1097,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1107,7 +1107,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -1144,7 +1144,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1199,7 +1199,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1254,7 +1254,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -6453,24 +6453,24 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -7521,7 +7521,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -7551,7 +7553,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -7601,7 +7603,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -7797,7 +7799,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -7824,7 +7826,7 @@
                                         ),
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -8015,7 +8017,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8247,7 +8251,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8277,7 +8283,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -8317,7 +8323,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -8549,7 +8555,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8752,7 +8760,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8986,7 +8996,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -9103,7 +9115,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -9280,7 +9294,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             14,
@@ -9463,7 +9479,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             15,
@@ -9646,7 +9664,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             16,
@@ -9930,7 +9950,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -10261,7 +10283,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -10291,7 +10315,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -10331,7 +10355,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -10440,7 +10464,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             24,
@@ -10802,7 +10828,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -11586,7 +11614,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -11728,7 +11758,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -11788,7 +11820,7 @@
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
-                                                            contract: None,
+                                                            contract: Pure,
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: Ethereal(
@@ -11843,7 +11875,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -12277,7 +12309,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -12307,7 +12341,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -12377,7 +12411,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -12616,7 +12650,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             39,
@@ -12916,7 +12952,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             40,
@@ -13211,7 +13249,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -13241,7 +13281,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -13291,7 +13331,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -14018,7 +14058,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -14476,7 +14518,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -14870,7 +14914,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -15528,7 +15574,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -15558,7 +15606,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -15618,7 +15666,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -16158,7 +16206,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -16188,7 +16238,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -16238,7 +16288,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -16549,7 +16599,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             62,
@@ -16849,7 +16901,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             63,
@@ -17149,7 +17203,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             64,
@@ -17444,7 +17500,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -17474,7 +17532,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -17534,7 +17592,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -17677,7 +17735,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -18719,7 +18779,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -19254,7 +19316,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -19284,7 +19348,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -19334,7 +19398,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -19473,7 +19537,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -20077,7 +20143,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             72,
@@ -20100,7 +20168,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Hollow(
                                         HollowTerm(
                                             72,
@@ -20210,7 +20280,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -23951,7 +24023,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -23979,7 +24051,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24137,7 +24209,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24165,7 +24237,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24261,7 +24333,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24289,7 +24361,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24447,7 +24519,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24475,7 +24547,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24748,7 +24820,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24776,7 +24848,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24934,7 +25006,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -24962,7 +25034,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25117,7 +25189,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25145,7 +25217,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25303,7 +25375,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25331,7 +25403,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25427,7 +25499,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25455,7 +25527,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25613,7 +25685,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25641,7 +25713,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25855,7 +25927,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -25883,7 +25955,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26041,7 +26113,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26069,7 +26141,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26165,7 +26237,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26193,7 +26265,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26351,7 +26423,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26379,7 +26451,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26475,7 +26547,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26503,7 +26575,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26661,7 +26733,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26689,7 +26761,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26962,7 +27034,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26990,7 +27062,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -27148,7 +27220,7 @@
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -27176,7 +27248,7 @@
                                                         },
                                                     ),
                                                 ),
-                                                contract: None,
+                                                contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -27354,7 +27426,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -27382,7 +27454,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -27445,7 +27517,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27490,7 +27562,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27500,7 +27572,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27545,7 +27617,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27555,7 +27627,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27581,7 +27653,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -27600,7 +27674,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27643,7 +27717,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27745,7 +27819,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27790,7 +27864,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27849,7 +27923,7 @@
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
-                                                                    contract: None,
+                                                                    contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: Ethereal(
@@ -27866,7 +27940,7 @@
                                                             ),
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
-                                                                    contract: None,
+                                                                    contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
                                                                         base: Ethereal(
@@ -27892,7 +27966,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27929,7 +28003,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -27939,7 +28013,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -27976,7 +28050,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28073,7 +28147,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28099,7 +28173,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -28118,7 +28194,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28240,7 +28316,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -28268,7 +28344,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -28331,7 +28407,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28376,7 +28452,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28386,7 +28462,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28412,7 +28488,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -28431,7 +28509,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28474,7 +28552,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28576,7 +28654,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28621,7 +28699,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28685,7 +28763,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28711,7 +28789,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -28730,7 +28810,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28829,7 +28909,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -28855,7 +28935,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -28874,7 +28956,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -28956,7 +29038,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29020,7 +29102,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29046,7 +29128,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -29065,7 +29149,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29139,7 +29223,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29165,7 +29249,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -29184,7 +29270,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29287,7 +29373,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 14,
@@ -29300,7 +29388,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29326,7 +29414,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 14,
@@ -29337,7 +29427,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29430,7 +29520,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 15,
@@ -29443,7 +29535,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29469,7 +29561,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 15,
@@ -29480,7 +29574,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29573,7 +29667,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 16,
@@ -29586,7 +29682,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29612,7 +29708,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 16,
@@ -29623,7 +29721,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29776,7 +29874,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -29802,7 +29900,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -29821,7 +29921,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -29943,7 +30043,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -29971,7 +30071,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -30067,7 +30167,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30112,7 +30212,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30122,7 +30222,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30148,7 +30248,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -30167,7 +30269,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30210,7 +30312,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30312,7 +30414,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30357,7 +30459,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30375,7 +30477,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 24,
@@ -30413,9 +30517,11 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Const,
+                                            ),
                                             base: Hollow(
                                                 HollowTerm(
                                                     24,
@@ -30450,7 +30556,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30514,7 +30620,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30559,7 +30665,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30598,7 +30704,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30624,7 +30730,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -30643,7 +30751,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30725,7 +30833,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -30914,7 +31022,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -30959,7 +31067,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31052,7 +31160,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31078,7 +31186,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -31097,7 +31207,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31219,7 +31329,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -31247,7 +31357,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -31310,7 +31420,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31336,7 +31446,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -31355,7 +31467,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31365,7 +31477,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31410,7 +31522,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31445,7 +31557,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31490,7 +31602,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31525,7 +31637,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31570,7 +31682,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31605,7 +31717,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31650,7 +31762,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31660,7 +31772,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31686,7 +31798,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -31705,7 +31819,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31748,7 +31862,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31850,7 +31964,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -31895,7 +32009,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -31982,7 +32096,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -32010,7 +32124,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -32106,7 +32220,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 39,
@@ -32119,7 +32235,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32145,7 +32261,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 39,
@@ -32156,7 +32274,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32216,7 +32334,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32261,7 +32379,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32329,7 +32447,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 40,
@@ -32342,7 +32462,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32368,7 +32488,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 40,
@@ -32379,7 +32501,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32468,7 +32590,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32513,7 +32635,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32523,7 +32645,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32549,7 +32671,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -32568,7 +32692,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32611,7 +32735,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -32713,7 +32837,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -32758,7 +32882,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33007,7 +33131,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -33052,7 +33176,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33091,7 +33215,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -33117,7 +33241,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -33136,7 +33262,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33360,7 +33486,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -33386,7 +33512,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -33405,7 +33533,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33589,7 +33717,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -33615,7 +33743,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -33634,7 +33764,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33756,7 +33886,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -33784,7 +33914,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -33872,7 +34002,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -33917,7 +34047,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -33977,7 +34107,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34022,7 +34152,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34111,7 +34241,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34156,7 +34286,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34166,7 +34296,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34192,7 +34322,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -34211,7 +34343,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34254,7 +34386,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34356,7 +34488,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34401,7 +34533,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34488,7 +34620,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -34516,7 +34648,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -34583,7 +34715,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34628,7 +34760,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34725,7 +34857,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34770,7 +34902,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34780,7 +34912,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34825,7 +34957,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34835,7 +34967,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -34861,7 +34993,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -34880,7 +35014,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -34923,7 +35057,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35025,7 +35159,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35070,7 +35204,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35217,7 +35351,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -35245,7 +35379,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -35341,7 +35475,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 62,
@@ -35354,7 +35490,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35380,7 +35516,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 62,
@@ -35391,7 +35529,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35451,7 +35589,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35496,7 +35634,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35564,7 +35702,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 63,
@@ -35577,7 +35717,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35603,7 +35743,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 63,
@@ -35614,7 +35756,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35674,7 +35816,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35719,7 +35861,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35787,7 +35929,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 64,
@@ -35800,7 +35944,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35826,7 +35970,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 64,
@@ -35837,7 +35983,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35926,7 +36072,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -35971,7 +36117,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -35981,7 +36127,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -36007,7 +36153,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -36026,7 +36174,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -36069,7 +36217,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -36171,7 +36319,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -36216,7 +36364,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -36255,7 +36403,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -36281,7 +36429,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -36300,7 +36450,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -36790,7 +36940,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -36816,7 +36966,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -36835,7 +36987,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37038,7 +37190,7 @@
                                                     parameter_contracted_tys: [
                                                         Variadic(
                                                             FluffyTermRitchieVariadicParameter {
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -37066,7 +37218,7 @@
                                                                         },
                                                                     ),
                                                                 ),
-                                                                contract: None,
+                                                                contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -37133,7 +37285,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37178,7 +37330,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37217,7 +37369,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37262,7 +37414,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37272,7 +37424,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37298,7 +37450,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -37317,7 +37471,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37360,7 +37514,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37462,7 +37616,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37507,7 +37661,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37546,7 +37700,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37572,7 +37726,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -37591,7 +37747,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37773,7 +37929,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37818,7 +37974,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -37886,7 +38042,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -37931,7 +38087,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -38007,7 +38163,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 72,
@@ -38020,7 +38178,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -38046,7 +38204,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Hollow(
                                             HollowTerm(
                                                 72,
@@ -38057,7 +38217,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -38131,7 +38291,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -38157,7 +38317,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -38176,7 +38338,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -38258,7 +38420,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -38305,7 +38467,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -38467,7 +38629,7 @@
                                 },
                                 pattern_expr_contracts: ArenaMap {
                                     data: [
-                                        None,
+                                        Pure,
                                     ],
                                 },
                                 pattern_symbol_arena: Arena {
@@ -38746,7 +38908,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -39129,7 +39291,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -39723,7 +39887,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -39749,7 +39913,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -39768,7 +39934,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -40092,7 +40258,7 @@
                                 },
                                 pattern_expr_contracts: ArenaMap {
                                     data: [
-                                        None,
+                                        Pure,
                                     ],
                                 },
                                 pattern_symbol_arena: Arena {
@@ -40398,7 +40564,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -40781,7 +40947,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -41506,7 +41674,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -41532,7 +41700,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -41551,7 +41721,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -41929,7 +42099,7 @@
                                 },
                                 pattern_expr_contracts: ArenaMap {
                                     data: [
-                                        None,
+                                        Pure,
                                     ],
                                 },
                                 pattern_symbol_arena: Arena {
@@ -42301,7 +42471,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -42688,7 +42858,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -42880,7 +43052,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -43714,7 +43888,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -43740,7 +43914,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -43759,7 +43935,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -43862,7 +44038,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -43888,7 +44064,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -43907,7 +44085,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -44068,7 +44246,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: None,
+                                        contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(
@@ -44113,7 +44291,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),

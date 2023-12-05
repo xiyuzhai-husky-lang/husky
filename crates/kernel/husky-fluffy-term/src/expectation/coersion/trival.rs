@@ -1,9 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PlaceCoersion {
-    Todo,
-}
+pub struct TrivialCoersion;
 
 impl ExpectCoersion {
     pub(super) fn resolve_trivial(
@@ -12,10 +10,11 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        try_finalize_coersion(
+        self.try_finalize_coersion(
             state.expectee(),
             self.ty_expected,
-            PlaceCoersion::Todo,
+            TrivialCoersion,
+            state.expectee().place().unwrap_or(FluffyPlace::Transient),
             db,
             terms,
             state,

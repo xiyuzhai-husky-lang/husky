@@ -50,7 +50,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
@@ -131,7 +131,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -348,7 +348,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -384,7 +384,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -420,7 +420,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -456,7 +456,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -492,7 +492,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -528,7 +528,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

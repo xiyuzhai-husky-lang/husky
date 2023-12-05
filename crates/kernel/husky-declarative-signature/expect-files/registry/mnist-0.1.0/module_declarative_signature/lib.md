@@ -158,7 +158,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -369,7 +369,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

@@ -147,14 +147,14 @@
                                 data: [
                                     DeclarativeRitchieParameter::Variadic(
                                         DeclarativeRitchieVariadicParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Keyed(
                                         DeclarativeRitchieKeyedParameter {
                                             key: `skip`,
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                             has_default: true,
                                         },

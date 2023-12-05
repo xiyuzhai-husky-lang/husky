@@ -608,7 +608,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -655,7 +655,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
