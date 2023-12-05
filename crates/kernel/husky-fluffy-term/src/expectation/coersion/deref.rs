@@ -25,10 +25,10 @@ impl ExpectCoersion {
                     PreludeIndirectionTypePath::Ref => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 2);
                         // todo: check expected_ty_argument_place
-                        resolve_aux(
+                        try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
-                            |_, _| Some(Coersion::Deref(DerefCoersion::Ref)),
+                            DerefCoersion::Ref,
                             db,
                             terms,
                             state,
@@ -38,10 +38,10 @@ impl ExpectCoersion {
                     PreludeIndirectionTypePath::Leash => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 1);
                         // todo: check expected_ty_argument_place
-                        resolve_aux(
+                        try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            |_, _| Some(Coersion::Deref(DerefCoersion::Leash)),
+                            DerefCoersion::Leash,
                             db,
                             terms,
                             state,

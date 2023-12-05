@@ -39,10 +39,10 @@ impl ExpectCoersion {
                 PreludeIndirectionTypePath::Leash => {
                     debug_assert_eq!(expected_ty_arguments.len(), 1);
                     // todo: check place
-                    resolve_aux(
+                    try_finalize_coersion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        |_,_|/* ad hoc */ Some(Coersion::PlaceToLeash),
+                        Coersion::PlaceToLeash,
                         db,
                         terms,
                         state,

@@ -17,10 +17,10 @@ impl ExpectCoersion {
             } => {
                 debug_assert_eq!(expected_ty_arguments.len(), 1);
                 // todo: check expected_ty_argument_place
-                resolve_aux(
+                try_finalize_coersion(
                     state.expectee(),
                     expected_ty_arguments[0],
-                    |_, _| Some(Coersion::WrapInSome),
+                    Coersion::WrapInSome,
                     db,
                     terms,
                     state,
@@ -30,7 +30,3 @@ impl ExpectCoersion {
         }
     }
 }
-//     if let Left(PreludeTypePath::Option) = dst_refined_ty_path && dst_ty_arguments[0] == state.expectee() {
-//         debug_assert_eq!(dst_ty_arguments.len() ,1);
-//         state.set_ok(Coersion::WrapInSome, smallvec![])
-//     } else{
