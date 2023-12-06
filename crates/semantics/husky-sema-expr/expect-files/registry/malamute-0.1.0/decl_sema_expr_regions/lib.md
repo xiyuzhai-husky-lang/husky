@@ -2471,7 +2471,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),

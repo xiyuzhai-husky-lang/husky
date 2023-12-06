@@ -43,7 +43,7 @@ pub(crate) struct SemaExprEngine<'a> {
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: SynPatternExprMap<TermContract>,
+    pattern_expr_contracts: SynPatternExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,

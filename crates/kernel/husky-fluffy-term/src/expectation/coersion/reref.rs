@@ -32,8 +32,7 @@ impl ExpectCoersion {
                     self.try_finalize_coersion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        Coersion::PlaceToLeash,
-                        FluffyPlace::Transient,
+                        FluffyCoersion::PlaceToLeash,
                         db,
                         terms,
                         state,

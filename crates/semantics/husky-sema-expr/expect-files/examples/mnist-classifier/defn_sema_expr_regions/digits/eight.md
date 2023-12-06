@@ -804,7 +804,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -851,7 +853,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -898,7 +902,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -953,7 +959,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1008,7 +1016,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5204,7 +5214,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5384,7 +5396,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5595,7 +5609,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5776,7 +5792,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5823,7 +5841,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8305,7 +8325,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8698,7 +8720,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),

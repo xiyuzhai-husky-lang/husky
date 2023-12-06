@@ -1420,7 +1420,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1557,7 +1559,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6081,7 +6085,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6152,7 +6164,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6304,7 +6324,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6367,7 +6395,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6430,7 +6466,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6493,7 +6531,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6727,7 +6767,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6798,7 +6846,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -6950,7 +7006,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7013,7 +7077,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7076,7 +7148,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7139,7 +7213,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7276,7 +7352,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7440,7 +7524,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7682,7 +7768,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7753,7 +7847,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7905,7 +8007,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -7968,7 +8078,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8031,7 +8149,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8094,7 +8214,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8178,7 +8300,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8241,7 +8365,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -20302,7 +20434,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -20446,7 +20580,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21076,7 +21218,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21232,7 +21382,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21316,7 +21468,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21548,7 +21702,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21672,7 +21828,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21721,7 +21879,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -21836,7 +21996,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22154,7 +22316,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22246,7 +22410,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22375,7 +22547,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22438,7 +22618,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22653,7 +22835,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22811,7 +23001,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -22926,7 +23118,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23084,7 +23278,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23168,7 +23364,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23537,7 +23741,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23652,7 +23864,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23744,7 +23958,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23807,7 +24029,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -23944,7 +24168,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    12,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24102,7 +24334,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24297,7 +24531,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24404,7 +24640,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    13,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24704,7 +24948,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24767,7 +25019,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24822,7 +25082,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -24997,7 +25259,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -25052,7 +25322,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -25107,7 +25379,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -25162,7 +25436,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -26111,7 +26393,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -26166,7 +26450,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -26974,7 +27260,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -27021,7 +27309,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -30659,7 +30949,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -30739,7 +31031,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -30877,7 +31171,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -30924,7 +31220,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -30979,7 +31277,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -31092,7 +31392,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -31139,7 +31441,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -31194,7 +31498,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -31324,7 +31630,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -31379,7 +31693,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -34562,7 +34878,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -34807,7 +35131,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -34963,7 +35295,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -35101,7 +35435,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -37490,7 +37826,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -37591,7 +37929,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -37838,7 +38184,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -37922,7 +38270,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -38068,7 +38418,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -40147,7 +40499,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -40349,7 +40709,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -40404,7 +40766,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -40542,7 +40906,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -46628,7 +46994,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -46830,7 +47198,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -46937,7 +47307,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47180,7 +47552,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47287,7 +47667,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47475,7 +47857,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47559,7 +47949,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47761,7 +48159,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47816,7 +48216,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -47975,7 +48377,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48059,7 +48469,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48261,7 +48679,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48316,7 +48736,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48513,7 +48935,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48568,7 +48998,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48623,7 +49061,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48678,7 +49124,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -48733,7 +49187,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -49807,7 +50263,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -49862,7 +50320,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -50883,7 +51343,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -50938,7 +51400,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54245,7 +54709,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54381,7 +54847,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54649,7 +55117,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54749,7 +55225,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54959,7 +55443,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -55014,7 +55500,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -55152,7 +55640,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -58512,7 +59002,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -58648,7 +59140,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Const,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -58916,7 +59410,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -59016,7 +59518,15 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -59226,7 +59736,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -59281,7 +59793,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -59419,7 +59933,9 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    TrivialCoersion,
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
                                                 ),
                                             ),
                                         ),

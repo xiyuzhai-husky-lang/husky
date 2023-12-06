@@ -1,4 +1,4 @@
-use husky_term_prelude::TermContract;
+use husky_term_prelude::Contract;
 
 use super::*;
 
@@ -14,15 +14,15 @@ pub enum HirEagerContract {
 }
 
 impl HirEagerContract {
-    fn from_term(contract: TermContract) -> Self {
+    fn from_term(contract: Contract) -> Self {
         match contract {
-            TermContract::Pure => HirEagerContract::None,
-            TermContract::Move => HirEagerContract::Move,
-            TermContract::Borrow => HirEagerContract::Borrow,
-            TermContract::BorrowMut => HirEagerContract::BorrowMut,
-            TermContract::Const => HirEagerContract::Const,
-            TermContract::Leash => HirEagerContract::Leash,
-            TermContract::At => HirEagerContract::At,
+            Contract::Pure => HirEagerContract::None,
+            Contract::Move => HirEagerContract::Move,
+            Contract::Borrow => HirEagerContract::Borrow,
+            Contract::BorrowMut => HirEagerContract::BorrowMut,
+            Contract::Const => HirEagerContract::Const,
+            Contract::Leash => HirEagerContract::Leash,
+            Contract::At => HirEagerContract::At,
         }
     }
 }

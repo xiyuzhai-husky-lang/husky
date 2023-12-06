@@ -7,33 +7,44 @@ mod reref;
 mod trival;
 mod wrap_in_some;
 
-use self::deref::DerefCoersion;
-use self::trival::TrivialCoersion;
+use self::deref::DerefFluffyCoersion;
+use self::trival::TrivialFluffyCoersion;
 
 use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum Coersion {
-    Trivial(TrivialCoersion),
+pub enum FluffyCoersion {
+    Trivial(TrivialFluffyCoersion),
     Never,
-    Other,
     WrapInSome,
     PlaceToLeash,
-    Deref(DerefCoersion),
+    Deref(DerefFluffyCoersion),
+}
+
+impl FluffyCoersion {
+    pub fn place_after_coersion(self) -> FluffyPlace {
+        match self {
+            FluffyCoersion::Trivial(slf) => slf.place_after_coersion(),
+            FluffyCoersion::Deref(slf) => slf.place_after_coersion(),
+            FluffyCoersion::Never | FluffyCoersion::WrapInSome | FluffyCoersion::PlaceToLeash => {
+                FluffyPlace::Transient
+            }
+        }
+    }
 }
 
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectCoersion {
-    contract: TermContract,
+    contract: Contract,
     ty_expected: FluffyTerm,
 }
 
 impl ExpectCoersion {
     #[inline(always)]
-    pub fn new(contract: TermContract, ty_expected: FluffyTerm) -> Self {
+    pub fn new(contract: Contract, ty_expected: FluffyTerm) -> Self {
         Self {
             contract,
             ty_expected,
@@ -43,7 +54,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_const(ty: FluffyTerm) -> Self {
         Self {
-            contract: TermContract::Const,
+            contract: Contract::Const,
             ty_expected: ty,
         }
     }
@@ -64,7 +75,7 @@ impl ExpectCoersion {
             _ => ty,
         };
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: ty,
         }
     }
@@ -72,7 +83,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: engine.term_menu().unit_ty_ontology().into(),
         }
     }
@@ -80,7 +91,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: engine.term_menu().bool_ty_ontology().into(),
         }
     }
@@ -88,7 +99,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_move(ty: FluffyTerm) -> Self {
         Self {
-            contract: TermContract::Move,
+            contract: Contract::Move,
             ty_expected: ty,
         }
     }
@@ -109,7 +120,7 @@ impl ExpectCoersion {
         // }
     }
 
-    fn contract(self) -> TermContract {
+    fn contract(self) -> Contract {
         self.contract
     }
 
@@ -119,7 +130,7 @@ impl ExpectCoersion {
 }
 
 impl ExpectFluffyTerm for ExpectCoersion {
-    type Outcome = Coersion;
+    type Outcome = FluffyCoersion;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
@@ -169,18 +180,19 @@ impl ExpectCoersion {
         &self,
         src: FluffyTerm,
         dst: FluffyTerm,
-        coersion: impl Into<Coersion>,
-        net_place_after_coersion: FluffyPlace,
+        coersion: impl Into<FluffyCoersion>,
         db: &::salsa::Db,
         terms: &FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
+        let coersion = coersion.into();
         Self::try_finalize_coersion_aux(
             src,
             dst,
-            net_place_after_coersion
+            coersion
+                .place_after_coersion()
                 .bind(self.contract)
-                .map(|()| coersion.into())
+                .map(|()| coersion)
                 .map_err(Into::into),
             db,
             terms,
@@ -191,7 +203,7 @@ impl ExpectCoersion {
     fn try_finalize_coersion_aux(
         src: FluffyTerm,
         dst: FluffyTerm,
-        coersion_result: FluffyTermExpectationResult<Coersion>,
+        coersion_result: FluffyTermExpectationResult<FluffyCoersion>,
         db: &::salsa::Db,
         terms: &FluffyTerms,
         state: &mut ExpectationState,

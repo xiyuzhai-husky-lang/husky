@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealRitchieRegularParameter {
-    contract: TermContract,
+    contract: Contract,
     ty: EtherealTerm,
 }
 
@@ -63,11 +63,11 @@ impl salsa::DisplayWithDb for EtherealRitchieRegularParameter {
 }
 
 impl EtherealRitchieRegularParameter {
-    pub fn new(contract: TermContract, ty: EtherealTerm) -> Self {
+    pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

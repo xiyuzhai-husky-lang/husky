@@ -18,8 +18,7 @@ impl ExpectCoersion {
                 self.try_finalize_coersion(
                     state.expectee(),
                     expected_ty_arguments[0],
-                    Coersion::WrapInSome,
-                    FluffyPlace::Transient,
+                    FluffyCoersion::WrapInSome,
                     db,
                     terms,
                     state,
