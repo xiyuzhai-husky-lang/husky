@@ -5,7 +5,7 @@ use husky_entity_path::{
     PreludeTypePath, PrincipalEntityPath, TraitPath, TypePath, TypeVariantPath,
 };
 
-impl<E> TranspileToRust<E> for AssociatedItemPath {
+impl<E> TranspileToRustWith<E> for AssociatedItemPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
@@ -22,7 +22,7 @@ impl<E> TranspileToRust<E> for AssociatedItemPath {
     }
 }
 
-impl<E> TranspileToRust<E> for TypeVariantPath {
+impl<E> TranspileToRustWith<E> for TypeVariantPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.parent_ty_path(db).transpile_to_rust(builder);
@@ -31,7 +31,7 @@ impl<E> TranspileToRust<E> for TypeVariantPath {
     }
 }
 
-impl<E> TranspileToRust<E> for PrincipalEntityPath {
+impl<E> TranspileToRustWith<E> for PrincipalEntityPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
@@ -51,7 +51,7 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
     }
 }
 
-impl<E> TranspileToRust<E> for MajorItemPath {
+impl<E> TranspileToRustWith<E> for MajorItemPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
@@ -61,7 +61,7 @@ impl<E> TranspileToRust<E> for MajorItemPath {
     }
 }
 
-impl<E> TranspileToRust<E> for TypePath {
+impl<E> TranspileToRustWith<E> for TypePath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self.refine(db) {
@@ -88,14 +88,14 @@ impl<E> TranspileToRust<E> for TypePath {
     }
 }
 
-impl<E> TranspileToRust<E> for TraitPath {
+impl<E> TranspileToRustWith<E> for TraitPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.ident(db).transpile_to_rust(builder)
     }
 }
 
-impl<E> TranspileToRust<E> for PatternPath {
+impl<E> TranspileToRustWith<E> for PatternPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             PatternPath::Type(path) => path.transpile_to_rust(builder),

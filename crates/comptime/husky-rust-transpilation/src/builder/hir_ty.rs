@@ -5,7 +5,7 @@ use husky_term_prelude::RitchieTypeKind;
 
 use super::*;
 
-impl TranspileToRust<HirEagerExprRegion> for HirType {
+impl TranspileToRustWith<HirEagerExprRegion> for HirType {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         match *self {
@@ -42,7 +42,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirType {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirRitchieType {
+impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieType {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         match self.ritchie_ty_kind(db) {
@@ -55,7 +55,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirRitchieType {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirTrait {
+impl TranspileToRustWith<HirEagerExprRegion> for HirTrait {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         self.trai_path(db).transpile_to_rust(builder);
@@ -66,7 +66,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirTrait {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirTemplateArgument {
+impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
             HirTemplateArgument::Vacant => todo!(),
@@ -78,7 +78,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirTemplateArgument {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirConstant {
+impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirConstant::Unit(_) => todo!(),

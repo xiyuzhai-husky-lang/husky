@@ -96,7 +96,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 use super::*;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 
-impl<E> TranspileToRust<E> for HirBinaryOpr {
+impl<E> TranspileToRustWith<E> for HirBinaryOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             HirBinaryOpr::Closed(opr) => opr.transpile_to_rust(builder),
@@ -124,7 +124,7 @@ impl<E> TranspileToRust<E> for HirBinaryOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for BinaryClosedOpr {
+impl<E> TranspileToRustWith<E> for BinaryClosedOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryClosedOpr::Add => match builder.spaced {
@@ -168,7 +168,7 @@ impl<E> TranspileToRust<E> for BinaryClosedOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for BinaryShiftOpr {
+impl<E> TranspileToRustWith<E> for BinaryShiftOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryShiftOpr::Shl => match builder.spaced {
@@ -184,7 +184,7 @@ impl<E> TranspileToRust<E> for BinaryShiftOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for BinaryComparisonOpr {
+impl<E> TranspileToRustWith<E> for BinaryComparisonOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryComparisonOpr::Eq => match builder.spaced {
@@ -216,7 +216,7 @@ impl<E> TranspileToRust<E> for BinaryComparisonOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for BinaryShortcuitLogicOpr {
+impl<E> TranspileToRustWith<E> for BinaryShortcuitLogicOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryShortcuitLogicOpr::And => match builder.spaced {
@@ -232,7 +232,7 @@ impl<E> TranspileToRust<E> for BinaryShortcuitLogicOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for HirPrefixOpr {
+impl<E> TranspileToRustWith<E> for HirPrefixOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             HirPrefixOpr::Minus => "-",
@@ -245,7 +245,7 @@ impl<E> TranspileToRust<E> for HirPrefixOpr {
     }
 }
 
-impl<E> TranspileToRust<E> for HirSuffixOpr {
+impl<E> TranspileToRustWith<E> for HirSuffixOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             HirSuffixOpr::Incr => "+= 1",

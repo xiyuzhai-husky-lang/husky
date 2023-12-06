@@ -1,6 +1,6 @@
 use super::*;
 
-impl TranspileToRust for TraitItemHirDefn {
+impl TranspileToRustWith for TraitItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
             TraitItemHirDefn::AssociatedFn(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -11,25 +11,25 @@ impl TranspileToRust for TraitItemHirDefn {
     }
 }
 
-impl TranspileToRust for TraitAssociatedFnHirDefn {
+impl TranspileToRustWith for TraitAssociatedFnHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRust for TraitMethodFnHirDefn {
+impl TranspileToRustWith for TraitMethodFnHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRust for TraitAssociatedTypeHirDefn {
+impl TranspileToRustWith for TraitAssociatedTypeHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRust for TraitAssociatedValHirDefn {
+impl TranspileToRustWith for TraitAssociatedValHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }

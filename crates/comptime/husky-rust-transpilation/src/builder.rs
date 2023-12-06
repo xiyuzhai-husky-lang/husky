@@ -203,7 +203,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str("}");
     }
 
-    pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRust<E>>(
+    pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRustWith<E>>(
         &mut self,
         items: impl IntoIterator<Item = A>,
     ) {
@@ -212,7 +212,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
     }
 
-    pub(crate) fn heterogeneous_comma_list_item<A: TranspileToRust<E>>(&mut self, item: A) {
+    pub(crate) fn heterogeneous_comma_list_item<A: TranspileToRustWith<E>>(&mut self, item: A) {
         let Some(ref mut is_list_start) = self.is_list_start else {
             unreachable!()
         };
@@ -224,7 +224,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         item.transpile_to_rust(self)
     }
 
-    pub(crate) fn bracketed_comma_list<A: TranspileToRust<E>>(
+    pub(crate) fn bracketed_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
         bracket: RustBracket,
         items: impl IntoIterator<Item = A>,
@@ -234,7 +234,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(bracket.ket_code());
     }
 
-    pub(crate) fn punctuated_list<A: TranspileToRust<E>>(
+    pub(crate) fn punctuated_list<A: TranspileToRustWith<E>>(
         &mut self,
         items: impl IntoIterator<Item = A>,
         punctuation: RustPunctuation,
@@ -250,7 +250,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
     }
 
-    pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRust<E>>(
+    pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
         bracket: RustBracket,
         items: impl IntoIterator<Item = A>,
@@ -267,7 +267,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(bracket.ket_code());
     }
 
-    pub(crate) fn bracketed_multiline_list<A: TranspileToRust<E>>(
+    pub(crate) fn bracketed_multiline_list<A: TranspileToRustWith<E>>(
         &mut self,
         bracket: RustBracket,
         items: impl IntoIterator<Item = A>,
@@ -369,22 +369,22 @@ impl<'a, 'b, E> std::ops::DerefMut for RustTranspilationBuilder<'a, 'b, E> {
     }
 }
 
-pub(crate) trait TranspileToRust<E = ()> {
+pub(crate) trait TranspileToRustWith<E = ()> {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>);
 }
 
-impl<T, E> TranspileToRust<E> for &T
+impl<T, E> TranspileToRustWith<E> for &T
 where
-    T: TranspileToRust<E>,
+    T: TranspileToRustWith<E>,
 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        <T as TranspileToRust<E>>::transpile_to_rust(self, builder)
+        <T as TranspileToRustWith<E>>::transpile_to_rust(self, builder)
     }
 }
 
-impl<T, E> TranspileToRust<E> for Option<T>
+impl<T, E> TranspileToRustWith<E> for Option<T>
 where
-    T: TranspileToRust<E>,
+    T: TranspileToRustWith<E>,
 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
@@ -394,9 +394,9 @@ where
     }
 }
 
-impl<T, E> TranspileToRust<E> for [T]
+impl<T, E> TranspileToRustWith<E> for [T]
 where
-    T: TranspileToRust<E>,
+    T: TranspileToRustWith<E>,
 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         for t in self {
@@ -405,14 +405,14 @@ where
     }
 }
 
-impl<E> TranspileToRust<E> for Ident {
+impl<E> TranspileToRustWith<E> for Ident {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.word(self.data(db))
     }
 }
 
-impl<E> TranspileToRust<E> for Label {
+impl<E> TranspileToRustWith<E> for Label {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.write_str("'");
@@ -420,7 +420,7 @@ impl<E> TranspileToRust<E> for Label {
     }
 }
 
-impl<E> TranspileToRust<E> for HirTemplateSymbol {
+impl<E> TranspileToRustWith<E> for HirTemplateSymbol {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             HirTemplateSymbol::Type(symbol) => match symbol {
@@ -445,7 +445,7 @@ impl<E> TranspileToRust<E> for HirTemplateSymbol {
     }
 }
 
-impl<E> TranspileToRust<E> for TermLiteral {
+impl<E> TranspileToRustWith<E> for TermLiteral {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
@@ -490,7 +490,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.word("self")
     }
 }
-impl TranspileToRust<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         let hir_eager_runtime_symbol_region_data = builder.extension.runtime_symbol_region_data(db);

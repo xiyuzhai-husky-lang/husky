@@ -18,7 +18,7 @@ use husky_hir_eager_expr::{
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryClosedOpr;
 
-impl TranspileToRust<HirEagerExprRegion> for (RustPrecedenceRange, HirEagerExprIdx) {
+impl TranspileToRustWith<HirEagerExprRegion> for (RustPrecedenceRange, HirEagerExprIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (precedence_range, slf) = self;
         let data = slf.data(builder.hir_eager_expr_arena());
@@ -207,7 +207,7 @@ fn transpile_hir_eager_expr_to_rust(
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerRitchieParameterArgumentMatch {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRitchieParameterArgumentMatch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
             &HirEagerRitchieParameterArgumentMatch::Regular(

@@ -3,7 +3,7 @@ use husky_term_prelude::SymbolModifier;
 
 use super::*;
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerPatternExprIdx {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         use salsa::DebugWithDb;

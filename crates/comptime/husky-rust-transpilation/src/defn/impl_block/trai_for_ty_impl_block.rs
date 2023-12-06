@@ -4,7 +4,7 @@ use husky_entity_path::PreludeTraitPath;
 use husky_entity_syn_tree::HasAssociatedItemPaths;
 use husky_hir_decl::TraitForTypeImplBlockHirDecl;
 
-impl TranspileToRust for TraitForTypeImplBlockHirDefn {
+impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl();
@@ -25,7 +25,7 @@ impl TranspileToRust for TraitForTypeImplBlockHirDefn {
     }
 }
 
-impl TranspileToRust for TraitForTypeImplBlockHirDecl {
+impl TranspileToRustWith for TraitForTypeImplBlockHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
