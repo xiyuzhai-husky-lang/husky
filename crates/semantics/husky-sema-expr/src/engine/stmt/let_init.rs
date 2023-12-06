@@ -48,7 +48,7 @@ impl<'a> SemaExprEngine<'a> {
                 (initial_value_sema_expr_idx, Some(pattern_ty))
             }
             None => {
-                self.build_sema_expr_with_its_ty_returned(
+                self.build_sema_expr_with_ty(
                     initial_value,
                     // ad hoc
                     ExpectAnyOriginal,

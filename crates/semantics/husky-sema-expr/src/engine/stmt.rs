@@ -125,13 +125,13 @@ impl<'a> SemaExprEngine<'a> {
                 expr_idx,
                 eol_semicolon,
             } => {
-                let (sema_expr_idx, ty) = match eol_semicolon {
+                let (sema_expr_idx, ty, outcome) = match eol_semicolon {
                     Ok(None) => {
-                        self.build_sema_expr_with_its_ty_returned(expr_idx, stmt_ty_expectation)
+                        self.build_sema_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
                     }
                     Ok(Some(_)) => {
-                        let (sema_expr_idx, expr_ty) =
-                            self.build_sema_expr_with_its_ty_returned(expr_idx, ExpectAnyOriginal);
+                        let (sema_expr_idx, expr_ty, outcome) =
+                            self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
                         let ty_result = match expr_ty {
                             Some(ty) => match ty.base_resolved(self) {
                                 FluffyTermBase::Ethereal(ty) if ty == self.term_menu.never() => {
@@ -141,14 +141,15 @@ impl<'a> SemaExprEngine<'a> {
                             },
                             None => None,
                         };
-                        (sema_expr_idx, ty_result)
+                        (sema_expr_idx, ty_result, outcome)
                     }
-                    Err(_) => self.build_sema_expr_with_its_ty_returned(expr_idx, ExpectAnyDerived),
+                    Err(_) => self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyDerived),
                 };
                 (
                     Ok(SemaStmtData::Eval {
                         sema_expr_idx,
                         eol_semicolon,
+                        outcome,
                     }),
                     ty.ok_or(DerivedSemaExprTypeError::EvalExprTypeNotInferred.into()),
                 )
@@ -191,7 +192,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref eol_colon,
             } => {
                 let (forext_loop_var_sema_expr_idx, forext_loop_var_ty) = self
-                    .build_sema_expr_with_its_ty_returned(
+                    .build_sema_expr_with_ty(
                         particulars.forext_loop_var_expr_idx,
                         ExpectAnyOriginal,
                     );

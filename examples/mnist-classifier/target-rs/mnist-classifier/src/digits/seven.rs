@@ -7,7 +7,7 @@ pub fn simple_seven_match() -> FermiMatchResult {
 pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    -dp.y
+    Some(-dp.y)
 }
 
 pub fn special_seven_match() -> FermiMatchResult {
@@ -18,7 +18,7 @@ pub fn leftupcc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     require!(cc.relative_bounding_box().ymax() > 0.6);
-    cc.end().y
+    Some(cc.end().y)
 }
 
 pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -27,7 +27,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     require!(cc.relative_bounding_box().ymin() < 0.3);
     let ang = cc.start_tangent().angle(true);
     require!(ang < 30);
-    ang
+    Some(ang)
 }
 
 pub fn is_seven() -> OneVsAll {

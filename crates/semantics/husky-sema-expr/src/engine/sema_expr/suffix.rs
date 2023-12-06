@@ -25,7 +25,7 @@ impl<'a> SemaExprEngine<'a> {
         match opr {
             SynSuffixOpr::Incr => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 (
                     Ok((opd_sema_expr_idx, SemaSuffixOpr::Incr)),
                     self.calc_incr_or_decr_expr_ty(opd_ty),
@@ -33,7 +33,7 @@ impl<'a> SemaExprEngine<'a> {
             }
             SynSuffixOpr::Decr => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 (
                     Ok((opd_sema_expr_idx, SemaSuffixOpr::Decr)),
                     self.calc_incr_or_decr_expr_ty(opd_ty),

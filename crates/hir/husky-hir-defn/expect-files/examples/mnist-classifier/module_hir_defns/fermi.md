@@ -679,6 +679,13 @@
                                         },
                                         Eval {
                                             expr_idx: 13,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Let {
@@ -1102,6 +1109,13 @@
                                     data: [
                                         Eval {
                                             expr_idx: 13,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Let {
@@ -1407,6 +1421,13 @@
                                     data: [
                                         Eval {
                                             expr_idx: 13,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Let {
@@ -1726,6 +1747,13 @@
                                     data: [
                                         Eval {
                                             expr_idx: 14,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Let {

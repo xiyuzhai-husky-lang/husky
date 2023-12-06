@@ -103,10 +103,7 @@ impl<'a> SemaExprEngine<'a> {
             .build_sema_expr_with_outcome(function, ExpectEqsRitchieType::new(final_destination));
         let Some(outcome) = outcome else {
             for item in items {
-                self.build_sema_expr_with_its_ty_returned(
-                    item.argument_expr_idx(),
-                    ExpectAnyDerived,
-                );
+                self.build_sema_expr_with_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
             return (
                 Err(todo!()),

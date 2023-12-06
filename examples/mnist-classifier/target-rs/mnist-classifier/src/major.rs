@@ -26,17 +26,17 @@ pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
 }
 
 pub fn major_raw_contours() -> Leash<Vec<RawContour>> {
-    major_connected_component().raw_contours()
+    &major_connected_component().raw_contours()
 }
 
 pub fn major_raw_contour() -> Leash<RawContour> {
-    major_connected_component().raw_contours()[0]
+    &major_connected_component().raw_contours()[0]
 }
 
 pub fn major_line_segment_sketch() -> Leash<LineSegmentSketch> {
-    major_raw_contour().line_segment_sketch()
+    &major_raw_contour().line_segment_sketch()
 }
 
 pub fn major_concave_components() -> Leash<Vec<ConcaveComponent>> {
-    major_line_segment_sketch().concave_components()
+    &major_line_segment_sketch().concave_components()
 }

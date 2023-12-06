@@ -5,7 +5,7 @@ pub fn left_components() -> FermiMatchResult {
 }
 
 pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    cc.relative_bounding_box().xmax()
+    Some(cc.relative_bounding_box().xmax())
 }
 
 pub fn components_max_downwards() -> FermiMatchResult {
@@ -48,12 +48,12 @@ pub fn is_four() -> OneVsAll {
 pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y
+    Some(dp.y)
 }
 
 pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box().ymin() > 0.4);
-    cc.relative_bounding_box().ymin()
+    Some(cc.relative_bounding_box().ymin())
 }

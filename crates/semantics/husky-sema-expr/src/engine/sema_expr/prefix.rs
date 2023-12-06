@@ -16,7 +16,7 @@ impl<'a> SemaExprEngine<'a> {
         match opr {
             SynPrefixOpr::Minus => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_its_ty_returned(opd, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     return (
                         Err(todo!()),
@@ -88,7 +88,7 @@ impl<'a> SemaExprEngine<'a> {
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => {
                     let (opd_sema_expr_idx, opd_ty) =
-                        self.build_sema_expr_with_its_ty_returned(opd, ExpectIntType);
+                        self.build_sema_expr_with_ty(opd, ExpectIntType);
                     (
                         Ok((opd_sema_expr_idx, SemaPrefixOpr::BitNot)),
                         self.calc_bitnot_expr_ty(opd_ty),

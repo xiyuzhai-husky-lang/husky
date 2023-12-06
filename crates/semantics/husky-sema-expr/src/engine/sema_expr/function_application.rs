@@ -74,7 +74,7 @@ impl<'a> SemaExprEngine<'a> {
         return_ty: FluffyTerm,
         argument_syn_expr_idx: SynExprIdx,
     ) -> (SemaExprIdx, SemaExprTypeResult<FluffyTerm>) {
-        let (argument_sema_expr_idx, argument_ty) = self.build_sema_expr_with_its_ty_returned(
+        let (argument_sema_expr_idx, argument_ty) = self.build_sema_expr_with_ty(
             argument_syn_expr_idx,
             ExpectCurryDestination::new(parameter_ty),
         );

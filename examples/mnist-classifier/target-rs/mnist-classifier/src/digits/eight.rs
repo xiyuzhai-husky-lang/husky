@@ -23,5 +23,5 @@ pub fn big_mouth(cc: Leash<ConcaveComponent>) -> Option<f32> {
     if cc.relative_bounding_box().ymax() > 0.5 {
         require!(cc.strokes.first().unwrap().start.x > cc.strokes.first().unwrap().end.x);
     }
-    cc.relative_bounding_box().ymax()
+    Some(cc.relative_bounding_box().ymax())
 }

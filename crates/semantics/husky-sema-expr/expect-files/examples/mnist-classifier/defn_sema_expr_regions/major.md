@@ -469,6 +469,15 @@
                                     sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            Trivial(
+                                                TrivialFluffyCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -658,7 +667,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Deref(
                                                     Leash,
                                                 ),
@@ -705,7 +714,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -754,7 +763,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -2726,6 +2735,15 @@
                                     sema_expr_idx: SemaExprIdx(
                                         15,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            Trivial(
+                                                TrivialFluffyCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -2755,6 +2773,15 @@
                                 Eval {
                                     sema_expr_idx: SemaExprIdx(
                                         18,
+                                    ),
+                                    outcome: Some(
+                                        Coersion(
+                                            Trivial(
+                                                TrivialFluffyCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                     eol_semicolon: Ok(
                                         None,
@@ -2830,7 +2857,7 @@
                         SemaStmtEntry {
                             data_result: Ok(
                                 IfElse {
-                                    sema_if_branch: SemaIfBranch {
+                                    if_branch: SemaIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 29,
@@ -2852,8 +2879,8 @@
                                             ),
                                         ),
                                     },
-                                    sema_elif_branches: [],
-                                    sema_else_branch: None,
+                                    elif_branches: [],
+                                    else_branch: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3677,7 +3704,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: ImmutableStackOwned {
@@ -3905,7 +3932,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: MutableStackOwned {
@@ -4069,7 +4096,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -4192,7 +4219,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -4303,7 +4330,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: MutableStackOwned {
@@ -4362,7 +4389,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -4411,7 +4438,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Never,
                                             ),
                                         ),
@@ -5847,6 +5874,15 @@
                                     sema_expr_idx: SemaExprIdx(
                                         10,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            Trivial(
+                                                TrivialFluffyCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -6381,7 +6417,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: ImmutableStackOwned {
@@ -6564,7 +6600,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -6621,7 +6657,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -6732,7 +6768,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -6789,7 +6825,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Transient,
@@ -6846,7 +6882,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Never,
                                             ),
                                         ),
@@ -7307,6 +7343,11 @@
                                     sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            PlaceToLeash,
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -7442,7 +7483,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -7487,7 +7528,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -8052,6 +8093,11 @@
                                     sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            PlaceToLeash,
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -8323,7 +8369,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Const,
@@ -8376,7 +8422,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -8425,7 +8471,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -8881,6 +8927,11 @@
                                     sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            PlaceToLeash,
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -9024,7 +9075,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -9073,7 +9124,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -9530,6 +9581,11 @@
                                     sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            PlaceToLeash,
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -9665,7 +9721,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),
@@ -9710,7 +9766,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 PlaceToLeash,
                                             ),
                                         ),

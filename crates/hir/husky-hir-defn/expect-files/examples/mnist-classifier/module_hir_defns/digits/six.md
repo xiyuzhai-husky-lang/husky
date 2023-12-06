@@ -359,6 +359,9 @@
                                         },
                                         Eval {
                                             expr_idx: 8,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],
@@ -808,6 +811,9 @@
                                         },
                                         Eval {
                                             expr_idx: 34,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],

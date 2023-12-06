@@ -18,8 +18,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (opd_sema_expr_idx, opd_ty) =
-            self.build_sema_expr_with_its_ty_returned(opd, ExpectAnyOriginal);
+        let (opd_sema_expr_idx, opd_ty) = self.build_sema_expr_with_ty(opd, ExpectAnyOriginal);
         let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();

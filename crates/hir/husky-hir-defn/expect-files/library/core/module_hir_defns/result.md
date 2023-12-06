@@ -807,6 +807,9 @@
                                     data: [
                                         Eval {
                                             expr_idx: 1,
+                                            coersion: Some(
+                                                Never,
+                                            ),
                                             discarded: false,
                                         },
                                     ],

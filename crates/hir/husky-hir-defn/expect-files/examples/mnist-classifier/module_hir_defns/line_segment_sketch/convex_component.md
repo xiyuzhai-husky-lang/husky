@@ -402,6 +402,13 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                     ],

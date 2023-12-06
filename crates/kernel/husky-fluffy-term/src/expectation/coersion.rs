@@ -134,7 +134,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            ExpectationOutcome::ImplicitlyConvertible(outcome) => outcome,
+            ExpectationOutcome::Coersion(outcome) => outcome,
             _ => unreachable!(),
         }
     }

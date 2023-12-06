@@ -25,10 +25,8 @@ impl<'a> SemaExprEngine<'a> {
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
     ) -> (SemaCommaListItem, Option<FluffyTerm>) {
-        let (sema_expr_idx, ty) = self.build_sema_expr_with_its_ty_returned(
-            syn_comma_list_item.syn_expr_idx(),
-            expr_ty_expectation,
-        );
+        let (sema_expr_idx, ty) =
+            self.build_sema_expr_with_ty(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
         (
             SemaCommaListItem {
                 sema_expr_idx,

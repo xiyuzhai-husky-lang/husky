@@ -2469,7 +2469,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
                                                         expectee_place: Const,

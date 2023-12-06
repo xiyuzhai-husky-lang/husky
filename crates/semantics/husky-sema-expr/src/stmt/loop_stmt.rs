@@ -63,7 +63,7 @@ impl<'a> SemaExprEngine<'a> {
                 )),
                 None => {
                     let (final_bound_sema_expr_idx, ty) =
-                        self.build_sema_expr_with_its_ty_returned(bound_expr, ExpectAnyOriginal);
+                        self.build_sema_expr_with_ty(bound_expr, ExpectAnyOriginal);
                     if let Some(ty) = ty {
                         expected_frame_var_ty = Some(ty)
                     }

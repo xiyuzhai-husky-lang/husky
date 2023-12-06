@@ -40,12 +40,12 @@ pub fn is_nine() -> OneVsAll {
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y
+    Some(dp.y)
 }
 
 pub fn big_cc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box().ymin() > 0.4);
-    cc.relative_bounding_box().ymin()
+    Some(cc.relative_bounding_box().ymin())
 }

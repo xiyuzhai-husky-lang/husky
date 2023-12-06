@@ -255,6 +255,9 @@
                                         },
                                         Eval {
                                             expr_idx: 12,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],

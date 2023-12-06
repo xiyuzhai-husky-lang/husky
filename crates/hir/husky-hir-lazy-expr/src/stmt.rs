@@ -76,6 +76,7 @@ impl ToHirLazy for SemaStmtIdx {
             },
             SemaStmtData::Eval {
                 sema_expr_idx: expr_idx,
+                outcome,
                 eol_semicolon,
             } => HirLazyStmt::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
@@ -88,9 +89,9 @@ impl ToHirLazy for SemaStmtIdx {
             SemaStmtData::While { .. } => unreachable!(),
             SemaStmtData::DoWhile { .. } => unreachable!(),
             SemaStmtData::IfElse {
-                sema_if_branch: ref if_branch,
-                sema_elif_branches: ref elif_branches,
-                sema_else_branch: ref else_branch,
+                ref if_branch,
+                ref elif_branches,
+                ref else_branch,
             } => HirLazyStmt::IfElse {
                 if_branch: if_branch.to_hir_lazy(builder),
                 elif_branches: elif_branches

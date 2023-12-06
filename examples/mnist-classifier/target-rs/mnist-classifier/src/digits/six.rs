@@ -11,7 +11,7 @@ pub fn six_match_refined1() -> FermiMatchResult {
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
-    dp.y
+    Some(dp.y)
 }
 
 pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -22,5 +22,5 @@ pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
     require!(cc.relative_bounding_box().ymax() < 0.6);
     let relative_end = cc.line_segment_sketch.bounding_box().relative_point(&cc.end());
     require!(relative_end.x > 0.5);
-    -cc.end().y
+    Some(-cc.end().y)
 }

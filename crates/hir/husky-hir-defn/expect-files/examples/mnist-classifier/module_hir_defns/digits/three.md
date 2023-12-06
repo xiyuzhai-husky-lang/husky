@@ -394,6 +394,13 @@
                                         },
                                         Eval {
                                             expr_idx: 12,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                     ],
@@ -716,6 +723,13 @@
                                         },
                                         Eval {
                                             expr_idx: 12,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                     ],
@@ -1038,6 +1052,13 @@
                                         },
                                         Eval {
                                             expr_idx: 12,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                     ],

@@ -7,19 +7,19 @@ pub fn two_match() -> FermiMatchResult {
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y
+    Some(dp.y)
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
-    dp.y
+    Some(dp.y)
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.x > 0);
-    dp.x
+    Some(dp.x)
 }
 
 pub fn is_two() -> OneVsAll {
