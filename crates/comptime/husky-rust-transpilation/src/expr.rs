@@ -1,5 +1,7 @@
-mod pattern;
+pub(crate) mod coersion;
+pub(crate) mod pattern;
 pub(crate) mod precedence;
+pub(crate) mod site;
 mod stmt;
 
 pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};

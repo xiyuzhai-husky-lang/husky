@@ -152,7 +152,7 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 #[enum_class::from_variants]
 pub enum FluffyTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
-    ImplicitlyConvertible(Coersion),
+    ImplicitlyConvertible(FluffyCoersion),
     EqsSort(TermUniverse),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
@@ -223,7 +223,7 @@ pub enum OriginalFluffyTermExpectationError {
     },
     #[error("type path mismatch for coersion")]
     TypePathMismatchForCoersion {
-        contract: TermContract,
+        contract: Contract,
         ty_expected: FluffyTerm,
         expectee: FluffyTerm,
         expected_path: TypePath,
@@ -238,7 +238,7 @@ pub enum OriginalFluffyTermExpectationError {
     #[error("ExpectedCoersion")]
     ExpectedCoersion {
         expectee: FluffyTerm,
-        contract: TermContract,
+        contract: Contract,
         expected: FluffyTerm,
     },
     #[error("place")]

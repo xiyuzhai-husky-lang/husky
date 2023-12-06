@@ -47,7 +47,7 @@ impl EnumTupleVariantDeclarativeSignatureTemplate {
                 .iter()
                 .copied()
                 .map(|field: EnumTupleVariantFieldDeclarativeSignatureTemplate| {
-                    DeclarativeRitchieRegularParameter::new(TermContract::Move, field.ty).into()
+                    DeclarativeRitchieRegularParameter::new(Contract::Move, field.ty).into()
                 })
                 .collect(),
             return_ty,

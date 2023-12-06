@@ -12,6 +12,7 @@ pathdiff.workspace = true
 salsa.workspace = true
 either.workspace = true
 enum-class.workspace = true
+vec-like.workspace = true
 is = { path = "../../abstractions/is" }
 # fs
 husky-vfs.workspace = true
@@ -28,6 +29,7 @@ husky-coword.workspace = true
 husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
+husky-stack-location.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex

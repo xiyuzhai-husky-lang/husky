@@ -6,13 +6,13 @@ use super::*;
 // #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub struct EtherealRitchieKeyedParameter {
     key: Ident,
-    contract: TermContract,
+    contract: Contract,
     ty: EtherealTerm,
     has_default: bool,
 }
 
 impl EtherealRitchieKeyedParameter {
-    pub fn new(key: Ident, contract: TermContract, ty: EtherealTerm, has_default: bool) -> Self {
+    pub fn new(key: Ident, contract: Contract, ty: EtherealTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
@@ -39,7 +39,7 @@ impl EtherealRitchieKeyedParameter {
         self.key
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

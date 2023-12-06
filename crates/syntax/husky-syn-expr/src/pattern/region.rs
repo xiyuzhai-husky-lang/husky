@@ -5,7 +5,7 @@ use super::*;
 pub struct SynPatternExprRegion {
     pattern_expr_arena: SynPatternExprArena,
     /// the contract of pattern expressions are computed when they are created
-    pattern_expr_contracts: SynPatternExprOrderedMap<TermContract>,
+    pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
     pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
@@ -111,7 +111,7 @@ impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
 }
 
 impl SynExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> TermContract {
+    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
         self.pattern_expr_region()
             .pattern_contract(pattern_expr_idx)
     }
@@ -126,7 +126,7 @@ impl SynExprRegionData {
 }
 
 impl SynPatternExprRegion {
-    fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> TermContract {
+    fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 

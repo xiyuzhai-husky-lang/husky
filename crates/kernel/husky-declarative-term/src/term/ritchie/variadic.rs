@@ -3,12 +3,12 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeRitchieVariadicParameter {
-    contract: TermContract,
+    contract: Contract,
     ty: DeclarativeTerm,
 }
 
 impl DeclarativeRitchieVariadicParameter {
-    pub fn new(contract: TermContract, ty: DeclarativeTerm) -> Self {
+    pub fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -19,7 +19,7 @@ impl DeclarativeRitchieVariadicParameter {
         }
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

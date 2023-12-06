@@ -28,16 +28,16 @@ impl Into<SymbolModifier> for EphemSymbolModifierTokenGroup {
     }
 }
 
-impl Into<TermContract> for EphemSymbolModifierTokenGroup {
+impl Into<Contract> for EphemSymbolModifierTokenGroup {
     #[inline(always)]
-    fn into(self) -> TermContract {
+    fn into(self) -> Contract {
         match self {
-            EphemSymbolModifierTokenGroup::Mut(_) => TermContract::Move,
-            EphemSymbolModifierTokenGroup::RefMut(..) => TermContract::BorrowMut,
-            EphemSymbolModifierTokenGroup::Ambersand(_, _) => TermContract::Borrow,
-            EphemSymbolModifierTokenGroup::AmbersandMut(_, _, _) => TermContract::BorrowMut,
+            EphemSymbolModifierTokenGroup::Mut(_) => Contract::Move,
+            EphemSymbolModifierTokenGroup::RefMut(..) => Contract::BorrowMut,
+            EphemSymbolModifierTokenGroup::Ambersand(_, _) => Contract::Borrow,
+            EphemSymbolModifierTokenGroup::AmbersandMut(_, _, _) => Contract::BorrowMut,
             EphemSymbolModifierTokenGroup::Le(_) => todo!(),
-            EphemSymbolModifierTokenGroup::Tilde(_) => TermContract::Leash,
+            EphemSymbolModifierTokenGroup::Tilde(_) => Contract::Leash,
         }
     }
 }

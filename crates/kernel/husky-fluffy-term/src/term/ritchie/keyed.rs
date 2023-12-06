@@ -4,7 +4,7 @@ use super::*;
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyTermRitchieKeyedParameter {
     key: Ident,
-    contract: TermContract,
+    contract: Contract,
     ty: FluffyTerm,
     has_default: bool,
 }
@@ -28,7 +28,7 @@ impl FluffyTermRitchieKeyedParameter {
     }
 
     #[inline(always)]
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

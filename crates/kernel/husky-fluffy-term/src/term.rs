@@ -149,6 +149,7 @@ fn term_to_fluffy_term_works() {
 }
 
 impl FluffyTerm {
+    #[deprecated(note = "should return place or panic")]
     pub fn place(self) -> Option<FluffyPlace> {
         self.place
     }

@@ -1,9 +1,20 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum DerefCoersion {
+pub enum DerefFluffyCoersion {
     Leash,
-    Ref,
+    Ref { lifetime: FluffyLifetime },
+}
+
+impl DerefFluffyCoersion {
+    pub fn place_after_coersion(self) -> FluffyPlace {
+        match self {
+            DerefFluffyCoersion::Leash => FluffyPlace::Leashed,
+            DerefFluffyCoersion::Ref { lifetime } => FluffyPlace::Ref {
+                guard: Right(lifetime),
+            },
+        }
+    }
 }
 
 impl ExpectCoersion {
@@ -27,13 +38,12 @@ impl ExpectCoersion {
                         self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
-                            DerefCoersion::Ref,
-                            FluffyPlace::Ref {
-                                guard: Right(FluffyLifetime::from_term(
+                            DerefFluffyCoersion::Ref {
+                                lifetime: FluffyLifetime::from_term(
                                     expectee_ty_arguments[0],
                                     db,
                                     terms,
-                                )),
+                                ),
                             },
                             db,
                             terms,
@@ -47,8 +57,7 @@ impl ExpectCoersion {
                         self.try_finalize_coersion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            DerefCoersion::Leash,
-                            FluffyPlace::Leashed,
+                            DerefFluffyCoersion::Leash,
                             db,
                             terms,
                             state,
