@@ -8,9 +8,9 @@ impl ExpectFluffyTerm for ExpectIntType {
     type Outcome = ExpectIntTypeOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::IntType(outcome) => outcome,
+            ExpectationOutcome::IntType(outcome) => outcome,
             _ => unreachable!(),
         }
     }

@@ -58,8 +58,6 @@ impl<'a> SemaExprEngine<'a> {
     {
         let (sema_expr_idx, expectation_idx) =
             self.build_sema_expr_aux(syn_expr_idx, expr_ty_expectation);
-        self.fluffy_term_region
-            .resolve_as_much_as_possible(self.db());
         let outcome = match expectation_idx {
             Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
                 .resolve_progress()

@@ -364,11 +364,11 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty_sema_expr_idx,
                 ..
             } => {
-                let mut params: Vec<FluffyTermRitchieParameter> = vec![];
+                let mut params: Vec<FluffyRitchieParameter> = vec![];
                 for item in parameter_ty_items.clone() {
-                    match self.infer_expr_term(item.sema_expr_idx()) {
+                    match self.infer_expr_term(item.sema_expr_idx) {
                         Some(ty_term) => params.push(
-                            FluffyTermRitchieRegularParameter::new(Contract::Pure, ty_term).into(),
+                            FluffyRitchieRegularParameter::new(Contract::Pure, ty_term).into(),
                         ),
                         None => todo!("err"),
                     }
@@ -398,7 +398,7 @@ impl<'a> SemaExprEngine<'a> {
             } => match items.len() {
                 0 => unreachable!(),
                 1 => {
-                    let Some(size) = self.infer_expr_term(items[0].sema_expr_idx()) else {
+                    let Some(size) = self.infer_expr_term(items[0].sema_expr_idx) else {
                         todo!()
                     };
                     FluffyTerm::new_application(

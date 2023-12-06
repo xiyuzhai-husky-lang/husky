@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermRitchieRegularParameter {
+pub struct FluffyRitchieRegularParameter {
     contract: Contract,
     ty: FluffyTerm,
 }
 
-impl FluffyTermRitchieRegularParameter {
+impl FluffyRitchieRegularParameter {
     pub(super) fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
@@ -18,7 +18,7 @@ impl FluffyTermRitchieRegularParameter {
     }
 }
 
-impl From<EtherealRitchieRegularParameter> for FluffyTermRitchieRegularParameter {
+impl From<EtherealRitchieRegularParameter> for FluffyRitchieRegularParameter {
     fn from(param: EtherealRitchieRegularParameter) -> Self {
         Self {
             contract: param.contract(),
@@ -28,7 +28,7 @@ impl From<EtherealRitchieRegularParameter> for FluffyTermRitchieRegularParameter
 }
 
 impl FluffyInstantiate for EtherealRitchieRegularParameter {
-    type Target = FluffyTermRitchieRegularParameter;
+    type Target = FluffyRitchieRegularParameter;
 
     fn instantiate(
         self,
@@ -36,14 +36,14 @@ impl FluffyInstantiate for EtherealRitchieRegularParameter {
         expr_idx: SynExprIdx,
         builder: &mut FluffyInstantiationBuilder,
     ) -> Self::Target {
-        FluffyTermRitchieRegularParameter {
+        FluffyRitchieRegularParameter {
             contract: self.contract(),
             ty: self.ty().instantiate(engine, expr_idx, builder),
         }
     }
 }
 
-impl FluffyTermRitchieRegularParameter {
+impl FluffyRitchieRegularParameter {
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
         Self { contract, ty }
     }

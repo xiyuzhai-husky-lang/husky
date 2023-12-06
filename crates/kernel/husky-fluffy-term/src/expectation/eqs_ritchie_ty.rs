@@ -18,9 +18,9 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
     type Outcome = ExpectEqsRitchieTypeOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::EqsRitchieCallType(outcome) => outcome,
+            ExpectationOutcome::EqsRitchieCallType(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -95,12 +95,12 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
 pub struct ExpectEqsRitchieTypeOutcome {
     pub(crate) ritchie_kind: RitchieKind,
     pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    pub(crate) parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
+    pub(crate) parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
     pub(crate) return_ty: FluffyTerm,
 }
 
 impl ExpectEqsRitchieTypeOutcome {
-    pub fn parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
+    pub fn parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
         &self.parameter_contracted_tys
     }
 

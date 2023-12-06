@@ -1,11 +1,11 @@
 //! coersion rules are
 //!
-mod deref;
-mod holed;
-mod never;
-mod reref;
-mod trival;
-mod wrap_in_some;
+pub mod deref;
+pub mod holed;
+pub mod never;
+pub mod reref;
+pub mod trival;
+pub mod wrap_in_some;
 
 use self::deref::DerefFluffyCoersion;
 use self::trival::TrivialFluffyCoersion;
@@ -132,9 +132,9 @@ impl ExpectCoersion {
 impl ExpectFluffyTerm for ExpectCoersion {
     type Outcome = FluffyCoersion;
 
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::ImplicitlyConvertible(outcome) => outcome,
+            ExpectationOutcome::ImplicitlyConvertible(outcome) => outcome,
             _ => unreachable!(),
         }
     }

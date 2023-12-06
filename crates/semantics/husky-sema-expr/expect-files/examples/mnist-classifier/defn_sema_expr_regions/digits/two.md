@@ -633,7 +633,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -652,6 +652,13 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
+                                                ),
                                                 separator: Comma(
                                                     RegionalTokenIdx(
                                                         4,
@@ -660,7 +667,7 @@
                                             },
                                         ),
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -678,6 +685,13 @@
                                             SemaRegularCallListItem {
                                                 argument_expr_idx: SemaExprIdx(
                                                     6,
+                                                ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 separator: None,
                                             },
@@ -875,7 +889,7 @@
                                                         ),
                                                         parameter_contracted_tys: [
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -892,7 +906,7 @@
                                                                 },
                                                             ),
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -13509,7 +13523,7 @@
                                                 ),
                                                 parenate_parameters: [
                                                     Regular(
-                                                        FluffyTermRitchieRegularParameter {
+                                                        FluffyRitchieRegularParameter {
                                                             contract: Pure,
                                                             ty: FluffyTerm {
                                                                 place: None,
@@ -13564,7 +13578,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -13586,6 +13600,13 @@
                                             SemaRegularCallListItem {
                                                 argument_expr_idx: SemaExprIdx(
                                                     62,
+                                                ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Const,
+                                                        },
+                                                    ),
                                                 ),
                                                 separator: None,
                                             },

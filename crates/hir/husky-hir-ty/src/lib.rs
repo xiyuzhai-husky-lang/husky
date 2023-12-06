@@ -2,6 +2,7 @@
 pub mod db;
 pub mod indirections;
 pub mod instantiation;
+pub mod lifetime;
 pub mod menu;
 pub mod place;
 pub mod symbol;

@@ -641,9 +641,19 @@
                                             item_groups: [
                                                 Regular(
                                                     45,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     49,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1163,9 +1173,19 @@
                                             item_groups: [
                                                 Regular(
                                                     45,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     49,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1507,9 +1527,25 @@
                                             item_groups: [
                                                 Regular(
                                                     3,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     6,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1660,9 +1696,25 @@
                                             item_groups: [
                                                 Regular(
                                                     26,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     29,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1724,9 +1776,25 @@
                                             item_groups: [
                                                 Regular(
                                                     38,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     39,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1753,9 +1821,25 @@
                                             item_groups: [
                                                 Regular(
                                                     42,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     43,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1800,6 +1884,11 @@
                                             item_groups: [
                                                 Regular(
                                                     50,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1843,6 +1932,11 @@
                                             item_groups: [
                                                 Regular(
                                                     56,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1965,9 +2059,25 @@
                                             item_groups: [
                                                 Regular(
                                                     78,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     79,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1994,9 +2104,25 @@
                                             item_groups: [
                                                 Regular(
                                                     82,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     83,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -2021,6 +2147,17 @@
                                             item_groups: [
                                                 Regular(
                                                     86,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -2068,6 +2205,11 @@
                                             item_groups: [
                                                 Regular(
                                                     94,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -2140,9 +2282,25 @@
                                             item_groups: [
                                                 Regular(
                                                     105,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     108,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -2801,9 +2959,25 @@
                                             item_groups: [
                                                 Regular(
                                                     3,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     6,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -2951,9 +3125,25 @@
                                             item_groups: [
                                                 Regular(
                                                     25,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     28,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3010,6 +3200,17 @@
                                             item_groups: [
                                                 Regular(
                                                     36,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3036,9 +3237,25 @@
                                             item_groups: [
                                                 Regular(
                                                     39,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     40,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        4,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3065,9 +3282,25 @@
                                             item_groups: [
                                                 Regular(
                                                     43,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     44,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        4,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3127,9 +3360,25 @@
                                             item_groups: [
                                                 Regular(
                                                     51,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     54,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3233,9 +3482,31 @@
                                             item_groups: [
                                                 Regular(
                                                     73,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        7,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     74,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        4,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3262,9 +3533,31 @@
                                             item_groups: [
                                                 Regular(
                                                     77,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        7,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     78,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        4,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3289,6 +3582,17 @@
                                             item_groups: [
                                                 Regular(
                                                     81,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3336,6 +3640,11 @@
                                             item_groups: [
                                                 Regular(
                                                     89,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3383,6 +3692,11 @@
                                             item_groups: [
                                                 Regular(
                                                     97,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3432,6 +3746,17 @@
                                             item_groups: [
                                                 Regular(
                                                     105,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        7,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -3468,6 +3793,11 @@
                                             item_groups: [
                                                 Regular(
                                                     110,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4225,12 +4555,39 @@
                                             item_groups: [
                                                 Regular(
                                                     12,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     13,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     14,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4265,12 +4622,33 @@
                                             item_groups: [
                                                 Regular(
                                                     18,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     19,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     20,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4429,6 +4807,17 @@
                                             item_groups: [
                                                 Regular(
                                                     34,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        8,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4481,6 +4870,17 @@
                                             item_groups: [
                                                 Regular(
                                                     40,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        8,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4705,12 +5105,33 @@
                                             item_groups: [
                                                 Regular(
                                                     52,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     57,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     58,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4767,15 +5188,47 @@
                                             item_groups: [
                                                 Regular(
                                                     67,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     68,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     69,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     70,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4810,12 +5263,33 @@
                                             item_groups: [
                                                 Regular(
                                                     74,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     75,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     76,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -4980,6 +5454,11 @@
                                             item_groups: [
                                                 Regular(
                                                     92,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5004,6 +5483,17 @@
                                             item_groups: [
                                                 Regular(
                                                     95,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5056,6 +5546,17 @@
                                             item_groups: [
                                                 Regular(
                                                     101,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5101,6 +5602,17 @@
                                             item_groups: [
                                                 Regular(
                                                     107,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        13,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5160,6 +5672,17 @@
                                             item_groups: [
                                                 Regular(
                                                     114,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        13,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5336,12 +5859,33 @@
                                             item_groups: [
                                                 Regular(
                                                     124,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     127,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     130,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5456,6 +6000,11 @@
                                             item_groups: [
                                                 Regular(
                                                     141,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -5997,12 +6546,33 @@
                                             item_groups: [
                                                 Regular(
                                                     176,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     181,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     188,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -7261,9 +7831,25 @@
                                             item_groups: [
                                                 Regular(
                                                     7,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     10,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -7277,6 +7863,11 @@
                                             item_groups: [
                                                 Regular(
                                                     11,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -7439,6 +8030,11 @@
                                             item_groups: [
                                                 Regular(
                                                     4,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -7979,6 +8575,7 @@
                                             item_groups: [
                                                 Regular(
                                                     2,
+                                                    PlaceToLeash,
                                                 ),
                                             ],
                                         },
@@ -8229,6 +8826,11 @@
                                             item_groups: [
                                                 Regular(
                                                     25,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8265,6 +8867,11 @@
                                             item_groups: [
                                                 Regular(
                                                     31,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8301,6 +8908,11 @@
                                             item_groups: [
                                                 Regular(
                                                     37,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8337,6 +8949,11 @@
                                             item_groups: [
                                                 Regular(
                                                     43,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8375,9 +8992,19 @@
                                             item_groups: [
                                                 Regular(
                                                     48,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     49,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8404,9 +9031,19 @@
                                             item_groups: [
                                                 Regular(
                                                     52,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     53,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: MutableStackOwned,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8420,9 +9057,19 @@
                                             item_groups: [
                                                 Regular(
                                                     50,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     54,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8831,9 +9478,31 @@
                                             item_groups: [
                                                 Regular(
                                                     4,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     5,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -8847,9 +9516,25 @@
                                             item_groups: [
                                                 Regular(
                                                     2,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     6,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

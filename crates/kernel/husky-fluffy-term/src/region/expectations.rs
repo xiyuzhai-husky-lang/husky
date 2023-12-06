@@ -163,7 +163,7 @@ impl ExpectationState {
     /// returns option for convenience
     pub(crate) fn set_ok(
         &mut self,
-        outcome: impl Into<FluffyTermExpectationOutcome>,
+        outcome: impl Into<ExpectationOutcome>,
         subsequent_actions: FluffyTermResolveActions,
     ) -> AltOption<FluffyTermEffect> {
         #[cfg(test)]
@@ -189,7 +189,7 @@ impl ExpectationState {
         AltSome(FluffyTermEffect { subsequent_actions })
     }
 
-    pub(crate) fn set_result<Outcome: Into<FluffyTermExpectationOutcome>>(
+    pub(crate) fn set_result<Outcome: Into<ExpectationOutcome>>(
         &mut self,
         result: FluffyTermExpectationResult<Outcome>,
         subsequent_actions: FluffyTermResolveActions,

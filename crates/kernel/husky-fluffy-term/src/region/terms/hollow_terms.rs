@@ -208,11 +208,11 @@ impl HollowTerms {
                             unreachable!()
                         };
                         match param {
-                            FluffyTermRitchieParameter::Regular(param) => {
+                            FluffyRitchieParameter::Regular(param) => {
                                 EtherealRitchieRegularParameter::new(param.contract(), ty).into()
                             }
-                            FluffyTermRitchieParameter::Variadic(_) => todo!(),
-                            FluffyTermRitchieParameter::Keyed(_) => todo!(),
+                            FluffyRitchieParameter::Variadic(_) => todo!(),
+                            FluffyRitchieParameter::Keyed(_) => todo!(),
                         }
                     });
                     let return_ty = match return_ty.resolve_progress(self) {

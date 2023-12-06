@@ -32,7 +32,7 @@ pub enum FluffyTermData<'a> {
     Category(TermCategory),
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: &'a [FluffyTermRitchieParameter],
+        parameter_contracted_tys: &'a [FluffyRitchieParameter],
         return_ty: FluffyTerm,
     },
     Symbol {
@@ -104,11 +104,11 @@ impl<'a> FluffyTermData<'a> {
                     RitchieTypeKind::Fn => {
                         for param in parameter_contracted_tys.iter() {
                             match param {
-                                FluffyTermRitchieParameter::Regular(param) => {
+                                FluffyRitchieParameter::Regular(param) => {
                                     p!(param.ty().show(db, terms))
                                 }
-                                FluffyTermRitchieParameter::Variadic(_) => todo!(),
-                                FluffyTermRitchieParameter::Keyed(_) => todo!(),
+                                FluffyRitchieParameter::Variadic(_) => todo!(),
+                                FluffyRitchieParameter::Keyed(_) => todo!(),
                             }
                         }
                         format!("fn(...) -> {}", return_ty.show(db, terms))
@@ -145,7 +145,7 @@ pub enum FluffyBaseTypeData<'a> {
     Category(TermCategory),
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: &'a [FluffyTermRitchieParameter],
+        parameter_contracted_tys: &'a [FluffyRitchieParameter],
         return_ty: FluffyTerm,
     },
     Symbol {

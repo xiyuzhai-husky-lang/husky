@@ -5,6 +5,9 @@ pub struct ExpectCurryDestination {
     curry_destination: FluffyTerm,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ExpectCurryDestinationOutcome;
+
 impl ExpectCurryDestination {
     pub fn new(curry_destination: FluffyTerm) -> Self {
         Self { curry_destination }
@@ -12,11 +15,11 @@ impl ExpectCurryDestination {
 }
 
 impl ExpectFluffyTerm for ExpectCurryDestination {
-    type Outcome = ();
+    type Outcome = ExpectCurryDestinationOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
-        &()
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
+        &ExpectCurryDestinationOutcome
     }
 
     #[inline(always)]

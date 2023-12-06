@@ -481,7 +481,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -500,6 +500,13 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
+                                                ),
                                                 separator: Comma(
                                                     RegionalTokenIdx(
                                                         4,
@@ -508,7 +515,7 @@
                                             },
                                         ),
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -526,6 +533,13 @@
                                             SemaRegularCallListItem {
                                                 argument_expr_idx: SemaExprIdx(
                                                     4,
+                                                ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 separator: None,
                                             },
@@ -723,7 +737,7 @@
                                                         ),
                                                         parameter_contracted_tys: [
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -740,7 +754,7 @@
                                                                 },
                                                             ),
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -7513,7 +7527,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -7532,6 +7546,13 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     34,
                                                 ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
+                                                ),
                                                 separator: Comma(
                                                     RegionalTokenIdx(
                                                         75,
@@ -7540,7 +7561,7 @@
                                             },
                                         ),
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -7558,6 +7579,13 @@
                                             SemaRegularCallListItem {
                                                 argument_expr_idx: SemaExprIdx(
                                                     35,
+                                                ),
+                                                coersion: Some(
+                                                    Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 separator: None,
                                             },
@@ -8104,7 +8132,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Variadic(
-                                            FluffyTermRitchieVariadicParameter {
+                                            FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -8128,6 +8156,13 @@
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         39,
                                                     ),
+                                                    coersion: Some(
+                                                        Trivial(
+                                                            TrivialFluffyCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
                                                     separator: Comma(
                                                         RegionalTokenIdx(
                                                             84,
@@ -8137,6 +8172,13 @@
                                                 SemaVariadicCallListItem {
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         41,
+                                                    ),
+                                                    coersion: Some(
+                                                        Trivial(
+                                                            TrivialFluffyCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
                                                     ),
                                                     separator: Comma(
                                                         RegionalTokenIdx(
@@ -8148,6 +8190,13 @@
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         43,
                                                     ),
+                                                    coersion: Some(
+                                                        Trivial(
+                                                            TrivialFluffyCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
                                                     separator: Comma(
                                                         RegionalTokenIdx(
                                                             92,
@@ -8157,7 +8206,7 @@
                                             ],
                                         ),
                                         Keyed(
-                                            FluffyTermRitchieKeyedParameter {
+                                            FluffyRitchieKeyedParameter {
                                                 key: Ident(
                                                     Coword(
                                                         Id {
@@ -8198,6 +8247,13 @@
                                                     ),
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         44,
+                                                    ),
+                                                    coersion: Some(
+                                                        Trivial(
+                                                            TrivialFluffyCoersion {
+                                                                expectee_place: Const,
+                                                            },
+                                                        ),
                                                     ),
                                                     separator: None,
                                                 },
@@ -13024,7 +13080,7 @@
                                     ),
                                     params: [
                                         Variadic(
-                                            FluffyTermRitchieVariadicParameter {
+                                            FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -13045,7 +13101,7 @@
                                             },
                                         ),
                                         Keyed(
-                                            FluffyTermRitchieKeyedParameter {
+                                            FluffyRitchieKeyedParameter {
                                                 key: Ident(
                                                     Coword(
                                                         Id {
@@ -13210,7 +13266,7 @@
                                     ),
                                     params: [
                                         Variadic(
-                                            FluffyTermRitchieVariadicParameter {
+                                            FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -13231,7 +13287,7 @@
                                             },
                                         ),
                                         Keyed(
-                                            FluffyTermRitchieKeyedParameter {
+                                            FluffyRitchieKeyedParameter {
                                                 key: Ident(
                                                     Coword(
                                                         Id {
@@ -14684,7 +14740,7 @@
                                                         ),
                                                         parameter_contracted_tys: [
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -14701,7 +14757,7 @@
                                                                 },
                                                             ),
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
@@ -14931,7 +14987,7 @@
                                                     ],
                                                     parameter_contracted_tys: [
                                                         Variadic(
-                                                            FluffyTermRitchieVariadicParameter {
+                                                            FluffyRitchieVariadicParameter {
                                                                 contract: Pure,
                                                                 ty: FluffyTerm {
                                                                     place: None,
@@ -14952,7 +15008,7 @@
                                                             },
                                                         ),
                                                         Keyed(
-                                                            FluffyTermRitchieKeyedParameter {
+                                                            FluffyRitchieKeyedParameter {
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {

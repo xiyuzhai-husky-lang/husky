@@ -353,6 +353,11 @@
                                             item_groups: [
                                                 Regular(
                                                     11,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -660,6 +665,11 @@
                                             item_groups: [
                                                 Regular(
                                                     11,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -967,6 +977,11 @@
                                             item_groups: [
                                                 Regular(
                                                     11,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

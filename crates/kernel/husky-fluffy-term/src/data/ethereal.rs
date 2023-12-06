@@ -47,7 +47,7 @@ pub(super) fn ethereal_term_data<'a>(
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermRitchieFluffyData {
     ritchie_kind: RitchieKind,
-    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
+    parameter_contracted_tys: SmallVec<[FluffyRitchieParameter; 2]>,
     variadics: (),
     keyed_parameter_contracted_tys: (),
     return_ty: EtherealTerm,

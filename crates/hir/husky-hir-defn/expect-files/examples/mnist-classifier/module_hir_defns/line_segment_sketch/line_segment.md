@@ -246,6 +246,11 @@
                                             item_groups: [
                                                 Regular(
                                                     4,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -432,6 +437,17 @@
                                             item_groups: [
                                                 Regular(
                                                     5,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -456,6 +472,17 @@
                                             item_groups: [
                                                 Regular(
                                                     8,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -515,6 +542,17 @@
                                             item_groups: [
                                                 Regular(
                                                     16,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -539,6 +577,17 @@
                                             item_groups: [
                                                 Regular(
                                                     19,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -594,6 +643,17 @@
                                             item_groups: [
                                                 Regular(
                                                     26,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: ImmutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

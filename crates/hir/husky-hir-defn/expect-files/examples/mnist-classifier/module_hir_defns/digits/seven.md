@@ -856,6 +856,11 @@
                                             item_groups: [
                                                 Regular(
                                                     14,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Const,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

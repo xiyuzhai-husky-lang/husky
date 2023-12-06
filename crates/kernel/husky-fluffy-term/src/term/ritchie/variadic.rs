@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermRitchieVariadicParameter {
+pub struct FluffyRitchieVariadicParameter {
     contract: Contract,
     ty: FluffyTerm,
 }
 
-impl From<EtherealRitchieVariadicParameter> for FluffyTermRitchieVariadicParameter {
+impl From<EtherealRitchieVariadicParameter> for FluffyRitchieVariadicParameter {
     fn from(param: EtherealRitchieVariadicParameter) -> Self {
         Self {
             contract: param.contract(),
@@ -15,7 +15,7 @@ impl From<EtherealRitchieVariadicParameter> for FluffyTermRitchieVariadicParamet
     }
 }
 
-impl FluffyTermRitchieVariadicParameter {
+impl FluffyRitchieVariadicParameter {
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
         Self { contract, ty }
     }

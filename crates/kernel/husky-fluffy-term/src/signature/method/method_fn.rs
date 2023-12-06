@@ -6,7 +6,7 @@ use husky_regional_token::IdentRegionalToken;
 pub struct MethodFnFluffySignature {
     path: AssociatedItemPath,
     // todo: self_parameter_contracted_ty
-    parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     instantiation: FluffyInstantiation,
 }
@@ -58,7 +58,7 @@ impl MethodFnFluffySignature {
 // }
 
 impl MethodFnFluffySignature {
-    pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
+    pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
         &self.parenate_parameters
     }
 
