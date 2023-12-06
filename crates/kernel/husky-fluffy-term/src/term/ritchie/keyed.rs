@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
-pub struct FluffyTermRitchieKeyedParameter {
+pub struct FluffyRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
     ty: FluffyTerm,
     has_default: bool,
 }
 
-impl From<EtherealRitchieKeyedParameter> for FluffyTermRitchieKeyedParameter {
+impl From<EtherealRitchieKeyedParameter> for FluffyRitchieKeyedParameter {
     #[inline(always)]
     fn from(param: EtherealRitchieKeyedParameter) -> Self {
         Self {
@@ -21,7 +21,7 @@ impl From<EtherealRitchieKeyedParameter> for FluffyTermRitchieKeyedParameter {
     }
 }
 
-impl FluffyTermRitchieKeyedParameter {
+impl FluffyRitchieKeyedParameter {
     #[inline(always)]
     pub fn key(&self) -> Ident {
         self.key

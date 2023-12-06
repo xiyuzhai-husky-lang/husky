@@ -22,7 +22,7 @@ pub enum HollowTermData {
     },
     Ritchie {
         ritchie_kind: RitchieKind,
-        params: Vec<FluffyTermRitchieParameter>,
+        params: Vec<FluffyRitchieParameter>,
         return_ty: FluffyTerm,
     },
 }

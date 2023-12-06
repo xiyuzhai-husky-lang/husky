@@ -211,7 +211,7 @@ fn transpile_hir_eager_expr_to_rust(
 impl TranspileToRust<HirEagerExprRegion> for HirEagerCallListItemGroup {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            &HirEagerCallListItemGroup::Regular(hir_eager_expr_idx) => {
+            &HirEagerCallListItemGroup::Regular(hir_eager_expr_idx, coersion) => {
                 any_precedence(hir_eager_expr_idx).transpile_to_rust(builder)
             }
             HirEagerCallListItemGroup::Variadic => todo!(),

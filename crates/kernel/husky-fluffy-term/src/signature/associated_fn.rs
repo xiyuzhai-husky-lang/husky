@@ -5,14 +5,14 @@ use husky_coword::Ident;
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct AssociatedFnFluffySignature {
     path: AssociatedItemPath,
-    parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
     instantiation: FluffyInstantiation,
 }
 
 impl AssociatedFnFluffySignature {
-    pub fn parenate_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
+    pub fn parenate_parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
         &self.parenate_parameters
     }
 

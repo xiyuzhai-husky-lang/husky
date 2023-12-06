@@ -380,7 +380,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         Regular(
-                                            FluffyTermRitchieRegularParameter {
+                                            FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
@@ -402,6 +402,11 @@
                                             SemaRegularCallListItem {
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
+                                                ),
+                                                coersion: Some(
+                                                    Deref(
+                                                        Leash,
+                                                    ),
                                                 ),
                                                 separator: None,
                                             },
@@ -583,7 +588,7 @@
                                                         ),
                                                         parameter_contracted_tys: [
                                                             Regular(
-                                                                FluffyTermRitchieRegularParameter {
+                                                                FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,

@@ -3,12 +3,15 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectAnyDerived;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ExpectAnyDerivedOutcome;
+
 impl ExpectFluffyTerm for ExpectAnyDerived {
-    type Outcome = ();
+    type Outcome = ExpectAnyDerivedOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(_outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
-        &()
+    fn retrieve_outcome(_outcome: &ExpectationOutcome) -> &Self::Outcome {
+        &ExpectAnyDerivedOutcome
     }
 
     #[inline(always)]

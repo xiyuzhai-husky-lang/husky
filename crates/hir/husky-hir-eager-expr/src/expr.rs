@@ -364,7 +364,7 @@ impl ToHirEager for SemaExprIdx {
                 owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                 items: indices
                     .iter()
-                    .map(|item| item.sema_expr_idx().to_hir_eager(builder))
+                    .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),
             },
             SemaExprData::CompositionWithList { .. } => {
@@ -377,7 +377,7 @@ impl ToHirEager for SemaExprIdx {
             } => HirEagerExprData::NewList {
                 items: items
                     .iter()
-                    .map(|item| item.sema_expr_idx().to_hir_eager(builder))
+                    .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),
             },
             SemaExprData::BoxColonList {

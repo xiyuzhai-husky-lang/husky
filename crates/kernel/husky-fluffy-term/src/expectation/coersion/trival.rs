@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TrivialFluffyCoersion {
-    expectee_place: FluffyPlace,
+    pub expectee_place: FluffyPlace,
 }
 
 impl TrivialFluffyCoersion {

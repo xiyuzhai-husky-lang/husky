@@ -5,6 +5,9 @@ pub struct ExpectFinalDestination {
     final_destination: FinalDestination,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ExpectFinalDestinationOutcome;
+
 impl ExpectFinalDestination {
     pub fn new(final_destination: FinalDestination) -> Self {
         Self { final_destination }
@@ -12,11 +15,11 @@ impl ExpectFinalDestination {
 }
 
 impl ExpectFluffyTerm for ExpectFinalDestination {
-    type Outcome = ();
+    type Outcome = ExpectFinalDestinationOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
-        &()
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
+        &ExpectFinalDestinationOutcome
     }
 
     #[inline(always)]

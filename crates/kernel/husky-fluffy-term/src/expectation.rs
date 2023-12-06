@@ -81,9 +81,9 @@ impl Expectation {
 
 // maybe make this Copy?
 pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
-    type Outcome: Clone;
+    type Outcome: Clone + Into<ExpectationOutcome>;
 
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome;
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome;
 
     /// final destination of `A1 -> ... -> An` is equal to that of `An`
     ///
@@ -150,7 +150,7 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
-pub enum FluffyTermExpectationOutcome {
+pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     ImplicitlyConvertible(FluffyCoersion),
     EqsSort(TermUniverse),
@@ -159,19 +159,27 @@ pub enum FluffyTermExpectationOutcome {
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),
     IntType(ExpectIntTypeOutcome),
     ConditionType(ExpectConditionTypeOutcome),
+    CurryDestination(ExpectCurryDestinationOutcome),
+    FinalDestination(ExpectFinalDestinationOutcome),
+    AnyOriginal(ExpectAnyOriginalOutcome),
+    AnyDerived(ExpectAnyDerivedOutcome),
 }
 
-impl FluffyTermExpectationOutcome {
+impl ExpectationOutcome {
     fn resolved(&self) -> Option<EtherealTerm> {
         match self {
-            FluffyTermExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
-            FluffyTermExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
-            FluffyTermExpectationOutcome::EqsSort(_) => todo!(),
-            FluffyTermExpectationOutcome::Subtype(result) => result.resolved(),
-            FluffyTermExpectationOutcome::EqsFunctionCallType(_) => todo!(),
-            FluffyTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
-            FluffyTermExpectationOutcome::IntType(_) => todo!(),
-            FluffyTermExpectationOutcome::ConditionType(_) => todo!(),
+            ExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
+            ExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
+            ExpectationOutcome::EqsSort(_) => todo!(),
+            ExpectationOutcome::Subtype(result) => result.resolved(),
+            ExpectationOutcome::EqsFunctionCallType(_) => todo!(),
+            ExpectationOutcome::EqsRitchieCallType(_) => todo!(),
+            ExpectationOutcome::IntType(_) => todo!(),
+            ExpectationOutcome::ConditionType(_) => todo!(),
+            ExpectationOutcome::CurryDestination(_) => todo!(),
+            ExpectationOutcome::FinalDestination(_) => todo!(),
+            ExpectationOutcome::AnyDerived(_) => todo!(),
+            ExpectationOutcome::AnyOriginal(_) => todo!(),
         }
     }
 }
@@ -181,7 +189,7 @@ impl FluffyTermExpectationOutcome {
 pub enum ExpectationProgress {
     Intact,
     Holed,
-    Resolved(FluffyTermExpectationResult<FluffyTermExpectationOutcome>),
+    Resolved(FluffyTermExpectationResult<ExpectationOutcome>),
 }
 
 impl ExpectationProgress {

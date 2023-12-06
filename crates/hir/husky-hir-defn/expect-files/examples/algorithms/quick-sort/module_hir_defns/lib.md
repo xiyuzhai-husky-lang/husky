@@ -236,12 +236,35 @@
                                             item_groups: [
                                                 Regular(
                                                     4,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: RefMut {
+                                                                guard: Left(
+                                                                    StackLocationIdx(
+                                                                        ShiftedU32(
+                                                                            1,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     5,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Const,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     10,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -560,12 +583,47 @@
                                             item_groups: [
                                                 Regular(
                                                     5,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: RefMut {
+                                                                guard: Left(
+                                                                    StackLocationIdx(
+                                                                        ShiftedU32(
+                                                                            1,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     6,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     7,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -609,12 +667,41 @@
                                             item_groups: [
                                                 Regular(
                                                     10,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: RefMut {
+                                                                guard: Left(
+                                                                    StackLocationIdx(
+                                                                        ShiftedU32(
+                                                                            1,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     11,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     14,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -658,12 +745,41 @@
                                             item_groups: [
                                                 Regular(
                                                     17,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: RefMut {
+                                                                guard: Left(
+                                                                    StackLocationIdx(
+                                                                        ShiftedU32(
+                                                                            1,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     20,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     21,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1277,9 +1393,19 @@
                                             item_groups: [
                                                 Regular(
                                                     49,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     52,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },
@@ -1358,9 +1484,19 @@
                                             item_groups: [
                                                 Regular(
                                                     57,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                                 Regular(
                                                     60,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

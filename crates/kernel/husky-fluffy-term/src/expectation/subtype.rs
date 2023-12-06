@@ -18,9 +18,9 @@ impl ExpectFluffyTerm for ExpectSubtype {
     type Outcome = ExpectSubtypeOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::Subtype(outcome) => outcome,
+            ExpectationOutcome::Subtype(outcome) => outcome,
             _ => unreachable!(),
         }
     }

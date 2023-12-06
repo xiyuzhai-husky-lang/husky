@@ -692,6 +692,11 @@
                                             item_groups: [
                                                 Regular(
                                                     25,
+                                                    Trivial(
+                                                        TrivialHirEagerCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
                                                 ),
                                             ],
                                         },

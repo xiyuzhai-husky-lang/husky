@@ -64,13 +64,6 @@ impl<'a> SemaExprEngine<'a> {
             let (index_sema_list_item, index_ty) =
                 self.build_sema_comma_list_item_with_its_ty_returned(index, ExpectAnyOriginal);
             let Some(index_ty) = index_ty else {
-                p!(
-                    index_sema_list_item
-                        .sema_expr_idx()
-                        .data_result(&self.sema_expr_arena),
-                    self.path()
-                );
-                todo!();
                 return Err(DerivedSemaExprDataError::UnableToInferIndexExprType.into());
             };
             index_sema_list_items.push(index_sema_list_item);

@@ -13,7 +13,7 @@ impl FluffyTerm {
     pub fn new_ritchie(
         engine: &mut impl FluffyTermEngine,
         ritchie_kind: RitchieKind,
-        params: Vec<FluffyTermRitchieParameter>,
+        params: Vec<FluffyRitchieParameter>,
         return_ty: FluffyTerm,
     ) -> FluffyTermResult<Self> {
         let mut merger = FluffyTermDataKindMerger::new(engine.fluffy_term_region());
@@ -43,43 +43,41 @@ impl FluffyTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
-pub enum FluffyTermRitchieParameter {
-    Regular(FluffyTermRitchieRegularParameter),
-    Variadic(FluffyTermRitchieVariadicParameter),
-    Keyed(FluffyTermRitchieKeyedParameter),
+pub enum FluffyRitchieParameter {
+    Regular(FluffyRitchieRegularParameter),
+    Variadic(FluffyRitchieVariadicParameter),
+    Keyed(FluffyRitchieKeyedParameter),
 }
 
-impl FluffyTermRitchieParameter {
+impl FluffyRitchieParameter {
     fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> Option<EtherealRitchieParameter> {
         Some(match self {
-            FluffyTermRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
-            FluffyTermRitchieParameter::Variadic(param) => todo!(),
-            FluffyTermRitchieParameter::Keyed(param) => todo!(),
+            FluffyRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
+            FluffyRitchieParameter::Variadic(param) => todo!(),
+            FluffyRitchieParameter::Keyed(param) => todo!(),
         })
     }
 }
 
-impl From<EtherealRitchieParameter> for FluffyTermRitchieParameter {
+impl From<EtherealRitchieParameter> for FluffyRitchieParameter {
     fn from(param: EtherealRitchieParameter) -> Self {
         match param {
             EtherealRitchieParameter::Regular(param) => {
-                FluffyTermRitchieParameter::Regular(param.into())
+                FluffyRitchieParameter::Regular(param.into())
             }
             EtherealRitchieParameter::Variadic(param) => {
-                FluffyTermRitchieParameter::Variadic(param.into())
+                FluffyRitchieParameter::Variadic(param.into())
             }
-            EtherealRitchieParameter::Keyed(param) => {
-                FluffyTermRitchieParameter::Keyed(param.into())
-            }
+            EtherealRitchieParameter::Keyed(param) => FluffyRitchieParameter::Keyed(param.into()),
         }
     }
 }
 
 impl FluffyInstantiate for EtherealRitchieParameter {
-    type Target = FluffyTermRitchieParameter;
+    type Target = FluffyRitchieParameter;
 
     fn instantiate(
         self,
@@ -97,20 +95,20 @@ impl FluffyInstantiate for EtherealRitchieParameter {
     }
 }
 
-impl FluffyTermRitchieParameter {
+impl FluffyRitchieParameter {
     pub fn ty(&self) -> FluffyTerm {
         match self {
-            FluffyTermRitchieParameter::Regular(param) => param.ty(),
-            FluffyTermRitchieParameter::Variadic(param) => param.ty(),
-            FluffyTermRitchieParameter::Keyed(param) => param.ty(),
+            FluffyRitchieParameter::Regular(param) => param.ty(),
+            FluffyRitchieParameter::Variadic(param) => param.ty(),
+            FluffyRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 
     pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
         match self {
-            FluffyTermRitchieParameter::Regular(param) => param.ty_mut(),
-            FluffyTermRitchieParameter::Variadic(param) => param.ty_mut(),
-            FluffyTermRitchieParameter::Keyed(param) => param.ty_mut(),
+            FluffyRitchieParameter::Regular(param) => param.ty_mut(),
+            FluffyRitchieParameter::Variadic(param) => param.ty_mut(),
+            FluffyRitchieParameter::Keyed(param) => param.ty_mut(),
         }
     }
 }
@@ -120,7 +118,7 @@ impl FluffyTerm {
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
+        parameter_contracted_tys: Vec<FluffyRitchieParameter>,
         return_ty: FluffyTerm,
     ) -> Self {
         let mut solid_flag = false;

@@ -22,6 +22,7 @@ husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-fluffy-term.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
+husky-stack-location = { path = "../../kernel/husky-stack-location" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

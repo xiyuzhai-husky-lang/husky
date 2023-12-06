@@ -6,7 +6,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_ritchie_arguments_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        ritchie_parameters: &[FluffyTermRitchieParameter],
+        ritchie_parameters: &[FluffyRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
     ) -> SemaExprDataResult<RitchieParameterArgumentMatches> {
         match RitchieParameterArgumentMatcher::new(
@@ -75,16 +75,13 @@ mod matcher {
 
     #[derive(Debug, PartialEq, Eq)]
     pub enum SemaRitchieParameterArgumentMatch {
-        Regular(FluffyTermRitchieRegularParameter, SemaRegularCallListItem),
+        Regular(FluffyRitchieRegularParameter, SemaRegularCallListItem),
         Variadic(
-            FluffyTermRitchieVariadicParameter,
+            FluffyRitchieVariadicParameter,
             // use vec to save enum size
             Vec<SemaVariadicCallListItem>,
         ),
-        Keyed(
-            FluffyTermRitchieKeyedParameter,
-            Option<SemaKeyedCallListItem>,
-        ),
+        Keyed(FluffyRitchieKeyedParameter, Option<SemaKeyedCallListItem>),
     }
 
     pub type RitchieParameterArgumentMatches = SmallVec<[SemaRitchieParameterArgumentMatch; 4]>;
@@ -94,7 +91,7 @@ mod matcher {
         'b,
         Arguments: Iterator<Item = SynCallListItem>,
     > {
-        ritchie_parameters: &'b [FluffyTermRitchieParameter],
+        ritchie_parameters: &'b [FluffyRitchieParameter],
         ritchie_call_items: std::iter::Peekable<Arguments>,
         ritchie_matches: RitchieParameterArgumentMatches,
         engine: &'b mut SemaExprEngine<'a>,
@@ -104,7 +101,7 @@ mod matcher {
         RitchieParameterArgumentMatcher<'a, 'b, Arguments>
     {
         pub(super) fn new(
-            ritchie_parameters: &'b [FluffyTermRitchieParameter],
+            ritchie_parameters: &'b [FluffyRitchieParameter],
             ritchie_arguments: Arguments,
             engine: &'b mut SemaExprEngine<'a>,
         ) -> RitchieParameterArgumentMatcher<'a, 'b, impl Iterator<Item = SynCallListItem>>
@@ -131,42 +128,44 @@ mod matcher {
 
         fn match_step(
             &mut self,
-            param: FluffyTermRitchieParameter,
+            param: FluffyRitchieParameter,
         ) -> RitchieParameterArgumentMatchResult<()> {
             match param {
-                FluffyTermRitchieParameter::Regular(param) => {
-                    match self.ritchie_call_items.next() {
-                        Some(item) => match item {
-                            SynCallListItem::RegularOrVariadic(item) => {
-                                let argument_sema_expr_idx = self.engine.build_sema_expr(
+                FluffyRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
+                    Some(item) => match item {
+                        SynCallListItem::RegularOrVariadic(item) => {
+                            let (argument_sema_expr_idx, coersion) =
+                                self.engine.build_sema_expr_with_outcome(
                                     item.argument_expr_idx(),
                                     ExpectCoersion::new(param.contract(), param.ty()),
                                 );
-                                let item = SemaRegularCallListItem::new(
-                                    argument_sema_expr_idx,
-                                    item.separator(),
-                                );
-                                Ok(self
-                                    .ritchie_matches
-                                    .push(SemaRitchieParameterArgumentMatch::Regular(param, item)))
-                            }
-                            SynCallListItem::Keyed(_) => todo!(),
-                        },
-                        None => Err(RitchieParameterArgumentMatchError::MissingArgument)?,
-                    }
-                }
-                FluffyTermRitchieParameter::Variadic(param) => {
+                            let item = SemaRegularCallListItem::new(
+                                argument_sema_expr_idx,
+                                coersion,
+                                item.separator(),
+                            );
+                            Ok(self
+                                .ritchie_matches
+                                .push(SemaRitchieParameterArgumentMatch::Regular(param, item)))
+                        }
+                        SynCallListItem::Keyed(_) => todo!(),
+                    },
+                    None => Err(RitchieParameterArgumentMatchError::MissingArgument)?,
+                },
+                FluffyRitchieParameter::Variadic(param) => {
                     let mut items = vec![];
                     while let Some(SynCallListItem::RegularOrVariadic(item)) = self
                         .ritchie_call_items
                         .next_if(|item| matches!(item, SynCallListItem::RegularOrVariadic(_)))
                     {
-                        let argument_sema_expr_idx = self.engine.build_sema_expr(
-                            item.argument_expr_idx(),
-                            ExpectCoersion::new(param.contract(), param.ty()),
-                        );
+                        let (argument_sema_expr_idx, coersion) =
+                            self.engine.build_sema_expr_with_outcome(
+                                item.argument_expr_idx(),
+                                ExpectCoersion::new(param.contract(), param.ty()),
+                            );
                         items.push(SemaVariadicCallListItem::new(
                             argument_sema_expr_idx,
+                            coersion,
                             item.separator(),
                         ));
                         match item.separator() {
@@ -178,7 +177,7 @@ mod matcher {
                         .ritchie_matches
                         .push(SemaRitchieParameterArgumentMatch::Variadic(param, items)))
                 }
-                FluffyTermRitchieParameter::Keyed(param) => match param.has_default() {
+                FluffyRitchieParameter::Keyed(param) => match param.has_default() {
                     true => {
                         let item =  if let Some(SynCallListItem::Keyed(item)) = self.ritchie_call_items
                             .next_if(|arg|

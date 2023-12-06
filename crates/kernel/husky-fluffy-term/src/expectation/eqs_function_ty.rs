@@ -16,9 +16,9 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     type Outcome = ExpectEqsFunctionTypeOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::EqsFunctionCallType(outcome) => outcome,
+            ExpectationOutcome::EqsFunctionCallType(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -119,7 +119,7 @@ impl ExpectEqsFunctionTypeOutcome {
 pub enum ExpectEqsFunctionTypeOutcomeData {
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
+        parameter_contracted_tys: Vec<FluffyRitchieParameter>,
     },
     Curry {
         variance: Variance,

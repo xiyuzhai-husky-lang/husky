@@ -29,9 +29,9 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
     type Outcome = TermUniverse;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::EqsSort(outcome) => outcome,
+            ExpectationOutcome::EqsSort(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -55,10 +55,7 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
         match state.expectee().base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(EtherealTerm::Category(cat)) => {
                 match cat.universe() >= self.smallest_universe {
-                    true => state.set_ok(
-                        FluffyTermExpectationOutcome::EqsSort(cat.universe()),
-                        smallvec![],
-                    ),
+                    true => state.set_ok(ExpectationOutcome::EqsSort(cat.universe()), smallvec![]),
                     false => todo!(),
                     // state.set_err(todo!(), smallvec![]),
                 }

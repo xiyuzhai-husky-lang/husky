@@ -9,7 +9,7 @@ pub struct ExpectConditionTypeOutcome;
 impl ExpectFluffyTerm for ExpectConditionType {
     type Outcome = ExpectConditionTypeOutcome;
 
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         &ExpectConditionTypeOutcome
     }
 

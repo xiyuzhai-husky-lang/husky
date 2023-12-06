@@ -346,7 +346,7 @@ impl ToHirLazy for SemaExprIdx {
                 owner: owner_sema_expr_idx.to_hir_lazy(builder),
                 items: index_sema_list_items
                     .iter()
-                    .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
+                    .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
                     .collect(),
             },
             SemaExprData::CompositionWithList { .. } => {
@@ -355,7 +355,7 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::NewList { ref items, .. } => HirLazyExprData::NewList {
                 items: items
                     .iter()
-                    .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
+                    .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
                     .collect(),
             },
             SemaExprData::BoxColonList {

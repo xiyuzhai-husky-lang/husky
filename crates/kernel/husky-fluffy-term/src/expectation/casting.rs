@@ -34,9 +34,9 @@ impl ExpectFluffyTerm for ExpectCasting {
     type Outcome = ExpectExplicitlyConvertibleOutcome;
 
     #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::ExplicitlyConvertible(outcome) => outcome,
+            ExpectationOutcome::ExplicitlyConvertible(outcome) => outcome,
             _ => unreachable!(),
         }
     }
