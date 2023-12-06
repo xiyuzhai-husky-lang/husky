@@ -8,6 +8,7 @@ edition = "2021"
 toml.workspace = true
 cargo-manifest.workspace = true
 pathdiff.workspace = true
+smallvec.workspace = true
 # abstractions
 salsa.workspace = true
 either.workspace = true

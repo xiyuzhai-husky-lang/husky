@@ -1,4 +1,5 @@
 #![feature(trait_upcasting)]
+mod binding;
 mod builder;
 pub mod db;
 mod defn;
