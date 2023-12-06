@@ -23,6 +23,7 @@ pub enum RustPunctuation {
     SemicolonInArray,
     Ambersand,
     CommaSpaced,
+    DerefStar,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -86,6 +87,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustPunctuation::SemicolonInArray => "; ",
             RustPunctuation::Ambersand => "&",
             RustPunctuation::CommaSpaced => ", ",
+            RustPunctuation::DerefStar => "*",
         };
         self.write_str(s)
     }
