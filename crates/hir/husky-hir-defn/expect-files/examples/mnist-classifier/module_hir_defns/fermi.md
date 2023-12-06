@@ -625,7 +625,13 @@
                                                     15,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -643,7 +649,13 @@
                                                     16,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),

@@ -4243,7 +4243,13 @@
                                                     64,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        12,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4261,7 +4267,13 @@
                                                     65,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        13,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4279,7 +4291,13 @@
                                                     66,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4434,7 +4452,13 @@
                                                     93,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        12,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4452,7 +4476,13 @@
                                                     94,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        13,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4470,7 +4500,13 @@
                                                     95,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4488,7 +4524,13 @@
                                                     96,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        14,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4529,7 +4571,13 @@
                                                     99,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        14,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4767,7 +4815,13 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            MutableStackOwned,
+                                                            MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ],
@@ -4813,7 +4867,13 @@
                                                     141,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4862,7 +4922,13 @@
                                                     146,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        10,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -4880,7 +4946,13 @@
                                                     147,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5077,7 +5149,13 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            MutableStackOwned,
+                                                            MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ],
@@ -5126,7 +5204,13 @@
                                                     174,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        10,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5144,7 +5228,13 @@
                                                     175,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5297,7 +5387,13 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            MutableStackOwned,
+                                                            MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ],
@@ -5346,7 +5442,13 @@
                                                     204,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        10,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5364,7 +5466,13 @@
                                                     205,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5447,7 +5555,13 @@
                                                     218,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        10,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5465,7 +5579,13 @@
                                                     219,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        11,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -5969,7 +6089,13 @@
                                                     304,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        9,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -7945,7 +8071,13 @@
                                                     46,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        2,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -7963,7 +8095,13 @@
                                                     47,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        3,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -8004,7 +8142,13 @@
                                                     50,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        4,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -8022,7 +8166,13 @@
                                                     51,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
-                                                            expectee_place: MutableStackOwned,
+                                                            expectee_place: MutableStackOwned {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        5,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),

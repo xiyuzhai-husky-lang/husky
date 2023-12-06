@@ -275,7 +275,13 @@
                                         SelfPlace,
                                     ),
                                     SelfPlace(
-                                        MutableStackOwned,
+                                        MutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ],
@@ -485,7 +491,13 @@
                                         SelfPlace,
                                     ),
                                     SelfPlace(
-                                        MutableStackOwned,
+                                        MutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ],

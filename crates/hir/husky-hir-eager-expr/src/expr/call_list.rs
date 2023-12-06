@@ -1,7 +1,6 @@
-use husky_hir_ty::ritchie::HirRitchieRegularParameter;
-
 use super::*;
 use crate::coersion::HirEagerCoersion;
+use husky_hir_ty::ritchie::HirRitchieRegularParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
