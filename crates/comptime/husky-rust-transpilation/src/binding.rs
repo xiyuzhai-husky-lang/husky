@@ -7,6 +7,7 @@ pub(crate) enum RustBinding {
     DerefCustomed,
     Reref,
     RerefMut,
+    SelfValue,
 }
 
 #[derive(Default)]
@@ -35,7 +36,15 @@ impl RustBindings {
     pub(crate) fn push(&mut self, binding: RustBinding) {
         match self.bindings.last() {
             Some(last_binding) => match (last_binding, binding) {
-                // the following is automatically coercible, so we can remove them
+                // any binding except `DerefCustomed` can be merged into self value
+                // (*a).<field_name> -> (*a).<field_name>
+                // (&a).<field_name> -> (*a).<field_name>
+                // (&mut a).<field_name> -> (*a).<field_name>
+                //
+                // in Rust, if type `A` doesn't implement Clone, for a value `a` of type `A`
+                // `a.clone()` actually clones a reference to `a`, but in husky, no.
+                (RustBinding::SelfValue, binding) if binding != RustBinding::DerefCustomed => (),
+                // the following is automatically coercible, so we can cancel the last binding out
                 // *&a -> a
                 // *&mut a -> a
                 // &*a -> a
@@ -81,6 +90,19 @@ fn rust_bindings_works() {
         bindings.push(RustBinding::RerefMut);
         assert_eq!(bindings.len(), 1)
     }
+    {
+        // (*a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::SelfValue.into();
+        bindings.push(RustBinding::Deref);
+        assert_eq!(bindings.len(), 1)
+    }
+    {
+        // (&mut *a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::SelfValue.into();
+        bindings.push(RustBinding::Deref);
+        bindings.push(RustBinding::RerefMut);
+        assert_eq!(bindings.len(), 1)
+    }
 }
 
 impl TranspileToRust for RustBinding {
@@ -94,6 +116,7 @@ impl TranspileToRust for RustBinding {
                 builder.punctuation(RustPunctuation::Ambersand);
                 builder.keyword(RustKeyword::Mut)
             }
+            RustBinding::SelfValue => (),
         }
     }
 }
