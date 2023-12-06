@@ -156,23 +156,3 @@ impl HasFluffyMethodDispatch for FluffyTerm {
         self.place().unwrap_or(FluffyPlace::Transient)
     }
 }
-
-// fn method_dispatch_aux(
-//     self,
-//     engine: &mut impl FluffyTermEngine,
-//     expr_idx: ExprIdx,
-//     ident: Ident,
-//     available_traits: &[TraitPath],
-//     mut indirections: FluffyTermDynamicDispatchIndirections,
-// ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-//     match self.base() {
-//         FluffyTermBase::Ethereal(term) => {
-//             todo!()
-//             // ethereal_ty_method_dispatch(engine, expr_idx, term, ident)
-//         }
-//         FluffyTermBase::Solid(term) => {
-//             term.method_dispatch_aux(engine, expr_idx, ident, available_traits, indirections)
-//         }
-//         FluffyTermBase::Hollow(term) => todo!(),
-//     }
-// }

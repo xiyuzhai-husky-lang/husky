@@ -2,4 +2,6 @@ use crate::*
 
 pub trait Copy;
 
+impl Copy for #derive _;
+
 pub trait Sized;

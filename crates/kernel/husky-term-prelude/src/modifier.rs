@@ -2,7 +2,7 @@ use husky_coword::Label;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum SymbolModifier {
-    None,
+    Pure,
     Mut,
     Ref,
     RefMut,
@@ -20,7 +20,7 @@ impl SymbolModifier {
     {
         match t {
             Some(t) => t.into(),
-            None => SymbolModifier::None,
+            None => SymbolModifier::Pure,
         }
     }
 }

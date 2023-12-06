@@ -153,7 +153,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 236,
+                                    value: 237,
                                 },
                             ),
                         ),
@@ -172,7 +172,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 352,
+                                                        value: 353,
                                                     },
                                                 ),
                                             ),
@@ -205,7 +205,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 365,
+                                                        value: 366,
                                                     },
                                                 ),
                                             ),
@@ -294,7 +294,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 352,
+                                                    value: 353,
                                                 },
                                             ),
                                         ),
@@ -317,7 +317,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 365,
+                                                    value: 366,
                                                 },
                                             ),
                                         ),

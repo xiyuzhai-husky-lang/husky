@@ -4380,7 +4380,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -4581,7 +4581,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -4638,7 +4638,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -4903,7 +4903,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -5569,7 +5569,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -5656,7 +5656,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -5813,7 +5813,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -5921,7 +5921,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],

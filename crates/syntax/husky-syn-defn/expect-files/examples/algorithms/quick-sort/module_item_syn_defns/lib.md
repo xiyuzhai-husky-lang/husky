@@ -532,7 +532,7 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -564,7 +564,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
                                         ),
@@ -861,8 +861,8 @@
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
                                                 RefMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -905,7 +905,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
@@ -916,7 +916,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
@@ -1492,7 +1492,7 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -1523,7 +1523,7 @@
                                         parent_symbol_idx: Current(
                                             3,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `low`,
                                         },
@@ -1532,7 +1532,7 @@
                                         parent_symbol_idx: Current(
                                             4,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `high`,
                                         },
@@ -1542,7 +1542,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             8,
                                         ),
@@ -1868,8 +1868,8 @@
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
                                                 RefMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -1912,7 +1912,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
@@ -1923,7 +1923,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
@@ -3180,7 +3180,7 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                     Mut,
                                     Mut,
                                 ],
@@ -3213,7 +3213,7 @@
                                         parent_symbol_idx: Current(
                                             3,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `low`,
                                         },
@@ -3222,7 +3222,7 @@
                                         parent_symbol_idx: Current(
                                             4,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `high`,
                                         },
@@ -3232,7 +3232,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
                                         ),

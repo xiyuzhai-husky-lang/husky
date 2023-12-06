@@ -86,6 +86,7 @@ original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 salsa = { path = "crates/abstractions/salsa" }
 vec-like = { path = "crates/abstractions/vec-like" }
+shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 # fs
@@ -111,6 +112,7 @@ husky-ethereal-signature = { path = "crates/kernel/husky-ethereal-signature" }
 husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
 husky-task = { path = "crates/kernel/husky-task" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
+husky-stack-location = { path = "crates/kernel/husky-stack-location" }
 # lex
 husky-token-data = { path = "crates/lex/husky-token-data" }
 husky-token = { path = "crates/lex/husky-token" }

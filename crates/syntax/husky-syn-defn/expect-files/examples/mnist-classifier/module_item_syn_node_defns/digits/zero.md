@@ -482,7 +482,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -493,7 +493,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -750,7 +750,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `cc`,
                                         },
@@ -872,7 +872,7 @@
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 350,
+                                                                                    value: 355,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -967,7 +967,7 @@
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 350,
+                                                                                    value: 355,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1447,7 +1447,7 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 340,
+                                                                        value: 345,
                                                                     },
                                                                 ),
                                                             ),
@@ -2223,7 +2223,7 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 340,
+                                                                        value: 345,
                                                                     },
                                                                 ),
                                                             ),
@@ -2379,7 +2379,7 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 340,
+                                                                        value: 345,
                                                                     },
                                                                 ),
                                                             ),
@@ -2556,7 +2556,7 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 340,
+                                                                        value: 345,
                                                                     },
                                                                 ),
                                                             ),
@@ -3173,18 +3173,18 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
-                                    None,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
                                 ],
                             },
                         },
@@ -3195,7 +3195,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             5,
                                         ),
@@ -3212,7 +3212,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             18,
                                         ),
@@ -3229,7 +3229,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             35,
                                         ),
@@ -3246,7 +3246,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             45,
                                         ),
@@ -3263,7 +3263,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             71,
                                         ),
@@ -3280,7 +3280,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             115,
                                         ),
@@ -3297,7 +3297,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             126,
                                         ),
@@ -3314,7 +3314,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             128,
                                         ),
@@ -3331,7 +3331,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             139,
                                         ),
@@ -3348,7 +3348,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             159,
                                         ),
@@ -3365,7 +3365,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             177,
                                         ),
@@ -3382,7 +3382,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             187,
                                         ),

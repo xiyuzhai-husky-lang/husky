@@ -5,36 +5,6 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 237,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            None,
-        ),
-    ),
-    (
-        Submodule(
-            Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 238,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            None,
-        ),
-    ),
-    (
-        Submodule(
-            Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
                         value: 239,
                     },
                 ),
@@ -105,12 +75,42 @@
         ),
     ),
     (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 244,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 245,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
         MajorItem(
             Fugitive(
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 244,
+                            value: 246,
                         },
                     ),
                 ),
@@ -120,7 +120,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 171,
+                        value: 172,
                     },
                 ),
             ),

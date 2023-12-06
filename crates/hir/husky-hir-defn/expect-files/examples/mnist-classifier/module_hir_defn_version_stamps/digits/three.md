@@ -5,29 +5,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 313,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 223,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 314,
+                            value: 315,
                         },
                     ),
                 ),
@@ -49,7 +27,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 315,
+                            value: 316,
                         },
                     ),
                 ),
@@ -71,7 +49,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 316,
+                            value: 317,
                         },
                     ),
                 ),
@@ -93,7 +71,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 317,
+                            value: 318,
                         },
                     ),
                 ),
@@ -104,6 +82,28 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 227,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 319,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 228,
                     },
                 ),
             ),

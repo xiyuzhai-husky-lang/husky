@@ -385,7 +385,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -407,7 +407,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 121,
+                                                        value: 122,
                                                     },
                                                 ),
                                             ),
@@ -482,7 +482,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 121,
+                                                                            value: 122,
                                                                         },
                                                                     ),
                                                                 ),
@@ -722,7 +722,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1124,7 +1124,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1397,8 +1397,8 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -1421,7 +1421,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -1432,7 +1432,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         14,
                                                     ),
@@ -2293,7 +2293,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 123,
+                                                    value: 124,
                                                 },
                                             ),
                                         ),
@@ -2315,7 +2315,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 123,
+                                                        value: 124,
                                                     },
                                                 ),
                                             ),
@@ -2390,7 +2390,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 123,
+                                                                            value: 124,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2630,7 +2630,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 124,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2978,7 +2978,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 124,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3326,7 +3326,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 124,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3674,7 +3674,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 124,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4022,7 +4022,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 124,
                                                                                         },
                                                                                     ),
                                                                                 ),

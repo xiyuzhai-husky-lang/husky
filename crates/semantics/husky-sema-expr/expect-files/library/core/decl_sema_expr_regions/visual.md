@@ -466,7 +466,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 122,
+                                    value: 123,
                                 },
                             ),
                         ),
@@ -905,7 +905,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 217,
+                                    value: 218,
                                 },
                             ),
                         ),

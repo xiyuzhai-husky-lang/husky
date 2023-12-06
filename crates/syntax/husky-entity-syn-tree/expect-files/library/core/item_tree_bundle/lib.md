@@ -6092,11 +6092,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `bool`,
                                     token_idx: TokenIdx(
-                                        7,
+                                        20,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6146,11 +6146,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 3,
+                                ast_idx: 5,
                                 ident_token: IdentToken {
                                     ident: `never`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        37,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6200,11 +6200,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 4,
+                                ast_idx: 7,
                                 ident_token: IdentToken {
                                     ident: `unit`,
                                     token_idx: TokenIdx(
-                                        15,
+                                        54,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6254,11 +6254,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
+                                ast_idx: 8,
                                 ident_token: IdentToken {
                                     ident: `Trait`,
                                     token_idx: TokenIdx(
-                                        19,
+                                        58,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6308,11 +6308,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 6,
+                                ast_idx: 9,
                                 ident_token: IdentToken {
                                     ident: `Module`,
                                     token_idx: TokenIdx(
-                                        23,
+                                        62,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6362,11 +6362,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 7,
+                                ast_idx: 10,
                                 ident_token: IdentToken {
                                     ident: `Lifetime`,
                                     token_idx: TokenIdx(
-                                        27,
+                                        66,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -6416,11 +6416,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
+                                ast_idx: 11,
                                 ident_token: IdentToken {
                                     ident: `Place`,
                                     token_idx: TokenIdx(
-                                        31,
+                                        70,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -21073,11 +21073,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 3,
+                                ast_idx: 4,
                                 ident_token: IdentToken {
                                     ident: `Sized`,
                                     token_idx: TokenIdx(
-                                        11,
+                                        18,
                                     ),
                                 },
                                 block: DefnBlock::Trait {
@@ -23872,7 +23872,80 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            impl_block_syn_node_table: [],
+            impl_block_syn_node_table: [
+                (
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::marker`,
+                                                    trai_path: TraitPath(`core::marker::Copy`),
+                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::marker`,
+                                                        trai_path: TraitPath(`core::marker::Copy`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            ast_idx: 3,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                            trai_expr: 2,
+                            for_token: TokenIdx(
+                                11,
+                            ),
+                            ty_sketch_expr: DeriveAny {
+                                pound_token: PoundToken(
+                                    TokenIdx(
+                                        12,
+                                    ),
+                                ),
+                                derive_token: DeriveToken {
+                                    token_idx: TokenIdx(
+                                        13,
+                                    ),
+                                },
+                                underscore_token: UnderscoreToken {
+                                    token_idx: TokenIdx(
+                                        14,
+                                    ),
+                                },
+                            },
+                            items: None,
+                        },
+                    ),
+                ),
+            ],
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
@@ -26977,12 +27050,12 @@ EntitySynTreeCrateBundle {
                                     35,
                                 ),
                             },
-                            trai_expr: 2,
+                            trai_expr: 3,
                             for_token: TokenIdx(
                                 40,
                             ),
                             ty_sketch_expr: Path(
-                                3,
+                                4,
                             ),
                             items: None,
                         },
@@ -30707,7 +30780,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 90,
+                                                        value: 91,
                                                     },
                                                 ),
                                             ),
@@ -30727,7 +30800,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 90,
+                                                            value: 91,
                                                         },
                                                     ),
                                                 ),
@@ -30742,7 +30815,7 @@ EntitySynTreeCrateBundle {
                                     35,
                                 ),
                             },
-                            ty_expr: 4,
+                            ty_expr: 5,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     1..3,
@@ -30802,12 +30875,12 @@ EntitySynTreeCrateBundle {
                                     57,
                                 ),
                             },
-                            trai_expr: 5,
+                            trai_expr: 6,
                             for_token: TokenIdx(
                                 60,
                             ),
                             ty_sketch_expr: Path(
-                                6,
+                                7,
                             ),
                             items: Some(
                                 TraitForType(
@@ -30831,7 +30904,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 92,
+                                                        value: 93,
                                                     },
                                                 ),
                                             ),
@@ -30851,7 +30924,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 92,
+                                                            value: 93,
                                                         },
                                                     ),
                                                 ),
@@ -30866,7 +30939,7 @@ EntitySynTreeCrateBundle {
                                     98,
                                 ),
                             },
-                            ty_expr: 7,
+                            ty_expr: 8,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     4..6,
@@ -30926,12 +30999,12 @@ EntitySynTreeCrateBundle {
                                     120,
                                 ),
                             },
-                            trai_expr: 8,
+                            trai_expr: 9,
                             for_token: TokenIdx(
                                 123,
                             ),
                             ty_sketch_expr: Path(
-                                9,
+                                10,
                             ),
                             items: Some(
                                 TraitForType(
@@ -30955,7 +31028,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 94,
+                                                        value: 95,
                                                     },
                                                 ),
                                             ),
@@ -30975,7 +31048,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 94,
+                                                            value: 95,
                                                         },
                                                     ),
                                                 ),
@@ -30990,7 +31063,7 @@ EntitySynTreeCrateBundle {
                                     161,
                                 ),
                             },
-                            ty_expr: 10,
+                            ty_expr: 11,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     7..10,
@@ -31050,12 +31123,12 @@ EntitySynTreeCrateBundle {
                                     194,
                                 ),
                             },
-                            trai_expr: 11,
+                            trai_expr: 12,
                             for_token: TokenIdx(
                                 197,
                             ),
                             ty_sketch_expr: Path(
-                                12,
+                                13,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31079,7 +31152,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 96,
+                                                        value: 97,
                                                     },
                                                 ),
                                             ),
@@ -31099,7 +31172,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 96,
+                                                            value: 97,
                                                         },
                                                     ),
                                                 ),
@@ -31114,7 +31187,7 @@ EntitySynTreeCrateBundle {
                                     234,
                                 ),
                             },
-                            ty_expr: 13,
+                            ty_expr: 14,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     11..12,
@@ -31174,12 +31247,12 @@ EntitySynTreeCrateBundle {
                                     245,
                                 ),
                             },
-                            trai_expr: 14,
+                            trai_expr: 15,
                             for_token: TokenIdx(
                                 248,
                             ),
                             ty_sketch_expr: Path(
-                                15,
+                                16,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31203,7 +31276,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 98,
+                                                        value: 99,
                                                     },
                                                 ),
                                             ),
@@ -31223,7 +31296,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 98,
+                                                            value: 99,
                                                         },
                                                     ),
                                                 ),
@@ -31238,7 +31311,7 @@ EntitySynTreeCrateBundle {
                                     286,
                                 ),
                             },
-                            ty_expr: 16,
+                            ty_expr: 17,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     13..14,
@@ -31298,12 +31371,12 @@ EntitySynTreeCrateBundle {
                                     297,
                                 ),
                             },
-                            trai_expr: 17,
+                            trai_expr: 18,
                             for_token: TokenIdx(
                                 300,
                             ),
                             ty_sketch_expr: Path(
-                                18,
+                                19,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31327,7 +31400,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 100,
+                                                        value: 101,
                                                     },
                                                 ),
                                             ),
@@ -31347,7 +31420,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 100,
+                                                            value: 101,
                                                         },
                                                     ),
                                                 ),
@@ -31362,7 +31435,7 @@ EntitySynTreeCrateBundle {
                                     338,
                                 ),
                             },
-                            ty_expr: 19,
+                            ty_expr: 20,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     15..16,
@@ -31422,12 +31495,12 @@ EntitySynTreeCrateBundle {
                                     349,
                                 ),
                             },
-                            trai_expr: 20,
+                            trai_expr: 21,
                             for_token: TokenIdx(
                                 352,
                             ),
                             ty_sketch_expr: Path(
-                                21,
+                                22,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31451,7 +31524,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 102,
+                                                        value: 103,
                                                     },
                                                 ),
                                             ),
@@ -31471,7 +31544,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 102,
+                                                            value: 103,
                                                         },
                                                     ),
                                                 ),
@@ -31486,7 +31559,7 @@ EntitySynTreeCrateBundle {
                                     390,
                                 ),
                             },
-                            ty_expr: 22,
+                            ty_expr: 23,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     17..18,
@@ -31546,12 +31619,12 @@ EntitySynTreeCrateBundle {
                                     401,
                                 ),
                             },
-                            trai_expr: 23,
+                            trai_expr: 24,
                             for_token: TokenIdx(
                                 404,
                             ),
                             ty_sketch_expr: Path(
-                                24,
+                                25,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31575,7 +31648,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 104,
+                                                        value: 105,
                                                     },
                                                 ),
                                             ),
@@ -31595,7 +31668,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 104,
+                                                            value: 105,
                                                         },
                                                     ),
                                                 ),
@@ -31610,7 +31683,7 @@ EntitySynTreeCrateBundle {
                                     442,
                                 ),
                             },
-                            ty_expr: 25,
+                            ty_expr: 26,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     19..20,
@@ -31670,12 +31743,12 @@ EntitySynTreeCrateBundle {
                                     453,
                                 ),
                             },
-                            trai_expr: 26,
+                            trai_expr: 27,
                             for_token: TokenIdx(
                                 456,
                             ),
                             ty_sketch_expr: Path(
-                                27,
+                                28,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31699,7 +31772,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -31719,7 +31792,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 106,
+                                                            value: 107,
                                                         },
                                                     ),
                                                 ),
@@ -31734,7 +31807,7 @@ EntitySynTreeCrateBundle {
                                     494,
                                 ),
                             },
-                            ty_expr: 28,
+                            ty_expr: 29,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     21..22,
@@ -31794,12 +31867,12 @@ EntitySynTreeCrateBundle {
                                     505,
                                 ),
                             },
-                            trai_expr: 29,
+                            trai_expr: 30,
                             for_token: TokenIdx(
                                 508,
                             ),
                             ty_sketch_expr: Path(
-                                30,
+                                31,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31823,7 +31896,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 108,
+                                                        value: 109,
                                                     },
                                                 ),
                                             ),
@@ -31843,7 +31916,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 108,
+                                                            value: 109,
                                                         },
                                                     ),
                                                 ),
@@ -31858,7 +31931,7 @@ EntitySynTreeCrateBundle {
                                     546,
                                 ),
                             },
-                            ty_expr: 31,
+                            ty_expr: 32,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     23..24,
@@ -31918,12 +31991,12 @@ EntitySynTreeCrateBundle {
                                     557,
                                 ),
                             },
-                            trai_expr: 32,
+                            trai_expr: 33,
                             for_token: TokenIdx(
                                 560,
                             ),
                             ty_sketch_expr: Path(
-                                33,
+                                34,
                             ),
                             items: Some(
                                 TraitForType(
@@ -31947,7 +32020,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 110,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -31967,7 +32040,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 110,
+                                                            value: 111,
                                                         },
                                                     ),
                                                 ),
@@ -31982,7 +32055,7 @@ EntitySynTreeCrateBundle {
                                     598,
                                 ),
                             },
-                            ty_expr: 34,
+                            ty_expr: 35,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     25..26,
@@ -32042,12 +32115,12 @@ EntitySynTreeCrateBundle {
                                     609,
                                 ),
                             },
-                            trai_expr: 35,
+                            trai_expr: 36,
                             for_token: TokenIdx(
                                 612,
                             ),
                             ty_sketch_expr: Path(
-                                36,
+                                37,
                             ),
                             items: Some(
                                 TraitForType(
@@ -32071,7 +32144,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 113,
                                                     },
                                                 ),
                                             ),
@@ -32091,7 +32164,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 112,
+                                                            value: 113,
                                                         },
                                                     ),
                                                 ),
@@ -32106,7 +32179,7 @@ EntitySynTreeCrateBundle {
                                     650,
                                 ),
                             },
-                            ty_expr: 37,
+                            ty_expr: 38,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     27..28,
@@ -32166,12 +32239,12 @@ EntitySynTreeCrateBundle {
                                     661,
                                 ),
                             },
-                            trai_expr: 38,
+                            trai_expr: 39,
                             for_token: TokenIdx(
                                 664,
                             ),
                             ty_sketch_expr: Path(
-                                39,
+                                40,
                             ),
                             items: Some(
                                 TraitForType(
@@ -32195,7 +32268,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 114,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -32215,7 +32288,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 114,
+                                                            value: 115,
                                                         },
                                                     ),
                                                 ),
@@ -32230,7 +32303,7 @@ EntitySynTreeCrateBundle {
                                     702,
                                 ),
                             },
-                            ty_expr: 40,
+                            ty_expr: 41,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     29..37,
@@ -32290,12 +32363,12 @@ EntitySynTreeCrateBundle {
                                     775,
                                 ),
                             },
-                            trai_expr: 41,
+                            trai_expr: 42,
                             for_token: TokenIdx(
                                 778,
                             ),
                             ty_sketch_expr: Path(
-                                42,
+                                43,
                             ),
                             items: Some(
                                 TraitForType(
@@ -32319,7 +32392,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 116,
+                                                        value: 117,
                                                     },
                                                 ),
                                             ),
@@ -32339,7 +32412,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 116,
+                                                            value: 117,
                                                         },
                                                     ),
                                                 ),
@@ -32354,7 +32427,7 @@ EntitySynTreeCrateBundle {
                                     815,
                                 ),
                             },
-                            ty_expr: 43,
+                            ty_expr: 44,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     38..40,
@@ -32414,12 +32487,12 @@ EntitySynTreeCrateBundle {
                                     834,
                                 ),
                             },
-                            trai_expr: 44,
+                            trai_expr: 45,
                             for_token: TokenIdx(
                                 837,
                             ),
                             ty_sketch_expr: Path(
-                                45,
+                                46,
                             ),
                             items: Some(
                                 TraitForType(
@@ -36648,11 +36721,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
+                                ast_idx: 6,
                                 ident_token: IdentToken {
                                     ident: `Option`,
                                     token_idx: TokenIdx(
-                                        12,
+                                        25,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -44264,7 +44337,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 118,
+                                                        value: 119,
                                                     },
                                                 ),
                                             ),
@@ -44284,7 +44357,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 118,
+                                                            value: 119,
                                                         },
                                                     ),
                                                 ),
@@ -44299,7 +44372,7 @@ EntitySynTreeCrateBundle {
                                     29,
                                 ),
                             },
-                            ty_expr: 46,
+                            ty_expr: 47,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     1..6,
@@ -47348,12 +47421,12 @@ EntitySynTreeCrateBundle {
                                     28,
                                 ),
                             },
-                            trai_expr: 49,
+                            trai_expr: 50,
                             for_token: TokenIdx(
                                 46,
                             ),
                             ty_sketch_expr: Path(
-                                50,
+                                51,
                             ),
                             items: Some(
                                 TraitForType(
@@ -50288,7 +50361,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 120,
+                                                        value: 121,
                                                     },
                                                 ),
                                             ),
@@ -50308,7 +50381,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 120,
+                                                            value: 121,
                                                         },
                                                     ),
                                                 ),
@@ -50323,7 +50396,7 @@ EntitySynTreeCrateBundle {
                                     22,
                                 ),
                             },
-                            ty_expr: 51,
+                            ty_expr: 52,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     1..9,
@@ -53270,7 +53343,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 121,
+                                                        value: 122,
                                                     },
                                                 ),
                                             ),
@@ -53290,7 +53363,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -53305,7 +53378,7 @@ EntitySynTreeCrateBundle {
                                     13,
                                 ),
                             },
-                            ty_expr: 52,
+                            ty_expr: 53,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     1..3,
@@ -53365,12 +53438,12 @@ EntitySynTreeCrateBundle {
                                     60,
                                 ),
                             },
-                            trai_expr: 55,
+                            trai_expr: 56,
                             for_token: TokenIdx(
                                 69,
                             ),
                             ty_sketch_expr: Path(
-                                56,
+                                57,
                             ),
                             items: Some(
                                 TraitForType(
@@ -53394,7 +53467,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 123,
+                                                        value: 124,
                                                     },
                                                 ),
                                             ),
@@ -53414,7 +53487,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 123,
+                                                            value: 124,
                                                         },
                                                     ),
                                                 ),
@@ -53429,7 +53502,7 @@ EntitySynTreeCrateBundle {
                                     77,
                                 ),
                             },
-                            ty_expr: 57,
+                            ty_expr: 58,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     4..9,
@@ -59346,7 +59419,7 @@ EntitySynTreeCrateBundle {
                                     20,
                                 ),
                             },
-                            trai_expr: 58,
+                            trai_expr: 59,
                             for_token: TokenIdx(
                                 22,
                             ),
@@ -59444,6 +59517,21 @@ EntitySynTreeCrateBundle {
                 major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`core::clone::Clone`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            10,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
                     ),
                 ),
             },
@@ -60151,7 +60239,7 @@ EntitySynTreeCrateBundle {
                         41,
                     ),
                 ),
-                subexpr: 47,
+                subexpr: 48,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::CrateRoot(
@@ -60166,7 +60254,7 @@ EntitySynTreeCrateBundle {
                         39,
                     ),
                 ),
-                subexpr: 48,
+                subexpr: 49,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
@@ -60242,7 +60330,7 @@ EntitySynTreeCrateBundle {
                         67,
                     ),
                 ),
-                subexpr: 53,
+                subexpr: 54,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::CrateRoot(
@@ -60257,7 +60345,7 @@ EntitySynTreeCrateBundle {
                         65,
                     ),
                 ),
-                subexpr: 54,
+                subexpr: 55,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(

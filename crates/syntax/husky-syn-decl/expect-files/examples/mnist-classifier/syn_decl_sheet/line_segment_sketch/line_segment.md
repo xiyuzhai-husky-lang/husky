@@ -156,7 +156,7 @@ SynDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
@@ -171,7 +171,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
@@ -319,7 +319,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 369,
+                                                                            value: 370,
                                                                         },
                                                                     ),
                                                                 ),
@@ -445,7 +445,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 369,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -682,7 +682,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 369,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -886,7 +886,7 @@ SynDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -897,7 +897,7 @@ SynDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),

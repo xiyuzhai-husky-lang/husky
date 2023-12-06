@@ -49,7 +49,7 @@
                                 path: AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 403,
+                                            value: 408,
                                         },
                                     ),
                                 ),
@@ -178,7 +178,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 374,
+                                                value: 379,
                                             },
                                         ),
                                     ),
@@ -233,7 +233,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 374,
+                                                                                            value: 379,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -481,8 +481,8 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -493,7 +493,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -504,7 +504,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -840,7 +840,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `i`,
                                         },
@@ -849,7 +849,7 @@
                                         parent_symbol_idx: Current(
                                             2,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `shift`,
                                         },
@@ -924,7 +924,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 374,
+                                                                                            value: 379,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1319,7 +1319,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 374,
+                                                                                            value: 379,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1523,7 +1523,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -1534,7 +1534,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -1801,7 +1801,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -1876,7 +1876,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 374,
+                                                                                            value: 379,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2314,7 +2314,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 374,
+                                                                                            value: 379,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2518,7 +2518,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -2529,7 +2529,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -2708,7 +2708,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -2752,7 +2752,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 375,
+                                                value: 380,
                                             },
                                         ),
                                     ),
@@ -2807,7 +2807,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3202,7 +3202,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3406,7 +3406,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -3417,7 +3417,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -3684,7 +3684,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -3759,7 +3759,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4197,7 +4197,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4401,7 +4401,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -4412,7 +4412,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -4639,7 +4639,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -4714,7 +4714,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4918,7 +4918,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -4929,7 +4929,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -5156,7 +5156,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -5231,7 +5231,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5435,7 +5435,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -5446,7 +5446,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -6075,7 +6075,7 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -6086,7 +6086,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `is_branch_cut_positive`,
                                         },
@@ -6096,7 +6096,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
                                         ),
@@ -6201,7 +6201,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6405,7 +6405,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -6416,7 +6416,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -6595,7 +6595,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -6670,7 +6670,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 380,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6918,8 +6918,8 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -6930,7 +6930,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -6941,7 +6941,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
@@ -7926,10 +7926,10 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
-                                    None,
-                                    None,
-                                    None,
+                                    Pure,
+                                    Pure,
+                                    Pure,
+                                    Pure,
                                 ],
                             },
                         },
@@ -7940,7 +7940,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -7949,7 +7949,7 @@
                                         parent_symbol_idx: Current(
                                             2,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `is_branch_cut_positive`,
                                         },
@@ -7959,7 +7959,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
                                         ),
@@ -7976,7 +7976,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             15,
                                         ),
@@ -7993,7 +7993,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             27,
                                         ),
@@ -8010,7 +8010,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             66,
                                         ),
@@ -8128,7 +8128,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 376,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -8183,7 +8183,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 376,
+                                                                                            value: 381,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -8387,7 +8387,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -8398,7 +8398,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -8982,9 +8982,9 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
-                                    None,
-                                    None,
+                                    Pure,
+                                    Pure,
+                                    Pure,
                                 ],
                             },
                         },
@@ -8995,7 +8995,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -9005,7 +9005,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             11,
                                         ),
@@ -9022,7 +9022,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             21,
                                         ),
@@ -9039,7 +9039,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             35,
                                         ),
@@ -9164,7 +9164,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 376,
+                                                                                            value: 381,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9368,7 +9368,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -9379,7 +9379,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -9651,7 +9651,7 @@
                             ],
                             pattern_symbol_modifiers: ArenaMap {
                                 data: [
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -9662,7 +9662,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `v`,
                                         },
@@ -9672,7 +9672,7 @@
                             current_syn_symbol_arena: Arena {
                                 data: [
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
                                         ),
@@ -9738,7 +9738,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 377,
+                                                value: 382,
                                             },
                                         ),
                                     ),
@@ -9793,7 +9793,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9997,7 +9997,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -10008,7 +10008,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -10309,7 +10309,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `other`,
                                         },
@@ -10384,7 +10384,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -10588,7 +10588,7 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -10599,7 +10599,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -10900,7 +10900,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `point`,
                                         },
@@ -10975,7 +10975,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -11315,7 +11315,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -11655,7 +11655,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -11995,7 +11995,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 377,
+                                                                                            value: 382,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -12304,7 +12304,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 383,
                                             },
                                         ),
                                     ),
@@ -12359,7 +12359,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 383,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -12699,7 +12699,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 383,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -13039,7 +13039,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 383,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -13379,7 +13379,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 383,
                                                                                         },
                                                                                     ),
                                                                                 ),

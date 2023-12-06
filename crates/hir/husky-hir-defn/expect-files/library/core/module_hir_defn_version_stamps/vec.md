@@ -15,7 +15,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 151,
+                        value: 152,
                     },
                 ),
             ),
@@ -27,29 +27,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 120,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 152,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 217,
+                            value: 121,
                         },
                     ),
                 ),
@@ -214,6 +192,28 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 160,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 225,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 161,
                     },
                 ),
             ),

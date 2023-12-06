@@ -163,7 +163,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -245,7 +247,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 120,
+                                                    value: 121,
                                                 },
                                             ),
                                         ),
@@ -271,7 +273,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 120,
+                                                            value: 121,
                                                         },
                                                     ),
                                                 ),
@@ -414,7 +416,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 118,
+                                    value: 119,
                                 },
                             ),
                         ),
@@ -491,7 +493,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -627,7 +631,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -780,7 +786,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -886,7 +894,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -1136,7 +1144,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 209,
+                                    value: 210,
                                 },
                             ),
                         ),
@@ -1235,7 +1243,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1384,7 +1394,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -1599,7 +1609,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -1622,7 +1632,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     10,
                                 ),
@@ -1679,7 +1689,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 210,
+                                    value: 211,
                                 },
                             ),
                         ),
@@ -1718,7 +1728,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1787,7 +1799,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1807,7 +1821,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Symbol(
                                             EtherealTermSymbol(
@@ -1878,7 +1900,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -1955,7 +1979,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -2231,7 +2255,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 211,
+                                    value: 212,
                                 },
                             ),
                         ),
@@ -2353,7 +2377,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -2524,7 +2550,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -2793,7 +2821,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -2899,7 +2929,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -3175,7 +3205,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 212,
+                                    value: 213,
                                 },
                             ),
                         ),
@@ -3297,7 +3327,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -3468,7 +3500,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -3737,7 +3771,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -3843,7 +3879,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -4109,7 +4145,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 213,
+                                    value: 214,
                                 },
                             ),
                         ),
@@ -4181,7 +4217,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -4314,7 +4352,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -4470,7 +4510,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -4576,7 +4618,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -4832,7 +4874,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 214,
+                                    value: 215,
                                 },
                             ),
                         ),
@@ -4897,7 +4939,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -5076,7 +5120,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -5232,7 +5278,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -5376,7 +5424,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -5697,8 +5745,8 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
-                            None,
+                            Pure,
+                            Pure,
                         ],
                     },
                 },
@@ -5721,7 +5769,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     9,
                                 ),
@@ -5732,7 +5780,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     13,
                                 ),
@@ -5816,7 +5864,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 215,
+                                    value: 216,
                                 },
                             ),
                         ),
@@ -5981,7 +6029,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -6203,7 +6253,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -6223,7 +6275,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -6243,7 +6303,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -6515,7 +6583,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -6621,7 +6691,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 120,
+                                                                        value: 121,
                                                                     },
                                                                 ),
                                                             ),
@@ -6920,7 +6990,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -6943,7 +7013,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     10,
                                 ),
@@ -7004,7 +7074,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 216,
+                                    value: 217,
                                 },
                             ),
                         ),
@@ -7043,7 +7113,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -7199,7 +7271,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -7403,7 +7477,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -7423,7 +7499,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Ritchie(
                                             EtherealTermRitchie(
@@ -7503,7 +7587,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -7515,9 +7601,24 @@
                                         ),
                                     },
                                     resolve_progress: Resolved(
-                                        Ok(
-                                            Subtype(
-                                                ExpectSubtypeOutcome,
+                                        Err(
+                                            Original(
+                                                ExpectedSubtype {
+                                                    expectee: FluffyTerm {
+                                                        place: Some(
+                                                            Const,
+                                                        ),
+                                                        base: Ethereal(
+                                                            Category(
+                                                                TermCategory {
+                                                                    universe: TermUniverse(
+                                                                        1,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -7672,7 +7773,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -7684,9 +7787,24 @@
                                         ),
                                     },
                                     resolve_progress: Resolved(
-                                        Ok(
-                                            Subtype(
-                                                ExpectSubtypeOutcome,
+                                        Err(
+                                            Original(
+                                                ExpectedSubtype {
+                                                    expectee: FluffyTerm {
+                                                        place: Some(
+                                                            Const,
+                                                        ),
+                                                        base: Ethereal(
+                                                            Category(
+                                                                TermCategory {
+                                                                    universe: TermUniverse(
+                                                                        1,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),

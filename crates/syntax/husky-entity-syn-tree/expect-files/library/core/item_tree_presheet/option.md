@@ -22,11 +22,11 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
+                        ast_idx: 6,
                         ident_token: IdentToken {
                             ident: `Option`,
                             token_idx: TokenIdx(
-                                12,
+                                25,
                             ),
                         },
                         block: DefnBlock::Type {

@@ -2,6 +2,8 @@ mod ethereal;
 mod hollow;
 mod solid;
 
+use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
+
 pub(crate) use self::ethereal::*;
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
@@ -188,6 +190,43 @@ impl FluffyTerm {
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             FluffyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
             FluffyTermBase::Place => todo!(),
+        }
+    }
+
+    #[deprecated(note = "ad hoc implementation")]
+    pub fn is_always_copyable(self, engine: &impl FluffyTermEngine) -> FluffyTermResult<bool> {
+        match self.base_ty_data(engine) {
+            FluffyBaseTypeData::TypeOntology {
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
+                ty_ethereal_term,
+            } => match ty_ethereal_term {
+                Some(ty_ethereal_term) => {
+                    is_ty_term_always_copyable(ty_ethereal_term, engine.db()).map_err(Into::into)
+                }
+                None => todo!(),
+            },
+            FluffyBaseTypeData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            FluffyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(true),
+                HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
+            },
+            FluffyBaseTypeData::Category(_) => todo!(),
+            FluffyBaseTypeData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+            FluffyBaseTypeData::Symbol { term } => todo!(),
         }
     }
 }

@@ -24,7 +24,7 @@ impl<'a> SemaExprEngine<'a> {
         case_pattern_syn_obelisk: &CasePatternSyndicate,
         match_target_ty: FluffyTerm,
     ) -> CasePatternSemaSyndicate {
-        self.infer_pattern_root_and_symbols_ty(
+        self.infer_variable_pattern_root_and_symbols_ty(
             case_pattern_syn_obelisk.syn_pattern_root(),
             match_target_ty,
             case_pattern_syn_obelisk.variables(),

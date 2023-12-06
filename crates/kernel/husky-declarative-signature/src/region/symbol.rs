@@ -95,7 +95,7 @@ impl SymbolDeclarativeTermRegion {
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
-            SymbolModifier::None
+            SymbolModifier::Pure
             | SymbolModifier::Mut
             | SymbolModifier::Ref
             | SymbolModifier::RefMut => None,
@@ -128,7 +128,7 @@ impl SymbolDeclarativeTermRegion {
             current_syn_symbol,
             SymbolSignature {
                 kind: SymbolSignatureKind::FieldVariable,
-                modifier: SymbolModifier::None,
+                modifier: SymbolModifier::Pure,
                 ty,
                 // ad hoc
                 term_symbol: None,
@@ -286,7 +286,7 @@ impl SymbolDeclarativeTermRegion {
                 self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
             }
             ParentSynSymbolIdx::Current(current_syn_symbol_idx) => self
-                .current_syn_symbol_signature(current_syn_symbol_idx)
+                .current_parameter_symbol_signature(current_syn_symbol_idx)
                 .expect("should exist"),
         }
     }
@@ -298,7 +298,8 @@ impl SymbolDeclarativeTermRegion {
         self.symbol_signatures[inherited_syn_symbol_idx]
     }
 
-    pub fn current_syn_symbol_signature(
+    /// None for symbols defined in the body
+    pub fn current_parameter_symbol_signature(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {

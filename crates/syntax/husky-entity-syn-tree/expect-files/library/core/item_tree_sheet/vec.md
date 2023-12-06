@@ -2823,7 +2823,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 120,
+                                                value: 121,
                                             },
                                         ),
                                     ),
@@ -2843,7 +2843,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 120,
+                                                    value: 121,
                                                 },
                                             ),
                                         ),
@@ -2858,7 +2858,7 @@ EntitySynTreeSheet {
                             22,
                         ),
                     },
-                    ty_expr: 51,
+                    ty_expr: 52,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             1..9,

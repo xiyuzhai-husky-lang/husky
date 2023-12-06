@@ -50,7 +50,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 266,
+                                        value: 267,
                                     },
                                 ),
                             ),
@@ -111,7 +111,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 268,
+                                        value: 269,
                                     },
                                 ),
                             ),

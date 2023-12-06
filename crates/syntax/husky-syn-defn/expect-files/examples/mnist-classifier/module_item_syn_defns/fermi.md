@@ -299,8 +299,8 @@
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -311,7 +311,7 @@
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -322,7 +322,7 @@
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         13,
                                                     ),
@@ -1007,7 +1007,7 @@
                                 data: [
                                     Mut,
                                     Mut,
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -1018,7 +1018,7 @@
                                         parent_symbol_idx: Current(
                                             1,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `concave_components`,
                                         },
@@ -1027,7 +1027,7 @@
                                         parent_symbol_idx: Current(
                                             2,
                                         ),
-                                        modifier: None,
+                                        modifier: Pure,
                                         kind: InheritedSynSymbolKind::ParenateParameter {
                                             ident: `templates`,
                                         },
@@ -1071,7 +1071,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             31,
                                         ),
@@ -1088,7 +1088,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             33,
                                         ),
@@ -1242,7 +1242,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 370,
+                                                                                            value: 371,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1841,7 +1841,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
                                         ),
@@ -1951,7 +1951,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 370,
+                                                                                            value: 371,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2550,7 +2550,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
                                         ),
@@ -2660,7 +2660,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 370,
+                                                                                            value: 371,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3279,7 +3279,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
                                         ),

@@ -1,4 +1,7 @@
-use husky_ethereal_signature::helpers::trai_for_ty::trai_for_ty_impl_block_ethereal_signature_templates;
+use husky_ethereal_signature::helpers::trai_for_ty::{
+    trai_path_for_ty_path_impl_block_ethereal_signature_templates,
+    trai_path_for_ty_term_impl_block_ethereal_signature_builders,
+};
 use salsa::DisplayWithDb;
 use vec_like::SmallVecPairMap;
 
@@ -31,19 +34,10 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         for record in trai_item_records.records() {
             // todo: check scope
             let trai_path = record.trai_path();
-            let mut matches: SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]> =
-                Default::default();
-            for template in
-                trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?.iter()
-            {
-                match template.instantiate_ty(db, arguments, self) {
-                    JustOk(signature_builder) => matches.push(signature_builder),
-                    JustErr(_) => todo!(),
-                    Nothing => todo!(),
-                }
-            }
-            if !matches.is_empty() {
-                unsafe { matches_map.insert_new_unchecked((trai_path, matches)) }
+            let mut builders =
+                trai_path_for_ty_term_impl_block_ethereal_signature_builders(db, trai_path, self)?;
+            if !builders.is_empty() {
+                unsafe { matches_map.insert_new_unchecked((trai_path, builders)) }
             }
         }
         match matches_map.len() {

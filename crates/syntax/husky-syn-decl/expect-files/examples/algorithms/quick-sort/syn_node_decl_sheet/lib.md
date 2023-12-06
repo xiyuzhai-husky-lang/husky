@@ -771,8 +771,8 @@ SynNodeDeclSheet {
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
                                                 RefMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -815,7 +815,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
@@ -826,7 +826,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
@@ -1373,8 +1373,8 @@ SynNodeDeclSheet {
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
                                                 RefMut,
-                                                None,
-                                                None,
+                                                Pure,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -1417,7 +1417,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
@@ -1428,7 +1428,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),

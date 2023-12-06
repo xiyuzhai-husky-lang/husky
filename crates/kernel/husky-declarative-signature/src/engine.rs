@@ -406,7 +406,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ..
             } => Ok(self
                 .symbol_declarative_term_region
-                .current_syn_symbol_signature(current_syn_symbol_idx)
+                .current_parameter_symbol_signature(current_syn_symbol_idx)
                 .expect("not none")
                 .term_symbol()
                 .ok_or(OriginalDeclarativeTermError2::InvalidSymbolForTerm)?
@@ -618,7 +618,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         symbol: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_declarative_term_region
-            .current_syn_symbol_signature(symbol)
+            .current_parameter_symbol_signature(symbol)
     }
 
     pub(crate) fn declarative_term_menu(&self) -> &DeclarativeTermMenu {

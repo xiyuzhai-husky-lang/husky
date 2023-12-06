@@ -56,7 +56,7 @@ impl DeclarativeTermRegion {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.term_symbol_region
-            .current_syn_symbol_signature(current_syn_symbol_idx)
+            .current_parameter_symbol_signature(current_syn_symbol_idx)
     }
 
     pub fn expr_term(&self, expr: SynExprIdx) -> DeclarativeTermResultBorrowed2<DeclarativeTerm> {

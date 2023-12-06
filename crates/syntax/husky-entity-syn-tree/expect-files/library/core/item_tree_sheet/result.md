@@ -2988,12 +2988,12 @@ EntitySynTreeSheet {
                             28,
                         ),
                     },
-                    trai_expr: 49,
+                    trai_expr: 50,
                     for_token: TokenIdx(
                         46,
                     ),
                     ty_sketch_expr: Path(
-                        50,
+                        51,
                     ),
                     items: Some(
                         TraitForType(

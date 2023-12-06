@@ -41,4 +41,29 @@
         ),
         None,
     ),
+    (
+        ItemSynNodePath::ImplBlock(
+            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::marker`,
+                                            trai_path: TraitPath(`core::marker::Copy`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
 ]

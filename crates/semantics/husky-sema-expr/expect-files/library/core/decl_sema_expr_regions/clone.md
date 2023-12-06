@@ -715,7 +715,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 125,
+                                    value: 126,
                                 },
                             ),
                         ),

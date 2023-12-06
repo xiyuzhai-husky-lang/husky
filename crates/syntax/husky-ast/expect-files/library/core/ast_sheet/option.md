@@ -3,7 +3,7 @@ AstSheet {
         data: [
             Ast::TypeVariant {
                 token_group_idx: TokenGroupIdx(
-                    3,
+                    4,
                 ),
                 variant_path: TypeVariantPath(
                     ItemPathId {
@@ -29,25 +29,25 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        16,
+                        29,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Some`,
                     token_idx: TokenIdx(
-                        17,
+                        30,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        18,
+                        31,
                     ),
                     drained: false,
                 },
             },
             Ast::TypeVariant {
                 token_group_idx: TokenGroupIdx(
-                    4,
+                    5,
                 ),
                 variant_path: TypeVariantPath(
                     ItemPathId {
@@ -73,18 +73,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        21,
+                        34,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `None`,
                     token_idx: TokenIdx(
-                        22,
+                        35,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        23,
+                        36,
                     ),
                     drained: true,
                 },
@@ -128,16 +128,22 @@ AstSheet {
                     },
                 ),
             },
-            Ast::Identifiable {
+            Ast::Attr {
                 token_group_idx: TokenGroupIdx(
                     2,
+                ),
+                ident: `derive`,
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    3,
                 ),
                 visibility_expr: VisibilityExpr {
                     visibility: Pub,
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                10,
+                                23,
                             ),
                         },
                     },
@@ -151,13 +157,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Option`,
                     token_idx: TokenIdx(
-                        12,
+                        25,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        13,
+                        26,
                     ),
                     drained: false,
                 },
@@ -175,11 +181,11 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        3..6,
+        3..7,
     ),
     siblings: [
         ArenaIdxRange(
-            3..6,
+            3..7,
         ),
     ],
 }

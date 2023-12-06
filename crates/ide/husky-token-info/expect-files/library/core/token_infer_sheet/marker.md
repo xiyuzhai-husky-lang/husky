@@ -57,6 +57,31 @@ Ok(
             ),
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             Some(
                 TokenInfo {

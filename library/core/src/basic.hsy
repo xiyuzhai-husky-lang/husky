@@ -1,9 +1,12 @@
 use crate::*
 
+#derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern bool;
 
+#derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern never;
 
+#derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern unit;
 
 // todo: move this to another module

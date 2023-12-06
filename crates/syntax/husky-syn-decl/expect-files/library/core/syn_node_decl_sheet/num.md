@@ -1551,7 +1551,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 91,
                                                 },
                                             ),
                                         ),
@@ -1573,7 +1573,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 90,
+                                                        value: 91,
                                                     },
                                                 ),
                                             ),
@@ -1616,7 +1616,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 90,
+                                                                            value: 91,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1806,7 +1806,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 90,
+                                                                                            value: 91,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2107,7 +2107,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 90,
+                                                                                            value: 91,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2311,7 +2311,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -2322,7 +2322,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -3067,7 +3067,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -3078,7 +3078,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -3148,7 +3148,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 92,
+                                                    value: 93,
                                                 },
                                             ),
                                         ),
@@ -3170,7 +3170,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 92,
+                                                        value: 93,
                                                     },
                                                 ),
                                             ),
@@ -3213,7 +3213,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 92,
+                                                                            value: 93,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3403,7 +3403,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 92,
+                                                                                            value: 93,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3704,7 +3704,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 92,
+                                                                                            value: 93,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3908,7 +3908,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -3919,7 +3919,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -4664,7 +4664,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -4675,7 +4675,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -4745,7 +4745,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 94,
+                                                    value: 95,
                                                 },
                                             ),
                                         ),
@@ -4767,7 +4767,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 94,
+                                                        value: 95,
                                                     },
                                                 ),
                                             ),
@@ -4810,7 +4810,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 94,
+                                                                            value: 95,
                                                                         },
                                                                     ),
                                                                 ),
@@ -5000,7 +5000,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 94,
+                                                                                            value: 95,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5301,7 +5301,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 94,
+                                                                                            value: 95,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5505,7 +5505,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -5516,7 +5516,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -5690,7 +5690,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 94,
+                                                                                            value: 95,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5894,7 +5894,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -5905,7 +5905,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -6650,7 +6650,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -6661,7 +6661,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -6731,7 +6731,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 96,
+                                                    value: 97,
                                                 },
                                             ),
                                         ),
@@ -6753,7 +6753,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 96,
+                                                        value: 97,
                                                     },
                                                 ),
                                             ),
@@ -6796,7 +6796,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 96,
+                                                                            value: 97,
                                                                         },
                                                                     ),
                                                                 ),
@@ -6986,7 +6986,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 96,
+                                                                                            value: 97,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -7858,7 +7858,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -7869,7 +7869,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -7939,7 +7939,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 98,
+                                                    value: 99,
                                                 },
                                             ),
                                         ),
@@ -7961,7 +7961,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 98,
+                                                        value: 99,
                                                     },
                                                 ),
                                             ),
@@ -8004,7 +8004,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 98,
+                                                                            value: 99,
                                                                         },
                                                                     ),
                                                                 ),
@@ -8194,7 +8194,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 98,
+                                                                                            value: 99,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9066,7 +9066,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -9077,7 +9077,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -9147,7 +9147,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 100,
+                                                    value: 101,
                                                 },
                                             ),
                                         ),
@@ -9169,7 +9169,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 100,
+                                                        value: 101,
                                                     },
                                                 ),
                                             ),
@@ -9212,7 +9212,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 100,
+                                                                            value: 101,
                                                                         },
                                                                     ),
                                                                 ),
@@ -9402,7 +9402,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 100,
+                                                                                            value: 101,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -10274,7 +10274,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -10285,7 +10285,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -10355,7 +10355,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 102,
+                                                    value: 103,
                                                 },
                                             ),
                                         ),
@@ -10377,7 +10377,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 102,
+                                                        value: 103,
                                                     },
                                                 ),
                                             ),
@@ -10420,7 +10420,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 102,
+                                                                            value: 103,
                                                                         },
                                                                     ),
                                                                 ),
@@ -10610,7 +10610,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 102,
+                                                                                            value: 103,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -11482,7 +11482,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -11493,7 +11493,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -11563,7 +11563,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 104,
+                                                    value: 105,
                                                 },
                                             ),
                                         ),
@@ -11585,7 +11585,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 104,
+                                                        value: 105,
                                                     },
                                                 ),
                                             ),
@@ -11628,7 +11628,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 104,
+                                                                            value: 105,
                                                                         },
                                                                     ),
                                                                 ),
@@ -11818,7 +11818,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 104,
+                                                                                            value: 105,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -12690,7 +12690,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -12701,7 +12701,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -12771,7 +12771,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -12793,7 +12793,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -12836,7 +12836,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 106,
+                                                                            value: 107,
                                                                         },
                                                                     ),
                                                                 ),
@@ -13026,7 +13026,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 106,
+                                                                                            value: 107,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -13898,7 +13898,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -13909,7 +13909,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -13979,7 +13979,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 108,
+                                                    value: 109,
                                                 },
                                             ),
                                         ),
@@ -14001,7 +14001,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 108,
+                                                        value: 109,
                                                     },
                                                 ),
                                             ),
@@ -14044,7 +14044,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 108,
+                                                                            value: 109,
                                                                         },
                                                                     ),
                                                                 ),
@@ -14234,7 +14234,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 108,
+                                                                                            value: 109,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -15106,7 +15106,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -15117,7 +15117,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -15187,7 +15187,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 110,
+                                                    value: 111,
                                                 },
                                             ),
                                         ),
@@ -15209,7 +15209,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 110,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -15252,7 +15252,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 110,
+                                                                            value: 111,
                                                                         },
                                                                     ),
                                                                 ),
@@ -15442,7 +15442,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 110,
+                                                                                            value: 111,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -16314,7 +16314,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -16325,7 +16325,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -16395,7 +16395,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 112,
+                                                    value: 113,
                                                 },
                                             ),
                                         ),
@@ -16417,7 +16417,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 113,
                                                     },
                                                 ),
                                             ),
@@ -16460,7 +16460,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 112,
+                                                                            value: 113,
                                                                         },
                                                                     ),
                                                                 ),
@@ -16650,7 +16650,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 112,
+                                                                                            value: 113,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -17522,7 +17522,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -17533,7 +17533,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -17603,7 +17603,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 114,
+                                                    value: 115,
                                                 },
                                             ),
                                         ),
@@ -17625,7 +17625,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 114,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -17668,7 +17668,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 114,
+                                                                            value: 115,
                                                                         },
                                                                     ),
                                                                 ),
@@ -17858,7 +17858,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -18144,7 +18144,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -18445,7 +18445,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -18649,7 +18649,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -18660,7 +18660,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -18834,7 +18834,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -19038,7 +19038,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -19049,7 +19049,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -19208,7 +19208,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -19494,7 +19494,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -19780,7 +19780,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -20066,7 +20066,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 114,
+                                                                                            value: 115,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -20938,7 +20938,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -20949,7 +20949,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -21019,7 +21019,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 116,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -21041,7 +21041,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 116,
+                                                        value: 117,
                                                     },
                                                 ),
                                             ),
@@ -21084,7 +21084,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 116,
+                                                                            value: 117,
                                                                         },
                                                                     ),
                                                                 ),
@@ -21274,7 +21274,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 116,
+                                                                                            value: 117,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -21560,7 +21560,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 116,
+                                                                                            value: 117,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -22432,7 +22432,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                     },
@@ -22443,7 +22443,7 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: None,
+                                                    modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
