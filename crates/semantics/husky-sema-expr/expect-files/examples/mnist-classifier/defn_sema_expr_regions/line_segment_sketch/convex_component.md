@@ -445,7 +445,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 430,
+                                    value: 436,
                                 },
                             ),
                         ),
@@ -472,7 +472,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 255,
+                                                            value: 257,
                                                         },
                                                     ),
                                                 ),
@@ -512,7 +512,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 255,
+                                                    value: 257,
                                                 },
                                             ),
                                         ),
@@ -523,7 +523,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 75,
+                                                                value: 76,
                                                             },
                                                         ),
                                                     ),
@@ -540,7 +540,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 75,
+                                                    value: 76,
                                                 },
                                             ),
                                         ),
@@ -583,7 +583,7 @@
                                                     TraitForTypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 197,
+                                                                value: 198,
                                                             },
                                                         ),
                                                     ),
@@ -613,7 +613,7 @@
                                                         (
                                                             EtherealTermSymbol(
                                                                 Id {
-                                                                    value: 8,
+                                                                    value: 7,
                                                                 },
                                                             ),
                                                             Explicit(
@@ -623,7 +623,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 74,
+                                                                                    value: 75,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -803,7 +803,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 255,
+                                                                value: 257,
                                                             },
                                                         ),
                                                     ),
@@ -830,7 +830,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 75,
+                                                        value: 76,
                                                     },
                                                 ),
                                             ),
@@ -973,7 +973,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 255,
+                                    value: 257,
                                 },
                             ),
                         ),

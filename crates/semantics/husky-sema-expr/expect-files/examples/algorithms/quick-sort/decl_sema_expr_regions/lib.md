@@ -260,7 +260,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 224,
+                                    value: 225,
                                 },
                             ),
                         ),
@@ -371,7 +371,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -543,7 +545,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -559,7 +563,17 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -742,7 +756,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -1053,8 +1069,8 @@
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
                             RefMut,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
                         ],
                     },
                 },
@@ -1097,7 +1113,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     19,
                                 ),
@@ -1108,7 +1124,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     23,
                                 ),
@@ -1221,7 +1237,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 225,
+                                    value: 226,
                                 },
                             ),
                         ),
@@ -1332,7 +1348,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1638,7 +1656,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1654,7 +1674,17 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -1670,7 +1700,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -1690,7 +1728,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -1879,7 +1925,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -2289,8 +2337,8 @@
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
                             RefMut,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
                         ],
                     },
                 },
@@ -2333,7 +2381,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     19,
                                 ),
@@ -2344,7 +2392,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     23,
                                 ),
@@ -2461,7 +2509,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 226,
+                                    value: 227,
                                 },
                             ),
                         ),
@@ -2572,7 +2620,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -2943,7 +2993,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -2959,7 +3011,17 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -2975,7 +3037,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2995,7 +3065,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3184,7 +3262,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {
@@ -3448,7 +3528,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 227,
+                                    value: 228,
                                 },
                             ),
                         ),
@@ -3605,7 +3685,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 228,
+                                    value: 229,
                                 },
                             ),
                         ),

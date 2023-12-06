@@ -18,6 +18,7 @@ use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
+use husky_stack_location::StackLocationRegistry;
 use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
@@ -32,6 +33,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     declarative_term_region: &'a DeclarativeTermRegion,
+    stack_location_registry: StackLocationRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -55,6 +57,11 @@ impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
     fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
+
+    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry {
+        &mut self.stack_location_registry
+    }
+
     fn fluffy_term_region(&self) -> &FluffyTermRegion {
         &self.fluffy_term_region
     }
@@ -145,6 +152,7 @@ impl<'a> SemaExprEngine<'a> {
             syn_expr_region,
             syn_expr_region_data,
             declarative_term_region,
+            stack_location_registry: Default::default(),
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),

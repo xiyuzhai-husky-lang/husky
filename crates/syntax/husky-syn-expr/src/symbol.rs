@@ -291,12 +291,12 @@ impl CurrentSynSymbolData {
                 symbol_modifier_keyword_group,
                 ..
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::LoopVariable { .. } => SymbolModifier::None,
+            CurrentSynSymbolData::LoopVariable { .. } => SymbolModifier::Pure,
             CurrentSynSymbolData::SelfType => SymbolModifier::Const,
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::FieldVariable { .. } => SymbolModifier::None,
+            CurrentSynSymbolData::FieldVariable { .. } => SymbolModifier::Pure,
         }
     }
 }

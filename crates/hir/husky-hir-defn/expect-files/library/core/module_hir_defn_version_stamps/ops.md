@@ -15,7 +15,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 106,
+                        value: 107,
                     },
                 ),
             ),
@@ -37,7 +37,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 107,
+                        value: 108,
                     },
                 ),
             ),
@@ -59,7 +59,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 108,
+                        value: 109,
                     },
                 ),
             ),
@@ -81,7 +81,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 109,
+                        value: 110,
                     },
                 ),
             ),
@@ -103,7 +103,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 110,
+                        value: 111,
                     },
                 ),
             ),
@@ -125,7 +125,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 111,
+                        value: 112,
                     },
                 ),
             ),
@@ -147,7 +147,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 112,
+                        value: 113,
                     },
                 ),
             ),
@@ -169,7 +169,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 113,
+                        value: 114,
                     },
                 ),
             ),
@@ -191,7 +191,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 114,
+                        value: 115,
                     },
                 ),
             ),
@@ -213,7 +213,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 115,
+                        value: 116,
                     },
                 ),
             ),
@@ -235,7 +235,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 116,
+                        value: 117,
                     },
                 ),
             ),
@@ -257,7 +257,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 117,
+                        value: 118,
                     },
                 ),
             ),
@@ -279,7 +279,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 118,
+                        value: 119,
                     },
                 ),
             ),
@@ -301,7 +301,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 119,
+                        value: 120,
                     },
                 ),
             ),
@@ -323,7 +323,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 120,
+                        value: 121,
                     },
                 ),
             ),
@@ -345,7 +345,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 121,
+                        value: 122,
                     },
                 ),
             ),
@@ -367,7 +367,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 122,
+                        value: 123,
                     },
                 ),
             ),
@@ -389,7 +389,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 123,
+                        value: 124,
                     },
                 ),
             ),

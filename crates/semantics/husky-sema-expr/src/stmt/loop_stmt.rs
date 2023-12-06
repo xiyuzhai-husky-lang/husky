@@ -75,13 +75,18 @@ impl<'a> SemaExprEngine<'a> {
         let Some(expected_frame_var_ty) = expected_frame_var_ty else {
             todo!()
         };
-        let place = FluffyPlace::ImmutableStackOwned {
-            location: for_loop_var_symbol_idx
-                .into_local_symbol_idx(self.syn_expr_region_data())
-                .into(),
-        };
-        let frame_var_symbol_ty =
-            SymbolType::new(self, for_loop_var_symbol_idx, expected_frame_var_ty);
+        // let place = FluffyPlace::ImmutableStackOwned {
+        //     location: for_loop_var_symbol_idx
+        //         .into_local_symbol_idx(self.syn_expr_region_data())
+        //         .into(),
+        // };
+        let frame_var_symbol_ty = SymbolType::new_variable_ty(
+            self,
+            for_loop_var_symbol_idx,
+            SymbolModifier::Pure,
+            expected_frame_var_ty,
+        )
+        .unwrap();
         self.add_symbol_ty(for_loop_var_symbol_idx, frame_var_symbol_ty);
         let for_between_loop_var_expr_idx = self.build_sema_expr(
             particulars.for_between_loop_var_expr_idx,

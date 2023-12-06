@@ -1,6 +1,9 @@
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
-use std::num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8};
+use std::{
+    num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8},
+    ops::AddAssign,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
@@ -71,6 +74,12 @@ impl From<usize> for ShiftedU32 {
 impl Into<usize> for ShiftedU32 {
     fn into(self) -> usize {
         self.0.get() as usize - 1
+    }
+}
+
+impl AddAssign<u32> for ShiftedU32 {
+    fn add_assign(&mut self, rhs: u32) {
+        self.0 = unsafe { NonZeroU32::new_unchecked(self.0.get() + rhs) }
     }
 }
 

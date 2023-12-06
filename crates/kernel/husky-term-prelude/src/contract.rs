@@ -38,7 +38,7 @@ impl TermContract {
 impl From<SymbolModifier> for TermContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::None => TermContract::Pure,
+            SymbolModifier::Pure => TermContract::Pure,
             SymbolModifier::Mut => TermContract::Move,
             SymbolModifier::Ref => TermContract::Borrow,
             SymbolModifier::RefMut => TermContract::BorrowMut,

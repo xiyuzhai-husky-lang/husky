@@ -2972,7 +2972,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 302,
+                                                value: 303,
                                             },
                                         ),
                                     ),
@@ -2992,7 +2992,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 302,
+                                                    value: 303,
                                                 },
                                             ),
                                         ),

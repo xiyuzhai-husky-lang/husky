@@ -2,6 +2,7 @@ use crate::*
 
 pub use Option::*
 
+#derive(Debug, PartialEq, Eq, Clone, Copy)
 pub enum Option<T>
 | Some(T)
 | None

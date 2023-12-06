@@ -198,7 +198,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -218,7 +220,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -501,7 +505,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -521,7 +527,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -769,7 +777,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1022,7 +1032,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -1042,7 +1054,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1342,7 +1356,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 87,
+                                    value: 88,
                                 },
                             ),
                         ),
@@ -1456,7 +1470,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1624,7 +1640,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {
@@ -1806,7 +1824,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             Category(
                                                 TermCategory {

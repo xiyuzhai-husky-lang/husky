@@ -951,7 +951,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -977,7 +977,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1004,7 +1004,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1033,7 +1033,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1059,7 +1059,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1085,7 +1085,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1115,7 +1115,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1141,7 +1141,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1395,7 +1395,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1440,7 +1440,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1475,7 +1475,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1485,7 +1485,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1877,7 +1877,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2169,7 +2169,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2195,7 +2195,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2225,7 +2225,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2251,7 +2251,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2280,7 +2280,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2306,7 +2306,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2333,7 +2333,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2363,7 +2363,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2392,7 +2392,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2418,7 +2418,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2449,7 +2449,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2475,7 +2475,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 252,
+                                                                            value: 254,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2832,7 +2832,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2862,7 +2862,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 255,
+                                                            value: 257,
                                                         },
                                                     ),
                                                 ),
@@ -2873,7 +2873,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 253,
+                                                            value: 255,
                                                         },
                                                     ),
                                                 ),
@@ -2884,7 +2884,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2899,7 +2899,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2939,7 +2939,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 254,
+                                                            value: 256,
                                                         },
                                                     ),
                                                 ),
@@ -2950,7 +2950,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 256,
+                                                            value: 258,
                                                         },
                                                     ),
                                                 ),
@@ -2961,7 +2961,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2971,7 +2971,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -3006,7 +3006,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -3016,7 +3016,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 35,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -4413,7 +4413,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -4663,7 +4663,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -4853,7 +4853,7 @@
                                                             SelfPlace,
                                                         ),
                                                         HirTermSymbolResolution::SelfPlace(
-                                                            Transient,
+                                                            MutableStackOwned,
                                                         ),
                                                     ),
                                                 ],
@@ -6221,17 +6221,6 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 253,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        Unit(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
                                                             value: 255,
                                                         },
                                                     ),
@@ -6243,7 +6232,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 254,
+                                                            value: 257,
                                                         },
                                                     ),
                                                 ),
@@ -6255,6 +6244,17 @@
                                                     ItemPathId(
                                                         Id {
                                                             value: 256,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 258,
                                                         },
                                                     ),
                                                 ),

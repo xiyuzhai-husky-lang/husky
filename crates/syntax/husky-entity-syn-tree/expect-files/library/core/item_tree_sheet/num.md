@@ -3667,7 +3667,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 91,
                                             },
                                         ),
                                     ),
@@ -3687,7 +3687,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 91,
                                                 },
                                             ),
                                         ),
@@ -3702,7 +3702,7 @@ EntitySynTreeSheet {
                             35,
                         ),
                     },
-                    ty_expr: 4,
+                    ty_expr: 5,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             1..3,
@@ -3762,12 +3762,12 @@ EntitySynTreeSheet {
                             57,
                         ),
                     },
-                    trai_expr: 5,
+                    trai_expr: 6,
                     for_token: TokenIdx(
                         60,
                     ),
                     ty_sketch_expr: Path(
-                        6,
+                        7,
                     ),
                     items: Some(
                         TraitForType(
@@ -3791,7 +3791,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 92,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -3811,7 +3811,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 92,
+                                                    value: 93,
                                                 },
                                             ),
                                         ),
@@ -3826,7 +3826,7 @@ EntitySynTreeSheet {
                             98,
                         ),
                     },
-                    ty_expr: 7,
+                    ty_expr: 8,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             4..6,
@@ -3886,12 +3886,12 @@ EntitySynTreeSheet {
                             120,
                         ),
                     },
-                    trai_expr: 8,
+                    trai_expr: 9,
                     for_token: TokenIdx(
                         123,
                     ),
                     ty_sketch_expr: Path(
-                        9,
+                        10,
                     ),
                     items: Some(
                         TraitForType(
@@ -3915,7 +3915,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 94,
+                                                value: 95,
                                             },
                                         ),
                                     ),
@@ -3935,7 +3935,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 94,
+                                                    value: 95,
                                                 },
                                             ),
                                         ),
@@ -3950,7 +3950,7 @@ EntitySynTreeSheet {
                             161,
                         ),
                     },
-                    ty_expr: 10,
+                    ty_expr: 11,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             7..10,
@@ -4010,12 +4010,12 @@ EntitySynTreeSheet {
                             194,
                         ),
                     },
-                    trai_expr: 11,
+                    trai_expr: 12,
                     for_token: TokenIdx(
                         197,
                     ),
                     ty_sketch_expr: Path(
-                        12,
+                        13,
                     ),
                     items: Some(
                         TraitForType(
@@ -4039,7 +4039,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 96,
+                                                value: 97,
                                             },
                                         ),
                                     ),
@@ -4059,7 +4059,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 96,
+                                                    value: 97,
                                                 },
                                             ),
                                         ),
@@ -4074,7 +4074,7 @@ EntitySynTreeSheet {
                             234,
                         ),
                     },
-                    ty_expr: 13,
+                    ty_expr: 14,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             11..12,
@@ -4134,12 +4134,12 @@ EntitySynTreeSheet {
                             245,
                         ),
                     },
-                    trai_expr: 14,
+                    trai_expr: 15,
                     for_token: TokenIdx(
                         248,
                     ),
                     ty_sketch_expr: Path(
-                        15,
+                        16,
                     ),
                     items: Some(
                         TraitForType(
@@ -4163,7 +4163,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 98,
+                                                value: 99,
                                             },
                                         ),
                                     ),
@@ -4183,7 +4183,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 98,
+                                                    value: 99,
                                                 },
                                             ),
                                         ),
@@ -4198,7 +4198,7 @@ EntitySynTreeSheet {
                             286,
                         ),
                     },
-                    ty_expr: 16,
+                    ty_expr: 17,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             13..14,
@@ -4258,12 +4258,12 @@ EntitySynTreeSheet {
                             297,
                         ),
                     },
-                    trai_expr: 17,
+                    trai_expr: 18,
                     for_token: TokenIdx(
                         300,
                     ),
                     ty_sketch_expr: Path(
-                        18,
+                        19,
                     ),
                     items: Some(
                         TraitForType(
@@ -4287,7 +4287,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 100,
+                                                value: 101,
                                             },
                                         ),
                                     ),
@@ -4307,7 +4307,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 100,
+                                                    value: 101,
                                                 },
                                             ),
                                         ),
@@ -4322,7 +4322,7 @@ EntitySynTreeSheet {
                             338,
                         ),
                     },
-                    ty_expr: 19,
+                    ty_expr: 20,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             15..16,
@@ -4382,12 +4382,12 @@ EntitySynTreeSheet {
                             349,
                         ),
                     },
-                    trai_expr: 20,
+                    trai_expr: 21,
                     for_token: TokenIdx(
                         352,
                     ),
                     ty_sketch_expr: Path(
-                        21,
+                        22,
                     ),
                     items: Some(
                         TraitForType(
@@ -4411,7 +4411,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 102,
+                                                value: 103,
                                             },
                                         ),
                                     ),
@@ -4431,7 +4431,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 102,
+                                                    value: 103,
                                                 },
                                             ),
                                         ),
@@ -4446,7 +4446,7 @@ EntitySynTreeSheet {
                             390,
                         ),
                     },
-                    ty_expr: 22,
+                    ty_expr: 23,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             17..18,
@@ -4506,12 +4506,12 @@ EntitySynTreeSheet {
                             401,
                         ),
                     },
-                    trai_expr: 23,
+                    trai_expr: 24,
                     for_token: TokenIdx(
                         404,
                     ),
                     ty_sketch_expr: Path(
-                        24,
+                        25,
                     ),
                     items: Some(
                         TraitForType(
@@ -4535,7 +4535,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 104,
+                                                value: 105,
                                             },
                                         ),
                                     ),
@@ -4555,7 +4555,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 104,
+                                                    value: 105,
                                                 },
                                             ),
                                         ),
@@ -4570,7 +4570,7 @@ EntitySynTreeSheet {
                             442,
                         ),
                     },
-                    ty_expr: 25,
+                    ty_expr: 26,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             19..20,
@@ -4630,12 +4630,12 @@ EntitySynTreeSheet {
                             453,
                         ),
                     },
-                    trai_expr: 26,
+                    trai_expr: 27,
                     for_token: TokenIdx(
                         456,
                     ),
                     ty_sketch_expr: Path(
-                        27,
+                        28,
                     ),
                     items: Some(
                         TraitForType(
@@ -4659,7 +4659,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 106,
+                                                value: 107,
                                             },
                                         ),
                                     ),
@@ -4679,7 +4679,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -4694,7 +4694,7 @@ EntitySynTreeSheet {
                             494,
                         ),
                     },
-                    ty_expr: 28,
+                    ty_expr: 29,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             21..22,
@@ -4754,12 +4754,12 @@ EntitySynTreeSheet {
                             505,
                         ),
                     },
-                    trai_expr: 29,
+                    trai_expr: 30,
                     for_token: TokenIdx(
                         508,
                     ),
                     ty_sketch_expr: Path(
-                        30,
+                        31,
                     ),
                     items: Some(
                         TraitForType(
@@ -4783,7 +4783,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 108,
+                                                value: 109,
                                             },
                                         ),
                                     ),
@@ -4803,7 +4803,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 108,
+                                                    value: 109,
                                                 },
                                             ),
                                         ),
@@ -4818,7 +4818,7 @@ EntitySynTreeSheet {
                             546,
                         ),
                     },
-                    ty_expr: 31,
+                    ty_expr: 32,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             23..24,
@@ -4878,12 +4878,12 @@ EntitySynTreeSheet {
                             557,
                         ),
                     },
-                    trai_expr: 32,
+                    trai_expr: 33,
                     for_token: TokenIdx(
                         560,
                     ),
                     ty_sketch_expr: Path(
-                        33,
+                        34,
                     ),
                     items: Some(
                         TraitForType(
@@ -4907,7 +4907,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 110,
+                                                value: 111,
                                             },
                                         ),
                                     ),
@@ -4927,7 +4927,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 110,
+                                                    value: 111,
                                                 },
                                             ),
                                         ),
@@ -4942,7 +4942,7 @@ EntitySynTreeSheet {
                             598,
                         ),
                     },
-                    ty_expr: 34,
+                    ty_expr: 35,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             25..26,
@@ -5002,12 +5002,12 @@ EntitySynTreeSheet {
                             609,
                         ),
                     },
-                    trai_expr: 35,
+                    trai_expr: 36,
                     for_token: TokenIdx(
                         612,
                     ),
                     ty_sketch_expr: Path(
-                        36,
+                        37,
                     ),
                     items: Some(
                         TraitForType(
@@ -5031,7 +5031,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 112,
+                                                value: 113,
                                             },
                                         ),
                                     ),
@@ -5051,7 +5051,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 112,
+                                                    value: 113,
                                                 },
                                             ),
                                         ),
@@ -5066,7 +5066,7 @@ EntitySynTreeSheet {
                             650,
                         ),
                     },
-                    ty_expr: 37,
+                    ty_expr: 38,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             27..28,
@@ -5126,12 +5126,12 @@ EntitySynTreeSheet {
                             661,
                         ),
                     },
-                    trai_expr: 38,
+                    trai_expr: 39,
                     for_token: TokenIdx(
                         664,
                     ),
                     ty_sketch_expr: Path(
-                        39,
+                        40,
                     ),
                     items: Some(
                         TraitForType(
@@ -5155,7 +5155,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 114,
+                                                value: 115,
                                             },
                                         ),
                                     ),
@@ -5175,7 +5175,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 114,
+                                                    value: 115,
                                                 },
                                             ),
                                         ),
@@ -5190,7 +5190,7 @@ EntitySynTreeSheet {
                             702,
                         ),
                     },
-                    ty_expr: 40,
+                    ty_expr: 41,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             29..37,
@@ -5250,12 +5250,12 @@ EntitySynTreeSheet {
                             775,
                         ),
                     },
-                    trai_expr: 41,
+                    trai_expr: 42,
                     for_token: TokenIdx(
                         778,
                     ),
                     ty_sketch_expr: Path(
-                        42,
+                        43,
                     ),
                     items: Some(
                         TraitForType(
@@ -5279,7 +5279,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 116,
+                                                value: 117,
                                             },
                                         ),
                                     ),
@@ -5299,7 +5299,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 116,
+                                                    value: 117,
                                                 },
                                             ),
                                         ),
@@ -5314,7 +5314,7 @@ EntitySynTreeSheet {
                             815,
                         ),
                     },
-                    ty_expr: 43,
+                    ty_expr: 44,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             38..40,
@@ -5374,12 +5374,12 @@ EntitySynTreeSheet {
                             834,
                         ),
                     },
-                    trai_expr: 44,
+                    trai_expr: 45,
                     for_token: TokenIdx(
                         837,
                     ),
                     ty_sketch_expr: Path(
-                        45,
+                        46,
                     ),
                     items: Some(
                         TraitForType(

@@ -76,11 +76,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 3,
+                        ast_idx: 4,
                         ident_token: IdentToken {
                             ident: `Sized`,
                             token_idx: TokenIdx(
-                                11,
+                                18,
                             ),
                         },
                         block: DefnBlock::Trait {
@@ -2875,7 +2875,80 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    impl_block_syn_node_table: [],
+    impl_block_syn_node_table: [
+        (
+            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::marker`,
+                                            trai_path: TraitPath(`core::marker::Copy`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::marker`,
+                                                trai_path: TraitPath(`core::marker::Copy`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 3,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
+                    trai_expr: 2,
+                    for_token: TokenIdx(
+                        11,
+                    ),
+                    ty_sketch_expr: DeriveAny {
+                        pound_token: PoundToken(
+                            TokenIdx(
+                                12,
+                            ),
+                        ),
+                        derive_token: DeriveToken {
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                        underscore_token: UnderscoreToken {
+                            token_idx: TokenIdx(
+                                14,
+                            ),
+                        },
+                    },
+                    items: None,
+                },
+            ),
+        ),
+    ],
     once_use_rules: UseOneRules(
         [
             UseOneRule {

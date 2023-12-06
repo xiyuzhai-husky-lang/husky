@@ -169,7 +169,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     9,
                                 ),
@@ -184,7 +184,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     15,
                                 ),
@@ -282,7 +282,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 271,
+                                    value: 272,
                                 },
                             ),
                         ),
@@ -301,7 +301,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 278,
                                                     },
                                                 ),
                                             ),
@@ -421,7 +421,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 276,
+                                                        value: 277,
                                                     },
                                                 ),
                                             ),
@@ -545,7 +545,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 277,
+                                                    value: 278,
                                                 },
                                             ),
                                         ),
@@ -629,7 +629,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 276,
+                                                    value: 277,
                                                 },
                                             ),
                                         ),
@@ -668,7 +668,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -684,7 +692,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -1001,7 +1017,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -1184,7 +1200,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -1195,7 +1211,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     6,
                                 ),
@@ -1256,7 +1272,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 272,
+                                    value: 273,
                                 },
                             ),
                         ),
@@ -1275,7 +1291,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 278,
                                                     },
                                                 ),
                                             ),
@@ -1361,7 +1377,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -1463,7 +1479,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 277,
+                                                    value: 278,
                                                 },
                                             ),
                                         ),
@@ -1528,7 +1544,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -1567,7 +1583,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -2008,7 +2032,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 369,
+                                    value: 370,
                                 },
                             ),
                         ),
@@ -2064,7 +2088,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -2159,7 +2183,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -2279,7 +2303,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -2588,7 +2612,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 423,
+                                    value: 424,
                                 },
                             ),
                         ),
@@ -2761,7 +2785,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -2782,7 +2806,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 399,
+                                                    value: 400,
                                                 },
                                             ),
                                         ),
@@ -2808,7 +2832,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 399,
+                                                            value: 400,
                                                         },
                                                     ),
                                                 ),
@@ -2901,7 +2925,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 370,
+                                    value: 371,
                                 },
                             ),
                         ),
@@ -2920,7 +2944,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -2983,7 +3007,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -3074,7 +3098,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -3121,7 +3145,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -3218,414 +3242,6 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::f32`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `f32`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::f32`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 424,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 52,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 283,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                                        TypeImplBlockSynNodePathData {
-                                                            path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 399,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `ConcaveComponent`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
-                                            TypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -3890,7 +3506,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -3909,7 +3525,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -3937,7 +3553,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -4033,7 +3649,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -4298,7 +3914,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -4317,7 +3933,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4345,7 +3961,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -4441,7 +4057,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -4706,7 +4322,415 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 400,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `ConcaveComponent`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 1,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TypeItem(
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::f32`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `f32`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        4,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 428,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 52,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -4753,7 +4777,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -4888,414 +4912,6 @@
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 428,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 270,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 270,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 283,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                                        TypeImplBlockSynNodePathData {
-                                                            path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 399,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `ConcaveComponent`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
-                                            TypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `RelativeBoundingBox`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),
                         },
@@ -5522,7 +5138,415 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 400,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `ConcaveComponent`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 1,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TypeItem(
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `RelativeBoundingBox`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        4,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 430,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 272,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 272,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -5569,7 +5593,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -5757,7 +5781,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 430,
+                                    value: 431,
                                 },
                             ),
                         ),
@@ -5776,7 +5800,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 287,
+                                                        value: 288,
                                                     },
                                                 ),
                                             ),
@@ -5839,7 +5863,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 287,
+                                                    value: 288,
                                                 },
                                             ),
                                         ),
@@ -5930,7 +5954,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -5977,7 +6001,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -6165,7 +6189,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 431,
+                                    value: 432,
                                 },
                             ),
                         ),
@@ -6184,7 +6208,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 266,
+                                                        value: 267,
                                                     },
                                                 ),
                                             ),
@@ -6247,7 +6271,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 266,
+                                                    value: 267,
                                                 },
                                             ),
                                         ),
@@ -6338,7 +6362,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -6385,7 +6409,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -6573,7 +6597,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 432,
+                                    value: 433,
                                 },
                             ),
                         ),
@@ -6592,7 +6616,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 266,
+                                                        value: 267,
                                                     },
                                                 ),
                                             ),
@@ -6655,7 +6679,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 266,
+                                                    value: 267,
                                                 },
                                             ),
                                         ),
@@ -6746,7 +6770,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -6793,7 +6817,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -6981,7 +7005,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 433,
+                                    value: 434,
                                 },
                             ),
                         ),
@@ -7000,7 +7024,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 268,
+                                                        value: 269,
                                                     },
                                                 ),
                                             ),
@@ -7063,7 +7087,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 268,
+                                                    value: 269,
                                                 },
                                             ),
                                         ),
@@ -7154,7 +7178,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -7201,7 +7225,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -7389,7 +7413,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 434,
+                                    value: 435,
                                 },
                             ),
                         ),
@@ -7408,7 +7432,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 268,
+                                                        value: 269,
                                                     },
                                                 ),
                                             ),
@@ -7471,7 +7495,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 268,
+                                                    value: 269,
                                                 },
                                             ),
                                         ),
@@ -7562,7 +7586,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),
@@ -7609,7 +7633,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 399,
+                                                                        value: 400,
                                                                     },
                                                                 ),
                                                             ),
@@ -7797,7 +7821,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 435,
+                                    value: 436,
                                 },
                             ),
                         ),
@@ -7816,7 +7840,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 268,
+                                                        value: 269,
                                                     },
                                                 ),
                                             ),
@@ -7879,7 +7903,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 268,
+                                                    value: 269,
                                                 },
                                             ),
                                         ),
@@ -7970,7 +7994,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 283,
+                                    value: 284,
                                 },
                             ),
                         ),

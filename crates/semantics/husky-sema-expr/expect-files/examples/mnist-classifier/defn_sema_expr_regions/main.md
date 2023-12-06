@@ -336,7 +336,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 322,
+                                                                value: 324,
                                                             },
                                                         ),
                                                     ),
@@ -537,7 +537,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 322,
+                                                                value: 324,
                                                             },
                                                         ),
                                                     ),
@@ -706,7 +706,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 206,
+                                    value: 208,
                                 },
                             ),
                         ),
@@ -725,7 +725,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 274,
+                                                        value: 276,
                                                     },
                                                 ),
                                             ),
@@ -741,7 +741,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 27,
+                                                    value: 28,
                                                 },
                                             ),
                                         ),
@@ -789,7 +789,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 280,
+                                                        value: 282,
                                                     },
                                                 ),
                                             ),
@@ -805,7 +805,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 29,
+                                                    value: 30,
                                                 },
                                             ),
                                         ),
@@ -853,7 +853,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 272,
+                                                        value: 274,
                                                     },
                                                 ),
                                             ),
@@ -869,7 +869,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 31,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -917,7 +917,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 301,
+                                                        value: 303,
                                                     },
                                                 ),
                                             ),
@@ -933,7 +933,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 33,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -981,7 +981,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 303,
+                                                        value: 305,
                                                     },
                                                 ),
                                             ),
@@ -997,7 +997,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 35,
+                                                    value: 36,
                                                 },
                                             ),
                                         ),
@@ -1045,7 +1045,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 284,
+                                                        value: 286,
                                                     },
                                                 ),
                                             ),
@@ -1061,7 +1061,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 37,
+                                                    value: 38,
                                                 },
                                             ),
                                         ),
@@ -1109,7 +1109,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 307,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -1125,7 +1125,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 39,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -1173,7 +1173,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 295,
+                                                        value: 297,
                                                     },
                                                 ),
                                             ),
@@ -1189,7 +1189,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 41,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -1237,7 +1237,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 314,
+                                                        value: 316,
                                                     },
                                                 ),
                                             ),
@@ -1253,7 +1253,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 43,
+                                                    value: 44,
                                                 },
                                             ),
                                         ),
@@ -1300,7 +1300,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 324,
+                                                    value: 326,
                                                 },
                                             ),
                                         ),
@@ -1315,7 +1315,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 16,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -1340,7 +1340,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 16,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -1642,7 +1642,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 16,
+                                                    value: 17,
                                                 },
                                             ),
                                         ),
@@ -1718,7 +1718,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 27,
+                                                        value: 28,
                                                     },
                                                 ),
                                             ),
@@ -1798,7 +1798,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 29,
+                                                        value: 30,
                                                     },
                                                 ),
                                             ),
@@ -1878,7 +1878,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 31,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -1958,7 +1958,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 33,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -2038,7 +2038,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 35,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -2118,7 +2118,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 37,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -2198,7 +2198,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 39,
+                                                        value: 40,
                                                     },
                                                 ),
                                             ),
@@ -2278,7 +2278,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 41,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -2358,7 +2358,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 43,
+                                                        value: 44,
                                                     },
                                                 ),
                                             ),
@@ -2432,7 +2432,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 16,
+                                                            value: 17,
                                                         },
                                                     ),
                                                 ),
@@ -2452,7 +2452,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 16,
+                                                        value: 17,
                                                     },
                                                 ),
                                             ),
@@ -2479,7 +2479,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 16,
+                                                            value: 17,
                                                         },
                                                     ),
                                                 ),
@@ -2499,7 +2499,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 16,
+                                                        value: 17,
                                                     },
                                                 ),
                                             ),
@@ -2525,7 +2525,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 16,
+                            value: 17,
                         },
                     ),
                 ),

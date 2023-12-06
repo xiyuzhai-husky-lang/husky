@@ -20,6 +20,63 @@ TokenSheetData {
                 PunctuationMapped::Star,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `derive`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `Debug`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `PartialEq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Eq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Copy`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -36,6 +93,63 @@ TokenSheetData {
                 PunctuationMapped::Semicolon,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `derive`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `Debug`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `PartialEq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Eq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Copy`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -50,6 +164,63 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `derive`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `Debug`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `PartialEq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Eq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Ident(
+            `Copy`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
             ),
         ),
         TokenData::Keyword(
@@ -146,36 +317,54 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                9,
+                18,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                13,
+                22,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                17,
+                35,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                21,
+                39,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                25,
+                52,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                29,
+                56,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                60,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                64,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                68,
             ),
         ),
     ],
     indents: [
+        0,
+        0,
+        0,
         0,
         0,
         0,

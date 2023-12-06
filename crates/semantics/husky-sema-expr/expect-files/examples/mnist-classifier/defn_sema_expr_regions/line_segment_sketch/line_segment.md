@@ -40,7 +40,7 @@
                                                                         path: TypeImplBlockPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 371,
+                                                                                    value: 373,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -372,7 +372,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 427,
+                                    value: 433,
                                 },
                             ),
                         ),
@@ -399,7 +399,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -439,7 +439,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 257,
+                                                    value: 259,
                                                 },
                                             ),
                                         ),
@@ -452,7 +452,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 236,
+                                                                        value: 238,
                                                                     },
                                                                 ),
                                                             ),
@@ -473,7 +473,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -500,7 +500,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -540,7 +540,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 257,
+                                                    value: 259,
                                                 },
                                             ),
                                         ),
@@ -553,7 +553,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 236,
+                                                                        value: 238,
                                                                     },
                                                                 ),
                                                             ),
@@ -574,7 +574,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -617,7 +617,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 435,
+                                                                value: 440,
                                                             },
                                                         ),
                                                     ),
@@ -634,7 +634,7 @@
                                                                             TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 236,
+                                                                                        value: 238,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -653,7 +653,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 238,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -689,7 +689,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 236,
+                                                                            value: 238,
                                                                         },
                                                                     ),
                                                                 ),
@@ -720,7 +720,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -749,7 +749,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -785,7 +785,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -865,7 +865,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 257,
+                                                                value: 259,
                                                             },
                                                         ),
                                                     ),
@@ -894,7 +894,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 236,
+                                                                value: 238,
                                                             },
                                                         ),
                                                     ),
@@ -923,7 +923,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 257,
+                                                                value: 259,
                                                             },
                                                         ),
                                                     ),
@@ -946,7 +946,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 236,
+                                                                    value: 238,
                                                                 },
                                                             ),
                                                         ),
@@ -970,7 +970,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 236,
+                                                                value: 238,
                                                             },
                                                         ),
                                                     ),
@@ -1001,7 +1001,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 238,
+                                                                    value: 240,
                                                                 },
                                                             ),
                                                         ),
@@ -1025,7 +1025,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -1056,7 +1056,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 238,
+                                                                    value: 240,
                                                                 },
                                                             ),
                                                         ),
@@ -1080,7 +1080,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -1110,7 +1110,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 238,
+                                    value: 240,
                                 },
                             ),
                         ),
@@ -1123,7 +1123,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 257,
+                                    value: 259,
                                 },
                             ),
                         ),
@@ -1173,7 +1173,7 @@
                                                                         path: TypeImplBlockPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 371,
+                                                                                    value: 373,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1377,7 +1377,7 @@
                                 ],
                                 pattern_symbol_modifiers: ArenaMap {
                                     data: [
-                                        None,
+                                        Pure,
                                     ],
                                 },
                             },
@@ -1388,7 +1388,7 @@
                                 current_syn_symbol_arena: Arena {
                                     data: [
                                         CurrentSynSymbol {
-                                            modifier: None,
+                                            modifier: Pure,
                                             access_start: RegionalTokenIdx(
                                                 5,
                                             ),
@@ -2174,9 +2174,9 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
+                            Pure,
                         ],
                     },
                 },
@@ -2187,7 +2187,7 @@
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
-                                modifier: None,
+                                modifier: Pure,
                                 kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `pt`,
                                 },
@@ -2197,7 +2197,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     3,
                                 ),
@@ -2214,7 +2214,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     11,
                                 ),
@@ -2231,7 +2231,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     39,
                                 ),
@@ -2322,7 +2322,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 428,
+                                    value: 434,
                                 },
                             ),
                         ),
@@ -2349,7 +2349,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -2392,7 +2392,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 442,
+                                                                value: 448,
                                                             },
                                                         ),
                                                     ),
@@ -2406,7 +2406,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 238,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2445,7 +2445,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -2472,7 +2472,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -2512,7 +2512,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 257,
+                                                    value: 259,
                                                 },
                                             ),
                                         ),
@@ -2525,7 +2525,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 236,
+                                                                        value: 238,
                                                                     },
                                                                 ),
                                                             ),
@@ -2546,7 +2546,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -2583,14 +2583,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -2633,229 +2641,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 435,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                parenate_parameters: [
-                                                    Regular(
-                                                        FluffyTermRitchieRegularParameter {
-                                                            contract: Pure,
-                                                            ty: FluffyTerm {
-                                                                place: None,
-                                                                base: Ethereal(
-                                                                    EntityPath(
-                                                                        TypeOntology(
-                                                                            TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 236,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            },
-                                                        },
-                                                    ),
-                                                ],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 238,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                instantiation: FluffyInstantiation {
-                                                    env: MethodFn {
-                                                        self_place: Transient,
-                                                    },
-                                                    symbol_map: [],
-                                                    separator: Some(
-                                                        0,
-                                                    ),
-                                                },
-                                            },
-                                        ),
-                                    },
-                                    template_arguments: None,
-                                    lpar_regional_token_idx: RegionalTokenIdx(
-                                        17,
-                                    ),
-                                    ritchie_parameter_argument_matches: [
-                                        Regular(
-                                            FluffyTermRitchieRegularParameter {
-                                                contract: Pure,
-                                                ty: FluffyTerm {
-                                                    place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 236,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            SemaRegularCallListItem {
-                                                argument_expr_idx: SemaExprIdx(
-                                                    5,
-                                                ),
-                                                separator: None,
-                                            },
-                                        ),
-                                    ],
-                                    rpar_regional_token_idx: RegionalTokenIdx(
-                                        19,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 423,
-                                            },
-                                        ),
-                                    ),
-                                    regional_token_idx: RegionalTokenIdx(
-                                        21,
-                                    ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: LetVariable {
-                                        pattern_symbol_idx: 1,
-                                    },
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 424,
-                                            },
-                                        ),
-                                    ),
-                                    regional_token_idx: RegionalTokenIdx(
-                                        25,
-                                    ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: LetVariable {
-                                        pattern_symbol_idx: 2,
-                                    },
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                MethodFnCall {
-                                    self_argument_sema_expr_idx: SemaExprIdx(
-                                        7,
-                                    ),
-                                    dot_regional_token_idx: RegionalTokenIdx(
-                                        22,
-                                    ),
-                                    ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 348,
-                                                },
-                                            ),
-                                        ),
-                                        regional_token_idx: RegionalTokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
-                                            initial_place: Transient,
-                                            indirections: [],
-                                            final_place: Transient,
-                                        },
-                                        signature: MethodFn(
-                                            MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 419,
+                                                                value: 440,
                                                             },
                                                         ),
                                                     ),
@@ -2891,7 +2677,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 52,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2902,6 +2688,262 @@
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
                                                         self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    },
+                                    template_arguments: None,
+                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                        17,
+                                    ),
+                                    ritchie_parameter_argument_matches: [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: Pure,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 238,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            SemaRegularCallListItem {
+                                                argument_expr_idx: SemaExprIdx(
+                                                    5,
+                                                ),
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                        19,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSynSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 423,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        21,
+                                    ),
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
+                                        pattern_symbol_idx: 1,
+                                    },
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSynSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 424,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        25,
+                                    ),
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
+                                        pattern_symbol_idx: 2,
+                                    },
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                MethodFnCall {
+                                    self_argument_sema_expr_idx: SemaExprIdx(
+                                        7,
+                                    ),
+                                    dot_regional_token_idx: RegionalTokenIdx(
+                                        22,
+                                    ),
+                                    ident_token: IdentRegionalToken {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 348,
+                                                },
+                                            ),
+                                        ),
+                                        regional_token_idx: RegionalTokenIdx(
+                                            23,
+                                        ),
+                                    },
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyIndirections {
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                            indirections: [],
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        signature: MethodFn(
+                                            MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 424,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                parenate_parameters: [
+                                                    Regular(
+                                                        FluffyTermRitchieRegularParameter {
+                                                            contract: Pure,
+                                                            ty: FluffyTerm {
+                                                                place: None,
+                                                                base: Ethereal(
+                                                                    EntityPath(
+                                                                        TypeOntology(
+                                                                            TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 240,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                ],
+                                                return_ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 52,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -2927,7 +2969,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 238,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3071,14 +3113,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -3111,9 +3161,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -3121,7 +3183,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 418,
+                                                                value: 423,
                                                             },
                                                         ),
                                                     ),
@@ -3145,7 +3207,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -3201,7 +3269,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -3241,7 +3309,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 257,
+                                                    value: 259,
                                                 },
                                             ),
                                         ),
@@ -3254,7 +3322,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 236,
+                                                                        value: 238,
                                                                     },
                                                                 ),
                                                             ),
@@ -3275,7 +3343,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -3312,14 +3380,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -3362,229 +3438,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 435,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                parenate_parameters: [
-                                                    Regular(
-                                                        FluffyTermRitchieRegularParameter {
-                                                            contract: Pure,
-                                                            ty: FluffyTerm {
-                                                                place: None,
-                                                                base: Ethereal(
-                                                                    EntityPath(
-                                                                        TypeOntology(
-                                                                            TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 236,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            },
-                                                        },
-                                                    ),
-                                                ],
-                                                return_ty: FluffyTerm {
-                                                    place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 238,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                instantiation: FluffyInstantiation {
-                                                    env: MethodFn {
-                                                        self_place: Transient,
-                                                    },
-                                                    symbol_map: [],
-                                                    separator: Some(
-                                                        0,
-                                                    ),
-                                                },
-                                            },
-                                        ),
-                                    },
-                                    template_arguments: None,
-                                    lpar_regional_token_idx: RegionalTokenIdx(
-                                        45,
-                                    ),
-                                    ritchie_parameter_argument_matches: [
-                                        Regular(
-                                            FluffyTermRitchieRegularParameter {
-                                                contract: Pure,
-                                                ty: FluffyTerm {
-                                                    place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 236,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            SemaRegularCallListItem {
-                                                argument_expr_idx: SemaExprIdx(
-                                                    16,
-                                                ),
-                                                separator: None,
-                                            },
-                                        ),
-                                    ],
-                                    rpar_regional_token_idx: RegionalTokenIdx(
-                                        47,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 423,
-                                            },
-                                        ),
-                                    ),
-                                    regional_token_idx: RegionalTokenIdx(
-                                        49,
-                                    ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: LetVariable {
-                                        pattern_symbol_idx: 1,
-                                    },
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 425,
-                                            },
-                                        ),
-                                    ),
-                                    regional_token_idx: RegionalTokenIdx(
-                                        53,
-                                    ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
-                                        pattern_symbol_idx: 3,
-                                    },
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 238,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                MethodFnCall {
-                                    self_argument_sema_expr_idx: SemaExprIdx(
-                                        18,
-                                    ),
-                                    dot_regional_token_idx: RegionalTokenIdx(
-                                        50,
-                                    ),
-                                    ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 348,
-                                                },
-                                            ),
-                                        ),
-                                        regional_token_idx: RegionalTokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                    dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyIndirections {
-                                            initial_place: Transient,
-                                            indirections: [],
-                                            final_place: Transient,
-                                        },
-                                        signature: MethodFn(
-                                            MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 419,
+                                                                value: 440,
                                                             },
                                                         ),
                                                     ),
@@ -3620,7 +3474,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 52,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3631,6 +3485,262 @@
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
                                                         self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    },
+                                    template_arguments: None,
+                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                        45,
+                                    ),
+                                    ritchie_parameter_argument_matches: [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: Pure,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 238,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            SemaRegularCallListItem {
+                                                argument_expr_idx: SemaExprIdx(
+                                                    16,
+                                                ),
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                        47,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSynSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 423,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        49,
+                                    ),
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
+                                        pattern_symbol_idx: 1,
+                                    },
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                CurrentSynSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 425,
+                                            },
+                                        ),
+                                    ),
+                                    regional_token_idx: RegionalTokenIdx(
+                                        53,
+                                    ),
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: LetVariable {
+                                        pattern_symbol_idx: 3,
+                                    },
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 240,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                MethodFnCall {
+                                    self_argument_sema_expr_idx: SemaExprIdx(
+                                        18,
+                                    ),
+                                    dot_regional_token_idx: RegionalTokenIdx(
+                                        50,
+                                    ),
+                                    ident_token: IdentRegionalToken {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 348,
+                                                },
+                                            ),
+                                        ),
+                                        regional_token_idx: RegionalTokenIdx(
+                                            51,
+                                        ),
+                                    },
+                                    dispatch: FluffyDynamicDispatch {
+                                        indirections: FluffyIndirections {
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                            indirections: [],
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        signature: MethodFn(
+                                            MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 424,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                parenate_parameters: [
+                                                    Regular(
+                                                        FluffyTermRitchieRegularParameter {
+                                                            contract: Pure,
+                                                            ty: FluffyTerm {
+                                                                place: None,
+                                                                base: Ethereal(
+                                                                    EntityPath(
+                                                                        TypeOntology(
+                                                                            TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 240,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                ],
+                                                return_ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 52,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -3656,7 +3766,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 238,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3800,14 +3910,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -3840,9 +3958,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -3850,7 +3980,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 418,
+                                                                value: 423,
                                                             },
                                                         ),
                                                     ),
@@ -3874,7 +4004,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -3934,14 +4070,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -3972,14 +4116,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4012,9 +4164,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -4022,7 +4186,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 420,
+                                                                value: 425,
                                                             },
                                                         ),
                                                     ),
@@ -4039,7 +4203,7 @@
                                                                             TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 238,
+                                                                                        value: 240,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -4068,7 +4232,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -4094,7 +4264,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 238,
+                                                                            value: 240,
                                                                         },
                                                                     ),
                                                                 ),
@@ -4168,7 +4338,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 154,
+                                                                value: 155,
                                                             },
                                                         ),
                                                     ),
@@ -4252,14 +4422,22 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4292,9 +4470,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -4302,7 +4492,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 418,
+                                                                value: 423,
                                                             },
                                                         ),
                                                     ),
@@ -4326,7 +4516,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: ImmutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -4834,7 +5030,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4856,7 +5052,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4878,7 +5074,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4904,7 +5100,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4926,7 +5122,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -4948,7 +5144,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -5007,14 +5203,22 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 236,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -5031,14 +5235,22 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -5051,14 +5263,22 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -5071,14 +5291,22 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 238,
+                                                            value: 240,
                                                         },
                                                     ),
                                                 ),
@@ -5138,7 +5366,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 257,
+                                                                value: 259,
                                                             },
                                                         ),
                                                     ),
@@ -5167,7 +5395,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -5196,7 +5424,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 257,
+                                                                value: 259,
                                                             },
                                                         ),
                                                     ),
@@ -5215,119 +5443,6 @@
                                     idx: 4,
                                     src: ExpectationSource {
                                         syn_expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 236,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
-                                    ExpectCoersion {
-                                        contract: Pure,
-                                        ty_expected: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 236,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 5,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 5,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 236,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            ImplicitlyConvertible(
-                                                Trivial(
-                                                    TrivialCoersion,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                meta: ExpectationState {
-                                    idx: 6,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 6,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 238,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                meta: ExpectationState {
-                                    idx: 7,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -5372,9 +5487,54 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 8,
+                                    idx: 5,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 8,
+                                        syn_expr_idx: 5,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 238,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            ImplicitlyConvertible(
+                                                Trivial(
+                                                    TrivialCoersion,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 6,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -5385,7 +5545,99 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 7,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 7,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 240,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: ImplicitlyConvertible(
+                                    ExpectCoersion {
+                                        contract: Pure,
+                                        ty_expected: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 240,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 8,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 8,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -5536,14 +5788,22 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -5627,7 +5887,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 257,
+                                                                value: 259,
                                                             },
                                                         ),
                                                     ),
@@ -5646,119 +5906,6 @@
                                     idx: 15,
                                     src: ExpectationSource {
                                         syn_expr_idx: 15,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 236,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
-                                    ExpectCoersion {
-                                        contract: Pure,
-                                        ty_expected: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 236,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 16,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 16,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 236,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            ImplicitlyConvertible(
-                                                Trivial(
-                                                    TrivialCoersion,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                meta: ExpectationState {
-                                    idx: 17,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 17,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 238,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                meta: ExpectationState {
-                                    idx: 18,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 18,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -5803,9 +5950,54 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 19,
+                                    idx: 16,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 19,
+                                        syn_expr_idx: 16,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 238,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            ImplicitlyConvertible(
+                                                Trivial(
+                                                    TrivialCoersion,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 17,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 17,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -5816,7 +6008,99 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 18,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 18,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 240,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: ImplicitlyConvertible(
+                                    ExpectCoersion {
+                                        contract: Pure,
+                                        ty_expected: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 240,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 19,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 19,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -5967,14 +6251,22 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -6051,14 +6343,22 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -6081,7 +6381,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 238,
+                                                                    value: 240,
                                                                 },
                                                             ),
                                                         ),
@@ -6098,14 +6398,22 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -6193,14 +6501,22 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 238,
+                                                                value: 240,
                                                             },
                                                         ),
                                                     ),
@@ -6400,7 +6716,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 257,
+                                    value: 259,
                                 },
                             ),
                         ),

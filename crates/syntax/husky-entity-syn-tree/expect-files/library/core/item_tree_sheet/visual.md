@@ -2929,7 +2929,7 @@ EntitySynTreeSheet {
                             20,
                         ),
                     },
-                    trai_expr: 58,
+                    trai_expr: 59,
                     for_token: TokenIdx(
                         22,
                     ),

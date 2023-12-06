@@ -22,11 +22,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 2,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `bool`,
                             token_idx: TokenIdx(
-                                7,
+                                20,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -76,11 +76,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 3,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `never`,
                             token_idx: TokenIdx(
-                                11,
+                                37,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -130,11 +130,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 4,
+                        ast_idx: 7,
                         ident_token: IdentToken {
                             ident: `unit`,
                             token_idx: TokenIdx(
-                                15,
+                                54,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -184,11 +184,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
+                        ast_idx: 8,
                         ident_token: IdentToken {
                             ident: `Trait`,
                             token_idx: TokenIdx(
-                                19,
+                                58,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -238,11 +238,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 6,
+                        ast_idx: 9,
                         ident_token: IdentToken {
                             ident: `Module`,
                             token_idx: TokenIdx(
-                                23,
+                                62,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -292,11 +292,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
+                        ast_idx: 10,
                         ident_token: IdentToken {
                             ident: `Lifetime`,
                             token_idx: TokenIdx(
-                                27,
+                                66,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -346,11 +346,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
+                        ast_idx: 11,
                         ident_token: IdentToken {
                             ident: `Place`,
                             token_idx: TokenIdx(
-                                31,
+                                70,
                             ),
                         },
                         block: DefnBlock::Type {

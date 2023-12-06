@@ -23,10 +23,12 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
+husky-declarative-term.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
+husky-stack-location = { path = "../../kernel/husky-stack-location" }
 # semantics
 husky-declarative-signature.workspace = true
 # syntax
@@ -37,7 +39,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 # kernel
-husky-declarative-term.workspace = true
 husky-declarative-ty.workspace = true
 # infer
 husky-manifest.workspace = true

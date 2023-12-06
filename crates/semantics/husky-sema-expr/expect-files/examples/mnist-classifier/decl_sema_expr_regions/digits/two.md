@@ -124,7 +124,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 328,
+                                    value: 329,
                                 },
                             ),
                         ),
@@ -143,7 +143,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 288,
+                                                        value: 289,
                                                     },
                                                 ),
                                             ),
@@ -206,7 +206,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 288,
+                                                    value: 289,
                                                 },
                                             ),
                                         ),
@@ -449,7 +449,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -460,7 +460,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     5,
                                 ),
@@ -521,7 +521,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 329,
+                                    value: 330,
                                 },
                             ),
                         ),
@@ -540,7 +540,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -703,7 +703,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -784,7 +784,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -1145,7 +1153,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -1156,7 +1164,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     5,
                                 ),
@@ -1217,7 +1225,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 330,
+                                    value: 331,
                                 },
                             ),
                         ),
@@ -1236,7 +1244,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -1399,7 +1407,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -1480,7 +1488,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -1841,7 +1857,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            None,
+                            Pure,
                         ],
                     },
                 },
@@ -1852,7 +1868,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     5,
                                 ),
@@ -1913,7 +1929,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 331,
+                                    value: 332,
                                 },
                             ),
                         ),
@@ -1932,7 +1948,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -2095,7 +2111,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 283,
+                                                    value: 284,
                                                 },
                                             ),
                                         ),
@@ -2176,7 +2192,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -2463,7 +2487,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 365,
+                                                                value: 366,
                                                             },
                                                         ),
                                                     ),
@@ -2558,7 +2582,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 365,
+                                                                value: 366,
                                                             },
                                                         ),
                                                     ),
@@ -2626,7 +2650,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 332,
+                                    value: 333,
                                 },
                             ),
                         ),
@@ -2645,7 +2669,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 355,
+                                                        value: 356,
                                                     },
                                                 ),
                                             ),
@@ -2678,7 +2702,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 365,
+                                                        value: 366,
                                                     },
                                                 ),
                                             ),
@@ -2736,7 +2760,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 368,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -2753,7 +2777,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 365,
+                                                            value: 366,
                                                         },
                                                     ),
                                                 ),
@@ -2828,7 +2852,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 365,
+                                                    value: 366,
                                                 },
                                             ),
                                         ),
@@ -2851,7 +2875,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 355,
+                                                    value: 356,
                                                 },
                                             ),
                                         ),
@@ -2893,7 +2917,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 368,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -3132,7 +3156,7 @@
                                                                         TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 365,
+                                                                                    value: 366,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3170,7 +3194,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 365,
+                                                                    value: 366,
                                                                 },
                                                             ),
                                                         ),
@@ -3194,7 +3218,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 365,
+                                                                value: 366,
                                                             },
                                                         ),
                                                     ),

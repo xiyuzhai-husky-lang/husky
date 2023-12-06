@@ -121,7 +121,7 @@
                         TraitSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 221,
+                                    value: 222,
                                 },
                             ),
                         ),
@@ -155,7 +155,9 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         Category(
                                             TermCategory {

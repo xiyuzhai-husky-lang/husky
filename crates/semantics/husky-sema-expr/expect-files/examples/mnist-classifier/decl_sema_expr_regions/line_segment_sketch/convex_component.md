@@ -169,7 +169,7 @@
                     current_syn_symbol_arena: Arena {
                         data: [
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     8,
                                 ),
@@ -184,7 +184,7 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: None,
+                                modifier: Pure,
                                 access_start: RegionalTokenIdx(
                                     14,
                                 ),
@@ -282,7 +282,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 273,
+                                    value: 274,
                                 },
                             ),
                         ),
@@ -301,7 +301,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 278,
                                                     },
                                                 ),
                                             ),
@@ -421,7 +421,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 276,
+                                                        value: 277,
                                                     },
                                                 ),
                                             ),
@@ -545,7 +545,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 277,
+                                                    value: 278,
                                                 },
                                             ),
                                         ),
@@ -629,7 +629,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 276,
+                                                    value: 277,
                                                 },
                                             ),
                                         ),
@@ -668,7 +668,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -684,7 +692,15 @@
                         Some(
                             SymbolType(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    2,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
@@ -1001,7 +1017,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 285,
+                                    value: 286,
                                 },
                             ),
                         ),
@@ -1176,7 +1192,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 371,
+                                    value: 372,
                                 },
                             ),
                         ),
@@ -1232,7 +1248,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 285,
+                                                        value: 286,
                                                     },
                                                 ),
                                             ),
@@ -1327,7 +1343,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 285,
+                                                    value: 286,
                                                 },
                                             ),
                                         ),
@@ -1447,7 +1463,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 285,
+                                    value: 286,
                                 },
                             ),
                         ),
@@ -1756,7 +1772,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 436,
+                                    value: 437,
                                 },
                             ),
                         ),
@@ -1929,7 +1945,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 285,
+                                    value: 286,
                                 },
                             ),
                         ),

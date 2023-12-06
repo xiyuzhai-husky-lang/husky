@@ -35,6 +35,33 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
+            Keyword::Impl,
+        ),
+        TokenData::Ident(
+            `Copy`,
+        ),
+        TokenData::Keyword(
+            Keyword::Connection(
+                For,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `derive`,
+        ),
+        TokenData::Ident(
+            `_`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
             Keyword::Pub,
         ),
         TokenData::Keyword(
@@ -65,8 +92,14 @@ TokenSheetData {
                 9,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                16,
+            ),
+        ),
     ],
     indents: [
+        0,
         0,
         0,
         0,

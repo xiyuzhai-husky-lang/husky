@@ -1,3 +1,4 @@
+use husky_stack_location::StackLocationIdx;
 use thiserror::Error;
 
 use super::*;
@@ -20,191 +21,97 @@ impl Into<FluffyTerm> for SymbolType {
 
 impl SymbolType {
     #[inline(always)]
-    pub fn new_from_signature(
+    pub fn new_parameter_ty_from_signature(
         engine: &mut impl FluffyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
-    ) -> EtherealTermResult<Self> {
+    ) -> FluffyTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
-        Ok(Self::new(engine, current_syn_symbol_idx, ty.into()))
+        Ok(Self::new_parameter_ty(
+            engine,
+            current_syn_symbol_idx,
+            signature.modifier(),
+            ty.into(),
+        ))
     }
 
-    pub fn new(
+    pub fn new_parameter_ty(
         engine: &mut impl FluffyTermEngine,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
+        modifier: SymbolModifier,
         ty: FluffyTerm,
     ) -> Self {
-        // ad hoc
-        Self(ty)
-        // let expr_region_data = engine.expr_region_data();
-        // let local_symbol_idx = current_syn_symbol_idx.into_local_symbol_idx(expr_region_data);
-        // let place = match expr_region_data[current_syn_symbol_idx].modifier() {
-        //     EphemSymbolModifier::None => Place::StackPure {
-        //         location: local_symbol_idx.into(),
-        //     },
-        //     EphemSymbolModifier::Mut => Place::MutableStackOwned {
-        //         location: local_symbol_idx.into(),
-        //     },
-        //     EphemSymbolModifier::RefMut => Place::RefMut {
-        //         guard: Left(local_symbol_idx.into()),
-        //     },
-        //     EphemSymbolModifier::Const => Place::Const,
-        //     EphemSymbolModifier::Ambersand(_) => todo!(),
-        //     EphemSymbolModifier::AmbersandMut(_) => todo!(),
-        //     EphemSymbolModifier::Le => todo!(),
-        //     EphemSymbolModifier::Tilde => todo!(), // todo: handle variance
-        // };
-        // Self(match ty {
-        //     FluffyTerm::Literal(_) => todo!(),
-        //     FluffyTerm::Symbol(term) => SolidTerm::new(
-        //         engine.fluffy_term_region_mut().solid_terms_mut(),
-        //         SolidTermData::SymbolAtPlace { term, place },
-        //     )
-        //     .into(),
-        //     FluffyTerm::Variable(_) => todo!(),
-        //     FluffyTerm::EntityPath(path) => match path {
-        //         TermEntityPath::Fugitive(_) => todo!(),
-        //         TermEntityPath::Trait(_) => todo!(),
-        //         TermEntityPath::TypeOntology(path) => {
-        //             let data = SolidTermData::TypeOntologyAtPlace {
-        //                 place,
-        //                 ty_path: path,
-        //                 refined_ty_path: path.refine(engine.db()),
-        //                 arguments: smallvec![],
-        //                 base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
-        //             };
-        //             SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
-        //         }
-        //         TermEntityPath::TypeInstance(_) => todo!(),
-        //         TermEntityPath::TypeVariant(_) => todo!(),
-        //     },
-        //     FluffyTerm::Category(term) => match place {
-        //         Place::Const => term.into(),
-        //         Place::StackPure { location } => todo!(),
-        //         Place::ImmutableStackOwned { location } => todo!(),
-        //         Place::MutableStackOwned { location } => todo!(),
-        //         Place::Transient => todo!(),
-        //         Place::Ref { guard } => todo!(),
-        //         Place::RefMut { guard } => todo!(),
-        //         Place::Leashed => todo!(),
-        //         Place::Todo => todo!(),
-        //     },
-        //     FluffyTerm::Universe(_) => todo!(),
-        //     FluffyTerm::Curry(_) => todo!(),
-        //     FluffyTerm::Ritchie(_) => todo!(),
-        //     FluffyTerm::Abstraction(_) => todo!(),
-        //     FluffyTerm::Application(term) => {
-        //         let expansion = term.application_expansion(engine.db());
-        //         match expansion.function() {
-        //             TermFunctionReduced::TypeOntology(path) => {
-        //                 let data = SolidTermData::TypeOntologyAtPlace {
-        //                     place,
-        //                     ty_path: path,
-        //                     refined_ty_path: path.refine(engine.db()),
-        //                     arguments: expansion
-        //                         .arguments(engine.db())
-        //                         .iter()
-        //                         .map(|t| (*t).into())
-        //                         .collect(),
-        //                     base_ty_term: Some(term.into()),
-        //                 };
-        //                 SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data)
-        //                     .into()
-        //             }
-        //             TermFunctionReduced::Trait(_) => todo!(),
-        //             TermFunctionReduced::Other(_) => todo!(),
-        //         }
-        //     }
-        //     FluffyTerm::Subitem(_) => todo!(),
-        //     FluffyTerm::AsTraitSubitem(_) => todo!(),
-        //     FluffyTerm::TraitConstraint(_) => todo!(),
-        //     FluffyTerm::Solid(_) => {
-        //         let (inner_place, base_ty) = ty.ty_data(engine);
-        //         let place = match inner_place {
-        //             // ad hoc
-        //             Some(inner_place) => place,
-        //             None => place,
-        //         };
-        //         let data = match base_ty {
-        //             FluffyBaseTypeData::TypeOntology {
-        //                 ty_path,
-        //                 refined_ty_path,
-        //                 ty_arguments,
-        //                 ty_ethereal_term,
-        //             } => SolidTermData::TypeOntologyAtPlace {
-        //                 ty_path,
-        //                 refined_ty_path,
-        //                 arguments: ty_arguments.to_smallvec(),
-        //                 base_ty_term: ty_ethereal_term,
-        //                 place,
-        //             },
-        //             FluffyBaseTypeData::Curry {
-        //                 curry_kind,
-        //                 variance,
-        //                 parameter_variable,
-        //                 parameter_ty,
-        //                 return_ty,
-        //                 ty_ethereal_term,
-        //             } => todo!(),
-        //             FluffyBaseTypeData::Hole(_, _) => todo!(),
-        //             FluffyBaseTypeData::Category(_) => todo!(),
-        //             FluffyBaseTypeData::Ritchie {
-        //                 ritchie_kind,
-        //                 parameter_contracted_tys,
-        //                 return_ty,
-        //             } => todo!(),
-        //             FluffyBaseTypeData::Symbol { term } => todo!(),
-        //         };
-        //         SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
-        //     }
-        //     FluffyTerm::Hollow(_) => {
-        //         let data = match ty.data(engine) {
-        //             FluffyTermData::Literal(_) => todo!(),
-        //             FluffyTermData::TypeOntology {
-        //                 ty_path: path,
-        //                 refined_ty_path: refined_path,
-        //                 ty_arguments: arguments,
-        //                 ..
-        //             } => HollowTermData::TypeOntologyAtPlace {
-        //                 place,
-        //                 ty_path: path,
-        //                 refined_ty_path: refined_path,
-        //                 ty_arguments: arguments.to_smallvec(),
-        //             },
-        //             FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-        //             FluffyTermData::Curry {
-        //                 curry_kind,
-        //                 variance,
-        //                 parameter_variable,
-        //                 parameter_ty,
-        //                 return_ty,
-        //                 ty_ethereal_term,
-        //             } => todo!(),
-        //             FluffyTermData::Hole(hole_kind, hole) => HollowTermData::PlaceHole {
-        //                 place,
-        //                 hole_kind,
-        //                 hole,
-        //             },
-        //             FluffyTermData::Category(_) => todo!(),
-        //             FluffyTermData::Ritchie {
-        //                 ritchie_kind,
-        //                 parameter_contracted_tys,
-        //                 return_ty,
-        //                 ..
-        //             } => todo!(),
-        //             FluffyTermData::HoleAtPlace {
-        //                 place,
-        //                 hole_kind,
-        //                 hole,
-        //             } => todo!(),
-        //             FluffyTermData::Symbol { .. } => todo!(),
-        //             FluffyTermData::SymbolAtPlace { .. } => todo!(),
-        //             FluffyTermData::Variable { ty } => todo!(),
-        //             FluffyTermData::TypeVariant { path } => todo!(),
-        //         };
-        //         HollowTerm::new(engine, data).into()
-        //     }
-        // })
+        let new_place = match modifier {
+            SymbolModifier::Pure => FluffyPlace::StackPure {
+                location: engine.issue_new_stack_location_idx(),
+            },
+            SymbolModifier::Mut => todo!(),
+            SymbolModifier::Ref => todo!(),
+            SymbolModifier::RefMut => FluffyPlace::RefMut {
+                guard: Left(engine.issue_new_stack_location_idx()),
+            },
+            SymbolModifier::Const => FluffyPlace::Const,
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(),
+        };
+        Self(ty.with_place(new_place))
+    }
+
+    pub fn new_variable_ty(
+        engine: &mut impl FluffyTermEngine,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        modifier: SymbolModifier,
+        ty: FluffyTerm,
+    ) -> FluffyTermResult<Self> {
+        let new_place = match modifier {
+            SymbolModifier::Pure => match ty.place {
+                Some(FluffyPlace::Transient) | None => FluffyPlace::ImmutableStackOwned {
+                    location: engine.issue_new_stack_location_idx(),
+                },
+                Some(place) => match ty.is_always_copyable(engine)? {
+                    true => FluffyPlace::ImmutableStackOwned {
+                        location: engine.issue_new_stack_location_idx(),
+                    },
+                    false => match place {
+                        FluffyPlace::Const => todo!(),
+                        FluffyPlace::StackPure { location }
+                        | FluffyPlace::ImmutableStackOwned { location }
+                        | FluffyPlace::MutableStackOwned { location } => FluffyPlace::Ref {
+                            guard: Left(location),
+                        },
+                        FluffyPlace::Transient => unreachable!(),
+                        FluffyPlace::Ref { guard } => todo!(),
+                        FluffyPlace::RefMut { guard } => todo!(),
+                        FluffyPlace::Leashed => todo!(),
+                        FluffyPlace::Todo => todo!(),
+                    },
+                },
+            },
+            SymbolModifier::Mut => match ty.place {
+                Some(FluffyPlace::Transient) | None => FluffyPlace::MutableStackOwned {
+                    location: engine.issue_new_stack_location_idx(),
+                },
+                Some(place) => match ty.is_always_copyable(engine)? {
+                    true => FluffyPlace::MutableStackOwned {
+                        location: engine.issue_new_stack_location_idx(),
+                    },
+                    false => {
+                        p!(ty.show(engine.db(), engine.fluffy_terms()));
+                        todo!()
+                    }
+                },
+            },
+            SymbolModifier::Ref => todo!(),
+            SymbolModifier::RefMut => todo!(),
+            SymbolModifier::Const => todo!(),
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(),
+        };
+        Ok(Self(ty.with_place(new_place)))
     }
 }
 
@@ -224,15 +131,15 @@ pub enum FluffyPlace {
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: FluffyStackLocationIdx,
+        location: StackLocationIdx,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: FluffyStackLocationIdx,
+        location: StackLocationIdx,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: FluffyStackLocationIdx,
+        location: StackLocationIdx,
     },
     // rvalue
     Transient,
@@ -256,7 +163,7 @@ pub enum FluffyPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<FluffyStackLocationIdx, FluffyLifetime>,
+        guard: Either<StackLocationIdx, FluffyLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -286,13 +193,14 @@ pub enum FluffyPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<FluffyStackLocationIdx, FluffyLifetime>,
+        guard: Either<StackLocationIdx, FluffyLifetime>,
     },
     /// stored in database
     /// always immutable
     Leashed,
     Todo,
 }
+
 impl FluffyPlace {
     pub(crate) fn bind(&self, contract: TermContract) -> FluffyPlaceResult<()> {
         match (contract, self) {
@@ -302,9 +210,9 @@ impl FluffyPlace {
             (TermContract::Leash, _) => todo!("error"),
             (TermContract::Pure, _) => Ok(()),
             (TermContract::Move, FluffyPlace::Const) => Ok(()),
-            (TermContract::Move, FluffyPlace::StackPure { location }) => todo!(),
-            (TermContract::Move, FluffyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::Move, FluffyPlace::MutableStackOwned { location }) => todo!(),
+            (TermContract::Move, FluffyPlace::StackPure { location }) => Ok(()),
+            (TermContract::Move, FluffyPlace::ImmutableStackOwned { location }) => Ok(()),
+            (TermContract::Move, FluffyPlace::MutableStackOwned { location }) => Ok(()),
             (TermContract::Move, FluffyPlace::Transient) => Ok(()),
             (TermContract::Move, FluffyPlace::Ref { guard }) => Ok(()),
             (TermContract::Move, FluffyPlace::RefMut { guard }) => todo!(),
@@ -325,7 +233,7 @@ impl FluffyPlace {
             (TermContract::BorrowMut, FluffyPlace::MutableStackOwned { location }) => todo!(),
             (TermContract::BorrowMut, FluffyPlace::Transient) => Ok(()),
             (TermContract::BorrowMut, FluffyPlace::Ref { guard }) => todo!(),
-            (TermContract::BorrowMut, FluffyPlace::RefMut { guard }) => todo!(),
+            (TermContract::BorrowMut, FluffyPlace::RefMut { guard }) => Ok(()),
             (TermContract::BorrowMut, FluffyPlace::Leashed) => todo!(),
             (TermContract::BorrowMut, FluffyPlace::Todo) => todo!(),
             (TermContract::Const, FluffyPlace::Const) => todo!(),
@@ -366,15 +274,6 @@ pub enum FluffyPlaceError {
 }
 
 pub type FluffyPlaceResult<T> = Result<T, FluffyPlaceError>;
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyStackLocationIdx(LocalSymbolIdx);
-
-impl From<LocalSymbolIdx> for FluffyStackLocationIdx {
-    fn from(idx: LocalSymbolIdx) -> Self {
-        Self(idx)
-    }
-}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FluffyLifetime {

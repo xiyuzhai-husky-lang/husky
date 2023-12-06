@@ -10,7 +10,7 @@ impl<'a> SemaExprEngine<'a> {
             let Some(signature) = self
                 .declarative_term_region
                 .term_symbol_region()
-                .current_syn_symbol_signature(current_syn_symbol_idx)
+                .current_parameter_symbol_signature(current_syn_symbol_idx)
             else {
                 return;
             };
@@ -21,7 +21,7 @@ impl<'a> SemaExprEngine<'a> {
                 }
             }
             if let Ok(symbol_ty) =
-                SymbolType::new_from_signature(self, current_syn_symbol_idx, signature)
+                SymbolType::new_parameter_ty_from_signature(self, current_syn_symbol_idx, signature)
             {
                 self.symbol_tys
                     .insert_new(current_syn_symbol_idx, symbol_ty)

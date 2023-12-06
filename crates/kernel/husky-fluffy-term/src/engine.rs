@@ -1,10 +1,15 @@
 use super::*;
 use husky_entity_syn_tree::{helpers::TraitInUseItemsTable, EntityTreeResultRef};
+use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
 use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
+    fn stack_location_registry_mut(&mut self) -> &mut StackLocationRegistry;
+    fn issue_new_stack_location_idx(&mut self) -> StackLocationIdx {
+        self.stack_location_registry_mut().issue_new()
+    }
     fn fluffy_term_region(&self) -> &FluffyTermRegion;
     fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion;
     fn fluffy_terms(&self) -> &FluffyTerms {
@@ -98,5 +103,9 @@ pub trait FluffyTermEngine<'a>: Sized {
             }
             _ => unreachable!(),
         }
+    }
+
+    fn path(&self) -> String {
+        format!("{:?}", self.expr_region_data().path().debug(self.db()))
     }
 }

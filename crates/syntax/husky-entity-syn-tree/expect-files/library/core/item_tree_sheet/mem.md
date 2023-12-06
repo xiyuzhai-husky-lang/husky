@@ -3053,12 +3053,12 @@ EntitySynTreeSheet {
                             35,
                         ),
                     },
-                    trai_expr: 2,
+                    trai_expr: 3,
                     for_token: TokenIdx(
                         40,
                     ),
                     ty_sketch_expr: Path(
-                        3,
+                        4,
                     ),
                     items: None,
                 },

@@ -984,7 +984,7 @@
                                 data: [
                                     Mut,
                                     Mut,
-                                    None,
+                                    Pure,
                                 ],
                             },
                         },
@@ -1029,7 +1029,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             20,
                                         ),
@@ -1046,7 +1046,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             22,
                                         ),
@@ -1664,7 +1664,7 @@
                                         },
                                     },
                                     CurrentSynSymbol {
-                                        modifier: None,
+                                        modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             15,
                                         ),

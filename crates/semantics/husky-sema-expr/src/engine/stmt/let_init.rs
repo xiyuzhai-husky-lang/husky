@@ -59,7 +59,7 @@ impl<'a> SemaExprEngine<'a> {
             Some(ty) if ty == self.term_menu.never().into() => Ok(self.term_menu.never().into()),
             Some(ty) => {
                 match let_pattern_syn_obelisk {
-                    Ok(let_variables_pattern) => self.infer_pattern_root_and_symbols_ty(
+                    Ok(let_variables_pattern) => self.infer_variable_pattern_root_and_symbols_ty(
                         let_variables_pattern.syn_pattern_root(),
                         ty,
                         let_variables_pattern.variables(),

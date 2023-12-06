@@ -1,7 +1,8 @@
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn infer_pattern_root_and_symbols_ty(
+    /// used for defn body variables
+    pub(crate) fn infer_variable_pattern_root_and_symbols_ty(
         &mut self,
         syn_pattern_root: impl Into<SynPatternExprRoot>,
         ty: FluffyTerm,
@@ -9,7 +10,7 @@ impl<'a> SemaExprEngine<'a> {
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
         for symbol in symbols {
-            self.infer_new_current_syn_symbol_ty(symbol)
+            self.infer_new_current_variable_syn_symbol_ty(symbol)
         }
     }
 
@@ -46,11 +47,33 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn infer_new_current_syn_symbol_ty(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx) {
-        if let Some(ty) = self.calc_new_current_syn_symbol_ty(current_syn_symbol_idx) {
-            let ty = SymbolType::new(self, current_syn_symbol_idx, ty);
-            self.symbol_tys.insert_new(current_syn_symbol_idx, ty)
-        }
+    fn infer_new_current_variable_syn_symbol_ty(
+        &mut self,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+    ) {
+        let Some(ty) = self.calc_new_current_syn_symbol_ty(current_syn_symbol_idx) else {
+            return;
+        };
+        let modifier =
+            match *self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx].data() {
+                CurrentSynSymbolData::LetVariable {
+                    pattern_symbol_idx, ..
+                }
+                | CurrentSynSymbolData::BeVariable {
+                    pattern_symbol_idx, ..
+                }
+                | CurrentSynSymbolData::CaseVariable {
+                    pattern_symbol_idx, ..
+                } => self
+                    .expr_region_data()
+                    .pattern_symbol_modifier(pattern_symbol_idx),
+                _ => unreachable!(),
+            };
+        let ty = match SymbolType::new_variable_ty(self, current_syn_symbol_idx, modifier, ty) {
+            Ok(ty) => ty,
+            Err(_) => todo!(),
+        };
+        self.symbol_tys.insert_new(current_syn_symbol_idx, ty)
     }
 
     fn calc_new_current_syn_symbol_ty(

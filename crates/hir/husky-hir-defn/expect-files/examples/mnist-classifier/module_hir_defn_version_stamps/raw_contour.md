@@ -5,29 +5,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 251,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 328,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 252,
+                            value: 253,
                         },
                     ),
                 ),
@@ -45,11 +23,11 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Type(
+                TypePath(
                     ItemPathId(
                         Id {
-                            value: 257,
+                            value: 254,
                         },
                     ),
                 ),
@@ -71,7 +49,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 258,
+                            value: 259,
                         },
                     ),
                 ),
@@ -93,7 +71,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 259,
+                            value: 260,
                         },
                     ),
                 ),
@@ -115,7 +93,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 260,
+                            value: 261,
                         },
                     ),
                 ),
@@ -137,7 +115,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 261,
+                            value: 262,
                         },
                     ),
                 ),
@@ -159,28 +137,6 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 262,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 335,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
                             value: 263,
                         },
                     ),
@@ -191,7 +147,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 336,
+                        value: 335,
                     },
                 ),
             ),
@@ -213,6 +169,28 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
+                        value: 336,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 265,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
                         value: 337,
                     },
                 ),
@@ -225,7 +203,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 265,
+                            value: 266,
                         },
                     ),
                 ),
@@ -242,12 +220,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
+        MajorItem(
+            Fugitive(
+                FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 387,
+                            value: 267,
                         },
                     ),
                 ),
@@ -264,12 +242,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TraitForTypeItem(
-                TraitForTypeItemPath(
+        ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 481,
+                            value: 389,
                         },
                     ),
                 ),
@@ -286,12 +264,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TraitForTypeItem(
+                TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 388,
+                            value: 487,
                         },
                     ),
                 ),
@@ -308,12 +286,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 449,
+                            value: 390,
                         },
                     ),
                 ),
@@ -335,7 +313,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 450,
+                            value: 452,
                         },
                     ),
                 ),
@@ -357,7 +335,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 451,
+                            value: 453,
                         },
                     ),
                 ),
@@ -379,7 +357,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 452,
+                            value: 454,
                         },
                     ),
                 ),
@@ -401,7 +379,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 453,
+                            value: 455,
                         },
                     ),
                 ),
@@ -412,6 +390,28 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 346,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 456,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 347,
                     },
                 ),
             ),

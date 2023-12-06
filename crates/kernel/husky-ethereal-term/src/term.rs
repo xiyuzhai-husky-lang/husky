@@ -481,9 +481,6 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
         TermFunctionReduced::Trait(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
-    // match inner_ty.is_ty_copyable(db)? {
-    //     true => Ok(inner_ty),
-    //     false => {
 }
 
 #[test]

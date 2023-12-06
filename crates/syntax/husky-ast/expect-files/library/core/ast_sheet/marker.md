@@ -53,16 +53,22 @@ AstSheet {
                     items: None,
                 },
             },
-            Ast::Identifiable {
+            Ast::ImplBlock {
                 token_group_idx: TokenGroupIdx(
                     2,
+                ),
+                items: None,
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    3,
                 ),
                 visibility_expr: VisibilityExpr {
                     visibility: Pub,
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                9,
+                                16,
                             ),
                         },
                     },
@@ -74,13 +80,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Sized`,
                     token_idx: TokenIdx(
-                        11,
+                        18,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        12,
+                        19,
                     ),
                     drained: false,
                 },
@@ -92,7 +98,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..4,
+        1..5,
     ),
     siblings: [
         ArenaIdxRange(
@@ -102,7 +108,10 @@ AstSheet {
             1..1,
         ),
         ArenaIdxRange(
-            1..4,
+            1..1,
+        ),
+        ArenaIdxRange(
+            1..5,
         ),
     ],
 }

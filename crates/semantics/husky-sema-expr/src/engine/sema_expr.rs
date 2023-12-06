@@ -245,7 +245,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.build_sema_expr_with_its_ty_returned(src, ExpectAnyOriginal);
                 match src_ty {
                     Some(src_ty) => match target {
-                        Ok(target) => self.infer_pattern_root_and_symbols_ty(
+                        Ok(target) => self.infer_variable_pattern_root_and_symbols_ty(
                             target.syn_pattern_root(),
                             src_ty,
                             target.variables(),

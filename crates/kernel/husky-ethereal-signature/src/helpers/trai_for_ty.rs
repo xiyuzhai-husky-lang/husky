@@ -23,7 +23,7 @@ impl<'a> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
     }
 }
 
-pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
+pub fn trai_path_for_ty_path_impl_block_ethereal_signature_templates<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
@@ -46,6 +46,66 @@ pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
             .into_result_option()?
             .unwrap_or(&[]),
     })
+}
+
+pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
+    db: &'a ::salsa::Db,
+    trai_path: TraitPath,
+    ty_term: EtherealTerm,
+) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
+    let application_expansion = ty_term.application_expansion(db);
+    let arguments = application_expansion.arguments(db);
+    let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
+        unreachable!()
+    };
+    let mut builders: SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]> = smallvec![];
+    for template in
+        trai_path_for_ty_path_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
+            .iter()
+    {
+        match template.instantiate_ty(db, arguments, ty_term) {
+            JustOk(builder) => builders.push(builder),
+            JustErr(_) => todo!(),
+            Nothing => todo!(),
+        }
+    }
+    Ok(builders)
+}
+
+#[deprecated(note = "derive any should check argument ty trai satisfaction")]
+pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
+    db: &'a ::salsa::Db,
+    trai_path: TraitPath,
+    ty_term: EtherealTerm,
+) -> EtherealSignatureResult<bool> {
+    let application_expansion = ty_term.application_expansion(db);
+    let arguments = application_expansion.arguments(db);
+    let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
+        unreachable!()
+    };
+    for template in
+        trai_path_for_ty_path_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
+            .iter()
+    {
+        match template.instantiate_ty(db, arguments, ty_term) {
+            JustOk(builder) => return Ok(true),
+            JustErr(e) => return Err(e),
+            Nothing => continue,
+        }
+    }
+    Ok(false)
+}
+
+// todo: cache this
+pub fn is_ty_term_always_copyable(
+    ty_term: EtherealTerm,
+    db: &::salsa::Db,
+) -> EtherealSignatureResult<bool> {
+    let copy_trai = ty_term
+        .item_path_menu(db)
+        .expect("should be some because ty_term is a type")
+        .copy_trai_path();
+    trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists(db, copy_trai, ty_term)
 }
 
 // trait side
