@@ -640,6 +640,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     45,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -648,6 +658,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     49,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1172,6 +1192,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     45,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1180,6 +1210,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     49,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1526,6 +1566,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     3,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1540,6 +1590,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     6,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1695,6 +1755,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     26,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1709,6 +1779,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     29,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1775,6 +1855,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     38,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1783,6 +1873,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     39,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1820,6 +1920,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     42,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1828,6 +1938,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     43,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1883,6 +2003,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     50,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -1931,6 +2061,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     56,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2058,6 +2198,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     78,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2066,6 +2216,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     79,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2103,6 +2263,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     82,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2111,6 +2281,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     83,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2146,6 +2326,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     86,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2204,6 +2394,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     94,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2281,6 +2481,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     105,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2295,6 +2505,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     108,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2958,6 +3178,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     3,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -2972,6 +3202,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     6,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3124,6 +3364,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     25,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3138,6 +3388,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     28,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3199,6 +3459,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     36,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3236,6 +3506,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     39,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3244,6 +3524,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     40,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3281,6 +3571,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     43,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3289,6 +3589,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     44,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3359,6 +3669,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     51,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3373,6 +3693,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     54,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3481,6 +3811,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     73,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3495,6 +3835,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     74,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3532,6 +3882,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     77,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3546,6 +3906,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     78,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3581,6 +3951,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     81,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3639,6 +4019,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     89,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3691,6 +4081,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     97,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3745,6 +4145,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     105,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -3792,6 +4202,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     110,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4554,6 +4974,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     12,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4568,6 +4998,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     13,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4576,6 +5016,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     14,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4621,6 +5071,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     18,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4635,6 +5095,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     19,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4643,6 +5113,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     20,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4806,6 +5286,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     34,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -4869,6 +5359,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     40,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5104,6 +5604,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     52,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5118,6 +5628,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     57,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5126,6 +5646,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     58,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5187,6 +5717,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     67,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5201,6 +5741,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     68,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5209,6 +5759,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     69,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5217,6 +5777,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     70,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5262,6 +5832,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     74,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5276,6 +5856,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     75,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5284,6 +5874,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     76,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5453,6 +6053,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 44,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     92,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5482,6 +6092,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     95,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5545,6 +6165,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     101,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5601,6 +6231,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     107,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5671,6 +6311,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     114,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5858,6 +6508,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     124,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5872,6 +6532,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     127,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5880,6 +6550,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     130,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -5999,6 +6679,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 53,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     141,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -6545,6 +7235,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     176,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -6559,6 +7259,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     181,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -6567,6 +7277,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     188,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -6790,7 +7510,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 70,
+                                                                value: 71,
                                                             },
                                                         ),
                                                     ),
@@ -7830,6 +8550,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     7,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -7844,6 +8574,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     10,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -7862,6 +8602,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 70,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     11,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8029,6 +8779,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 44,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     4,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8574,6 +9334,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 64,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     2,
                                                     PlaceToLeash,
                                                 ),
@@ -8825,6 +9595,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     25,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8866,6 +9646,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     31,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8907,6 +9697,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     37,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8948,6 +9748,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     43,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8991,6 +9801,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     48,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -8999,6 +9819,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     49,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9030,6 +9860,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     52,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9038,6 +9878,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     53,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9056,6 +9906,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 58,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     50,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9064,6 +9924,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 58,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     54,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9477,6 +10347,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     4,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9491,6 +10371,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     5,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9515,6 +10405,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 35,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     2,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {
@@ -9529,6 +10429,16 @@
                                                     ),
                                                 ),
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Move,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 71,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     6,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {

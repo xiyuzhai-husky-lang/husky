@@ -855,6 +855,16 @@
                                             },
                                             item_groups: [
                                                 Regular(
+                                                    HirRitchieRegularParameter {
+                                                        contract: Pure,
+                                                        ty: PathLeading(
+                                                            HirTypePathLeading(
+                                                                Id {
+                                                                    value: 54,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                     14,
                                                     Trivial(
                                                         TrivialHirEagerCoersion {

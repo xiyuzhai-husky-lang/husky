@@ -11,9 +11,9 @@ use crate::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
-    HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
-    HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
-    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmtData,
+    HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprIdx,
+    HirEagerExprRegion, HirEagerIfBranch, HirEagerLetVariablesPattern, HirEagerPatternExpr,
+    HirEagerPatternExprIdx, HirEagerRitchieParameterArgumentMatch, HirEagerStmtData,
     HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
@@ -208,14 +208,16 @@ fn transpile_hir_eager_expr_to_rust(
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerCallListItemGroup {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerRitchieParameterArgumentMatch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            &HirEagerCallListItemGroup::Regular(hir_eager_expr_idx, coersion) => {
-                any_precedence(hir_eager_expr_idx).transpile_to_rust(builder)
-            }
-            HirEagerCallListItemGroup::Variadic => todo!(),
-            HirEagerCallListItemGroup::Keyed => todo!(),
+            &HirEagerRitchieParameterArgumentMatch::Regular(
+                param,
+                hir_eager_expr_idx,
+                coersion,
+            ) => any_precedence(hir_eager_expr_idx).transpile_to_rust(builder),
+            HirEagerRitchieParameterArgumentMatch::Variadic => todo!(),
+            HirEagerRitchieParameterArgumentMatch::Keyed => todo!(),
         }
     }
 }

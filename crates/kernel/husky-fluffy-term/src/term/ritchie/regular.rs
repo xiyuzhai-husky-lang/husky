@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FluffyRitchieRegularParameter {
-    contract: Contract,
-    ty: FluffyTerm,
+    pub contract: Contract,
+    pub ty: FluffyTerm,
 }
 
 impl FluffyRitchieRegularParameter {

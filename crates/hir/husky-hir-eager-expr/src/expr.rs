@@ -49,25 +49,25 @@ pub enum HirEagerExprData {
         path: TypePath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     TypeVariantConstructorCall {
         path: TypeVariantPath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     FunctionFnCall {
         path: FugitivePath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     AssociatedFunctionFnCall {
         path: AssociatedItemPath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     PropsStructField {
         owner_hir_expr_idx: HirEagerExprIdx,
@@ -83,7 +83,7 @@ pub enum HirEagerExprData {
         ident: Ident,
         path: AssociatedItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     NewTuple {
         /// guaranteed that items.len() > 0
