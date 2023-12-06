@@ -8,10 +8,9 @@ use vec_like::SmallVecPairMap;
 
 pub(crate) struct HirEagerExprOnSite {
     hir_eager_expr_idx: HirEagerExprIdx,
-    outer_rust_precedence_range: RustPrecedenceRange,
-    coersion: HirEagerCoersion,
-    outer_rust_bindings: RustBindings,
     location_contract_map: SmallVecPairMap<StackLocationIdx, Contract, 2>,
+    outer_rust_precedence_range: RustPrecedenceRange,
+    outer_rust_bindings: RustBindings,
 }
 
 impl HirEagerExprOnSite {
@@ -29,11 +28,10 @@ impl HirEagerExprOnSite {
         }
         Self {
             hir_eager_expr_idx,
+            location_contract_map,
             outer_rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
-            coersion,
             // this is because `RustBinding::SelfValue` automatically binds with the contract
             outer_rust_bindings: RustBinding::SelfValue.into(),
-            location_contract_map,
         }
     }
 }
