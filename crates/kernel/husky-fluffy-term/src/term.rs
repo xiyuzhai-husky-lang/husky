@@ -160,11 +160,11 @@ impl FluffyTerm {
 
     pub fn base_resolved_inner(
         self,
-        terms: &impl std::borrow::Borrow<HollowTerms>,
+        fluffy_terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> FluffyTermBase {
         match self.base {
             FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_) => self.base,
-            FluffyTermBase::Hollow(term) => match term.resolve_progress(terms.borrow()) {
+            FluffyTermBase::Hollow(term) => match term.resolve_progress(fluffy_terms.borrow()) {
                 TermResolveProgress::UnresolvedHollow => self.base,
                 TermResolveProgress::ResolvedEthereal(term) => term.into(),
                 TermResolveProgress::ResolvedSolid(term) => term.into(),

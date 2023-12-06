@@ -33,7 +33,7 @@
                                             PathLeading(
                                                 HirTypePathLeading(
                                                     Id {
-                                                        value: 49,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -71,7 +71,7 @@
                                             PathLeading(
                                                 HirTypePathLeading(
                                                     Id {
-                                                        value: 43,
+                                                        value: 44,
                                                     },
                                                 ),
                                             ),
@@ -109,7 +109,7 @@
                                             PathLeading(
                                                 HirTypePathLeading(
                                                     Id {
-                                                        value: 43,
+                                                        value: 44,
                                                     },
                                                 ),
                                             ),

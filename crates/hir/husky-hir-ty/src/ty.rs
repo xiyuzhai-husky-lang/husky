@@ -8,6 +8,7 @@ use husky_ethereal_term::{
     EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexInner,
     TermFunctionReduced,
 };
+use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_print_utils::p;
 use husky_term_prelude::TermEntityPath;
 use salsa::DebugWithDb;
@@ -54,6 +55,19 @@ impl HirType {
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
+        }
+    }
+
+    pub fn from_fluffy(
+        term: FluffyTerm,
+        db: &::salsa::Db,
+        fluffy_terms: &FluffyTerms,
+    ) -> Option<Self> {
+        match term.base_resolved_inner(fluffy_terms) {
+            FluffyTermBase::Ethereal(term) => HirType::from_ethereal(term, db),
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
         }
     }
 
