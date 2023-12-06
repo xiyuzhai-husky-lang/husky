@@ -1,20 +1,20 @@
 use super::*;
 
-impl<E> TranspileToRust<E> for bool {
+impl<E> TranspileToRustWith<E> for bool {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         builder.write_display_copyable(*self)
     }
 }
 
 // ad hoc
-impl<E> TranspileToRust<E> for i32 {
+impl<E> TranspileToRustWith<E> for i32 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         builder.write_display_copyable(*self)
     }
 }
 
 // ad hoc
-impl<E> TranspileToRust<E> for usize {
+impl<E> TranspileToRustWith<E> for usize {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         builder.write_display_copyable(*self)
     }

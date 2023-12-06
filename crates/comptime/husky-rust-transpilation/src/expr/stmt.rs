@@ -3,7 +3,7 @@ use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 use husky_hir_eager_expr::HirEagerCaseBranch;
 use husky_hir_opr::suffix::HirSuffixOpr;
 
-impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
+impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let &(IsLastStmt(is_last_stmt), slf) = self;
         match *slf.data(builder.hir_eager_stmt_arena()) {
@@ -252,7 +252,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerCondition {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerCondition {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirEagerCondition::Be { src, ref target } => {
@@ -266,7 +266,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerCondition {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern_expr_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
@@ -276,7 +276,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerIfBranch {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerIfBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::If);
         self.condition.transpile_to_rust(builder);
@@ -284,7 +284,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerIfBranch {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerElifBranch {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerElifBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         builder.keyword(RustKeyword::If);
@@ -293,14 +293,14 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerElifBranch {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerElseBranch {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerElseBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         self.stmts.transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerCaseBranch {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerCaseBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern.transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::HeavyArrow);
@@ -308,7 +308,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerCaseBranch {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerStmtIdxRange {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerStmtIdxRange {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let end = self.end();
         builder.curly_block(|builder| {

@@ -1,4 +1,4 @@
-use crate::builder::{RustKeyword, RustPunctuation, TranspileToRust};
+use crate::builder::{RustKeyword, RustPunctuation, TranspileToRustWith};
 use smallvec::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -105,7 +105,7 @@ fn rust_bindings_works() {
     }
 }
 
-impl TranspileToRust for RustBinding {
+impl TranspileToRustWith for RustBinding {
     fn transpile_to_rust(&self, builder: &mut crate::builder::RustTranspilationBuilder<()>) {
         match self {
             RustBinding::Deref | RustBinding::DerefCustomed => {
@@ -121,7 +121,7 @@ impl TranspileToRust for RustBinding {
     }
 }
 
-impl TranspileToRust for RustBindings {
+impl TranspileToRustWith for RustBindings {
     fn transpile_to_rust(&self, builder: &mut crate::builder::RustTranspilationBuilder<()>) {
         self.bindings.transpile_to_rust(builder)
     }

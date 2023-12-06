@@ -3,7 +3,7 @@ use super::*;
 use husky_entity_syn_tree::HasTypeVariantPaths;
 use husky_hir_decl::{HasHirDecl, PropsStructFieldHirDecl, TupleFieldHirDecl, TypeVariantHirDecl};
 
-impl TranspileToRust for TypeHirDefn {
+impl TranspileToRustWith for TypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -20,7 +20,7 @@ impl TranspileToRust for TypeHirDefn {
     }
 }
 
-impl TranspileToRust for EnumHirDefn {
+impl TranspileToRustWith for EnumHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
@@ -41,7 +41,7 @@ impl TranspileToRust for EnumHirDefn {
     }
 }
 
-impl TranspileToRust for TypeVariantHirDecl {
+impl TranspileToRustWith for TypeVariantHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
             TypeVariantHirDecl::Props(hir_decl) => todo!(),
@@ -51,7 +51,7 @@ impl TranspileToRust for TypeVariantHirDecl {
     }
 }
 
-impl TranspileToRust for PropsStructHirDefn {
+impl TranspileToRustWith for PropsStructHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
@@ -65,7 +65,7 @@ impl TranspileToRust for PropsStructHirDefn {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for PropsStructFieldHirDecl {
+impl TranspileToRustWith<HirEagerExprRegion> for PropsStructFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Pub);
         self.ident().transpile_to_rust(builder);
@@ -74,7 +74,7 @@ impl TranspileToRust<HirEagerExprRegion> for PropsStructFieldHirDecl {
     }
 }
 
-impl TranspileToRust for TupleStructHirDefn {
+impl TranspileToRustWith for TupleStructHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
@@ -90,7 +90,7 @@ impl TranspileToRust for TupleStructHirDefn {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for TupleFieldHirDecl {
+impl TranspileToRustWith<HirEagerExprRegion> for TupleFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ty().transpile_to_rust(builder)
     }

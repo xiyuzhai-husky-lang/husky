@@ -2,7 +2,7 @@ use husky_hir_decl::{TypeMemoizedFieldHirDecl, TypeMethodFnHirDecl};
 
 use super::*;
 
-impl TranspileToRust for TypeItemHirDefn {
+impl TranspileToRustWith for TypeItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -14,7 +14,7 @@ impl TranspileToRust for TypeItemHirDefn {
     }
 }
 
-impl TranspileToRust for TypeAssociatedFnHirDefn {
+impl TranspileToRustWith for TypeAssociatedFnHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
@@ -34,7 +34,7 @@ impl TranspileToRust for TypeAssociatedFnHirDefn {
     }
 }
 
-impl TranspileToRust for TypeMethodFnHirDefn {
+impl TranspileToRustWith for TypeMethodFnHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         self.hir_decl(db).transpile_to_rust(builder);
@@ -47,7 +47,7 @@ impl TranspileToRust for TypeMethodFnHirDefn {
     }
 }
 
-impl TranspileToRust for TypeMethodFnHirDecl {
+impl TranspileToRustWith for TypeMethodFnHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_eager_expr_region = self.hir_eager_expr_region(db);
@@ -65,19 +65,19 @@ impl TranspileToRust for TypeMethodFnHirDecl {
     }
 }
 
-impl TranspileToRust for TypeAssociatedTypeHirDefn {
+impl TranspileToRustWith for TypeAssociatedTypeHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRust for TypeAssociatedValHirDefn {
+impl TranspileToRustWith for TypeAssociatedValHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
-impl TranspileToRust for TypeMemoizedFieldHirDefn {
+impl TranspileToRustWith for TypeMemoizedFieldHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
@@ -89,7 +89,7 @@ impl TranspileToRust for TypeMemoizedFieldHirDefn {
     }
 }
 
-impl TranspileToRust for TypeMemoizedFieldHirDecl {
+impl TranspileToRustWith for TypeMemoizedFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {

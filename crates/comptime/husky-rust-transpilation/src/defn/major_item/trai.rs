@@ -3,7 +3,7 @@ use crate::builder::keyword::RustKeyword;
 use husky_entity_syn_tree::HasAssociatedItemPaths;
 use husky_hir_decl::TraitHirDecl;
 
-impl TranspileToRust for TraitHirDefn {
+impl TranspileToRustWith for TraitHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         self.hir_decl(db).transpile_to_rust(builder);
@@ -17,7 +17,7 @@ impl TranspileToRust for TraitHirDefn {
     }
 }
 
-impl TranspileToRust for TraitHirDecl {
+impl TranspileToRustWith for TraitHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
