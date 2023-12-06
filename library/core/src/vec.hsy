@@ -7,7 +7,7 @@ pub extern Vec<covariant E>;
 impl<E> Vec E:
     pub fn ilen() -> i32;
 
-    pub fn push(&mut self, e: E);
+    pub fn push(&mut self, !!e: E);
 
     pub fn first(@self) -> Option @E;
 
