@@ -94,8 +94,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (ropd_sema_expr_idx, ropd_ty) =
-            self.build_sema_expr_with_its_ty_returned(ropd, ExpectAnyOriginal);
+        let (ropd_sema_expr_idx, ropd_ty) = self.build_sema_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else {
             let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectAnyDerived);
             return (
@@ -228,8 +227,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {
-        let (ropd_sema_expr_idx, ropd_ty) =
-            self.build_sema_expr_with_its_ty_returned(ropd, ExpectAnyOriginal);
+        let (ropd_sema_expr_idx, ropd_ty) = self.build_sema_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {

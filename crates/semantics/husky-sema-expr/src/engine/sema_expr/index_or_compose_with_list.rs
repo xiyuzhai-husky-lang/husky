@@ -13,10 +13,10 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let (owner_sema_expr_idx, owner_ty) =
-            self.build_sema_expr_with_its_ty_returned(owner, ExpectAnyOriginal);
+            self.build_sema_expr_with_ty(owner, ExpectAnyOriginal);
         let Some(owner_ty) = owner_ty else {
             for index in items {
-                self.build_sema_expr_with_its_ty_returned(index.syn_expr_idx(), ExpectAnyDerived);
+                self.build_sema_expr_with_ty(index.syn_expr_idx(), ExpectAnyDerived);
             }
             return (
                 todo!(),

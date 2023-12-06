@@ -32,7 +32,7 @@ impl<'a> SemaExprEngine<'a> {
             }
             Unveiler::UniquePartiallyInstanted { template } => {
                 let (opd_sema_expr_idx, opd_ty) =
-                    self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     p!(self.syn_expr_region_data.path().debug(self.db));
                     p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(self.db));

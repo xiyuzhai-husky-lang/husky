@@ -316,6 +316,7 @@
                                         },
                                         Eval {
                                             expr_idx: 11,
+                                            coersion: None,
                                             discarded: false,
                                         },
                                     ],
@@ -921,10 +922,18 @@
                                         },
                                         Eval {
                                             expr_idx: 15,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 22,
+                                            coersion: None,
                                             discarded: false,
                                         },
                                         IfElse {
@@ -1674,19 +1683,47 @@
                                     data: [
                                         Eval {
                                             expr_idx: 23,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 42,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Break,
                                         Eval {
                                             expr_idx: 53,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 11,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         While {
@@ -1699,6 +1736,13 @@
                                         },
                                         Eval {
                                             expr_idx: 26,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         While {
@@ -1758,10 +1802,30 @@
                                         },
                                         Eval {
                                             expr_idx: 61,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 62,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: MutableStackOwned {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                             discarded: false,
                                         },
                                     ],

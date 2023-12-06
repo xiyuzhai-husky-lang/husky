@@ -243,10 +243,7 @@ impl TraceId {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Eval {
-                    sema_expr_idx: _,
-                    eol_semicolon: _,
-                } => {
+                SemaStmtData::Eval { .. } => {
                     let path_data = EagerStmtEssence::Eval {};
                     let eager_stmt_trace = TraceId::new_eager_stmt(
                         parent_trace_path,
@@ -324,9 +321,9 @@ impl TraceId {
                     block: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
-                    sema_if_branch,
-                    sema_elif_branches,
-                    sema_else_branch,
+                    if_branch: sema_if_branch,
+                    elif_branches: sema_elif_branches,
+                    else_branch: sema_else_branch,
                 } => {
                     subtraces.push(
                         TraceId::new_eager_stmt(

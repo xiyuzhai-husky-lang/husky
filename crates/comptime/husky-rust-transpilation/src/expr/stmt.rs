@@ -14,11 +14,11 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                (initial_value, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+                (initial_value, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
-                (result, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+                (result, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }),
             HirEagerStmtData::Require { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| {
@@ -34,7 +34,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     HirEagerCondition::Other(condition) => {
                         builder.macro_name(RustMacroName::Assert);
                         builder.bracketed_list_with(RustBracket::Par, |builder| {
-                            (condition, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+                            (condition, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
                         })
                     }
                 })
@@ -44,13 +44,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Eval {
                 expr_idx,
+                coersion,
                 discarded,
             } => match discarded || !is_last_stmt {
                 true => builder.on_fresh_semicolon_line(|builder| {
-                    (expr_idx, HirEagerExprSite::new_root()).transpile_to_rust(builder);
+                    (expr_idx, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
                 }),
                 false => builder.on_fresh_line(|builder| {
-                    (expr_idx, HirEagerExprSite::new_root()).transpile_to_rust(builder);
+                    (expr_idx, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmtData::ForBetween {
@@ -261,7 +262,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 ref case_branches,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
-                (match_target, HirEagerExprSite::new_root()).transpile_to_rust(builder);
+                (match_target, HirEagerExprSite::new_root(None)).transpile_to_rust(builder);
                 builder.bracketed_multiline_list(RustBracket::Curl, case_branches)
             }),
         }
@@ -275,10 +276,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
                 builder.keyword(RustKeyword::Let);
                 target.pattern_expr_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                (src, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+                (src, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }
             HirEagerCondition::Other(expr) => {
-                (expr, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+                (expr, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }
         }
     }

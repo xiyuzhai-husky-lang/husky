@@ -152,7 +152,7 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
-    ImplicitlyConvertible(FluffyCoersion),
+    Coersion(FluffyCoersion),
     EqsSort(TermUniverse),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
@@ -169,7 +169,7 @@ impl ExpectationOutcome {
     fn resolved(&self) -> Option<EtherealTerm> {
         match self {
             ExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
-            ExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
+            ExpectationOutcome::Coersion(_) => todo!(),
             ExpectationOutcome::EqsSort(_) => todo!(),
             ExpectationOutcome::Subtype(result) => result.resolved(),
             ExpectationOutcome::EqsFunctionCallType(_) => todo!(),

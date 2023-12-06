@@ -133,7 +133,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         hir_eager_expr_region: HirEagerExprRegion,
         body: HirEagerExprIdx,
     ) {
-        (body, HirEagerExprSite::new_root()).transpile_to_rust(&mut RustTranspilationBuilder {
+        (body, HirEagerExprSite::new_root(None)).transpile_to_rust(&mut RustTranspilationBuilder {
             base: self,
             extension: hir_eager_expr_region,
         })

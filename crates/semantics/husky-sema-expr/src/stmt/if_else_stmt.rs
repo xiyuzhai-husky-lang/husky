@@ -134,9 +134,9 @@ impl<'a> SemaExprEngine<'a> {
         // exhaustive iff else branch exists;
         (
             Ok(SemaStmtData::IfElse {
-                sema_if_branch,
-                sema_elif_branches,
-                sema_else_branch,
+                if_branch: sema_if_branch,
+                elif_branches: sema_elif_branches,
+                else_branch: sema_else_branch,
             }),
             merger
                 .merge(syn_else_branch.is_some(), self.eth_term_menu())

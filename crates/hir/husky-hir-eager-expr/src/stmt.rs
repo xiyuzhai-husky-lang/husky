@@ -4,7 +4,8 @@ mod loop_stmt;
 pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
-use crate::*;
+use crate::{coersion::HirEagerCoersion, *};
+use husky_fluffy_term::ExpectationOutcome;
 use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -27,6 +28,7 @@ pub enum HirEagerStmtData {
     Break,
     Eval {
         expr_idx: HirEagerExprIdx,
+        coersion: Option<HirEagerCoersion>,
         discarded: bool,
     },
     ForBetween {
@@ -72,7 +74,6 @@ impl ToHirEager for SemaStmtIdx {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
             SemaStmtData::Let {
-                let_token: _,
                 ref let_pattern_sema_obelisk,
                 initial_value_sema_expr_idx: initial_value,
                 ..
@@ -91,33 +92,33 @@ impl ToHirEager for SemaStmtIdx {
             },
             SemaStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemaStmtData::Eval {
-                sema_expr_idx: expr_idx,
+                sema_expr_idx,
+                outcome,
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
-                expr_idx: expr_idx.to_hir_eager(builder),
+                expr_idx: sema_expr_idx.to_hir_eager(builder),
                 discarded: eol_semicolon.as_ref().expect("no error").is_some(),
+                coersion: match outcome {
+                    Some(ExpectationOutcome::Coersion(coersion)) => {
+                        Some(coersion.to_hir_eager(builder))
+                    }
+                    _ => None,
+                },
             },
             SemaStmtData::ForBetween {
-                for_token: _,
                 ref particulars,
                 for_loop_var_symbol_idx: _frame_var_symbol_idx,
-                eol_colon: _,
                 ref block,
+                ..
             } => HirEagerStmtData::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
-            SemaStmtData::ForIn {
-                for_token: _,
-                condition: _,
-                eol_colon: _,
-                block: _,
-            } => todo!(),
+            SemaStmtData::ForIn { .. } => todo!(),
             SemaStmtData::Forext {
-                forext_token: _,
                 ref particulars,
-                eol_colon: _,
                 ref block,
+                ..
             } => HirEagerStmtData::Forext {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
@@ -135,9 +136,9 @@ impl ToHirEager for SemaStmtIdx {
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {
-                sema_if_branch: ref if_branch,
-                sema_elif_branches: ref elif_branches,
-                sema_else_branch: ref else_branch,
+                ref if_branch,
+                ref elif_branches,
+                ref else_branch,
             } => HirEagerStmtData::IfElse {
                 if_branch: if_branch.to_hir_eager(builder),
                 elif_branches: elif_branches.to_hir_eager(builder),

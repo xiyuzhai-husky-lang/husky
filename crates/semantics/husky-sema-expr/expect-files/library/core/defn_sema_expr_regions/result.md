@@ -1019,6 +1019,11 @@
                                     sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    outcome: Some(
+                                        Coersion(
+                                            Never,
+                                        ),
+                                    ),
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -1292,7 +1297,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Never,
                                             ),
                                         ),
@@ -1341,7 +1346,7 @@
                                     },
                                     resolve_progress: Resolved(
                                         Ok(
-                                            ImplicitlyConvertible(
+                                            Coersion(
                                                 Never,
                                             ),
                                         ),

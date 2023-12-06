@@ -94,10 +94,19 @@ impl HirEagerExprSite {
         }
     }
 
-    pub(crate) fn new_root() -> Self {
+    pub(crate) fn new_root(coersion: Option<HirEagerCoersion>) -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
-            rust_bindings: Default::default(),
+            rust_bindings: match coersion {
+                Some(coersion) => match coersion {
+                    HirEagerCoersion::Trivial(_) => Default::default(),
+                    HirEagerCoersion::Never => Default::default(),
+                    HirEagerCoersion::WrapInSome => RustBinding::WrapInSome.into(),
+                    HirEagerCoersion::PlaceToLeash => RustBinding::Reref.into(),
+                    HirEagerCoersion::Deref(_) => RustBinding::Deref.into(),
+                },
+                None => Default::default(),
+            },
             location_contract_map: Default::default(),
         }
     }

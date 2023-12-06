@@ -17,7 +17,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let (self_argument_sema_expr_idx, self_argument_ty) =
-            self.build_sema_expr_with_its_ty_returned(self_argument, ExpectAnyOriginal);
+            self.build_sema_expr_with_ty(self_argument, ExpectAnyOriginal);
         let Some(self_expr_ty) = self_argument_ty else {
             if let Some(generic_arguments) = template_arguments {
                 todo!()

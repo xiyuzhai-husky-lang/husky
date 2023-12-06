@@ -589,9 +589,9 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 RegionalTokenIdxRange::new(start, end)
             }
             SemaStmtData::IfElse {
-                ref sema_if_branch,
-                ref sema_elif_branches,
-                ref sema_else_branch,
+                if_branch: ref sema_if_branch,
+                elif_branches: ref sema_elif_branches,
+                else_branch: ref sema_else_branch,
                 ..
             } => {
                 let start = sema_if_branch.if_token().regional_token_idx();

@@ -241,6 +241,9 @@
                                         },
                                         Eval {
                                             expr_idx: 9,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],
@@ -585,6 +588,9 @@
                                         },
                                         Eval {
                                             expr_idx: 14,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],
@@ -934,6 +940,9 @@
                                         },
                                         Eval {
                                             expr_idx: 19,
+                                            coersion: Some(
+                                                WrapInSome,
+                                            ),
                                             discarded: false,
                                         },
                                     ],

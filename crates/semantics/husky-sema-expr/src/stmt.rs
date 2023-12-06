@@ -44,6 +44,7 @@ pub enum SemaStmtData {
     },
     Eval {
         sema_expr_idx: SemaExprIdx,
+        outcome: Option<ExpectationOutcome>,
         // todo: change this to EolOrEolSemicolonToken
         eol_semicolon: TokenDataResult<Option<EolSemicolonRegionalToken>>,
     },
@@ -80,9 +81,9 @@ pub enum SemaStmtData {
         block: SemaStmtIdxRange,
     },
     IfElse {
-        sema_if_branch: SemaIfBranch,
-        sema_elif_branches: Vec<SemaElifBranch>,
-        sema_else_branch: Option<SemaElseBranch>,
+        if_branch: SemaIfBranch,
+        elif_branches: Vec<SemaElifBranch>,
+        else_branch: Option<SemaElseBranch>,
     },
     Match {
         match_token: MatchRegionalToken,

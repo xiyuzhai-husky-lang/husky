@@ -17,8 +17,7 @@ impl<'a> SemaExprEngine<'a> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        let (lopd_sema_expr_idx, lopd_ty) =
-            self.build_sema_expr_with_its_ty_returned(lopd, ExpectAnyOriginal);
+        let (lopd_sema_expr_idx, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sema_expr_idx = match lopd_ty {
             Some(lopd_ty) => {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);

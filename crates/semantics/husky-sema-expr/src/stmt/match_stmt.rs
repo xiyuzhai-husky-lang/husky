@@ -26,7 +26,7 @@ impl<'a> SemaExprEngine<'a> {
             todo!()
         };
         let (match_target_sema_expr_idx, match_target_ty) =
-            self.build_sema_expr_with_its_ty_returned(match_target_syn_expr_idx, ExpectAnyOriginal);
+            self.build_sema_expr_with_ty(match_target_syn_expr_idx, ExpectAnyOriginal);
         let Some(match_target_ty) = match_target_ty else {
             todo!()
         };

@@ -28,13 +28,34 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn build_sema_expr_with_its_ty_returned<E: ExpectFluffyTerm>(
+    pub(crate) fn build_sema_expr_with_ty<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTerm>) {
         let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
         (sema_expr_idx, sema_expr_idx.ok_ty(&self.sema_expr_arena))
+    }
+
+    pub(crate) fn build_sema_expr_with_ty_and_outcome<E: ExpectFluffyTerm>(
+        &mut self,
+        expr_idx: SynExprIdx,
+        expr_ty_expectation: E,
+    ) -> (SemaExprIdx, Option<FluffyTerm>, Option<ExpectationOutcome>) {
+        let (sema_expr_idx, expectation_idx) =
+            self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
+        let outcome = match expectation_idx {
+            Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
+                .resolve_progress()
+                .outcome::<E>()
+                .cloned(),
+            None => None,
+        };
+        (
+            sema_expr_idx,
+            sema_expr_idx.ok_ty(&self.sema_expr_arena),
+            outcome.map(Into::into),
+        )
     }
 
     /// infer the type of a new expression but don't need the result for now
@@ -239,8 +260,7 @@ impl<'a> SemaExprEngine<'a> {
                 be_regional_token_idx,
                 ref target,
             } => {
-                let (src, src_ty) =
-                    self.build_sema_expr_with_its_ty_returned(src, ExpectAnyOriginal);
+                let (src, src_ty) = self.build_sema_expr_with_ty(src, ExpectAnyOriginal);
                 match src_ty {
                     Some(src_ty) => match target {
                         Ok(target) => self.infer_variable_pattern_root_and_symbols_ty(
@@ -380,7 +400,7 @@ impl<'a> SemaExprEngine<'a> {
                 rpar_regional_token_idx,
             } => {
                 let (item, infer_new_expr_ty) =
-                    self.build_sema_expr_with_its_ty_returned(item, expr_ty_expectation.clone());
+                    self.build_sema_expr_with_ty(item, expr_ty_expectation.clone());
                 (
                     Ok(SemaExprData::Bracketed {
                         lpar_regional_token_idx,
