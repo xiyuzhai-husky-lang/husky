@@ -2,7 +2,7 @@ use super::*;
 use husky_ethereal_signature::EtherealTermParenateParameters;
 use husky_ethereal_term::{EtherealRitchieParameter, EtherealRitchieRegularParameter};
 use husky_fluffy_term::FluffyRitchieRegularParameter;
-use husky_term_prelude::{Contract, RitchieTypeKind};
+use husky_term_prelude::{RitchieTypeKind, TermContract};
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]
 pub struct HirRitchieType {
@@ -80,7 +80,7 @@ impl HirRitchieParameter {
 
     pub fn from_ethereal_regular(param: EtherealRitchieRegularParameter, db: &::salsa::Db) -> Self {
         HirRitchieRegularParameter {
-            contract: param.contract(),
+            contract: HirEagerContract::from_term(param.contract()),
             ty: HirType::from_ethereal(param.ty(), db).unwrap(),
         }
         .into()
@@ -91,12 +91,37 @@ impl HirRitchieParameter {
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirRitchieRegularParameter {
-    pub contract: Contract,
+    pub contract: HirEagerContract,
     pub ty: HirType,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum HirEagerContract {
+    Pure,
+    Move,
+    Borrow,
+    BorrowMut,
+    Const,
+    Leash,
+    At,
+}
+
+impl HirEagerContract {
+    pub fn from_term(contract: TermContract) -> Self {
+        match contract {
+            TermContract::Pure => HirEagerContract::Pure,
+            TermContract::Move => HirEagerContract::Move,
+            TermContract::Borrow => HirEagerContract::Borrow,
+            TermContract::BorrowMut => HirEagerContract::BorrowMut,
+            TermContract::Const => HirEagerContract::Const,
+            TermContract::Leash => HirEagerContract::Leash,
+            TermContract::At => HirEagerContract::At,
+        }
+    }
+}
+
 impl HirRitchieRegularParameter {
-    pub fn contract(&self) -> Contract {
+    pub fn contract(&self) -> HirEagerContract {
         self.contract
     }
 
@@ -110,7 +135,7 @@ impl HirRitchieRegularParameter {
         fluffy_terms: &FluffyTerms,
     ) -> Self {
         Self {
-            contract: param.contract,
+            contract: HirEagerContract::from_term(param.contract),
             ty: HirType::from_fluffy(param.ty, db, fluffy_terms).unwrap(),
         }
     }

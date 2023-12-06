@@ -8,13 +8,13 @@ mod ty_variant;
 use crate::*;
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
-    parenate::eager::{HirEagerContract, HirEagerParenateParameter, HirEagerParenateParameters},
+    parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,
     template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
-use husky_hir_ty::ritchie::{HirRitchieParameter, HirRitchieRegularParameter};
+use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieRegularParameter};
 use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
@@ -77,7 +77,7 @@ fn module_defn_rust_transpilation_works() {
 }
 
 impl TranspileToRustWith for HirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
             HirDefn::Submodule(hir_defn) => hir_defn.transpile_to_rust(builder),
             HirDefn::MajorItem(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -89,8 +89,8 @@ impl TranspileToRustWith for HirDefn {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameter {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self.data() {
             HirTemplateParameterData::Type { ident, traits } => {
                 ident.transpile_to_rust(builder);
@@ -112,8 +112,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateParameter {
     }
 }
 
-impl<'a> TranspileToRustWith<HirEagerExprRegion> for HirTemplateParameters {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl<'a> TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameters {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         if self.is_empty() {
             return;
         }
@@ -122,13 +122,13 @@ impl<'a> TranspileToRustWith<HirEagerExprRegion> for HirTemplateParameters {
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerSelfValueParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.self_value()
     }
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         match self {
             HirEagerParenateParameter::Ordinary {
@@ -139,7 +139,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
                 pattern_expr_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Colon);
                 match contract {
-                    HirEagerContract::None => match ty.is_copyable_obviously(db) {
+                    HirEagerContract::Pure => match ty.is_copyable_obviously(db) {
                         true => (),
                         false => builder.punctuation(RustPunctuation::Ambersand),
                     },
@@ -161,14 +161,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameters {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerParenateParameters {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.bracketed_comma_list(RustBracket::Par, self.iter());
     }
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
             HirRitchieParameter::Regular(param) => param.transpile_to_rust(builder),
             HirRitchieParameter::Variadic(_) => todo!(),
@@ -178,7 +178,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieParameter {
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieRegularParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ty().transpile_to_rust(builder)
     }
 }

@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn two_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
+    fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {

@@ -4,8 +4,8 @@ use husky_hir_eager_expr::HirEagerCaseBranch;
 use husky_hir_opr::suffix::HirSuffixOpr;
 
 impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        let &(IsLastStmt(is_last_stmt), slf) = self;
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        let (IsLastStmt(is_last_stmt), slf) = self;
         match *slf.data(builder.hir_eager_stmt_arena()) {
             HirEagerStmtData::Let {
                 pattern,
@@ -14,11 +14,11 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                any_precedence(initial_value).transpile_to_rust(builder)
+                (initial_value, HirEagerExprSite::new_root()).transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
-                any_precedence(result).transpile_to_rust(builder)
+                (result, HirEagerExprSite::new_root()).transpile_to_rust(builder)
             }),
             HirEagerStmtData::Require { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| {
@@ -34,7 +34,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     HirEagerCondition::Other(condition) => {
                         builder.macro_name(RustMacroName::Assert);
                         builder.bracketed_list_with(RustBracket::Par, |builder| {
-                            any_precedence(condition).transpile_to_rust(builder)
+                            (condition, HirEagerExprSite::new_root()).transpile_to_rust(builder)
                         })
                     }
                 })
@@ -47,10 +47,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 discarded,
             } => match discarded || !is_last_stmt {
                 true => builder.on_fresh_semicolon_line(|builder| {
-                    any_precedence(expr_idx).transpile_to_rust(builder);
+                    (expr_idx, HirEagerExprSite::new_root()).transpile_to_rust(builder);
                 }),
                 false => builder.on_fresh_line(|builder| {
-                    any_precedence(expr_idx).transpile_to_rust(builder);
+                    (expr_idx, HirEagerExprSite::new_root()).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmtData::ForBetween {
@@ -61,7 +61,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 particulars.frame_var_ident.transpile_to_rust(builder);
                 builder.keyword(RustKeyword::In);
                 let range = &particulars.range;
-                let t = |opd| (RustPrecedenceRange::Greater(RustPrecedence::Range), opd);
+                let t = |opd| {
+                    (
+                        opd,
+                        HirEagerExprSite::new(RustPrecedenceRange::Greater(RustPrecedence::Range)),
+                    )
+                };
                 match range.step {
                     LoopStep::Constant(step) => match step {
                         1 => {
@@ -73,10 +78,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                         Some(initial_bound) => {
                                             builder.bracketed(RustBracket::Par, |builder| {
                                                 (
-                                                    RustPrecedenceRange::Greater(
-                                                        RustPrecedence::Additive,
-                                                    ),
                                                     initial_bound,
+                                                    HirEagerExprSite::new(
+                                                        RustPrecedenceRange::Greater(
+                                                            RustPrecedence::Additive,
+                                                        ),
+                                                    ),
                                                 )
                                                     .transpile_to_rust(builder);
                                                 builder.punctuation(RustPunctuation::Add);
@@ -116,10 +123,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                             Some(final_bound) => {
                                                 builder.bracketed(RustBracket::Par, |builder| {
                                                     (
-                                                        RustPrecedenceRange::Greater(
-                                                            RustPrecedence::Additive,
-                                                        ),
                                                         final_bound,
+                                                        HirEagerExprSite::new(
+                                                            RustPrecedenceRange::Greater(
+                                                                RustPrecedence::Additive,
+                                                            ),
+                                                        ),
                                                     )
                                                         .transpile_to_rust(builder);
                                                     builder.punctuation(RustPunctuation::Add);
@@ -168,8 +177,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     LoopBoundaryKind::LowerClosed => builder.punctuation(RustPunctuation::Geq),
                 }
                 (
-                    RustPrecedenceRange::Greater(RustPrecedence::OrdComparison),
                     particulars.bound_expr_hir_eager_expr_idx,
+                    HirEagerExprSite::new(RustPrecedenceRange::Greater(
+                        RustPrecedence::OrdComparison,
+                    )),
                 )
                     .transpile_to_rust(builder);
                 builder.curly_block(|builder| {
@@ -215,7 +226,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     condition.transpile_to_rust(builder)
                                 }
                                 HirEagerCondition::Other(condition) => {
-                                    (RustPrecedenceRange::Geq(RustPrecedence::Prefix), condition)
+                                    (
+                                        condition,
+                                        HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                                            RustPrecedence::Prefix,
+                                        )),
+                                    )
                                         .transpile_to_rust(builder);
                                 }
                             }
@@ -245,29 +261,31 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 ref case_branches,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
-                any_precedence(match_target).transpile_to_rust(builder);
+                (match_target, HirEagerExprSite::new_root()).transpile_to_rust(builder);
                 builder.bracketed_multiline_list(RustBracket::Curl, case_branches)
             }),
         }
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerCondition {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirEagerCondition::Be { src, ref target } => {
                 builder.keyword(RustKeyword::Let);
                 target.pattern_expr_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                any_precedence(src).transpile_to_rust(builder)
+                (src, HirEagerExprSite::new_root()).transpile_to_rust(builder)
             }
-            HirEagerCondition::Other(expr) => any_precedence(expr).transpile_to_rust(builder),
+            HirEagerCondition::Other(expr) => {
+                (expr, HirEagerExprSite::new_root()).transpile_to_rust(builder)
+            }
         }
     }
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerLetVariablesPattern {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern_expr_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
             builder.punctuation(RustPunctuation::Colon);
@@ -276,16 +294,16 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerIfBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerIfBranch {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::If);
         self.condition.transpile_to_rust(builder);
         self.stmts.transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerElifBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerElifBranch {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         builder.keyword(RustKeyword::If);
         self.condition.transpile_to_rust(builder);
@@ -294,14 +312,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerElifBranch {
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerElseBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         self.stmts.transpile_to_rust(builder)
     }
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerCaseBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern.transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::HeavyArrow);
         self.stmts.transpile_to_rust(builder)
@@ -309,7 +327,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerCaseBranch {
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerStmtIdxRange {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let end = self.end();
         builder.curly_block(|builder| {
             for stmt in self {
@@ -319,4 +337,5 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerStmtIdxRange {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 struct IsLastStmt(bool);

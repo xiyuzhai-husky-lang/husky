@@ -73,7 +73,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
             for k in j..30 {
                 unsearched[k] &= !mask[k]
             }
-            result.push(ConnectedComponent::__constructor(mask))
+            result.push(&ConnectedComponent::__constructor(mask))
         }
     }
     return result;
@@ -81,7 +81,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
 
 impl ConnectedComponent {
     pub fn raw_contours(self) -> Vec<RawContour> {
-        find_raw_contours(self)
+        find_raw_contours(&self)
     }
 
     pub fn eff_holes(self) -> EffHoles {

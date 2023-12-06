@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealRitchieVariadicParameter {
-    contract: Contract,
+    contract: TermContract,
     ty: EtherealTerm,
 }
 
@@ -50,11 +50,11 @@ impl salsa::DisplayWithDb for EtherealRitchieVariadicParameter {
 }
 
 impl EtherealRitchieVariadicParameter {
-    pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
+    pub fn new(contract: TermContract, ty: EtherealTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> Contract {
+    pub fn contract(&self) -> TermContract {
         self.contract
     }
 

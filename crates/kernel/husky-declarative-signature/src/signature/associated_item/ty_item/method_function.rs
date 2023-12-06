@@ -26,7 +26,7 @@ impl TypeMethodFunctionDeclarativeSignatureTemplate {
         let self_value_parameter = DeclarativeRitchieRegularParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
-                None => Contract::Pure,
+                None => TermContract::Pure,
             },
             decl.impl_block_path(db)
                 .declarative_signature_template(db)?

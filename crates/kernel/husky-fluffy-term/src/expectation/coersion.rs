@@ -38,13 +38,13 @@ impl FluffyCoersion {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectCoersion {
-    contract: Contract,
+    contract: TermContract,
     ty_expected: FluffyTerm,
 }
 
 impl ExpectCoersion {
     #[inline(always)]
-    pub fn new(contract: Contract, ty_expected: FluffyTerm) -> Self {
+    pub fn new(contract: TermContract, ty_expected: FluffyTerm) -> Self {
         Self {
             contract,
             ty_expected,
@@ -54,7 +54,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_const(ty: FluffyTerm) -> Self {
         Self {
-            contract: Contract::Const,
+            contract: TermContract::Const,
             ty_expected: ty,
         }
     }
@@ -75,7 +75,7 @@ impl ExpectCoersion {
             _ => ty,
         };
         Self {
-            contract: Contract::Pure,
+            contract: TermContract::Pure,
             ty_expected: ty,
         }
     }
@@ -83,7 +83,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: Contract::Pure,
+            contract: TermContract::Pure,
             ty_expected: engine.term_menu().unit_ty_ontology().into(),
         }
     }
@@ -91,7 +91,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: Contract::Pure,
+            contract: TermContract::Pure,
             ty_expected: engine.term_menu().bool_ty_ontology().into(),
         }
     }
@@ -99,7 +99,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_move(ty: FluffyTerm) -> Self {
         Self {
-            contract: Contract::Move,
+            contract: TermContract::Move,
             ty_expected: ty,
         }
     }
@@ -120,7 +120,7 @@ impl ExpectCoersion {
         // }
     }
 
-    fn contract(self) -> Contract {
+    fn contract(self) -> TermContract {
         self.contract
     }
 

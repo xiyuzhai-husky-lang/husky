@@ -4,7 +4,7 @@ use husky_entity_syn_tree::HasAssociatedItemPaths;
 use husky_hir_decl::TraitHirDecl;
 
 impl TranspileToRustWith for TraitHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         self.hir_decl(db).transpile_to_rust(builder);
         builder.curly_block(|builder| {
@@ -18,7 +18,7 @@ impl TranspileToRustWith for TraitHirDefn {
 }
 
 impl TranspileToRustWith for TraitHirDecl {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<()>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Pub);

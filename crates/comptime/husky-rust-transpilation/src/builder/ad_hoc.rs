@@ -67,4 +67,14 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
     pub(crate) fn unit(&mut self) {
         self.write_str("()")
     }
+
+    pub(crate) fn wrap_in_some_left(&mut self, wrap_in_some_flag: &mut bool) {
+        debug_assert!(!*wrap_in_some_flag);
+        *wrap_in_some_flag = true;
+        self.write_str("Some(")
+    }
+
+    pub(crate) fn wrap_in_some_right(&mut self) {
+        self.write_str(")")
+    }
 }

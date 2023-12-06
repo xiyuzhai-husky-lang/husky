@@ -5,6 +5,7 @@ use husky_fluffy_term::{
 };
 use husky_hir_ty::{lifetime::HirLifetime, place::HirPlace};
 
+#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirEagerCoersion {
     Trivial(TrivialHirEagerCoersion),
@@ -15,6 +16,10 @@ pub enum HirEagerCoersion {
 }
 
 impl HirEagerCoersion {
+    pub const TRIVIAL_TRANSIENT: Self = HirEagerCoersion::Trivial(TrivialHirEagerCoersion {
+        expectee_place: HirPlace::Transient,
+    });
+
     pub fn place_after_coersion(self) -> HirPlace {
         match self {
             HirEagerCoersion::Trivial(slf) => slf.place_after_coersion(),

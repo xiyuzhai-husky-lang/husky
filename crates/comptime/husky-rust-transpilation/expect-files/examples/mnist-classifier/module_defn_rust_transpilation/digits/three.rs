@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn three_fermi_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![downarc, uparc, back])
+    fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
 pub fn is_three() -> OneVsAll {
@@ -17,7 +17,7 @@ pub fn is_three() -> OneVsAll {
     require!(de > 0 || de < -100);
     let downarc_enpoint = downarc.unwrap().end();
     let uparc_startpoint = uparc.unwrap().start();
-    let distance = downarc_enpoint.dist(uparc_startpoint);
+    let distance = downarc_enpoint.dist(&uparc_startpoint);
     require!(distance < 20);
     require!(three_fermi_match().norm() < 2.5);
     require!(downarc.unwrap().angle_change() < -100);

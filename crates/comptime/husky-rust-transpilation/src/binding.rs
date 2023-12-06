@@ -1,4 +1,5 @@
 use crate::builder::{RustKeyword, RustPunctuation, TranspileToRustWith};
+use husky_hir_eager_expr::HirEagerExprRegion;
 use smallvec::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -8,6 +9,7 @@ pub(crate) enum RustBinding {
     Reref,
     RerefMut,
     SelfValue,
+    WrapInSome,
 }
 
 #[derive(Default)]
@@ -102,27 +104,5 @@ fn rust_bindings_works() {
         bindings.push(RustBinding::Deref);
         bindings.push(RustBinding::RerefMut);
         assert_eq!(bindings.len(), 1)
-    }
-}
-
-impl TranspileToRustWith for RustBinding {
-    fn transpile_to_rust(&self, builder: &mut crate::builder::RustTranspilationBuilder<()>) {
-        match self {
-            RustBinding::Deref | RustBinding::DerefCustomed => {
-                builder.punctuation(RustPunctuation::DerefStar)
-            }
-            RustBinding::Reref => builder.punctuation(RustPunctuation::Ambersand),
-            RustBinding::RerefMut => {
-                builder.punctuation(RustPunctuation::Ambersand);
-                builder.keyword(RustKeyword::Mut)
-            }
-            RustBinding::SelfValue => (),
-        }
-    }
-}
-
-impl TranspileToRustWith for RustBindings {
-    fn transpile_to_rust(&self, builder: &mut crate::builder::RustTranspilationBuilder<()>) {
-        self.bindings.transpile_to_rust(builder)
     }
 }

@@ -9,7 +9,7 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::*;
+use crate::{expr::site::HirEagerExprSite, *};
 use husky_coword::{Ident, Label};
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
@@ -133,7 +133,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         hir_eager_expr_region: HirEagerExprRegion,
         body: HirEagerExprIdx,
     ) {
-        any_precedence(body).transpile_to_rust(&mut RustTranspilationBuilder {
+        (body, HirEagerExprSite::new_root()).transpile_to_rust(&mut RustTranspilationBuilder {
             base: self,
             extension: hir_eager_expr_region,
         })
@@ -370,23 +370,14 @@ impl<'a, 'b, E> std::ops::DerefMut for RustTranspilationBuilder<'a, 'b, E> {
 }
 
 pub(crate) trait TranspileToRustWith<E = ()> {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>);
-}
-
-impl<T, E> TranspileToRustWith<E> for &T
-where
-    T: TranspileToRustWith<E>,
-{
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        <T as TranspileToRustWith<E>>::transpile_to_rust(self, builder)
-    }
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>);
 }
 
 impl<T, E> TranspileToRustWith<E> for Option<T>
 where
     T: TranspileToRustWith<E>,
 {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             Some(t) => t.transpile_to_rust(builder),
             None => (),
@@ -394,11 +385,20 @@ where
     }
 }
 
-impl<T, E> TranspileToRustWith<E> for [T]
+impl<T, E> TranspileToRustWith<E> for &T
 where
-    T: TranspileToRustWith<E>,
+    T: TranspileToRustWith<E> + Copy,
 {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        <T as TranspileToRustWith<E>>::transpile_to_rust(*self, builder)
+    }
+}
+
+impl<T, E> TranspileToRustWith<E> for &[T]
+where
+    for<'a> &'a T: TranspileToRustWith<E>,
+{
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         for t in self {
             t.transpile_to_rust(builder)
         }
@@ -406,14 +406,14 @@ where
 }
 
 impl<E> TranspileToRustWith<E> for Ident {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.word(self.data(db))
     }
 }
 
 impl<E> TranspileToRustWith<E> for Label {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.write_str("'");
         builder.write_str(self.ident().data(db))
@@ -421,7 +421,7 @@ impl<E> TranspileToRustWith<E> for Label {
 }
 
 impl<E> TranspileToRustWith<E> for HirTemplateSymbol {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             HirTemplateSymbol::Type(symbol) => match symbol {
                 HirTypeSymbol::Type {
@@ -446,7 +446,7 @@ impl<E> TranspileToRustWith<E> for HirTemplateSymbol {
 }
 
 impl<E> TranspileToRustWith<E> for TermLiteral {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
             TermLiteral::Unit => builder.write_str("()"),
@@ -491,13 +491,13 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     }
 }
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         let hir_eager_runtime_symbol_region_data = builder.extension.runtime_symbol_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
-        match hir_eager_runtime_symbol_region_data[*self].name() {
+        match hir_eager_runtime_symbol_region_data[self].name() {
             HirEagerRuntimeSymbolName::SelfValue => builder.word("self"),
             HirEagerRuntimeSymbolName::Ident(ident) => ident.transpile_to_rust(builder),
         }

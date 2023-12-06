@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn simple_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![simple_leftdown_pattern])
+    fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
 
 pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -11,7 +11,7 @@ pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
 }
 
 pub fn special_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![leftupcc_pattern, leftdowncc_pattern])
+    fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
 pub fn leftupcc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {

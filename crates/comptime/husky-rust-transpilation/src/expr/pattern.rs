@@ -4,7 +4,7 @@ use husky_term_prelude::SymbolModifier;
 use super::*;
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         use salsa::DebugWithDb;
         match self.data(builder.hir_eager_pattern_expr_arena()) {
