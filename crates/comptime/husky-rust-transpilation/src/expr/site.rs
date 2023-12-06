@@ -6,32 +6,29 @@ use husky_stack_location::StackLocationIdx;
 use husky_term_prelude::Contract;
 use vec_like::SmallVecPairMap;
 
-pub(crate) struct HirEagerExprOnSite {
-    hir_eager_expr_idx: HirEagerExprIdx,
+pub(crate) struct HirEagerExprSite {
+    pub(crate) outer_rust_precedence_range: RustPrecedenceRange,
+    pub(crate) outer_rust_bindings: RustBindings,
     location_contract_map: SmallVecPairMap<StackLocationIdx, Contract, 2>,
-    outer_rust_precedence_range: RustPrecedenceRange,
-    outer_rust_bindings: RustBindings,
 }
 
-impl HirEagerExprOnSite {
+impl HirEagerExprSite {
     /// generate self subexpr on site
     /// `self` refers to the parent expr on site
-    pub(crate) fn self_expr_on_site(
-        &self,
-        hir_eager_expr_idx: HirEagerExprIdx,
-        coersion: HirEagerCoersion,
-        contract: Contract,
-    ) -> Self {
+    pub(crate) fn self_expr_on_site(&self, coersion: HirEagerCoersion, contract: Contract) -> Self {
         let mut location_contract_map = self.location_contract_map.clone();
         if let Some(location) = coersion.place_after_coersion().location() {
             location_contract_map.insert((location, contract))
         }
         Self {
-            hir_eager_expr_idx,
             location_contract_map,
             outer_rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
-            // this is because `RustBinding::SelfValue` automatically binds with the contract
+            // this is because `RustBinding::SelfValue` automatically covers the contract
             outer_rust_bindings: RustBinding::SelfValue.into(),
         }
+    }
+
+    pub(crate) fn location_contract(&self, location: StackLocationIdx) -> Option<Contract> {
+        self.location_contract_map.get_value(location).copied()
     }
 }
