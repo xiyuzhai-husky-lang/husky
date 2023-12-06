@@ -1,4 +1,5 @@
 use super::{coersion::HirCoersion, *};
+use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::HirEagerExprIdx;
 use husky_opr::precedence::Precedence;
 use husky_stack_location::StackLocationIdx;
@@ -8,6 +9,7 @@ use vec_like::SmallVecPairMap;
 pub(crate) struct HirExprSite {
     outer_rust_precedence_range: RustPrecedenceRange,
     coersion: HirCoersion,
+    outer_rust_bindings: RustBindings,
     location_contract_map: SmallVecPairMap<StackLocationIdx, Contract, 2>,
 }
 
@@ -22,6 +24,7 @@ impl HirExprSite {
         Self {
             outer_rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             coersion,
+            outer_rust_bindings: RustBinding::SelfValue.into(),
             location_contract_map,
         }
     }
