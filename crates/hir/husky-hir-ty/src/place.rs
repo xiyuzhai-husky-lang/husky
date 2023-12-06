@@ -1,6 +1,7 @@
 use either::*;
 use husky_fluffy_term::{FluffyLifetime, FluffyPlace};
 use husky_stack_location::StackLocationIdx;
+use husky_term_prelude::Contract;
 
 use crate::lifetime::HirLifetime;
 
@@ -18,7 +19,9 @@ pub enum HirPlace {
         location: StackLocationIdx,
     },
     /// lvalue nonreference
-    MutableStackOwned,
+    MutableStackOwned {
+        location: StackLocationIdx,
+    },
     // rvalue
     Transient,
     /// a place accessed through ref
@@ -87,7 +90,7 @@ impl HirPlace {
             FluffyPlace::ImmutableStackOwned { location } => {
                 HirPlace::ImmutableStackOwned { location }
             }
-            FluffyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned,
+            FluffyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned { location },
             FluffyPlace::Transient => HirPlace::Transient,
             FluffyPlace::Ref { guard } => HirPlace::Ref {
                 guard: hir_place_guard_from_fluffy(guard),
@@ -97,6 +100,21 @@ impl HirPlace {
             },
             FluffyPlace::Leashed => HirPlace::Leashed,
             FluffyPlace::Todo => HirPlace::Todo,
+        }
+    }
+
+    pub fn location(self) -> Option<StackLocationIdx> {
+        match self {
+            HirPlace::StackPure { location }
+            | HirPlace::ImmutableStackOwned { location }
+            | HirPlace::MutableStackOwned { location }
+            | HirPlace::Ref {
+                guard: Left(location),
+            }
+            | HirPlace::RefMut {
+                guard: Left(location),
+            } => Some(location),
+            _ => None,
         }
     }
 }
