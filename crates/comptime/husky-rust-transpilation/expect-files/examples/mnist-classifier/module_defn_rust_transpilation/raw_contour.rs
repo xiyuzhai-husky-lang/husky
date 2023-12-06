@@ -223,13 +223,13 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             let mut current_streak = -1;
             loop {
                 {
-                    let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction);
-                    let angle_change = get_angle_change(inward_direction, outward_direction);
+                    let outward_direction = get_outward_direction(row_above, row_below, j, &inward_direction);
+                    let angle_change = get_angle_change(&inward_direction, &outward_direction);
                     boundary_unsearched[i] = boundary_unsearched[i] | !(1 << j);
                     if angle_change {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                            contour.last().unwrap() = get_concave_middle_point(contour);
-                            contour.push(Point2d::from_i_shift28(i, j));
+                            contour.last().unwrap() = get_concave_middle_point(&contour);
+                            contour.push(&Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
@@ -241,7 +241,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else {
-                            contour.push(Point2d::from_i_shift28(i, j));
+                            contour.push(&Point2d::from_i_shift28(i, j));
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
                         }
@@ -279,7 +279,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }
-            result.push(RawContour::__constructor(cc, contour))
+            result.push(&RawContour::__constructor(cc, contour))
         }
     }
     return result;
@@ -287,7 +287,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 
 impl RawContour {
     pub fn line_segment_sketch(self) -> LineSegmentSketch {
-        LineSegmentSketch::new(self, 1.4)
+        LineSegmentSketch::new(&self, 1.4)
     }
 
     pub fn bounding_box(self) -> BoundingBox {
@@ -307,7 +307,7 @@ impl RawContour {
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.cc.raw_contours()[0].bounding_box().relative_bounding_box(self.bounding_box())
+        self.cc.raw_contours()[0].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
     pub fn contour_len(self) -> f32 {
@@ -327,6 +327,6 @@ impl RawContour {
         let N = self.points.ilen();
         let ct_start = self.points[start.rem_eulicd(N)];
         let ct_end = self.points[end.rem_eulicd(N)];
-        ct_start.to(ct_end)
+        ct_start.to(&ct_end)
     }
 }

@@ -28,7 +28,7 @@ impl TraitForTypeMethodFnDeclarativeSignatureTemplate {
         let self_value_parameter = DeclarativeRitchieRegularParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
-                None => Contract::Pure,
+                None => TermContract::Pure,
             },
             self_ty,
         );

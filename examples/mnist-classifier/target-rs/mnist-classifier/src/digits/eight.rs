@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn upper_mouth_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![big_mouth])
+    fermi_match(major_concave_components(), &vec![big_mouth])
 }
 
 pub fn is_eight() -> OneVsAll {

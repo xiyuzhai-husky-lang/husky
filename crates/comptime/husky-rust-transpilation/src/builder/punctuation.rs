@@ -97,7 +97,7 @@ use super::*;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 
 impl<E> TranspileToRustWith<E> for HirBinaryOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             HirBinaryOpr::Closed(opr) => opr.transpile_to_rust(builder),
             HirBinaryOpr::Shift(opr) => opr.transpile_to_rust(builder),
@@ -125,7 +125,7 @@ impl<E> TranspileToRustWith<E> for HirBinaryOpr {
 }
 
 impl<E> TranspileToRustWith<E> for BinaryClosedOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryClosedOpr::Add => match builder.spaced {
                 true => " + ",
@@ -169,7 +169,7 @@ impl<E> TranspileToRustWith<E> for BinaryClosedOpr {
 }
 
 impl<E> TranspileToRustWith<E> for BinaryShiftOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryShiftOpr::Shl => match builder.spaced {
                 true => " << ",
@@ -185,7 +185,7 @@ impl<E> TranspileToRustWith<E> for BinaryShiftOpr {
 }
 
 impl<E> TranspileToRustWith<E> for BinaryComparisonOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryComparisonOpr::Eq => match builder.spaced {
                 true => " == ",
@@ -217,7 +217,7 @@ impl<E> TranspileToRustWith<E> for BinaryComparisonOpr {
 }
 
 impl<E> TranspileToRustWith<E> for BinaryShortcuitLogicOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             BinaryShortcuitLogicOpr::And => match builder.spaced {
                 true => " && ",
@@ -233,7 +233,7 @@ impl<E> TranspileToRustWith<E> for BinaryShortcuitLogicOpr {
 }
 
 impl<E> TranspileToRustWith<E> for HirPrefixOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             HirPrefixOpr::Minus => "-",
             HirPrefixOpr::Not => "!",
@@ -246,7 +246,7 @@ impl<E> TranspileToRustWith<E> for HirPrefixOpr {
 }
 
 impl<E> TranspileToRustWith<E> for HirSuffixOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             HirSuffixOpr::Incr => "+= 1",
             HirSuffixOpr::Decr => "-= 1",

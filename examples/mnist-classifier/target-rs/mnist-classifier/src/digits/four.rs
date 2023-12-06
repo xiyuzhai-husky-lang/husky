@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn left_components() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![left_coordinate_max, left_coordinate_max])
+    fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
 
 pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -9,11 +9,11 @@ pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
 }
 
 pub fn components_max_downwards() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![displacement_downwards])
+    fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
 pub fn components_max_heights() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![cc_box_heights])
+    fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
 pub fn is_four() -> OneVsAll {

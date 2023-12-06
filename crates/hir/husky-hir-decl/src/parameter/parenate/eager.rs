@@ -1,31 +1,7 @@
-use husky_term_prelude::Contract;
+use husky_hir_ty::ritchie::HirEagerContract;
+use husky_term_prelude::TermContract;
 
 use super::*;
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirEagerContract {
-    None,
-    Move,
-    Borrow,
-    BorrowMut,
-    Const,
-    Leash,
-    At,
-}
-
-impl HirEagerContract {
-    fn from_term(contract: Contract) -> Self {
-        match contract {
-            Contract::Pure => HirEagerContract::None,
-            Contract::Move => HirEagerContract::Move,
-            Contract::Borrow => HirEagerContract::Borrow,
-            Contract::BorrowMut => HirEagerContract::BorrowMut,
-            Contract::Const => HirEagerContract::Const,
-            Contract::Leash => HirEagerContract::Leash,
-            Contract::At => HirEagerContract::At,
-        }
-    }
-}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]

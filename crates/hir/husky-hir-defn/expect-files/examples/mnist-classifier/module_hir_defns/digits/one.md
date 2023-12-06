@@ -135,7 +135,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -361,7 +361,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -605,7 +605,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),

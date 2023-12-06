@@ -1,11 +1,11 @@
 use super::*;
 
 pub fn nine_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![downmost])
+    fermi_match(major_concave_components(), &vec![downmost])
 }
 
 pub fn nine_match_refine() -> FermiMatchResult {
-    fermi_match(major_concave_components(), vec![big_cc])
+    fermi_match(major_concave_components(), &vec![big_cc])
 }
 
 pub fn is_nine() -> OneVsAll {

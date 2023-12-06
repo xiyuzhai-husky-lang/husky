@@ -5,7 +5,7 @@ mod ty_item;
 use super::*;
 
 impl TranspileToRustWith for AssociatedItemHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.transpile_to_rust(builder),
             AssociatedItemHirDefn::TraitItem(hir_defn) => hir_defn.transpile_to_rust(builder),

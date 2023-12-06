@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum Contract {
+pub enum TermContract {
     Pure,
     Move,
     Borrow,
@@ -11,38 +11,38 @@ pub enum Contract {
     At,
 }
 
-impl Contract {
+impl TermContract {
     pub fn new<TG>(ephem_symbol_modifier_token_group: Option<TG>) -> Self
     where
-        TG: Into<Contract>,
+        TG: Into<TermContract>,
     {
         match ephem_symbol_modifier_token_group {
             Some(t) => t.into(),
-            None => Contract::Pure,
+            None => TermContract::Pure,
         }
     }
 
     pub fn as_str(self) -> &'static str {
         match self {
-            Contract::Pure => "",
-            Contract::Move => "move ",
-            Contract::Borrow => "borrow",
-            Contract::BorrowMut => "borrow mut",
-            Contract::Const => "const",
-            Contract::Leash => todo!(),
-            Contract::At => "@",
+            TermContract::Pure => "",
+            TermContract::Move => "move ",
+            TermContract::Borrow => "borrow",
+            TermContract::BorrowMut => "borrow mut",
+            TermContract::Const => "const",
+            TermContract::Leash => todo!(),
+            TermContract::At => "@",
         }
     }
 }
 
-impl From<SymbolModifier> for Contract {
+impl From<SymbolModifier> for TermContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::Pure => Contract::Pure,
-            SymbolModifier::Mut => Contract::Move,
-            SymbolModifier::Ref => Contract::Borrow,
-            SymbolModifier::RefMut => Contract::BorrowMut,
-            SymbolModifier::Const => Contract::Const,
+            SymbolModifier::Pure => TermContract::Pure,
+            SymbolModifier::Mut => TermContract::Move,
+            SymbolModifier::Ref => TermContract::Borrow,
+            SymbolModifier::RefMut => TermContract::BorrowMut,
+            SymbolModifier::Const => TermContract::Const,
             SymbolModifier::Ambersand(_) => todo!(),
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),

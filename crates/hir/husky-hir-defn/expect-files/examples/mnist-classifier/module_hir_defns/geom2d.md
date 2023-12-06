@@ -546,7 +546,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -556,7 +556,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -1006,7 +1006,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1424,7 +1424,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1881,7 +1881,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2299,7 +2299,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2495,7 +2495,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2691,7 +2691,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::basic::bool`, `Extern`),
@@ -3114,7 +3114,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3320,7 +3320,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3330,7 +3330,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::basic::bool`, `Extern`),
@@ -4054,7 +4054,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -4451,7 +4451,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -4741,7 +4741,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -5035,7 +5035,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: None,
+                                    contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),

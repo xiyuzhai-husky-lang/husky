@@ -5,7 +5,7 @@ use super::*;
 use crate::builder::keyword::RustKeyword;
 
 impl TranspileToRustWith for FugitiveHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -16,7 +16,7 @@ impl TranspileToRustWith for FugitiveHirDefn {
 }
 
 impl TranspileToRustWith for FunctionFnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, body_hir_eager_expr_region)) =
             self.eager_body_with_hir_eager_expr_region(db)
@@ -29,7 +29,7 @@ impl TranspileToRustWith for FunctionFnHirDefn {
 }
 
 impl TranspileToRustWith for FunctionFnFugitiveHirDecl {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Pub);
@@ -43,11 +43,11 @@ impl TranspileToRustWith for FunctionFnFugitiveHirDecl {
 }
 
 impl TranspileToRustWith for FunctionGnHirDefn {
-    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {}
+    fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {}
 }
 
 impl TranspileToRustWith for ValHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) =
             self.body_with_hir_expr_region(db)
@@ -60,7 +60,7 @@ impl TranspileToRustWith for ValHirDefn {
 }
 
 impl TranspileToRustWith for ValFugitiveHirDecl {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let hir_eager_expr_region = self.hir_eager_expr_region(builder.db());
         builder.eager_head(hir_eager_expr_region, |builder| {
             builder.keyword(RustKeyword::Pub);

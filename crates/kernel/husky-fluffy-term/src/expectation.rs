@@ -231,7 +231,7 @@ pub enum OriginalFluffyTermExpectationError {
     },
     #[error("type path mismatch for coersion")]
     TypePathMismatchForCoersion {
-        contract: Contract,
+        contract: TermContract,
         ty_expected: FluffyTerm,
         expectee: FluffyTerm,
         expected_path: TypePath,
@@ -246,7 +246,7 @@ pub enum OriginalFluffyTermExpectationError {
     #[error("ExpectedCoersion")]
     ExpectedCoersion {
         expectee: FluffyTerm,
-        contract: Contract,
+        contract: TermContract,
         expected: FluffyTerm,
     },
     #[error("place")]

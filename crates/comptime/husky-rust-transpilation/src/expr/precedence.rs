@@ -42,6 +42,8 @@ pub(crate) enum RustPrecedenceRange {
 }
 
 impl RustPrecedenceRange {
+    pub(crate) const ANY: Self = RustPrecedenceRange::Any;
+
     pub(crate) fn include(self, precedence: RustPrecedence) -> bool {
         match self {
             RustPrecedenceRange::Geq(slf) => precedence >= slf,

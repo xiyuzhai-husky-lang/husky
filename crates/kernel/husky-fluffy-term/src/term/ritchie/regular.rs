@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FluffyRitchieRegularParameter {
-    pub contract: Contract,
+    pub contract: TermContract,
     pub ty: FluffyTerm,
 }
 
@@ -44,11 +44,11 @@ impl FluffyInstantiate for EtherealRitchieRegularParameter {
 }
 
 impl FluffyRitchieRegularParameter {
-    pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
+    pub fn new(contract: TermContract, ty: FluffyTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> Contract {
+    pub fn contract(&self) -> TermContract {
         self.contract
     }
 

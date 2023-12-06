@@ -23,7 +23,7 @@ impl<'a> SemaExprEngine<'a> {
             } => {
                 let opd_sema_expr_idx = self.build_sema_expr(
                     opd_syn_expr_idx,
-                    ExpectCoersion::new(Contract::Move, opd_ty.into()),
+                    ExpectCoersion::new(TermContract::Move, opd_ty.into()),
                 );
                 (
                     Ok((opd_sema_expr_idx, SemaSuffixOpr::Unveil)),

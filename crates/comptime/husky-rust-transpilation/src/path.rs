@@ -6,7 +6,7 @@ use husky_entity_path::{
 };
 
 impl<E> TranspileToRustWith<E> for AssociatedItemPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
             AssociatedItemPath::TypeItem(path) => {
@@ -23,7 +23,7 @@ impl<E> TranspileToRustWith<E> for AssociatedItemPath {
 }
 
 impl<E> TranspileToRustWith<E> for TypeVariantPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.parent_ty_path(db).transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::ColonColon);
@@ -32,7 +32,7 @@ impl<E> TranspileToRustWith<E> for TypeVariantPath {
 }
 
 impl<E> TranspileToRustWith<E> for PrincipalEntityPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
@@ -52,7 +52,7 @@ impl<E> TranspileToRustWith<E> for PrincipalEntityPath {
 }
 
 impl<E> TranspileToRustWith<E> for MajorItemPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
             MajorItemPath::Type(slf) => slf.transpile_to_rust(builder),
@@ -62,7 +62,7 @@ impl<E> TranspileToRustWith<E> for MajorItemPath {
 }
 
 impl<E> TranspileToRustWith<E> for TypePath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self.refine(db) {
             Left(PreludeTypePath::Num(PreludeNumTypePath::Int(
@@ -89,14 +89,14 @@ impl<E> TranspileToRustWith<E> for TypePath {
 }
 
 impl<E> TranspileToRustWith<E> for TraitPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.ident(db).transpile_to_rust(builder)
     }
 }
 
 impl<E> TranspileToRustWith<E> for PatternPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             PatternPath::Type(path) => path.transpile_to_rust(builder),
             PatternPath::TypeVariant(path) => path.transpile_to_rust(builder),
