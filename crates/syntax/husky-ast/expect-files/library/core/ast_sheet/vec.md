@@ -82,7 +82,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                50,
+                                51,
                             ),
                         },
                     },
@@ -95,13 +95,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `first`,
                     token_idx: TokenIdx(
-                        52,
+                        53,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        53,
+                        54,
                     ),
                     drained: false,
                 },
@@ -118,7 +118,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                62,
+                                63,
                             ),
                         },
                     },
@@ -131,13 +131,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `last`,
                     token_idx: TokenIdx(
-                        64,
+                        65,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        65,
+                        66,
                     ),
                     drained: false,
                 },
@@ -154,7 +154,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                74,
+                                75,
                             ),
                         },
                     },
@@ -167,13 +167,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `pop`,
                     token_idx: TokenIdx(
-                        76,
+                        77,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        77,
+                        78,
                     ),
                     drained: false,
                 },
@@ -190,7 +190,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                86,
+                                87,
                             ),
                         },
                     },
@@ -203,13 +203,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `collect_leashes`,
                     token_idx: TokenIdx(
-                        88,
+                        89,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        89,
+                        90,
                     ),
                     drained: false,
                 },
@@ -226,7 +226,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                99,
+                                100,
                             ),
                         },
                     },
@@ -239,13 +239,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `cyclic_slice_leashed`,
                     token_idx: TokenIdx(
-                        101,
+                        102,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        102,
+                        103,
                     ),
                     drained: false,
                 },
@@ -262,7 +262,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                119,
+                                120,
                             ),
                         },
                     },
@@ -275,13 +275,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `pop_with_largest_opt_f32`,
                     token_idx: TokenIdx(
-                        121,
+                        122,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        122,
+                        123,
                     ),
                     drained: false,
                 },
