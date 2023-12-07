@@ -1,0 +1,7 @@
+[package]
+name = "mnist"
+version = "0.1.0"
+authors = ["my_name"]
+edition = "2021"
+
+[workspace]
