@@ -74,15 +74,15 @@ impl Vector2d {
     }
 
     pub fn angle(self, is_branch_cut_positive: bool) -> f32 {
-        let cos_value = (self.x / self.norm()).min(1);
-        if cos_value + 1 < 0.001 {
+        let cos_value = (self.x / self.norm()).min(1.);
+        if cos_value + 1.0 < 0.001 {
             if is_branch_cut_positive {
-                180
+                180.0
             } else {
-                -180
+                -180.0
             }
         } else {
-            self.y.sgnx() as f32 * cos_value.acos() * 180 / 3.1415925
+            self.y.sgnx() as f32 * cos_value.acos() * 180.0 / 3.1415926
         }
     }
 
@@ -92,19 +92,19 @@ impl Vector2d {
 
     pub fn angle_to(self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
         let self_norm = self.norm();
-        assert!(self_norm > 0);
+        assert!(self_norm > 0.0);
         let other_norm = other.norm();
-        assert!(other_norm > 0);
-        let cos_value = (self.dot(&other) / (self_norm * other_norm)).min(1);
-        if cos_value + 1 < 0.001 {
+        assert!(other_norm > 0.0);
+        let cos_value = (self.dot(&other) / (self_norm * other_norm)).min(1.);
+        if cos_value + 1.0 < 0.001 {
             if is_branch_cut_positive {
-                180
+                180.0
             } else {
-                -180
+                -180.0
             }
         } else {
             let arc_angle = self.rotation_direction_to(&other) as f32 * cos_value.acos();
-            arc_angle * 180 / 3.1415925
+            arc_angle * 180.0 / 3.1415926
         }
     }
 }

@@ -261,9 +261,12 @@
                         ),
                         opn: ValOpn::Literal(
                             TermLiteral::F32(
-                                NotNan(
-                                    1.5,
-                                ),
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        1.5,
+                                    ),
+                                    text: "1.5",
+                                },
                             ),
                         ),
                         arguments: [],
@@ -669,9 +672,12 @@
                         ),
                         opn: ValOpn::Literal(
                             TermLiteral::F32(
-                                NotNan(
-                                    5.5,
-                                ),
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        5.5,
+                                    ),
+                                    text: "5.5",
+                                },
                             ),
                         ),
                         arguments: [],
@@ -1192,9 +1198,12 @@
                         ),
                         opn: ValOpn::Literal(
                             TermLiteral::F32(
-                                NotNan(
-                                    3.0,
-                                ),
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        3.0,
+                                    ),
+                                    text: "3.0",
+                                },
                             ),
                         ),
                         arguments: [],
@@ -2113,9 +2122,12 @@
                         ),
                         opn: ValOpn::Literal(
                             TermLiteral::F32(
-                                NotNan(
-                                    0.4,
-                                ),
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        0.4,
+                                    ),
+                                    text: "0.4",
+                                },
                             ),
                         ),
                         arguments: [],

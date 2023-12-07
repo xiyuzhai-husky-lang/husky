@@ -10,13 +10,13 @@ pub fn six_match_refined1() -> FermiMatchResult {
 
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y > 0);
+    require!(dp.y > 0.0);
     Some(dp.y)
 }
 
 pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    if dp.y < -3 {
+    if dp.y < -3.0 {
         require!((dp.x / dp.y).abs() > 1.4);
     }
     require!(cc.relative_bounding_box().ymax() < 0.6);

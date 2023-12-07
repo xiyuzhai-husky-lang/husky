@@ -317,9 +317,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    0.0,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        0.0,
+                                                    ),
+                                                    text: "0.0",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
@@ -546,9 +549,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    3.0,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        3.0,
+                                                    ),
+                                                    text: "3.0",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Prefix {
@@ -599,9 +605,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    1.4,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        1.4,
+                                                    ),
+                                                    text: "1.4",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
@@ -637,9 +646,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    0.6,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        0.6,
+                                                    ),
+                                                    text: "0.6",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
@@ -722,9 +734,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    0.5,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        0.5,
+                                                    ),
+                                                    text: "0.5",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Binary {

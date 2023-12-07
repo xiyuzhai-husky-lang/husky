@@ -13,8 +13,8 @@ pub struct EffHoles {
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len();
-    require!(len > 4);
-    Some(len + 0)
+    require!(len > 4.0);
+    Some(len + 0.0)
 }
 
 pub struct ConnectedComponent {

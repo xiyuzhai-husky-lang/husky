@@ -3,6 +3,7 @@ mod list;
 mod prefix;
 
 use husky_fluffy_term::signature::binary_opr::SemaBinaryOprFluffySignature;
+use husky_term_prelude::float::TermF32Literal;
 use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
 use super::*;
@@ -174,7 +175,7 @@ impl<'a> SemaExprEngine<'a> {
                                                                 ) => {
                                                                     match float_ty_path {
                                                     PreludeFloatTypePath::F32 => TermLiteral::F32(
-                                                        lit.data(self.db).parse().expect("todo"),
+                                                        TermF32Literal::try_new(lit.data(self.db).to_string(),self.db) .expect("todo"),
                                                     ),
                                                     PreludeFloatTypePath::F64 => TermLiteral::F64(
                                                         todo!(), // lit.data(self.db).parse().expect("todo"),
@@ -193,7 +194,7 @@ impl<'a> SemaExprEngine<'a> {
                                     }
                                 }
                                 FloatLiteralData::F32(val) => TermLiteral::F32(val),
-                                FloatLiteralData::F64(_) => todo!(),
+                                FloatLiteralData::F64(val) => TermLiteral::F64(val),
                             }
                         }
                         LiteralData::TupleIndex(_) => todo!(),

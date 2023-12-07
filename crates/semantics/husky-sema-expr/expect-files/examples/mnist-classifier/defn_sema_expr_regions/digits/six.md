@@ -14769,8 +14769,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            1.8,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 22,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14788,8 +14790,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            2.5,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 23,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14807,8 +14811,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            30.0,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 19,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14877,8 +14883,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.7,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14913,8 +14921,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            1.8,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 22,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14932,8 +14942,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            1.8,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 22,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -14972,8 +14984,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.75,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 25,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -15033,8 +15047,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.75,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 25,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -15052,8 +15068,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            15.0,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -24217,8 +24235,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.0,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 2,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -28336,8 +28356,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            3.0,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 10,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -28355,8 +28377,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            1.4,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 27,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -28374,8 +28398,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.6,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 17,
+                                            },
                                         ),
                                     ),
                                 ),
@@ -28393,8 +28419,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.5,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 3,
+                                            },
                                         ),
                                     ),
                                 ),
