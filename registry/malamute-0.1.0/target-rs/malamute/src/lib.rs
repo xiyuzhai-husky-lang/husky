@@ -16,6 +16,12 @@ pub enum OneVsAllResult {
     Unconfident,
 } 
 
+impl Default for OneVsAll {
+    fn default(self) -> OneVsAll {
+        OneVsAll::No
+    }
+}
+
 impl <Label, >Unveil<OneVsAll> for Class<Label> {
     
     type Output = ();

@@ -59,6 +59,7 @@ impl EntityKind {
                     TraitItemKind::MethodFn => EntityClass::MethodFn,
                     TraitItemKind::AssociatedType => EntityClass::AssociatedType,
                     TraitItemKind::AssociatedVal => todo!(),
+                    TraitItemKind::AssociatedFn => todo!(),
                 },
                 AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                     TypeItemKind::MethodFn => EntityClass::MethodFn,
@@ -72,6 +73,7 @@ impl EntityKind {
                         TraitItemKind::MethodFn => EntityClass::MethodFn,
                         TraitItemKind::AssociatedType => EntityClass::AssociatedType,
                         TraitItemKind::AssociatedVal => todo!(),
+                        TraitItemKind::AssociatedFn => todo!(),
                     }
                 }
             },
@@ -111,6 +113,7 @@ pub enum TraitItemKind {
     MethodFn,
     AssociatedType,
     AssociatedVal,
+    AssociatedFn,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -284,7 +284,7 @@ SynNodeDeclSheet {
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 334,
+                                                                                    value: 335,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -379,7 +379,7 @@ SynNodeDeclSheet {
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 334,
+                                                                                    value: 335,
                                                                                 },
                                                                             ),
                                                                         ),

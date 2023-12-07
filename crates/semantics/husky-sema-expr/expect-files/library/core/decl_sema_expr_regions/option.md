@@ -121,7 +121,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 72,
+                                    value: 73,
                                 },
                             ),
                         ),

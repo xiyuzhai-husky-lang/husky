@@ -92,7 +92,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -159,7 +159,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -261,7 +261,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 41,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -328,7 +328,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 41,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -430,7 +430,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -497,7 +497,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -599,7 +599,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 43,
+                                    value: 44,
                                 },
                             ),
                         ),
@@ -666,7 +666,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 43,
+                                    value: 44,
                                 },
                             ),
                         ),
@@ -768,7 +768,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 44,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -835,7 +835,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 44,
+                                    value: 45,
                                 },
                             ),
                         ),
@@ -937,7 +937,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -1004,7 +1004,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -1106,7 +1106,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 46,
+                                    value: 47,
                                 },
                             ),
                         ),
@@ -1173,7 +1173,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 46,
+                                    value: 47,
                                 },
                             ),
                         ),
@@ -1275,7 +1275,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 47,
+                                    value: 48,
                                 },
                             ),
                         ),
@@ -1342,7 +1342,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 47,
+                                    value: 48,
                                 },
                             ),
                         ),
@@ -1444,7 +1444,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -1511,7 +1511,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -1613,7 +1613,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 49,
+                                    value: 50,
                                 },
                             ),
                         ),
@@ -1680,7 +1680,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 49,
+                                    value: 50,
                                 },
                             ),
                         ),
@@ -1782,7 +1782,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 50,
+                                    value: 51,
                                 },
                             ),
                         ),
@@ -1849,7 +1849,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 50,
+                                    value: 51,
                                 },
                             ),
                         ),
@@ -1951,7 +1951,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 51,
+                                    value: 52,
                                 },
                             ),
                         ),
@@ -2018,7 +2018,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 51,
+                                    value: 52,
                                 },
                             ),
                         ),
@@ -2120,7 +2120,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -2187,7 +2187,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -2289,7 +2289,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -2356,7 +2356,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -2377,7 +2377,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 91,
+                                                    value: 92,
                                                 },
                                             ),
                                         ),
@@ -2403,7 +2403,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 91,
+                                                            value: 92,
                                                         },
                                                     ),
                                                 ),
@@ -2496,7 +2496,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 89,
+                                    value: 90,
                                 },
                             ),
                         ),
@@ -2515,7 +2515,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -2578,7 +2578,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -2669,7 +2669,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -2716,7 +2716,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 91,
+                                                                        value: 92,
                                                                     },
                                                                 ),
                                                             ),
@@ -2904,7 +2904,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 127,
+                                    value: 129,
                                 },
                             ),
                         ),
@@ -2923,7 +2923,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -2986,7 +2986,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -3077,7 +3077,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -3124,7 +3124,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 91,
+                                                                        value: 92,
                                                                     },
                                                                 ),
                                                             ),
@@ -3400,7 +3400,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 128,
+                                    value: 130,
                                 },
                             ),
                         ),
@@ -3419,7 +3419,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -3452,7 +3452,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -3528,7 +3528,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -3551,7 +3551,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -3586,7 +3586,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 40,
+                                                            value: 41,
                                                         },
                                                     ),
                                                 ),
@@ -3710,7 +3710,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -3914,7 +3914,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 90,
+                                    value: 91,
                                 },
                             ),
                         ),
@@ -3933,7 +3933,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -3966,7 +3966,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -4029,7 +4029,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 40,
+                                                        value: 41,
                                                     },
                                                 ),
                                             ),
@@ -4101,7 +4101,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -4124,7 +4124,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -4166,7 +4166,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -4407,7 +4407,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -4833,1360 +4833,6 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 129,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 40,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 40,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ExplicitParameterType,
-                    ),
-                ),
-                (
-                    2,
-                    (
-                        SemaExprIdx(
-                            2,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 40,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        2,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 40,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 40,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                    ],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 2,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 93,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 93,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i16`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 91,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        SelfType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                                        TypeImplBlockSynNodePathData {
-                                                            path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 93,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::i16`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `i16`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::i16`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
-                                            TypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i16`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 130,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                                        TypeImplBlockSynNodePathData {
-                                                            path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 93,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::i16`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `i16`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::i16`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
-                                            TypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i16`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i16`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        10,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExpr::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `other`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `other`,
-                                1,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateRegularParameter {
-                                    ident: `other`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [
-                        (
-                            OrdinaryParenateParameter {
-                                syn_pattern_root: ParenateSynPatternExprRoot {
-                                    syn_pattern_expr_idx: 1,
-                                },
-                                ty_expr_idx: 1,
-                            },
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Parenate,
-                        syn_pattern_expr_idx: 1,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 2,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        1,
-                    ),
-                ],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
                                     value: 131,
                                 },
                             ),
@@ -6509,6 +5155,1360 @@
     SemaExprRegion {
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 94,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: None,
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::ImplBlock(
+                        ImplBlockSynNodePath::TypeImplBlock(
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 94,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i16`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `i16`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::SelfType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 92,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        SelfType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 42,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 94,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `i16`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::num::i16`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 1,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TypeItem(
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i16`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `i16`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 132,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 42,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 94,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `i16`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::num::i16`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 1,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TypeItem(
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i16`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 2,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i16`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `i16`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        },
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `i16`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        10,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [
+                            SynPatternExpr::Ident {
+                                symbol_modifier_tokens: None,
+                                ident_token: IdentRegionalToken {
+                                    ident: `other`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [
+                            Pure,
+                        ],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [
+                            SynPatternSymbol::Atom(
+                                1,
+                            ),
+                        ],
+                    },
+                    pattern_symbol_maps: [
+                        [
+                            (
+                                `other`,
+                                1,
+                            ),
+                        ],
+                    ],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [
+                            Pure,
+                        ],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [
+                            CurrentSynSymbol {
+                                modifier: Pure,
+                                access_start: RegionalTokenIdx(
+                                    6,
+                                ),
+                                access_end: None,
+                                data: CurrentSynSymbolData::ParenateRegularParameter {
+                                    ident: `other`,
+                                    pattern_symbol_idx: 1,
+                                },
+                            },
+                        ],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [
+                        (
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 1,
+                                },
+                                ty_expr_idx: 1,
+                            },
+                            ArenaIdxRange(
+                                1..2,
+                            ),
+                        ),
+                    ],
+                },
+                syn_pattern_expr_roots: [
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 1,
+                    },
+                ],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ExplicitParameterType,
+                        syn_expr_idx: 1,
+                    },
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 2,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [
+                    (
+                        1,
+                        1,
+                    ),
+                ],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 133,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ExplicitParameterType,
+                    ),
+                ),
+                (
+                    2,
+                    (
+                        SemaExprIdx(
+                            2,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 42,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 42,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 42,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [
+                        None,
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath(
                         ItemSynNodePathId {
@@ -6701,7 +6701,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 92,
+                                    value: 93,
                                 },
                             ),
                         ),
@@ -6720,7 +6720,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -6753,7 +6753,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -6816,7 +6816,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 41,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -6888,7 +6888,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -6911,7 +6911,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -6953,7 +6953,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 41,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -7194,7 +7194,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 41,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -7620,7 +7620,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 132,
+                                    value: 134,
                                 },
                             ),
                         ),
@@ -7639,7 +7639,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -7672,7 +7672,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 41,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -7748,7 +7748,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -7771,7 +7771,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 41,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -7806,7 +7806,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 42,
+                                                            value: 43,
                                                         },
                                                     ),
                                                 ),
@@ -7930,7 +7930,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 41,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -7951,7 +7951,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 95,
+                                                    value: 96,
                                                 },
                                             ),
                                         ),
@@ -7977,7 +7977,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 95,
+                                                            value: 96,
                                                         },
                                                     ),
                                                 ),
@@ -8070,7 +8070,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 93,
+                                    value: 94,
                                 },
                             ),
                         ),
@@ -8089,7 +8089,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -8152,7 +8152,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -8243,7 +8243,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -8290,7 +8290,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 95,
+                                                                        value: 96,
                                                                     },
                                                                 ),
                                                             ),
@@ -8478,7 +8478,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 133,
+                                    value: 135,
                                 },
                             ),
                         ),
@@ -8497,7 +8497,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -8560,7 +8560,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -8651,7 +8651,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -8698,7 +8698,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 95,
+                                                                        value: 96,
                                                                     },
                                                                 ),
                                                             ),
@@ -8974,7 +8974,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 134,
+                                    value: 136,
                                 },
                             ),
                         ),
@@ -8993,7 +8993,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -9026,7 +9026,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -9102,7 +9102,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -9125,7 +9125,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -9160,7 +9160,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 42,
+                                                            value: 43,
                                                         },
                                                     ),
                                                 ),
@@ -9284,7 +9284,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -9331,7 +9331,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 95,
+                                                                        value: 96,
                                                                     },
                                                                 ),
                                                             ),
@@ -9607,7 +9607,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 135,
+                                    value: 137,
                                 },
                             ),
                         ),
@@ -9626,7 +9626,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -9659,7 +9659,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -9735,7 +9735,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -9758,7 +9758,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -9793,7 +9793,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 42,
+                                                            value: 43,
                                                         },
                                                     ),
                                                 ),
@@ -9917,7 +9917,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -10121,7 +10121,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 94,
+                                    value: 95,
                                 },
                             ),
                         ),
@@ -10140,7 +10140,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -10173,7 +10173,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -10236,7 +10236,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -10308,7 +10308,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -10331,7 +10331,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -10373,7 +10373,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -10614,7 +10614,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -11040,2160 +11040,6 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 136,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 42,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 42,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ExplicitParameterType,
-                    ),
-                ),
-                (
-                    2,
-                    (
-                        SemaExprIdx(
-                            2,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 42,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        2,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 42,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                    ],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 2,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 97,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 97,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 95,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        SelfType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TypeItem(
-                                    TypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                                        TypeImplBlockSynNodePathData {
-                                                            path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 97,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `i64`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TypeItem(
-                                            TypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TypeItem(
-                        TypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 137,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    1,
-                    (
-                        SemaExprIdx(
-                            1,
-                        ),
-                        ReturnType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::ImplBlock(
-                ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `core::num`,
-                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::i64`, `Extern`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::ops::Add`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 1,
-                            argument_expr_idx: 2,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `Add`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Add`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        3,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Trait,
-                        syn_expr_idx: 3,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 4,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 96,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            sema_expr_arena: SemaExprArena(
-                Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Trait(
-                                            TraitPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 54,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: InstanceConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                FunctionApplication {
-                                    function_sema_expr_idx: SemaExprIdx(
-                                        1,
-                                    ),
-                                    argument_sema_expr_idx: SemaExprIdx(
-                                        2,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 24,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
-                },
-            ),
-            sema_stmt_arena: SemaStmtArena(
-                Arena {
-                    data: [],
-                },
-            ),
-            sema_expr_roots: [
-                (
-                    3,
-                    (
-                        SemaExprIdx(
-                            3,
-                        ),
-                        Trait,
-                    ),
-                ),
-                (
-                    4,
-                    (
-                        SemaExprIdx(
-                            4,
-                        ),
-                        SelfType,
-                    ),
-                ),
-            ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
-            syn_pattern_symbol_ty_infos: ArenaMap {
-                data: [],
-            },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    Trait(
-                                        TraitPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 54,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        2,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        3,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        4,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
-            symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-            },
-            fluffy_term_region: FluffyTermRegion {
-                terms: FluffyTerms {
-                    solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
-                    },
-                    hollow_terms: HollowTerms {
-                        entries: [],
-                        first_unresolved_term_idx: 0,
-                    },
-                },
-                expectations: Expectations {
-                    arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
-                                    ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsFunctionCallType(
-                                                ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    variant: Curry {
-                                                        variance: Invariant,
-                                                        parameter_symbol: None,
-                                                        parameter_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        return_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                EntityPath(
-                                                                    TypeOntology(
-                                                                        TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
-                                    ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 2,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                meta: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 3,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 4,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    first_unresolved_expectation: 0,
-                },
-            },
-            return_ty: None,
-            self_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        },
-    },
-    SemaExprRegion {
-        path: SynNodeRegionPath::Decl(
-            ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::AssociatedItem(
-                                AssociatedItemSynNodePathData::TraitForTypeItem(
-                                    TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i64`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `add`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i64`, `Extern`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Add`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 2,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 1,
-                                        argument_expr_idx: 2,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 3,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `Add`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    2,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Trait(
-                                                TraitPath(`core::ops::Add`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `i64`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    3,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `i64`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 3,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 4,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::i64`, `Extern`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `add`,
-                                                                        item_kind: MethodFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i64`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        10,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExpr::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `other`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `other`,
-                                1,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateRegularParameter {
-                                    ident: `other`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [
-                        (
-                            OrdinaryParenateParameter {
-                                syn_pattern_root: ParenateSynPatternExprRoot {
-                                    syn_pattern_expr_idx: 1,
-                                },
-                                ty_expr_idx: 1,
-                            },
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Parenate,
-                        syn_pattern_expr_idx: 1,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 2,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        1,
-                    ),
-                ],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
-                        TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
                                     value: 138,
                                 },
                             ),
@@ -13525,7 +11371,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 99,
+                                                    value: 98,
                                                 },
                                             ),
                                         ),
@@ -13551,7 +11397,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 99,
+                                                            value: 98,
                                                         },
                                                     ),
                                                 ),
@@ -13570,7 +11416,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -13582,7 +11428,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -13590,7 +11436,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
@@ -13644,7 +11490,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 97,
+                                    value: 96,
                                 },
                             ),
                         ),
@@ -13836,7 +11682,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -13864,7 +11710,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 99,
+                                                                        value: 98,
                                                                     },
                                                                 ),
                                                             ),
@@ -13883,7 +11729,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::i128`, `Extern`),
+                                                    TypePath(`core::num::i64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -13895,7 +11741,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `i128`,
+                                                ident: `i64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -13903,7 +11749,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::i128`, `Extern`),
+                                                TypePath(`core::num::i64`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -13960,7 +11806,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -13978,7 +11824,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -13990,7 +11836,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -13998,7 +11844,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
@@ -14248,7 +12094,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i128`, `Extern`),
+                                                    TypePath(`core::num::i64`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -14277,7 +12123,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::i128`, `Extern`),
+                                                            TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -14307,7 +12153,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -14321,7 +12167,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -14348,7 +12194,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -14356,14 +12202,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -14371,7 +12217,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
@@ -14429,7 +12275,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 98,
+                                    value: 97,
                                 },
                             ),
                         ),
@@ -14448,7 +12294,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -14616,7 +12462,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -14660,7 +12506,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 16,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -14951,7 +12797,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i128`, `Extern`),
+                                                                            TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -14992,7 +12838,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i128`, `Extern`),
+                                                                        TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -15022,7 +12868,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::i128`, `Extern`),
+                                                    TypePath(`core::num::i64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -15036,7 +12882,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::i128`, `Extern`),
+                                                    TypePath(`core::num::i64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -15063,7 +12909,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `i128`,
+                                                ident: `i64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -15071,14 +12917,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::i128`, `Extern`),
+                                                TypePath(`core::num::i64`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `i128`,
+                                                ident: `i64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -15086,7 +12932,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::i128`, `Extern`),
+                                                TypePath(`core::num::i64`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -15157,7 +13003,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::i128`, `Extern`),
+                                                                                    TypePath(`core::num::i64`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -15186,7 +13032,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -15196,7 +13042,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -15208,7 +13054,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -15216,14 +13062,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `i128`,
+                                    ident: `i64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -15231,7 +13077,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         },
@@ -15679,7 +13525,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 101,
+                                                    value: 100,
                                                 },
                                             ),
                                         ),
@@ -15705,7 +13551,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 101,
+                                                            value: 100,
                                                         },
                                                     ),
                                                 ),
@@ -15724,7 +13570,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -15736,7 +13582,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -15744,7 +13590,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
@@ -15798,7 +13644,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 99,
+                                    value: 98,
                                 },
                             ),
                         ),
@@ -15990,7 +13836,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -16018,7 +13864,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 101,
+                                                                        value: 100,
                                                                     },
                                                                 ),
                                                             ),
@@ -16037,7 +13883,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::isize`, `Extern`),
+                                                    TypePath(`core::num::i128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -16049,7 +13895,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `isize`,
+                                                ident: `i128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -16057,7 +13903,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::isize`, `Extern`),
+                                                TypePath(`core::num::i128`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -16114,7 +13960,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -16132,7 +13978,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -16144,7 +13990,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -16152,7 +13998,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
@@ -16402,7 +14248,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::isize`, `Extern`),
+                                                    TypePath(`core::num::i128`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -16431,7 +14277,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::isize`, `Extern`),
+                                                            TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -16461,7 +14307,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -16475,7 +14321,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -16502,7 +14348,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -16510,14 +14356,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -16525,7 +14371,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
@@ -16583,7 +14429,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 100,
+                                    value: 99,
                                 },
                             ),
                         ),
@@ -16602,7 +14448,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -16770,7 +14616,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -16814,7 +14660,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 17,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -17105,7 +14951,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::isize`, `Extern`),
+                                                                            TypePath(`core::num::i128`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -17146,7 +14992,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::isize`, `Extern`),
+                                                                        TypePath(`core::num::i128`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -17176,7 +15022,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::isize`, `Extern`),
+                                                    TypePath(`core::num::i128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -17190,7 +15036,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::isize`, `Extern`),
+                                                    TypePath(`core::num::i128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -17217,7 +15063,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `isize`,
+                                                ident: `i128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -17225,14 +15071,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::isize`, `Extern`),
+                                                TypePath(`core::num::i128`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `isize`,
+                                                ident: `i128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -17240,7 +15086,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::isize`, `Extern`),
+                                                TypePath(`core::num::i128`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -17311,7 +15157,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::isize`, `Extern`),
+                                                                                    TypePath(`core::num::i128`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -17340,7 +15186,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -17350,7 +15196,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -17362,7 +15208,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -17370,14 +15216,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `isize`,
+                                    ident: `i128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -17385,7 +15231,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         },
@@ -17833,7 +15679,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 103,
+                                                    value: 102,
                                                 },
                                             ),
                                         ),
@@ -17859,7 +15705,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 103,
+                                                            value: 102,
                                                         },
                                                     ),
                                                 ),
@@ -17878,7 +15724,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -17890,7 +15736,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -17898,7 +15744,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
@@ -17952,7 +15798,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 101,
+                                    value: 100,
                                 },
                             ),
                         ),
@@ -18144,7 +15990,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -18172,7 +16018,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 103,
+                                                                        value: 102,
                                                                     },
                                                                 ),
                                                             ),
@@ -18191,7 +16037,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u8`, `Extern`),
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -18203,7 +16049,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u8`,
+                                                ident: `isize`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -18211,7 +16057,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u8`, `Extern`),
+                                                TypePath(`core::num::isize`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -18268,7 +16114,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -18286,7 +16132,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -18298,7 +16144,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -18306,7 +16152,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
@@ -18556,7 +16402,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u8`, `Extern`),
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18585,7 +16431,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::u8`, `Extern`),
+                                                            TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -18615,7 +16461,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -18629,7 +16475,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -18656,7 +16502,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -18664,14 +16510,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -18679,7 +16525,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
@@ -18737,7 +16583,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 102,
+                                    value: 101,
                                 },
                             ),
                         ),
@@ -18756,7 +16602,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -18924,7 +16770,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -18968,7 +16814,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 18,
+                                            value: 17,
                                         },
                                     ),
                                 ),
@@ -19259,7 +17105,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u8`, `Extern`),
+                                                                            TypePath(`core::num::isize`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -19300,7 +17146,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u8`, `Extern`),
+                                                                        TypePath(`core::num::isize`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -19330,7 +17176,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u8`, `Extern`),
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -19344,7 +17190,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u8`, `Extern`),
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -19371,7 +17217,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u8`,
+                                                ident: `isize`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -19379,14 +17225,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u8`, `Extern`),
+                                                TypePath(`core::num::isize`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u8`,
+                                                ident: `isize`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -19394,7 +17240,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u8`, `Extern`),
+                                                TypePath(`core::num::isize`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -19465,7 +17311,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::u8`, `Extern`),
+                                                                                    TypePath(`core::num::isize`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -19494,7 +17340,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -19504,7 +17350,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -19516,7 +17362,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -19524,14 +17370,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u8`,
+                                    ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -19539,7 +17385,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
@@ -19987,7 +17833,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 105,
+                                                    value: 104,
                                                 },
                                             ),
                                         ),
@@ -20013,7 +17859,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 105,
+                                                            value: 104,
                                                         },
                                                     ),
                                                 ),
@@ -20032,7 +17878,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -20044,7 +17890,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -20052,7 +17898,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
@@ -20106,7 +17952,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 103,
+                                    value: 102,
                                 },
                             ),
                         ),
@@ -20298,7 +18144,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -20326,7 +18172,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 105,
+                                                                        value: 104,
                                                                     },
                                                                 ),
                                                             ),
@@ -20345,7 +18191,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u16`, `Extern`),
+                                                    TypePath(`core::num::u8`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -20357,7 +18203,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u16`,
+                                                ident: `u8`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -20365,7 +18211,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u16`, `Extern`),
+                                                TypePath(`core::num::u8`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -20422,7 +18268,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -20440,7 +18286,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -20452,7 +18298,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -20460,7 +18306,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
@@ -20710,7 +18556,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u16`, `Extern`),
+                                                    TypePath(`core::num::u8`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20739,7 +18585,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::u16`, `Extern`),
+                                                            TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -20769,7 +18615,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -20783,7 +18629,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -20810,7 +18656,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -20818,14 +18664,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -20833,7 +18679,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
@@ -20891,7 +18737,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 104,
+                                    value: 103,
                                 },
                             ),
                         ),
@@ -20910,7 +18756,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -21078,7 +18924,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -21122,7 +18968,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 19,
+                                            value: 18,
                                         },
                                     ),
                                 ),
@@ -21413,7 +19259,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u16`, `Extern`),
+                                                                            TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -21454,7 +19300,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u16`, `Extern`),
+                                                                        TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -21484,7 +19330,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u16`, `Extern`),
+                                                    TypePath(`core::num::u8`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -21498,7 +19344,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u16`, `Extern`),
+                                                    TypePath(`core::num::u8`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -21525,7 +19371,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u16`,
+                                                ident: `u8`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -21533,14 +19379,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u16`, `Extern`),
+                                                TypePath(`core::num::u8`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u16`,
+                                                ident: `u8`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -21548,7 +19394,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u16`, `Extern`),
+                                                TypePath(`core::num::u8`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -21619,7 +19465,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::u16`, `Extern`),
+                                                                                    TypePath(`core::num::u8`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -21648,7 +19494,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -21658,7 +19504,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -21670,7 +19516,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -21678,14 +19524,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u16`,
+                                    ident: `u8`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -21693,7 +19539,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         },
@@ -22141,7 +19987,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 107,
+                                                    value: 106,
                                                 },
                                             ),
                                         ),
@@ -22167,7 +20013,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 107,
+                                                            value: 106,
                                                         },
                                                     ),
                                                 ),
@@ -22186,7 +20032,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -22198,7 +20044,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -22206,7 +20052,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
@@ -22260,7 +20106,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 105,
+                                    value: 104,
                                 },
                             ),
                         ),
@@ -22452,7 +20298,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -22480,7 +20326,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 107,
+                                                                        value: 106,
                                                                     },
                                                                 ),
                                                             ),
@@ -22499,7 +20345,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u32`, `Extern`),
+                                                    TypePath(`core::num::u16`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -22511,7 +20357,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u32`,
+                                                ident: `u16`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -22519,7 +20365,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u32`, `Extern`),
+                                                TypePath(`core::num::u16`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -22576,7 +20422,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -22594,7 +20440,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -22606,7 +20452,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -22614,7 +20460,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
@@ -22864,7 +20710,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u32`, `Extern`),
+                                                    TypePath(`core::num::u16`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -22893,7 +20739,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::u32`, `Extern`),
+                                                            TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -22923,7 +20769,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -22937,7 +20783,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -22964,7 +20810,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -22972,14 +20818,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -22987,7 +20833,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
@@ -23045,7 +20891,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 106,
+                                    value: 105,
                                 },
                             ),
                         ),
@@ -23064,7 +20910,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -23232,7 +21078,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -23276,7 +21122,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 20,
+                                            value: 19,
                                         },
                                     ),
                                 ),
@@ -23567,7 +21413,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u32`, `Extern`),
+                                                                            TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -23608,7 +21454,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u32`, `Extern`),
+                                                                        TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -23638,7 +21484,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u32`, `Extern`),
+                                                    TypePath(`core::num::u16`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -23652,7 +21498,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u32`, `Extern`),
+                                                    TypePath(`core::num::u16`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -23679,7 +21525,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u32`,
+                                                ident: `u16`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -23687,14 +21533,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u32`, `Extern`),
+                                                TypePath(`core::num::u16`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u32`,
+                                                ident: `u16`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -23702,7 +21548,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u32`, `Extern`),
+                                                TypePath(`core::num::u16`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -23773,7 +21619,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::u32`, `Extern`),
+                                                                                    TypePath(`core::num::u16`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -23802,7 +21648,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -23812,7 +21658,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -23824,7 +21670,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -23832,14 +21678,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u32`,
+                                    ident: `u16`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -23847,7 +21693,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
@@ -24295,7 +22141,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 109,
+                                                    value: 108,
                                                 },
                                             ),
                                         ),
@@ -24321,7 +22167,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 109,
+                                                            value: 108,
                                                         },
                                                     ),
                                                 ),
@@ -24340,7 +22186,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -24352,7 +22198,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -24360,7 +22206,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
@@ -24414,7 +22260,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 107,
+                                    value: 106,
                                 },
                             ),
                         ),
@@ -24606,7 +22452,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -24634,7 +22480,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 109,
+                                                                        value: 108,
                                                                     },
                                                                 ),
                                                             ),
@@ -24653,7 +22499,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u64`, `Extern`),
+                                                    TypePath(`core::num::u32`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -24665,7 +22511,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u64`,
+                                                ident: `u32`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -24673,7 +22519,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u64`, `Extern`),
+                                                TypePath(`core::num::u32`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -24730,7 +22576,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -24748,7 +22594,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -24760,7 +22606,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -24768,7 +22614,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
@@ -25018,7 +22864,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u64`, `Extern`),
+                                                    TypePath(`core::num::u32`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -25047,7 +22893,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::u64`, `Extern`),
+                                                            TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -25077,7 +22923,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -25091,7 +22937,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -25118,7 +22964,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -25126,14 +22972,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -25141,7 +22987,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
@@ -25199,7 +23045,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 108,
+                                    value: 107,
                                 },
                             ),
                         ),
@@ -25218,7 +23064,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -25386,7 +23232,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -25430,7 +23276,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 21,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -25721,7 +23567,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u64`, `Extern`),
+                                                                            TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -25762,7 +23608,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u64`, `Extern`),
+                                                                        TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -25792,7 +23638,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u64`, `Extern`),
+                                                    TypePath(`core::num::u32`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -25806,7 +23652,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u64`, `Extern`),
+                                                    TypePath(`core::num::u32`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -25833,7 +23679,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u64`,
+                                                ident: `u32`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -25841,14 +23687,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u64`, `Extern`),
+                                                TypePath(`core::num::u32`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u64`,
+                                                ident: `u32`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -25856,7 +23702,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u64`, `Extern`),
+                                                TypePath(`core::num::u32`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -25927,7 +23773,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::u64`, `Extern`),
+                                                                                    TypePath(`core::num::u32`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -25956,7 +23802,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -25966,7 +23812,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -25978,7 +23824,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -25986,14 +23832,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u64`,
+                                    ident: `u32`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -26001,7 +23847,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         },
@@ -26449,7 +24295,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 110,
                                                 },
                                             ),
                                         ),
@@ -26475,7 +24321,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 110,
                                                         },
                                                     ),
                                                 ),
@@ -26494,7 +24340,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -26506,7 +24352,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -26514,7 +24360,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
@@ -26568,7 +24414,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 109,
+                                    value: 108,
                                 },
                             ),
                         ),
@@ -26760,7 +24606,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -26788,7 +24634,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 111,
+                                                                        value: 110,
                                                                     },
                                                                 ),
                                                             ),
@@ -26807,7 +24653,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u128`, `Extern`),
+                                                    TypePath(`core::num::u64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -26819,7 +24665,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u128`,
+                                                ident: `u64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -26827,7 +24673,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u128`, `Extern`),
+                                                TypePath(`core::num::u64`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -26884,7 +24730,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -26902,7 +24748,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -26914,7 +24760,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -26922,7 +24768,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
@@ -27172,7 +25018,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u128`, `Extern`),
+                                                    TypePath(`core::num::u64`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -27201,7 +25047,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::u128`, `Extern`),
+                                                            TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -27231,7 +25077,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -27245,7 +25091,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -27272,7 +25118,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -27280,14 +25126,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -27295,7 +25141,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
@@ -27353,7 +25199,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 110,
+                                    value: 109,
                                 },
                             ),
                         ),
@@ -27372,7 +25218,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -27540,7 +25386,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -27584,7 +25430,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 22,
+                                            value: 21,
                                         },
                                     ),
                                 ),
@@ -27875,7 +25721,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u128`, `Extern`),
+                                                                            TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -27916,7 +25762,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u128`, `Extern`),
+                                                                        TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -27946,7 +25792,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u128`, `Extern`),
+                                                    TypePath(`core::num::u64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -27960,7 +25806,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::u128`, `Extern`),
+                                                    TypePath(`core::num::u64`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -27987,7 +25833,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u128`,
+                                                ident: `u64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -27995,14 +25841,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u128`, `Extern`),
+                                                TypePath(`core::num::u64`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `u128`,
+                                                ident: `u64`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -28010,7 +25856,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::u128`, `Extern`),
+                                                TypePath(`core::num::u64`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -28081,7 +25927,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::u128`, `Extern`),
+                                                                                    TypePath(`core::num::u64`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -28110,7 +25956,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -28120,7 +25966,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -28132,7 +25978,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -28140,14 +25986,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `u128`,
+                                    ident: `u64`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -28155,7 +26001,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
@@ -28603,7 +26449,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 113,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -28629,7 +26475,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 113,
+                                                            value: 112,
                                                         },
                                                     ),
                                                 ),
@@ -28648,7 +26494,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -28660,7 +26506,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -28668,7 +26514,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
@@ -28722,7 +26568,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 111,
+                                    value: 110,
                                 },
                             ),
                         ),
@@ -28914,7 +26760,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -28942,7 +26788,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 113,
+                                                                        value: 112,
                                                                     },
                                                                 ),
                                                             ),
@@ -28961,7 +26807,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::usize`, `Extern`),
+                                                    TypePath(`core::num::u128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -28973,7 +26819,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `usize`,
+                                                ident: `u128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -28981,7 +26827,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::usize`, `Extern`),
+                                                TypePath(`core::num::u128`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -29038,7 +26884,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -29056,7 +26902,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -29068,7 +26914,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -29076,7 +26922,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
@@ -29326,7 +27172,7 @@
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::usize`, `Extern`),
+                                                    TypePath(`core::num::u128`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -29355,7 +27201,7 @@
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::num::usize`, `Extern`),
+                                                            TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -29385,7 +27231,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -29399,7 +27245,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -29426,7 +27272,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
@@ -29434,14 +27280,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -29449,7 +27295,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
@@ -29507,7 +27353,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 112,
+                                    value: 111,
                                 },
                             ),
                         ),
@@ -29526,7 +27372,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -29694,7 +27540,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -29738,7 +27584,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 23,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -30029,7 +27875,7 @@
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                            TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -30070,7 +27916,7 @@
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::usize`, `Extern`),
+                                                                        TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -30100,7 +27946,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::usize`, `Extern`),
+                                                    TypePath(`core::num::u128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -30114,7 +27960,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::usize`, `Extern`),
+                                                    TypePath(`core::num::u128`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -30141,7 +27987,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `usize`,
+                                                ident: `u128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -30149,14 +27995,14 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::usize`, `Extern`),
+                                                TypePath(`core::num::u128`, `Extern`),
                                             ),
                                         ),
                                     },
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `usize`,
+                                                ident: `u128`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -30164,7 +28010,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::usize`, `Extern`),
+                                                TypePath(`core::num::u128`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -30235,7 +28081,7 @@
                                                                                 module_path: `core::num`,
                                                                                 trai_path: TraitPath(`core::ops::Add`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`core::num::usize`, `Extern`),
+                                                                                    TypePath(`core::num::u128`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -30264,7 +28110,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -30274,7 +28120,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -30286,7 +28132,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -30294,14 +28140,14 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `usize`,
+                                    ident: `u128`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -30309,7 +28155,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         },
@@ -30757,7 +28603,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 115,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -30783,7 +28629,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 115,
+                                                            value: 114,
                                                         },
                                                     ),
                                                 ),
@@ -30802,7 +28648,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                        TypePath(`core::num::usize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -30814,7 +28660,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `f32`,
+                                    ident: `usize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -30822,7 +28668,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::f32`, `Extern`),
+                                    TypePath(`core::num::usize`, `Extern`),
                                 ),
                             ),
                         },
@@ -30876,7 +28722,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 113,
+                                    value: 112,
                                 },
                             ),
                         ),
@@ -31068,7 +28914,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                            path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -31096,7 +28942,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 114,
                                                                     },
                                                                 ),
                                                             ),
@@ -31115,7 +28961,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::num::f32`, `Extern`),
+                                                    TypePath(`core::num::usize`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -31127,7 +28973,7 @@
                                     SynPrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameRegionalToken::Ident(
                                             IdentRegionalToken {
-                                                ident: `f32`,
+                                                ident: `usize`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     2,
                                                 ),
@@ -31135,7 +28981,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::num::f32`, `Extern`),
+                                                TypePath(`core::num::usize`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -31192,7 +29038,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -31210,7 +29056,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                        TypePath(`core::num::usize`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -31222,7 +29068,7 @@
                         SynPrincipalEntityPathExpr::Root {
                             path_name_token: PathNameRegionalToken::Ident(
                                 IdentRegionalToken {
-                                    ident: `f32`,
+                                    ident: `usize`,
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
@@ -31230,7 +29076,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::f32`, `Extern`),
+                                    TypePath(`core::num::usize`, `Extern`),
                                 ),
                             ),
                         },
@@ -31468,6 +29314,2160 @@
     },
     SemaExprRegion {
         path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: None,
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::ImplBlock(
+                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::ops::Add`),
+                                    ),
+                                ),
+                            ),
+                        },
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 2,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                        SynExprData::ExplicitApplication {
+                            function_expr_idx: 1,
+                            argument_expr_idx: 2,
+                        },
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 3,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `Add`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Trait(
+                                    TraitPath(`core::ops::Add`),
+                                ),
+                            ),
+                        },
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `usize`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        3,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        },
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `usize`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::Trait,
+                        syn_expr_idx: 3,
+                    },
+                    SynExprRoot {
+                        kind: SynExprRootKind::SelfType,
+                        syn_expr_idx: 4,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 113,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Trait(
+                                            TraitPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 55,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: InstanceConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Curry(
+                                            EtherealTermCurry(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 52,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                FunctionApplication {
+                                    function_sema_expr_idx: SemaExprIdx(
+                                        1,
+                                    ),
+                                    argument_sema_expr_idx: SemaExprIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 3,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 52,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    3,
+                    (
+                        SemaExprIdx(
+                            3,
+                        ),
+                        Trait,
+                    ),
+                ),
+                (
+                    4,
+                    (
+                        SemaExprIdx(
+                            4,
+                        ),
+                        SelfType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 55,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsFunctionType(
+                                    ExpectEqsFunctionType {
+                                        final_destination: AnyOriginal,
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsFunctionCallType(
+                                                ExpectEqsFunctionTypeOutcome {
+                                                    template_parameter_substitutions: [],
+                                                    return_ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 24,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    variant: Curry {
+                                                        variance: Invariant,
+                                                        parameter_symbol: None,
+                                                        parameter_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Category(
+                                                                    TermCategory {
+                                                                        universe: TermUniverse(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        return_ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 24,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: CurryDestination(
+                                    ExpectCurryDestination {
+                                        curry_destination: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 3,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 3,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 4,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 4,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::usize`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Trait(
+                                                    TraitPath(`core::ops::Add`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 2,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::ExplicitApplication {
+                                        function_expr_idx: 1,
+                                        argument_expr_idx: 2,
+                                    },
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 3,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `Add`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::ops::Add`),
+                                            ),
+                                        ),
+                                    },
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `usize`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::num::usize`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `usize`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::num::usize`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::Trait,
+                                    syn_expr_idx: 3,
+                                },
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 4,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TraitForTypeItem(
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `core::num`,
+                                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`core::num::usize`, `Extern`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `add`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 2,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `usize`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        },
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `usize`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        10,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [
+                            SynPatternExpr::Ident {
+                                symbol_modifier_tokens: None,
+                                ident_token: IdentRegionalToken {
+                                    ident: `other`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [
+                            Pure,
+                        ],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [
+                            SynPatternSymbol::Atom(
+                                1,
+                            ),
+                        ],
+                    },
+                    pattern_symbol_maps: [
+                        [
+                            (
+                                `other`,
+                                1,
+                            ),
+                        ],
+                    ],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [
+                            Pure,
+                        ],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [
+                            CurrentSynSymbol {
+                                modifier: Pure,
+                                access_start: RegionalTokenIdx(
+                                    6,
+                                ),
+                                access_end: None,
+                                data: CurrentSynSymbolData::ParenateRegularParameter {
+                                    ident: `other`,
+                                    pattern_symbol_idx: 1,
+                                },
+                            },
+                        ],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [
+                        (
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 1,
+                                },
+                                ty_expr_idx: 1,
+                            },
+                            ArenaIdxRange(
+                                1..2,
+                            ),
+                        ),
+                    ],
+                },
+                syn_pattern_expr_roots: [
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 1,
+                    },
+                ],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ExplicitParameterType,
+                        syn_expr_idx: 1,
+                    },
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 2,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [
+                    (
+                        1,
+                        1,
+                    ),
+                ],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TraitForTypeItem(
+                        TraitForTypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 156,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 52,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 52,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ExplicitParameterType,
+                    ),
+                ),
+                (
+                    2,
+                    (
+                        SemaExprIdx(
+                            2,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 52,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [
+                        None,
+                    ],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 2,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 2,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 116,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: None,
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::ImplBlock(
+                        ImplBlockSynNodePath::TypeImplBlock(
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 116,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::f32`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `f32`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::SelfType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 114,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        SelfType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+        syn_expr_region: SynExprRegion {
+            data: SynExprRegionData {
+                parent: Some(
+                    SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: SynNodeRegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 116,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            syn_expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::f32`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `f32`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::num::f32`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegionData {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::SelfType,
+                                    syn_expr_idx: 1,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                ),
+                path: SynNodeRegionPath::Decl(
+                    ItemSynNodePath::AssociatedItem(
+                        AssociatedItemSynNodePath::TypeItem(
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                syn_expr_arena: Arena {
+                    data: [
+                        SynExprData::PrincipalEntityPath {
+                            path_expr_idx: 1,
+                            opt_path: Some(
+                                PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::f32`, `Extern`),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [
+                        SynPrincipalEntityPathExpr::Root {
+                            path_name_token: PathNameRegionalToken::Ident(
+                                IdentRegionalToken {
+                                    ident: `f32`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            ),
+                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: [],
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegionData {
+                    inherited_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_syn_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: True,
+                    allow_self_value: True,
+                    pattern_ty_constraints: [],
+                },
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
+                    SynExprRoot {
+                        kind: SynExprRootKind::ReturnType,
+                        syn_expr_idx: 1,
+                    },
+                ],
+                has_self_lifetime: false,
+                has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
+            },
+        },
+        data: SemaExprRegionData {
+            path: Decl(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemSynNodePath(
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 157,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            sema_expr_arena: SemaExprArena(
+                Arena {
+                    data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Type(
+                                            TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ],
+                },
+            ),
+            sema_stmt_arena: SemaStmtArena(
+                Arena {
+                    data: [],
+                },
+            ),
+            sema_expr_roots: [
+                (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        ReturnType,
+                    ),
+                ),
+            ],
+            syn_pattern_expr_ty_infos: ArenaMap {
+                data: [],
+            },
+            syn_pattern_symbol_ty_infos: ArenaMap {
+                data: [],
+            },
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
+            symbol_tys: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            symbol_terms: SymbolMap {
+                inherited_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+                current_syn_symbol_map: ArenaMap {
+                    data: [],
+                },
+            },
+            fluffy_term_region: FluffyTermRegion {
+                terms: FluffyTerms {
+                    solid_terms: SolidTerms {
+                        entries: VecSet {
+                            data: [],
+                        },
+                    },
+                    hollow_terms: HollowTerms {
+                        entries: [],
+                        first_unresolved_term_idx: 0,
+                    },
+                },
+                expectations: Expectations {
+                    arena: Arena {
+                        data: [
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    first_unresolved_expectation: 0,
+                },
+            },
+            return_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            ItemPathId(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        },
+    },
+    SemaExprRegion {
+        path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath(
@@ -31504,7 +31504,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -31692,7 +31692,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 156,
+                                    value: 158,
                                 },
                             ),
                         ),
@@ -31711,7 +31711,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -31774,7 +31774,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -31865,7 +31865,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -31912,7 +31912,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -32188,7 +32188,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 157,
+                                    value: 159,
                                 },
                             ),
                         ),
@@ -32207,7 +32207,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -32240,7 +32240,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -32316,7 +32316,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -32339,7 +32339,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -32374,7 +32374,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 52,
+                                                            value: 53,
                                                         },
                                                     ),
                                                 ),
@@ -32498,7 +32498,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -32545,7 +32545,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -32821,7 +32821,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 158,
+                                    value: 160,
                                 },
                             ),
                         ),
@@ -32840,7 +32840,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -32873,7 +32873,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -32949,7 +32949,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -32972,7 +32972,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -33007,7 +33007,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 52,
+                                                            value: 53,
                                                         },
                                                     ),
                                                 ),
@@ -33131,7 +33131,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -33178,7 +33178,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -33366,7 +33366,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 159,
+                                    value: 161,
                                 },
                             ),
                         ),
@@ -33385,7 +33385,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -33448,7 +33448,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -33539,7 +33539,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -33586,7 +33586,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -33774,7 +33774,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 160,
+                                    value: 162,
                                 },
                             ),
                         ),
@@ -33793,7 +33793,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -33856,7 +33856,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -33947,7 +33947,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -33994,7 +33994,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -34182,7 +34182,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 161,
+                                    value: 163,
                                 },
                             ),
                         ),
@@ -34201,7 +34201,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -34264,7 +34264,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -34355,7 +34355,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -34402,7 +34402,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -34590,7 +34590,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 162,
+                                    value: 164,
                                 },
                             ),
                         ),
@@ -34609,7 +34609,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -34672,7 +34672,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -34763,7 +34763,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -34967,7 +34967,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 114,
+                                    value: 115,
                                 },
                             ),
                         ),
@@ -34986,7 +34986,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -35019,7 +35019,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -35082,7 +35082,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -35154,7 +35154,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -35177,7 +35177,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -35219,7 +35219,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -35460,7 +35460,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -35886,7 +35886,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 163,
+                                    value: 165,
                                 },
                             ),
                         ),
@@ -35905,7 +35905,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -35938,7 +35938,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 52,
+                                                        value: 53,
                                                     },
                                                 ),
                                             ),
@@ -36014,7 +36014,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -36037,7 +36037,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -36072,7 +36072,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 52,
+                                                            value: 53,
                                                         },
                                                     ),
                                                 ),
@@ -36196,7 +36196,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -36217,7 +36217,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 117,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -36243,7 +36243,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 117,
+                                                            value: 118,
                                                         },
                                                     ),
                                                 ),
@@ -36336,7 +36336,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 115,
+                                    value: 116,
                                 },
                             ),
                         ),
@@ -36355,7 +36355,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -36418,7 +36418,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -36509,7 +36509,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -36556,7 +36556,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 117,
+                                                                        value: 118,
                                                                     },
                                                                 ),
                                                             ),
@@ -36744,7 +36744,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 164,
+                                    value: 166,
                                 },
                             ),
                         ),
@@ -36763,7 +36763,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -36826,7 +36826,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -36917,7 +36917,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -36964,7 +36964,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 117,
+                                                                        value: 118,
                                                                     },
                                                                 ),
                                                             ),
@@ -37152,7 +37152,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 165,
+                                    value: 167,
                                 },
                             ),
                         ),
@@ -37171,7 +37171,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -37234,7 +37234,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -37325,7 +37325,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -37529,7 +37529,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 116,
+                                    value: 117,
                                 },
                             ),
                         ),
@@ -37548,7 +37548,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 54,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
@@ -37581,7 +37581,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -37644,7 +37644,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -37716,7 +37716,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -37739,7 +37739,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -37781,7 +37781,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -38022,7 +38022,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -38448,7 +38448,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 166,
+                                    value: 168,
                                 },
                             ),
                         ),
@@ -38467,7 +38467,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -38500,7 +38500,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 53,
+                                                        value: 54,
                                                     },
                                                 ),
                                             ),
@@ -38576,7 +38576,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -38599,7 +38599,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -38634,7 +38634,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 53,
+                                                            value: 54,
                                                         },
                                                     ),
                                                 ),
@@ -38758,7 +38758,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),

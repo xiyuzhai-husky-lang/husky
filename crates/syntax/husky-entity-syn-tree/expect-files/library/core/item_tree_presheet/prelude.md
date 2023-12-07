@@ -214,6 +214,25 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
+            UseOneRule {
+                ast_idx: 12,
+                use_expr_idx: 36,
+                visibility: Scope::Pub,
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                80,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        35..36,
+                    ),
+                },
+                parent: None,
+                state: UseOneRuleState::Unresolved,
+            },
         ],
     ),
     use_all_rules: UseAllRules(
@@ -286,7 +305,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `num`,
+                            ident: `default`,
                             token_idx: TokenIdx(
                                 12,
                             ),
@@ -340,7 +359,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `raw_bits`,
+                            ident: `num`,
                             token_idx: TokenIdx(
                                 19,
                             ),
@@ -394,7 +413,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `fmt`,
+                            ident: `raw_bits`,
                             token_idx: TokenIdx(
                                 26,
                             ),
@@ -448,7 +467,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `visual`,
+                            ident: `fmt`,
                             token_idx: TokenIdx(
                                 33,
                             ),
@@ -502,7 +521,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `marker`,
+                            ident: `visual`,
                             token_idx: TokenIdx(
                                 40,
                             ),
@@ -556,7 +575,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `clone`,
+                            ident: `marker`,
                             token_idx: TokenIdx(
                                 47,
                             ),
@@ -610,7 +629,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `option`,
+                            ident: `clone`,
                             token_idx: TokenIdx(
                                 54,
                             ),
@@ -664,7 +683,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `cmp`,
+                            ident: `option`,
                             token_idx: TokenIdx(
                                 61,
                             ),
@@ -718,7 +737,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `slice`,
+                            ident: `cmp`,
                             token_idx: TokenIdx(
                                 68,
                             ),
@@ -772,7 +791,7 @@ EntitySynTreePresheet {
                 ParentUseExpr {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `vec`,
+                            ident: `slice`,
                             token_idx: TokenIdx(
                                 75,
                             ),
@@ -811,6 +830,60 @@ EntitySynTreePresheet {
                     children: Ok(
                         UseExprChildren::Single {
                             child: 32,
+                        },
+                    ),
+                },
+            ),
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        84,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `vec`,
+                            token_idx: TokenIdx(
+                                82,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                83,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 34,
+                        },
+                    ),
+                },
+            ),
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                80,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                81,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 35,
                         },
                     ),
                 },

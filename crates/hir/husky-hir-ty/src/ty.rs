@@ -14,9 +14,9 @@ use husky_term_prelude::TermEntityPath;
 use salsa::DebugWithDb;
 
 /// this is much simpler than that in Term, right?
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirType {
     PathLeading(HirTypePathLeading),
     Symbol(HirTypeSymbol),

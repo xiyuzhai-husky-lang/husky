@@ -336,7 +336,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 324,
+                                                                value: 325,
                                                             },
                                                         ),
                                                     ),
@@ -537,7 +537,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 324,
+                                                                value: 325,
                                                             },
                                                         ),
                                                     ),
@@ -706,7 +706,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 208,
+                                    value: 210,
                                 },
                             ),
                         ),
@@ -725,7 +725,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 276,
+                                                        value: 277,
                                                     },
                                                 ),
                                             ),
@@ -789,7 +789,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 282,
+                                                        value: 283,
                                                     },
                                                 ),
                                             ),
@@ -853,7 +853,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 274,
+                                                        value: 275,
                                                     },
                                                 ),
                                             ),
@@ -917,7 +917,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 303,
+                                                        value: 304,
                                                     },
                                                 ),
                                             ),
@@ -981,7 +981,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 305,
+                                                        value: 306,
                                                     },
                                                 ),
                                             ),
@@ -1045,7 +1045,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 286,
+                                                        value: 287,
                                                     },
                                                 ),
                                             ),
@@ -1109,7 +1109,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 309,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -1173,7 +1173,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 297,
+                                                        value: 298,
                                                     },
                                                 ),
                                             ),
@@ -1237,7 +1237,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 316,
+                                                        value: 317,
                                                     },
                                                 ),
                                             ),
@@ -1300,7 +1300,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 326,
+                                                    value: 327,
                                                 },
                                             ),
                                         ),

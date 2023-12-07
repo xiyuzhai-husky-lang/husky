@@ -24,7 +24,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 11,
+                                ast_idx: 13,
                                 ident_token: IdentToken {
                                     ident: `Class`,
                                     token_idx: TokenIdx(
@@ -84,7 +84,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 13,
+                                ast_idx: 15,
                                 ident_token: IdentToken {
                                     ident: `OneVsAll`,
                                     token_idx: TokenIdx(
@@ -144,11 +144,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 16,
+                                ast_idx: 19,
                                 ident_token: IdentToken {
                                     ident: `OneVsAllResult`,
                                     token_idx: TokenIdx(
-                                        88,
+                                        117,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -156,7 +156,7 @@ EntitySynTreeCrateBundle {
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
-                                                6..9,
+                                                8..11,
                                             ),
                                         },
                                     ),
@@ -204,11 +204,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 18,
+                                ast_idx: 21,
                                 ident_token: IdentToken {
                                     ident: `narrow_down`,
                                     token_idx: TokenIdx(
-                                        140,
+                                        169,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -291,6 +291,76 @@ EntitySynTreeCrateBundle {
                                             path: TraitForTypeImplBlock {
                                                 data: TraitForTypeImplBlockPathData {
                                                     module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::default::Default`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `malamute`,
+                                                        trai_path: TraitPath(`core::default::Default`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            ast_idx: 16,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                            trai_expr: 1,
+                            for_token: TokenIdx(
+                                65,
+                            ),
+                            ty_sketch_expr: Path(
+                                2,
+                            ),
+                            items: Some(
+                                TraitForType(
+                                    TraitForTypeItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            6..7,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
                                                     trai_path: TraitPath(`core::ops::Unveil`),
                                                     ty_sketch: TypeSketch::Path(
                                                         TypePath(`malamute::Class`, `Enum`),
@@ -326,24 +396,24 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 14,
+                            ast_idx: 17,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    51,
+                                    80,
                                 ),
                             },
-                            trai_expr: 3,
+                            trai_expr: 5,
                             for_token: TokenIdx(
-                                68,
+                                97,
                             ),
                             ty_sketch_expr: Path(
-                                4,
+                                6,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            5..6,
+                                            7..8,
                                         ),
                                     },
                                 ),
@@ -396,24 +466,24 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 17,
+                            ast_idx: 20,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    107,
+                                    136,
                                 ),
                             },
-                            trai_expr: 7,
+                            trai_expr: 9,
                             for_token: TokenIdx(
-                                128,
+                                157,
                             ),
                             ty_sketch_expr: Path(
-                                8,
+                                10,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            9..10,
+                                            11..12,
                                         ),
                                     },
                                 ),
@@ -436,9 +506,39 @@ EntitySynTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `Unveil`,
+                        ident: `Default`,
                         token_idx: TokenIdx(
                             64,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::default::Default`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `OneVsAll`,
+                        token_idx: TokenIdx(
+                            66,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`malamute::OneVsAll`, `Enum`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `Unveil`,
+                        token_idx: TokenIdx(
+                            93,
                         ),
                     },
                 ),
@@ -453,39 +553,39 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            62,
+                            91,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        63,
+                        92,
                     ),
                 ),
-                subexpr: 1,
+                subexpr: 3,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::Ident(
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            60,
+                            89,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        61,
+                        90,
                     ),
                 ),
-                subexpr: 2,
+                subexpr: 4,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
                         ident: `Class`,
                         token_idx: TokenIdx(
-                            69,
+                            98,
                         ),
                     },
                 ),
@@ -500,7 +600,7 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `Unveil`,
                         token_idx: TokenIdx(
-                            124,
+                            153,
                         ),
                     },
                 ),
@@ -515,39 +615,39 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            122,
+                            151,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        123,
+                        152,
                     ),
                 ),
-                subexpr: 5,
+                subexpr: 7,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::Ident(
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            120,
+                            149,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        121,
+                        150,
                     ),
                 ),
-                subexpr: 6,
+                subexpr: 8,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            129,
+                            158,
                         ),
                     },
                 ),

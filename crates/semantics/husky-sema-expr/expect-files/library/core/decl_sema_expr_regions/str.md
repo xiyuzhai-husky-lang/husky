@@ -92,7 +92,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 78,
+                                    value: 79,
                                 },
                             ),
                         ),
@@ -159,7 +159,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 84,
+                                    value: 85,
                                 },
                             ),
                         ),
@@ -261,7 +261,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 79,
+                                    value: 80,
                                 },
                             ),
                         ),
@@ -328,7 +328,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 85,
+                                    value: 86,
                                 },
                             ),
                         ),

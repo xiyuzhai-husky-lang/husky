@@ -7,15 +7,15 @@ use husky_syn_expr::{
 };
 use smallvec::SmallVec;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTemplateParameter {
     symbol: HirTemplateSymbol,
     data: HirTemplateParameterData,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirTemplateParameterData {
     Type {
         ident: Ident,

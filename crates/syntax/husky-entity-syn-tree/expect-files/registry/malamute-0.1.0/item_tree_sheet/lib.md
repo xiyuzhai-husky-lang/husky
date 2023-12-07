@@ -22,7 +22,7 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 11,
+                        ast_idx: 13,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
@@ -82,7 +82,7 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 13,
+                        ast_idx: 15,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
@@ -142,11 +142,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 16,
+                        ast_idx: 19,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                88,
+                                117,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -154,7 +154,7 @@ EntitySynTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        6..9,
+                                        8..11,
                                     ),
                                 },
                             ),
@@ -202,11 +202,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 18,
+                        ast_idx: 21,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                140,
+                                169,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -289,6 +289,76 @@ EntitySynTreeSheet {
                                     path: TraitForTypeImplBlock {
                                         data: TraitForTypeImplBlockPathData {
                                             module_path: `malamute`,
+                                            trai_path: TraitPath(`core::default::Default`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::default::Default`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 16,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            51,
+                        ),
+                    },
+                    trai_expr: 1,
+                    for_token: TokenIdx(
+                        65,
+                    ),
+                    ty_sketch_expr: Path(
+                        2,
+                    ),
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    6..7,
+                                ),
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+        (
+            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
                                             trai_path: TraitPath(`core::ops::Unveil`),
                                             ty_sketch: TypeSketch::Path(
                                                 TypePath(`malamute::Class`, `Enum`),
@@ -324,24 +394,24 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 14,
+                    ast_idx: 17,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            51,
+                            80,
                         ),
                     },
-                    trai_expr: 3,
+                    trai_expr: 5,
                     for_token: TokenIdx(
-                        68,
+                        97,
                     ),
                     ty_sketch_expr: Path(
-                        4,
+                        6,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    5..6,
+                                    7..8,
                                 ),
                             },
                         ),
@@ -394,24 +464,24 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 17,
+                    ast_idx: 20,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            107,
+                            136,
                         ),
                     },
-                    trai_expr: 7,
+                    trai_expr: 9,
                     for_token: TokenIdx(
-                        128,
+                        157,
                     ),
                     ty_sketch_expr: Path(
-                        8,
+                        10,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    9..10,
+                                    11..12,
                                 ),
                             },
                         ),

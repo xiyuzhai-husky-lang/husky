@@ -282,7 +282,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 274,
+                                    value: 276,
                                 },
                             ),
                         ),
@@ -301,7 +301,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 278,
+                                                        value: 279,
                                                     },
                                                 ),
                                             ),
@@ -361,7 +361,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 83,
+                                                        value: 84,
                                                     },
                                                 ),
                                             ),
@@ -421,7 +421,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 278,
                                                     },
                                                 ),
                                             ),
@@ -545,7 +545,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 278,
+                                                    value: 279,
                                                 },
                                             ),
                                         ),
@@ -587,7 +587,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 83,
+                                                    value: 84,
                                                 },
                                             ),
                                         ),
@@ -629,7 +629,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 277,
+                                                    value: 278,
                                                 },
                                             ),
                                         ),
@@ -1017,7 +1017,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 286,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -1192,7 +1192,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 372,
+                                    value: 375,
                                 },
                             ),
                         ),
@@ -1211,7 +1211,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 86,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -1248,7 +1248,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 286,
+                                                        value: 287,
                                                     },
                                                 ),
                                             ),
@@ -1320,7 +1320,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 86,
+                                                    value: 87,
                                                 },
                                             ),
                                         ),
@@ -1343,7 +1343,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 286,
+                                                    value: 287,
                                                 },
                                             ),
                                         ),
@@ -1463,7 +1463,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 286,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -1772,7 +1772,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 437,
+                                    value: 440,
                                 },
                             ),
                         ),
@@ -1791,7 +1791,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 87,
+                                                        value: 88,
                                                     },
                                                 ),
                                             ),
@@ -1854,7 +1854,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 88,
                                                 },
                                             ),
                                         ),
@@ -1945,7 +1945,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 286,
+                                    value: 287,
                                 },
                             ),
                         ),

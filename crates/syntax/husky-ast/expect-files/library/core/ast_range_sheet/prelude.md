@@ -11,5 +11,6 @@ AstTokenIdxRangeSheet {
         56..63,
         63..70,
         70..77,
+        77..84,
     ],
 }

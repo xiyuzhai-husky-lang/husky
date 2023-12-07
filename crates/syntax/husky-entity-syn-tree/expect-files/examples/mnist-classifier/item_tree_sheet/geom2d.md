@@ -397,60 +397,6 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 293,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 293,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 81,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            23,
-                        ),
-                    },
-                    ty_expr: 7,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            6..11,
-                        ),
-                    },
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
                                                 value: 294,
                                             },
                                         ),
@@ -480,16 +426,16 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 84,
+                    ast_idx: 81,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            178,
+                            23,
                         ),
                     },
-                    ty_expr: 8,
+                    ty_expr: 7,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            42..50,
+                            6..11,
                         ),
                     },
                 },
@@ -534,16 +480,16 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 86,
+                    ast_idx: 84,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            507,
+                            178,
                         ),
                     },
-                    ty_expr: 9,
+                    ty_expr: 8,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            57..59,
+                            42..50,
                         ),
                     },
                 },
@@ -588,16 +534,16 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 88,
+                    ast_idx: 86,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            617,
+                            507,
                         ),
                     },
-                    ty_expr: 10,
+                    ty_expr: 9,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            65..71,
+                            57..59,
                         ),
                     },
                 },
@@ -634,6 +580,60 @@ EntitySynTreeSheet {
                                             ItemPathId(
                                                 Id {
                                                     value: 297,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 88,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            617,
+                        ),
+                    },
+                    ty_expr: 10,
+                    items: TypeItems {
+                        ast_idx_range: ArenaIdxRange(
+                            65..71,
+                        ),
+                    },
+                },
+            ),
+        ),
+        (
+            ImplBlockSynNodePath::TypeImplBlock(
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 298,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 298,
                                                 },
                                             ),
                                         ),

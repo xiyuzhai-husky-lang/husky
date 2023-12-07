@@ -444,14 +444,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 199,
+                                            value: 200,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 480,
+                                            value: 481,
                                         },
                                     ),
                                 ),
@@ -488,14 +488,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 199,
+                                            value: 200,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 481,
+                                            value: 482,
                                         },
                                     ),
                                 ),
@@ -532,14 +532,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 199,
+                                            value: 200,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 482,
+                                            value: 483,
                                         },
                                     ),
                                 ),
@@ -576,14 +576,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 199,
+                                            value: 200,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 483,
+                                            value: 484,
                                         },
                                     ),
                                 ),

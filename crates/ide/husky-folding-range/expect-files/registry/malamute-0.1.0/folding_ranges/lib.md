@@ -1,5 +1,19 @@
 [
     FoldingRange {
+        start_line: 11,
+        start_character: Some(
+            4,
+        ),
+        end_line: 12,
+        end_character: Some(
+            20,
+        ),
+        kind: Some(
+            Region,
+        ),
+        collapsed_text: None,
+    },
+    FoldingRange {
         start_line: 1,
         start_character: Some(
             0,
@@ -32,7 +46,7 @@
         start_character: Some(
             0,
         ),
-        end_line: 11,
+        end_line: 12,
         end_character: Some(
             20,
         ),
@@ -46,7 +60,21 @@
         start_character: Some(
             0,
         ),
-        end_line: 17,
+        end_line: 15,
+        end_character: Some(
+            20,
+        ),
+        kind: Some(
+            Region,
+        ),
+        collapsed_text: None,
+    },
+    FoldingRange {
+        start_line: 18,
+        start_character: Some(
+            0,
+        ),
+        end_line: 21,
         end_character: Some(
             13,
         ),
@@ -56,11 +84,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 19,
+        start_line: 23,
         start_character: Some(
             0,
         ),
-        end_line: 20,
+        end_line: 24,
         end_character: Some(
             20,
         ),

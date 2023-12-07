@@ -305,7 +305,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 389,
                                                     },
                                                 ),
                                             ),
@@ -332,7 +332,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 389,
                                                     },
                                                 ),
                                             ),
@@ -1032,7 +1032,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -1059,7 +1059,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -1274,14 +1274,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -1301,14 +1301,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -1577,14 +1577,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -1604,14 +1604,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -1880,14 +1880,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -1907,14 +1907,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),

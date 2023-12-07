@@ -1020,14 +1020,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 71,
+                                            value: 72,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 112,
+                                            value: 113,
                                         },
                                     ),
                                 ),
@@ -1064,14 +1064,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 71,
+                                            value: 72,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 113,
+                                            value: 114,
                                         },
                                     ),
                                 ),

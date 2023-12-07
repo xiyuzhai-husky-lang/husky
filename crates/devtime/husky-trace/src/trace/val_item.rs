@@ -9,6 +9,7 @@ pub struct ValItemTracePathData {
     val_item_path: FugitivePath,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValItemTraceData {
     path: TracePath,

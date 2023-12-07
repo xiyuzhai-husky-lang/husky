@@ -95,7 +95,7 @@
                                                         ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 51,
+                                                                    value: 52,
                                                                 },
                                                             ),
                                                         ),

@@ -20,6 +20,62 @@ TokenSheetData {
                 PunctuationMapped::Star,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `Default`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Static,
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Fn,
+            ),
+        ),
+        TokenData::Ident(
+            `default`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    CurryType,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfType,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
     ],
     token_group_starts: [
         TokenGroupStart(
@@ -27,8 +83,20 @@ TokenSheetData {
                 1,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                9,
+            ),
+        ),
     ],
     indents: [
         0,
+        0,
+        4,
     ],
 }

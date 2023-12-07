@@ -265,7 +265,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 389,
                                                     },
                                                 ),
                                             ),
@@ -292,7 +292,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 389,
                                                     },
                                                 ),
                                             ),
@@ -687,7 +687,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -714,7 +714,7 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),

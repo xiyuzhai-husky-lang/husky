@@ -254,14 +254,37 @@ AstSheet {
                     },
                 ),
             },
+            Ast::Use {
+                token_group_idx: TokenGroupIdx(
+                    11,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                78,
+                            ),
+                        },
+                    },
+                },
+                state_after_visibility_expr: Some(
+                    TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            79,
+                        ),
+                        drained: false,
+                    },
+                ),
+            },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..12,
+        1..13,
     ),
     siblings: [
         ArenaIdxRange(
-            1..12,
+            1..13,
         ),
     ],
 }

@@ -20,11 +20,11 @@ impl NormalAstChildren for TraitItems {
 
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
-        let trai_item_kind = match item_keyword_group {
+        let trait_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Mod(_) => todo!(),
             EntityKindKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFn,
             EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
             EntityKindKeywordGroup::Gn(_) => todo!(),
             EntityKindKeywordGroup::GeneralDef(_) => todo!(),
@@ -33,6 +33,7 @@ impl NormalAstChildren for TraitItems {
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => todo!(),
         };
+        let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
         })

@@ -1041,7 +1041,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 475,
+                                                                            value: 478,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1166,7 +1166,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 475,
+                                                                                            value: 478,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2441,7 +2441,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 478,
+                                                                            value: 481,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2566,7 +2566,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 478,
+                                                                                            value: 481,
                                                                                         },
                                                                                     ),
                                                                                 ),

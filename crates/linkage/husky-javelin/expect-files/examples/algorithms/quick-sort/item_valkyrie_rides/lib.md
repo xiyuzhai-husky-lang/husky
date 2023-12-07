@@ -16,7 +16,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 106,
+                                            value: 107,
                                         },
                                     ),
                                 ),
@@ -39,7 +39,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 210,
+                                        value: 211,
                                     },
                                 ),
                             ),
@@ -93,7 +93,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 106,
+                                            value: 107,
                                         },
                                     ),
                                 ),
@@ -131,7 +131,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 106,
+                                            value: 107,
                                         },
                                     ),
                                 ),
@@ -154,7 +154,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 211,
+                                        value: 212,
                                     },
                                 ),
                             ),

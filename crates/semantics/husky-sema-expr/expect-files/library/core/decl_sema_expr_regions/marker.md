@@ -92,7 +92,7 @@
                         TraitSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 34,
+                                    value: 35,
                                 },
                             ),
                         ),
@@ -257,7 +257,7 @@
                         TraitSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 35,
+                                    value: 36,
                                 },
                             ),
                         ),
@@ -462,7 +462,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 87,
+                                    value: 88,
                                 },
                             ),
                         ),
@@ -481,7 +481,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -548,7 +548,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 34,
+                                                    value: 35,
                                                 },
                                             ),
                                         ),

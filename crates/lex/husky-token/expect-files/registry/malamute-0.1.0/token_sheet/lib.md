@@ -222,6 +222,131 @@ TokenSheetData {
                 PunctuationMapped::LaOrLt,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `phantom`,
+        ),
+        TokenData::Ident(
+            `Label`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `phantom`,
+        ),
+        TokenData::Keyword(
+            Keyword::Const,
+        ),
+        TokenData::Ident(
+            `label`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `Label`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
+            ),
+        ),
+        TokenData::Ident(
+            `Default`,
+        ),
+        TokenData::Keyword(
+            Keyword::Connection(
+                For,
+            ),
+        ),
+        TokenData::Ident(
+            `OneVsAll`,
+        ),
+        TokenData::Ident(
+            `Label`,
+        ),
+        TokenData::Ident(
+            `label`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Fn,
+            ),
+        ),
+        TokenData::Ident(
+            `default`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    CurryType,
+                ),
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfType,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `OneVsAll`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `No`,
+        ),
+        TokenData::Keyword(
+            Keyword::Impl,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
+            ),
+        ),
         TokenData::Ident(
             `Label`,
         ),
@@ -775,7 +900,7 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                72,
+                70,
             ),
         ),
         TokenGroupStart(
@@ -785,7 +910,7 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                86,
+                80,
             ),
         ),
         TokenGroupStart(
@@ -795,27 +920,42 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                103,
+                106,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                105,
+                115,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                107,
+                130,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                133,
+                132,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                138,
+                134,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                136,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                162,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                167,
             ),
         ),
     ],
@@ -828,6 +968,9 @@ TokenSheetData {
         0,
         0,
         0,
+        0,
+        4,
+        8,
         0,
         4,
         0,

@@ -1079,6 +1079,57 @@ EntitySynTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `Default`,
+                visibility: Scope::PubUnder(
+                    `core::marker`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            module_item_path: MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 2,
+                                        use_expr_idx: 4,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::default::Default`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::marker`,
+                        ),
+                        ast_idx: 1,
+                        use_expr_idx: 1,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `i8`,
                 visibility: Scope::PubUnder(
                     `core::marker`,
@@ -1100,8 +1151,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1151,8 +1202,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1202,8 +1253,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1253,8 +1304,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1304,8 +1355,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1355,8 +1406,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1406,8 +1457,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1457,8 +1508,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1508,8 +1559,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1559,8 +1610,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1610,8 +1661,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1661,8 +1712,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1712,8 +1763,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1763,8 +1814,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1814,8 +1865,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 4,
+                                        use_expr_idx: 10,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1865,8 +1916,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 4,
-                                        use_expr_idx: 10,
+                                        ast_idx: 5,
+                                        use_expr_idx: 13,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1916,8 +1967,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1967,8 +2018,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2018,8 +2069,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2069,8 +2120,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2120,8 +2171,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
-                                        use_expr_idx: 19,
+                                        ast_idx: 8,
+                                        use_expr_idx: 22,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2171,8 +2222,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2221,14 +2272,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2245,14 +2296,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2274,14 +2325,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -2291,8 +2342,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2303,14 +2354,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -2334,14 +2385,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -2379,14 +2430,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2403,14 +2454,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2432,14 +2483,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -2449,8 +2500,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2461,14 +2512,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -2492,14 +2543,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 116,
+                                                        value: 117,
                                                     },
                                                 ),
                                             ),
@@ -2538,8 +2589,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2589,8 +2640,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2640,8 +2691,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2691,8 +2742,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2742,8 +2793,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2793,8 +2844,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2844,8 +2895,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 11,
-                                        use_expr_idx: 31,
+                                        ast_idx: 12,
+                                        use_expr_idx: 34,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2991,7 +3042,7 @@ EntitySynTreeSheet {
                     `core::marker`,
                 ),
                 progress: Ok(
-                    57,
+                    58,
                 ),
             },
         ],

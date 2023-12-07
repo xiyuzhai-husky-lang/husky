@@ -92,7 +92,7 @@
                         TraitSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),

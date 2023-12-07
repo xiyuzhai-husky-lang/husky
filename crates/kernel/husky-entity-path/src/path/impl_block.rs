@@ -268,7 +268,7 @@ impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
 
 #[derive(Default)]
 pub struct ImplBlockRegistry {
-    next_disambiguitors: VecPairMap<(ModulePath, ImplBlockKind), u8>,
+    next_disambiguitors: VecPairMap<(ModulePath, Result<ImplBlockKind, ()>), u8>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -291,7 +291,16 @@ impl ImplBlockRegistry {
     ) -> u8 {
         let next_disambiguitor = self
             .next_disambiguitors
-            .get_value_mut_or_insert_default((module_path, impl_block_kind));
+            .get_value_mut_or_insert_default((module_path, Ok(impl_block_kind)));
+        let new_disambiguitor = *next_disambiguitor;
+        *next_disambiguitor += 1;
+        new_disambiguitor
+    }
+
+    pub fn issue_ill_formed_disambiguitor(&mut self, module_path: ModulePath) -> u8 {
+        let next_disambiguitor = self
+            .next_disambiguitors
+            .get_value_mut_or_insert_default((module_path, Err(())));
         let new_disambiguitor = *next_disambiguitor;
         *next_disambiguitor += 1;
         new_disambiguitor
