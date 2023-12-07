@@ -5,6 +5,7 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::{coersion::HirEagerCoersion, *};
+use husky_expr::stmt::ConditionConversion;
 use husky_fluffy_term::ExpectationOutcome;
 use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
@@ -181,7 +182,10 @@ pub enum HirEagerCondition {
         src: HirEagerExprIdx,
         target: HirEagerBeVariablesPattern,
     },
-    Other(HirEagerExprIdx),
+    Other {
+        hir_eager_expr_idx: HirEagerExprIdx,
+        conversion: ConditionConversion,
+    },
 }
 
 impl ToHirEager for SemaCondition {
@@ -198,9 +202,13 @@ impl ToHirEager for SemaCondition {
                 src: src.to_hir_eager(builder),
                 target: target.to_hir_eager(builder),
             },
-            SemaCondition::Other(sema_expr_idx) => {
-                HirEagerCondition::Other(sema_expr_idx.to_hir_eager(builder))
-            }
+            SemaCondition::Other {
+                sema_expr_idx,
+                conversion,
+            } => HirEagerCondition::Other {
+                hir_eager_expr_idx: sema_expr_idx.to_hir_eager(builder),
+                conversion,
+            },
         }
     }
 }

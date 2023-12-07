@@ -263,9 +263,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: Other(
-                                                7,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 7,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 12,

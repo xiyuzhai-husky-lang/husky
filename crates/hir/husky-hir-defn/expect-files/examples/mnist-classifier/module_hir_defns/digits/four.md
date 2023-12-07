@@ -608,9 +608,10 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 8,
@@ -902,14 +903,16 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Require {
-                                            condition: Other(
-                                                11,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 11,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 14,

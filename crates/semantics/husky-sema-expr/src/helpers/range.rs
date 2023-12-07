@@ -638,7 +638,10 @@ impl<'a> SemaExprRangeCalculator<'a> {
             SemaCondition::Be { target, .. } => {
                 self[target.syn_pattern_root().syn_pattern_expr_idx()].end()
             }
-            SemaCondition::Other(condition) => self[condition].end(),
+            SemaCondition::Other {
+                sema_expr_idx,
+                conversion,
+            } => self[sema_expr_idx].end(),
         }
     }
 }

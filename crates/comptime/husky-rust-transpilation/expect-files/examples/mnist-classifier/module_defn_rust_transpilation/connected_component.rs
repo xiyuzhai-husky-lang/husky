@@ -62,7 +62,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
     let mut result: Vec<ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {
-        while unsearched[j as usize] {
+        while unsearched[j as usize] != 0 {
             let a = unsearched[j as usize];
             let shift = a.ctz();
             let mut mask = BinaryImage28::new_zeros();
@@ -152,7 +152,7 @@ impl ConnectedComponent {
         let mut row_start = 1;
         while row_start < 29 {
             {
-                if self.mask[row_start as usize] {
+                if self.mask[row_start as usize] != 0 {
                     break;
                 }
             }
@@ -194,7 +194,7 @@ impl ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i as usize] {
+                if self.mask[i as usize] != 0 {
                     break;
                 }
             }
@@ -212,7 +212,7 @@ impl ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i as usize] {
+                if self.mask[i as usize] != 0 {
                     break;
                 }
             }

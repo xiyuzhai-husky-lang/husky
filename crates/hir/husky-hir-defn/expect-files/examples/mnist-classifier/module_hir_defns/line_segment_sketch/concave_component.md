@@ -839,18 +839,20 @@
                                             discarded: false,
                                         },
                                         While {
-                                            condition: Other(
-                                                35,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 35,
+                                                conversion: None,
+                                            },
                                             stmts: ArenaIdxRange(
                                                 2..3,
                                             ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    42,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 42,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -917,9 +919,10 @@
                                             initial_value: 6,
                                         },
                                         While {
-                                            condition: Other(
-                                                16,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 16,
+                                                conversion: None,
+                                            },
                                             stmts: ArenaIdxRange(
                                                 1..2,
                                             ),
@@ -932,9 +935,10 @@
                                             initial_value: 19,
                                         },
                                         While {
-                                            condition: Other(
-                                                24,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 24,
+                                                conversion: None,
+                                            },
                                             stmts: ArenaIdxRange(
                                                 4..8,
                                             ),
@@ -2149,9 +2153,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    28,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 28,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),

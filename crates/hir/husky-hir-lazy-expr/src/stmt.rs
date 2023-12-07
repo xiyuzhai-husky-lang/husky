@@ -1,12 +1,11 @@
 mod branch_stmt;
 
-use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
-
-use idx_arena::ArenaRef;
-
 pub use self::branch_stmt::*;
 
 use crate::*;
+use husky_expr::stmt::ConditionConversion;
+use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirLazyExprDb, jar = HirLazyExprJar)]
@@ -132,7 +131,10 @@ pub enum HirLazyCondition {
         src: HirLazyExprIdx,
         target: HirLazyBeVariablesPattern,
     },
-    Other(HirLazyExprIdx),
+    Other {
+        hir_lazy_expr_idx: HirLazyExprIdx,
+        conversion: ConditionConversion,
+    },
 }
 
 impl ToHirLazy for SemaCondition {
@@ -149,9 +151,13 @@ impl ToHirLazy for SemaCondition {
                 src: src.to_hir_lazy(builder),
                 target: target.to_hir_lazy(builder),
             },
-            SemaCondition::Other(sema_expr_idx) => {
-                HirLazyCondition::Other(sema_expr_idx.to_hir_lazy(builder))
-            }
+            SemaCondition::Other {
+                sema_expr_idx,
+                conversion,
+            } => HirLazyCondition::Other {
+                hir_lazy_expr_idx: sema_expr_idx.to_hir_lazy(builder),
+                conversion,
+            },
         }
     }
 }

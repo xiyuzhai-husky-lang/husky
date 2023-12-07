@@ -109,6 +109,7 @@ husky-entity-kind = { path = "crates/kernel/husky-entity-kind" }
 husky-entity-path = { path = "crates/kernel/husky-entity-path" }
 husky-ethereal-term = { path = "crates/kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "crates/kernel/husky-ethereal-signature" }
+husky-expr = { path = "crates/kernel/husky-expr" }
 husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
 husky-task = { path = "crates/kernel/husky-task" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }

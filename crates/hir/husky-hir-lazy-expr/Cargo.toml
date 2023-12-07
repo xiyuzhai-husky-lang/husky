@@ -21,6 +21,7 @@ husky-term-prelude.workspace = true
 husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-ethereal-term.workspace = true
+husky-expr.workspace = true
 husky-fluffy-term.workspace = true
 # semantics
 husky-sema-expr.workspace = true

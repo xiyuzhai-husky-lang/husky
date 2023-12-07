@@ -363,9 +363,10 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 8,
@@ -795,9 +796,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: Other(
-                                                15,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 15,
+                                                conversion: None,
+                                            },
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -808,9 +810,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    7,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 7,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -819,9 +822,10 @@
                                             else_branch: None,
                                         },
                                         Require {
-                                            condition: Other(
-                                                20,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 20,
+                                                conversion: None,
+                                            },
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -831,9 +835,10 @@
                                             initial_value: 26,
                                         },
                                         Require {
-                                            condition: Other(
-                                                30,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 30,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 34,

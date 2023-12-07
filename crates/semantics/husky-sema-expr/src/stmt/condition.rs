@@ -1,4 +1,5 @@
 use super::*;
+use husky_expr::stmt::ConditionConversion;
 use husky_regional_token::RegionalTokenIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -12,5 +13,8 @@ pub enum SemaCondition {
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
-    Other(SemaExprIdx),
+    Other {
+        sema_expr_idx: SemaExprIdx,
+        conversion: ConditionConversion,
+    },
 }

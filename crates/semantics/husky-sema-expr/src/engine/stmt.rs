@@ -291,7 +291,8 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     pub(crate) fn build_sema_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemaCondition {
-        let sema_expr_idx = self.build_sema_expr(syn_expr_idx, ExpectConditionType);
+        let (sema_expr_idx, outcome) =
+            self.build_sema_expr_with_outcome(syn_expr_idx, ExpectConditionType);
         match *sema_expr_idx.data(self.sema_expr_arena.arena_ref()) {
             SemaExprData::Be {
                 src,
@@ -302,7 +303,13 @@ impl<'a> SemaExprEngine<'a> {
                 be_regional_token_idx,
                 target,
             },
-            _ => SemaCondition::Other(sema_expr_idx),
+            _ => SemaCondition::Other {
+                sema_expr_idx,
+                conversion: match outcome {
+                    Some(ExpectConditionTypeOutcome { conversion }) => conversion,
+                    None => todo!(),
+                },
+            },
         }
     }
 }
