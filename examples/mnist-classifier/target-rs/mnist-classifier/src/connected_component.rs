@@ -5,11 +5,11 @@ pub struct ConnectedComponentDistribution {
     pub row_end: i32,
     pub upper_mass: i32,
     pub lower_mass: i32,
-} 
+}
 
 impl ConnectedComponentDistribution {
     pub fn __constructor(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
-        Self{
+        Self {
             row_start,
             row_end,
             upper_mass,
@@ -20,13 +20,11 @@ impl ConnectedComponentDistribution {
 
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<RawContour>>>,
-} 
+}
 
 impl EffHoles {
     pub fn __constructor(matches: Vec<Option<Leash<RawContour>>>) -> Self {
-        Self{
-            matches,
-        }
+        Self { matches }
     }
 }
 
@@ -38,13 +36,11 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 
 pub struct ConnectedComponent {
     pub mask: BinaryImage28,
-} 
+}
 
 impl ConnectedComponent {
     pub fn __constructor(mask: BinaryImage28) -> Self {
-        Self{
-            mask,
-        }
+        Self { mask }
     }
 }
 
@@ -74,7 +70,8 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 while i < 30 - 1 {
                     {
                         let old_row = mask[(i + 1) as usize];
-                        let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
+                        let new_row =
+                            old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if !new_row {
                             break;
                         }
@@ -88,7 +85,8 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 while i >= j {
                     {
                         let old_row = mask[i as usize];
-                        let new_row = old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
+                        let new_row =
+                            old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
                             mask[i as usize] = new_row
@@ -177,7 +175,9 @@ impl ConnectedComponent {
         for i2 in (row_end - half_height..row_end).rev() {
             lower_mass += self.mask[i2 as usize].co()
         }
-        return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
+        return ConnectedComponentDistribution::__constructor(
+            row_start, row_end, upper_mass, lower_mass,
+        );
     }
 
     pub fn upper_mass(self) -> f32 {

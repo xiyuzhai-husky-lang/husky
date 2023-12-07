@@ -1,6 +1,8 @@
+pub mod num;
 pub mod ops;
 pub mod vec;
 
+pub use self::num::*;
 pub use self::ops::*;
 pub use self::vec::*;
 
