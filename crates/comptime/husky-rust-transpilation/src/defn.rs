@@ -15,38 +15,48 @@ use husky_hir_decl::parameter::{
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieRegularParameter};
+use husky_manifest::HasPackageManifest;
 use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: ModulePath) -> String {
+    let is_root = module_path.is_root(db);
     let mut builder_base = RustTranspilationBuilderBase::new(
         db,
-        match module_path.data(db) {
-            ModulePathData::Root(_) => Some(
-                r#"use husky_core::*;
+        is_root.then_some(
+            r#"use husky_core::*;
 
 "#,
-            ),
-            ModulePathData::Child { .. } => None,
-        },
+        ),
     );
     let mut builder: RustTranspilationBuilder = RustTranspilationBuilder::new(&mut builder_base);
     let submodule_paths = module_submodule_item_paths(db, module_path);
-    // decl submodules
+    // declare submodules
     for submodule_path in submodule_paths {
         submodule_path.hir_defn(db).transpile_to_rust(&mut builder)
     }
+    // pub use all in submodules
     builder.on_fresh_paragraph(|builder| {
-        // pub use all in submodules
         for &submodule_path in submodule_paths {
-            builder.use_all_in_submodule(submodule_path)
+            builder.pub_use_all_in_submodule(submodule_path)
         }
     });
     builder.on_fresh_paragraph(|builder| match module_path.data(db) {
-        ModulePathData::Root(_) => (),
+        // use all in dependencies if root
+        ModulePathData::Root(crate_path) => {
+            for dep in &*crate_path
+                .package_path(db)
+                .package_dependencies(db)
+                .unwrap()
+            {
+                builder.use_all_in_dep(dep)
+            }
+        }
         ModulePathData::Child { parent, .. } => match parent.data(db) {
+            // use all in crate if second to root
             ModulePathData::Root(_) => builder.use_all_in_crate(),
+            // use in super otherwise
             ModulePathData::Child { .. } => builder.use_all_in_super(),
         },
     });

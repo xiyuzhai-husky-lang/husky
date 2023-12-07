@@ -1,14 +1,24 @@
 use super::*;
 use husky_entity_path::SubmoduleItemPath;
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
+use husky_manifest::PackageDependency;
 use husky_vfs::SubmodulePath;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
-    pub(crate) fn use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {
+    pub(crate) fn pub_use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
             builder.write_str("pub use self::");
             builder.write_str(submodule_path.ident(db).data(db));
+            builder.write_str("::*")
+        })
+    }
+
+    pub(crate) fn use_all_in_dep(&mut self, dep: &PackageDependency) {
+        let db = self.db;
+        self.on_fresh_semicolon_line(|builder| {
+            builder.write_str("use self::");
+            builder.write_str(dep.package_path().ident(db).data(db));
             builder.write_str("::*")
         })
     }
