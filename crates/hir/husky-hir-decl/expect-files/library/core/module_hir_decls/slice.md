@@ -445,12 +445,105 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            AssociatedType(
-                TraitForTypeAssociatedTypeHirDecl(
-                    Id {
-                        value: 2,
+            TraitForTypeItemHirDecl::AssociatedType(
+                TraitForTypeAssociatedTypeHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::slice`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    ty: HirType::Symbol(
+                        Type {
+                            attrs: HirSymbolAttrs,
+                            variance: None,
+                            disambiguator: 0,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::slice`,
+                                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `Output`,
+                                                        item_kind: AssociatedType,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Inherited,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

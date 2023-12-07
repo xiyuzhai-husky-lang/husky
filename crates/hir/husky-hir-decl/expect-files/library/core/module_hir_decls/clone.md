@@ -100,12 +100,94 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 1,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::Symbol(
+                        SelfType,
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::clone`,
+                                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                                ty_sketch: TypeSketch::DeriveAny,
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `clone`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

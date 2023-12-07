@@ -444,12 +444,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 2,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -744,12 +861,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 3,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::i16`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1130,12 +1364,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 4,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1344,12 +1695,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 5,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::i64`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1558,12 +2026,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 6,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::i128`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1772,12 +2357,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 7,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::isize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::isize`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1986,12 +2688,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 8,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::u8`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2200,12 +3019,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 9,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::u16`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2414,12 +3350,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 10,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::u32`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2628,12 +3681,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 11,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::u64`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2842,12 +4012,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 12,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::u128`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -3056,12 +4343,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 13,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::usize`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -3732,12 +5136,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 14,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -4004,12 +5525,129 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 15,
+            TraitForTypeItemHirDecl::MethodFn(
+                TraitForTypeMethodFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`core::num::f64`, `Extern`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `add`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
