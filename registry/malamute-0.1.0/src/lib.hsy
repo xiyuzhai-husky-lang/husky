@@ -9,7 +9,7 @@ pub enum OneVsAll<#phantom Label, #phantom const label: Label>
 | No
 
 impl<#phantom Label, #phantom const label: Label> Default for OneVsAll Label label:
-    fn default() -> Self:
+    static fn default() -> Self:
         OneVsAll::No
 
 impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:

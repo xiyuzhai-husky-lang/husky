@@ -256,133 +256,655 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 12,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 13,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 14,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 15,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 16,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 17,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 73,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 74,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 75,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 76,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 77,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 78,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

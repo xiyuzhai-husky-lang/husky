@@ -20,6 +20,19 @@ impl From<TraitForTypeAssociatedFnHirDefn> for HirDefn {
 }
 
 impl TraitForTypeAssociatedFnHirDefn {
+    pub(super) fn new(
+        db: &::salsa::Db,
+        path: TraitForTypeItemPath,
+        hir_decl: TraitForTypeAssociatedFnHirDecl,
+    ) -> Self {
+        Self::new_inner(
+            db,
+            path,
+            hir_decl,
+            hir_eager_body_with_expr_region(path.into(), db),
+        )
+    }
+
     pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
         self.eager_body_with_hir_eager_expr_region(db)
             .map(|(_, region)| region)

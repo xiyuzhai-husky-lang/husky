@@ -349,8 +349,8 @@
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::MethodFn(
-                TraitForTypeMethodFnHirDefn {
+            TraitForTypeItemHirDefn::AssociatedFn(
+                TraitForTypeAssociatedFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -367,13 +367,13 @@
                                             },
                                         },
                                         ident: `default`,
-                                        item_kind: MethodFn,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
                         },
                     ),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
+                    hir_decl: TraitForTypeAssociatedFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
                                 data: ItemPathData::AssociatedItem(
@@ -390,7 +390,7 @@
                                                 },
                                             },
                                             ident: `default`,
-                                            item_kind: MethodFn,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                     ),
                                 ),
@@ -399,7 +399,6 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
@@ -429,7 +428,7 @@
                                                                 },
                                                             },
                                                             ident: `default`,
-                                                            item_kind: MethodFn,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                     ),
                                                 ),
@@ -490,7 +489,7 @@
                                                                     },
                                                                 },
                                                                 ident: `default`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -559,16 +558,9 @@
                                 },
                                 runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                     arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeSymbolEntry {
-                                                name: HirEagerRuntimeSymbolName::SelfValue,
-                                                data: HirEagerRuntimeSymbolData::SelfValue,
-                                            },
-                                        ],
+                                        data: [],
                                     },
-                                    self_value_variable: Some(
-                                        1,
-                                    ),
+                                    self_value_variable: None,
                                 },
                             },
                         ),

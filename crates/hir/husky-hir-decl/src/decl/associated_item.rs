@@ -10,9 +10,9 @@ use super::*;
 
 type SmallVecImpl<T> = SmallVec<[T; 2]>;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum AssociatedItemHirDecl {
     TypeItem(TypeItemHirDecl),
     TraitItem(TraitItemHirDecl),

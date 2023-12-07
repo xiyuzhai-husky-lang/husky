@@ -17,7 +17,7 @@ AstSheet {
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitItem(
-                        AssociatedFn,
+                        AssociatedFunctionFn,
                     ),
                 },
                 ident_token: IdentToken {

@@ -224,23 +224,145 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 1,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 2,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -402,23 +524,145 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 3,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 4,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -580,34 +824,231 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 5,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 6,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 7,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -769,12 +1210,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 8,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -936,12 +1424,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 9,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1103,12 +1638,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 10,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1270,12 +1852,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 11,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1437,12 +2066,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 12,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1604,12 +2280,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 13,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1771,12 +2494,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 14,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -1938,12 +2708,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 15,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2105,12 +2922,59 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 16,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2272,89 +3136,521 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 17,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 18,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 19,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 20,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `other`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 21,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 22,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 23,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 24,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -2516,23 +3812,117 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 25,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 26,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

@@ -471,111 +471,590 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 1,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                            template_arguments: [
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 2,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 3,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 4,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 5,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 6,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 7,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MemoizedField(
-                TypeMemoizedFieldHirDecl(
-                    Id {
-                        value: 8,
+            TypeItemHirDecl::MemoizedField(
+                TypeMemoizedFieldHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 47,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 120,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `k`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 48,
+            TypeItemHirDecl::MethodFn(
+                TypeMethodFnHirDecl {
+                    path: TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter,
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TypeItem(
+                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 120,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `k`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

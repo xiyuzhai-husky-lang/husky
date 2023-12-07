@@ -15,8 +15,21 @@ impl TranspileToRustWith for TraitForTypeItemHirDefn {
 }
 
 impl TranspileToRustWith for TraitForTypeAssociatedFnHirDefn {
-    fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {
-        todo!()
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
+        else {
+            return;
+        };
+        builder.keyword(RustKeyword::Fn);
+        self.path(db).ident(db).transpile_to_rust(builder);
+        let hir_decl = self.hir_decl(db);
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+            hir_decl.parenate_parameters(db).transpile_to_rust(builder);
+            builder.return_ty(hir_decl.return_ty(db))
+        });
+        builder.eager_body(hir_eager_expr_region, body)
     }
 }
 

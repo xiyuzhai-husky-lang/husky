@@ -1456,7 +1456,7 @@ SynDeclSheet {
                                             },
                                         },
                                         ident: `default`,
-                                        item_kind: MethodFn,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
@@ -1466,8 +1466,8 @@ SynDeclSheet {
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
-                    TraitForTypeItemSynDecl::MethodFn(
-                        TraitForTypeMethodFnSynDecl {
+                    TraitForTypeItemSynDecl::AssociatedFn(
+                        TraitForTypeAssociatedFnSynDecl {
                             path: TraitForTypeItemPath(
                                 ItemPathId {
                                     data: ItemPathData::AssociatedItem(
@@ -1484,14 +1484,13 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 ident: `default`,
-                                                item_kind: MethodFn,
+                                                item_kind: AssociatedFunctionFn,
                                             },
                                         ),
                                     ),
                                 },
                             ),
                             template_parameters: [],
-                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
@@ -1805,7 +1804,7 @@ SynDeclSheet {
                                                                                                 },
                                                                                             },
                                                                                             ident: `default`,
-                                                                                            item_kind: MethodFn,
+                                                                                            item_kind: AssociatedFunctionFn,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1825,7 +1824,7 @@ SynDeclSheet {
                                         data: [
                                             SynExprData::SelfType(
                                                 RegionalTokenIdx(
-                                                    6,
+                                                    7,
                                                 ),
                                             ),
                                         ],

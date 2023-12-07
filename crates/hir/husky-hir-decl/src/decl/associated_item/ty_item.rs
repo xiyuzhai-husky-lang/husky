@@ -14,8 +14,9 @@ use super::*;
 
 use husky_syn_decl::TypeItemSynDecl;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeItemHirDecl {
     AssociatedFn(TypeAssociatedFnHirDecl),
     AssociatedType(TypeAssociatedTypeHirDecl),

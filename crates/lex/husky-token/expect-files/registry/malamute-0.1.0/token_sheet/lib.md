@@ -288,6 +288,9 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
+            Keyword::Static,
+        ),
+        TokenData::Keyword(
             Keyword::Fugitive(
                 Fn,
             ),
@@ -905,57 +908,57 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                77,
+                78,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                80,
+                81,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                101,
+                102,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                106,
+                107,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                115,
+                116,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                130,
+                131,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                132,
+                133,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                134,
+                135,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                136,
+                137,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                162,
+                163,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                167,
+                168,
             ),
         ),
     ],

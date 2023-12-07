@@ -1777,7 +1777,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                                 ident: `default`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -1794,8 +1794,8 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::AssociatedItem(
                 AssociatedItemSynNodeDecl::TraitForTypeItem(
-                    TraitForTypeItemSynNodeDecl::MethodFn(
-                        TraitForTypeMethodFnSynNodeDecl {
+                    TraitForTypeItemSynNodeDecl::AssociatedFn(
+                        TraitForTypeAssociatedFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssociatedItem(
@@ -1818,7 +1818,7 @@ SynNodeDeclSheet {
                                                                             },
                                                                         },
                                                                         ident: `default`,
-                                                                        item_kind: MethodFn,
+                                                                        item_kind: AssociatedFunctionFn,
                                                                     },
                                                                 ),
                                                             ),
@@ -1838,7 +1838,7 @@ SynNodeDeclSheet {
                                 ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -1847,7 +1847,7 @@ SynNodeDeclSheet {
                                     commas: [],
                                     rpar: RparRegionalToken(
                                         RegionalTokenIdx(
-                                            4,
+                                            5,
                                         ),
                                     ),
                                 },
@@ -1856,7 +1856,7 @@ SynNodeDeclSheet {
                                 Some(
                                     LightArrowRegionalToken(
                                         RegionalTokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -1872,7 +1872,7 @@ SynNodeDeclSheet {
                                 EolRegionalToken::Colon(
                                     EolColonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            7,
+                                            8,
                                         ),
                                     },
                                 ),
@@ -2184,7 +2184,7 @@ SynNodeDeclSheet {
                                                                                                 },
                                                                                             },
                                                                                             ident: `default`,
-                                                                                            item_kind: MethodFn,
+                                                                                            item_kind: AssociatedFunctionFn,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2204,7 +2204,7 @@ SynNodeDeclSheet {
                                         data: [
                                             SynExprData::SelfType(
                                                 RegionalTokenIdx(
-                                                    6,
+                                                    7,
                                                 ),
                                             ),
                                         ],

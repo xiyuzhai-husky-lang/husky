@@ -463,6 +463,7 @@ Ok(
             ),
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
@@ -491,7 +492,7 @@ Ok(
                                                                                 },
                                                                             },
                                                                             ident: `default`,
-                                                                            item_kind: MethodFn,
+                                                                            item_kind: AssociatedFunctionFn,
                                                                         },
                                                                     ),
                                                                 ),
@@ -508,7 +509,7 @@ Ok(
                         ),
                         AssociatedItem {
                             associated_item_kind: TraitForTypeItem(
-                                MethodFn,
+                                AssociatedFunctionFn,
                             ),
                         },
                     ),
