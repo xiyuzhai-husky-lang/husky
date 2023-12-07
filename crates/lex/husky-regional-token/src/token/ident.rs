@@ -145,9 +145,54 @@ fn derive_regional_token_works() {
     // todo
 }
 
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AttrRegionalToken {
+    Phantom(PhantomRegionalToken),
+    Runtime(RuntimeRegionalToken),
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PhantomRegionalToken {
     token_idx: RegionalTokenIdx,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct RuntimeRegionalToken {
+    token_idx: RegionalTokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for AttrRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                TokenData::Ident(ident) => match ident.data(ctx.db()) {
+                    "phantom" => Ok(Some(AttrRegionalToken::Phantom(PhantomRegionalToken {
+                        token_idx,
+                    }))),
+                    "runtime" => Ok(Some(AttrRegionalToken::Runtime(RuntimeRegionalToken {
+                        token_idx,
+                    }))),
+                    _ => Ok(None),
+                },
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
 }
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomRegionalToken
@@ -163,6 +208,34 @@ where
             match token {
                 TokenData::Ident(ident) => match ident.data(ctx.db()) {
                     "phantom" => Ok(Some(Self { token_idx })),
+                    _ => Ok(None),
+                },
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RuntimeRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                TokenData::Ident(ident) => match ident.data(ctx.db()) {
+                    "runtime" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
                 TokenData::Error(error) => Err(error),

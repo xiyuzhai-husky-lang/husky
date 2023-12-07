@@ -632,6 +632,8 @@ Ok(
             ),
             None,
             None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
@@ -644,7 +646,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        6,
+                                        8,
                                     ),
                                 },
                             },
@@ -785,7 +787,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        6,
+                                        8,
                                     ),
                                 },
                             },

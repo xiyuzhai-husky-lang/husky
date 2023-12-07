@@ -12,7 +12,7 @@ impl<#phantom Label, #phantom const label: Label> Default for OneVsAll Label lab
     static fn default() -> Self:
         OneVsAll::No
 
-impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+impl<Label, #runtime const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
 #derive(Debug, Clone, Copy)

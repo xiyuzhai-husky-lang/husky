@@ -1,26 +1,25 @@
 use super::*;
+use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct EtherealTemplateSymbolAttrs {
-    phantom: bool,
+    pub class: TermTemplateSymbolClass,
 }
 
 impl EtherealTemplateSymbolAttrs {
     pub fn from_declarative(attrs: DeclarativeTemplateSymbolAttrs) -> Self {
-        EtherealTemplateSymbolAttrs {
-            phantom: attrs.phantom(),
-        }
+        EtherealTemplateSymbolAttrs { class: attrs.class }
     }
 
-    pub fn phantom(&self) -> bool {
-        self.phantom
+    pub fn phantom(self) -> bool {
+        self.class == TermTemplateSymbolClass::Phantom
     }
 }
 
 impl Into<DeclarativeTemplateSymbolAttrs> for EtherealTemplateSymbolAttrs {
     fn into(self) -> DeclarativeTemplateSymbolAttrs {
-        unsafe { DeclarativeTemplateSymbolAttrs::new(self.phantom) }
+        unsafe { DeclarativeTemplateSymbolAttrs::new(self.class) }
     }
 }
 

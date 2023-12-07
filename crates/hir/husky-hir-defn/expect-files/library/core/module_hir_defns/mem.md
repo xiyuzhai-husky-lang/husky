@@ -11,7 +11,9 @@
                                 HirTemplateParameter {
                                     symbol: Lifetime(
                                         HirLifetimeSymbol {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Covariant,
                                             ),
@@ -34,7 +36,9 @@
                                 HirTemplateParameter {
                                     symbol: Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Covariant,
                                             ),
@@ -81,7 +85,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Lifetime(
                                                 HirLifetimeSymbol {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Covariant,
                                                     ),
@@ -96,7 +102,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Covariant,
                                                     ),
@@ -131,7 +139,9 @@
                                 HirTemplateParameter {
                                     symbol: Lifetime(
                                         HirLifetimeSymbol {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Covariant,
                                             ),
@@ -154,7 +164,9 @@
                                 HirTemplateParameter {
                                     symbol: Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Invariant,
                                             ),
@@ -201,7 +213,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Lifetime(
                                                 HirLifetimeSymbol {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Covariant,
                                                     ),
@@ -216,7 +230,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Invariant,
                                                     ),
@@ -251,7 +267,9 @@
                                 HirTemplateParameter {
                                     symbol: Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Covariant,
                                             ),
@@ -298,7 +316,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Covariant,
                                                     ),
@@ -333,7 +353,9 @@
                                 HirTemplateParameter {
                                     symbol: Place(
                                         HirPlaceSymbol {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: None,
                                             disambiguator: 0,
                                         },
@@ -354,7 +376,9 @@
                                 HirTemplateParameter {
                                     symbol: Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: None,
                                             disambiguator: 0,
                                         },
@@ -399,7 +423,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Place(
                                                 HirPlaceSymbol {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
@@ -412,7 +438,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
@@ -452,7 +480,9 @@
                             HirTemplateParameter {
                                 symbol: Type(
                                     Type {
-                                        attrs: HirSymbolAttrs,
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
                                         variance: None,
                                         disambiguator: 0,
                                     },
@@ -481,7 +511,9 @@
                                 HirTemplateArgument::Type(
                                     HirType::Symbol(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: None,
                                             disambiguator: 0,
                                         },
@@ -526,7 +558,9 @@
                                         data: Current,
                                         hir_comptime_symbol: HirTemplateSymbol::Type(
                                             Type {
-                                                attrs: HirSymbolAttrs,
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
                                                 variance: None,
                                                 disambiguator: 0,
                                             },

@@ -358,6 +358,14 @@ TokenSheetData {
                 PunctuationMapped::Comma,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `runtime`,
+        ),
         TokenData::Keyword(
             Keyword::Const,
         ),
@@ -918,22 +926,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                102,
+                104,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                107,
+                109,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                116,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                131,
+                118,
             ),
         ),
         TokenGroupStart(
@@ -953,12 +956,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                163,
+                139,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                168,
+                165,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                170,
             ),
         ),
     ],

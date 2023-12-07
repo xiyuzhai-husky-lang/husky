@@ -146,7 +146,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                118,
+                                120,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -206,7 +206,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                170,
+                                172,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -402,7 +402,7 @@ EntitySynTreeSheet {
                     },
                     trai_expr: 5,
                     for_token: TokenIdx(
-                        98,
+                        100,
                     ),
                     ty_sketch_expr: Path(
                         6,
@@ -467,12 +467,12 @@ EntitySynTreeSheet {
                     ast_idx: 20,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            137,
+                            139,
                         ),
                     },
                     trai_expr: 9,
                     for_token: TokenIdx(
-                        158,
+                        160,
                     ),
                     ty_sketch_expr: Path(
                         10,

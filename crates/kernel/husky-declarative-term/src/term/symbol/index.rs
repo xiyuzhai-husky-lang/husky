@@ -1,37 +1,46 @@
-
-
 use super::*;
 use husky_entity_path::TypePath;
+use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct DeclarativeTemplateSymbolAttrs {
-    phantom: bool,
+    pub class: TermTemplateSymbolClass,
 }
 
 impl DeclarativeTemplateSymbolAttrs {
     /// only use this in husky-ethereal-term
-    pub unsafe fn new(phantom: bool) -> Self {
-        Self { phantom }
+    pub unsafe fn new(class: TermTemplateSymbolClass) -> Self {
+        Self { class }
     }
 
     pub fn from_attrs(attrs: impl IntoIterator<Item = DeclarativeTemplateSymbolAttr>) -> Self {
         let mut slf: Self = Default::default();
         for attr in attrs {
             match attr {
-                DeclarativeTemplateSymbolAttr::Phantom => slf.phantom = true,
+                DeclarativeTemplateSymbolAttr::Phantom => {
+                    slf.class = match slf.class {
+                        TermTemplateSymbolClass::Phantom => todo!("err"),
+                        TermTemplateSymbolClass::Runtime => todo!("err"),
+                        TermTemplateSymbolClass::Comptime => TermTemplateSymbolClass::Phantom,
+                    }
+                }
+                DeclarativeTemplateSymbolAttr::Runtime => {
+                    slf.class = match slf.class {
+                        TermTemplateSymbolClass::Phantom => todo!("err"),
+                        TermTemplateSymbolClass::Runtime => todo!("err"),
+                        TermTemplateSymbolClass::Comptime => TermTemplateSymbolClass::Runtime,
+                    }
+                }
             }
         }
         slf
-    }
-
-    pub fn phantom(&self) -> bool {
-        self.phantom
     }
 }
 
 pub enum DeclarativeTemplateSymbolAttr {
     Phantom,
+    Runtime,
 }
 
 /// wrapper so such the construction is private

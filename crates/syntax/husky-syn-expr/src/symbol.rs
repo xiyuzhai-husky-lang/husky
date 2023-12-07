@@ -255,12 +255,17 @@ where
     fn try_parse_from_stream(sp: &mut SynExprParser<'a, C>) -> Result<Self, Self::Error> {
         let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];
         while let Some(pound) = sp.try_parse_option::<PoundRegionalToken>()? {
-            let syn_attr = if let Some(phantom) = sp.try_parse_option::<PhantomRegionalToken>()? {
-                TemplateSymbolSynAttr::Phantom(pound, phantom)
-            } else {
-                todo!()
+            if let Some(attr_token) = sp.try_parse_option::<AttrRegionalToken>()? {
+                let syn_attr = match attr_token {
+                    AttrRegionalToken::Phantom(phantom_token) => {
+                        TemplateSymbolSynAttr::Phantom(pound, phantom_token)
+                    }
+                    AttrRegionalToken::Runtime(runtime_token) => {
+                        TemplateSymbolSynAttr::Runtime(pound, runtime_token)
+                    }
+                };
+                syn_attrs.push(syn_attr)
             };
-            syn_attrs.push(syn_attr)
         }
         Ok(TemplateParameterSynAttrs { syn_attrs })
     }
@@ -269,6 +274,7 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TemplateSymbolSynAttr {
     Phantom(PoundRegionalToken, PhantomRegionalToken),
+    Runtime(PoundRegionalToken, RuntimeRegionalToken),
 }
 
 impl CurrentSynSymbolData {
