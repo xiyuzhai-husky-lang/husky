@@ -84,12 +84,6 @@ impl EtherealTerm {
     }
 }
 
-impl EtherealTermSymbol {
-    fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
-        self.ty(db).toolchain(db)
-    }
-}
-
 impl EtherealTermRune {
     fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)

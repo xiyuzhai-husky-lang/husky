@@ -20,8 +20,8 @@ husky-vfs.workspace = true
 husky-toml-ast.workspace = true
 
 [dev-dependencies]
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
-husky-corgi-config-ast = { path = ".", features = ["test-utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-corgi-config-ast = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

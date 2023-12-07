@@ -60,6 +60,15 @@
                         trai: DeclarativeTerm(`core::clone::Clone`),
                         self_ty: DeclarativeSelfType::DerivedAny(
                             DeclarativeTermSymbol {
+                                toolchain: Toolchain {
+                                    data: ToolchainData::Local {
+                                        library_path: VirtualPath {
+                                            _data: VirtualPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
                                 ty: Ok(
                                     Category(
                                         TermCategory {

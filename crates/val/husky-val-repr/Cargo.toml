@@ -62,7 +62,7 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-entity-syn-tree.workspace = true
@@ -73,8 +73,8 @@ husky-syn-defn.workspace = true
 # val
 husky-val.workspace = true
 husky-val-repr = { path = "../../val/husky-val-repr", features = [
-    "test-utils"
+    "test_utils"
 ] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

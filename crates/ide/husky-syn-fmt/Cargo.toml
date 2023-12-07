@@ -8,7 +8,7 @@ edition = "2021"
 salsa.workspace = true
 
 [dev-dependencies]
-husky-syn-fmt = { path = ".", features = ["test-utils"] }
+husky-syn-fmt = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

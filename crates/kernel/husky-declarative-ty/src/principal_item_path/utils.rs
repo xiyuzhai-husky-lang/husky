@@ -1,7 +1,9 @@
 use super::*;
+use husky_vfs::Toolchain;
 
 pub(super) fn curry_from_template_parameters(
     db: &::salsa::Db,
+    toolchain: Toolchain,
     term_curry_kind: CurryKind,
     variances: &[Variance],
     template_parameters: &[DeclarativeTemplateParameter],
@@ -15,6 +17,7 @@ pub(super) fn curry_from_template_parameters(
         let symbol = template_parameter.symbol();
         term = DeclarativeTermCurry::new_dependent(
             db,
+            toolchain,
             term_curry_kind,
             *variance,
             symbol,

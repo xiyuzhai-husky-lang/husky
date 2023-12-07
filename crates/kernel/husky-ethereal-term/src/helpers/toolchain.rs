@@ -5,10 +5,10 @@ impl EtherealTerm {
     pub fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         match self {
             EtherealTerm::Literal(_) => None,
-            EtherealTerm::Symbol(term) => term.toolchain(db),
+            EtherealTerm::Symbol(term) => Some(term.toolchain(db)),
             EtherealTerm::Variable(term) => term.toolchain(db),
             EtherealTerm::EntityPath(path) => Some(path.toolchain(db)),
-            EtherealTerm::Category(_) => todo!(),
+            EtherealTerm::Category(_) => None,
             EtherealTerm::Universe(_) => None,
             EtherealTerm::Curry(term) => ethereal_term_curry_toolchain(db, term),
             EtherealTerm::Ritchie(term) => ethereal_term_ritchie_toolchain(db, term),

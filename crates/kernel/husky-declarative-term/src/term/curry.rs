@@ -5,6 +5,7 @@ use crate::*;
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
 pub struct DeclarativeTermCurry {
+    pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
@@ -21,6 +22,7 @@ impl DeclarativeTermCurry {
     /// so that cache hit is maximized
     pub fn new_dependent(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
@@ -31,6 +33,7 @@ impl DeclarativeTermCurry {
         let (return_ty, parameter_variable) = return_ty.r#abstract(db, parameter_symbol);
         DeclarativeTermCurry::new_inner(
             db,
+            toolchain,
             curry_kind,
             variance,
             parameter_variable,
@@ -41,12 +44,21 @@ impl DeclarativeTermCurry {
 
     pub fn new_nondependent(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,
     ) -> Self {
-        DeclarativeTermCurry::new_inner(db, curry_kind, variance, None, parameter_ty, return_ty)
+        DeclarativeTermCurry::new_inner(
+            db,
+            toolchain,
+            curry_kind,
+            variance,
+            None,
+            parameter_ty,
+            return_ty,
+        )
     }
 
     pub(super) fn substitute_symbol_with_variable(
@@ -57,6 +69,7 @@ impl DeclarativeTermCurry {
     ) -> Self {
         DeclarativeTermCurry::new_inner(
             db,
+            symbol.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
             self.parameter_variable(db),
@@ -140,6 +153,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
         }
         Self::new_inner(
             db,
+            self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
             parameter_variable,

@@ -1,5 +1,6 @@
 use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
+use husky_vfs::Toolchain;
 
 use super::*;
 
@@ -176,6 +177,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn infer_self_ty_parameter_and_self_value_parameter(
         &mut self,
         db: &::salsa::Db,
+        toolchain: Toolchain,
         region_path: SynNodeRegionPath,
         symbol_region: &SynSymbolRegionData,
     ) {
@@ -183,7 +185,7 @@ impl SymbolDeclarativeTermRegion {
             self.self_ty = match region_path {
                 SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(_),
-                )) => Some(self.new_self_ty_symbol(db).into()),
+                )) => Some(self.new_self_ty_symbol(toolchain, db).into()),
                 SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(ty_node_path),
                 )) => Some(
@@ -201,7 +203,9 @@ impl SymbolDeclarativeTermRegion {
                         }
                         ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
                             match impl_block_path.ty_sketch(db) {
-                                TypeSketch::DeriveAny => Some(self.new_self_ty_symbol(db).into()),
+                                TypeSketch::DeriveAny => {
+                                    Some(self.new_self_ty_symbol(toolchain, db).into())
+                                }
                                 TypeSketch::Path(ty_path) => None, // reserved for later stage
                             }
                         }
@@ -215,6 +219,7 @@ impl SymbolDeclarativeTermRegion {
             self.self_value = Some(
                 DeclarativeTermSymbol::new_self_value(
                     db,
+                    toolchain,
                     &mut self.symbol_registry,
                     self.self_ty.expect("self type should exists"),
                 )
@@ -222,8 +227,12 @@ impl SymbolDeclarativeTermRegion {
             )
         }
     }
-    fn new_self_ty_symbol(&mut self, db: &::salsa::Db) -> DeclarativeTermSymbol {
-        let symbol = DeclarativeTermSymbol::new_self_ty(db, &mut self.symbol_registry);
+    fn new_self_ty_symbol(
+        &mut self,
+        toolchain: Toolchain,
+        db: &::salsa::Db,
+    ) -> DeclarativeTermSymbol {
+        let symbol = DeclarativeTermSymbol::new_self_ty(db, toolchain, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
     }

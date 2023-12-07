@@ -194,7 +194,10 @@ impl FluffyTerm {
     }
 
     #[deprecated(note = "ad hoc implementation")]
-    pub fn is_always_copyable(self, engine: &impl FluffyTermEngine) -> FluffyTermResult<bool> {
+    pub fn is_always_copyable(
+        self,
+        engine: &impl FluffyTermEngine,
+    ) -> FluffyTermResult<Option<bool>> {
         match self.base_ty_data(engine) {
             FluffyBaseTypeData::TypeOntology {
                 ty_path,
@@ -216,7 +219,7 @@ impl FluffyTerm {
                 ty_ethereal_term,
             } => todo!(),
             FluffyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
-                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(true),
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(Some(true)),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },

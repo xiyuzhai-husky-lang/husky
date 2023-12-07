@@ -228,6 +228,7 @@ pub fn ty_ontology_path_declarative_ty(
     };
     curry_from_template_parameters(
         db,
+        path.toolchain(db),
         CurryKind::Explicit,
         variances,
         signature.template_parameters(db),
@@ -273,6 +274,7 @@ pub fn ty_variant_path_declarative_ty(
             // todo: variant implicit parameters
             curry_from_template_parameters(
                 db,
+                path.toolchain(db),
                 CurryKind::Implicit,
                 parent_ty_template_parameter_variances,
                 signature_template
@@ -290,6 +292,7 @@ pub fn ty_variant_path_declarative_ty(
             // todo: variant implicit parameters
             curry_from_template_parameters(
                 db,
+                path.toolchain(db),
                 CurryKind::Implicit,
                 parent_ty_template_parameter_variances,
                 signature_template
@@ -316,6 +319,7 @@ pub fn trai_path_declarative_ty(
     };
     curry_from_template_parameters(
         db,
+        path.toolchain(db),
         CurryKind::Explicit,
         variances,
         signature.template_parameters_without_self_ty(db),

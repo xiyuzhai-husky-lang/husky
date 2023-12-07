@@ -297,6 +297,7 @@ impl EtherealTerm {
             EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
             EtherealTerm::Symbol(s) => DeclarativeTermSymbol::new(
                 db,
+                s.toolchain(db),
                 Ok(s.ty(db).into_declarative(db)),
                 s.index(db).into(),
             )

@@ -25,7 +25,7 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-husky-regional-token = { path = ".", features = ["test-utils"] }
+husky-regional-token = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

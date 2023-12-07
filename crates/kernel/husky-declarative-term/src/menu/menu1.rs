@@ -21,7 +21,7 @@ impl std::ops::Deref for DeclarativeTermMenu1 {
 }
 
 impl DeclarativeTermMenu1 {
-    pub fn new(db: &::salsa::Db, _toolchain: Toolchain, menu0: DeclarativeTermMenu0) -> Self {
+    pub fn new(db: &::salsa::Db, toolchain: Toolchain, menu0: DeclarativeTermMenu0) -> Self {
         Self {
             static_ref_ty: DeclarativeTermExplicitApplication::new(
                 db,
@@ -31,6 +31,7 @@ impl DeclarativeTermMenu1 {
             .into(),
             explicit_invariant_ty0_to_trai_ty: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Invariant,
                 menu0.ty0().into(),
@@ -38,6 +39,7 @@ impl DeclarativeTermMenu1 {
             ),
             explicit_covariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 menu0.ty0().into(),
@@ -45,6 +47,7 @@ impl DeclarativeTermMenu1 {
             ),
             explicit_contravariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Contravariant,
                 menu0.ty0().into(),
@@ -52,6 +55,7 @@ impl DeclarativeTermMenu1 {
             ),
             explicit_invariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Invariant,
                 menu0.ty0().into(),
@@ -59,11 +63,13 @@ impl DeclarativeTermMenu1 {
             ),
             implicit_self_lifetime: DeclarativeTermSymbol::new(
                 db,
+                toolchain,
                 Ok(menu0.lifetime_ty()),
                 DeclarativeTermSymbolIndex::SELF_LIFETIME,
             ),
             implicit_self_place: DeclarativeTermSymbol::new(
                 db,
+                toolchain,
                 Ok(menu0.place_ty()),
                 DeclarativeTermSymbolIndex::SELF_PLACE,
             ),

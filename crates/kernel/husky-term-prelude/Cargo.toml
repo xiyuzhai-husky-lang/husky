@@ -16,7 +16,7 @@ husky-coword.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
-husky-term-prelude = { path = ".", features = ["test-utils"] }
+husky-term-prelude = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

@@ -36,7 +36,7 @@ husky-syn-defn.workspace = true
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-husky-hir-eager-expr = { path = ".", features = ["test-utils"] }
+husky-hir-eager-expr = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

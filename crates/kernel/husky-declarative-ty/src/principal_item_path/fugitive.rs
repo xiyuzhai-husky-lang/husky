@@ -1,3 +1,4 @@
+use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
 
 use super::*;
@@ -19,10 +20,10 @@ pub fn fugitive_path_declarative_ty(
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
         FugitiveDeclarativeSignatureTemplate::FunctionFn(signature) => {
-            fn_path_declarative_ty(db, variances, signature)
+            fn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
         FugitiveDeclarativeSignatureTemplate::FunctionGn(signature) => {
-            gn_path_declarative_ty(db, variances, signature)
+            gn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
         FugitiveDeclarativeSignatureTemplate::Val(signature) => {
             val_path_declarative_ty(db, signature, declarative_term_menu)
@@ -33,6 +34,7 @@ pub fn fugitive_path_declarative_ty(
 
 pub(crate) fn fn_path_declarative_ty(
     db: &::salsa::Db,
+    toolchain: Toolchain,
     variances: &[Variance],
     signature: FnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -40,6 +42,7 @@ pub(crate) fn fn_path_declarative_ty(
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
         db,
+        toolchain,
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),
@@ -54,6 +57,7 @@ pub(crate) fn fn_path_declarative_ty(
 
 pub(crate) fn gn_path_declarative_ty(
     db: &::salsa::Db,
+    toolchain: Toolchain,
     variances: &[Variance],
     signature: GnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -62,6 +66,7 @@ pub(crate) fn gn_path_declarative_ty(
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
         db,
+        toolchain,
         CurryKind::Implicit,
         variances,
         signature.template_parameters(db),

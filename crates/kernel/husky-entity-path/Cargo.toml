@@ -23,8 +23,8 @@ husky-entity-kind.workspace = true
 
 [dev-dependencies]
 expect-test = "1.4.0"
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
-husky-entity-path = { path = ".", features = ["test-utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-entity-path = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

@@ -238,10 +238,17 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // shift is used as disambiguator
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
-                    let new_parameter_symbol =
-                        unsafe { DeclarativeTermSymbol::new_ad_hoc(db, new_parameter_ty, shift) };
+                    let new_parameter_symbol = unsafe {
+                        DeclarativeTermSymbol::new_ad_hoc(
+                            db,
+                            argument_ty.toolchain(db),
+                            new_parameter_ty,
+                            shift,
+                        )
+                    };
                     Ok(DeclarativeTermCurry::new_dependent(
                         db,
+                        argument_ty.toolchain(db),
                         argument_ty.curry_kind(db),
                         argument_ty.variance(db),
                         new_parameter_symbol,
@@ -289,6 +296,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
             RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
                 Ok(DeclarativeTermCurry::new_nondependent(
                     db,
+                    argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),
                     argument_ty.variance(db),
                     argument_ty.parameter_ty(db),

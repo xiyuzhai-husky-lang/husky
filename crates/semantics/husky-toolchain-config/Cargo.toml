@@ -21,7 +21,7 @@ husky-toml-ast.workspace = true
 husky-toolchain-config-ast = { path = "../../syntax/husky-toolchain-config-ast" }
 
 [dev-dependencies]
-husky-toolchain-config = { path = ".", features = ["test-utils"] }
+husky-toolchain-config = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

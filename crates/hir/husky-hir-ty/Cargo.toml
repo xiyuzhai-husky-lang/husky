@@ -28,7 +28,7 @@ husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-husky-hir-ty = { path = ".", features = ["test-utils"] }
+husky-hir-ty = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]
