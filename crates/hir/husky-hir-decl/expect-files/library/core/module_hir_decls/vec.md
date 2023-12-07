@@ -67,6 +67,7 @@
                                 ),
                             ),
                         ],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -145,6 +146,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::num::i32`, `Extern`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -233,6 +235,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::basic::unit`, `Extern`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -348,10 +351,12 @@
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: false,
                                         },
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -448,10 +453,12 @@
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: false,
                                         },
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -538,6 +545,7 @@
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -629,10 +637,12 @@
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 ),
                             ],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -709,6 +719,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                             },
@@ -719,6 +730,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                             },
@@ -745,10 +757,12 @@
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: false,
                                         },
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -884,10 +898,12 @@
                                                             HirTypePathLeading {
                                                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                 template_arguments: [],
+                                                                always_copyable: true,
                                                             },
                                                         ),
                                                     ),
                                                 ],
+                                                always_copyable: true,
                                             },
                                         ),
                                     },
@@ -911,6 +927,7 @@
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {

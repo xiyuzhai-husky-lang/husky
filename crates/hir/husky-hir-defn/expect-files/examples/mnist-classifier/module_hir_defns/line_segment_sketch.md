@@ -94,14 +94,17 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
                                                         ],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -112,6 +115,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: Some(
@@ -126,6 +130,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: Some(
@@ -172,6 +177,7 @@
                                                                 HirTypePathLeading {
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     template_arguments: [],
+                                                                    always_copyable: false,
                                                                 },
                                                             ),
                                                         ),
@@ -225,6 +231,7 @@
                                                                 HirTypePathLeading {
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     template_arguments: [],
+                                                                    always_copyable: false,
                                                                 },
                                                             ),
                                                         ),
@@ -264,6 +271,7 @@
                                                                 HirTypePathLeading {
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     template_arguments: [],
+                                                                    always_copyable: false,
                                                                 },
                                                             ),
                                                         ),
@@ -317,6 +325,7 @@
                                                                 HirTypePathLeading {
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     template_arguments: [],
+                                                                    always_copyable: false,
                                                                 },
                                                             ),
                                                         ),
@@ -395,10 +404,12 @@
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -414,10 +425,12 @@
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -489,6 +502,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -499,6 +513,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -508,6 +523,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1048,6 +1064,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -1058,6 +1075,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -1067,6 +1085,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1612,10 +1631,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -1626,6 +1647,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -1636,6 +1658,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -1645,6 +1668,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1852,6 +1876,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -3294,10 +3319,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -3308,6 +3335,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -3318,6 +3346,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -3328,6 +3357,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -3337,6 +3367,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3563,6 +3594,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5153,10 +5185,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -5167,6 +5201,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -5181,10 +5216,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
+                                                always_copyable: false,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5308,6 +5345,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5569,6 +5607,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5637,6 +5676,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5857,6 +5897,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5896,6 +5937,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -5961,6 +6003,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6019,6 +6062,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6391,6 +6435,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6442,6 +6487,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6877,6 +6923,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6941,6 +6988,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -6984,6 +7032,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7110,6 +7159,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7164,6 +7214,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7272,6 +7323,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7311,6 +7363,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7369,6 +7422,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7408,6 +7462,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7469,6 +7524,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7528,6 +7584,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7577,6 +7634,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7646,6 +7704,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7695,6 +7754,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -7753,6 +7813,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -8598,6 +8659,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -8702,6 +8764,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::visual::Html`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -8909,6 +8972,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -8980,10 +9044,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -8994,6 +9060,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -9004,6 +9071,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -9013,6 +9081,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -9183,6 +9252,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -9351,6 +9421,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -9525,6 +9596,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -9629,6 +9701,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::visual::Html`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -9772,10 +9845,12 @@
                                                                                     HirTypePathLeading {
                                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                                         template_arguments: [],
+                                                                                        always_copyable: false,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -9862,6 +9937,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -9925,10 +10001,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
+                                                always_copyable: false,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -10076,6 +10154,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -10211,6 +10290,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -10934,10 +11014,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -10948,6 +11030,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -10957,6 +11040,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

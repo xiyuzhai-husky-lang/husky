@@ -16,6 +16,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -26,6 +27,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -102,6 +104,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -167,6 +170,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -336,6 +340,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -345,6 +350,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

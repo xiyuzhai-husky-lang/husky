@@ -8,6 +8,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -52,6 +53,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -109,10 +111,12 @@
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: true,
                                     },
                                 ),
                             },
@@ -127,10 +131,12 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {

@@ -235,6 +235,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_lazy_expr_region: HirLazyExprRegion {
@@ -309,6 +310,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -412,6 +414,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -515,7 +518,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 493,
+                                                                            value: 507,
                                                                         },
                                                                     ),
                                                                 ),
@@ -649,6 +652,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                             ),
@@ -670,6 +674,7 @@
                                     ),
                                 ),
                             ],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -811,6 +816,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -934,6 +940,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                             ),
@@ -943,6 +950,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -1043,6 +1051,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

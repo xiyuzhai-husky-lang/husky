@@ -67,6 +67,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -134,6 +135,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -143,6 +145,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -222,6 +225,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -284,6 +288,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -346,6 +351,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -408,6 +414,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

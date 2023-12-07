@@ -89,6 +89,7 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`core::num::usize`, `Extern`),
                                                             template_arguments: [],
+                                                            always_copyable: true,
                                                         },
                                                     ),
                                                     index: PathLeading {
