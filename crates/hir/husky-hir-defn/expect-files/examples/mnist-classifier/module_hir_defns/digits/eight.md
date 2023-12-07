@@ -260,7 +260,7 @@
                                                     value: OrderedFloat(
                                                         0.5,
                                                     ),
-                                                    text: "0.5",
+                                                    text: "0.5f32",
                                                 },
                                             ),
                                         ),
