@@ -20,7 +20,7 @@ impl TranspileToRustWith for TraitHirDefn {
 impl TranspileToRustWith for TraitHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db();
-        builder.eager_head(self.hir_eager_expr_region(db), |builder| {
+        builder.with_hir_eager_expr_region(self.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Trait);
             self.path(db).ident(db).transpile_to_rust(builder);

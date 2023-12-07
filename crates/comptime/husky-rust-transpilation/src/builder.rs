@@ -117,12 +117,12 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         write!(self.result, "{}", t).unwrap();
     }
 
-    pub(crate) fn eager_head(
+    pub(crate) fn with_hir_eager_expr_region(
         &mut self,
         hir_eager_expr_region: HirEagerExprRegion,
-        head: impl FnOnce(&mut RustTranspilationBuilder<HirEagerExprRegion>),
+        f: impl FnOnce(&mut RustTranspilationBuilder<HirEagerExprRegion>),
     ) {
-        head(&mut RustTranspilationBuilder {
+        f(&mut RustTranspilationBuilder {
             base: self,
             extension: hir_eager_expr_region,
         })

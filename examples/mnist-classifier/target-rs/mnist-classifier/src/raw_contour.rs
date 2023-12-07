@@ -5,6 +5,15 @@ pub struct RawContour {
     pub points: Vec<Point2d>,
 } 
 
+impl RawContour {
+    pub fn __constructor(cc: Leash<ConnectedComponent>, points: Vec<Point2d>) -> Self {
+        Self{
+            cc,
+            points,
+        }
+    }
+}
+
 pub enum Direction {
     Up,
     Left,
@@ -186,6 +195,15 @@ pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,
 } 
+
+impl StreakCache {
+    pub fn __constructor(prev1: i32, prev2: i32) -> Self {
+        Self{
+            prev1,
+            prev2,
+        }
+    }
+}
 
 pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
     let N = points.ilen();

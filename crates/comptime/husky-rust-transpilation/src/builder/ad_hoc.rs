@@ -42,6 +42,10 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         }
     }
 
+    pub(crate) fn ty_constructor_ident(&mut self) {
+        self.write_str("__constructor")
+    }
+
     pub(crate) fn use_all_in_crate(&mut self) {
         self.on_fresh_semicolon_line(|builder| builder.write_str("use crate::*"))
     }

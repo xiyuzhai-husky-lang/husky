@@ -10,12 +10,12 @@ pub struct PropsFieldSyndicate {
     ident_token: IdentRegionalToken,
     colon: ColonRegionalToken,
     ty_syn_expr_idx: SynExprIdx,
-    initialization: Option<PropsFieldInitialization>,
+    initialization: Option<PropsFieldSynInitialization>,
     variable: CurrentSynSymbolIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PropsFieldInitialization {
+pub enum PropsFieldSynInitialization {
     Bind {
         colon_eq_token: ColonEqRegionalToken,
         value: SynExprIdx,
@@ -36,7 +36,7 @@ impl PropsFieldSyndicate {
         self.ty_syn_expr_idx
     }
 
-    pub fn initialization(&self) -> Option<PropsFieldInitialization> {
+    pub fn initialization(&self) -> Option<PropsFieldSynInitialization> {
         self.initialization
     }
 }
@@ -61,7 +61,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
         );
         let initialization =
             if let Some(colon_eq_token) = ctx.try_parse_option::<ColonEqRegionalToken>()? {
-                Some(PropsFieldInitialization::Bind {
+                Some(PropsFieldSynInitialization::Bind {
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
