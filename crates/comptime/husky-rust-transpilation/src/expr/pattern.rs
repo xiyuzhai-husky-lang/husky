@@ -16,6 +16,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
                 if let Some(symbol_modifier) = symbol_modifier {
                     match symbol_modifier {
                         SymbolModifier::Pure => (),
+                        SymbolModifier::Owned => todo!(),
                         SymbolModifier::Mut => builder.keyword(RustKeyword::Mut),
                         SymbolModifier::Ref => {
                             p!(ident.debug(db));

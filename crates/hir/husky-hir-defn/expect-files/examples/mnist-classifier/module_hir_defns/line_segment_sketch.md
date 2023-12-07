@@ -6929,7 +6929,7 @@
                                             item_groups: [
                                                 Regular(
                                                     HirRitchieRegularParameter {
-                                                        contract: Pure,
+                                                        contract: Move,
                                                         ty: PathLeading(
                                                             HirTypePathLeading(
                                                                 Id {

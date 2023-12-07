@@ -95,14 +95,7 @@ impl SymbolDeclarativeTermRegion {
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
-            SymbolModifier::Pure
-            | SymbolModifier::Mut
-            | SymbolModifier::Ref
-            | SymbolModifier::RefMut => None,
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(),
+            _ => None,
         };
         self.add_new_current_syn_symbol_signature(
             db,

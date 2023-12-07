@@ -73,7 +73,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
             for k in j..30 {
                 unsearched[k] &= !mask[k]
             }
-            result.push(&ConnectedComponent::__constructor(mask))
+            result.push(ConnectedComponent::__constructor(mask))
         }
     }
     return result;

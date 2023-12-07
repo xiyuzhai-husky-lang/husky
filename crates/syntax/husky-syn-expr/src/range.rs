@@ -187,6 +187,12 @@ impl<'a> SynExprRangeCalculator<'a> {
                 symbol_modifier_tokens,
                 ident_token,
             } => match symbol_modifier_tokens {
+                Some(EphemSymbolModifierRegionalTokens::Owned(owned_token)) => {
+                    RegionalTokenIdxRange::new_closed(
+                        owned_token.regional_token_idx(),
+                        ident_token.regional_token_idx(),
+                    )
+                }
                 Some(EphemSymbolModifierRegionalTokens::Mut(mut_token)) => {
                     RegionalTokenIdxRange::new_closed(
                         mut_token.regional_token_idx(),

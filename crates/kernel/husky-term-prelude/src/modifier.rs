@@ -3,6 +3,7 @@ use husky_coword::Label;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum SymbolModifier {
     Pure,
+    Owned,
     Mut,
     Ref,
     RefMut,

@@ -2311,7 +2311,7 @@
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {
-                                                            contract: Pure,
+                                                            contract: Move,
                                                             ty: FluffyTerm {
                                                                 place: None,
                                                                 base: Ethereal(
@@ -2398,7 +2398,7 @@
                                     ritchie_parameter_argument_matches: [
                                         Regular(
                                             FluffyRitchieRegularParameter {
-                                                contract: Pure,
+                                                contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -4142,7 +4142,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: ImplicitlyConvertible(
                                     ExpectCoersion {
-                                        contract: Pure,
+                                        contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
                                             base: Ethereal(

@@ -287,7 +287,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: Pure,
+                                    contract: Move,
                                     ty: HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
@@ -321,7 +321,9 @@
                             pattern_expr_arena: Arena {
                                 data: [
                                     Ident {
-                                        symbol_modifier: None,
+                                        symbol_modifier: Some(
+                                            Owned,
+                                        ),
                                         ident: Ident(
                                             Coword(
                                                 Id {
