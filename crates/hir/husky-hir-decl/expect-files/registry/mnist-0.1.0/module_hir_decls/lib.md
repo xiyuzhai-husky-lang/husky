@@ -148,7 +148,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 24,
+                        value: 25,
                     },
                 ),
             ),
@@ -384,7 +384,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 25,
+                        value: 26,
                     },
                 ),
             ),

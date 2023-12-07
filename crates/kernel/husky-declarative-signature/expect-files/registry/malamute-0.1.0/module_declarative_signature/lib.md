@@ -174,6 +174,106 @@
                 TraitForTypeImplBlock {
                     data: TraitForTypeImplBlockPathData {
                         module_path: `malamute`,
+                        trai_path: TraitPath(`core::default::Default`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`malamute::OneVsAll`, `Enum`),
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                            ],
+                        },
+                        trai: DeclarativeTerm(`core::default::Default`),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`malamute::OneVsAll t a`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
+                                            trai_path: TraitPath(`core::default::Default`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `default`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                                contract: Pure,
+                                ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `malamute`,
                         trai_path: TraitPath(`core::ops::Unveil`),
                         ty_sketch: TypeSketch::Path(
                             TypePath(`malamute::Class`, `Enum`),

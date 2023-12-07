@@ -52,6 +52,39 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
+            `default`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
             `num`,
         ),
         TokenData::Punctuation(
@@ -420,8 +453,14 @@ TokenSheetData {
                 71,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                78,
+            ),
+        ),
     ],
     indents: [
+        0,
         0,
         0,
         0,

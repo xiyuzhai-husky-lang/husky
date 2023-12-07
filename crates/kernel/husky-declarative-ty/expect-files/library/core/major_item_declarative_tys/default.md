@@ -1,1 +1,12 @@
-[]
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::default::Default`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Trait`),
+        ),
+    ),
+]

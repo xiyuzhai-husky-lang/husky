@@ -1,12 +1,73 @@
 EntitySynTreePresheet {
     module_path: `core::default`,
     major_item_node_table: MajorEntityNodeTable {
-        entries: [],
+        entries: [
+            ItemNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Trait(
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::default::Default`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 3,
+                        ident_token: IdentToken {
+                            ident: `Default`,
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::default::Default`),
+                            items: Some(
+                                TraitItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
+                        TraitSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::default::Default`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                ident: `Default`,
+                visibility: Scope::Pub,
+            },
+        ],
     },
     use_one_rules: UseOneRules(
         [
             UseOneRule {
-                ast_idx: 1,
+                ast_idx: 2,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core::default`,

@@ -12,14 +12,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 213,
+                                            value: 214,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 522,
+                                            value: 523,
                                         },
                                     ),
                                 ),
@@ -56,14 +56,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 213,
+                                            value: 214,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 210,
+                                            value: 211,
                                         },
                                     ),
                                 ),
@@ -100,14 +100,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 216,
+                                            value: 217,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 270,
+                                            value: 271,
                                         },
                                     ),
                                 ),
@@ -144,14 +144,14 @@ AstSheet {
                                 parent_ty_path: TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 216,
+                                            value: 217,
                                         },
                                     ),
                                 ),
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 525,
+                                            value: 526,
                                         },
                                     ),
                                 ),
@@ -177,6 +177,12 @@ AstSheet {
                     drained: true,
                 },
             },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    10,
+                ),
+                body: None,
+            },
             Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
                     9,
@@ -193,161 +199,35 @@ AstSheet {
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
-                        AssociatedType,
+                        MethodFn,
                     ),
                 },
                 ident_token: IdentToken {
-                    ident: `Output`,
+                    ident: `default`,
                     token_idx: TokenIdx(
-                        73,
+                        71,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        74,
+                        72,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::AssociatedItem {
-                    body: None,
-                },
-            },
-            Ast::TypeVariant {
-                token_group_idx: TokenGroupIdx(
-                    12,
-                ),
-                variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 219,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 527,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                vertical_token: VerticalToken(
-                    TokenIdx(
-                        101,
+                    body: Some(
+                        FugitiveBody {
+                            ast_idx_range: ArenaIdxRange(
+                                5..6,
+                            ),
+                        },
                     ),
-                ),
-                ident_token: IdentToken {
-                    ident: `ConfidentYes`,
-                    token_idx: TokenIdx(
-                        102,
-                    ),
-                },
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        103,
-                    ),
-                    drained: true,
-                },
-            },
-            Ast::TypeVariant {
-                token_group_idx: TokenGroupIdx(
-                    13,
-                ),
-                variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 219,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 528,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                vertical_token: VerticalToken(
-                    TokenIdx(
-                        103,
-                    ),
-                ),
-                ident_token: IdentToken {
-                    ident: `ConfidentNo`,
-                    token_idx: TokenIdx(
-                        104,
-                    ),
-                },
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        105,
-                    ),
-                    drained: true,
-                },
-            },
-            Ast::TypeVariant {
-                token_group_idx: TokenGroupIdx(
-                    14,
-                ),
-                variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 219,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 529,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                vertical_token: VerticalToken(
-                    TokenIdx(
-                        105,
-                    ),
-                ),
-                ident_token: IdentToken {
-                    ident: `Unconfident`,
-                    token_idx: TokenIdx(
-                        106,
-                    ),
-                },
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        107,
-                    ),
-                    drained: true,
                 },
             },
             Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
-                    16,
+                    12,
                 ),
                 visibility_expr: VisibilityExpr {
                     visibility: PubUnder(
@@ -367,13 +247,181 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        134,
+                        102,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
+                        103,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::TypeVariant {
+                token_group_idx: TokenGroupIdx(
+                    15,
+                ),
+                variant_path: TypeVariantPath(
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 220,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 528,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                vertical_token: VerticalToken(
+                    TokenIdx(
+                        130,
+                    ),
+                ),
+                ident_token: IdentToken {
+                    ident: `ConfidentYes`,
+                    token_idx: TokenIdx(
+                        131,
+                    ),
+                },
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        132,
+                    ),
+                    drained: true,
+                },
+            },
+            Ast::TypeVariant {
+                token_group_idx: TokenGroupIdx(
+                    16,
+                ),
+                variant_path: TypeVariantPath(
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 220,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 529,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                vertical_token: VerticalToken(
+                    TokenIdx(
+                        132,
+                    ),
+                ),
+                ident_token: IdentToken {
+                    ident: `ConfidentNo`,
+                    token_idx: TokenIdx(
+                        133,
+                    ),
+                },
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        134,
+                    ),
+                    drained: true,
+                },
+            },
+            Ast::TypeVariant {
+                token_group_idx: TokenGroupIdx(
+                    17,
+                ),
+                variant_path: TypeVariantPath(
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 220,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 530,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                vertical_token: VerticalToken(
+                    TokenIdx(
+                        134,
+                    ),
+                ),
+                ident_token: IdentToken {
+                    ident: `Unconfident`,
+                    token_idx: TokenIdx(
                         135,
+                    ),
+                },
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        136,
+                    ),
+                    drained: true,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    19,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: PubUnder(
+                        ModulePath(
+                            Id {
+                                value: 49,
+                            },
+                        ),
+                    ),
+                    variant: Protected,
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        AssociatedType,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `Output`,
+                    token_idx: TokenIdx(
+                        163,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        164,
                     ),
                     drained: false,
                 },
@@ -489,7 +537,21 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                5..6,
+                                6..7,
+                            ),
+                        },
+                    ),
+                ),
+            },
+            Ast::ImplBlock {
+                token_group_idx: TokenGroupIdx(
+                    11,
+                ),
+                items: Some(
+                    TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                7..8,
                             ),
                         },
                     ),
@@ -497,20 +559,20 @@ AstSheet {
             },
             Ast::Attr {
                 token_group_idx: TokenGroupIdx(
-                    10,
+                    13,
                 ),
                 ident: `derive`,
             },
             Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
-                    11,
+                    14,
                 ),
                 visibility_expr: VisibilityExpr {
                     visibility: Pub,
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                86,
+                                115,
                             ),
                         },
                     },
@@ -524,13 +586,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `OneVsAllResult`,
                     token_idx: TokenIdx(
-                        88,
+                        117,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        89,
+                        118,
                     ),
                     drained: false,
                 },
@@ -539,7 +601,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                6..9,
+                                8..11,
                             ),
                         },
                     ),
@@ -547,13 +609,13 @@ AstSheet {
             },
             Ast::ImplBlock {
                 token_group_idx: TokenGroupIdx(
-                    15,
+                    18,
                 ),
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                9..10,
+                                11..12,
                             ),
                         },
                     ),
@@ -561,14 +623,14 @@ AstSheet {
             },
             Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
-                    17,
+                    20,
                 ),
                 visibility_expr: VisibilityExpr {
                     visibility: Pub,
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                138,
+                                167,
                             ),
                         },
                     },
@@ -582,13 +644,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `narrow_down`,
                     token_idx: TokenIdx(
-                        140,
+                        169,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        141,
+                        170,
                     ),
                     drained: false,
                 },
@@ -600,7 +662,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        10..19,
+        12..22,
     ),
     siblings: [
         ArenaIdxRange(
@@ -610,16 +672,25 @@ AstSheet {
             5..6,
         ),
         ArenaIdxRange(
-            9..9,
+            6..7,
         ),
         ArenaIdxRange(
-            9..10,
+            7..7,
         ),
         ArenaIdxRange(
-            10..10,
+            7..8,
         ),
         ArenaIdxRange(
-            10..19,
+            11..11,
+        ),
+        ArenaIdxRange(
+            11..12,
+        ),
+        ArenaIdxRange(
+            12..12,
+        ),
+        ArenaIdxRange(
+            12..22,
         ),
     ],
 }

@@ -114,7 +114,7 @@
                                             Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 145,
+                                                        value: 146,
                                                     },
                                                 ),
                                             ),
@@ -138,6 +138,84 @@
                         },
                     },
                 },
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `malamute`,
+                        trai_path: TraitPath(`core::default::Default`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`malamute::OneVsAll`, `Enum`),
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::default::Default`),
+                    template_arguments: [],
+                },
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        template_arguments: [],
+                    },
+                ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::ImplBlock(
+                            ImplBlockPath::TraitForTypeImplBlock(
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::default::Default`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            MethodFn(
+                TraitForTypeMethodFnHirDecl(
+                    Id {
+                        value: 24,
+                    },
+                ),
             ),
         ),
     ),

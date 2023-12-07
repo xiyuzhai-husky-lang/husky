@@ -83,7 +83,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 337,
+                                                                            value: 339,
                                                                         },
                                                                     ),
                                                                 ),
@@ -178,7 +178,7 @@
                                                                 parent_ty_path: TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 337,
+                                                                            value: 339,
                                                                         },
                                                                     ),
                                                                 ),
@@ -273,7 +273,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 327,
+                                                                value: 328,
                                                             },
                                                         ),
                                                     ),
@@ -339,7 +339,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 327,
+                                                                value: 328,
                                                             },
                                                         ),
                                                     ),
@@ -418,7 +418,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 285,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -436,7 +436,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 328,
+                                                    value: 329,
                                                 },
                                             ),
                                         ),

@@ -1860,6 +1860,57 @@ EntitySynTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `Default`,
+                visibility: Scope::PubUnder(
+                    `core::num`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            module_item_path: MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 2,
+                                        use_expr_idx: 4,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::default::Default`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        ast_idx: 41,
+                        use_expr_idx: 1,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `i8`,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -1881,8 +1932,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1932,8 +1983,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1983,8 +2034,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2034,8 +2085,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2085,8 +2136,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2136,8 +2187,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2187,8 +2238,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2238,8 +2289,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2289,8 +2340,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2340,8 +2391,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2391,8 +2442,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2442,8 +2493,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2493,8 +2544,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2544,8 +2595,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2595,8 +2646,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 4,
+                                        use_expr_idx: 10,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2646,8 +2697,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 4,
-                                        use_expr_idx: 10,
+                                        ast_idx: 5,
+                                        use_expr_idx: 13,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2697,8 +2748,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2748,8 +2799,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2799,8 +2850,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2850,8 +2901,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2901,8 +2952,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
-                                        use_expr_idx: 19,
+                                        ast_idx: 8,
+                                        use_expr_idx: 22,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2952,8 +3003,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3002,14 +3053,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3026,14 +3077,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3055,14 +3106,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -3072,8 +3123,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -3084,14 +3135,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -3115,14 +3166,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -3160,14 +3211,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3184,14 +3235,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3213,14 +3264,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -3230,8 +3281,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -3242,14 +3293,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -3273,14 +3324,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 74,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 116,
+                                                        value: 117,
                                                     },
                                                 ),
                                             ),
@@ -3319,8 +3370,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3370,8 +3421,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3421,8 +3472,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3472,8 +3523,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3523,8 +3574,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3574,8 +3625,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3625,8 +3676,8 @@ EntitySynTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 11,
-                                        use_expr_idx: 31,
+                                        ast_idx: 12,
+                                        use_expr_idx: 34,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3667,7 +3718,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 91,
+                                                value: 92,
                                             },
                                         ),
                                     ),
@@ -3687,7 +3738,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 91,
+                                                    value: 92,
                                                 },
                                             ),
                                         ),
@@ -3791,7 +3842,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 93,
+                                                value: 94,
                                             },
                                         ),
                                     ),
@@ -3811,7 +3862,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 93,
+                                                    value: 94,
                                                 },
                                             ),
                                         ),
@@ -3915,7 +3966,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -3935,7 +3986,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 95,
+                                                    value: 96,
                                                 },
                                             ),
                                         ),
@@ -4039,7 +4090,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 97,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -4059,7 +4110,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 97,
+                                                    value: 98,
                                                 },
                                             ),
                                         ),
@@ -4163,7 +4214,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -4183,7 +4234,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 99,
+                                                    value: 100,
                                                 },
                                             ),
                                         ),
@@ -4287,7 +4338,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 101,
+                                                value: 102,
                                             },
                                         ),
                                     ),
@@ -4307,7 +4358,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 101,
+                                                    value: 102,
                                                 },
                                             ),
                                         ),
@@ -4411,7 +4462,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 103,
+                                                value: 104,
                                             },
                                         ),
                                     ),
@@ -4431,7 +4482,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 103,
+                                                    value: 104,
                                                 },
                                             ),
                                         ),
@@ -4535,7 +4586,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 105,
+                                                value: 106,
                                             },
                                         ),
                                     ),
@@ -4555,7 +4606,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 105,
+                                                    value: 106,
                                                 },
                                             ),
                                         ),
@@ -4659,7 +4710,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 107,
+                                                value: 108,
                                             },
                                         ),
                                     ),
@@ -4679,7 +4730,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 107,
+                                                    value: 108,
                                                 },
                                             ),
                                         ),
@@ -4783,7 +4834,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 109,
+                                                value: 110,
                                             },
                                         ),
                                     ),
@@ -4803,7 +4854,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 109,
+                                                    value: 110,
                                                 },
                                             ),
                                         ),
@@ -4907,7 +4958,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 111,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -4927,7 +4978,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -5031,7 +5082,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 113,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -5051,7 +5102,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 113,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -5155,7 +5206,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 115,
+                                                value: 116,
                                             },
                                         ),
                                     ),
@@ -5175,7 +5226,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 115,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -5279,7 +5330,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 117,
+                                                value: 118,
                                             },
                                         ),
                                     ),
@@ -5299,7 +5350,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 117,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -5534,7 +5585,7 @@ EntitySynTreeSheet {
                     `core::num`,
                 ),
                 progress: Ok(
-                    57,
+                    58,
                 ),
             },
         ],

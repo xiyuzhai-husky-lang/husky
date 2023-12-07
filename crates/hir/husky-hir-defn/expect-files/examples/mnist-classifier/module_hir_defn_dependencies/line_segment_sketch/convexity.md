@@ -1,7 +1,7 @@
 [
     HirDefnDependencies(
         Id {
-            value: 299,
+            value: 300,
         },
     ),
 ]

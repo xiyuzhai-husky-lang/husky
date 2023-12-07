@@ -2677,7 +2677,7 @@
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 355,
+                                                                                    value: 356,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2772,7 +2772,7 @@
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 355,
+                                                                                    value: 356,
                                                                                 },
                                                                             ),
                                                                         ),

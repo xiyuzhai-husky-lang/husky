@@ -148,7 +148,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 74,
+                                    value: 75,
                                 },
                             ),
                         ),
@@ -716,7 +716,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 118,
+                                    value: 119,
                                 },
                             ),
                         ),
@@ -735,7 +735,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 70,
+                                                        value: 71,
                                                     },
                                                 ),
                                             ),
@@ -768,7 +768,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 78,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -824,7 +824,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 128,
+                                                value: 129,
                                             },
                                         ),
                                     ),
@@ -838,7 +838,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 128,
+                                                            value: 129,
                                                         },
                                                     ),
                                                 ),
@@ -899,7 +899,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 130,
+                                                value: 131,
                                             },
                                         ),
                                     ),
@@ -913,7 +913,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 130,
+                                                            value: 131,
                                                         },
                                                     ),
                                                 ),
@@ -981,7 +981,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 78,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -1011,7 +1011,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 127,
+                                                value: 128,
                                             },
                                         ),
                                     ),
@@ -1025,7 +1025,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 127,
+                                                            value: 128,
                                                         },
                                                     ),
                                                 ),
@@ -1086,7 +1086,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 129,
+                                                value: 130,
                                             },
                                         ),
                                     ),
@@ -1100,7 +1100,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 129,
+                                                            value: 130,
                                                         },
                                                     ),
                                                 ),
@@ -1203,7 +1203,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 70,
+                                                    value: 71,
                                                 },
                                             ),
                                         ),
@@ -1226,7 +1226,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 78,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),
@@ -1344,7 +1344,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 78,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),
@@ -2859,7 +2859,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 200,
+                                    value: 202,
                                 },
                             ),
                         ),
@@ -2875,7 +2875,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 130,
+                                                value: 131,
                                             },
                                         ),
                                     ),
@@ -2888,7 +2888,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 130,
+                                                        value: 131,
                                                     },
                                                 ),
                                             ),
@@ -3950,7 +3950,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 201,
+                                    value: 203,
                                 },
                             ),
                         ),
@@ -3969,7 +3969,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 78,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -3999,7 +3999,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 128,
+                                                value: 129,
                                             },
                                         ),
                                     ),
@@ -4012,7 +4012,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 128,
+                                                        value: 129,
                                                     },
                                                 ),
                                             ),
@@ -4069,7 +4069,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 130,
+                                                value: 131,
                                             },
                                         ),
                                     ),
@@ -4082,7 +4082,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 130,
+                                                        value: 131,
                                                     },
                                                 ),
                                             ),
@@ -4142,7 +4142,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 78,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -4172,7 +4172,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 127,
+                                                value: 128,
                                             },
                                         ),
                                     ),
@@ -4185,7 +4185,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 127,
+                                                        value: 128,
                                                     },
                                                 ),
                                             ),
@@ -4242,7 +4242,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 129,
+                                                value: 130,
                                             },
                                         ),
                                     ),
@@ -4255,7 +4255,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 129,
+                                                        value: 130,
                                                     },
                                                 ),
                                             ),
@@ -4358,7 +4358,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 78,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),
@@ -4457,7 +4457,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 78,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),

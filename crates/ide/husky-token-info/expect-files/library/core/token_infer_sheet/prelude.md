@@ -32,7 +32,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
                         rule_idx: UseOneRuleIdx(
-                            11,
+                            12,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -87,7 +87,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
                         rule_idx: UseOneRuleIdx(
-                            12,
+                            13,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -97,7 +97,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::num`,
+                                                        `core::default`,
                                                     ),
                                                 },
                                             ),
@@ -142,7 +142,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 8,
                         rule_idx: UseOneRuleIdx(
-                            13,
+                            14,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -152,7 +152,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::raw_bits`,
+                                                        `core::num`,
                                                     ),
                                                 },
                                             ),
@@ -197,7 +197,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 11,
                         rule_idx: UseOneRuleIdx(
-                            14,
+                            15,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -207,7 +207,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::fmt`,
+                                                        `core::raw_bits`,
                                                     ),
                                                 },
                                             ),
@@ -252,7 +252,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 14,
                         rule_idx: UseOneRuleIdx(
-                            15,
+                            16,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -262,7 +262,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::visual`,
+                                                        `core::fmt`,
                                                     ),
                                                 },
                                             ),
@@ -307,7 +307,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 17,
                         rule_idx: UseOneRuleIdx(
-                            16,
+                            17,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -317,7 +317,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::marker`,
+                                                        `core::visual`,
                                                     ),
                                                 },
                                             ),
@@ -362,7 +362,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 20,
                         rule_idx: UseOneRuleIdx(
-                            17,
+                            18,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -372,7 +372,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::clone`,
+                                                        `core::marker`,
                                                     ),
                                                 },
                                             ),
@@ -417,7 +417,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 23,
                         rule_idx: UseOneRuleIdx(
-                            18,
+                            19,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -427,7 +427,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::option`,
+                                                        `core::clone`,
                                                     ),
                                                 },
                                             ),
@@ -472,7 +472,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 26,
                         rule_idx: UseOneRuleIdx(
-                            19,
+                            20,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -482,7 +482,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::cmp`,
+                                                        `core::option`,
                                                     ),
                                                 },
                                             ),
@@ -527,7 +527,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 29,
                         rule_idx: UseOneRuleIdx(
-                            20,
+                            21,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -537,7 +537,7 @@ Ok(
                                             data: ItemPathData::SubmoduleItem(
                                                 SubmoduleItemPathData {
                                                     submodule_path: SubmodulePath(
-                                                        `core::slice`,
+                                                        `core::cmp`,
                                                     ),
                                                 },
                                             ),
@@ -582,7 +582,62 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 32,
                         rule_idx: UseOneRuleIdx(
-                            21,
+                            22,
+                        ),
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::slice`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        36,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 36,
+                        rule_idx: UseOneRuleIdx(
+                            11,
+                        ),
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::CrateRoot {
+                                    root_module_path: `core`,
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        35,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 35,
+                        rule_idx: UseOneRuleIdx(
+                            23,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(

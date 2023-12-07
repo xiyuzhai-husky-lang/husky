@@ -1,1 +1,4 @@
 use crate::*
+
+pub trait Default:
+    static fn default() -> Self;

@@ -89,6 +89,7 @@ impl<'a> DeclParser<'a> {
                 .parse_trai_associated_ty_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssociatedVal => todo!(),
+            TraitItemKind::AssociatedFn => todo!(),
         }
     }
 }

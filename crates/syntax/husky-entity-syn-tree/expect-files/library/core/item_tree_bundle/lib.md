@@ -1788,6 +1788,43 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            module_item_path: MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 2,
+                                        use_expr_idx: 4,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core`,
@@ -1807,8 +1844,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1844,8 +1881,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1881,8 +1918,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1918,8 +1955,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1955,8 +1992,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1992,8 +2029,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2029,8 +2066,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2066,8 +2103,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2103,8 +2140,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2140,8 +2177,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2177,8 +2214,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2214,8 +2251,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2251,8 +2288,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2288,8 +2325,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 3,
+                                        use_expr_idx: 7,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2325,8 +2362,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 4,
+                                        use_expr_idx: 10,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2362,8 +2399,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 4,
-                                        use_expr_idx: 10,
+                                        ast_idx: 5,
+                                        use_expr_idx: 13,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2399,8 +2436,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2436,8 +2473,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 6,
+                                        use_expr_idx: 16,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2473,8 +2510,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2510,8 +2547,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 7,
+                                        use_expr_idx: 19,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2547,8 +2584,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
-                                        use_expr_idx: 19,
+                                        ast_idx: 8,
+                                        use_expr_idx: 22,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2584,8 +2621,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2620,14 +2657,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2644,14 +2681,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2673,14 +2710,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -2690,8 +2727,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2702,14 +2739,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -2745,14 +2782,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2769,14 +2806,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2798,14 +2835,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -2815,8 +2852,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 9,
+                                        use_expr_idx: 25,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2827,14 +2864,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -2871,8 +2908,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2908,8 +2945,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2945,8 +2982,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2982,8 +3019,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 10,
+                                        use_expr_idx: 28,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3019,8 +3056,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3056,8 +3093,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 11,
+                                        use_expr_idx: 31,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3093,8 +3130,8 @@ EntitySynTreeCrateBundle {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 11,
-                                        use_expr_idx: 31,
+                                        ast_idx: 12,
+                                        use_expr_idx: 34,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3197,7 +3234,7 @@ EntitySynTreeCrateBundle {
                             `core`,
                         ),
                         progress: Ok(
-                            38,
+                            39,
                         ),
                     },
                 ],
@@ -4222,6 +4259,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::array`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::array`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::array`,
@@ -4243,8 +4331,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4294,8 +4382,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4345,8 +4433,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4396,8 +4484,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4447,8 +4535,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4498,8 +4586,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4549,8 +4637,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4600,8 +4688,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4651,8 +4739,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4702,8 +4790,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4753,8 +4841,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4804,8 +4892,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4855,8 +4943,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4906,8 +4994,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -4957,8 +5045,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5008,8 +5096,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5059,8 +5147,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5110,8 +5198,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5161,8 +5249,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5212,8 +5300,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5263,8 +5351,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5314,8 +5402,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5364,14 +5452,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -5388,14 +5476,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -5417,14 +5505,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -5434,8 +5522,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -5446,14 +5534,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -5477,14 +5565,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -5522,14 +5610,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -5546,14 +5634,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -5575,14 +5663,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -5592,8 +5680,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -5604,14 +5692,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -5635,14 +5723,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -5681,8 +5769,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5732,8 +5820,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5783,8 +5871,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5834,8 +5922,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5885,8 +5973,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5936,8 +6024,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -5987,8 +6075,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -6061,7 +6149,7 @@ EntitySynTreeCrateBundle {
                             `core::array`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -7464,6 +7552,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::basic`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::basic`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::basic`,
@@ -7485,8 +7624,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7536,8 +7675,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7587,8 +7726,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7638,8 +7777,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7689,8 +7828,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7740,8 +7879,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7791,8 +7930,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7842,8 +7981,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7893,8 +8032,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7944,8 +8083,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -7995,8 +8134,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8046,8 +8185,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8097,8 +8236,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8148,8 +8287,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8199,8 +8338,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8250,8 +8389,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8301,8 +8440,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8352,8 +8491,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8403,8 +8542,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8454,8 +8593,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8505,8 +8644,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8556,8 +8695,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8606,14 +8745,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -8630,14 +8769,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -8659,14 +8798,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -8676,8 +8815,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -8688,14 +8827,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -8719,14 +8858,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -8764,14 +8903,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -8788,14 +8927,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -8817,14 +8956,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -8834,8 +8973,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -8846,14 +8985,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -8877,14 +9016,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -8923,8 +9062,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -8974,8 +9113,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9025,8 +9164,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9076,8 +9215,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9127,8 +9266,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9178,8 +9317,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9229,8 +9368,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -9303,7 +9442,7 @@ EntitySynTreeCrateBundle {
                             `core::basic`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -10334,6 +10473,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::clone`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::clone`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::clone`,
@@ -10355,8 +10545,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10406,8 +10596,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10457,8 +10647,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10508,8 +10698,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10559,8 +10749,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10610,8 +10800,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10661,8 +10851,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10712,8 +10902,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10763,8 +10953,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10814,8 +11004,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10865,8 +11055,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10916,8 +11106,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -10967,8 +11157,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11018,8 +11208,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11069,8 +11259,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11120,8 +11310,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11171,8 +11361,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11222,8 +11412,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11273,8 +11463,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11324,8 +11514,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11375,8 +11565,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11426,8 +11616,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11476,14 +11666,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -11500,14 +11690,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -11529,14 +11719,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -11546,8 +11736,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -11558,14 +11748,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -11589,14 +11779,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -11634,14 +11824,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -11658,14 +11848,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -11687,14 +11877,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -11704,8 +11894,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -11716,14 +11906,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -11747,14 +11937,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -11793,8 +11983,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11844,8 +12034,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11895,8 +12085,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11946,8 +12136,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -11997,8 +12187,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -12048,8 +12238,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -12099,8 +12289,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -12254,7 +12444,7 @@ EntitySynTreeCrateBundle {
                             `core::clone`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -13468,6 +13658,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::cmp`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::cmp`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::cmp`,
@@ -13489,8 +13730,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13540,8 +13781,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13591,8 +13832,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13642,8 +13883,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13693,8 +13934,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13744,8 +13985,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13795,8 +14036,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13846,8 +14087,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13897,8 +14138,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13948,8 +14189,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -13999,8 +14240,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14050,8 +14291,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14101,8 +14342,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14152,8 +14393,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14203,8 +14444,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14254,8 +14495,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14305,8 +14546,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14356,8 +14597,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14407,8 +14648,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14458,8 +14699,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14509,8 +14750,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14560,8 +14801,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14610,14 +14851,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -14634,14 +14875,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -14663,14 +14904,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -14680,8 +14921,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -14692,14 +14933,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -14723,14 +14964,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -14768,14 +15009,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -14792,14 +15033,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -14821,14 +15062,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -14838,8 +15079,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -14850,14 +15091,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -14881,14 +15122,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -14927,8 +15168,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -14978,8 +15219,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15029,8 +15270,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15080,8 +15321,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15131,8 +15372,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15182,8 +15423,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15233,8 +15474,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -15307,7 +15548,7 @@ EntitySynTreeCrateBundle {
                             `core::cmp`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -15317,10 +15558,80 @@ EntitySynTreeCrateBundle {
         EntitySynTreeSheet {
             module_path: `core::default`,
             major_item_node_table: MajorEntityNodeTable {
-                entries: [],
+                entries: [
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Trait(
+                                    TraitSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::default::Default`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 3,
+                                ident_token: IdentToken {
+                                    ident: `Default`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
+                                },
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::default::Default`),
+                                    items: Some(
+                                        TraitItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Trait(
+                                TraitSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::default::Default`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        ident: `Default`,
+                        visibility: Scope::Pub,
+                    },
+                ],
             },
             item_symbol_table: EntitySymbolTable(
                 [
+                    EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::Pub,
+                        symbol: EntitySymbol::MajorItem {
+                            module_item_path: MajorItemPath::Trait(
+                                TraitPath(`core::default::Default`),
+                            ),
+                        },
+                    },
                     EntitySymbolEntry {
                         ident: `array`,
                         visibility: Scope::PubUnder(
@@ -15347,7 +15658,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15378,7 +15689,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15409,7 +15720,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15440,7 +15751,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15471,7 +15782,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15502,7 +15813,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15533,7 +15844,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15564,7 +15875,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15595,7 +15906,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15626,7 +15937,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15657,7 +15968,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15688,7 +15999,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15719,7 +16030,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15750,7 +16061,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15781,7 +16092,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15812,7 +16123,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15843,7 +16154,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15874,7 +16185,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15905,7 +16216,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -15956,7 +16267,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16007,7 +16318,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16058,7 +16369,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16109,7 +16420,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16160,7 +16471,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16211,7 +16522,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16262,7 +16573,58 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::default`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::default`,
+                                ),
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16289,8 +16651,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16313,7 +16675,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16340,8 +16702,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16364,7 +16726,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16391,8 +16753,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16415,7 +16777,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16442,8 +16804,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16466,7 +16828,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16493,8 +16855,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16517,7 +16879,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16544,8 +16906,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16568,7 +16930,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16595,8 +16957,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16619,7 +16981,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16646,8 +17008,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16670,7 +17032,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16697,8 +17059,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16721,7 +17083,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16748,8 +17110,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16772,7 +17134,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16799,8 +17161,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16823,7 +17185,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16850,8 +17212,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16874,7 +17236,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16901,8 +17263,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16925,7 +17287,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -16952,8 +17314,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -16976,7 +17338,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17003,8 +17365,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17027,7 +17389,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17054,8 +17416,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17078,7 +17440,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17105,8 +17467,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17129,7 +17491,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17156,8 +17518,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17180,7 +17542,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17207,8 +17569,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17231,7 +17593,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17258,8 +17620,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17282,7 +17644,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17309,8 +17671,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17333,7 +17695,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17360,8 +17722,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17384,7 +17746,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17410,165 +17772,7 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 115,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::TypeVariant(
-                                                                        TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 74,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 115,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 4,
-                                                        use_expr_idx: 3,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 74,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 115,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 74,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 115,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 20,
-                                        use_expr_idx: 1,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 74,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 115,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::default`,
-                                ),
-                                ast_idx: 1,
-                                use_expr_idx: 1,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visibility: Scope::PubUnder(
-                            `core::default`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::TypeVariant(
-                                                                        TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -17592,7 +17796,7 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -17621,7 +17825,7 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
@@ -17638,8 +17842,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -17650,7 +17854,7 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
@@ -17681,7 +17885,7 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
@@ -17700,7 +17904,165 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visibility: Scope::PubUnder(
+                            `core::default`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 75,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 117,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 75,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 117,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 4,
+                                                        use_expr_idx: 3,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 75,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 117,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 75,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 117,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId {
+                                            data: ItemPathData::TypeVariant(
+                                                TypeVariantPathData {
+                                                    parent_ty_path: TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 75,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 117,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::default`,
+                                ),
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17727,8 +18089,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17751,7 +18113,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17778,8 +18140,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17802,7 +18164,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17829,8 +18191,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17853,7 +18215,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17880,8 +18242,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17904,7 +18266,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17931,8 +18293,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -17955,7 +18317,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -17982,8 +18344,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -18006,7 +18368,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -18033,8 +18395,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -18057,7 +18419,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::default`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -18068,7 +18430,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 1,
+                        ast_idx: 2,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `core::default`,
@@ -18101,13 +18463,13 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `core`,
                         is_same_crate: true,
-                        ast_idx: 1,
+                        ast_idx: 2,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `core::default`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -19132,6 +19494,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::fmt`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::fmt`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::fmt`,
@@ -19153,8 +19566,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19204,8 +19617,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19255,8 +19668,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19306,8 +19719,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19357,8 +19770,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19408,8 +19821,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19459,8 +19872,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19510,8 +19923,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19561,8 +19974,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19612,8 +20025,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19663,8 +20076,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19714,8 +20127,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19765,8 +20178,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19816,8 +20229,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19867,8 +20280,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19918,8 +20331,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -19969,8 +20382,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20020,8 +20433,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20071,8 +20484,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20122,8 +20535,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20173,8 +20586,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20224,8 +20637,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20274,14 +20687,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -20298,14 +20711,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -20327,14 +20740,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -20344,8 +20757,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -20356,14 +20769,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -20387,14 +20800,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -20432,14 +20845,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -20456,14 +20869,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -20485,14 +20898,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -20502,8 +20915,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -20514,14 +20927,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -20545,14 +20958,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -20591,8 +21004,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20642,8 +21055,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20693,8 +21106,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20744,8 +21157,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20795,8 +21208,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20846,8 +21259,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20897,8 +21310,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -20971,7 +21384,7 @@ EntitySynTreeCrateBundle {
                             `core::fmt`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -22076,6 +22489,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::marker`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::marker`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::marker`,
@@ -22097,8 +22561,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22148,8 +22612,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22199,8 +22663,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22250,8 +22714,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22301,8 +22765,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22352,8 +22816,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22403,8 +22867,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22454,8 +22918,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22505,8 +22969,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22556,8 +23020,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22607,8 +23071,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22658,8 +23122,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22709,8 +23173,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22760,8 +23224,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22811,8 +23275,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22862,8 +23326,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22913,8 +23377,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -22964,8 +23428,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23015,8 +23479,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23066,8 +23530,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23117,8 +23581,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23168,8 +23632,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23218,14 +23682,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -23242,14 +23706,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -23271,14 +23735,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -23288,8 +23752,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -23300,14 +23764,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -23331,14 +23795,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -23376,14 +23840,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -23400,14 +23864,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -23429,14 +23893,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -23446,8 +23910,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -23458,14 +23922,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -23489,14 +23953,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -23535,8 +23999,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23586,8 +24050,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23637,8 +24101,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23688,8 +24152,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23739,8 +24203,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23790,8 +24254,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23841,8 +24305,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -23988,7 +24452,7 @@ EntitySynTreeCrateBundle {
                             `core::marker`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -25202,6 +25666,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::mem`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::mem`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::mem`,
@@ -25223,8 +25738,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25274,8 +25789,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25325,8 +25840,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25376,8 +25891,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25427,8 +25942,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25478,8 +25993,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25529,8 +26044,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25580,8 +26095,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25631,8 +26146,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25682,8 +26197,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25733,8 +26248,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25784,8 +26299,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25835,8 +26350,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25886,8 +26401,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25937,8 +26452,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -25988,8 +26503,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26039,8 +26554,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26090,8 +26605,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26141,8 +26656,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26192,8 +26707,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26243,8 +26758,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26294,8 +26809,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26344,14 +26859,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -26368,14 +26883,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -26397,14 +26912,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -26414,8 +26929,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -26426,14 +26941,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -26457,14 +26972,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -26502,14 +27017,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -26526,14 +27041,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -26555,14 +27070,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -26572,8 +27087,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -26584,14 +27099,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -26615,14 +27130,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -26661,8 +27176,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26712,8 +27227,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26763,8 +27278,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26814,8 +27329,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26865,8 +27380,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26916,8 +27431,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -26967,8 +27482,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -27104,7 +27619,7 @@ EntitySynTreeCrateBundle {
                             `core::mem`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -28973,6 +29488,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::num`,
+                                ),
+                                ast_idx: 41,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::num`,
@@ -28994,8 +29560,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29045,8 +29611,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29096,8 +29662,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29147,8 +29713,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29198,8 +29764,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29249,8 +29815,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29300,8 +29866,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29351,8 +29917,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29402,8 +29968,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29453,8 +30019,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29504,8 +30070,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29555,8 +30121,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29606,8 +30172,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29657,8 +30223,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29708,8 +30274,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29759,8 +30325,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29810,8 +30376,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29861,8 +30427,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29912,8 +30478,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -29963,8 +30529,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30014,8 +30580,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30065,8 +30631,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30115,14 +30681,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -30139,14 +30705,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -30168,14 +30734,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -30185,8 +30751,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -30197,14 +30763,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -30228,14 +30794,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -30273,14 +30839,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -30297,14 +30863,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -30326,14 +30892,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -30343,8 +30909,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -30355,14 +30921,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -30386,14 +30952,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -30432,8 +30998,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30483,8 +31049,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30534,8 +31100,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30585,8 +31151,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30636,8 +31202,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30687,8 +31253,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30738,8 +31304,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -30780,7 +31346,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 91,
+                                                        value: 92,
                                                     },
                                                 ),
                                             ),
@@ -30800,7 +31366,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 91,
+                                                            value: 92,
                                                         },
                                                     ),
                                                 ),
@@ -30904,7 +31470,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 93,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -30924,7 +31490,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 93,
+                                                            value: 94,
                                                         },
                                                     ),
                                                 ),
@@ -31028,7 +31594,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 95,
+                                                        value: 96,
                                                     },
                                                 ),
                                             ),
@@ -31048,7 +31614,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 95,
+                                                            value: 96,
                                                         },
                                                     ),
                                                 ),
@@ -31152,7 +31718,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 97,
+                                                        value: 98,
                                                     },
                                                 ),
                                             ),
@@ -31172,7 +31738,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 97,
+                                                            value: 98,
                                                         },
                                                     ),
                                                 ),
@@ -31276,7 +31842,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 99,
+                                                        value: 100,
                                                     },
                                                 ),
                                             ),
@@ -31296,7 +31862,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 99,
+                                                            value: 100,
                                                         },
                                                     ),
                                                 ),
@@ -31400,7 +31966,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 101,
+                                                        value: 102,
                                                     },
                                                 ),
                                             ),
@@ -31420,7 +31986,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 101,
+                                                            value: 102,
                                                         },
                                                     ),
                                                 ),
@@ -31524,7 +32090,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 103,
+                                                        value: 104,
                                                     },
                                                 ),
                                             ),
@@ -31544,7 +32110,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 103,
+                                                            value: 104,
                                                         },
                                                     ),
                                                 ),
@@ -31648,7 +32214,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 105,
+                                                        value: 106,
                                                     },
                                                 ),
                                             ),
@@ -31668,7 +32234,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 105,
+                                                            value: 106,
                                                         },
                                                     ),
                                                 ),
@@ -31772,7 +32338,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 107,
+                                                        value: 108,
                                                     },
                                                 ),
                                             ),
@@ -31792,7 +32358,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 107,
+                                                            value: 108,
                                                         },
                                                     ),
                                                 ),
@@ -31896,7 +32462,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 109,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -31916,7 +32482,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 109,
+                                                            value: 110,
                                                         },
                                                     ),
                                                 ),
@@ -32020,7 +32586,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 112,
                                                     },
                                                 ),
                                             ),
@@ -32040,7 +32606,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 112,
                                                         },
                                                     ),
                                                 ),
@@ -32144,7 +32710,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 113,
+                                                        value: 114,
                                                     },
                                                 ),
                                             ),
@@ -32164,7 +32730,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 113,
+                                                            value: 114,
                                                         },
                                                     ),
                                                 ),
@@ -32268,7 +32834,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 115,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -32288,7 +32854,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 115,
+                                                            value: 116,
                                                         },
                                                     ),
                                                 ),
@@ -32392,7 +32958,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 117,
+                                                        value: 118,
                                                     },
                                                 ),
                                             ),
@@ -32412,7 +32978,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 117,
+                                                            value: 118,
                                                         },
                                                     ),
                                                 ),
@@ -32647,7 +33213,7 @@ EntitySynTreeCrateBundle {
                             `core::num`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -34851,6 +35417,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::ops`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::ops`,
+                                ),
+                                ast_idx: 31,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::ops`,
@@ -34872,8 +35489,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -34923,8 +35540,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -34974,8 +35591,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35025,8 +35642,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35076,8 +35693,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35127,8 +35744,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35178,8 +35795,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35229,8 +35846,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35280,8 +35897,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35331,8 +35948,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35382,8 +35999,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35433,8 +36050,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35484,8 +36101,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35535,8 +36152,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35586,8 +36203,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35637,8 +36254,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35688,8 +36305,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35739,8 +36356,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35790,8 +36407,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35841,8 +36458,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35892,8 +36509,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35943,8 +36560,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -35993,14 +36610,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -36017,14 +36634,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -36046,14 +36663,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -36063,8 +36680,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -36075,14 +36692,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -36106,14 +36723,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -36151,14 +36768,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -36175,14 +36792,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -36204,14 +36821,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -36221,8 +36838,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -36233,14 +36850,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -36264,14 +36881,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -36310,8 +36927,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36361,8 +36978,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36412,8 +37029,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36463,8 +37080,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36514,8 +37131,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36565,8 +37182,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36616,8 +37233,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -36690,7 +37307,7 @@ EntitySynTreeCrateBundle {
                             `core::ops`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -36787,14 +37404,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -36811,14 +37428,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -36846,14 +37463,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -36870,14 +37487,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -37839,6 +38456,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::option`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::option`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::option`,
@@ -37860,8 +38528,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -37911,8 +38579,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -37962,8 +38630,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38013,8 +38681,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38064,8 +38732,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38115,8 +38783,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38166,8 +38834,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38217,8 +38885,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38268,8 +38936,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38319,8 +38987,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38370,8 +39038,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38421,8 +39089,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38472,8 +39140,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38523,8 +39191,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38574,8 +39242,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38625,8 +39293,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38676,8 +39344,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38727,8 +39395,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38778,8 +39446,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38829,8 +39497,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38880,8 +39548,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38931,8 +39599,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -38981,14 +39649,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -39005,14 +39673,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -39034,14 +39702,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -39051,8 +39719,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -39063,14 +39731,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -39094,14 +39762,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -39139,14 +39807,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -39163,14 +39831,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -39192,14 +39860,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -39209,8 +39877,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -39221,14 +39889,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -39252,14 +39920,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -39298,8 +39966,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39349,8 +40017,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39400,8 +40068,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39451,8 +40119,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39502,8 +40170,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39553,8 +40221,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39604,8 +40272,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -39724,7 +40392,7 @@ EntitySynTreeCrateBundle {
                             `core::option`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -39886,6 +40554,27 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::Pub,
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::MajorItem {
+                                    module_item_path: MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 2,
+                                use_expr_idx: 4,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::Use(
@@ -39901,8 +40590,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -39922,8 +40611,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -39943,8 +40632,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -39964,8 +40653,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -39985,8 +40674,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40006,8 +40695,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40027,8 +40716,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40048,8 +40737,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40069,8 +40758,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40090,8 +40779,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40111,8 +40800,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40132,8 +40821,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40153,8 +40842,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40174,8 +40863,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 2,
-                                use_expr_idx: 4,
+                                ast_idx: 3,
+                                use_expr_idx: 7,
                             },
                         ),
                     },
@@ -40195,8 +40884,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 3,
-                                use_expr_idx: 7,
+                                ast_idx: 4,
+                                use_expr_idx: 10,
                             },
                         ),
                     },
@@ -40216,8 +40905,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 4,
-                                use_expr_idx: 10,
+                                ast_idx: 5,
+                                use_expr_idx: 13,
                             },
                         ),
                     },
@@ -40237,8 +40926,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
-                                use_expr_idx: 13,
+                                ast_idx: 6,
+                                use_expr_idx: 16,
                             },
                         ),
                     },
@@ -40258,8 +40947,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
-                                use_expr_idx: 13,
+                                ast_idx: 6,
+                                use_expr_idx: 16,
                             },
                         ),
                     },
@@ -40279,8 +40968,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 6,
-                                use_expr_idx: 16,
+                                ast_idx: 7,
+                                use_expr_idx: 19,
                             },
                         ),
                     },
@@ -40300,8 +40989,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 6,
-                                use_expr_idx: 16,
+                                ast_idx: 7,
+                                use_expr_idx: 19,
                             },
                         ),
                     },
@@ -40321,8 +41010,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 7,
-                                use_expr_idx: 19,
+                                ast_idx: 8,
+                                use_expr_idx: 22,
                             },
                         ),
                     },
@@ -40342,8 +41031,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 22,
+                                ast_idx: 9,
+                                use_expr_idx: 25,
                             },
                         ),
                     },
@@ -40362,14 +41051,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -40386,14 +41075,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -40415,14 +41104,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -40432,8 +41121,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 22,
+                                ast_idx: 9,
+                                use_expr_idx: 25,
                             },
                         ),
                     },
@@ -40452,14 +41141,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -40476,14 +41165,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -40505,14 +41194,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -40522,8 +41211,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 22,
+                                ast_idx: 9,
+                                use_expr_idx: 25,
                             },
                         ),
                     },
@@ -40543,8 +41232,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 25,
+                                ast_idx: 10,
+                                use_expr_idx: 28,
                             },
                         ),
                     },
@@ -40564,8 +41253,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 25,
+                                ast_idx: 10,
+                                use_expr_idx: 28,
                             },
                         ),
                     },
@@ -40585,8 +41274,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 25,
+                                ast_idx: 10,
+                                use_expr_idx: 28,
                             },
                         ),
                     },
@@ -40606,8 +41295,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 25,
+                                ast_idx: 10,
+                                use_expr_idx: 28,
                             },
                         ),
                     },
@@ -40627,8 +41316,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 10,
-                                use_expr_idx: 28,
+                                ast_idx: 11,
+                                use_expr_idx: 31,
                             },
                         ),
                     },
@@ -40648,8 +41337,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 10,
-                                use_expr_idx: 28,
+                                ast_idx: 11,
+                                use_expr_idx: 31,
                             },
                         ),
                     },
@@ -40669,8 +41358,8 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 11,
-                                use_expr_idx: 31,
+                                ast_idx: 12,
+                                use_expr_idx: 34,
                             },
                         ),
                     },
@@ -40955,6 +41644,31 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
+                        ast_idx: 12,
+                        use_expr_idx: 36,
+                        visibility: Scope::Pub,
+                        variant: OnceUseRuleVariant::Parent {
+                            parent_name_token: PathNameToken::CrateRoot(
+                                CrateToken {
+                                    token_idx: TokenIdx(
+                                        80,
+                                    ),
+                                },
+                            ),
+                            children: ArenaIdxRange(
+                                35..36,
+                            ),
+                        },
+                        parent: None,
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::CrateRoot {
+                                    root_module_path: `core`,
+                                },
+                            ),
+                        },
+                    },
+                    UseOneRule {
                         ast_idx: 1,
                         use_expr_idx: 2,
                         visibility: Scope::Pub,
@@ -41001,7 +41715,7 @@ EntitySynTreeCrateBundle {
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
-                                    ident: `num`,
+                                    ident: `default`,
                                     token_idx: TokenIdx(
                                         12,
                                     ),
@@ -41009,6 +41723,46 @@ EntitySynTreeCrateBundle {
                             ),
                             children: ArenaIdxRange(
                                 4..5,
+                            ),
+                        },
+                        parent: Some(
+                            MajorEntityPath::Module(
+                                `core`,
+                            ),
+                        ),
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::default`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                    UseOneRule {
+                        ast_idx: 3,
+                        use_expr_idx: 8,
+                        visibility: Scope::Pub,
+                        variant: OnceUseRuleVariant::Parent {
+                            parent_name_token: PathNameToken::Ident(
+                                IdentToken {
+                                    ident: `num`,
+                                    token_idx: TokenIdx(
+                                        19,
+                                    ),
+                                },
+                            ),
+                            children: ArenaIdxRange(
+                                7..8,
                             ),
                         },
                         parent: Some(
@@ -41035,20 +41789,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 3,
-                        use_expr_idx: 8,
+                        ast_idx: 4,
+                        use_expr_idx: 11,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `raw_bits`,
                                     token_idx: TokenIdx(
-                                        19,
+                                        26,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                7..8,
+                                10..11,
                             ),
                         },
                         parent: Some(
@@ -41075,20 +41829,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 4,
-                        use_expr_idx: 11,
+                        ast_idx: 5,
+                        use_expr_idx: 14,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `fmt`,
                                     token_idx: TokenIdx(
-                                        26,
+                                        33,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                10..11,
+                                13..14,
                             ),
                         },
                         parent: Some(
@@ -41115,20 +41869,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 5,
-                        use_expr_idx: 14,
+                        ast_idx: 6,
+                        use_expr_idx: 17,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `visual`,
                                     token_idx: TokenIdx(
-                                        33,
+                                        40,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                13..14,
+                                16..17,
                             ),
                         },
                         parent: Some(
@@ -41155,20 +41909,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 6,
-                        use_expr_idx: 17,
+                        ast_idx: 7,
+                        use_expr_idx: 20,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `marker`,
                                     token_idx: TokenIdx(
-                                        40,
+                                        47,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                16..17,
+                                19..20,
                             ),
                         },
                         parent: Some(
@@ -41195,20 +41949,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 7,
-                        use_expr_idx: 20,
+                        ast_idx: 8,
+                        use_expr_idx: 23,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `clone`,
                                     token_idx: TokenIdx(
-                                        47,
+                                        54,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                19..20,
+                                22..23,
                             ),
                         },
                         parent: Some(
@@ -41235,20 +41989,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 8,
-                        use_expr_idx: 23,
+                        ast_idx: 9,
+                        use_expr_idx: 26,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `option`,
                                     token_idx: TokenIdx(
-                                        54,
+                                        61,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                22..23,
+                                25..26,
                             ),
                         },
                         parent: Some(
@@ -41275,20 +42029,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 9,
-                        use_expr_idx: 26,
+                        ast_idx: 10,
+                        use_expr_idx: 29,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `cmp`,
                                     token_idx: TokenIdx(
-                                        61,
+                                        68,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                25..26,
+                                28..29,
                             ),
                         },
                         parent: Some(
@@ -41315,20 +42069,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 10,
-                        use_expr_idx: 29,
+                        ast_idx: 11,
+                        use_expr_idx: 32,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `slice`,
                                     token_idx: TokenIdx(
-                                        68,
+                                        75,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                28..29,
+                                31..32,
                             ),
                         },
                         parent: Some(
@@ -41355,20 +42109,20 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 11,
-                        use_expr_idx: 32,
+                        ast_idx: 12,
+                        use_expr_idx: 35,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
                                 IdentToken {
                                     ident: `vec`,
                                     token_idx: TokenIdx(
-                                        75,
+                                        82,
                                     ),
                                 },
                             ),
                             children: ArenaIdxRange(
-                                31..32,
+                                34..35,
                             ),
                         },
                         parent: Some(
@@ -41405,41 +42159,41 @@ EntitySynTreeCrateBundle {
                         use_expr_idx: 1,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::num`,
+                        parent_module_path: `core::default`,
                         is_same_crate: true,
                         ast_idx: 2,
                         use_expr_idx: 4,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            72,
+                            59,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::raw_bits`,
+                        parent_module_path: `core::num`,
                         is_same_crate: true,
                         ast_idx: 3,
                         use_expr_idx: 7,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            58,
+                            73,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::fmt`,
+                        parent_module_path: `core::raw_bits`,
                         is_same_crate: true,
                         ast_idx: 4,
                         use_expr_idx: 10,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::visual`,
+                        parent_module_path: `core::fmt`,
                         is_same_crate: true,
                         ast_idx: 5,
                         use_expr_idx: 13,
@@ -41449,37 +42203,37 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::marker`,
+                        parent_module_path: `core::visual`,
                         is_same_crate: true,
                         ast_idx: 6,
                         use_expr_idx: 16,
-                        visibility: Scope::Pub,
-                        progress: Ok(
-                            59,
-                        ),
-                    },
-                    UseAllRule {
-                        parent_module_path: `core::clone`,
-                        is_same_crate: true,
-                        ast_idx: 7,
-                        use_expr_idx: 19,
-                        visibility: Scope::Pub,
-                        progress: Ok(
-                            58,
-                        ),
-                    },
-                    UseAllRule {
-                        parent_module_path: `core::option`,
-                        is_same_crate: true,
-                        ast_idx: 8,
-                        use_expr_idx: 22,
                         visibility: Scope::Pub,
                         progress: Ok(
                             60,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::cmp`,
+                        parent_module_path: `core::marker`,
+                        is_same_crate: true,
+                        ast_idx: 7,
+                        use_expr_idx: 19,
+                        visibility: Scope::Pub,
+                        progress: Ok(
+                            60,
+                        ),
+                    },
+                    UseAllRule {
+                        parent_module_path: `core::clone`,
+                        is_same_crate: true,
+                        ast_idx: 8,
+                        use_expr_idx: 22,
+                        visibility: Scope::Pub,
+                        progress: Ok(
+                            59,
+                        ),
+                    },
+                    UseAllRule {
+                        parent_module_path: `core::option`,
                         is_same_crate: true,
                         ast_idx: 9,
                         use_expr_idx: 25,
@@ -41489,23 +42243,33 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::slice`,
+                        parent_module_path: `core::cmp`,
                         is_same_crate: true,
                         ast_idx: 10,
                         use_expr_idx: 28,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            62,
                         ),
                     },
                     UseAllRule {
-                        parent_module_path: `core::vec`,
+                        parent_module_path: `core::slice`,
                         is_same_crate: true,
                         ast_idx: 11,
                         use_expr_idx: 31,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            58,
+                            60,
+                        ),
+                    },
+                    UseAllRule {
+                        parent_module_path: `core::vec`,
+                        is_same_crate: true,
+                        ast_idx: 12,
+                        use_expr_idx: 34,
+                        visibility: Scope::Pub,
+                        progress: Ok(
+                            59,
                         ),
                     },
                 ],
@@ -42530,6 +43294,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::raw_bits`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::raw_bits`,
+                                ),
+                                ast_idx: 6,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::raw_bits`,
@@ -42551,8 +43366,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42602,8 +43417,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42653,8 +43468,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42704,8 +43519,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42755,8 +43570,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42806,8 +43621,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42857,8 +43672,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42908,8 +43723,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -42959,8 +43774,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43010,8 +43825,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43061,8 +43876,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43112,8 +43927,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43163,8 +43978,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43214,8 +44029,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43265,8 +44080,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43316,8 +44131,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43367,8 +44182,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43418,8 +44233,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43469,8 +44284,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43520,8 +44335,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43571,8 +44386,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43622,8 +44437,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -43672,14 +44487,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -43696,14 +44511,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -43725,14 +44540,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -43742,8 +44557,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -43754,14 +44569,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -43785,14 +44600,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -43830,14 +44645,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -43854,14 +44669,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -43883,14 +44698,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -43900,8 +44715,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -43912,14 +44727,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -43943,14 +44758,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -43989,8 +44804,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44040,8 +44855,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44091,8 +44906,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44142,8 +44957,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44193,8 +45008,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44244,8 +45059,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44295,8 +45110,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -44337,7 +45152,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 119,
+                                                        value: 120,
                                                     },
                                                 ),
                                             ),
@@ -44357,7 +45172,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 119,
+                                                            value: 120,
                                                         },
                                                     ),
                                                 ),
@@ -44424,7 +45239,7 @@ EntitySynTreeCrateBundle {
                             `core::raw_bits`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -44521,14 +45336,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 78,
+                                                                value: 79,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 125,
+                                                                value: 126,
                                                             },
                                                         ),
                                                     ),
@@ -44545,14 +45360,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 78,
+                                                                value: 79,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 125,
+                                                                value: 126,
                                                             },
                                                         ),
                                                     ),
@@ -44580,14 +45395,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 78,
+                                                                value: 79,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 126,
+                                                                value: 127,
                                                             },
                                                         ),
                                                     ),
@@ -44604,14 +45419,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 78,
+                                                                value: 79,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 126,
+                                                                value: 127,
                                                             },
                                                         ),
                                                     ),
@@ -45573,6 +46388,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::result`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::result`,
+                                ),
+                                ast_idx: 6,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::result`,
@@ -45594,8 +46460,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45645,8 +46511,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45696,8 +46562,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45747,8 +46613,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45798,8 +46664,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45849,8 +46715,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45900,8 +46766,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -45951,8 +46817,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46002,8 +46868,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46053,8 +46919,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46104,8 +46970,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46155,8 +47021,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46206,8 +47072,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46257,8 +47123,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46308,8 +47174,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46359,8 +47225,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46410,8 +47276,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46461,8 +47327,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46512,8 +47378,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46563,8 +47429,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46614,8 +47480,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46665,8 +47531,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -46715,14 +47581,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -46739,14 +47605,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -46768,14 +47634,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -46785,8 +47651,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -46797,14 +47663,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -46828,14 +47694,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -46873,14 +47739,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -46897,14 +47763,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -46926,14 +47792,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -46943,8 +47809,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -46955,14 +47821,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -46986,14 +47852,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -47032,8 +47898,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47083,8 +47949,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47134,8 +48000,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47185,8 +48051,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47236,8 +48102,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47287,8 +48153,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47338,8 +48204,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -47529,7 +48395,7 @@ EntitySynTreeCrateBundle {
                             `core::result`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -48554,6 +49420,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::vec`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::vec`,
+                                ),
+                                ast_idx: 9,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::vec`,
@@ -48575,8 +49492,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48626,8 +49543,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48677,8 +49594,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48728,8 +49645,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48779,8 +49696,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48830,8 +49747,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48881,8 +49798,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48932,8 +49849,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -48983,8 +49900,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49034,8 +49951,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49085,8 +50002,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49136,8 +50053,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49187,8 +50104,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49238,8 +50155,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49289,8 +50206,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49340,8 +50257,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49391,8 +50308,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49442,8 +50359,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49493,8 +50410,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49544,8 +50461,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49595,8 +50512,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49646,8 +50563,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -49696,14 +50613,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -49720,14 +50637,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -49749,14 +50666,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -49766,8 +50683,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -49778,14 +50695,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -49809,14 +50726,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -49854,14 +50771,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -49878,14 +50795,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -49907,14 +50824,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -49924,8 +50841,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -49936,14 +50853,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -49967,14 +50884,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -50013,8 +50930,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50064,8 +50981,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50115,8 +51032,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50166,8 +51083,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50217,8 +51134,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50268,8 +51185,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50319,8 +51236,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -50361,7 +51278,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 121,
+                                                        value: 122,
                                                     },
                                                 ),
                                             ),
@@ -50381,7 +51298,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -50448,7 +51365,7 @@ EntitySynTreeCrateBundle {
                             `core::vec`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -51536,6 +52453,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::slice`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::slice`,
+                                ),
+                                ast_idx: 9,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::slice`,
@@ -51557,8 +52525,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51608,8 +52576,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51659,8 +52627,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51710,8 +52678,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51761,8 +52729,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51812,8 +52780,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51863,8 +52831,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51914,8 +52882,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -51965,8 +52933,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52016,8 +52984,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52067,8 +53035,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52118,8 +53086,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52169,8 +53137,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52220,8 +53188,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52271,8 +53239,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52322,8 +53290,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52373,8 +53341,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52424,8 +53392,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52475,8 +53443,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52526,8 +53494,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52577,8 +53545,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52628,8 +53596,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -52678,14 +53646,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -52702,14 +53670,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -52731,14 +53699,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -52748,8 +53716,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -52760,14 +53728,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -52791,14 +53759,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -52836,14 +53804,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -52860,14 +53828,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -52889,14 +53857,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -52906,8 +53874,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -52918,14 +53886,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -52949,14 +53917,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -52995,8 +53963,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53046,8 +54014,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53097,8 +54065,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53148,8 +54116,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53199,8 +54167,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53250,8 +54218,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53301,8 +54269,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -53343,7 +54311,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 122,
+                                                        value: 123,
                                                     },
                                                 ),
                                             ),
@@ -53363,7 +54331,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 122,
+                                                            value: 123,
                                                         },
                                                     ),
                                                 ),
@@ -53467,7 +54435,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 124,
+                                                        value: 125,
                                                     },
                                                 ),
                                             ),
@@ -53487,7 +54455,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 124,
+                                                            value: 125,
                                                         },
                                                     ),
                                                 ),
@@ -53554,7 +54522,7 @@ EntitySynTreeCrateBundle {
                             `core::slice`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -54642,6 +55610,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::str`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::str`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::str`,
@@ -54663,8 +55682,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54714,8 +55733,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54765,8 +55784,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54816,8 +55835,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54867,8 +55886,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54918,8 +55937,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -54969,8 +55988,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55020,8 +56039,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55071,8 +56090,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55122,8 +56141,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55173,8 +56192,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55224,8 +56243,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55275,8 +56294,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55326,8 +56345,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55377,8 +56396,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55428,8 +56447,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55479,8 +56498,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55530,8 +56549,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55581,8 +56600,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55632,8 +56651,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55683,8 +56702,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55734,8 +56753,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -55784,14 +56803,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -55808,14 +56827,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -55837,14 +56856,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -55854,8 +56873,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -55866,14 +56885,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -55897,14 +56916,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -55942,14 +56961,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -55966,14 +56985,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -55995,14 +57014,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -56012,8 +57031,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -56024,14 +57043,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -56055,14 +57074,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -56101,8 +57120,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56152,8 +57171,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56203,8 +57222,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56254,8 +57273,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56305,8 +57324,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56356,8 +57375,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56407,8 +57426,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -56481,7 +57500,7 @@ EntitySynTreeCrateBundle {
                             `core::str`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],
@@ -57575,6 +58594,57 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Default`,
+                        visibility: Scope::PubUnder(
+                            `core::visual`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    module_item_path: MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
+                                                        TraitPath(`core::default::Default`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 2,
+                                                use_expr_idx: 4,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::default::Default`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Trait(
+                                        TraitPath(`core::default::Default`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::visual`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `i8`,
                         visibility: Scope::PubUnder(
                             `core::visual`,
@@ -57596,8 +58666,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57647,8 +58717,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57698,8 +58768,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57749,8 +58819,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57800,8 +58870,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57851,8 +58921,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57902,8 +58972,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -57953,8 +59023,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58004,8 +59074,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58055,8 +59125,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58106,8 +59176,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58157,8 +59227,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58208,8 +59278,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58259,8 +59329,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 2,
-                                                use_expr_idx: 4,
+                                                ast_idx: 3,
+                                                use_expr_idx: 7,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58310,8 +59380,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 7,
+                                                ast_idx: 4,
+                                                use_expr_idx: 10,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58361,8 +59431,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 10,
+                                                ast_idx: 5,
+                                                use_expr_idx: 13,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58412,8 +59482,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58463,8 +59533,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 5,
-                                                use_expr_idx: 13,
+                                                ast_idx: 6,
+                                                use_expr_idx: 16,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58514,8 +59584,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58565,8 +59635,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 6,
-                                                use_expr_idx: 16,
+                                                ast_idx: 7,
+                                                use_expr_idx: 19,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58616,8 +59686,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 7,
-                                                use_expr_idx: 19,
+                                                ast_idx: 8,
+                                                use_expr_idx: 22,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58667,8 +59737,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -58717,14 +59787,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -58741,14 +59811,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 115,
+                                                                                        value: 116,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -58770,14 +59840,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 115,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -58787,8 +59857,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -58799,14 +59869,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 115,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -58830,14 +59900,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 115,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -58875,14 +59945,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -58899,14 +59969,14 @@ EntitySynTreeCrateBundle {
                                                                             parent_ty_path: TypePath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 74,
+                                                                                        value: 75,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                             ident: Ident(
                                                                                 Coword(
                                                                                     Id {
-                                                                                        value: 116,
+                                                                                        value: 117,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -58928,14 +59998,14 @@ EntitySynTreeCrateBundle {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 74,
+                                                                                value: 75,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 116,
+                                                                                value: 117,
                                                                             },
                                                                         ),
                                                                     ),
@@ -58945,8 +60015,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 8,
-                                                use_expr_idx: 22,
+                                                ast_idx: 9,
+                                                use_expr_idx: 25,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -58957,14 +60027,14 @@ EntitySynTreeCrateBundle {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 74,
+                                                                        value: 75,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 116,
+                                                                        value: 117,
                                                                     },
                                                                 ),
                                                             ),
@@ -58988,14 +60058,14 @@ EntitySynTreeCrateBundle {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 74,
+                                                                value: 75,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 116,
+                                                                value: 117,
                                                             },
                                                         ),
                                                     ),
@@ -59034,8 +60104,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59085,8 +60155,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59136,8 +60206,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59187,8 +60257,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 25,
+                                                ast_idx: 10,
+                                                use_expr_idx: 28,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59238,8 +60308,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59289,8 +60359,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 10,
-                                                use_expr_idx: 28,
+                                                ast_idx: 11,
+                                                use_expr_idx: 31,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59340,8 +60410,8 @@ EntitySynTreeCrateBundle {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 31,
+                                                ast_idx: 12,
+                                                use_expr_idx: 34,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -59495,7 +60565,7 @@ EntitySynTreeCrateBundle {
                             `core::visual`,
                         ),
                         progress: Ok(
-                            57,
+                            58,
                         ),
                     },
                 ],

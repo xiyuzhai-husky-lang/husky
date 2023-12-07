@@ -63,22 +63,26 @@ impl IllFormedImplBlockSynNode {
         db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
         impl_token: ImplToken,
-        module: ModulePath,
+        module_path: ModulePath,
         ast_idx: AstIdx,
         items: Option<ImplBlockItems>,
         ill_form: ImplBlockIllForm,
     ) -> Self {
-        todo!()
-        // IllFormedImplBlockSynNode::new_inner(
-        //     db,
-        //     IllFormedImplBlockSynNodePath {
-        //         path: IllFormedImplBlockPath::new(db, registry, module),
-        //     },
-        //     impl_token,
-        //     ast_idx,
-        //     items,
-        //     ill_form,
-        // )
+        IllFormedImplBlockSynNode {
+            syn_node_path: IllFormedImplBlockSynNodePath(ItemSynNodePathId::new(
+                db,
+                ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::IllFormedImplBlock(
+                    IllFormedImplBlockSynNodePathData {
+                        module_path,
+                        disambiguator: registry.issue_ill_formed_disambiguitor(module_path),
+                    },
+                )),
+            )),
+            impl_token,
+            ast_idx,
+            items,
+            ill_form,
+        }
     }
 
     pub(crate) fn ill_form(&self) -> &ImplBlockIllForm {

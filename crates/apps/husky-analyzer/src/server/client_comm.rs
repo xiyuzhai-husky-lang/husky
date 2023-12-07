@@ -63,8 +63,8 @@ impl ClientCommunicator {
             }
         };
         if send_flag {
-            let path = module_path.virtual_path(db).data(db);
-            match url_from_path(path) {
+            let path = module_path.virtual_path(db).abs_path(db).unwrap();
+            match url_from_path(&path) {
                 Ok(url) => self.send_diagnostics_aux(url, diagnostics, None),
                 Err(_) => eprintln!("error in translating path {:?}", path),
             }
