@@ -11,7 +11,7 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
         let path = hir_decl.path(db);
         match path.trai_path(db).refine(db) {
             // skipping visualize, will be replaced by cfg to achieve the same skipping
-            Left(PreludeTraitPath::VISUALIZE) => return,
+            Left(PreludeTraitPath::VISUALIZE | PreludeTraitPath::INT_INDEX) => return,
             _ => (),
         }
         hir_decl.transpile_to_rust(builder);

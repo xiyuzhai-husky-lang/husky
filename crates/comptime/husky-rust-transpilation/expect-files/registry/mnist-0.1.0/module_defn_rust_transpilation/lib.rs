@@ -21,16 +21,7 @@ impl BinaryImage28 {
     
 }
 
-impl IntIndex for BinaryImage28 {
-    
-    type Output = u32;
-}
-
 impl BinaryGrid28 {
     
 }
 
-impl IntIndex for BinaryGrid28 {
-    
-    type Output = u32;
-}
