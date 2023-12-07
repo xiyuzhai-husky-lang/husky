@@ -45,7 +45,7 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
     let N = ct.points.ilen();
     let max_end = start + N;
     while end <= max_end && dp.norm() < r {
-        end+= 1;
+        end += 1;
         dp = ct.displacement(start, end + 1)
     }
     if dp.norm() < r {
@@ -71,7 +71,7 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
                 left_bound = dp_left
             }
         }
-        end+= 1;
+        end += 1;
         dp = ct.displacement(start, end + 1)
     }
     assert!(end > start);
@@ -83,7 +83,7 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
     let mut dp0 = ct.displacement(end, start - 1);
     let min_start = end - ct.points.ilen();
     while start >= min_start && dp0.norm() < r {
-        start-= 1;
+        start -= 1;
         dp0 = ct.displacement(end, start - 1)
     }
     if dp0.norm() < r {
@@ -114,7 +114,7 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
             if start <= start0 && !(right_bound.rotation_direction_to(&dp) >= 0 && dp.rotation_direction_to(&left_bound) >= 0) {
                 break;
             }
-            start-= 1
+            start -= 1
         } else {
             break;
         }

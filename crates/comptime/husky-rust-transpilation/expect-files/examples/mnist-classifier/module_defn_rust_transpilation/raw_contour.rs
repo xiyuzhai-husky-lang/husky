@@ -269,7 +269,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                     }
                     inward_direction = outward_direction;
                     if current_streak != -1 {
-                        current_streak+= 1
+                        current_streak += 1
                     }
                 }
                 if !!(i == i0 && j == j0 && inward_direction == dir0) {

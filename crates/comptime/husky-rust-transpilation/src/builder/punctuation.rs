@@ -248,8 +248,8 @@ impl<E> TranspileToRustWith<E> for HirPrefixOpr {
 impl<E> TranspileToRustWith<E> for HirSuffixOpr {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
-            HirSuffixOpr::Incr => "+= 1",
-            HirSuffixOpr::Decr => "-= 1",
+            HirSuffixOpr::Incr => " += 1",
+            HirSuffixOpr::Decr => " -= 1",
             HirSuffixOpr::Unveil => "?",
             HirSuffixOpr::Unwrap => ".unwrap()",
         };

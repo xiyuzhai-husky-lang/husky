@@ -56,7 +56,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                             mask[(i + 1) as usize] = new_row
                         }
                     }
-                    i+= 1
+                    i += 1
                 }
                 while i >= j {
                     {
@@ -67,7 +67,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                             mask[i as usize] = new_row
                         }
                     }
-                    i-= 1
+                    i -= 1
                 }
             }
             for k in j..30 {
@@ -129,7 +129,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            row_start+= 1
+            row_start += 1
         }
         let mut row_end = row_start + 1;
         while row_end < 29 {
@@ -138,7 +138,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            row_end+= 1
+            row_end += 1
         }
         let height = row_end - row_start;
         let half_height = height / 2;
@@ -171,7 +171,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            i+= 1
+            i += 1
         }
         for j in i..i + k {
             top_k_row_span_sum += self.mask[j as usize].span()
@@ -189,7 +189,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            i+= 1
+            i += 1
         }
         for j in i..i + k {
             top_k_row_span_sum += self.mask[j as usize].right_mass()
