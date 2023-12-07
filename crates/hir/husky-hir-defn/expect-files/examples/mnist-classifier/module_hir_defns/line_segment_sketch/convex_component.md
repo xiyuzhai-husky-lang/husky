@@ -27,6 +27,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `line_segments`,
@@ -54,6 +55,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

@@ -104,6 +104,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `start`,
@@ -113,6 +114,11 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: Some(
+                                    Bind {
+                                        value: 4,
+                                    },
+                                ),
                             },
                             PropsStructFieldHirDecl {
                                 ident: `end`,
@@ -120,6 +126,11 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         template_arguments: [],
+                                    },
+                                ),
+                                initialization: Some(
+                                    Bind {
+                                        value: 8,
                                     },
                                 ),
                             },
@@ -133,7 +144,192 @@
                                 ),
                             ),
                             expr_arena: Arena {
-                                data: [],
+                                data: [
+                                    HirEagerExprData::Variable(
+                                        1,
+                                    ),
+                                    HirEagerExprData::MethodFnCall {
+                                        self_argument: 1,
+                                        ident: `first`,
+                                        path: AssociatedItemPath::TypeItem(
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        Type {
+                                                            attrs: HirTemplateSymbolAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    HirEagerExprData::Suffix {
+                                        opd_hir_expr_idx: 2,
+                                        opr: Unwrap,
+                                    },
+                                    HirEagerExprData::MethodFnCall {
+                                        self_argument: 3,
+                                        ident: `clone`,
+                                        path: AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::clone`,
+                                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `clone`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        SelfType,
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    HirEagerExprData::Variable(
+                                        1,
+                                    ),
+                                    HirEagerExprData::MethodFnCall {
+                                        self_argument: 5,
+                                        ident: `last`,
+                                        path: AssociatedItemPath::TypeItem(
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        Type {
+                                                            attrs: HirTemplateSymbolAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    HirEagerExprData::Suffix {
+                                        opd_hir_expr_idx: 6,
+                                        opr: Unwrap,
+                                    },
+                                    HirEagerExprData::MethodFnCall {
+                                        self_argument: 7,
+                                        ident: `clone`,
+                                        path: AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::clone`,
+                                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `clone`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        SelfType,
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                ],
                             },
                             stmt_arena: Arena {
                                 data: [],
@@ -205,6 +401,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `strokes`,
@@ -223,6 +420,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

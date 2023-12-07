@@ -1,4 +1,5 @@
 use super::*;
+use husky_print_utils::p;
 use husky_syn_decl::PropsStructTypeSynDecl;
 use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
@@ -75,6 +76,7 @@ impl PropsFieldHirInitialization {
         initialization: PropsFieldSynInitialization,
         builder: &HirDeclBuilder,
     ) -> PropsFieldHirInitialization {
+        // builder.sema_expr_region_data().sema_expr_roots();
         match initialization {
             PropsFieldSynInitialization::Bind {
                 colon_eq_token,

@@ -1880,6 +1880,133 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            HirTemplateSymbol::Type(
+                                Type {
+                                    attrs: HirTemplateSymbolAttrs {
+                                        class: Comptime,
+                                    },
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            JavelinTermSymbolResolution::Explicit(
+                                JavelinTemplateArgument::Type(
+                                    JavelinType::PathLeading(
+                                        JavelinTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            HirTemplateSymbol::Type(
+                                SelfType,
+                            ),
+                            JavelinTermSymbolResolution::Explicit(
+                                JavelinTemplateArgument::Type(
+                                    JavelinType::PathLeading(
+                                        JavelinTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            HirTemplateSymbol::Type(
+                                Type {
+                                    attrs: HirTemplateSymbolAttrs {
+                                        class: Comptime,
+                                    },
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            JavelinTermSymbolResolution::Explicit(
+                                JavelinTemplateArgument::Type(
+                                    JavelinType::PathLeading(
+                                        JavelinTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
                     TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2429,57 +2556,6 @@
                                     JavelinType::PathLeading(
                                         JavelinTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::clone`,
-                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `clone`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            HirTemplateSymbol::Type(
-                                SelfType,
-                            ),
-                            JavelinTermSymbolResolution::Explicit(
-                                JavelinTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
                                     ),
