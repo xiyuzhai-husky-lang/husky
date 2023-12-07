@@ -8153,8 +8153,10 @@
                             base: Ethereal(
                                 Literal(
                                     F32(
-                                        NotNan(
-                                            0.5,
+                                        TermF32Literal(
+                                            Id {
+                                                value: 3,
+                                            },
                                         ),
                                     ),
                                 ),

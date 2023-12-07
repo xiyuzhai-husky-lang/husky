@@ -311,9 +311,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    999999.0,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        999999.0,
+                                                    ),
+                                                    text: "999999.0",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Prefix {
@@ -631,9 +634,12 @@
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
-                                                NotNan(
-                                                    999999.0,
-                                                ),
+                                                TermF32Literal {
+                                                    value: OrderedFloat(
+                                                        999999.0,
+                                                    ),
+                                                    text: "999999.0",
+                                                },
                                             ),
                                         ),
                                         HirEagerExprData::Prefix {

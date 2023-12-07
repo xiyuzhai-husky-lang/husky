@@ -6,19 +6,19 @@ pub fn two_match() -> FermiMatchResult {
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y < 0);
+    require!(dp.y < 0.0);
     Some(dp.y)
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y > 0);
+    require!(dp.y > 0.0);
     Some(dp.y)
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.x > 0);
+    require!(dp.x > 0.0);
     Some(dp.x)
 }
 
@@ -37,21 +37,21 @@ pub fn is_two() -> OneVsAll {
     let down_cc = two_match().matches[2];
     require!(cc_num <= 3);
     let lower_excess = major_connected_component().lower_mass() - major_connected_component().upper_mass();
-    require!(lower_excess > 10);
+    require!(lower_excess > 10.0);
     if cc_num == 2 {
         require!(let some = left_cc);
         require!(let some = right_cc);
         let a = right_cc.unwrap().angle_change();
-        require!(a > -180);
+        require!(a > -180.0);
         let end_tan = left_cc.unwrap().end_tangent().angle(true);
         let x = left_cc.unwrap().end_tangent().x;
         let y = left_cc.unwrap().end_tangent().y;
         let left_ymax = left_cc.unwrap().relative_bounding_box().ymax();
         let left_ymin = left_cc.unwrap().relative_bounding_box().ymin();
-        let left_mid_y = (left_ymax + left_ymin) / 2;
+        let left_mid_y = (left_ymax + left_ymin) / 2.0;
         let right_ymax = right_cc.unwrap().relative_bounding_box().ymax();
         let right_ymin = right_cc.unwrap().relative_bounding_box().ymin();
-        let right_mid_y = (right_ymax + right_ymin) / 2;
+        let right_mid_y = (right_ymax + right_ymin) / 2.0;
         require!(left_mid_y >= right_mid_y);
     }
     if cc_num == 3 {

@@ -1,12 +1,13 @@
 use super::*;
+use husky_term_prelude::float::{TermF32Literal, TermF64Literal};
 use ordered_float::NotNan;
 use std::ops::Neg;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FloatLiteralData {
     Unspecified(UnspecifiedFloatLiteral),
-    F32(NotNan<f32>),
-    F64(NotNan<f64>),
+    F32(TermF32Literal),
+    F64(TermF64Literal),
 }
 
 #[salsa::tracked(db = TokenDataDb, jar = TokenDataJar)]

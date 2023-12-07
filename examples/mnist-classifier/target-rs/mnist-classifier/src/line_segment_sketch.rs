@@ -53,7 +53,7 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
     }
     let mut right_bound = go_right(&dp, r);
     let mut left_bound = go_left(&dp, r);
-    let mut r_max = 0;
+    let mut r_max = 0.0;
     while end <= max_end && right_bound.rotation_direction_to(&dp) >= 0 && dp.rotation_direction_to(&left_bound) >= 0 {
         let dp_norm = dp.norm();
         if dp_norm < r_max - r {
@@ -91,7 +91,7 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
     }
     let mut right_bound = go_right(&dp0, r);
     let mut left_bound = go_left(&dp0, r);
-    let mut r_max = 0;
+    let mut r_max = 0.0;
     while start >= min_start {
         let dp = ct.displacement(end, start - 1);
         let dp_norm = dp.norm();
@@ -138,7 +138,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
         if line_segments.ilen() > 0 {
             let dp_extend_end = ls_extend_end.displacement();
             let dp_previous = line_segments.last().unwrap().displacement();
-            if dp_extend_end.cross(&dp_previous).abs() < 0.01 && dp_extend_end.dot(&dp_previous) > 0 {
+            if dp_extend_end.cross(&dp_previous).abs() < 0.01 && dp_extend_end.dot(&dp_previous) > 0.0 {
                 let N = ct.points.ilen();
                 line_segments.last().unwrap() = LineSegmentStroke::new(ct, line_segments.last().unwrap().points.start(), end);
                 extend_start_flag = false
@@ -152,7 +152,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to(&ls.end);
-                if dp.cross(&dp_last).abs() < 0.001 && dp.dot(&dp_last) > 0 && dp.cross(&dp1).abs() < 0.001 && dp.dot(&dp1) > 0 {
+                if dp.cross(&dp_last).abs() < 0.001 && dp.dot(&dp_last) > 0.0 && dp.cross(&dp1).abs() < 0.001 && dp.dot(&dp1) > 0.0 {
                     let ls_last = line_segments.pop().unwrap();
                     ls = LineSegmentStroke::new(ct, ls_last.points.start(), ls.points.end())
                 }

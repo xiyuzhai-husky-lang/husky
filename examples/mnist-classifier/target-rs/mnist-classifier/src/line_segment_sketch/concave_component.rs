@@ -37,7 +37,7 @@ impl ConcaveComponent {
     }
 
     pub fn hausdorff_norm(self) -> f32 {
-        let mut hausdorff_norm = 0;
+        let mut hausdorff_norm = 0.0;
         let curve_start = self.strokes.first().unwrap().start;
         let curve_ls = self.line_segment();
         let dp_norm = curve_ls.displacement().norm();
@@ -52,7 +52,7 @@ impl ConcaveComponent {
     }
 
     pub fn angle_change(self) -> f32 {
-        let mut angle_change = 0;
+        let mut angle_change = 0.0;
         let mut dp0 = self.strokes[self.strokes.start()].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
             let dp = self.strokes[i].displacement();

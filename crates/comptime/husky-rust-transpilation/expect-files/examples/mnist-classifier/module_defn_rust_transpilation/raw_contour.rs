@@ -191,7 +191,7 @@ pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[N - 2];
     let p2 = points[N - 1];
-    Point2d::__constructor((p0.x + p2.x) / 2, (p0.y + p2.y) / 2)
+    Point2d::__constructor((p0.x + p2.x) / 2.0, (p0.y + p2.y) / 2.0)
 }
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
@@ -311,7 +311,7 @@ impl RawContour {
     }
 
     pub fn contour_len(self) -> f32 {
-        let mut contour_len = 0;
+        let mut contour_len = 0.0;
         for i in (0 + 1)..self.points.ilen() {
             let a = self.points[i - 1];
             let b = self.points[i];

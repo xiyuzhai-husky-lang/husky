@@ -5,7 +5,7 @@ pub fn open_one_match() -> FermiMatchResult {
 }
 
 pub fn almost_closed(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    require!(cc.angle_change() + 0 < -140);
-    Some(-cc.angle_change() + 0)
+    require!(cc.angle_change() + 0.0 < -140.0);
+    Some(-cc.angle_change() + 0.0)
 }
 

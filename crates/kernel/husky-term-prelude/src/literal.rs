@@ -1,4 +1,6 @@
-use crate::*;
+pub mod float;
+
+use crate::{float::*, *};
 use ordered_float::{NotNan, OrderedFloat};
 use salsa::Db;
 
@@ -48,7 +50,7 @@ pub enum TermLiteral {
     /// natural number literal
     Nat(TermNatLiteral),
     /// 32-bit float literal
-    F32(NotNan<f32>),
+    F32(TermF32Literal),
     /// 64-bit float literal
     F64(TermF64Literal),
     /// string literal
@@ -120,7 +122,7 @@ impl TermLiteral {
             TermLiteral::I32(val) => f.write_fmt(format_args!("{}", val)),
             TermLiteral::I64(_) => todo!(),
             TermLiteral::Nat(_) => todo!(),
-            TermLiteral::F32(val) => f.write_fmt(format_args!("{}", val)),
+            TermLiteral::F32(val) => f.write_fmt(format_args!("{}", val.text(db))),
             TermLiteral::F64(_) => todo!(),
             TermLiteral::Bool(val) => f.write_fmt(format_args!("{}", val)),
             TermLiteral::String(val) => f.write_fmt(format_args!("{:?}", val.data(db))),
@@ -215,12 +217,6 @@ pub struct TermR256Literal {
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermRSizeLiteral {
     pub value: u64,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermF64Literal {
-    pub value: OrderedFloat<f64>,
 }
 
 /// allowing representing very large number
