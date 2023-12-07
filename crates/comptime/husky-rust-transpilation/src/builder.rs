@@ -140,7 +140,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
     }
 
     pub(crate) fn rem_eulid(&mut self) {
-        self.write_str("rem_eulicd")
+        self.write_str("rem_euclid")
     }
 
     pub(crate) fn pow(&mut self) {
