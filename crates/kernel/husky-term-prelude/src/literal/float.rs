@@ -10,7 +10,10 @@ pub struct TermF32Literal {
 }
 
 impl TermF32Literal {
-    pub fn try_new(text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
+    pub fn try_new(mut text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
+        if !text.ends_with("f32") {
+            text += "f32"
+        }
         let value: OrderedFloat<f64> = text.parse()?;
         Ok(Self::new(db, value, text))
     }
