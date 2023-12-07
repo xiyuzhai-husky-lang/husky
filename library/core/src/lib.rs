@@ -12,7 +12,7 @@ macro_rules! require {
         }
     };
     ($condition: expr) => {
-        if !($condition) else {
+        if !($condition) {
             return Default::default()
         }
     }
