@@ -1,6 +1,8 @@
 pub mod ops;
+pub mod vec;
 
 pub use self::ops::*;
+pub use self::vec::*;
 
 pub type Leash<T> = &'static T;
 
