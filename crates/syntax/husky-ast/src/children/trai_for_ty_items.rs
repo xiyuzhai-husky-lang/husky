@@ -21,7 +21,7 @@ impl NormalAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::Mod(_) => todo!(),
             EntityKindKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
             EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
             EntityKindKeywordGroup::Gn(_) => todo!(),
             EntityKindKeywordGroup::GeneralDef(_) => todo!(),

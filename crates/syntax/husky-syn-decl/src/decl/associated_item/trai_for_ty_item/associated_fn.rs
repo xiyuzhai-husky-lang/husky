@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedFnSynNodeDecl {
     #[id]
-    pub path: TraitForTypeItemPath,
+    pub syn_node_path: TraitForTypeItemSynNodePath,
     #[return_ref]
     pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
@@ -35,6 +35,44 @@ impl TraitForTypeAssociatedFnSynNodeDecl {
     }
 }
 
+impl<'a> DeclParser<'a> {
+    pub(super) fn parse_trai_for_ty_associated_fn_node_decl(
+        &self,
+        syn_node_path: TraitForTypeItemSynNodePath,
+    ) -> TraitForTypeAssociatedFnSynNodeDecl {
+        let db = self.db();
+        let impl_block_syn_node_decl = syn_node_path.data(db).impl_block(db).syn_node_decl(db);
+        let mut parser = self.expr_parser(
+            Some(impl_block_syn_node_decl.syn_expr_region(db)),
+            AllowSelfType::True,
+            AllowSelfValue::True,
+            None,
+        );
+        let template_parameter_decl_list = parser.try_parse_option();
+        let parenate_parameter_decl_list =
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
+        let light_arrow_token = parser.try_parse_option();
+        let return_ty = if let Ok(Some(_)) = light_arrow_token {
+            parser
+                .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
+                .map(Some)
+        } else {
+            Ok(None)
+        };
+        let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
+        TraitForTypeAssociatedFnSynNodeDecl::new(
+            db,
+            syn_node_path,
+            template_parameter_decl_list,
+            parenate_parameter_decl_list,
+            light_arrow_token,
+            return_ty,
+            eol_colon,
+            parser.finish(),
+        )
+    }
+}
+
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedFnSynDecl {
     #[id]
@@ -49,10 +87,37 @@ pub struct TraitForTypeAssociatedFnSynDecl {
 
 impl TraitForTypeAssociatedFnSynDecl {
     pub(super) fn from_node_decl(
-        _db: &::salsa::Db,
-        _path: TraitForTypeItemPath,
-        _syn_node_decl: TraitForTypeAssociatedFnSynNodeDecl,
+        db: &::salsa::Db,
+        path: TraitForTypeItemPath,
+        syn_node_decl: TraitForTypeAssociatedFnSynNodeDecl,
     ) -> DeclResult<Self> {
-        todo!()
+        let template_parameters = syn_node_decl
+            .template_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
+            .unwrap_or_default();
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list
+            .parenate_parameters()
+            .iter()
+            .map(Clone::clone)
+            .collect();
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(TraitForTypeAssociatedFnSynDecl::new(
+            db,
+            path,
+            template_parameters,
+            parenate_parameters,
+            return_ty,
+            syn_expr_region,
+        ))
     }
 }

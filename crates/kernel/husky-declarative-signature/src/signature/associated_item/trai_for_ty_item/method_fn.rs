@@ -6,9 +6,6 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_value_parameter: DeclarativeRitchieRegularParameter,
-    /// parenate is a word I coined
-    ///
-    /// it means things that should be parenthesized
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DeclarativeTerm,

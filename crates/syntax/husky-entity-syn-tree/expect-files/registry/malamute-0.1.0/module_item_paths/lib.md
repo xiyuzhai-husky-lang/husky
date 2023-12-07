@@ -51,7 +51,7 @@
                                     },
                                 },
                                 ident: `default`,
-                                item_kind: MethodFn,
+                                item_kind: AssociatedFunctionFn,
                             },
                         ),
                     ),

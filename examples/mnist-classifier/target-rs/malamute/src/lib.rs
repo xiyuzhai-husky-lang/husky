@@ -17,7 +17,7 @@ pub enum OneVsAllResult {
 } 
 
 impl Default for OneVsAll {
-    fn default(self) -> OneVsAll {
+    fn default() -> OneVsAll {
         OneVsAll::No
     }
 }

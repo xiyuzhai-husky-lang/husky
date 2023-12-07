@@ -210,10 +210,10 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
+            AssociatedFn(
+                TraitForTypeAssociatedFnHirDecl(
                     Id {
-                        value: 24,
+                        value: 1,
                     },
                 ),
             ),

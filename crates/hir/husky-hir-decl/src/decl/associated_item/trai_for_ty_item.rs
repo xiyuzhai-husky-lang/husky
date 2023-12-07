@@ -12,8 +12,9 @@ pub use self::method_fn::*;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitForTypeItemHirDecl {
     AssociatedFn(TraitForTypeAssociatedFnHirDecl),
     AssociatedType(TraitForTypeAssociatedTypeHirDecl),

@@ -4034,7 +4034,7 @@
                                                                     },
                                                                 },
                                                                 ident: `default`,
-                                                                item_kind: MethodFn,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -4357,7 +4357,7 @@
                                                                             },
                                                                         },
                                                                         ident: `default`,
-                                                                        item_kind: MethodFn,
+                                                                        item_kind: AssociatedFunctionFn,
                                                                     },
                                                                 ),
                                                             ),
@@ -4377,7 +4377,7 @@
                     data: [
                         SynExprData::SelfType(
                             RegionalTokenIdx(
-                                6,
+                                7,
                             ),
                         ),
                     ],
@@ -4470,7 +4470,7 @@
                             data_result: Ok(
                                 SelfType(
                                     RegionalTokenIdx(
-                                        6,
+                                        7,
                                     ),
                                 ),
                             ),

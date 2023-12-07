@@ -95,7 +95,7 @@
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
             expr_ranges: [
-                5..6,
+                6..7,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {

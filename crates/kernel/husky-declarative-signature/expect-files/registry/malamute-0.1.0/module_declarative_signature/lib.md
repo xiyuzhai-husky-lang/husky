@@ -237,7 +237,7 @@
                                         },
                                     },
                                     ident: `default`,
-                                    item_kind: MethodFn,
+                                    item_kind: AssociatedFunctionFn,
                                 },
                             ),
                         ),
@@ -248,15 +248,11 @@
         Ok(
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(
+                        TraitForTypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: Pure,
-                                ty: DeclarativeTerm(`malamute::OneVsAll t a`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
