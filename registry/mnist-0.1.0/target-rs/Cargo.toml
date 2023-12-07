@@ -1,12 +1,12 @@
 [workspace]
-members = ["mnist", "mnist/linkages"]
+members = []
 resolver = "2"
 
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 
 [workspace.dependencies.mnist]
-path = "mnist"
+path = ".."
 
 [workspace.dependencies.mnist-linkages]
-path = "mnist/linkages"
+path = ".."

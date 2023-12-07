@@ -307,7 +307,8 @@ fn read_file_content(path: &Path) -> FileContent {
             Err(e) => FileContent::Err(VfsError::new_io_error(path.to_owned(), e)),
         }
     } else if path.is_dir() {
-        todo!()
+        // ad hoc
+        FileContent::Directory(vec![])
     } else {
         todo!()
     }
@@ -320,6 +321,7 @@ pub struct VfsJar(
     crate::linktime_target_path::LinktimeTargetPath,
     crate::linktime_target_path::linktime_target_rust_abs_dir,
     crate::path::package_path::PackagePath,
+    crate::path::package_path::is_package_path_virtual,
     crate::path::crate_path::package_crate_paths,
     crate::path::module_path::relative_path::module_relative_path,
     crate::path::module_path::relative_path::module_relative_stem,

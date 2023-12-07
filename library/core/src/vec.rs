@@ -5,7 +5,10 @@ pub trait __VecX {
 
     fn collect_leashes(&'static self) -> Vec<&'static Self::Element>;
 
-    fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>);
+    fn pop_with_largest_opt_f32(
+        &mut self,
+        f: fn(Self::Element) -> Option<f32>,
+    ) -> Option<Self::Element>;
 }
 
 impl<T> __VecX for Vec<T> {
@@ -19,7 +22,7 @@ impl<T> __VecX for Vec<T> {
         self.iter().collect()
     }
 
-    fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) {
+    fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) -> Option<T> {
         todo!()
     }
 }

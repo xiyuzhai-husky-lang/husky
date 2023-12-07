@@ -23,8 +23,43 @@ impl VirtualPath {
             .map_err(|_e| todo!())
     }
 
+    pub fn join(self, path: impl AsRef<Path>, db: &::salsa::Db) -> Self {
+        VirtualPath::new(db, VirtualPathBuf(self.data(db).join(path)))
+    }
+
     pub fn file(self, db: &::salsa::Db) -> VfsResult<File> {
         db.file_from_virtual_path(self)
+    }
+
+    pub fn exists(self, db: &::salsa::Db) -> VfsResult<bool> {
+        match self.file(db) {
+            Ok(file) => match file.content(db) {
+                FileContent::NotExists => Ok(false),
+                FileContent::OnDisk(_) => Ok(true),
+                FileContent::LiveDoc(_) => todo!(),
+                FileContent::Directory(_) => Ok(true),
+                FileContent::Err(_) => todo!(),
+            },
+            Err(e) => match e {
+                VfsError::FileNotExists(_) => todo!(),
+                VfsError::IO {
+                    path,
+                    error_message,
+                } => todo!(),
+                VfsError::NotSourceFile(_) => todo!(),
+                VfsError::FailToAbsolutize {
+                    path,
+                    error_message,
+                } => todo!(),
+                VfsError::FailToDiff => todo!(),
+                VfsError::ModulePathResolveFailure => todo!(),
+                VfsError::MinimalToml(_) => todo!(),
+                VfsError::PackageIdent => todo!(),
+                VfsError::PathUtils(_) => todo!(),
+                VfsError::FsSpecs(_) => todo!(),
+                VfsError::FailToReadPackageNameFromManifest => todo!(),
+            },
+        }
     }
 
     pub fn text<'a>(self, db: &'a ::salsa::Db) -> VfsResult<Option<&'a str>> {

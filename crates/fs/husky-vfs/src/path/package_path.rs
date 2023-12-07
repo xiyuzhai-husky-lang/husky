@@ -1,6 +1,7 @@
 use super::*;
 
 use husky_coword::Ident;
+use husky_print_utils::p;
 
 use std::path::Path;
 use url::Url;
@@ -104,6 +105,20 @@ impl PackagePath {
 
     pub fn manifest_path(self, db: &::salsa::Db) -> VfsResult<ManifestPath> {
         package_manifest_path(db, self)
+    }
+
+    pub fn is_virtual(self, db: &::salsa::Db) -> bool {
+        is_package_path_virtual(db, self)
+    }
+}
+
+#[salsa::tracked(jar = VfsJar)]
+fn is_package_path_virtual(db: &::salsa::Db, package_path: PackagePath) -> bool {
+    let dir = package_path.dir(db).expect("what to do");
+    let cargo_toml_path = dir.join("Cargo.toml", db);
+    match cargo_toml_path.exists(db) {
+        Ok(exists) => exists,
+        Err(_) => todo!(),
     }
 }
 
