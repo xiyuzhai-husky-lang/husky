@@ -36,7 +36,9 @@
                                 HirTemplateParameter {
                                     symbol: Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: Some(
                                                 Covariant,
                                             ),
@@ -90,7 +92,9 @@
                                                         },
                                                     ),
                                                     index: PathLeading {
-                                                        attrs: HirSymbolAttrs,
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
                                                         disambiguator: 0,
                                                         ty_path: TypePath(
                                                             ItemPathId(
@@ -110,7 +114,9 @@
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
-                                                    attrs: HirSymbolAttrs,
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
                                                     variance: Some(
                                                         Covariant,
                                                     ),

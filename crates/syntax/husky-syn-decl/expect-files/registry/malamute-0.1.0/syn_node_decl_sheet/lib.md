@@ -2362,18 +2362,18 @@ SynNodeDeclSheet {
                                             variant: TemplateParameterSyndicateVariant::Constant {
                                                 const_token: ConstRegionalToken {
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        5,
+                                                        7,
                                                     ),
                                                 },
                                                 ident_token: IdentRegionalToken {
                                                     ident: `label`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        6,
+                                                        8,
                                                     ),
                                                 },
                                                 colon_token: ColonRegionalToken(
                                                     RegionalTokenIdx(
-                                                        7,
+                                                        9,
                                                     ),
                                                 ),
                                                 ty_expr: 1,
@@ -2392,7 +2392,7 @@ SynNodeDeclSheet {
                                     ),
                                     rangle: RaOrGtRegionalToken(
                                         RegionalTokenIdx(
-                                            9,
+                                            11,
                                         ),
                                     ),
                                 },
@@ -2403,7 +2403,7 @@ SynNodeDeclSheet {
                         },
                         for_token: ConnectionForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
-                                18,
+                                20,
                             ),
                         },
                         self_ty_decl: PathLeadingExpr(
@@ -2415,7 +2415,7 @@ SynNodeDeclSheet {
                             EolRegionalToken::Colon(
                                 EolColonRegionalToken {
                                     regional_token_idx: RegionalTokenIdx(
-                                        21,
+                                        23,
                                     ),
                                 },
                             ),
@@ -2454,7 +2454,7 @@ SynNodeDeclSheet {
                                         SynExprData::CurrentSynSymbol {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                8,
+                                                10,
                                             ),
                                             current_syn_symbol_idx: 1,
                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2495,7 +2495,7 @@ SynNodeDeclSheet {
                                         SynExprData::CurrentSynSymbol {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                16,
+                                                18,
                                             ),
                                             current_syn_symbol_idx: 1,
                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2516,7 +2516,7 @@ SynNodeDeclSheet {
                                         SynExprData::CurrentSynSymbol {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                17,
+                                                19,
                                             ),
                                             current_syn_symbol_idx: 2,
                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2524,7 +2524,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            6,
+                                                            8,
                                                         ),
                                                     },
                                                 },
@@ -2547,7 +2547,7 @@ SynNodeDeclSheet {
                                         SynExprData::CurrentSynSymbol {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                20,
+                                                22,
                                             ),
                                             current_syn_symbol_idx: 1,
                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2574,7 +2574,7 @@ SynNodeDeclSheet {
                                                 IdentRegionalToken {
                                                     ident: `core`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        10,
+                                                        12,
                                                     ),
                                                 },
                                             ),
@@ -2586,14 +2586,14 @@ SynNodeDeclSheet {
                                             parent: 1,
                                             colon_colon_token: ColonColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    11,
+                                                    13,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentRegionalToken {
                                                     ident: `ops`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        12,
+                                                        14,
                                                     ),
                                                 },
                                             ),
@@ -2607,14 +2607,14 @@ SynNodeDeclSheet {
                                             parent: 2,
                                             colon_colon_token: ColonColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    13,
+                                                    15,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentRegionalToken {
                                                     ident: `Unveil`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        14,
+                                                        16,
                                                     ),
                                                 },
                                             ),
@@ -2631,7 +2631,7 @@ SynNodeDeclSheet {
                                                 IdentRegionalToken {
                                                     ident: `OneVsAll`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        15,
+                                                        17,
                                                     ),
                                                 },
                                             ),
@@ -2646,7 +2646,7 @@ SynNodeDeclSheet {
                                                 IdentRegionalToken {
                                                     ident: `Class`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        19,
+                                                        21,
                                                     ),
                                                 },
                                             ),
@@ -2706,19 +2706,32 @@ SynNodeDeclSheet {
                                             CurrentSynSymbol {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
-                                                    9,
+                                                    11,
                                                 ),
                                                 access_end: None,
                                                 data: CurrentSynSymbolData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
-                                                        syn_attrs: [],
+                                                        syn_attrs: [
+                                                            Runtime(
+                                                                PoundRegionalToken(
+                                                                    RegionalTokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                ),
+                                                                RuntimeRegionalToken {
+                                                                    token_idx: RegionalTokenIdx(
+                                                                        6,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ],
                                                     },
                                                     annotated_variance_token: None,
                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                6,
+                                                                8,
                                                             ),
                                                         },
                                                         ty_expr_idx: 1,
@@ -2895,7 +2908,7 @@ SynNodeDeclSheet {
                                                         SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                8,
+                                                                10,
                                                             ),
                                                             current_syn_symbol_idx: 1,
                                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2936,7 +2949,7 @@ SynNodeDeclSheet {
                                                         SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                16,
+                                                                18,
                                                             ),
                                                             current_syn_symbol_idx: 1,
                                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2957,7 +2970,7 @@ SynNodeDeclSheet {
                                                         SynExprData::CurrentSynSymbol {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                17,
+                                                                19,
                                                             ),
                                                             current_syn_symbol_idx: 2,
                                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -2965,7 +2978,7 @@ SynNodeDeclSheet {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
-                                                                            6,
+                                                                            8,
                                                                         ),
                                                                     },
                                                                 },
@@ -2988,7 +3001,7 @@ SynNodeDeclSheet {
                                                         SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
-                                                                20,
+                                                                22,
                                                             ),
                                                             current_syn_symbol_idx: 1,
                                                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -3015,7 +3028,7 @@ SynNodeDeclSheet {
                                                                 IdentRegionalToken {
                                                                     ident: `core`,
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        10,
+                                                                        12,
                                                                     ),
                                                                 },
                                                             ),
@@ -3027,14 +3040,14 @@ SynNodeDeclSheet {
                                                             parent: 1,
                                                             colon_colon_token: ColonColonRegionalToken(
                                                                 RegionalTokenIdx(
-                                                                    11,
+                                                                    13,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentRegionalToken {
                                                                     ident: `ops`,
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        12,
+                                                                        14,
                                                                     ),
                                                                 },
                                                             ),
@@ -3048,14 +3061,14 @@ SynNodeDeclSheet {
                                                             parent: 2,
                                                             colon_colon_token: ColonColonRegionalToken(
                                                                 RegionalTokenIdx(
-                                                                    13,
+                                                                    15,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentRegionalToken {
                                                                     ident: `Unveil`,
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        14,
+                                                                        16,
                                                                     ),
                                                                 },
                                                             ),
@@ -3072,7 +3085,7 @@ SynNodeDeclSheet {
                                                                 IdentRegionalToken {
                                                                     ident: `OneVsAll`,
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        15,
+                                                                        17,
                                                                     ),
                                                                 },
                                                             ),
@@ -3087,7 +3100,7 @@ SynNodeDeclSheet {
                                                                 IdentRegionalToken {
                                                                     ident: `Class`,
                                                                     regional_token_idx: RegionalTokenIdx(
-                                                                        19,
+                                                                        21,
                                                                     ),
                                                                 },
                                                             ),
@@ -3147,19 +3160,32 @@ SynNodeDeclSheet {
                                                             CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
-                                                                    9,
+                                                                    11,
                                                                 ),
                                                                 access_end: None,
                                                                 data: CurrentSynSymbolData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
-                                                                        syn_attrs: [],
+                                                                        syn_attrs: [
+                                                                            Runtime(
+                                                                                PoundRegionalToken(
+                                                                                    RegionalTokenIdx(
+                                                                                        5,
+                                                                                    ),
+                                                                                ),
+                                                                                RuntimeRegionalToken {
+                                                                                    token_idx: RegionalTokenIdx(
+                                                                                        6,
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                        ],
                                                                     },
                                                                     annotated_variance_token: None,
                                                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                                         ident_token: IdentRegionalToken {
                                                                             ident: `label`,
                                                                             regional_token_idx: RegionalTokenIdx(
-                                                                                6,
+                                                                                8,
                                                                             ),
                                                                         },
                                                                         ty_expr_idx: 1,

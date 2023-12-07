@@ -12,6 +12,7 @@ use crate::*;
 use husky_ethereal_term::{
     EtherealTemplateSymbolAttrs, EtherealTermSymbol, EtherealTermSymbolIndexInner,
 };
+use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -24,11 +25,31 @@ pub enum HirTemplateSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirSymbolAttrs();
+pub struct HirTemplateSymbolAttrs {
+    class: HirTemplateSymbolClass,
+}
 
-impl HirSymbolAttrs {
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum HirTemplateSymbolClass {
+    Comptime,
+    Runtime,
+}
+
+impl HirTemplateSymbolClass {
+    fn from_term(class: TermTemplateSymbolClass) -> Option<Self> {
+        match class {
+            TermTemplateSymbolClass::Phantom => None,
+            TermTemplateSymbolClass::Runtime => Some(HirTemplateSymbolClass::Runtime),
+            TermTemplateSymbolClass::Comptime => Some(HirTemplateSymbolClass::Comptime),
+        }
+    }
+}
+
+impl HirTemplateSymbolAttrs {
     pub(crate) fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
-        (!attrs.phantom()).then_some(Self())
+        Some(Self {
+            class: HirTemplateSymbolClass::from_term(attrs.class)?,
+        })
     }
 }
 
@@ -50,7 +71,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirLifetimeSymbol {
-                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -62,7 +83,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirPlaceSymbol {
-                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -74,7 +95,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirTypeSymbol::Type {
-                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -90,7 +111,7 @@ fn hir_template_symbol_from_ethereal(
                 db,
                 HirType::from_ethereal(symbol.ty(db), db)?,
                 HirConstSymbolIndex::PathLeading {
-                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                    attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                     disambiguator,
                     ty_path,
                 },
@@ -105,7 +126,7 @@ fn hir_template_symbol_from_ethereal(
                 db,
                 HirType::from_ethereal(symbol.ty(db), db)?,
                 HirConstSymbolIndex::Other {
-                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                    attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                     disambiguator,
                 },
             )

@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirTypeSymbol {
     Type {
-        attrs: HirSymbolAttrs,
+        attrs: HirTemplateSymbolAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -32,7 +32,7 @@ impl HirTypeSymbol {
                 variance,
                 disambiguator,
             } => HirTypeSymbol::Type {
-                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,
             },

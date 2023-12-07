@@ -5,11 +5,11 @@ pub struct ConnectedComponentDistribution {
     pub row_end: i32,
     pub upper_mass: i32,
     pub lower_mass: i32,
-}
+} 
 
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<RawContour>>>,
-}
+} 
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len();
@@ -19,7 +19,7 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 
 pub struct ConnectedComponent {
     pub mask: BinaryImage28,
-}
+} 
 
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a | (x | x << 1 | x >> 1);
@@ -47,8 +47,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 while i < 30 - 1 {
                     {
                         let old_row = mask[(i + 1) as usize];
-                        let new_row =
-                            old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
+                        let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if !new_row {
                             break;
                         }
@@ -57,19 +56,18 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                             mask[(i + 1) as usize] = new_row
                         }
                     }
-                    i += 1
+                    i+= 1
                 }
                 while i >= j {
                     {
                         let old_row = mask[i as usize];
-                        let new_row =
-                            old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
+                        let new_row = old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
                             mask[i as usize] = new_row
                         }
                     }
-                    i -= 1
+                    i-= 1
                 }
             }
             for k in j..30 {
@@ -131,7 +129,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            row_start += 1
+            row_start+= 1
         }
         let mut row_end = row_start + 1;
         while row_end < 29 {
@@ -140,7 +138,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            row_end += 1
+            row_end+= 1
         }
         let height = row_end - row_start;
         let half_height = height / 2;
@@ -152,9 +150,7 @@ impl ConnectedComponent {
         for i2 in (row_end - half_height..row_end).recv() {
             lower_mass += self.mask[i2 as usize].co()
         }
-        return ConnectedComponentDistribution::__constructor(
-            row_start, row_end, upper_mass, lower_mass,
-        );
+        return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
     pub fn upper_mass(self) -> f32 {
@@ -175,7 +171,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            i += 1
+            i+= 1
         }
         for j in i..i + k {
             top_k_row_span_sum += self.mask[j as usize].span()
@@ -193,7 +189,7 @@ impl ConnectedComponent {
                     break;
                 }
             }
-            i += 1
+            i+= 1
         }
         for j in i..i + k {
             top_k_row_span_sum += self.mask[j as usize].right_mass()

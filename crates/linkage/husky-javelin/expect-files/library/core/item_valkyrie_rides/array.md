@@ -32,7 +32,9 @@
                         HirTemplateParameter {
                             symbol: Type(
                                 Type {
-                                    attrs: HirSymbolAttrs,
+                                    attrs: HirTemplateSymbolAttrs {
+                                        class: Comptime,
+                                    },
                                     variance: Some(
                                         Covariant,
                                     ),

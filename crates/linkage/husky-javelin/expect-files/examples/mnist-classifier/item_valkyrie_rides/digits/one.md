@@ -27,7 +27,9 @@
                                 (
                                     Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: None,
                                             disambiguator: 0,
                                         },
@@ -65,7 +67,9 @@
                                 (
                                     Type(
                                         Type {
-                                            attrs: HirSymbolAttrs,
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
                                             variance: None,
                                             disambiguator: 0,
                                         },

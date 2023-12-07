@@ -146,7 +146,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                118,
+                                120,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -206,7 +206,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                170,
+                                172,
                             ),
                         },
                         block: DefnBlock::Fugitive {
