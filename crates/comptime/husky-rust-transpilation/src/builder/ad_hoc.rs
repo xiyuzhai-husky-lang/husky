@@ -29,8 +29,8 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str("1")
     }
 
-    pub(crate) fn call_recv(&mut self) {
-        self.write_str(".recv()")
+    pub(crate) fn call_rev(&mut self) {
+        self.write_str(".rev()")
     }
 
     pub(crate) fn ty_constructor(&mut self, ty_path: TypePath) {

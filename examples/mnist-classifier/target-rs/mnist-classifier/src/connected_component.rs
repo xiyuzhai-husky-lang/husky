@@ -174,7 +174,7 @@ impl ConnectedComponent {
             upper_mass += self.mask[i1 as usize].co()
         }
         let mut lower_mass = 0;
-        for i2 in (row_end - half_height..row_end).recv() {
+        for i2 in (row_end - half_height..row_end).rev() {
             lower_mass += self.mask[i2 as usize].co()
         }
         return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
