@@ -7,9 +7,9 @@ pub fn three_fermi_match() -> FermiMatchResult {
 pub fn is_three() -> OneVsAll {
     require!(major_concave_components().ilen() >= 2);
     require!(major_concave_components().ilen() <= 4);
-    let downarc = three_fermi_match().matches[0];
-    let uparc = three_fermi_match().matches[1];
-    let back = three_fermi_match().matches[2];
+    let downarc = three_fermi_match().matches[0 as usize];
+    let uparc = three_fermi_match().matches[1 as usize];
+    let back = three_fermi_match().matches[2 as usize];
     require!(let some = downarc);
     require!(downarc.unwrap().norm() > 3.0f32);
     require!(let some = uparc);

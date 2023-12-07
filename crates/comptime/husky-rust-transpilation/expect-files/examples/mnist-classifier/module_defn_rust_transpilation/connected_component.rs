@@ -35,43 +35,43 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
     let mut result: Vec<ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {
-        while unsearched[j] {
-            let a = unsearched[j];
+        while unsearched[j as usize] {
+            let a = unsearched[j as usize];
             let shift = a.ctz();
             let mut mask = BinaryImage28::new_zeros();
-            mask[j] = horizontal_extend(a, 1 << shift);
+            mask[j as usize] = horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
                 flag = true;
                 let mut i = j;
                 while i < 30 - 1 {
                     {
-                        let old_row = mask[i + 1];
-                        let new_row = old_row | horizontal_extend(img[i + 1], mask[i]);
+                        let old_row = mask[(i + 1) as usize];
+                        let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if !new_row {
                             break;
                         }
                         if old_row != new_row {
                             flag = false;
-                            mask[i + 1] = new_row
+                            mask[(i + 1) as usize] = new_row
                         }
                     }
                     i+= 1
                 }
                 while i >= j {
                     {
-                        let old_row = mask[i];
-                        let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
+                        let old_row = mask[i as usize];
+                        let new_row = old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
-                            mask[i] = new_row
+                            mask[i as usize] = new_row
                         }
                     }
                     i-= 1
                 }
             }
             for k in j..30 {
-                unsearched[k] &= !mask[k]
+                unsearched[k as usize] &= !mask[k as usize]
             }
             result.push(ConnectedComponent::__constructor(mask))
         }
@@ -97,7 +97,7 @@ impl ConnectedComponent {
         let mut max_hole_ilen = 0;
         let raw_contours = self.raw_contours();
         for i in (0 + 1)..raw_contours.ilen() {
-            let hole_ilen = raw_contours[i].points.ilen();
+            let hole_ilen = raw_contours[i as usize].points.ilen();
             if max_hole_ilen < hole_ilen {
                 max_hole_ilen = hole_ilen
             }
@@ -108,7 +108,7 @@ impl ConnectedComponent {
     pub fn max_row_span(self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
-            max_row = max_row.max(self.mask[i].span())
+            max_row = max_row.max(self.mask[i as usize].span())
         }
         return max_row as f32;
     }
@@ -116,7 +116,7 @@ impl ConnectedComponent {
     pub fn row_span_sum(self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
-            row_span_sum += self.mask[i].span()
+            row_span_sum += self.mask[i as usize].span()
         }
         return row_span_sum as f32;
     }
@@ -125,7 +125,7 @@ impl ConnectedComponent {
         let mut row_start = 1;
         while row_start < 29 {
             {
-                if self.mask[row_start] {
+                if self.mask[row_start as usize] {
                     break;
                 }
             }
@@ -134,7 +134,7 @@ impl ConnectedComponent {
         let mut row_end = row_start + 1;
         while row_end < 29 {
             {
-                if !self.mask[row_end] {
+                if !self.mask[row_end as usize] {
                     break;
                 }
             }
@@ -144,11 +144,11 @@ impl ConnectedComponent {
         let half_height = height / 2;
         let mut upper_mass = 0;
         for i1 in row_start..row_start + half_height {
-            upper_mass += self.mask[i1].co()
+            upper_mass += self.mask[i1 as usize].co()
         }
         let mut lower_mass = 0;
         for i2 in (row_end - half_height..row_end).recv() {
-            lower_mass += self.mask[i2].co()
+            lower_mass += self.mask[i2 as usize].co()
         }
         return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
@@ -167,14 +167,14 @@ impl ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i] {
+                if self.mask[i as usize] {
                     break;
                 }
             }
             i+= 1
         }
         for j in i..i + k {
-            top_k_row_span_sum += self.mask[j].span()
+            top_k_row_span_sum += self.mask[j as usize].span()
         }
         return top_k_row_span_sum as f32;
     }
@@ -185,14 +185,14 @@ impl ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i] {
+                if self.mask[i as usize] {
                     break;
                 }
             }
             i+= 1
         }
         for j in i..i + k {
-            top_k_row_span_sum += self.mask[j].right_mass()
+            top_k_row_span_sum += self.mask[j as usize].right_mass()
         }
         return top_k_row_span_sum as f32;
     }

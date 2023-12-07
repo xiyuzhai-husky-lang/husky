@@ -74,6 +74,10 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str("usize")
     }
 
+    pub(crate) fn usize(&mut self) {
+        self.write_str("usize")
+    }
+
     pub(crate) fn unit(&mut self) {
         self.write_str("()")
     }

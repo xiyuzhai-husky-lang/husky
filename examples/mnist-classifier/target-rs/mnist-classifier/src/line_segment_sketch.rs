@@ -191,13 +191,13 @@ impl LineSegmentSketch {
     }
 
     pub fn bounding_box(self) -> BoundingBox {
-        let start_point = self.strokes[0].start;
+        let start_point = self.strokes[0 as usize].start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
         let mut ymin = start_point.y;
         let mut ymax = start_point.y;
         for i in 0..self.strokes.ilen() {
-            let point = self.strokes[i].end;
+            let point = self.strokes[i as usize].end;
             xmin = xmin.min(point.x);
             xmax = xmax.max(point.x);
             ymin = ymin.min(point.y);

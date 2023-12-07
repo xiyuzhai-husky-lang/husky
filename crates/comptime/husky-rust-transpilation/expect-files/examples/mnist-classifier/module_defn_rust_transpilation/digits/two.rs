@@ -31,10 +31,10 @@ pub fn is_two() -> OneVsAll {
     require!(let none = is_six());
     let cc_num = major_concave_components().ilen();
     let eff_holes = major_connected_component().eff_holes();
-    require!(let none = eff_holes.matches[1]);
-    let left_cc = two_match().matches[0];
-    let right_cc = two_match().matches[1];
-    let down_cc = two_match().matches[2];
+    require!(let none = eff_holes.matches[1 as usize]);
+    let left_cc = two_match().matches[0 as usize];
+    let right_cc = two_match().matches[1 as usize];
+    let down_cc = two_match().matches[2 as usize];
     require!(cc_num <= 3);
     let lower_excess = major_connected_component().lower_mass() - major_connected_component().upper_mass();
     require!(lower_excess > 10.0f32);

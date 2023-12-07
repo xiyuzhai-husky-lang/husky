@@ -238,14 +238,17 @@ impl HirEagerExprSite {
                 owner_hir_expr_idx,
                 ref items,
             } => {
+                // ad hoc
                 (owner_hir_expr_idx, geq(self)).transpile_to_rust(builder);
-                builder.bracketed_comma_list(
-                    RustBracket::Box,
-                    items
-                        .iter()
-                        .copied()
-                        .map(|item| (item, self.any_precedence())),
-                )
+                builder.bracketed(RustBracket::Box, |builder| {
+                    (
+                        items[0],
+                        self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                    )
+                        .transpile_to_rust(builder);
+                    builder.keyword(RustKeyword::As);
+                    builder.usize()
+                })
             }
             HirEagerExprData::NewList { ref items } => {
                 builder.macro_name(RustMacroName::Vec);
