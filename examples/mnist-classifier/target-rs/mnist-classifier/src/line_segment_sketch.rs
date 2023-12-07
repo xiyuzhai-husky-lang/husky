@@ -159,7 +159,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
             } else {
                 max_end = start + ct.points.ilen()
             }
-            line_segments.push(&ls)
+            line_segments.push(ls)
         }
         start = end;
         end = start + 1

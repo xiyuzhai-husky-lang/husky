@@ -203,58 +203,6 @@ where
     }
 }
 
-// pub fn parse_pattern_expr(
-//     &mut self,
-//     env: SynPatternExprEnvironment,
-// ) -> SynExprResult<Option<SynPatternExprIdx>> {
-//     todo!("overhaul this");
-//     let symbol_modifier_token_group = self.try_parse_option()?;
-//     let ident_token = match symbol_modifier_token_group {
-//         None => match self.try_parse_option::<IdentRegionalToken>()? {
-//             Some(ident_token) => ident_token,
-//             None => return Ok(None),
-//         },
-//         Some(ephem_symbol_modifier_token_group) => {
-//             self.try_parse_expected(|token_stream_state| {
-//                 OriginalSynExprError::ExpectedIdentAfterModifier(
-//                     token_stream_state,
-//                     ephem_symbol_modifier_token_group,
-//                 )
-//             })?
-//         }
-//     };
-//     Ok(Some(self.context_mut().alloc_pattern_expr(
-//         SynPatternExpr::Ident {
-//             symbol_modifier_keyword_group: symbol_modifier_token_group,
-//             ident_token,
-//         },
-//         env,
-//     )))
-//     // if let Some(ref_token) = self.parse::<RefToken>()? {
-//     //     todo!()
-//     // } else if let Some(mut_token) = self.parse::<MutToken>()? {
-//     //     let ident_token: RegionalIdentToken =
-//     //         self.parse_expected(OriginalExprError::ExpectedIdentAfterMut)?;
-//     //     Ok(Some(self.alloc_pattern_expr(
-//     //         PatternExpr::Ident {
-//     //             ident_token,
-//     //             modifier: SymbolModifierKeywordGroup::Mut(mut_token),
-//     //         },
-//     //         env,
-//     //     )))
-//     // } else if let Some(ident_token) = self.parse::<RegionalIdentToken>()? {
-//     //     Ok(Some(self.alloc_pattern_expr(
-//     //         PatternExpr::Ident {
-//     //             ident_token,
-//     //             modifier: SymbolModifierKeywordGroup::Pure,
-//     //         },
-//     //         env,
-//     //     )))
-//     // } else {
-//     //     Ok(None)
-//     // }
-// }
-
 impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,

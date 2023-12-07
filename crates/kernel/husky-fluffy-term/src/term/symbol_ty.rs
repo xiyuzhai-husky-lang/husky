@@ -45,6 +45,9 @@ impl SymbolType {
             SymbolModifier::Pure => FluffyPlace::StackPure {
                 location: engine.issue_new_stack_location_idx(),
             },
+            SymbolModifier::Owned => FluffyPlace::ImmutableStackOwned {
+                location: engine.issue_new_stack_location_idx(),
+            },
             SymbolModifier::Mut => todo!(),
             SymbolModifier::Ref => todo!(),
             SymbolModifier::RefMut => FluffyPlace::RefMut {
@@ -89,6 +92,7 @@ impl SymbolType {
                     },
                 },
             },
+            SymbolModifier::Owned => todo!(),
             SymbolModifier::Mut => match ty.place {
                 Some(FluffyPlace::Transient) | None => FluffyPlace::MutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),

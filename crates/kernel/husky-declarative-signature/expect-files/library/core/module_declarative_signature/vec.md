@@ -168,7 +168,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: Pure,
+                                            contract: Move,
                                             ty: DeclarativeTerm(`t`),
                                         },
                                     ),

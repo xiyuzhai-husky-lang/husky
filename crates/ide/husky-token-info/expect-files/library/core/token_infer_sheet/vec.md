@@ -304,6 +304,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(

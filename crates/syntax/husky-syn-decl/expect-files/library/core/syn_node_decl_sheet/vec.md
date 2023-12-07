@@ -871,7 +871,7 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    10,
+                                                    11,
                                                 ),
                                             ),
                                             ty: 1,
@@ -880,7 +880,7 @@ SynNodeDeclSheet {
                                     commas: [],
                                     rpar: RparRegionalToken(
                                         RegionalTokenIdx(
-                                            12,
+                                            13,
                                         ),
                                     ),
                                 },
@@ -895,7 +895,7 @@ SynNodeDeclSheet {
                                 EolRegionalToken::Semicolon(
                                     EolSemicolonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            13,
+                                            14,
                                         ),
                                     },
                                 ),
@@ -1079,7 +1079,7 @@ SynNodeDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    11,
+                                                    12,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -1100,11 +1100,19 @@ SynNodeDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternExpr::Ident {
-                                                    symbol_modifier_tokens: None,
+                                                    symbol_modifier_tokens: Some(
+                                                        Owned(
+                                                            DoubleExclamationRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
                                                     ident_token: IdentRegionalToken {
                                                         ident: `e`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                 },
@@ -1112,7 +1120,7 @@ SynNodeDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                Pure,
+                                                Move,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -1132,7 +1140,7 @@ SynNodeDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                Pure,
+                                                Owned,
                                             ],
                                         },
                                     },
@@ -1155,9 +1163,9 @@ SynNodeDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: Pure,
+                                                    modifier: Owned,
                                                     access_start: RegionalTokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {

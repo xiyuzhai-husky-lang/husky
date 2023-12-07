@@ -677,7 +677,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            10,
+                                            11,
                                         ),
                                     ),
                                     ty: 1,
@@ -863,7 +863,7 @@ SynDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    11,
+                                                    12,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -884,11 +884,19 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternExpr::Ident {
-                                                    symbol_modifier_tokens: None,
+                                                    symbol_modifier_tokens: Some(
+                                                        Owned(
+                                                            DoubleExclamationRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
                                                     ident_token: IdentRegionalToken {
                                                         ident: `e`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                 },
@@ -896,7 +904,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                Pure,
+                                                Move,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -916,7 +924,7 @@ SynDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                Pure,
+                                                Owned,
                                             ],
                                         },
                                     },
@@ -939,9 +947,9 @@ SynDeclSheet {
                                         current_syn_symbol_arena: Arena {
                                             data: [
                                                 CurrentSynSymbol {
-                                                    modifier: Pure,
+                                                    modifier: Owned,
                                                     access_start: RegionalTokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {

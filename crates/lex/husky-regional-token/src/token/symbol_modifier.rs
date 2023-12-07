@@ -3,6 +3,7 @@ use husky_term_prelude::{SymbolModifier, TermContract};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EphemSymbolModifierRegionalTokens {
+    Owned(DoubleExclamationRegionalToken),
     Mut(MutRegionalToken),
     Ref(RefRegionalToken),
     RefMut(RefRegionalToken, MutRegionalToken),
@@ -21,6 +22,7 @@ impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
     fn into(self) -> SymbolModifier {
         match self {
+            EphemSymbolModifierRegionalTokens::Owned(_) => SymbolModifier::Owned,
             EphemSymbolModifierRegionalTokens::Mut(_) => SymbolModifier::Mut,
             EphemSymbolModifierRegionalTokens::Ref(_) => SymbolModifier::Ref,
             EphemSymbolModifierRegionalTokens::RefMut(..) => SymbolModifier::RefMut,
@@ -42,7 +44,8 @@ impl Into<TermContract> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
     fn into(self) -> TermContract {
         match self {
-            EphemSymbolModifierRegionalTokens::Mut(_) => TermContract::Move,
+            EphemSymbolModifierRegionalTokens::Mut(_)
+            | EphemSymbolModifierRegionalTokens::Owned(_) => TermContract::Move,
             EphemSymbolModifierRegionalTokens::Ref(_) => TermContract::Borrow,
             EphemSymbolModifierRegionalTokens::RefMut(..) => TermContract::BorrowMut,
             EphemSymbolModifierRegionalTokens::Ambersand(_, _) => TermContract::Borrow,
@@ -93,6 +96,11 @@ where
                 }
                 ModifierKeyword::Le => todo!(),
             },
+            TokenData::Punctuation(Punctuation::DOUBLE_EXCLAMATION) => {
+                Ok(Some(EphemSymbolModifierRegionalTokens::Owned(
+                    DoubleExclamationRegionalToken(regional_token_idx),
+                )))
+            }
             TokenData::Punctuation(Punctuation::AMBERSAND) => {
                 let lifetime_token =
                     token_stream.try_parse_option::<LifetimeLabelRegionalToken>()?;

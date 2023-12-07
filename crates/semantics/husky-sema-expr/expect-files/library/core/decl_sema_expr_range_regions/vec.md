@@ -49,10 +49,10 @@
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [
-                8..9,
+                8..10,
             ],
             expr_ranges: [
-                10..11,
+                11..12,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {

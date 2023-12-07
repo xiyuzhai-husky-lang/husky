@@ -200,6 +200,11 @@ TokenSheetData {
                 PunctuationMapped::Comma,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::DoubleExclamation,
+            ),
+        ),
         TokenData::Ident(
             `e`,
         ),
@@ -700,32 +705,32 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                50,
+                51,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                62,
+                63,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                74,
+                75,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                86,
+                87,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                99,
+                100,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                119,
+                120,
             ),
         ),
     ],
