@@ -448,7 +448,6 @@ pub(crate) enum DisambiguatedTokenData {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
     },
-    Err(SynExprError),
     SynBinaryOpr(RegionalTokenIdx, SynBinaryOpr),
     SynPrefixOpr(RegionalTokenIdx, SynPrefixOpr),
     SynSuffixOpr(RegionalTokenIdx, SynSuffixOpr),
@@ -465,4 +464,5 @@ pub(crate) enum DisambiguatedTokenData {
         eq_token: EqRegionalToken,
     },
     At(RegionalTokenIdx),
+    Err(SynExprError),
 }
