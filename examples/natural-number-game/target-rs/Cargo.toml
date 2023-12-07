@@ -1,15 +1,15 @@
 [workspace]
-members = ["natural-number-game", "natural-number-game/linkages", "mnist", "mnist/linkages"]
+members = ["natural-number-game", "natural-number-game/linkages"]
 resolver = "2"
 
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 
 [workspace.dependencies.mnist]
-path = "mnist"
+path = "../../../registry/mnist-0.1.0"
 
 [workspace.dependencies.mnist-linkages]
-path = "mnist/linkages"
+path = "../../../registry/mnist-0.1.0"
 
 [workspace.dependencies.natural-number-game]
 path = "natural-number-game"

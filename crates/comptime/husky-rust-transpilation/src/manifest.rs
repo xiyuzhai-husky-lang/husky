@@ -22,12 +22,15 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     linktime_target_path: LinktimeTargetPath,
 ) -> String {
     let rust_transpilation_packages = rust_transpilation_packages(db, linktime_target_path);
+    let rust_workspace_abs_dir = linktime_target_path.rust_workspace_abs_dir(db);
     let members = rust_transpilation_packages
         .iter()
-        .map(|package| package.relative_path_in_workspace(db))
+        .filter_map(|package| {
+            (!package.package_path.is_virtual(db))
+                .then(|| package.path_in_workspace(&rust_workspace_abs_dir, db))
+        })
         .collect();
     let toolchain = linktime_target_path.toolchain(db);
-    let rust_workspace_abs_dir = linktime_target_path.rust_workspace_abs_dir(db);
     let library_abs_path = toolchain.library_abs_path(db);
     let library_diffpath = diff_paths(&library_abs_path, &rust_workspace_abs_dir).unwrap();
     let dependencies = [(
@@ -52,7 +55,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
                 version: None,
                 registry: None,
                 registry_index: None,
-                path: Some(package.relative_path_in_workspace(db)),
+                path: Some(package.path_in_workspace(&rust_workspace_abs_dir, db)),
                 git: None,
                 branch: None,
                 tag: None,

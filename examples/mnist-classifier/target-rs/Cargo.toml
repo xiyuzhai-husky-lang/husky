@@ -1,5 +1,10 @@
 [workspace]
-members = ["mnist-classifier", "mnist-classifier/linkages", "malamute", "malamute/linkages", "mnist", "mnist/linkages"]
+members = [
+    "mnist-classifier",
+    "mnist-classifier/linkages",
+    "malamute",
+    "malamute/linkages"
+]
 resolver = "2"
 
 [workspace.dependencies.husky-core]
@@ -12,7 +17,7 @@ path = "malamute"
 path = "malamute/linkages"
 
 [workspace.dependencies.mnist]
-path = "mnist"
+path = "../../../registry/mnist-0.1.0"
 
 [workspace.dependencies.mnist-classifier]
 path = "mnist-classifier"
@@ -21,4 +26,4 @@ path = "mnist-classifier"
 path = "mnist-classifier/linkages"
 
 [workspace.dependencies.mnist-linkages]
-path = "mnist/linkages"
+path = "../../../registry/mnist-0.1.0"
