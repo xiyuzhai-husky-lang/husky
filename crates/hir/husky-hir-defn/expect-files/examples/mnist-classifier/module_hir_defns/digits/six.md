@@ -321,7 +321,7 @@
                                                     value: OrderedFloat(
                                                         0.0,
                                                     ),
-                                                    text: "0.0",
+                                                    text: "0.0f32",
                                                 },
                                             ),
                                         ),
@@ -553,7 +553,7 @@
                                                     value: OrderedFloat(
                                                         3.0,
                                                     ),
-                                                    text: "3.0",
+                                                    text: "3.0f32",
                                                 },
                                             ),
                                         ),
@@ -609,7 +609,7 @@
                                                     value: OrderedFloat(
                                                         1.4,
                                                     ),
-                                                    text: "1.4",
+                                                    text: "1.4f32",
                                                 },
                                             ),
                                         ),
@@ -650,7 +650,7 @@
                                                     value: OrderedFloat(
                                                         0.6,
                                                     ),
-                                                    text: "0.6",
+                                                    text: "0.6f32",
                                                 },
                                             ),
                                         ),
@@ -738,7 +738,7 @@
                                                     value: OrderedFloat(
                                                         0.5,
                                                     ),
-                                                    text: "0.5",
+                                                    text: "0.5f32",
                                                 },
                                             ),
                                         ),

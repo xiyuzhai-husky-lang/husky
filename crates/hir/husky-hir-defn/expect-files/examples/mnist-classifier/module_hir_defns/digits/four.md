@@ -561,7 +561,7 @@
                                                     value: OrderedFloat(
                                                         0.0,
                                                     ),
-                                                    text: "0.0",
+                                                    text: "0.0f32",
                                                 },
                                             ),
                                         ),
@@ -793,7 +793,7 @@
                                                     value: OrderedFloat(
                                                         0.0,
                                                     ),
-                                                    text: "0.0",
+                                                    text: "0.0f32",
                                                 },
                                             ),
                                         ),
@@ -834,7 +834,7 @@
                                                     value: OrderedFloat(
                                                         0.4,
                                                     ),
-                                                    text: "0.4",
+                                                    text: "0.4f32",
                                                 },
                                             ),
                                         ),

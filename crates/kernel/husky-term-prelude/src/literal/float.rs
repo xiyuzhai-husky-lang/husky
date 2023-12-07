@@ -1,10 +1,11 @@
 use super::*;
+use husky_print_utils::p;
 use std::num::ParseFloatError;
 
 /// allowing representing very large number
 #[salsa::interned(jar = TermPreludeJar)]
 pub struct TermF32Literal {
-    pub value: OrderedFloat<f64>,
+    pub value: OrderedFloat<f32>,
     #[return_ref]
     pub text: String,
 }
@@ -14,7 +15,13 @@ impl TermF32Literal {
         if !text.ends_with("f32") {
             text += "f32"
         }
-        let value: OrderedFloat<f64> = text.parse()?;
+        let value: OrderedFloat<f32> = match text.trim_end_matches("f32").parse() {
+            Ok(value) => value,
+            Err(e) => {
+                p!(text, e);
+                todo!()
+            }
+        };
         Ok(Self::new(db, value, text))
     }
 }

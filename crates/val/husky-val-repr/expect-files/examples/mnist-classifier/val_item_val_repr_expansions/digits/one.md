@@ -398,7 +398,7 @@
                                     value: OrderedFloat(
                                         3.0,
                                     ),
-                                    text: "3.0",
+                                    text: "3.0f32",
                                 },
                             ),
                         ),
@@ -611,7 +611,7 @@
                                     value: OrderedFloat(
                                         6.5,
                                     ),
-                                    text: "6.5",
+                                    text: "6.5f32",
                                 },
                             ),
                         ),
@@ -698,7 +698,7 @@
                                     value: OrderedFloat(
                                         0.0,
                                     ),
-                                    text: "0.0",
+                                    text: "0.0f32",
                                 },
                             ),
                         ),
@@ -820,7 +820,7 @@
                                     value: OrderedFloat(
                                         0.0,
                                     ),
-                                    text: "0.0",
+                                    text: "0.0f32",
                                 },
                             ),
                         ),
@@ -880,7 +880,7 @@
                                     value: OrderedFloat(
                                         0.0,
                                     ),
-                                    text: "0.0",
+                                    text: "0.0f32",
                                 },
                             ),
                         ),
@@ -1296,7 +1296,7 @@
                                     value: OrderedFloat(
                                         4.2,
                                     ),
-                                    text: "4.2",
+                                    text: "4.2f32",
                                 },
                             ),
                         ),
@@ -1535,7 +1535,7 @@
                                     value: OrderedFloat(
                                         2.0,
                                     ),
-                                    text: "2.0",
+                                    text: "2.0f32",
                                 },
                             ),
                         ),
@@ -1688,7 +1688,7 @@
                                     value: OrderedFloat(
                                         52.0,
                                     ),
-                                    text: "52.0",
+                                    text: "52.0f32",
                                 },
                             ),
                         ),
@@ -2061,7 +2061,7 @@
                                     value: OrderedFloat(
                                         1.0,
                                     ),
-                                    text: "1.0",
+                                    text: "1.0f32",
                                 },
                             ),
                         ),
@@ -3498,7 +3498,7 @@
                                     value: OrderedFloat(
                                         0.0,
                                     ),
-                                    text: "0.0",
+                                    text: "0.0f32",
                                 },
                             ),
                         ),
@@ -6044,7 +6044,7 @@
                                     value: OrderedFloat(
                                         10.0,
                                     ),
-                                    text: "10.0",
+                                    text: "10.0f32",
                                 },
                             ),
                         ),
@@ -6149,7 +6149,7 @@
                                     value: OrderedFloat(
                                         20.0,
                                     ),
-                                    text: "20.0",
+                                    text: "20.0f32",
                                 },
                             ),
                         ),

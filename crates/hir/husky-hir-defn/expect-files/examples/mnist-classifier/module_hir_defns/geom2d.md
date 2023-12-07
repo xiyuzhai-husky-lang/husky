@@ -2881,7 +2881,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.",
+                                                    text: "1.f32",
                                                 },
                                             ),
                                         ),
@@ -2927,7 +2927,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.0",
+                                                    text: "1.0f32",
                                                 },
                                             ),
                                         ),
@@ -2944,7 +2944,7 @@
                                                     value: OrderedFloat(
                                                         0.001,
                                                     ),
-                                                    text: "0.001",
+                                                    text: "0.001f32",
                                                 },
                                             ),
                                         ),
@@ -2964,7 +2964,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -2974,7 +2974,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -3045,7 +3045,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -3060,9 +3060,9 @@
                                             TermLiteral::F32(
                                                 TermF32Literal {
                                                     value: OrderedFloat(
-                                                        3.1415926,
+                                                        3.1415925,
                                                     ),
-                                                    text: "3.1415926",
+                                                    text: "3.1415926f32",
                                                 },
                                             ),
                                         ),
@@ -3574,7 +3574,7 @@
                                                     value: OrderedFloat(
                                                         0.0,
                                                     ),
-                                                    text: "0.0",
+                                                    text: "0.0f32",
                                                 },
                                             ),
                                         ),
@@ -3611,7 +3611,7 @@
                                                     value: OrderedFloat(
                                                         0.0,
                                                     ),
-                                                    text: "0.0",
+                                                    text: "0.0f32",
                                                 },
                                             ),
                                         ),
@@ -3693,7 +3693,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.",
+                                                    text: "1.f32",
                                                 },
                                             ),
                                         ),
@@ -3739,7 +3739,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.0",
+                                                    text: "1.0f32",
                                                 },
                                             ),
                                         ),
@@ -3756,7 +3756,7 @@
                                                     value: OrderedFloat(
                                                         0.001,
                                                     ),
-                                                    text: "0.001",
+                                                    text: "0.001f32",
                                                 },
                                             ),
                                         ),
@@ -3776,7 +3776,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -3786,7 +3786,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -3884,7 +3884,7 @@
                                                     value: OrderedFloat(
                                                         180.0,
                                                     ),
-                                                    text: "180.0",
+                                                    text: "180.0f32",
                                                 },
                                             ),
                                         ),
@@ -3899,9 +3899,9 @@
                                             TermLiteral::F32(
                                                 TermF32Literal {
                                                     value: OrderedFloat(
-                                                        3.1415926,
+                                                        3.1415925,
                                                     ),
-                                                    text: "3.1415926",
+                                                    text: "3.1415926f32",
                                                 },
                                             ),
                                         ),
