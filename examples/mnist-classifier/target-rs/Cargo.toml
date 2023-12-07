@@ -1,10 +1,5 @@
 [workspace]
-members = [
-    "mnist-classifier",
-    "mnist-classifier/linkages",
-    "malamute",
-    "malamute/linkages"
-]
+members = ["mnist-classifier", "mnist-classifier/linkages", "malamute", "malamute/linkages"]
 resolver = "2"
 
 [workspace.dependencies.husky-core]

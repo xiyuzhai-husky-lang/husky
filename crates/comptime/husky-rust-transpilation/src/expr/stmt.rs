@@ -161,7 +161,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     None => builder.zero(), // ad hoc, todo: use Default::default()
                                 }
                             });
-                            builder.call_recv()
+                            builder.call_rev()
                         }
                         _ => todo!(),
                     },

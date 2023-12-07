@@ -37,6 +37,12 @@ impl std::ops::IndexMut<usize> for BinaryImage28 {
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28([u32; 31]);
 
+impl BinaryGrid28 {
+    pub fn new_zeros() -> Self {
+        Self::default()
+    }
+}
+
 impl std::ops::Index<usize> for BinaryGrid28 {
     type Output = u32;
 
