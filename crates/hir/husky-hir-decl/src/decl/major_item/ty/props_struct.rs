@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_decl::PropsStructTypeSynDecl;
-use husky_syn_expr::PropsFieldSyndicate;
+use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct PropsStructTypeHirDecl {
@@ -17,17 +17,21 @@ pub struct PropsStructTypeHirDecl {
 pub struct PropsStructFieldHirDecl {
     ident: Ident,
     ty: HirType,
+    pub initialization: Option<PropsFieldHirInitialization>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum PropsFieldHirInitialization {
+    Bind { value: HirEagerExprIdx },
+    Default {},
 }
 
 impl PropsStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        _syn_decl: PropsStructTypeSynDecl,
+        syn_decl: PropsStructTypeSynDecl,
         db: &::salsa::Db,
     ) -> Self {
-        let TypeSynDecl::PropsStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
-            unreachable!()
-        };
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
@@ -51,6 +55,9 @@ impl PropsStructFieldHirDecl {
         Self {
             ident: field.ident(),
             ty: builder.hir_ty(field.ty_syn_expr_idx()).unwrap(),
+            initialization: field.initialization().map(|initialization| {
+                PropsFieldHirInitialization::from_syn(initialization, builder)
+            }),
         }
     }
 
@@ -60,5 +67,22 @@ impl PropsStructFieldHirDecl {
 
     pub fn ty(&self) -> HirType {
         self.ty
+    }
+}
+
+impl PropsFieldHirInitialization {
+    fn from_syn(
+        initialization: PropsFieldSynInitialization,
+        builder: &HirDeclBuilder,
+    ) -> PropsFieldHirInitialization {
+        match initialization {
+            PropsFieldSynInitialization::Bind {
+                colon_eq_token,
+                value,
+            } => PropsFieldHirInitialization::Bind {
+                value: builder.hir_eager_expr_idx(value).unwrap(),
+            },
+            PropsFieldSynInitialization::Default {} => todo!(),
+        }
     }
 }

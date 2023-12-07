@@ -5,30 +5,84 @@ pub struct Point2d {
     pub y: f32,
 } 
 
+impl Point2d {
+    pub fn __constructor(x: f32, y: f32) -> Self {
+        Self{
+            x,
+            y,
+        }
+    }
+}
+
 pub struct RelativePoint2d {
     pub x: f32,
     pub y: f32,
 } 
+
+impl RelativePoint2d {
+    pub fn __constructor(x: f32, y: f32) -> Self {
+        Self{
+            x,
+            y,
+        }
+    }
+}
 
 pub struct Vector2d {
     pub x: f32,
     pub y: f32,
 } 
 
+impl Vector2d {
+    pub fn __constructor(x: f32, y: f32) -> Self {
+        Self{
+            x,
+            y,
+        }
+    }
+}
+
 pub struct ClosedRange {
     pub min: f32,
     pub max: f32,
 } 
+
+impl ClosedRange {
+    pub fn __constructor(min: f32, max: f32) -> Self {
+        Self{
+            min,
+            max,
+        }
+    }
+}
 
 pub struct BoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
 } 
 
+impl BoundingBox {
+    pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        Self{
+            xrange,
+            yrange,
+        }
+    }
+}
+
 pub struct RelativeBoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
 } 
+
+impl RelativeBoundingBox {
+    pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        Self{
+            xrange,
+            yrange,
+        }
+    }
+}
 
 impl Point2d {
     pub fn from_i_shift28(i: i32, shift: i32) -> Point2d {

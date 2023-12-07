@@ -7,9 +7,28 @@ pub struct ConnectedComponentDistribution {
     pub lower_mass: i32,
 } 
 
+impl ConnectedComponentDistribution {
+    pub fn __constructor(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
+        Self{
+            row_start,
+            row_end,
+            upper_mass,
+            lower_mass,
+        }
+    }
+}
+
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<RawContour>>>,
 } 
+
+impl EffHoles {
+    pub fn __constructor(matches: Vec<Option<Leash<RawContour>>>) -> Self {
+        Self{
+            matches,
+        }
+    }
+}
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len();
@@ -20,6 +39,14 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 pub struct ConnectedComponent {
     pub mask: BinaryImage28,
 } 
+
+impl ConnectedComponent {
+    pub fn __constructor(mask: BinaryImage28) -> Self {
+        Self{
+            mask,
+        }
+    }
+}
 
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a | (x | x << 1 | x >> 1);

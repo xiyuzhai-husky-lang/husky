@@ -5,6 +5,15 @@ pub struct ConcaveComponent {
     pub strokes: Leash<CyclicSlice<LineSegmentStroke>>,
 } 
 
+impl ConcaveComponent {
+    pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, strokes: Leash<CyclicSlice<LineSegmentStroke>>) -> Self {
+        Self{
+            line_segment_sketch,
+            strokes,
+        }
+    }
+}
+
 pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {
     let mut concave_components: Vec<ConcaveComponent> = vec![];
     let L = line_segment_sketch.strokes.ilen();

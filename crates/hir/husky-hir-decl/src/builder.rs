@@ -1,6 +1,6 @@
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::FluffyTermBase;
-use husky_hir_eager_expr::HirEagerPatternExprIdx;
+use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
@@ -102,6 +102,18 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn db(&self) -> &::salsa::Db {
         self.db
+    }
+
+    pub(crate) fn hir_eager_expr_idx(&self, syn_expr_root: SynExprIdx) -> Option<HirEagerExprIdx> {
+        let HirExprSourceMap::Eager(source_map) = self.hir_expr_source_map else {
+            unreachable!()
+        };
+        let sema_expr_idx = self
+            .sema_expr_region_data
+            .syn_root_to_sema_expr_idx(syn_expr_root);
+        source_map
+            .data(self.db)
+            .sema_to_hir_eager_expr_idx(sema_expr_idx)
     }
 
     pub(crate) fn hir_eager_pattern_expr_idx(

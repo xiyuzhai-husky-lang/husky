@@ -16,10 +16,29 @@ pub struct LineSegmentStroke {
     pub end: Point2d,
 } 
 
+impl LineSegmentStroke {
+    pub fn __constructor(points: Leash<CyclicSlice<Point2d>>, start: Point2d, end: Point2d) -> Self {
+        Self{
+            points,
+            start,
+            end,
+        }
+    }
+}
+
 pub struct LineSegmentSketch {
     pub contour: Leash<RawContour>,
     pub strokes: Vec<LineSegmentStroke>,
 } 
+
+impl LineSegmentSketch {
+    pub fn __constructor(contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>) -> Self {
+        Self{
+            contour,
+            strokes,
+        }
+    }
+}
 
 pub fn go_right(u: &Vector2d, r: f32) -> Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();

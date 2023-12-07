@@ -28,7 +28,7 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
 impl TranspileToRustWith for TraitForTypeImplBlockHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        builder.eager_head(self.hir_eager_expr_region(db), |builder| {
+        builder.with_hir_eager_expr_region(self.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Impl);
             self.template_parameters(db).transpile_to_rust(builder);
             self.trai(db).transpile_to_rust(builder);
