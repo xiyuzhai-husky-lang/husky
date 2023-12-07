@@ -21,7 +21,7 @@ husky-vfs.workspace = true
 husky-toml-ast.workspace = true
 
 [dev-dependencies]
-husky-manifest-ast = { path = ".", features = ["test-utils"] }
+husky-manifest-ast = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

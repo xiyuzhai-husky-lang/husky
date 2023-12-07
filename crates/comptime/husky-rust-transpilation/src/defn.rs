@@ -149,7 +149,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
                 pattern_expr_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Colon);
                 match contract {
-                    HirEagerContract::Pure => match ty.is_copyable_obviously(db) {
+                    HirEagerContract::Pure => match ty.always_copyable(db) {
                         true => (),
                         false => builder.punctuation(RustPunctuation::Ambersand),
                     },

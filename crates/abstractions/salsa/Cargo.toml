@@ -33,7 +33,7 @@ husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 env_logger = "*"
 rustversion = "1.0"
 trybuild = "1.0"
-salsa = { path = ".", features = ["test-utils"] }
+salsa = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = []
+test_utils = []

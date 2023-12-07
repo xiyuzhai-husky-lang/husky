@@ -14,6 +14,7 @@ use vec_like::VecSet;
 /// symbols are defined in a top-down manner through generics
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermSymbol {
+    pub toolchain: Toolchain,
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
@@ -25,10 +26,15 @@ impl DeclarativeTermSymbol {
     pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
 
     #[inline(always)]
-    pub fn new_self_ty(db: &::salsa::Db, registry: &mut TermSymbolRegistry) -> Self {
+    pub fn new_self_ty(
+        db: &::salsa::Db,
+        toolchain: Toolchain,
+        registry: &mut TermSymbolRegistry,
+    ) -> Self {
         // todo: general universe??? or ignore universes totally
         DeclarativeTermSymbol::new(
             db,
+            toolchain,
             Ok(DeclarativeTerm::TYPE),
             registry.issue_self_ty_index(),
         )
@@ -37,12 +43,14 @@ impl DeclarativeTermSymbol {
     #[inline(always)]
     pub fn new_self_value(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         registry: &mut TermSymbolRegistry,
         _self_ty_term: DeclarativeTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
         DeclarativeTermSymbol::new(
             db,
+            toolchain,
             Ok(DeclarativeTerm::TYPE),
             registry.issue_self_value_index(),
         )
@@ -51,6 +59,7 @@ impl DeclarativeTermSymbol {
     #[inline(always)]
     pub fn new_lifetime(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -61,6 +70,7 @@ impl DeclarativeTermSymbol {
             ty,
             Self::new(
                 db,
+                toolchain,
                 ty,
                 registry.issue_explicit_lifetime_index(attrs, variance),
             ),
@@ -70,6 +80,7 @@ impl DeclarativeTermSymbol {
     #[inline(always)]
     pub fn new_place(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -78,13 +89,19 @@ impl DeclarativeTermSymbol {
         let ty = Ok(menu.place_ty());
         (
             ty,
-            Self::new(db, ty, registry.issue_explicit_place_index(attrs, variance)),
+            Self::new(
+                db,
+                toolchain,
+                ty,
+                registry.issue_explicit_place_index(attrs, variance),
+            ),
         )
     }
 
     #[inline(always)]
     pub fn new_ty(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -93,12 +110,13 @@ impl DeclarativeTermSymbol {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            DeclarativeTermSymbol::new(db, ty, registry.issue_ty_index(attrs, variance)),
+            DeclarativeTermSymbol::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
     pub fn new_const(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         attrs: DeclarativeTemplateSymbolAttrs,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         registry: &mut TermSymbolRegistry,
@@ -113,12 +131,13 @@ impl DeclarativeTermSymbol {
             },
             Err(_) => registry.issue_const_err_index(attrs),
         };
-        Self::new(db, ty, idx)
+        Self::new(db, toolchain, ty, idx)
     }
 
     /// ephem is short for `ephemeral`
     pub fn new_ephem(
         db: &::salsa::Db,
+        toolchain: Toolchain,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         registry: &mut TermSymbolRegistry,
     ) -> Self {
@@ -132,12 +151,18 @@ impl DeclarativeTermSymbol {
             },
             Err(_) => todo!(),
         };
-        Self::new(db, ty, idx)
+        Self::new(db, toolchain, ty, idx)
     }
 
-    pub unsafe fn new_ad_hoc(db: &::salsa::Db, ty: DeclarativeTerm, disambiguator: u8) -> Self {
+    pub unsafe fn new_ad_hoc(
+        db: &::salsa::Db,
+        toolchain: Toolchain,
+        ty: DeclarativeTerm,
+        disambiguator: u8,
+    ) -> Self {
         Self::new(
             db,
+            toolchain,
             Ok(ty),
             DeclarativeTermSymbolIndex::new_ad_hoc(disambiguator),
         )

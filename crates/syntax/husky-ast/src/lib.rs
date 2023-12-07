@@ -8,7 +8,7 @@ mod parser;
 mod range;
 mod sheet;
 mod specs;
-#[cfg(debug_assertions)]
+#[cfg(feature = "test_utils")]
 pub mod test_utils;
 #[cfg(test)]
 mod tests;

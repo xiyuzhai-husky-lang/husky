@@ -27,8 +27,8 @@ expect-test = "1.4.0"
 # kernel
 husky-entity-path.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
-husky-toml-ast = { path = ".", features = ["test-utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-toml-ast = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

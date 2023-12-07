@@ -18,7 +18,7 @@ husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 husky-linkage.workspace = true
 
 [dev-dependencies]
-husky-val = { path = ".", features = ["test-utils"] }
+husky-val = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

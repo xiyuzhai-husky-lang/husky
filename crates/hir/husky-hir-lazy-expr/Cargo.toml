@@ -30,7 +30,7 @@ husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 
 [dev-dependencies]
-husky-hir-lazy-expr = { path = ".", features = ["test-utils"] }
+husky-hir-lazy-expr = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

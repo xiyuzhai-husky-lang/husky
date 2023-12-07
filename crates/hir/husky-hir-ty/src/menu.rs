@@ -11,7 +11,7 @@ impl HirTypeMenu {
     fn new(db: &::salsa::Db, toolchain: Toolchain) -> Self {
         let item_path_menu = item_path_menu(db, toolchain);
         Self {
-            unit_ty: HirTypePathLeading::new(db, item_path_menu.unit_ty_path(), smallvec![]),
+            unit_ty: HirTypePathLeading::new(db, item_path_menu.unit_ty_path(), smallvec![], true),
         }
     }
 

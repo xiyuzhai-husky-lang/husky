@@ -65,7 +65,7 @@ impl HirEagerExprSite {
         db: &::salsa::Db,
     ) -> Self {
         let mut rust_bindings: RustBindings = match param.contract {
-            HirEagerContract::Pure => match param.ty.is_copyable_obviously(db) {
+            HirEagerContract::Pure => match param.ty.always_copyable(db) {
                 true => Default::default(),
                 false => RustBinding::Reref.into(),
             },

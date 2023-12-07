@@ -75,34 +75,34 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
 husky-toml-ast = { path = "../../syntax/husky-toml-ast", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-manifest-ast = { path = "../../syntax/husky-manifest-ast", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr", features = [
-    "test-utils"
+    "test_utils"
 ] }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn", features = [
-    "test-utils"
+    "test_utils"
 ] }
 # val
-husky-val = { path = "../../val/husky-val", features = ["test-utils"] }
+husky-val = { path = "../../val/husky-val", features = ["test_utils"] }
 husky-val-repr = { path = "../../val/husky-val-repr", features = [
-    "test-utils"
+    "test_utils"
 ] }
-husky-trace = { path = ".", features = ["test-utils"] }
+husky-trace = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

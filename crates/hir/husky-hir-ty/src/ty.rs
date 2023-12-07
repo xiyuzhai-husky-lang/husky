@@ -3,7 +3,9 @@ pub mod ritchie;
 
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
-use husky_ethereal_signature::HasEtherealSignatureTemplate;
+use husky_ethereal_signature::{
+    helpers::trai_for_ty::is_ty_term_always_copyable, HasEtherealSignatureTemplate,
+};
 use husky_ethereal_term::{
     EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexInner,
     TermFunctionReduced,
@@ -33,6 +35,7 @@ pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
     pub fn from_ethereal(term: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
+        let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
             EtherealTerm::Symbol(symbol) => {
                 HirTypeSymbol::from_ethereal(symbol, db).map(Into::into)
@@ -41,7 +44,7 @@ impl HirType {
                 TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(ty_path) => {
-                    Some(HirTypePathLeading::new(db, ty_path, smallvec![]).into())
+                    Some(HirTypePathLeading::new(db, ty_path, smallvec![], always_copyable).into())
                 }
                 TermEntityPath::TypeInstance(_) => todo!(),
                 TermEntityPath::TypeVariant(_) => todo!(),
@@ -85,9 +88,9 @@ impl HirType {
         }
     }
 
-    pub fn is_copyable_obviously(self, db: &::salsa::Db) -> bool {
+    pub fn always_copyable(self, db: &::salsa::Db) -> bool {
         match self {
-            HirType::PathLeading(slf) => slf.is_copyable_obviously(db),
+            HirType::PathLeading(slf) => slf.always_copyable(db),
             HirType::Symbol(slf) => false, // ad hoc: todo check traits
             HirType::TypeAssociatedType(slf) => false, // ad hoc: todo check traits
             HirType::TraitAssociatedType(slf) => false, // ad hoc: todo check traits
@@ -133,7 +136,15 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
             })
             .map(|arg| HirTemplateArgument::from_ethereal(arg, db).unwrap())
             .collect();
-            HirTypePathLeading::new(db, ty_path, template_arguments).into()
+            HirTypePathLeading::new(
+                db,
+                ty_path,
+                template_arguments,
+                is_ty_term_always_copyable(term_application.into(), db)
+                    .unwrap()
+                    .expect("should be a hir ty"),
+            )
+            .into()
         }
         TermFunctionReduced::Trait(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),

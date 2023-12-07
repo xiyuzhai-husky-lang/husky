@@ -15,7 +15,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
 [dev-dependencies]
-husky-coword = { path = ".", features = ["test-utils"] }
+husky-coword = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

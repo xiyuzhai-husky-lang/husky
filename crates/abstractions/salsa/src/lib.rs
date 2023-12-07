@@ -24,7 +24,7 @@ pub mod salsa_struct;
 pub mod setter;
 pub mod snapshot;
 pub mod storage;
-#[cfg(debug_assertions)]
+#[cfg(feature = "test_utils")]
 pub mod test_utils;
 #[doc(hidden)]
 pub mod tracked_struct;
@@ -33,10 +33,6 @@ pub mod utils;
 pub use self::cancelled::Cancelled;
 pub use self::cycle::Cycle;
 pub use self::db::Db;
-pub use self::jar::Jars;
-// pub use self::database::Database;
-// pub use self::database::ParallelDatabase;
-// pub use self::database::Snapshot;
 pub use self::debug::{DebugWith, DebugWithDb};
 pub use self::display::{DisplayWith, DisplayWithDb};
 pub use self::durability::Durability;
@@ -44,6 +40,7 @@ pub use self::event::Event;
 pub use self::event::EventKind;
 pub use self::id::AsId;
 pub use self::id::Id;
+pub use self::jar::Jars;
 pub use self::key::DatabaseKeyIndex;
 pub use self::revision::Revision;
 pub use self::routes::IngredientIndex;

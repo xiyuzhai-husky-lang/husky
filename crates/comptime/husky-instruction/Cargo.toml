@@ -33,8 +33,8 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [dev-dependencies]
-husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
-husky-instruction = { path = ".", features = ["test-utils"] }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-instruction = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

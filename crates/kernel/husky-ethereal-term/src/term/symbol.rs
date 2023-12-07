@@ -10,6 +10,7 @@ use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
 pub struct EtherealTermSymbol {
+    pub toolchain: Toolchain,
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
@@ -35,6 +36,7 @@ impl EtherealTermSymbol {
         let ty = EtherealTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(
             db,
+            declarative_term_symbol.toolchain(db),
             ty,
             EtherealTermSymbolIndex::from_declarative(declarative_term_symbol.index(db)),
         ))

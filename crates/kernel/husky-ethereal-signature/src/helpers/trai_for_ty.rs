@@ -78,6 +78,14 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     trai_path: TraitPath,
     ty_term: EtherealTerm,
 ) -> EtherealSignatureResult<bool> {
+    match ty_term {
+        EtherealTerm::Symbol(_) => todo!(),
+        EtherealTerm::Variable(_) => todo!(),
+        EtherealTerm::Ritchie(_) => todo!(),
+        EtherealTerm::Subitem(_) => todo!(),
+        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        _ => (),
+    }
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -100,12 +108,13 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
 pub fn is_ty_term_always_copyable(
     ty_term: EtherealTerm,
     db: &::salsa::Db,
-) -> EtherealSignatureResult<bool> {
-    let copy_trai = ty_term
-        .item_path_menu(db)
-        .expect("should be some because ty_term is a type")
-        .copy_trai_path();
+) -> EtherealSignatureResult<Option<bool>> {
+    let Some(item_path_menu) = ty_term.item_path_menu(db) else {
+        return Ok(None);
+    };
+    let copy_trai = item_path_menu.copy_trai_path();
     trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists(db, copy_trai, ty_term)
+        .map(Some)
 }
 
 // trait side

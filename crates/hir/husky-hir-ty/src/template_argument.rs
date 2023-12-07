@@ -1,4 +1,5 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
+use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;
@@ -40,6 +41,7 @@ pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 // .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
 impl HirTemplateArgument {
     pub(crate) fn from_ethereal(argument: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
+        let always_copyable = is_ty_term_always_copyable(argument, db).unwrap()?;
         Some(match argument {
             EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
             EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
@@ -48,7 +50,8 @@ impl HirTemplateArgument {
                 TermEntityPath::Fugitive(path) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(ty_path) => HirTemplateArgument::Type(
-                    HirTypePathLeading::new(db, ty_path, Default::default()).into(),
+                    HirTypePathLeading::new(db, ty_path, Default::default(), always_copyable)
+                        .into(),
                 ),
                 TermEntityPath::TypeInstance(_) => todo!(),
                 TermEntityPath::TypeVariant(_) => todo!(),

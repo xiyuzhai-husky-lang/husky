@@ -23,7 +23,7 @@ expect-test = "1.4.0"
 salsa.workspace = true
 # kernel
 husky-entity-path.workspace = true
-husky-toml-token = { path = ".", features = ["test-utils"] }
+husky-toml-token = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils", "husky-vfs/test-utils"]
+test_utils = ["salsa/test_utils", "husky-vfs/test_utils"]

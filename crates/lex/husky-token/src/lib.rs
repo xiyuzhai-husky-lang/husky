@@ -6,7 +6,7 @@ mod helpers;
 mod sheet;
 mod snippet;
 mod stream;
-#[cfg(debug_assertions)]
+#[cfg(feature = "test_utils")]
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
@@ -28,11 +28,11 @@ pub use self::token_idx_range::*;
 pub use self::token_group::*;
 pub use self::token_visibility::*;
 
+#[cfg(test)]
+use self::tests::*;
+use self::tokenize::*;
 use husky_coword::Ident;
 use husky_term_prelude::*;
 use husky_text_protocol::range::TextRange;
 use husky_token_data::*;
 use husky_vfs::{error::VfsResult, ModulePath};
-#[cfg(test)]
-use tests::*;
-use tokenize::*;

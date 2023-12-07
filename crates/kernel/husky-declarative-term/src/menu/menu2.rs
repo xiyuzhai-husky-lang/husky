@@ -20,7 +20,7 @@ impl std::ops::Deref for DeclarativeTermMenu2 {
 impl DeclarativeTermMenu2 {
     pub(crate) fn new(
         db: &::salsa::Db,
-        _toolchain: Toolchain,
+        toolchain: Toolchain,
         menu1: DeclarativeTermMenu1,
     ) -> DeclarativeTermResult<Self> {
         // db.it_item_path_term(item_path_menu(db,toolchain).as_ref()?.r32());
@@ -33,6 +33,7 @@ impl DeclarativeTermMenu2 {
             .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 menu1.lifetime_ty().into(),
@@ -40,6 +41,7 @@ impl DeclarativeTermMenu2 {
             ),
             ex_co_lifetime_to_ex_ct_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 menu1.lifetime_ty().into(),
@@ -47,6 +49,7 @@ impl DeclarativeTermMenu2 {
             ),
             ex_co_lifetime_to_ex_inv_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 menu1.lifetime_ty().into(),

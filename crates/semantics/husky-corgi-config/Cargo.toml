@@ -22,7 +22,7 @@ husky-toml-ast.workspace = true
 husky-corgi-config-ast.workspace = true
 
 [dev-dependencies]
-husky-corgi-config = { path = ".", features = ["test-utils"] }
+husky-corgi-config = { path = ".", features = ["test_utils"] }
 
 [features]
-test-utils = ["salsa/test-utils"]
+test_utils = ["salsa/test_utils"]

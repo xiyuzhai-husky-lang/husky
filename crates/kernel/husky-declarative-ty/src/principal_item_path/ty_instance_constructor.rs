@@ -1,4 +1,5 @@
 use husky_print_utils::p;
+use husky_vfs::Toolchain;
 
 use super::*;
 
@@ -44,7 +45,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
 
 fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
-    _path: TypePath,
+    path: TypePath,
     variances: &[Variance],
     signature: PropsStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -62,6 +63,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         DeclarativeTermRitchie::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
+        path.toolchain(db),
         CurryKind::Implicit,
         variances,
         template_parameters,
@@ -71,7 +73,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
 
 fn tuple_struct_ty_constructor_path_declarative_ty(
     db: &::salsa::Db,
-    _path: TypePath,
+    path: TypePath,
     variances: &[Variance],
     signature: TupleStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -87,6 +89,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         DeclarativeTermRitchie::new(db, RitchieTypeKind::Fn.into(), parameter_tys, self_ty);
     curry_from_template_parameters(
         db,
+        path.toolchain(db),
         CurryKind::Implicit,
         variances,
         template_parameters,

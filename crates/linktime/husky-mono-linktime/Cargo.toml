@@ -25,4 +25,4 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-dev-comptime.workspace = true
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

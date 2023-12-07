@@ -45,4 +45,4 @@ husky-val-repr.workspace = true
 husky-instruction = { path = "../../comptime/husky-instruction" }
 
 [dev-dependencies]
-husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }

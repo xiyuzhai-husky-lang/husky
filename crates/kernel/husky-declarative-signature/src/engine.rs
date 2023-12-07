@@ -7,10 +7,12 @@ use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
+use husky_vfs::Toolchain;
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
     db: &'a ::salsa::Db,
+    toolchain: Toolchain,
     syn_expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DeclarativeTermMenu,
     symbol_declarative_term_region: SymbolDeclarativeTermRegion,
@@ -46,6 +48,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         let syn_expr_region_data = &syn_expr_region.data(db);
         Self {
             db,
+            toolchain,
             syn_expr_region_data,
             declarative_term_menu,
             symbol_declarative_term_region: SymbolDeclarativeTermRegion::new(
@@ -70,6 +73,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.symbol_declarative_term_region
             .infer_self_ty_parameter_and_self_value_parameter(
                 self.db,
+                self.toolchain,
                 self.syn_expr_region_data.path(),
                 self.syn_expr_region_data.symbol_region(),
             );
@@ -116,6 +120,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                             DeclarativeTermSymbol::new_lifetime(
                                 self.db,
+                                self.toolchain,
                                 self.declarative_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
@@ -125,6 +130,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
                             DeclarativeTermSymbol::new_place(
                                 self.db,
+                                self.toolchain,
                                 self.declarative_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
@@ -134,6 +140,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
                             DeclarativeTermSymbol::new_ty(
                                 self.db,
+                                self.toolchain,
                                 self.declarative_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                                 attrs,
@@ -158,6 +165,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                                 ty,
                                 DeclarativeTermSymbol::new_const(
                                     self.db,
+                                    self.toolchain,
                                     attrs,
                                     ty,
                                     &mut self.symbol_declarative_term_region.symbol_registry_mut(),
@@ -200,6 +208,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     let symbol = DeclarativeTermSymbol::new_ephem(
                         self.db,
+                        self.toolchain,
                         ty,
                         &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                     );
@@ -449,6 +458,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     SynBinaryOpr::ScopeResolution => todo!(),
                     SynBinaryOpr::CurryType => Ok(DeclarativeTermCurry::new_nondependent(
                         self.db,
+                        self.toolchain,
                         CurryKind::Explicit, // ad hoc
                         Variance::Invariant, // ad hoc
                         lopd,

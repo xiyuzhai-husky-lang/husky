@@ -74,10 +74,10 @@ impl SymbolType {
                     location: engine.issue_new_stack_location_idx(),
                 },
                 Some(place) => match ty.is_always_copyable(engine)? {
-                    true => FluffyPlace::ImmutableStackOwned {
+                    Some(true) => FluffyPlace::ImmutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
-                    false => match place {
+                    Some(false) => match place {
                         FluffyPlace::Const => todo!(),
                         FluffyPlace::StackPure { location }
                         | FluffyPlace::ImmutableStackOwned { location }
@@ -90,6 +90,7 @@ impl SymbolType {
                         FluffyPlace::Leashed => todo!(),
                         FluffyPlace::Todo => todo!(),
                     },
+                    None => todo!(),
                 },
             },
             SymbolModifier::Owned => todo!(),
@@ -98,13 +99,14 @@ impl SymbolType {
                     location: engine.issue_new_stack_location_idx(),
                 },
                 Some(place) => match ty.is_always_copyable(engine)? {
-                    true => FluffyPlace::MutableStackOwned {
+                    Some(true) => FluffyPlace::MutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
-                    false => {
+                    Some(false) => {
                         p!(ty.show(engine.db(), engine.fluffy_terms()));
                         todo!()
                     }
+                    None => todo!(),
                 },
             },
             SymbolModifier::Ref => todo!(),
