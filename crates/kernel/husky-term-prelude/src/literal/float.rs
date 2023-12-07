@@ -13,7 +13,11 @@ pub struct TermF32Literal {
 impl TermF32Literal {
     pub fn try_new(mut text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
         if !text.ends_with("f32") {
-            text += "f32"
+            if text.ends_with(".") {
+                text += "0f32"
+            } else {
+                text += "f32"
+            }
         }
         let value: OrderedFloat<f32> = match text.trim_end_matches("f32").parse() {
             Ok(value) => value,
