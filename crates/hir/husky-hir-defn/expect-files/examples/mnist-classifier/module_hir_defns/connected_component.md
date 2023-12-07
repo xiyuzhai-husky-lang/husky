@@ -16,6 +16,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -26,6 +27,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -36,6 +38,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -46,6 +49,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -142,18 +146,22 @@
                                                                                     HirTypePathLeading {
                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                         template_arguments: [],
+                                                                                        always_copyable: false,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
                                                         ],
+                                                        always_copyable: true,
                                                     },
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -224,10 +232,12 @@
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
+                                                            always_copyable: false,
                                                         },
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -242,10 +252,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                                 template_arguments: [],
+                                                always_copyable: true,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -451,6 +463,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -516,6 +529,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -526,6 +540,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -535,6 +550,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -968,6 +984,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -982,10 +999,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 template_arguments: [],
+                                                always_copyable: false,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1092,6 +1111,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -1791,6 +1811,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -2415,6 +2436,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -2519,6 +2541,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::visual::Html`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2729,6 +2752,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -2792,10 +2816,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
+                                                always_copyable: false,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2943,6 +2969,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3029,6 +3056,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -3083,10 +3111,12 @@
                                                                                     HirTypePathLeading {
                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                         template_arguments: [],
+                                                                                        always_copyable: false,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
@@ -3166,10 +3196,12 @@
                                                                                     HirTypePathLeading {
                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                         template_arguments: [],
+                                                                                        always_copyable: false,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
@@ -3241,14 +3273,17 @@
                                                                                                     HirTypePathLeading {
                                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                                         template_arguments: [],
+                                                                                                        always_copyable: false,
                                                                                                     },
                                                                                                 ),
                                                                                             ),
                                                                                         ],
+                                                                                        always_copyable: true,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
@@ -3328,10 +3363,12 @@
                                                                                     HirTypePathLeading {
                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                         template_arguments: [],
+                                                                                        always_copyable: false,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
@@ -3403,14 +3440,17 @@
                                                                                                     HirTypePathLeading {
                                                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                                         template_arguments: [],
+                                                                                                        always_copyable: false,
                                                                                                     },
                                                                                                 ),
                                                                                             ),
                                                                                         ],
+                                                                                        always_copyable: true,
                                                                                     },
                                                                                 ),
                                                                             ),
                                                                         ],
+                                                                        always_copyable: true,
                                                                     },
                                                                 ),
                                                             ),
@@ -3631,6 +3671,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3730,6 +3771,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -3782,6 +3824,7 @@
                                                                     HirTypePathLeading {
                                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                         template_arguments: [],
+                                                                        always_copyable: false,
                                                                     },
                                                                 ),
                                                             ),
@@ -4018,6 +4061,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4309,6 +4353,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4558,6 +4603,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5305,6 +5351,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5444,6 +5491,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5592,6 +5640,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -5601,6 +5650,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5988,6 +6038,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -5997,6 +6048,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

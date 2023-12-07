@@ -33,12 +33,6 @@ fn trai_for_ty_impl_block_hir_decl(
         HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
     let signature_template = path.ethereal_signature_template(db).unwrap();
     let trai = HirTrait::from_ethereal(signature_template.trai(db), db);
-    use salsa::DebugWithDb;
-    p!(
-        path.debug(db),
-        signature_template.self_ty(db),
-        signature_template.self_ty(db).debug(db)
-    );
     let self_ty = HirType::from_ethereal(signature_template.self_ty(db), db).unwrap();
     Some(TraitForTypeImplBlockHirDecl::new(
         db,

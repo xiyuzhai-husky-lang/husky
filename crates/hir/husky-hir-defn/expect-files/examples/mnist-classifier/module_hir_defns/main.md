@@ -134,10 +134,12 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
+                                                always_copyable: false,
                                             },
                                         ),
                                     ),
                                 ],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

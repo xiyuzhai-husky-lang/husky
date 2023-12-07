@@ -144,6 +144,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::visual::Html`, `Extern`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {

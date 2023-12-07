@@ -41,6 +41,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -100,6 +101,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -180,6 +182,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::visual::Html`, `Extern`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -266,6 +269,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -327,6 +331,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -393,6 +398,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -469,6 +475,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -549,6 +556,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -629,6 +637,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::visual::Html`, `Extern`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -715,6 +724,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -776,6 +786,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -842,6 +853,7 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                         template_arguments: [],
+                        always_copyable: false,
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
@@ -918,6 +930,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                             template_arguments: [],
+                            always_copyable: true,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {

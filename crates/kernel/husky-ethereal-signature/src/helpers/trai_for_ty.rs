@@ -1,10 +1,11 @@
+use super::*;
+use either::*;
 use husky_entity_syn_tree::{
     helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     helpers::ty_side_trai_for_ty_impl_block_paths_map,
 };
-
-use super::*;
+use husky_term_prelude::{RitchieKind, RitchieTypeKind};
 
 pub struct TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
     trai_side_derive_any: &'a [TraitForTypeImplBlockEtherealSignatureTemplate],
@@ -79,9 +80,39 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     ty_term: EtherealTerm,
 ) -> EtherealSignatureResult<bool> {
     match ty_term {
-        EtherealTerm::Symbol(_) => todo!(),
+        EtherealTerm::Symbol(_) => return Ok(false), // ad hoc
         EtherealTerm::Variable(_) => todo!(),
-        EtherealTerm::Ritchie(_) => todo!(),
+        EtherealTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
+            RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
+                RitchieTypeKind::Fn => match trai_path.refine(db) {
+                    Left(prelude_trai_path) => match prelude_trai_path {
+                        PreludeTraitPath::Add => todo!(),
+                        PreludeTraitPath::AddAssign => todo!(),
+                        PreludeTraitPath::BitAnd => todo!(),
+                        PreludeTraitPath::BitAndAssign => todo!(),
+                        PreludeTraitPath::BitOr => todo!(),
+                        PreludeTraitPath::BitOrAssign => todo!(),
+                        PreludeTraitPath::BitXor => todo!(),
+                        PreludeTraitPath::BitXorAssign => todo!(),
+                        PreludeTraitPath::Div => todo!(),
+                        PreludeTraitPath::DivAssign => todo!(),
+                        PreludeTraitPath::IntIndex => todo!(),
+                        PreludeTraitPath::Mul => todo!(),
+                        PreludeTraitPath::MulAssign => todo!(),
+                        PreludeTraitPath::Neg => todo!(),
+                        PreludeTraitPath::Not => todo!(),
+                        PreludeTraitPath::Unveil => todo!(),
+                        PreludeTraitPath::Clone => return Ok(true),
+                        PreludeTraitPath::Copy => return Ok(true),
+                        PreludeTraitPath::Default => return Ok(false),
+                        PreludeTraitPath::Visualize => todo!(),
+                    },
+                    Right(_) => todo!(),
+                },
+                RitchieTypeKind::Gn => todo!(),
+            },
+            RitchieKind::Trait(_) => todo!(),
+        },
         EtherealTerm::Subitem(_) => todo!(),
         EtherealTerm::AsTraitSubitem(_) => todo!(),
         _ => (),

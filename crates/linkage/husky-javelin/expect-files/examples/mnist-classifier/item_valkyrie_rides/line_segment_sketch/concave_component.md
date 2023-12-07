@@ -25,7 +25,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 219,
+                                        value: 236,
                                     },
                                 ),
                             ),
@@ -65,7 +65,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 225,
+                                        value: 242,
                                     },
                                 ),
                             ),
@@ -105,7 +105,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 220,
+                                        value: 237,
                                     },
                                 ),
                             ),
@@ -176,7 +176,7 @@
                             TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 227,
+                                        value: 245,
                                     },
                                 ),
                             ),
@@ -247,7 +247,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 217,
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -287,7 +287,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 215,
+                                        value: 230,
                                     },
                                 ),
                             ),
@@ -327,96 +327,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 216,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    Type(
-                                        Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                ],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 215,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    Type(
-                                        Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 216,
+                                        value: 231,
                                     },
                                 ),
                             ),
@@ -465,7 +376,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 217,
+                                        value: 230,
                                     },
                                 ),
                             ),
@@ -505,7 +416,56 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 215,
+                                        value: 231,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    Type(
+                                        Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    Explicit(
+                                        Type(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                ],
+            },
+        },
+    ),
+    Some(
+        ValkyrieRides {
+            hir_template_parameters: None,
+            rides: VecSet {
+                data: [
+                    ValkyrieRide {
+                        javelin_item_path: TypeItem(
+                            TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -545,7 +505,47 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 216,
+                                        value: 230,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    Type(
+                                        Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    Explicit(
+                                        Type(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                    ValkyrieRide {
+                        javelin_item_path: TypeItem(
+                            TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 231,
                                     },
                                 ),
                             ),
@@ -606,7 +606,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 217,
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -646,7 +646,7 @@
                             TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 135,
+                                        value: 136,
                                     },
                                 ),
                             ),
@@ -680,7 +680,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 218,
+                                        value: 233,
                                     },
                                 ),
                             ),
@@ -733,7 +733,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 217,
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -773,7 +773,7 @@
                             TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 135,
+                                        value: 136,
                                     },
                                 ),
                             ),
@@ -820,7 +820,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 218,
+                                        value: 233,
                                     },
                                 ),
                             ),
@@ -860,7 +860,7 @@
                             TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 135,
+                                        value: 136,
                                     },
                                 ),
                             ),
@@ -919,7 +919,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 217,
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -972,7 +972,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 218,
+                                        value: 233,
                                     },
                                 ),
                             ),

@@ -250,6 +250,7 @@
                                                 ),
                                             ),
                                         ],
+                                        always_copyable: false,
                                     },
                                 ),
                             ),
@@ -282,6 +283,7 @@
                                     ),
                                 ),
                             ],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -649,6 +651,7 @@
                                                     ),
                                                 ),
                                             ],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -681,6 +684,7 @@
                                         ),
                                     ),
                                 ],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

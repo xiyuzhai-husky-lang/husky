@@ -16,6 +16,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -26,6 +27,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -95,6 +97,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -105,6 +108,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -174,6 +178,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -184,6 +189,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -253,6 +259,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -263,6 +270,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         template_arguments: [],
+                                        always_copyable: true,
                                     },
                                 ),
                                 initialization: None,
@@ -332,6 +340,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -342,6 +351,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -411,6 +421,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -421,6 +432,7 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         template_arguments: [],
+                                        always_copyable: false,
                                     },
                                 ),
                                 initialization: None,
@@ -497,6 +509,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -563,6 +576,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -573,6 +587,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -582,6 +597,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -848,6 +864,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1037,6 +1054,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -1046,6 +1064,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1284,6 +1303,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1469,6 +1489,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -1478,6 +1499,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1686,6 +1708,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -1751,6 +1774,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1940,6 +1964,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -1949,6 +1974,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2187,6 +2213,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2372,6 +2399,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -2381,6 +2409,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2575,6 +2604,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -2584,6 +2614,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -2778,6 +2809,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::basic::bool`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -2787,6 +2819,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3243,6 +3276,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -3252,6 +3286,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3456,6 +3491,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -3466,6 +3502,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::basic::bool`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -3475,6 +3512,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4171,6 +4209,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -4238,6 +4277,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -4247,6 +4287,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4642,6 +4683,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::f32`, `Extern`),
                                             template_arguments: [],
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -4651,6 +4693,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4872,6 +4915,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -4939,6 +4983,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -4948,6 +4993,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5240,6 +5286,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
+                                            always_copyable: false,
                                         },
                                     ),
                                 },
@@ -5249,6 +5296,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 template_arguments: [],
+                                always_copyable: false,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5539,6 +5587,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5670,6 +5719,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5801,6 +5851,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -5932,6 +5983,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -6069,6 +6121,7 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             template_arguments: [],
+                            always_copyable: false,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
@@ -6134,6 +6187,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -6265,6 +6319,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -6396,6 +6451,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -6527,6 +6583,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 template_arguments: [],
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
