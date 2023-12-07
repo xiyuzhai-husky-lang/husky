@@ -2881,7 +2881,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.f32",
+                                                    text: "1.0f32",
                                                 },
                                             ),
                                         ),
@@ -3693,7 +3693,7 @@
                                                     value: OrderedFloat(
                                                         1.0,
                                                     ),
-                                                    text: "1.f32",
+                                                    text: "1.0f32",
                                                 },
                                             ),
                                         ),

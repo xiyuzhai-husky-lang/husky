@@ -16390,7 +16390,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 20,
+                                                value: 2,
                                             },
                                         ),
                                     ),
@@ -16453,7 +16453,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 21,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -16537,7 +16537,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 21,
+                                                value: 15,
                                             },
                                         ),
                                     ),

@@ -8017,7 +8017,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 28,
+                                                value: 26,
                                             },
                                         ),
                                     ),
@@ -8059,7 +8059,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 23,
+                                                value: 21,
                                             },
                                         ),
                                     ),
@@ -8080,7 +8080,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 28,
+                                                value: 26,
                                             },
                                         ),
                                     ),

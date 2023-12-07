@@ -2286,7 +2286,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 30,
+                                                value: 28,
                                             },
                                         ),
                                     ),
@@ -12378,7 +12378,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 31,
+                                                value: 29,
                                             },
                                         ),
                                     ),
@@ -12458,7 +12458,7 @@
                                     F32(
                                         TermF32Literal(
                                             Id {
-                                                value: 32,
+                                                value: 30,
                                             },
                                         ),
                                     ),
