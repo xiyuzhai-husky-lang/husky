@@ -44,15 +44,15 @@ pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: Modu
     });
     builder.on_fresh_paragraph(|builder| match module_path.data(db) {
         // use all in dependencies if root
-        ModulePathData::Root(crate_path) => {
-            for dep in &*crate_path
+        ModulePathData::Root(crate_path) => builder.on_fresh_paragraph(|builder| {
+            for dep in crate_path
                 .package_path(db)
                 .package_dependencies(db)
                 .unwrap()
             {
                 builder.use_all_in_dep(dep)
             }
-        }
+        }),
         ModulePathData::Child { parent, .. } => match parent.data(db) {
             // use all in crate if second to root
             ModulePathData::Root(_) => builder.use_all_in_crate(),

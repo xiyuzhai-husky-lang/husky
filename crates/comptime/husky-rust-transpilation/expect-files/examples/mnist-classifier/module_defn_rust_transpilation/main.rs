@@ -16,6 +16,9 @@ pub use self::fermi::*;
 pub use self::digits::*;
 pub use self::major::*;
 
+use malamute::*;
+use mnist::*;
+
 pub fn main() -> Class<MnistLabel> {
     is_one()?;
     is_six()?;

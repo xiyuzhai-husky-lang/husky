@@ -17,7 +17,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn use_all_in_dep(&mut self, dep: &PackageDependency) {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
-            builder.write_str("use self::");
+            builder.write_str("use ");
             builder.write_str(dep.package_path().ident(db).data(db));
             builder.write_str("::*")
         })
