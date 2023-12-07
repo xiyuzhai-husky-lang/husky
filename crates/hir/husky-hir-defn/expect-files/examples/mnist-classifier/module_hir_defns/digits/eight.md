@@ -430,15 +430,17 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: Other(
-                                                18,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 18,
+                                                conversion: None,
+                                            },
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    5,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 5,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),

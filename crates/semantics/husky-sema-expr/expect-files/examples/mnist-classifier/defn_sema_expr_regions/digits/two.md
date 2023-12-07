@@ -2438,11 +2438,12 @@
                                             9,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             6,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -2893,7 +2894,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -4170,11 +4173,12 @@
                                             9,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             6,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -4625,7 +4629,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -5902,11 +5908,12 @@
                                             9,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             6,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -6357,7 +6364,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -16873,11 +16882,12 @@
                                             113,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             58,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -17330,11 +17340,12 @@
                                             218,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             102,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -17499,11 +17510,12 @@
                                             239,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             117,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -18130,11 +18142,12 @@
                                             75,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             36,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -18211,11 +18224,12 @@
                                             89,
                                         ),
                                     },
-                                    condition: Other(
-                                        SemaExprIdx(
+                                    condition: Other {
+                                        sema_expr_idx: SemaExprIdx(
                                             44,
                                         ),
-                                    ),
+                                        conversion: None,
+                                    },
                                 },
                             ),
                             ty_result: Ok(
@@ -18246,11 +18260,12 @@
                                                 93,
                                             ),
                                         },
-                                        condition: Other(
-                                            SemaExprIdx(
+                                        condition: Other {
+                                            sema_expr_idx: SemaExprIdx(
                                                 47,
                                             ),
-                                        ),
+                                            conversion: None,
+                                        },
                                         eol_colon_token: EolColonRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 97,
@@ -18294,11 +18309,12 @@
                                                 222,
                                             ),
                                         },
-                                        condition: Other(
-                                            SemaExprIdx(
+                                        condition: Other {
+                                            sema_expr_idx: SemaExprIdx(
                                                 105,
                                             ),
-                                        ),
+                                            conversion: None,
+                                        },
                                         eol_colon_token: EolColonRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 226,
@@ -21065,7 +21081,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21125,7 +21143,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21185,7 +21205,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21245,7 +21267,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21305,7 +21329,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21365,7 +21391,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -21669,7 +21697,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -22255,7 +22285,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -22559,7 +22591,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -22698,7 +22732,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -22766,7 +22802,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -22834,7 +22872,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -23075,7 +23115,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -24621,7 +24663,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -24760,7 +24804,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -24828,7 +24874,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -24896,7 +24944,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -24964,7 +25014,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -25174,7 +25226,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),

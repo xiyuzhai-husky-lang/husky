@@ -27,6 +27,7 @@ husky-declarative-term.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
+husky-expr.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
 husky-stack-location = { path = "../../kernel/husky-stack-location" }
 # semantics

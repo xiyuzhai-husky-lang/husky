@@ -237,7 +237,9 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
     fn condition_has_control_flow(&self, condition: &HirLazyCondition) -> HasControlFlow {
         match *condition {
             HirLazyCondition::Be { src, .. } => self.hir_lazy_expr_control_flow_chart[src],
-            HirLazyCondition::Other(condition) => self.hir_lazy_expr_control_flow_chart[condition],
+            HirLazyCondition::Other {
+                hir_lazy_expr_idx, ..
+            } => self.hir_lazy_expr_control_flow_chart[hir_lazy_expr_idx],
         }
     }
 

@@ -3151,9 +3151,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    13,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 13,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -3187,9 +3188,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    12,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 12,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -3995,9 +3997,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    25,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 25,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -4037,9 +4040,10 @@
                                             initial_value: 2,
                                         },
                                         Assert {
-                                            condition: Other(
-                                                5,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 5,
+                                                conversion: None,
+                                            },
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -4049,9 +4053,10 @@
                                             initial_value: 7,
                                         },
                                         Assert {
-                                            condition: Other(
-                                                10,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 10,
+                                                conversion: None,
+                                            },
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -4062,9 +4067,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    24,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 24,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -4542,9 +4548,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Assert {
-                                            condition: Other(
-                                                5,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 5,
+                                                conversion: None,
+                                            },
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {

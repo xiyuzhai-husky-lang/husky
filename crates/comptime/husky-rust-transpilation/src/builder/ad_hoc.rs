@@ -95,4 +95,12 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
     pub(crate) fn wrap_in_some_right(&mut self) {
         self.write_str(")")
     }
+
+    pub(crate) fn eq_zero(&mut self) {
+        self.write_str(" == 0")
+    }
+
+    pub(crate) fn ne_zero(&mut self) {
+        self.write_str(" != 0")
+    }
 }

@@ -1,16 +1,22 @@
 use super::*;
+use husky_expr::stmt::ConditionConversion;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectConditionType;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ExpectConditionTypeOutcome;
+pub struct ExpectConditionTypeOutcome {
+    pub conversion: ConditionConversion,
+}
 
 impl ExpectFluffyTerm for ExpectConditionType {
     type Outcome = ExpectConditionTypeOutcome;
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
-        &ExpectConditionTypeOutcome
+        match outcome {
+            ExpectationOutcome::ConditionType(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
@@ -35,10 +41,19 @@ impl ExpectFluffyTerm for ExpectConditionType {
                 ty_arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(
-                    PreludeTypePath::Num(PreludeNumTypePath::Int(_))
-                    | PreludeTypePath::Basic(PreludeBasicTypePath::Bool),
-                ) => state.set_ok(ExpectConditionTypeOutcome, smallvec![]),
+                Left(PreludeTypePath::Num(PreludeNumTypePath::Int(prelude_ty_path))) => state
+                    .set_ok(
+                        ExpectConditionTypeOutcome {
+                            conversion: ConditionConversion::IntToBool(prelude_ty_path),
+                        },
+                        smallvec![],
+                    ),
+                Left(PreludeTypePath::Basic(PreludeBasicTypePath::Bool)) => state.set_ok(
+                    ExpectConditionTypeOutcome {
+                        conversion: ConditionConversion::None,
+                    },
+                    smallvec![],
+                ),
                 _ => todo!(),
             },
             FluffyTermData::Curry {

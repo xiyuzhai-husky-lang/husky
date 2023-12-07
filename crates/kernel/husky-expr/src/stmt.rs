@@ -1,3 +1,4 @@
+use husky_entity_path::PreludeIntTypePath;
 use husky_opr::BinaryComparisonOpr;
 
 /// loop step
@@ -64,4 +65,10 @@ impl LoopBoundaryKind {
             _ => todo!(),
         }
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum ConditionConversion {
+    None,
+    IntToBool(PreludeIntTypePath),
 }

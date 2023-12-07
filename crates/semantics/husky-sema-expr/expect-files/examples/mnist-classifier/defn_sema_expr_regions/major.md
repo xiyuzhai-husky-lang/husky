@@ -2863,11 +2863,12 @@
                                                 29,
                                             ),
                                         },
-                                        condition: Other(
-                                            SemaExprIdx(
+                                        condition: Other {
+                                            sema_expr_idx: SemaExprIdx(
                                                 12,
                                             ),
-                                        ),
+                                            conversion: None,
+                                        },
                                         eol_colon_token: EolColonRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 33,
@@ -3980,7 +3981,9 @@
                                     resolve_progress: Resolved(
                                         Ok(
                                             ConditionType(
-                                                ExpectConditionTypeOutcome,
+                                                ExpectConditionTypeOutcome {
+                                                    conversion: None,
+                                                },
                                             ),
                                         ),
                                     ),

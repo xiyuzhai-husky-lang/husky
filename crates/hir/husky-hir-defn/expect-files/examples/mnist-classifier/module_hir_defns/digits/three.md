@@ -397,9 +397,10 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 12,
@@ -733,9 +734,10 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 12,
@@ -1069,9 +1071,10 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: Other(
-                                                6,
-                                            ),
+                                            condition: Other {
+                                                hir_eager_expr_idx: 6,
+                                                conversion: None,
+                                            },
                                         },
                                         Eval {
                                             expr_idx: 12,

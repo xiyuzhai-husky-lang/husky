@@ -1166,9 +1166,10 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: Other(
-                                                    25,
-                                                ),
+                                                condition: Other {
+                                                    hir_eager_expr_idx: 25,
+                                                    conversion: None,
+                                                },
                                                 stmts: ArenaIdxRange(
                                                     5..12,
                                                 ),

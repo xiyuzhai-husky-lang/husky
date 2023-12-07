@@ -1,5 +1,5 @@
 use super::*;
-use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
+use husky_expr::stmt::{ConditionConversion, LoopBoundaryKind, LoopStep};
 use husky_hir_eager_expr::HirEagerCaseBranch;
 use husky_hir_opr::suffix::HirSuffixOpr;
 
@@ -31,10 +31,18 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmtData::Assert { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| match *condition {
                     HirEagerCondition::Be { src, ref target } => todo!(),
-                    HirEagerCondition::Other(condition) => {
+                    HirEagerCondition::Other {
+                        hir_eager_expr_idx,
+                        conversion,
+                    } => {
                         builder.macro_name(RustMacroName::Assert);
                         builder.bracketed_list_with(RustBracket::Par, |builder| {
-                            (condition, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
+                            (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
+                                .transpile_to_rust(builder);
+                            match conversion {
+                                ConditionConversion::None => (),
+                                ConditionConversion::IntToBool(_) => todo!(),
+                            }
                         })
                     }
                 })
@@ -221,20 +229,36 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         builder.on_fresh_line(|builder| block.transpile_to_rust(builder));
                         builder.on_fresh_line(|builder| {
                             builder.keyword(RustKeyword::If);
-                            builder.punctuation(RustPunctuation::Not);
                             match *condition {
                                 HirEagerCondition::Be { .. } => {
                                     condition.transpile_to_rust(builder)
                                 }
-                                HirEagerCondition::Other(condition) => {
-                                    (
-                                        condition,
-                                        HirEagerExprSite::new(RustPrecedenceRange::Geq(
-                                            RustPrecedence::Prefix,
-                                        )),
-                                    )
-                                        .transpile_to_rust(builder);
-                                }
+                                HirEagerCondition::Other {
+                                    hir_eager_expr_idx,
+                                    conversion,
+                                } => match conversion {
+                                    ConditionConversion::None => {
+                                        builder.punctuation(RustPunctuation::Not);
+                                        (
+                                            hir_eager_expr_idx,
+                                            HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                                                RustPrecedence::Prefix,
+                                            )),
+                                        )
+                                            .transpile_to_rust(builder)
+                                    }
+                                    ConditionConversion::IntToBool(_) => {
+                                        (
+                                            hir_eager_expr_idx,
+                                            HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                                                RustPrecedence::EqComparison,
+                                            )),
+                                        )
+                                            .transpile_to_rust(builder);
+                                        // this is because we absorb the outer `!` into this
+                                        builder.eq_zero()
+                                    }
+                                },
                             }
                             builder.curly_block(|builder| {
                                 builder.on_fresh_semicolon_line(|builder| {
@@ -278,9 +302,23 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
                 builder.punctuation(RustPunctuation::Assign);
                 (src, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }
-            HirEagerCondition::Other(expr) => {
-                (expr, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
-            }
+            HirEagerCondition::Other {
+                hir_eager_expr_idx,
+                conversion,
+            } => match conversion {
+                ConditionConversion::None => (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
+                    .transpile_to_rust(builder),
+                ConditionConversion::IntToBool(_) => {
+                    (
+                        hir_eager_expr_idx,
+                        HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                            RustPrecedence::EqComparison,
+                        )),
+                    )
+                        .transpile_to_rust(builder);
+                    builder.ne_zero()
+                }
+            },
         }
     }
 }

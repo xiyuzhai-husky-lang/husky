@@ -280,7 +280,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.hir_lazy_expr_control_flow_region[src],
                 )
             }
-            HirLazyCondition::Other(condition) => self.build_expr(val_domain_repr_guard, condition),
+            // todo: consider conversion
+            HirLazyCondition::Other {
+                hir_lazy_expr_idx,
+                conversion,
+            } => self.build_expr(val_domain_repr_guard, hir_lazy_expr_idx),
         }
     }
 
