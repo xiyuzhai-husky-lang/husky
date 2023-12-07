@@ -27,6 +27,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `points`,
@@ -45,6 +46,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -3533,6 +3535,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `prev2`,
@@ -3542,6 +3545,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

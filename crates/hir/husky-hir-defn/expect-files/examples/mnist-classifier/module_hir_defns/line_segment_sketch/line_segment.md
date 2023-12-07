@@ -18,6 +18,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `end`,
@@ -27,6 +28,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

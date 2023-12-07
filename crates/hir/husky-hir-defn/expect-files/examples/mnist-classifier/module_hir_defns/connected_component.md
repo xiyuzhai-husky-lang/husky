@@ -18,6 +18,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `row_end`,
@@ -27,6 +28,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `upper_mass`,
@@ -36,6 +38,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `lower_mass`,
@@ -45,6 +48,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -152,6 +156,7 @@
                                         ],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -448,6 +453,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

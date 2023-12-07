@@ -54,7 +54,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
         };
         let colon: ColonRegionalToken =
             ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
-        let ty_expr_idx = ctx.parse_expr_expected2(
+        let ty_syn_expr_idx = ctx.parse_expr_expected2(
             None,
             SynExprRootKind::PropsStructFieldType { ident_token },
             OriginalSynExprError::ExpectedFieldType,
@@ -65,9 +65,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
-                        SynExprRootKind::FieldBindInitialValue {
-                            ty_syn_expr_idx: ty_expr_idx,
-                        },
+                        SynExprRootKind::FieldBindInitialValue { ty_syn_expr_idx },
                         OriginalSynExprError::ExpectedValueForFieldBindInitialization,
                     ),
                 })
@@ -87,7 +85,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
             symbol,
             Some(SyndicateTypeConstraint::FieldVariable {
                 ident_token,
-                ty_expr_idx,
+                ty_expr_idx: ty_syn_expr_idx,
             }),
         );
         Ok(Some(PropsFieldSyndicate {
@@ -95,7 +93,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
             visibility,
             ident_token,
             colon,
-            ty_syn_expr_idx: ty_expr_idx,
+            ty_syn_expr_idx,
             initialization,
             variable,
         }))

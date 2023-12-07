@@ -18,6 +18,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `y`,
@@ -27,6 +28,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -95,6 +97,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `y`,
@@ -104,6 +107,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -172,6 +176,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `y`,
@@ -181,6 +186,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -249,6 +255,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `max`,
@@ -258,6 +265,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -326,6 +334,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `yrange`,
@@ -335,6 +344,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -403,6 +413,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                             PropsStructFieldHirDecl {
                                 ident: `yrange`,
@@ -412,6 +423,7 @@
                                         template_arguments: [],
                                     },
                                 ),
+                                initialization: None,
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {

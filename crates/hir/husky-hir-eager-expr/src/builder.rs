@@ -80,13 +80,12 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub fn build_all_then_finish(mut self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
             match expr_root_kind {
-                SynExprRootKind::BlockExpr | SynExprRootKind::ReturnExpr => {
+                SynExprRootKind::BlockExpr
+                | SynExprRootKind::ReturnExpr
+                | SynExprRootKind::FieldBindInitialValue { .. }
+                | SynExprRootKind::ExplicitParameterDefaultValue { .. } => {
                     sema_expr_idx.to_hir_eager(&mut self);
                 }
-                // ad hoc
-                SynExprRootKind::FieldBindInitialValue { .. } => (),
-                // ad hoc
-                SynExprRootKind::ExplicitParameterDefaultValue { .. } => (),
                 // ad hoc
                 SynExprRootKind::Snippet => (),
                 // ad hoc
