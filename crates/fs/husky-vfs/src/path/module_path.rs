@@ -23,6 +23,13 @@ impl ModulePath {
             .ok_or(VfsError::FileNotExists(virtual_path))?;
         Ok(slf)
     }
+
+    pub fn is_root(self, db: &::salsa::Db) -> bool {
+        match self.data(db) {
+            ModulePathData::Root(_) => true,
+            ModulePathData::Child { .. } => false,
+        }
+    }
 }
 
 /// wrapper type that guarantees that the inner field is a submodule
