@@ -6,6 +6,8 @@ pub trait __U32X: Copy {
 
     /// count ones
     fn co(self) -> i32;
+
+    fn right_mass(self) -> i32;
 }
 
 impl __U32X for u32 {
@@ -20,6 +22,10 @@ impl __U32X for u32 {
 
     /// count ones
     fn co(self) -> i32 {
+        todo!()
+    }
+
+    fn right_mass(self) -> i32 {
         todo!()
     }
 }
