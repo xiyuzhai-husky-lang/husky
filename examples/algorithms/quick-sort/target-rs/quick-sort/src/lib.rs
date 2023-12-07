@@ -19,11 +19,11 @@ pub fn partition<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) -> isiz
     let mut last_index = high;
     while true {
         store_index += 1;
-        while arr[store_index as usize] < arr[pivot] {
+        while arr[store_index as usize as usize] < arr[pivot as usize] {
             store_index += 1
         }
         last_index -= 1;
-        while last_index >= 0 && arr[last_index as usize] > arr[pivot] {
+        while last_index >= 0 && arr[last_index as usize as usize] > arr[pivot as usize] {
             last_index -= 1
         }
         if store_index >= last_index {
