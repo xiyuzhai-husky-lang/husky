@@ -7,8 +7,9 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 
 use self::{precedence::hir_eager_expr_precedence, site::HirEagerExprSite};
 use crate::{binding::RustBinding, *};
+use either::*;
 use husky_entity_kind::FugitiveKind;
-use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::{MajorItemPath, PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     coersion::HirEagerCoersion, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
     HirEagerExprData, HirEagerExprEntry, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
@@ -16,7 +17,7 @@ use husky_hir_eager_expr::{
     HirEagerRitchieParameterArgumentMatch, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract};
+use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract, HirType};
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::p;
 use husky_stack_location::StackLocationIdx;
@@ -274,6 +275,7 @@ impl HirEagerExprSite {
             HirEagerExprData::PropsStructField {
                 owner_hir_expr_idx,
                 ident,
+                field_ty,
             } => {
                 (
                     owner_hir_expr_idx,
@@ -285,7 +287,10 @@ impl HirEagerExprSite {
                 )
                     .transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
-                ident.transpile_to_rust(builder)
+                ident.transpile_to_rust(builder);
+                if field_ty.is_float(db) {
+                    builder.call_into_inner_method_of_not_nan()
+                }
             }
             HirEagerExprData::MemoizedField {
                 owner_hir_expr_idx,

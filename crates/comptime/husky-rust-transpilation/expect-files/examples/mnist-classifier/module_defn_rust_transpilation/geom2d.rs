@@ -2,12 +2,14 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Point2d {
-    pub x: f32,
-    pub y: f32,
+    pub x: NotNan<f32>,
+    pub y: NotNan<f32>,
 }
 
 impl Point2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
+        let x = NotNan::new(x).unwrap();
+        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -17,12 +19,14 @@ impl Point2d {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativePoint2d {
-    pub x: f32,
-    pub y: f32,
+    pub x: NotNan<f32>,
+    pub y: NotNan<f32>,
 }
 
 impl RelativePoint2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
+        let x = NotNan::new(x).unwrap();
+        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -32,12 +36,14 @@ impl RelativePoint2d {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Vector2d {
-    pub x: f32,
-    pub y: f32,
+    pub x: NotNan<f32>,
+    pub y: NotNan<f32>,
 }
 
 impl Vector2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
+        let x = NotNan::new(x).unwrap();
+        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -47,12 +53,14 @@ impl Vector2d {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ClosedRange {
-    pub min: f32,
-    pub max: f32,
+    pub min: NotNan<f32>,
+    pub max: NotNan<f32>,
 }
 
 impl ClosedRange {
     pub fn __constructor(min: f32, max: f32) -> Self {
+        let min = NotNan::new(min).unwrap();
+        let max = NotNan::new(max).unwrap();
         Self{
             min,
             max,
@@ -68,6 +76,8 @@ pub struct BoundingBox {
 
 impl BoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        ;
+        ;
         Self{
             xrange,
             yrange,
@@ -83,6 +93,8 @@ pub struct RelativeBoundingBox {
 
 impl RelativeBoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        ;
+        ;
         Self{
             xrange,
             yrange,
@@ -96,15 +108,15 @@ impl Point2d {
     }
 
     pub fn vector(self) -> Vector2d {
-        Vector2d::__constructor(self.x, self.y)
+        Vector2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
     pub fn to(self, other: &Point2d) -> Vector2d {
-        Vector2d::__constructor(other.x - self.x, other.y - self.y)
+        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(self) -> f32 {
-        (self.x * self.x + self.y * self.y).sqrt()
+        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
     pub fn dist(self, other: &Point2d) -> f32 {
@@ -114,27 +126,27 @@ impl Point2d {
 
 impl Vector2d {
     pub fn point(self) -> Point2d {
-        Point2d::__constructor(self.x, self.y)
+        Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
     pub fn to(self, other: &Vector2d) -> Vector2d {
-        Vector2d::__constructor(other.x - self.x, other.y - self.y)
+        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(self) -> f32 {
-        (self.x * self.x + self.y * self.y).sqrt()
+        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
     pub fn dot(self, other: &Vector2d) -> f32 {
-        self.x * other.x + self.y * other.y
+        self.x.into_inner() * other.x.into_inner() + self.y.into_inner() * other.y.into_inner()
     }
 
     pub fn cross(self, other: &Vector2d) -> f32 {
-        self.x * other.y - self.y * other.x
+        self.x.into_inner() * other.y.into_inner() - self.y.into_inner() * other.x.into_inner()
     }
 
     pub fn angle(self, is_branch_cut_positive: bool) -> f32 {
-        let cos_value = (self.x / self.norm()).min(1.0f32);
+        let cos_value = (self.x.into_inner() / self.norm()).min(1.0f32);
         if cos_value + 1.0f32 < 0.001f32 {
             if is_branch_cut_positive {
                 180.0f32
@@ -142,7 +154,7 @@ impl Vector2d {
                 -180.0f32
             }
         } else {
-            self.y.sgnx() as f32 * cos_value.acos() * 180.0f32 / 3.1415926f32
+            self.y.into_inner().sgnx() as f32 * cos_value.acos() * 180.0f32 / 3.1415926f32
         }
     }
 
@@ -171,16 +183,16 @@ impl Vector2d {
 
 impl ClosedRange {
     pub fn relative_range(self, other: &ClosedRange) -> ClosedRange {
-        assert!(self.max > self.min);
-        let span = self.max - self.min;
-        let rel_min = (other.min - self.min) / span;
-        let rel_max = (other.max - self.min) / span;
+        assert!(self.max.into_inner() > self.min.into_inner());
+        let span = self.max.into_inner() - self.min.into_inner();
+        let rel_min = (other.min.into_inner() - self.min.into_inner()) / span;
+        let rel_max = (other.max.into_inner() - self.min.into_inner()) / span;
         ClosedRange::__constructor(rel_min, rel_max)
     }
 
     pub fn relative_point(self, v: f32) -> f32 {
-        let span = self.max - self.min;
-        (v - self.min) / span
+        let span = self.max.into_inner() - self.min.into_inner();
+        (v - self.min.into_inner()) / span
     }
 }
 
@@ -190,40 +202,40 @@ impl BoundingBox {
     }
 
     pub fn relative_point(self, point: &Point2d) -> RelativePoint2d {
-        RelativePoint2d::__constructor(self.xrange.relative_point(point.x), self.yrange.relative_point(point.x))
+        RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
     }
 
     pub fn xmin(self) -> f32 {
-        self.xrange.min
+        self.xrange.min.into_inner()
     }
 
     pub fn xmax(self) -> f32 {
-        self.xrange.max
+        self.xrange.max.into_inner()
     }
 
     pub fn ymin(self) -> f32 {
-        self.yrange.min
+        self.yrange.min.into_inner()
     }
 
     pub fn ymax(self) -> f32 {
-        self.yrange.max
+        self.yrange.max.into_inner()
     }
 }
 
 impl RelativeBoundingBox {
     pub fn xmin(self) -> f32 {
-        self.xrange.min
+        self.xrange.min.into_inner()
     }
 
     pub fn xmax(self) -> f32 {
-        self.xrange.max
+        self.xrange.max.into_inner()
     }
 
     pub fn ymin(self) -> f32 {
-        self.yrange.min
+        self.yrange.min.into_inner()
     }
 
     pub fn ymax(self) -> f32 {
-        self.yrange.max
+        self.yrange.max.into_inner()
     }
 }

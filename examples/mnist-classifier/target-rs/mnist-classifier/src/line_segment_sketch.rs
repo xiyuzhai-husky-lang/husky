@@ -19,8 +19,11 @@ pub struct LineSegmentStroke {
 
 impl LineSegmentStroke {
     pub fn __constructor(points: CyclicSliceLeashed<Point2d>) -> Self {
+        ;
         let start = points.first().unwrap().clone();
+        ;
         let end = points.last().unwrap().clone();
+        ;
         Self{
             points,
             start,
@@ -37,6 +40,8 @@ pub struct LineSegmentSketch {
 
 impl LineSegmentSketch {
     pub fn __constructor(contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>) -> Self {
+        ;
+        ;
         Self{
             contour,
             strokes,
@@ -45,21 +50,21 @@ impl LineSegmentSketch {
 }
 
 pub fn go_right(u: &Vector2d, r: f32) -> Vector2d {
-    let L = (u.x * u.x + u.y * u.y).sqrt();
+    let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
-    let dx = dr * u.y / L;
-    let dy = -dr * u.x / L;
-    Vector2d::__constructor(u.x + dx, u.y + dy)
+    let dx = dr * u.y.into_inner() / L;
+    let dy = -dr * u.x.into_inner() / L;
+    Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
 }
 
 pub fn go_left(u: &Vector2d, r: f32) -> Vector2d {
-    let L = (u.x * u.x + u.y * u.y).sqrt();
+    let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
-    let dx = -dr * u.y / L;
-    let dy = dr * u.x / L;
-    Vector2d::__constructor(u.x + dx, u.y + dy)
+    let dx = -dr * u.y.into_inner() / L;
+    let dy = dr * u.x.into_inner() / L;
+    Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
 }
 
 pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
@@ -215,16 +220,16 @@ impl LineSegmentSketch {
 
     pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.strokes[0 as usize].start;
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let mut xmin = start_point.x.into_inner();
+        let mut xmax = start_point.x.into_inner();
+        let mut ymin = start_point.y.into_inner();
+        let mut ymax = start_point.y.into_inner();
         for i in 0..self.strokes.ilen() {
             let point = self.strokes[i as usize].end;
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            xmin = xmin.min(point.x.into_inner());
+            xmax = xmax.max(point.x.into_inner());
+            ymin = ymin.min(point.y.into_inner());
+            ymax = ymax.max(point.y.into_inner())
         }
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }

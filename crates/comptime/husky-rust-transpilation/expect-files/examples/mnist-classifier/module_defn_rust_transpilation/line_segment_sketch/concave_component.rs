@@ -8,6 +8,8 @@ pub struct ConcaveComponent {
 
 impl ConcaveComponent {
     pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, strokes: CyclicSliceLeashed<LineSegmentStroke>) -> Self {
+        ;
+        ;
         Self{
             line_segment_sketch,
             strokes,
@@ -74,16 +76,16 @@ impl ConcaveComponent {
 
     pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.strokes.first().unwrap().start;
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let mut xmin = start_point.x.into_inner();
+        let mut xmax = start_point.x.into_inner();
+        let mut ymin = start_point.y.into_inner();
+        let mut ymax = start_point.y.into_inner();
         for i in self.strokes.start()..self.strokes.end() {
             let point = self.strokes[i as usize].end;
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            xmin = xmin.min(point.x.into_inner());
+            xmax = xmax.max(point.x.into_inner());
+            ymin = ymin.min(point.y.into_inner());
+            ymax = ymax.max(point.y.into_inner())
         }
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }

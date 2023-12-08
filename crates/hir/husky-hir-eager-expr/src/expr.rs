@@ -85,6 +85,7 @@ pub enum HirEagerExprData {
     PropsStructField {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
+        field_ty: HirType,
     },
     MemoizedField {
         owner_hir_expr_idx: HirEagerExprIdx,
@@ -294,12 +295,12 @@ impl ToHirEager for SemaExprIdx {
                 dispatch: field_dispatch,
                 ..
             } => match *field_dispatch.signature() {
-                FluffyFieldSignature::PropsStruct { ty: ty2 } => {
-                    HirEagerExprData::PropsStructField {
-                        owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
-                        ident: ident_token.ident(),
-                    }
-                }
+                FluffyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
+                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                    ident: ident_token.ident(),
+                    field_ty: HirType::from_fluffy(ty, builder.db(), builder.fluffy_terms())
+                        .unwrap(),
+                },
                 FluffyFieldSignature::Memoized {
                     ty,
                     path,
