@@ -58,3 +58,7 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 }
 
 impl BinaryGrid28 {}
+
+pub fn input() -> &'static BinaryImage28 {
+    todo!()
+}
