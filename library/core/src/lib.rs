@@ -13,7 +13,7 @@ macro_rules! require {
     (let $($tt: tt)*) => {
         let $($tt)* else {
             return Default::default()
-        }
+        };
     };
     ($condition: expr) => {
         if !($condition) {
