@@ -307,11 +307,11 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 }
 
 impl RawContour {
-    pub fn line_segment_sketch(self) -> LineSegmentSketch {
+    pub fn line_segment_sketch(&'static self) -> LineSegmentSketch {
         LineSegmentSketch::new((&self), 1.4f32)
     }
 
-    pub fn bounding_box(self) -> BoundingBox {
+    pub fn bounding_box(&'static self) -> BoundingBox {
         let start_point = self.points[0 as usize];
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
@@ -327,11 +327,11 @@ impl RawContour {
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
-    pub fn relative_bounding_box(self) -> RelativeBoundingBox {
+    pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
         self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box((&self.bounding_box()))
     }
 
-    pub fn contour_len(self) -> f32 {
+    pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..self.points.ilen() {
             let a = self.points[(i - 1) as usize];

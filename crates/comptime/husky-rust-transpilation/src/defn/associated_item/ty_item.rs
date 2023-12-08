@@ -96,7 +96,7 @@ impl TranspileToRustWith for TypeMemoizedFieldHirDecl {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Fn);
             self.path(db).ident(db).transpile_to_rust(builder);
-            builder.bracketed_list_with(RustBracket::Par, |builder| builder.self_value());
+            builder.bracketed_list_with(RustBracket::Par, |builder| builder.self_value_leashed());
             builder.return_ty(self.return_ty(db))
         })
     }
