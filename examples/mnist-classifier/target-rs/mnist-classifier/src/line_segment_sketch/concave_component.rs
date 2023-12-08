@@ -3,23 +3,18 @@ use super::*;
 pub struct ConcaveComponent {
     pub line_segment_sketch: Leash<LineSegmentSketch>,
     pub strokes: CyclicSliceLeashed<LineSegmentStroke>,
-}
+} 
 
 impl ConcaveComponent {
-    pub fn __constructor(
-        line_segment_sketch: Leash<LineSegmentSketch>,
-        strokes: CyclicSliceLeashed<LineSegmentStroke>,
-    ) -> Self {
-        Self {
+    pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, strokes: CyclicSliceLeashed<LineSegmentStroke>) -> Self {
+        Self{
             line_segment_sketch,
             strokes,
         }
     }
 }
 
-pub fn find_concave_components(
-    line_segment_sketch: Leash<LineSegmentSketch>,
-) -> Vec<ConcaveComponent> {
+pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {
     let mut concave_components: Vec<ConcaveComponent> = vec![];
     let L = line_segment_sketch.strokes.ilen();
     let mut start = 0;
@@ -33,10 +28,7 @@ pub fn find_concave_components(
             end += 1
         }
         if end > start + 1 {
-            concave_components.push(ConcaveComponent::__constructor(
-                line_segment_sketch,
-                line_segment_sketch.strokes.cyclic_slice_leashed(start, end),
-            ))
+            concave_components.push(ConcaveComponent::__constructor(line_segment_sketch, line_segment_sketch.strokes.cyclic_slice_leashed(start, end)))
         }
         start = end;
         end = start + 1
@@ -92,23 +84,15 @@ impl ConcaveComponent {
             ymin = ymin.min(point.y);
             ymax = ymax.max(point.y)
         }
-        return BoundingBox::__constructor(
-            ClosedRange::__constructor(xmin, xmax),
-            ClosedRange::__constructor(ymin, ymax),
-        );
+        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.line_segment_sketch
-            .bounding_box()
-            .relative_bounding_box((&self.bounding_box()))
+        self.line_segment_sketch.bounding_box().relative_bounding_box((&self.bounding_box()))
     }
 
     pub fn line_segment(self) -> LineSegment {
-        LineSegment::__constructor(
-            self.strokes.first().unwrap().start.clone(),
-            self.strokes.last().unwrap().end.clone(),
-        )
+        LineSegment::__constructor(self.strokes.first().unwrap().start.clone(), self.strokes.last().unwrap().end.clone())
     }
 
     pub fn start(self) -> Point2d {

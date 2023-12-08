@@ -25,7 +25,8 @@ pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: Modu
     let mut builder_base = RustTranspilationBuilderBase::new(
         db,
         is_root.then_some(
-            r#"use husky_core::*;
+            r#"#![allow(warnings, non_snake_case)]
+use husky_core::*;
 
 "#,
         ),
