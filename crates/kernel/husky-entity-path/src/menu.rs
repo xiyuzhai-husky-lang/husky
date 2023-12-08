@@ -41,8 +41,14 @@ pub struct ItemPathMenu {
     // Not	The unary logical negation operator !.
     not_trai_path: TraitPath,
     unveil_trai_path: TraitPath,
+    debug_trai_path: TraitPath,
     clone_trai_path: TraitPath,
     copy_trai_path: TraitPath,
+    pub partial_eq_trai_path: TraitPath,
+    pub eq_trai_path: TraitPath,
+    pub partial_ord_trai_path: TraitPath,
+    pub ord_trai_path: TraitPath,
+    // hash_trai_path: TraitPath,
     default_trai_path: TraitPath,
     visualize_trai_path: TraitPath,
     option_ty_path: TypePath,
@@ -98,6 +104,8 @@ impl ItemPathMenu {
         let core_str = path_menu.core_str().inner();
         let core_basic = path_menu.core_basic().inner();
         let core_clone = path_menu.core_clone().inner();
+        let core_cmp = path_menu.core_cmp().inner();
+        let core_fmt = path_menu.core_fmt().inner();
         let core_result = path_menu.core_result().inner();
         let core_default = path_menu.core_default().inner();
         let core_marker = path_menu.core_marker().inner();
@@ -483,6 +491,12 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             db,
         );
+        let debug_trai_path = TraitPath::new(
+            core_fmt,
+            Ident::from_ref(db, "Debug").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
         let clone_trai_path = TraitPath::new(
             core_clone,
             Ident::from_ref(db, "Clone").unwrap(),
@@ -492,6 +506,30 @@ impl ItemPathMenu {
         let copy_trai_path = TraitPath::new(
             core_marker,
             Ident::from_ref(db, "Copy").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
+        let partial_eq_trai_path = TraitPath::new(
+            core_cmp,
+            Ident::from_ref(db, "PartialEq").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
+        let eq_trai_path = TraitPath::new(
+            core_cmp,
+            Ident::from_ref(db, "Eq").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
+        let partial_ord_trai_path = TraitPath::new(
+            core_cmp,
+            Ident::from_ref(db, "PartialOrd").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
+        let ord_trai_path = TraitPath::new(
+            core_cmp,
+            Ident::from_ref(db, "Ord").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
@@ -563,8 +601,13 @@ impl ItemPathMenu {
             neg_trai_path,
             not_trai_path,
             unveil_trai_path,
+            debug_trai_path,
             clone_trai_path,
             copy_trai_path,
+            partial_eq_trai_path,
+            eq_trai_path,
+            partial_ord_trai_path,
+            ord_trai_path,
             default_trai_path,
             visualize_trai_path,
             result_ty_path,
@@ -789,6 +832,10 @@ impl ItemPathMenu {
 
     pub fn unveil_trai_path(&self) -> TraitPath {
         self.unveil_trai_path
+    }
+
+    pub fn debug_trai_path(&self) -> TraitPath {
+        self.debug_trai_path
     }
 
     pub fn clone_trai_path(&self) -> TraitPath {

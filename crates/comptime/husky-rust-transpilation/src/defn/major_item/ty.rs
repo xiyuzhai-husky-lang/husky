@@ -1,9 +1,9 @@
-use crate::expr::site::HirEagerExprSite;
+use crate::{defn::attr::Attrs, expr::site::HirEagerExprSite};
 
 use super::*;
 
 use husky_coword::Ident;
-use husky_entity_syn_tree::HasTypeVariantPaths;
+use husky_entity_syn_tree::{HasAttrPaths, HasTypeVariantPaths};
 use husky_hir_decl::{
     HasHirDecl, PropsFieldHirInitialization, PropsStructFieldHirDecl, TupleFieldHirDecl,
     TypeVariantHirDecl,
@@ -12,6 +12,9 @@ use husky_hir_ty::HirType;
 
 impl TranspileToRustWith for TypeHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        let rust_attrs = Attrs::new(self.path(db).attr_paths(db), builder);
+        rust_attrs.transpile_to_rust(builder);
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeHirDefn::PropsStruct(hir_defn) => hir_defn.transpile_to_rust(builder),

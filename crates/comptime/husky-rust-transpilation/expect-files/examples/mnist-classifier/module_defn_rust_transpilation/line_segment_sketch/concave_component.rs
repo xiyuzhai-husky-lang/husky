@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConcaveComponent {
     pub line_segment_sketch: Leash<LineSegmentSketch>,
     pub strokes: CyclicSliceLeashed<LineSegmentStroke>,

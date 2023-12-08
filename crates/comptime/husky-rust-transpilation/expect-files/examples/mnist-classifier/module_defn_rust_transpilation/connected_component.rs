@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConnectedComponentDistribution {
     pub row_start: i32,
     pub row_end: i32,
@@ -18,6 +19,7 @@ impl ConnectedComponentDistribution {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<RawContour>>>,
 }
@@ -36,6 +38,7 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     (Some(len + 0.0f32))
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConnectedComponent {
     pub mask: BinaryImage28,
 }

@@ -1,6 +1,7 @@
 #![allow(warnings, non_snake_case)]
 use husky_core::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum MnistLabel {
     Zero,
     One,
@@ -14,8 +15,10 @@ pub enum MnistLabel {
     Nine,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BinaryImage28([u32; 30]);
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28([u32; 31]);
 
 pub fn input() -> BinaryImage28 {

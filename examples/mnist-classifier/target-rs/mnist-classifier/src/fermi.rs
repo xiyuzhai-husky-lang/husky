@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<ConcaveComponent>>>,
     pub others: Vec<Leash<ConcaveComponent>>,

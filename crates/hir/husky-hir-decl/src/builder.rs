@@ -5,7 +5,7 @@ use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
 use husky_hir_lazy_expr::HirLazyPatternExprIdx;
-use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, HirType};
+use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sema_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
@@ -76,6 +76,27 @@ impl<'a> HirDeclBuilder<'a> {
                     .hollow_terms(),
             ) {
             FluffyTermBase::Ethereal(term) => HirType::from_ethereal(term, self.db),
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
+        }
+    }
+
+    pub(crate) fn hir_trai(&self, syn_expr_idx: SynExprIdx) -> HirTrait {
+        let sema_expr_idx = self
+            .sema_expr_region_data
+            .syn_root_to_sema_expr_idx(syn_expr_idx);
+        match self
+            .sema_expr_region_data
+            .sema_expr_term(sema_expr_idx)
+            .unwrap()
+            .unwrap()
+            .base_resolved_inner(
+                self.sema_expr_region_data
+                    .fluffy_term_region()
+                    .hollow_terms(),
+            ) {
+            FluffyTermBase::Ethereal(term) => HirTrait::from_ethereal(term, self.db),
             FluffyTermBase::Solid(_) => todo!(),
             FluffyTermBase::Hollow(_) => todo!(),
             FluffyTermBase::Place => todo!(),

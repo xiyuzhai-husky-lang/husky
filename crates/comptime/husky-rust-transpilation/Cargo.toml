@@ -68,9 +68,9 @@ husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-entity-syn-tree.workspace = true
-husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
+husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-rust-transpilation = { path = ".", features = ["test_utils"] }
 

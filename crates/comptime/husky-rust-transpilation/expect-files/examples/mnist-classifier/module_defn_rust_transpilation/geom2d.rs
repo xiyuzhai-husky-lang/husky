@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Point2d {
     pub x: f32,
     pub y: f32,
@@ -14,6 +15,7 @@ impl Point2d {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativePoint2d {
     pub x: f32,
     pub y: f32,
@@ -28,6 +30,7 @@ impl RelativePoint2d {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Vector2d {
     pub x: f32,
     pub y: f32,
@@ -42,6 +45,7 @@ impl Vector2d {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ClosedRange {
     pub min: f32,
     pub max: f32,
@@ -56,6 +60,7 @@ impl ClosedRange {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
@@ -70,6 +75,7 @@ impl BoundingBox {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativeBoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,

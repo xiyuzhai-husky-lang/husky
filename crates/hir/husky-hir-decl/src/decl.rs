@@ -1,5 +1,5 @@
 mod associated_item;
-mod attr;
+pub mod attr;
 mod impl_block;
 mod major_item;
 mod submodule;

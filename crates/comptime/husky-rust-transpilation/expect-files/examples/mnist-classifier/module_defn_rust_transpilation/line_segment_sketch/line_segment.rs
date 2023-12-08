@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegment {
     pub start: Point2d,
     pub end: Point2d,
