@@ -73,7 +73,7 @@ impl SymbolType {
                 Some(FluffyPlace::Transient) | None => FluffyPlace::ImmutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
-                Some(place) => match ty.is_always_copyable(engine)? {
+                Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
                     Some(true) => FluffyPlace::ImmutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },
@@ -98,7 +98,7 @@ impl SymbolType {
                 Some(FluffyPlace::Transient) | None => FluffyPlace::MutableStackOwned {
                     location: engine.issue_new_stack_location_idx(),
                 },
-                Some(place) => match ty.is_always_copyable(engine)? {
+                Some(place) => match ty.is_always_copyable(engine.db(), engine.fluffy_terms())? {
                     Some(true) => FluffyPlace::MutableStackOwned {
                         location: engine.issue_new_stack_location_idx(),
                     },

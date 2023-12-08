@@ -9,6 +9,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{instantiation::HirInstantiation, place::HirPlace, HirConstSymbol};
+use husky_print_utils::p;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_syn_expr::InheritedSynSymbolKind;
 use vec_like::VecMap;
@@ -22,6 +23,7 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 pub struct HirEagerExprEntry {
     pub data: HirEagerExprData,
     pub ty_place: HirPlace,
+    pub is_ty_always_copyable: bool,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -53,25 +55,21 @@ pub enum HirEagerExprData {
     },
     TypeConstructorFnCall {
         path: TypePath,
-        function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     TypeVariantConstructorCall {
         path: TypeVariantPath,
-        function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     FunctionFnCall {
         path: FugitivePath,
-        function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     AssociatedFunctionFnCall {
         path: AssociatedItemPath,
-        function_hir_eager_expr_idx: HirEagerExprIdx,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
@@ -113,12 +111,6 @@ pub enum HirEagerExprData {
     Todo,
     Unreachable,
 }
-
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirEagerTemplateArgumentList {/*todo */}
-
-#[cfg(feature = "rust-syn-gen")]
-impl Expr {}
 
 impl ToHirEager for SemaExprIdx {
     type Output = HirEagerExprIdx;
@@ -226,56 +218,62 @@ impl ToHirEager for SemaExprIdx {
                 function_sema_expr_idx: _,
                 argument_sema_expr_idx: _,
             } => todo!(),
-            SemaExprData::FunctionFnCall {
+            &SemaExprData::FunctionFnCall {
                 function_sema_expr_idx,
-                template_arguments,
-                lpar_regional_token_idx: _,
-                ritchie_parameter_argument_matches,
-                rpar_regional_token_idx: _,
+                ref template_arguments,
+                ref ritchie_parameter_argument_matches,
+                ..
             } => {
-                let function_hir_eager_expr_idx = function_sema_expr_idx.to_hir_eager(builder);
                 let template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
-                match builder.hir_eager_expr_arena()[function_hir_eager_expr_idx].data {
-                    HirEagerExprData::PrincipalEntityPath(path) => match path {
-                        PrincipalEntityPath::Module(_) => unreachable!(),
-                        PrincipalEntityPath::MajorItem(path) => match path {
-                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorFnCall {
-                                function_hir_eager_expr_idx,
-                                path,
-                                // ad hoc
-                                instantiation: HirInstantiation::new_empty(),
-                                item_groups,
+                match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
+                    SemaExprData::PrincipalEntityPath { path, .. } => {
+                        match path {
+                            PrincipalEntityPath::Module(_) => unreachable!(),
+                            PrincipalEntityPath::MajorItem(path) => match path {
+                                MajorItemPath::Type(path) => {
+                                    HirEagerExprData::TypeConstructorFnCall {
+                                        path,
+                                        // ad hoc
+                                        instantiation: HirInstantiation::new_empty(),
+                                        item_groups,
+                                    }
+                                }
+                                MajorItemPath::Trait(_) => unreachable!(),
+                                MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
+                                    path,
+                                    // ad hoc
+                                    instantiation: HirInstantiation::new_empty(),
+                                    item_groups,
+                                },
                             },
-                            MajorItemPath::Trait(_) => unreachable!(),
-                            MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
-                                function_hir_eager_expr_idx,
-                                path,
-                                // ad hoc
-                                instantiation: HirInstantiation::new_empty(),
-                                item_groups,
-                            },
-                        },
-                        PrincipalEntityPath::TypeVariant(path) => {
-                            HirEagerExprData::TypeVariantConstructorCall {
-                                function_hir_eager_expr_idx,
-                                path,
-                                // ad hoc
-                                instantiation: HirInstantiation::new_empty(),
-                                item_groups,
+                            PrincipalEntityPath::TypeVariant(path) => {
+                                HirEagerExprData::TypeVariantConstructorCall {
+                                    path,
+                                    // ad hoc
+                                    instantiation: HirInstantiation::new_empty(),
+                                    item_groups,
+                                }
                             }
                         }
-                    },
-                    HirEagerExprData::AssociatedFn {
-                        associated_item_path,
-                    } => HirEagerExprData::AssociatedFunctionFnCall {
-                        function_hir_eager_expr_idx,
-                        path: associated_item_path,
-                        // ad hoc
-                        instantiation: HirInstantiation::new_empty(),
-                        item_groups,
-                    },
+                    }
+                    SemaExprData::AssociatedItem {
+                        ref static_dispatch,
+                        ..
+                    } => {
+                        match static_dispatch {
+                            StaticDispatch::AssociatedFn(signature) => {
+                                HirEagerExprData::AssociatedFunctionFnCall {
+                                    path: signature.path(),
+                                    // ad hoc
+                                    instantiation: HirInstantiation::new_empty(),
+                                    item_groups,
+                                }
+                            }
+                            StaticDispatch::AssociatedGn => unreachable!(),
+                        }
+                    }
                     _ => todo!(),
                 }
             }
@@ -429,12 +427,24 @@ impl ToHirEager for SemaExprIdx {
                 rbox_regional_token_idx: _,
             } => todo!(),
         };
-        let ty_place = self
-            .ty(builder.sema_expr_arena_ref2())
+        let ty = self.ty(builder.sema_expr_arena_ref2());
+        let ty_place = ty
             .place()
             .map(|place| HirPlace::from_fluffy(place))
             .unwrap_or(HirPlace::Transient);
-        let entry = HirEagerExprEntry { data, ty_place };
+        use salsa::DebugWithDb;
+        p!(
+            data.debug(builder.db()),
+            ty.show(builder.db(), builder.fluffy_terms())
+        );
+        let entry = HirEagerExprEntry {
+            data,
+            ty_place,
+            is_ty_always_copyable: ty
+                .is_always_copyable(builder.db(), builder.fluffy_terms())
+                .unwrap()
+                .unwrap(),
+        };
         builder.alloc_expr(*self, entry)
     }
 }

@@ -11,12 +11,12 @@ use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     coersion::HirEagerCoersion, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
-    HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
+    HirEagerExprData, HirEagerExprEntry, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
     HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx,
     HirEagerRitchieParameterArgumentMatch, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
-use husky_hir_ty::ritchie::HirEagerContract;
+use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract};
 use husky_opr::BinaryClosedOpr;
 use husky_stack_location::StackLocationIdx;
 use vec_like::SmallVecMap;
@@ -24,9 +24,10 @@ use vec_like::SmallVecMap;
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
     fn transpile_to_rust(mut self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (slf, mut site) = self;
-        let data = &slf.entry(builder.hir_eager_expr_arena()).data;
+        let entry = slf.entry(builder.hir_eager_expr_arena());
+        let data = &entry.data;
         let precedence = hir_eager_expr_precedence(data);
-        let needs_deref = false;
+        let needs_deref = hir_eager_expr_needs_deref(entry);
         if needs_deref {
             site.rust_bindings.push(RustBinding::Deref)
         }
@@ -58,6 +59,81 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if wrap_in_some_flag {
             builder.wrap_in_some_right()
         }
+    }
+}
+
+fn hir_eager_expr_needs_deref(entry: &HirEagerExprEntry) -> bool {
+    match entry.ty_place {
+        HirPlace::Const | HirPlace::StackPure { .. } => todo!(),
+        HirPlace::Ref { .. } | HirPlace::RefMut { .. } | HirPlace::Leashed => match entry.data {
+            HirEagerExprData::Literal(_) => todo!(),
+            HirEagerExprData::PrincipalEntityPath(_) => todo!(),
+            HirEagerExprData::AssociatedFn {
+                associated_item_path,
+            } => todo!(),
+            HirEagerExprData::ConstSymbol(_) => todo!(),
+            HirEagerExprData::Variable(_) => true,
+            HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
+            HirEagerExprData::Be { src, ref target } => todo!(),
+            HirEagerExprData::Prefix {
+                opr,
+                opd_hir_expr_idx,
+            } => todo!(),
+            HirEagerExprData::Suffix {
+                opd_hir_expr_idx,
+                opr,
+            } => todo!(),
+            HirEagerExprData::TypeConstructorFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::TypeVariantConstructorCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::FunctionFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::AssociatedFunctionFnCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::PropsStructField {
+                owner_hir_expr_idx,
+                ident,
+            } => todo!(),
+            HirEagerExprData::MemoizedField {
+                owner_hir_expr_idx,
+                ident,
+                path,
+            } => todo!(),
+            HirEagerExprData::MethodFnCall {
+                self_argument,
+                ident,
+                path,
+                ref instantiation,
+                ref item_groups,
+            } => todo!(),
+            HirEagerExprData::NewTuple { ref items } => todo!(),
+            HirEagerExprData::Index {
+                owner_hir_expr_idx,
+                ref items,
+            } => todo!(),
+            HirEagerExprData::NewList { ref items } => todo!(),
+            HirEagerExprData::Block { stmts } => todo!(),
+            HirEagerExprData::EmptyHtmlTag {
+                function_ident,
+                ref arguments,
+            } => todo!(),
+            HirEagerExprData::Todo => todo!(),
+            HirEagerExprData::Unreachable => todo!(),
+        },
+        _ => false,
     }
 }
 
@@ -151,7 +227,6 @@ impl HirEagerExprSite {
                 opr.transpile_to_rust(builder)
             }
             HirEagerExprData::TypeConstructorFnCall {
-                function_hir_eager_expr_idx,
                 path,
                 ref instantiation,
                 ref item_groups,
@@ -163,36 +238,33 @@ impl HirEagerExprSite {
                 )
             }
             HirEagerExprData::TypeVariantConstructorCall {
-                function_hir_eager_expr_idx,
                 path,
                 ref instantiation,
                 ref item_groups,
             } => {
-                (function_hir_eager_expr_idx, geq(self)).transpile_to_rust(builder);
+                path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
                     RustBracket::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
             HirEagerExprData::FunctionFnCall {
-                function_hir_eager_expr_idx,
                 path,
                 ref instantiation,
                 ref item_groups,
             } => {
-                (function_hir_eager_expr_idx, geq(self)).transpile_to_rust(builder);
+                path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
                     RustBracket::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
             HirEagerExprData::AssociatedFunctionFnCall {
-                function_hir_eager_expr_idx,
                 path,
                 ref instantiation,
                 ref item_groups,
             } => {
-                (function_hir_eager_expr_idx, geq(self)).transpile_to_rust(builder);
+                path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
                     RustBracket::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
