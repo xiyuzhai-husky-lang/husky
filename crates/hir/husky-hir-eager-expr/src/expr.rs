@@ -8,15 +8,21 @@ use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{instantiation::HirInstantiation, HirConstSymbol};
+use husky_hir_ty::{instantiation::HirInstantiation, place::HirPlace, HirConstSymbol};
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_syn_expr::InheritedSynSymbolKind;
 use vec_like::VecMap;
 
-pub type HirEagerExprArena = Arena<HirEagerExprData>;
-pub type HirEagerExprIdx = ArenaIdx<HirEagerExprData>;
-pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExprData>;
-pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprData, V>;
+pub type HirEagerExprArena = Arena<HirEagerExprEntry>;
+pub type HirEagerExprIdx = ArenaIdx<HirEagerExprEntry>;
+pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExprEntry>;
+pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub struct HirEagerExprEntry {
+    pub data: HirEagerExprData,
+    pub ty_place: HirPlace,
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
@@ -118,7 +124,7 @@ impl ToHirEager for SemaExprIdx {
     type Output = HirEagerExprIdx;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let hir_eager_expr = match self.data(builder.sema_expr_arena_ref()) {
+        let data = match self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {
                     EtherealTerm::Literal(lit) => lit,
@@ -231,7 +237,7 @@ impl ToHirEager for SemaExprIdx {
                 let template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
-                match builder.hir_eager_expr_arena()[function_hir_eager_expr_idx] {
+                match builder.hir_eager_expr_arena()[function_hir_eager_expr_idx].data {
                     HirEagerExprData::PrincipalEntityPath(path) => match path {
                         PrincipalEntityPath::Module(_) => unreachable!(),
                         PrincipalEntityPath::MajorItem(path) => match path {
@@ -423,6 +429,12 @@ impl ToHirEager for SemaExprIdx {
                 rbox_regional_token_idx: _,
             } => todo!(),
         };
-        builder.alloc_expr(*self, hir_eager_expr)
+        let ty_place = self
+            .ty(builder.sema_expr_arena_ref2())
+            .place()
+            .map(|place| HirPlace::from_fluffy(place))
+            .unwrap_or(HirPlace::Transient);
+        let entry = HirEagerExprEntry { data, ty_place };
+        builder.alloc_expr(*self, entry)
     }
 }

@@ -236,154 +236,222 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
+                                                        },
                                                     ),
-                                                    text: "0.0f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Leq,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        HirEagerExprData::PrincipalEntityPath(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
                                                             },
                                                         ),
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ),
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MemoizedField {
-                                            owner_hir_expr_idx: 8,
-                                            ident: `bounding_box`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
-                                            ),
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 9,
-                                            ident: `ymin`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Prefix {
-                                            opr: Minus,
-                                            opd_hir_expr_idx: 10,
-                                        },
-                                        HirEagerExprData::TypeVariantConstructorCall {
-                                            path: TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
-                                            ),
-                                            function_hir_eager_expr_idx: 7,
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
+                                                item_groups: [],
                                             },
-                                            item_groups: [
-                                                Regular(
-                                                    HirRitchieRegularParameter {
-                                                        contract: Move,
-                                                        ty: PathLeading(
-                                                            HirTypePathLeading(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    11,
-                                                    Trivial(
-                                                        TrivialHirEagerCoersion {
-                                                            expectee_place: Transient,
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
                                                         },
                                                     ),
                                                 ),
-                                            ],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..4,
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Leq,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PrincipalEntityPath(
+                                                TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 76,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MemoizedField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 282,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 9,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 486,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Prefix {
+                                                opr: Minus,
+                                                opd_hir_expr_idx: 10,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: TypeVariantConstructorCall {
+                                                path: TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 76,
+                                                        },
+                                                    ),
+                                                ),
+                                                function_hir_eager_expr_idx: 7,
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: None,
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 15,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        11,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..4,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },
@@ -573,154 +641,222 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
+                                                        },
                                                     ),
-                                                    text: "0.0f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Leq,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        HirEagerExprData::PrincipalEntityPath(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
                                                             },
                                                         ),
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ),
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MemoizedField {
-                                            owner_hir_expr_idx: 8,
-                                            ident: `bounding_box`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
-                                            ),
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 9,
-                                            ident: `ymin`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Prefix {
-                                            opr: Minus,
-                                            opd_hir_expr_idx: 10,
-                                        },
-                                        HirEagerExprData::TypeVariantConstructorCall {
-                                            path: TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
-                                            ),
-                                            function_hir_eager_expr_idx: 7,
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
+                                                item_groups: [],
                                             },
-                                            item_groups: [
-                                                Regular(
-                                                    HirRitchieRegularParameter {
-                                                        contract: Move,
-                                                        ty: PathLeading(
-                                                            HirTypePathLeading(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    11,
-                                                    Trivial(
-                                                        TrivialHirEagerCoersion {
-                                                            expectee_place: Transient,
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
                                                         },
                                                     ),
                                                 ),
-                                            ],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..4,
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Leq,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PrincipalEntityPath(
+                                                TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 76,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MemoizedField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 282,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 9,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 486,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Prefix {
+                                                opr: Minus,
+                                                opd_hir_expr_idx: 10,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: TypeVariantConstructorCall {
+                                                path: TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 76,
+                                                        },
+                                                    ),
+                                                ),
+                                                function_hir_eager_expr_idx: 7,
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: None,
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 15,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        11,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..4,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },
@@ -910,154 +1046,222 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
+                                                        },
                                                     ),
-                                                    text: "0.0f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Geq,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        HirEagerExprData::PrincipalEntityPath(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
                                                             },
                                                         ),
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ),
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MemoizedField {
-                                            owner_hir_expr_idx: 8,
-                                            ident: `bounding_box`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
-                                            ),
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 9,
-                                            ident: `ymin`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Prefix {
-                                            opr: Minus,
-                                            opd_hir_expr_idx: 10,
-                                        },
-                                        HirEagerExprData::TypeVariantConstructorCall {
-                                            path: TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
-                                            ),
-                                            function_hir_eager_expr_idx: 7,
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
+                                                item_groups: [],
                                             },
-                                            item_groups: [
-                                                Regular(
-                                                    HirRitchieRegularParameter {
-                                                        contract: Move,
-                                                        ty: PathLeading(
-                                                            HirTypePathLeading(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    11,
-                                                    Trivial(
-                                                        TrivialHirEagerCoersion {
-                                                            expectee_place: Transient,
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
                                                         },
                                                     ),
                                                 ),
-                                            ],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..4,
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Geq,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PrincipalEntityPath(
+                                                TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 76,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MemoizedField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 282,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 9,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 486,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Prefix {
+                                                opr: Minus,
+                                                opd_hir_expr_idx: 10,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: TypeVariantConstructorCall {
+                                                path: TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 76,
+                                                        },
+                                                    ),
+                                                ),
+                                                function_hir_eager_expr_idx: 7,
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: None,
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 15,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        11,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..4,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },

@@ -335,77 +335,78 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 1,
-                                            ident: `line_segments`,
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 2,
-                                            ident: `visualize`,
-                                            path: AssociatedItemPath::TraitForTypeItem(
-                                                TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `core::visual`,
-                                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                                            ty_sketch: TypeSketch::DeriveAny,
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `visualize`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        HirTemplateSymbol::Type(
-                                                            SelfType,
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 392,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 2,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 152,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TraitForTypeItem(
+                                                    TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 245,
+                                                            },
                                                         ),
-                                                        HirTermSymbolResolution::Explicit(
-                                                            HirTemplateArgument::Type(
-                                                                HirType::PathLeading(
-                                                                    HirTypePathLeading {
-                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        template_arguments: [
-                                                                            HirTemplateArgument::Type(
-                                                                                HirType::PathLeading(
-                                                                                    HirTypePathLeading {
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                                        template_arguments: [],
-                                                                                        always_copyable: false,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        ],
-                                                                        always_copyable: false,
-                                                                    },
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [
+                                                        (
+                                                            Type(
+                                                                SelfType,
+                                                            ),
+                                                            Explicit(
+                                                                Type(
+                                                                    PathLeading(
+                                                                        HirTypePathLeading(
+                                                                            Id {
+                                                                                value: 65,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
                                                     ),
-                                                ],
-                                                separator: Some(
-                                                    1,
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..2,
                                                 ),
                                             },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..2,
-                                            ),
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },
