@@ -130,6 +130,7 @@ pub enum SemaExprData {
     },
     MethodFnCall {
         self_argument_sema_expr_idx: SemaExprIdx,
+        self_contract: TermContract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         // todo: change to FluffyMethodFnDynamicDispatch

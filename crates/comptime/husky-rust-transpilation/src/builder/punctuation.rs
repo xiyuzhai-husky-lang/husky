@@ -119,7 +119,6 @@ impl<E> TranspileToRustWith<E> for HirBinaryOpr {
             HirBinaryOpr::AssignShift(opr) => opr.transpile_to_rust(builder),
             HirBinaryOpr::Comparison(opr) => opr.transpile_to_rust(builder),
             HirBinaryOpr::ShortCircuitLogic(opr) => opr.transpile_to_rust(builder),
-            HirBinaryOpr::As => builder.write_str(" as "),
         }
     }
 }

@@ -2,14 +2,14 @@ use husky_core::*;
 
 pub fn quick_sort<T: Ord>(ref mut arr: &mut [T]) {
     let len = arr.len();
-    quick_sort_aux(&mut arr, 0, (len - 1) as isize)
+    quick_sort_aux(arr, 0, (len - 1) as isize)
 }
 
 pub fn quick_sort_aux<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) {
     if low < high {
-        let p = partition(&mut arr, low, high);
-        quick_sort_aux(&mut arr, low, p - 1);
-        quick_sort_aux(&mut arr, p + 1, high)
+        let p = partition(arr, low, high);
+        quick_sort_aux(arr, low, p - 1);
+        quick_sort_aux(arr, p + 1, high)
     }
 }
 

@@ -16,8 +16,8 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let (self_argument_sema_expr_idx, self_argument_ty) =
-            self.build_sema_expr_with_ty(self_argument, ExpectAnyOriginal);
+        let (self_argument_sema_expr_idx, self_argument_ty, outcome) =
+            self.build_sema_expr_with_ty_and_outcome(self_argument, ExpectAnyOriginal);
         let Some(self_expr_ty) = self_argument_ty else {
             if let Some(generic_arguments) = template_arguments {
                 todo!()
@@ -58,6 +58,7 @@ impl<'a> SemaExprEngine<'a> {
                 (
                     Ok(SemaExprData::MethodFnCall {
                         self_argument_sema_expr_idx,
+                        self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
                         dispatch: method_dynamic_dispatch,

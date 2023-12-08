@@ -35,6 +35,16 @@ impl From<RustBinding> for RustBindings {
 }
 
 impl RustBindings {
+    pub(crate) fn is_non_trivial(&self) -> bool {
+        if self.is_empty() {
+            return false;
+        }
+        if self.len() > 1 {
+            return true;
+        }
+        self.bindings[0] != RustBinding::SelfValue
+    }
+
     pub(crate) fn push(&mut self, binding: RustBinding) {
         match self.bindings.last() {
             Some(last_binding) => match (last_binding, binding) {

@@ -460,6 +460,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
             HirLazyExprData::Todo => todo!(),
             HirLazyExprData::Unreachable => todo!(),
             HirLazyExprData::AssociatedFn { .. } => todo!(),
+            HirLazyExprData::As { opd, ty } => todo!(),
         };
         val_domain_repr_guard.new_expr_val_repr(
             opn,

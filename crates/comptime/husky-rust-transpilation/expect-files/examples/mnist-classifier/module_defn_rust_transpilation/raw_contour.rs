@@ -246,7 +246,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                     boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                            contour.last().unwrap() = get_concave_middle_point(&contour);
+                            contour.last().unwrap() = get_concave_middle_point((&contour));
                             contour.push(Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
@@ -305,7 +305,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 
 impl RawContour {
     pub fn line_segment_sketch(self) -> LineSegmentSketch {
-        LineSegmentSketch::new(&self, 1.4f32)
+        LineSegmentSketch::new((&self), 1.4f32)
     }
 
     pub fn bounding_box(self) -> BoundingBox {
@@ -325,7 +325,7 @@ impl RawContour {
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
+        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box((&self.bounding_box()))
     }
 
     pub fn contour_len(self) -> f32 {
@@ -345,6 +345,6 @@ impl RawContour {
         let N = self.points.ilen();
         let ct_start = self.points[start.rem_euclid(N) as usize];
         let ct_end = self.points[end.rem_euclid(N) as usize];
-        ct_start.to(&ct_end)
+        ct_start.to((&ct_end))
     }
 }

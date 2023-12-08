@@ -1,25 +1,25 @@
 use super::*;
 
 pub fn two_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
+    fermi_match(major_concave_components(), (&vec![left_cc_pattern, right_cc_pattern, down_cc_pattern]))
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
-    Some(dp.y)
+    (Some(dp.y))
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0.0f32);
-    Some(dp.y)
+    (Some(dp.y))
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.x > 0.0f32);
-    Some(dp.x)
+    (Some(dp.x))
 }
 
 pub fn is_two() -> OneVsAll {

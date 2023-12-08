@@ -12,9 +12,10 @@ use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol,
-    HirTemplateArguments,
+    HirTemplateArguments, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
+use husky_sema_opr::binary::SemaBinaryOpr;
 use husky_term_prelude::TermLiteral;
 use idx_arena::ArenaRef;
 
@@ -47,6 +48,10 @@ pub enum HirLazyExprData {
     Suffix {
         opd_hir_expr_idx: HirLazyExprIdx,
         opr: HirSuffixOpr,
+    },
+    As {
+        opd: HirLazyExprIdx,
+        ty: HirType,
     },
     TypeConstructorFnCall {
         path: TypePath,
@@ -130,11 +135,9 @@ impl ToHirLazy for SemaExprIdx {
                 };
                 HirLazyExprData::Literal(lit)
             }
-            SemaExprData::PrincipalEntityPath {
-                path_expr_idx: _,
-                path,
-                ty_path_disambiguation: _,
-            } => HirLazyExprData::PrincipalEntityPath(path),
+            SemaExprData::PrincipalEntityPath { path, .. } => {
+                HirLazyExprData::PrincipalEntityPath(path)
+            }
             SemaExprData::AssociatedItem { .. } => todo!(),
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -164,10 +167,16 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::SelfValue(_) => todo!(),
             SemaExprData::Binary {
                 lopd, opr, ropd, ..
-            } => HirLazyExprData::Binary {
-                lopd: lopd.to_hir_lazy(builder),
-                opr: HirBinaryOpr::from_sema(opr),
-                ropd: ropd.to_hir_lazy(builder),
+            } => match opr {
+                SemaBinaryOpr::As => HirLazyExprData::As {
+                    opd: lopd.to_hir_lazy(builder),
+                    ty: todo!(),
+                },
+                _ => HirLazyExprData::Binary {
+                    lopd: lopd.to_hir_lazy(builder),
+                    opr: HirBinaryOpr::from_sema(opr),
+                    ropd: ropd.to_hir_lazy(builder),
+                },
             },
             SemaExprData::Be {
                 src,

@@ -18,23 +18,36 @@ use husky_hir_eager_expr::{
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract};
 use husky_opr::BinaryClosedOpr;
+use husky_print_utils::p;
 use husky_stack_location::StackLocationIdx;
 use vec_like::SmallVecMap;
 
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
     fn transpile_to_rust(mut self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (slf, mut site) = self;
+        let db = builder.db();
         let entry = slf.entry(builder.hir_eager_expr_arena());
         let data = &entry.data;
         let precedence = hir_eager_expr_precedence(data);
         let needs_deref = hir_eager_expr_needs_deref(entry);
         if needs_deref {
+            match data {
+                HirEagerExprData::MethodFnCall { ident, .. } if ident.data(db) == "clone" => {
+                    use salsa::DebugWithDb;
+                    p!(entry.debug(db));
+                    todo!()
+                }
+                _ => (),
+            }
             site.rust_bindings.push(RustBinding::Deref)
         }
         if !site.rust_bindings.is_empty() {
             site.rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Prefix)
         }
         let mut wrap_in_some_flag = false;
+        if site.rust_bindings.is_non_trivial() {
+            builder.lpar();
+        }
         for &rust_binding in &*site.rust_bindings {
             match rust_binding {
                 RustBinding::Deref | RustBinding::DerefCustomed => {
@@ -59,79 +72,23 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if wrap_in_some_flag {
             builder.wrap_in_some_right()
         }
+        if site.rust_bindings.is_non_trivial() {
+            builder.rpar();
+        }
     }
 }
 
 fn hir_eager_expr_needs_deref(entry: &HirEagerExprEntry) -> bool {
-    match entry.ty_place {
-        HirPlace::Const | HirPlace::StackPure { .. } => todo!(),
-        HirPlace::Ref { .. } | HirPlace::RefMut { .. } | HirPlace::Leashed => match entry.data {
-            HirEagerExprData::Literal(_) => todo!(),
-            HirEagerExprData::PrincipalEntityPath(_) => todo!(),
-            HirEagerExprData::AssociatedFn {
-                associated_item_path,
-            } => todo!(),
-            HirEagerExprData::ConstSymbol(_) => todo!(),
-            HirEagerExprData::Variable(_) => true,
-            HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
-            HirEagerExprData::Be { src, ref target } => todo!(),
-            HirEagerExprData::Prefix {
-                opr,
-                opd_hir_expr_idx,
-            } => todo!(),
-            HirEagerExprData::Suffix {
-                opd_hir_expr_idx,
-                opr,
-            } => todo!(),
-            HirEagerExprData::TypeConstructorFnCall {
-                path,
-                ref instantiation,
-                ref item_groups,
-            } => todo!(),
-            HirEagerExprData::TypeVariantConstructorCall {
-                path,
-                ref instantiation,
-                ref item_groups,
-            } => todo!(),
-            HirEagerExprData::FunctionFnCall {
-                path,
-                ref instantiation,
-                ref item_groups,
-            } => todo!(),
-            HirEagerExprData::AssociatedFunctionFnCall {
-                path,
-                ref instantiation,
-                ref item_groups,
-            } => todo!(),
-            HirEagerExprData::PropsStructField {
-                owner_hir_expr_idx,
-                ident,
-            } => todo!(),
-            HirEagerExprData::MemoizedField {
-                owner_hir_expr_idx,
-                ident,
-                path,
-            } => todo!(),
-            HirEagerExprData::MethodFnCall {
-                self_argument,
-                ident,
-                path,
-                ref instantiation,
-                ref item_groups,
-            } => todo!(),
-            HirEagerExprData::NewTuple { ref items } => todo!(),
-            HirEagerExprData::Index {
-                owner_hir_expr_idx,
-                ref items,
-            } => todo!(),
-            HirEagerExprData::NewList { ref items } => todo!(),
-            HirEagerExprData::Block { stmts } => todo!(),
-            HirEagerExprData::EmptyHtmlTag {
-                function_ident,
-                ref arguments,
-            } => todo!(),
-            HirEagerExprData::Todo => todo!(),
-            HirEagerExprData::Unreachable => todo!(),
+    match entry.data {
+        HirEagerExprData::ConstSymbol(_)
+        | HirEagerExprData::Variable(_)
+        | HirEagerExprData::FunctionFnCall { .. }
+        | HirEagerExprData::AssociatedFunctionFnCall { .. }
+        | HirEagerExprData::MemoizedField { .. }
+        | HirEagerExprData::MethodFnCall { .. } => match entry.ty_place {
+            HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
+            HirPlace::Ref { .. } | HirPlace::RefMut { .. } | HirPlace::Leashed => true,
+            _ => false,
         },
         _ => false,
     }
@@ -175,10 +132,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                     (
                         lopd,
-                        self.self_expr_on_site(
-                            HirEagerCoersion::TRIVIAL_TRANSIENT,
-                            HirEagerContract::Pure,
-                        ),
+                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -190,10 +144,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
                     (
                         lopd,
-                        self.self_expr_on_site(
-                            HirEagerCoersion::TRIVIAL_TRANSIENT,
-                            HirEagerContract::Pure,
-                        ),
+                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -274,7 +225,14 @@ impl HirEagerExprSite {
                 owner_hir_expr_idx,
                 ident,
             } => {
-                (owner_hir_expr_idx, geq(self)).transpile_to_rust(builder);
+                (
+                    owner_hir_expr_idx,
+                    self.self_expr_on_site(
+                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
+                        HirEagerContract::At,
+                    ),
+                )
+                    .transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 ident.transpile_to_rust(builder)
             }
@@ -290,12 +248,20 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::MethodFnCall {
                 self_argument,
+                self_contract,
                 ident,
                 path,
                 ref instantiation,
                 ref item_groups,
             } => {
-                (self_argument, geq(self)).transpile_to_rust(builder);
+                (
+                    self_argument,
+                    self.self_expr_on_site(
+                        builder.hir_eager_expr_arena()[self_argument].ty_place,
+                        self_contract,
+                    ),
+                )
+                    .transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 ident.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
@@ -311,7 +277,14 @@ impl HirEagerExprSite {
                 ref items,
             } => {
                 // ad hoc
-                (owner_hir_expr_idx, geq(self)).transpile_to_rust(builder);
+                (
+                    owner_hir_expr_idx,
+                    self.self_expr_on_site(
+                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
+                        HirEagerContract::At,
+                    ),
+                )
+                    .transpile_to_rust(builder);
                 builder.bracketed(RustBracket::Box, |builder| {
                     (
                         items[0],
@@ -352,6 +325,15 @@ impl HirEagerExprSite {
             HirEagerExprData::AssociatedFn {
                 associated_item_path,
             } => associated_item_path.transpile_to_rust(builder),
+            HirEagerExprData::As { opd, ty } => {
+                (
+                    opd,
+                    self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                )
+                    .transpile_to_rust(builder);
+                builder.keyword(RustKeyword::As);
+                ty.transpile_to_rust(builder)
+            }
         }
     }
 }

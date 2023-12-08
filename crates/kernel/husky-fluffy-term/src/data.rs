@@ -217,7 +217,12 @@ impl FluffyTerm {
                 Some(ty_ethereal_term) => {
                     is_ty_term_always_copyable(ty_ethereal_term, db).map_err(Into::into)
                 }
-                None => todo!(),
+                None => {
+                    // p!(self.show(db, terms));
+                    // todo!()
+                    // ad hoc, something is wrong here
+                    Ok(Some(false))
+                }
             },
             FluffyBaseTypeData::Curry {
                 curry_kind,
@@ -237,8 +242,14 @@ impl FluffyTerm {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
-            FluffyBaseTypeData::Symbol { term } => todo!(),
+            } => match ritchie_kind {
+                RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
+                    RitchieTypeKind::Fn => Ok(Some(true)),
+                    RitchieTypeKind::Gn => Ok(Some(true)),
+                },
+                RitchieKind::Trait(_) => todo!(),
+            },
+            FluffyBaseTypeData::Symbol { term } => Ok(Some(false)), // ad hoc
         }
     }
 }

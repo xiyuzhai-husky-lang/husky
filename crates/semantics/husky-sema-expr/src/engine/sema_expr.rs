@@ -368,7 +368,7 @@ impl<'a> SemaExprEngine<'a> {
                 dot_regional_token_idx,
                 ident_token,
                 lpar_regional_token_idx,
-                template_arguments: ref generic_arguments,
+                ref template_arguments,
                 ref items,
                 rpar_regional_token_idx,
             } => self.calc_method_application_or_call_ty(
@@ -376,7 +376,7 @@ impl<'a> SemaExprEngine<'a> {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
-                generic_arguments.as_ref(),
+                template_arguments.as_ref(),
                 lpar_regional_token_idx,
                 items,
                 rpar_regional_token_idx,

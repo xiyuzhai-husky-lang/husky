@@ -1,11 +1,11 @@
 use super::*;
 
 pub fn nine_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![downmost])
+    fermi_match(major_concave_components(), (&vec![downmost]))
 }
 
 pub fn nine_match_refine() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![big_cc])
+    fermi_match(major_concave_components(), (&vec![big_cc]))
 }
 
 pub fn is_nine() -> OneVsAll {
@@ -40,12 +40,12 @@ pub fn is_nine() -> OneVsAll {
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
-    Some(dp.y)
+    (Some(dp.y))
 }
 
 pub fn big_cc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0.0f32);
     require!(cc.relative_bounding_box().ymin() > 0.4f32);
-    Some(cc.relative_bounding_box().ymin())
+    (Some(cc.relative_bounding_box().ymin()))
 }
