@@ -1,6 +1,6 @@
 use super::*;
 use husky_cargo_utils::compile_workspace;
-use husky_rust_transpilation::{db::RustTranspilationJar, transpile::TranspileToFsFull};
+use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
 use husky_vfs::PackagePath;
 
 pub struct MonoLinkageStorage {}

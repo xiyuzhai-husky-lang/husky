@@ -325,6 +325,7 @@ pub struct VfsJar(
     crate::path::crate_path::package_crate_paths,
     crate::path::module_path::relative_path::module_relative_path,
     crate::path::module_path::relative_path::module_relative_stem,
+    crate::path::linktime_target_path::linktime_target_rust_workspace_rustfmt_toml_path,
     crate::path::linktime_target_path::linktime_target_rust_workspace_manifest_path,
     CratePath,
     ModulePath,

@@ -6,13 +6,14 @@ mod builder;
 pub mod db;
 mod defn;
 mod expr;
+mod fmt;
 mod linkage;
 mod manifest;
 mod package;
 mod path;
 #[cfg(test)]
 mod tests;
-pub mod transpile;
+pub mod transpile_to_fs;
 mod unit;
 
 use self::builder::*;
