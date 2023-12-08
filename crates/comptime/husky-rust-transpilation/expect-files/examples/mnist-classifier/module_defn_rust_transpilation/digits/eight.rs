@@ -1,9 +1,11 @@
 use super::*;
 
+#[ad_hoc_task_dependency::val_item_return_ref]
 pub fn upper_mouth_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), (&vec![big_mouth]))
 }
 
+#[ad_hoc_task_dependency::val_item]
 pub fn is_eight() -> OneVsAll {
     require!(let none = is_one());
     require!(let none = is_six());

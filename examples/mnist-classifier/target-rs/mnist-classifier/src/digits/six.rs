@@ -1,13 +1,16 @@
 use super::*;
 
+#[ad_hoc_task_dependency::val_item_return_ref]
 pub fn six_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), (&vec![upmost]))
 }
 
+#[ad_hoc_task_dependency::val_item_return_ref]
 pub fn six_match_refined1() -> FermiMatchResult {
     fermi_match(major_concave_components(), (&vec![upmost, bottom1]))
 }
 
+#[ad_hoc_task_dependency::val_item]
 pub fn is_six() -> OneVsAll {
     todo!()
 }

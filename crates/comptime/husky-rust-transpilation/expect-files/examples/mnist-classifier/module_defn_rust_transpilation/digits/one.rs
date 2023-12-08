@@ -1,9 +1,11 @@
 use super::*;
 
+#[ad_hoc_task_dependency::val_item_return_ref]
 pub fn one_fermi_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), (&vec![downmost, upmost, hat]))
 }
 
+#[ad_hoc_task_dependency::val_item]
 pub fn is_one() -> OneVsAll {
     todo!()
 }

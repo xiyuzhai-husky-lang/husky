@@ -1,5 +1,6 @@
 use super::*;
 
+#[ad_hoc_task_dependency::val_item_return_ref]
 pub fn open_one_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), (&vec![almost_closed]))
 }
@@ -9,6 +10,7 @@ pub fn almost_closed(cc: Leash<ConcaveComponent>) -> Option<f32> {
     (Some(-cc.angle_change() + 0.0f32))
 }
 
+#[ad_hoc_task_dependency::val_item]
 pub fn is_zero() -> OneVsAll {
     todo!()
 }

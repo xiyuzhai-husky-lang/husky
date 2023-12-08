@@ -209,11 +209,13 @@ impl LineSegmentStroke {
 }
 
 impl LineSegmentSketch {
-    pub fn concave_components(&'static self) -> Vec<ConcaveComponent> {
+    #[ad_hoc_task_dependency::memoized_field_return_ref]
+pub fn concave_components(&'static self) -> Vec<ConcaveComponent> {
         find_concave_components((&self))
     }
 
-    pub fn bounding_box(&'static self) -> BoundingBox {
+    #[ad_hoc_task_dependency::memoized_field_return_ref]
+pub fn bounding_box(&'static self) -> BoundingBox {
         let start_point = (&self.strokes[0 as usize].start);
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
