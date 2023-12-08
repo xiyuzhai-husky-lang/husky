@@ -63,7 +63,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction
     }
 }
 
-pub fn get_angle_change(inward: &Direction, outward: &Direction) -> i32 {
+pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = ((outward as i32 - inward as i32) as u32).last_bits(2);
     match raw_angle_change {
         0 | 1 | 2 => raw_angle_change as i32,
@@ -78,7 +78,7 @@ pub fn get_outward_direction(
     row_above: u32,
     row_below: u32,
     j: i32,
-    inward_direction: &Direction,
+    inward_direction: Direction,
 ) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
@@ -179,8 +179,8 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             loop {
                 {
                     let outward_direction =
-                        get_outward_direction(row_above, row_below, j, &inward_direction);
-                    let angle_change = get_angle_change(&inward_direction, &outward_direction);
+                        get_outward_direction(row_above, row_below, j, inward_direction);
+                    let angle_change = get_angle_change(inward_direction, outward_direction);
                     boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1

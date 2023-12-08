@@ -269,7 +269,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 503,
+                            value: 504,
                         },
                     ),
                 ),

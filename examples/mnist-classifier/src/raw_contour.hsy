@@ -53,6 +53,7 @@ impl RawContour:
         let ct_end = self.points[end%N]
         ct_start.to(ct_end)
 
+#derive(Clone, Copy, PartialEq, Eq)
 enum Direction
 | Up
 | Left

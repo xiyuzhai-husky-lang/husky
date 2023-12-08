@@ -822,7 +822,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 template_arguments: [],
-                                always_copyable: false,
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -1776,7 +1776,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                             template_arguments: [],
-                                            always_copyable: false,
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -1787,7 +1787,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                             template_arguments: [],
-                                            always_copyable: false,
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -2206,7 +2206,7 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                             template_arguments: [],
-                                            always_copyable: false,
+                                            always_copyable: true,
                                         },
                                     ),
                                 },
@@ -2216,7 +2216,7 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 template_arguments: [],
-                                always_copyable: false,
+                                always_copyable: true,
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
@@ -4863,7 +4863,7 @@
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        23,
+                                                                        24,
                                                                     ),
                                                                 ),
                                                             },

@@ -78,11 +78,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 198,
+                        ast_idx: 199,
                         ident_token: IdentToken {
                             ident: `Direction`,
                             token_idx: TokenIdx(
-                                402,
+                                413,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -142,11 +142,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 199,
+                        ast_idx: 200,
                         ident_token: IdentToken {
                             ident: `get_pixel_pair`,
                             token_idx: TokenIdx(
-                                412,
+                                423,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -206,11 +206,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 200,
+                        ast_idx: 201,
                         ident_token: IdentToken {
                             ident: `get_pixel_to_the_left`,
                             token_idx: TokenIdx(
-                                437,
+                                448,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -270,11 +270,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 201,
+                        ast_idx: 202,
                         ident_token: IdentToken {
                             ident: `get_pixel_to_the_right`,
                             token_idx: TokenIdx(
-                                458,
+                                469,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -334,11 +334,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 202,
+                        ast_idx: 203,
                         ident_token: IdentToken {
                             ident: `get_inward_direction`,
                             token_idx: TokenIdx(
-                                483,
+                                494,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -398,11 +398,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 203,
+                        ast_idx: 204,
                         ident_token: IdentToken {
                             ident: `get_angle_change`,
                             token_idx: TokenIdx(
-                                611,
+                                622,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -462,11 +462,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 204,
+                        ast_idx: 205,
                         ident_token: IdentToken {
                             ident: `get_outward_direction`,
                             token_idx: TokenIdx(
-                                672,
+                                683,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -526,11 +526,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 205,
+                        ast_idx: 206,
                         ident_token: IdentToken {
                             ident: `StreakCache`,
                             token_idx: TokenIdx(
-                                868,
+                                879,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -584,11 +584,11 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 206,
+                        ast_idx: 207,
                         ident_token: IdentToken {
                             ident: `get_concave_middle_point`,
                             token_idx: TokenIdx(
-                                880,
+                                891,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -646,11 +646,11 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 207,
+                        ast_idx: 208,
                         ident_token: IdentToken {
                             ident: `find_raw_contours`,
                             token_idx: TokenIdx(
-                                946,
+                                957,
                             ),
                         },
                         block: DefnBlock::Fugitive {

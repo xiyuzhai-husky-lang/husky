@@ -498,7 +498,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 463,
+                                                                value: 464,
                                                             },
                                                         ),
                                                     ),
@@ -564,7 +564,7 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 463,
+                                                                value: 464,
                                                             },
                                                         ),
                                                     ),
@@ -666,7 +666,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 457,
+                                    value: 458,
                                 },
                             ),
                         ),
@@ -684,7 +684,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 465,
+                                                    value: 466,
                                                 },
                                             ),
                                         ),
