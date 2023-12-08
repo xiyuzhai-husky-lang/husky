@@ -26,18 +26,18 @@ pub fn is_three() -> OneVsAll {
 
 pub fn uparc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y <= 0.0f32);
+    require!(dp.y.into_inner() <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
 pub fn downarc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y <= 0.0f32);
+    require!(dp.y.into_inner() <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
 pub fn back(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y >= 0.0f32);
+    require!(dp.y.into_inner() >= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }

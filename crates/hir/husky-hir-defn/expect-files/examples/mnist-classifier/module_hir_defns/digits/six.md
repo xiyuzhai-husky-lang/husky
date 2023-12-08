@@ -347,6 +347,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
                                                 ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -393,6 +400,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 7,
                                                 ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -639,6 +653,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
                                                 ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -693,6 +714,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
                                                 ident: `x`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -714,6 +742,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 10,
                                                 ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -858,6 +893,23 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 21,
                                                 ident: `line_segment_sketch`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -960,6 +1012,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 27,
                                                 ident: `x`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -1025,6 +1084,13 @@
                                             data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 32,
                                                 ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,

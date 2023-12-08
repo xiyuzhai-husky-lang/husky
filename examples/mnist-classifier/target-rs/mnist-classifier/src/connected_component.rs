@@ -10,6 +10,10 @@ pub struct ConnectedComponentDistribution {
 
 impl ConnectedComponentDistribution {
     pub fn __constructor(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
+        ;
+        ;
+        ;
+        ;
         Self{
             row_start,
             row_end,
@@ -26,6 +30,7 @@ pub struct EffHoles {
 
 impl EffHoles {
     pub fn __constructor(matches: Vec<Option<Leash<RawContour>>>) -> Self {
+        ;
         Self{
             matches,
         }
@@ -45,6 +50,7 @@ pub struct ConnectedComponent {
 
 impl ConnectedComponent {
     pub fn __constructor(mask: BinaryImage28) -> Self {
+        ;
         Self{
             mask,
         }

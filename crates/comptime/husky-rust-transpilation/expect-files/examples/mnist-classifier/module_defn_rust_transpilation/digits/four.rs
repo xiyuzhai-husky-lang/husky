@@ -23,7 +23,7 @@ pub fn is_four() -> OneVsAll {
     require!(let none = eff_holes.matches[1 as usize]);
     let down_match = components_max_downwards().matches[0 as usize];
     require!(let some = down_match);
-    let down_match_dp_y = down_match.unwrap().displacement().y;
+    let down_match_dp_y = down_match.unwrap().displacement().y.into_inner();
     let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
     require!(higher_excess > 7.0f32);
     if let none = eff_holes.matches[0 as usize] {
@@ -34,7 +34,7 @@ pub fn is_four() -> OneVsAll {
         let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
         let upper_arc = components_max_heights().matches[0 as usize];
         require!(let some = upper_arc);
-        require!(upper_arc.unwrap().displacement().y > 0.0f32);
+        require!(upper_arc.unwrap().displacement().y.into_inner() > 0.0f32);
         require!(upper_arc.unwrap().angle_change() < -110.0f32);
         require!(components_max_heights().norm() < 9.0f32);
         let a = major_connected_component().top_k_row_right_mass_sum(3);
@@ -47,13 +47,13 @@ pub fn is_four() -> OneVsAll {
 
 pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y < 0.0f32);
-    (Some(dp.y))
+    require!(dp.y.into_inner() < 0.0f32);
+    (Some(dp.y.into_inner()))
 }
 
 pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y > 0.0f32);
+    require!(dp.y.into_inner() > 0.0f32);
     require!(cc.relative_bounding_box().ymin() > 0.4f32);
     (Some(cc.relative_bounding_box().ymin()))
 }

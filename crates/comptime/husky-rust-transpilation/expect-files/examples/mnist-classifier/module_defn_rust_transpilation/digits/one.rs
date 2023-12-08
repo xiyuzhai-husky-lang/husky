@@ -10,19 +10,19 @@ pub fn is_one() -> OneVsAll {
 
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y > 0.0f32);
-    (Some(dp.y))
+    require!(dp.y.into_inner() > 0.0f32);
+    (Some(dp.y.into_inner()))
 }
 
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y <= 0.0f32);
-    (Some(-cc.end().y))
+    require!(dp.y.into_inner() <= 0.0f32);
+    (Some(-cc.end().y.into_inner()))
 }
 
 pub fn hat(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y < 0.0f32);
-    require!(dp.x < 0.0f32);
-    (Some(-dp.y - dp.x))
+    require!(dp.y.into_inner() < 0.0f32);
+    require!(dp.x.into_inner() < 0.0f32);
+    (Some(-dp.y.into_inner() - dp.x.into_inner()))
 }

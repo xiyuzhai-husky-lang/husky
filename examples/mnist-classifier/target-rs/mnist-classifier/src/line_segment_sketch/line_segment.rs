@@ -8,6 +8,8 @@ pub struct LineSegment {
 
 impl LineSegment {
     pub fn __constructor(start: Point2d, end: Point2d) -> Self {
+        ;
+        ;
         Self{
             start,
             end,

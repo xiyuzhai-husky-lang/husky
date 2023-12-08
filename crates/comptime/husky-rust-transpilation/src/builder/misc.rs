@@ -122,11 +122,25 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(")")
     }
 
+    pub(crate) fn not_nan(&mut self) {
+        self.write_str("NotNan")
+    }
+
     pub(crate) fn derive(&mut self, trais: &[TraitPath]) {
         self.on_fresh_line(|builder| {
             builder.write_str("#[derive");
             builder.bracketed_comma_list(RustBracket::Par, trais);
             builder.write_str("]\n")
         })
+    }
+
+    pub(crate) fn call_into_inner_method_of_not_nan(&mut self) {
+        self.write_str(".into_inner()")
+    }
+
+    pub(crate) fn new_not_nan(&mut self, ident: Ident) {
+        self.write_str("NotNan::new(");
+        ident.transpile_to_rust(self);
+        self.write_str(").unwrap()")
     }
 }

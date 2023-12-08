@@ -8,6 +8,8 @@ pub struct RawContour {
 
 impl RawContour {
     pub fn __constructor(cc: Leash<ConnectedComponent>, points: Vec<Point2d>) -> Self {
+        ;
+        ;
         Self{
             cc,
             points,
@@ -201,6 +203,8 @@ pub struct StreakCache {
 
 impl StreakCache {
     pub fn __constructor(prev1: i32, prev2: i32) -> Self {
+        ;
+        ;
         Self{
             prev1,
             prev2,
@@ -212,7 +216,7 @@ pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[(N - 2) as usize];
     let p2 = points[(N - 1) as usize];
-    Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
+    Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
 }
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
@@ -313,16 +317,16 @@ impl RawContour {
 
     pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.points[0 as usize];
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let mut xmin = start_point.x.into_inner();
+        let mut xmax = start_point.x.into_inner();
+        let mut ymin = start_point.y.into_inner();
+        let mut ymax = start_point.y.into_inner();
         for i in 0..self.points.ilen() {
             let point = self.points[i as usize];
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            xmin = xmin.min(point.x.into_inner());
+            xmax = xmax.max(point.x.into_inner());
+            ymin = ymin.min(point.y.into_inner());
+            ymax = ymax.max(point.y.into_inner())
         }
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
@@ -336,11 +340,11 @@ impl RawContour {
         for i in (0 + 1)..self.points.ilen() {
             let a = self.points[(i - 1) as usize];
             let b = self.points[i as usize];
-            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
+            contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs()
         }
         let a = self.points[(self.points.ilen() - 1) as usize];
         let b = self.points[0 as usize];
-        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
+        contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs();
         return contour_len;
     }
 

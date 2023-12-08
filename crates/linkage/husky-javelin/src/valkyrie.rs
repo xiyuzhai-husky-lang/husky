@@ -148,6 +148,7 @@ impl ValkyrieRides {
                 HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx,
                     ident,
+                    field_ty,
                 } => (),
                 HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx,

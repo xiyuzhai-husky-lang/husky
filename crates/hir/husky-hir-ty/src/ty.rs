@@ -3,6 +3,7 @@ pub mod ritchie;
 
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
+use either::*;
 use husky_ethereal_signature::{
     helpers::trai_for_ty::is_ty_term_always_copyable, HasEtherealSignatureTemplate,
 };
@@ -95,6 +96,17 @@ impl HirType {
             HirType::TypeAssociatedType(slf) => false, // ad hoc: todo check traits
             HirType::TraitAssociatedType(slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(slf) => true,
+        }
+    }
+    pub fn is_float(self, db: &::salsa::Db) -> bool {
+        match self {
+            HirType::PathLeading(field_ty)
+                if let Left(PreludeTypePath::Num(PreludeNumTypePath::Float(_))) =
+                    field_ty.ty_path(db).refine(db) =>
+            {
+                true
+            }
+            _ => false,
         }
     }
 }

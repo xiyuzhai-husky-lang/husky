@@ -7,6 +7,7 @@ pub use self::num::*;
 pub use self::ops::*;
 pub use self::slice::*;
 pub use self::vec::*;
+pub use ordered_float::NotNan;
 
 pub type Leash<T> = &'static T;
 

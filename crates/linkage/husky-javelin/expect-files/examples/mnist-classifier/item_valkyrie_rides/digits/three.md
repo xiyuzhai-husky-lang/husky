@@ -39,7 +39,7 @@
                                             PathLeading(
                                                 HirTypePathLeading(
                                                     Id {
-                                                        value: 47,
+                                                        value: 48,
                                                     },
                                                 ),
                                             ),
