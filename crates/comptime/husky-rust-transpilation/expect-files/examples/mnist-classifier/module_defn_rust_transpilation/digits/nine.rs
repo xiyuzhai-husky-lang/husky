@@ -11,7 +11,7 @@ pub fn nine_match_refine() -> FermiMatchResult {
 pub fn is_nine() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_six());
-    let eff_holes = major_connected_component().eff_holes();
+    let eff_holes = (&major_connected_component().eff_holes());
     require!(let none = eff_holes.matches[1 as usize]);
     let down_match = nine_match().matches[0 as usize];
     require!(let some = down_match);

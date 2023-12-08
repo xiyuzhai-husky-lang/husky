@@ -2214,7 +2214,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -2242,7 +2242,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    2,
+                                                    3,
                                                 ),
                                             ),
                                         },

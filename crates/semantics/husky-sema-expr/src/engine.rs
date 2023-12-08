@@ -19,6 +19,10 @@ use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_stack_location::StackLocationRegistry;
+use husky_syn_decl::{
+    AssociatedItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
+    TraitItemSynNodeDecl, TypeItemSynNodeDecl,
+};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
@@ -48,6 +52,7 @@ pub(crate) struct SemaExprEngine<'a> {
     unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
     self_value: Option<EtherealTermSymbol>,
+    self_value_ty: Option<FluffyTerm>,
     self_lifetime: Option<EtherealTermSymbol>,
     self_place: Option<EtherealTermSymbol>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
@@ -121,6 +126,7 @@ impl<'a> SemaExprEngine<'a> {
             .self_value()
             .map(|self_value| EtherealTermSymbol::from_declarative(db, self_value).ok())
             .flatten();
+        let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
             .term_symbol_region()
             .self_lifetime()
@@ -131,6 +137,13 @@ impl<'a> SemaExprEngine<'a> {
             .self_place()
             .map(|self_place| EtherealTermSymbol::from_declarative(db, self_place).ok())
             .flatten();
+        let self_value_ty = calc_self_value_ty(
+            syn_expr_region_data,
+            self_ty,
+            self_place,
+            db,
+            &mut stack_location_registry,
+        );
         let symbol_region = syn_expr_region_data.symbol_region();
         let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
@@ -152,7 +165,7 @@ impl<'a> SemaExprEngine<'a> {
             syn_expr_region,
             syn_expr_region_data,
             declarative_term_region,
-            stack_location_registry: Default::default(),
+            stack_location_registry,
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),
@@ -178,6 +191,7 @@ impl<'a> SemaExprEngine<'a> {
             unveiler: Unveiler::Uninitialized,
             self_ty,
             self_value,
+            self_value_ty,
             self_lifetime,
             self_place,
             pattern_expr_contracts: SynPatternExprMap::new(
@@ -307,4 +321,88 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentSynSymbolIdx, symbol_ty: SymbolType) {
         self.symbol_tys.insert_new(symbol_idx, symbol_ty)
     }
+}
+
+fn calc_self_value_ty(
+    syn_expr_region_data: &SynExprRegionData,
+    self_ty: Option<EtherealTerm>,
+    self_place: Option<EtherealTermSymbol>,
+    db: &salsa::Db,
+    registry: &mut StackLocationRegistry,
+) -> Option<FluffyTerm> {
+    fn method_fn_self_value_modifier_from_self_value_parameter(
+        self_value_parameter: &Option<SelfValueParameterSyndicate>,
+    ) -> SymbolModifier {
+        let Some(self_value_parameter) = self_value_parameter else {
+            return SymbolModifier::Pure;
+        };
+        SymbolModifier::new(self_value_parameter.ephem_symbol_modifier_token_group())
+    }
+    let self_ty: FluffyTerm = self_ty?.into();
+    let modifier = match syn_expr_region_data.path() {
+        SynNodeRegionPath::Snippet(_) => None, // ad hoc
+        SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
+            match syn_node_path.syn_node_decl(db) {
+                ItemSynNodeDecl::AssociatedItem(syn_node_decl) => match syn_node_decl {
+                    AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => match syn_node_decl {
+                        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
+                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                                syn_node_decl
+                                    .parenate_parameters(db)
+                                    .as_ref()
+                                    .ok()?
+                                    .self_value_parameter(),
+                            ))
+                        }
+                        TypeItemSynNodeDecl::MemoizedField(_) => Some(SymbolModifier::Le),
+                        _ => None,
+                    },
+                    AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
+                        TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+                        _ => None,
+                    },
+                    AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
+                        match syn_node_decl {
+                            TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
+                                Some(method_fn_self_value_modifier_from_self_value_parameter(
+                                    syn_node_decl
+                                        .parenate_parameter_decl_list(db)
+                                        .as_ref()
+                                        .ok()?
+                                        .self_value_parameter(),
+                                ))
+                            }
+                            _ => None,
+                        }
+                    }
+                    AssociatedItemSynNodeDecl::IllFormedItem(_) => None,
+                },
+                _ => None,
+            }
+        }
+    }?;
+    let place = match modifier {
+        SymbolModifier::Pure => FluffyPlace::StackPure {
+            location: registry.issue_new(),
+        },
+        SymbolModifier::Owned => FluffyPlace::ImmutableStackOwned {
+            location: registry.issue_new(),
+        },
+        SymbolModifier::Mut => FluffyPlace::MutableStackOwned {
+            location: registry.issue_new(),
+        },
+        SymbolModifier::Ref => todo!(),
+        SymbolModifier::RefMut => todo!(),
+        SymbolModifier::Const => todo!(),
+        SymbolModifier::Ambersand(_) => FluffyPlace::Ref {
+            guard: Left(registry.issue_new()),
+        },
+        SymbolModifier::AmbersandMut(_) => FluffyPlace::RefMut {
+            guard: Left(registry.issue_new()),
+        },
+        SymbolModifier::Le => FluffyPlace::Leashed,
+        SymbolModifier::Tilde => FluffyPlace::Leashed,
+        SymbolModifier::At => FluffyPlace::EtherealSymbol(self_place?),
+    };
+    Some(self_ty.with_place(place))
 }

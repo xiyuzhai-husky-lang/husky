@@ -7,6 +7,7 @@ use husky_stack_location::StackLocationIdx;
 use husky_term_prelude::TermContract;
 use vec_like::SmallVecPairMap;
 
+#[derive(Debug)]
 pub(crate) struct HirEagerExprSite {
     pub(crate) rust_precedence_range: RustPrecedenceRange,
     pub(crate) rust_bindings: RustBindings,
@@ -135,7 +136,7 @@ impl HirEagerExprSite {
             HirPlace::Transient => Default::default(),
             _ => match contract {
                 HirEagerContract::Pure | HirEagerContract::Const | HirEagerContract::Leash
-                    if initial_value_entry.is_ty_always_copyable =>
+                    if !initial_value_entry.is_ty_always_copyable =>
                 {
                     RustBinding::Reref.into()
                 }

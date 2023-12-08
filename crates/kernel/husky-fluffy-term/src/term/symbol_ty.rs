@@ -88,8 +88,9 @@ impl SymbolType {
                         FluffyPlace::Transient => unreachable!(),
                         FluffyPlace::Ref { guard } => todo!(),
                         FluffyPlace::RefMut { guard } => todo!(),
-                        FluffyPlace::Leashed => todo!(),
+                        FluffyPlace::Leashed => FluffyPlace::Leashed,
                         FluffyPlace::Todo => todo!(),
+                        FluffyPlace::EtherealSymbol(_) => todo!(),
                     },
                     None => todo!(),
                 },
@@ -207,6 +208,7 @@ pub enum FluffyPlace {
     /// always immutable
     Leashed,
     Todo,
+    EtherealSymbol(EtherealTermSymbol),
 }
 
 impl FluffyPlace {
@@ -224,7 +226,7 @@ impl FluffyPlace {
             (TermContract::Move, FluffyPlace::Transient) => Ok(()),
             (TermContract::Move, FluffyPlace::Ref { guard }) => Ok(()),
             (TermContract::Move, FluffyPlace::RefMut { guard }) => todo!(),
-            (TermContract::Move, FluffyPlace::Leashed) => todo!(),
+            (TermContract::Move, FluffyPlace::Leashed) => Ok(()),
             (TermContract::Move, FluffyPlace::Todo) => todo!(),
             (TermContract::Borrow, FluffyPlace::Const) => todo!(),
             (TermContract::Borrow, FluffyPlace::StackPure { location }) => todo!(),
@@ -271,6 +273,10 @@ impl FluffyPlace {
             (TermContract::At, FluffyPlace::RefMut { guard }) => todo!(),
             (TermContract::At, FluffyPlace::Leashed) => todo!(),
             (TermContract::At, FluffyPlace::Todo) => todo!(),
+            (TermContract::Move, FluffyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::Borrow, FluffyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::BorrowMut, FluffyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::At, FluffyPlace::EtherealSymbol(_)) => todo!(),
         }
     }
 }

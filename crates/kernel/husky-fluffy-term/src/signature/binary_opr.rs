@@ -7,7 +7,7 @@ pub enum SemaBinaryOprFluffySignature {
 }
 
 impl MemberSignature for SemaBinaryOprFluffySignature {
-    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
         todo!()
     }
 }

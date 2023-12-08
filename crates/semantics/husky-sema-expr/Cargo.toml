@@ -38,6 +38,7 @@ husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-syn-tree.workspace = true
 husky-syn-expr.workspace = true
+husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 # utils
@@ -56,7 +57,6 @@ husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-entity-syn-tree.workspace = true
-husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 # kernel
 husky-declarative-term.workspace = true

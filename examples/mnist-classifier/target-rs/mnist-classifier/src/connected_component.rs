@@ -66,7 +66,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
     let mut unsearched = img.clone();
     for j in 0..30 {
         while unsearched[j as usize] != 0 {
-            let a = (&unsearched[j as usize]);
+            let a = unsearched[j as usize];
             let shift = a.ctz();
             let mut mask = BinaryImage28::new_zeros();
             mask[j as usize] = horizontal_extend(a, 1 << shift);
@@ -76,7 +76,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 let mut i = j;
                 while i < 30 - 1 {
                     {
-                        let old_row = (&mask[(i + 1) as usize]);
+                        let old_row = mask[(i + 1) as usize];
                         let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if (new_row != 0) {
                             break;
@@ -90,7 +90,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 }
                 while i >= j {
                     {
-                        let old_row = (&mask[i as usize]);
+                        let old_row = mask[i as usize];
                         let new_row = old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
@@ -125,7 +125,7 @@ impl ConnectedComponent {
 
     pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
-        let raw_contours = self.raw_contours();
+        let raw_contours = (&self.raw_contours());
         for i in (0 + 1)..raw_contours.ilen() {
             let hole_ilen = raw_contours[i as usize].points.ilen();
             if max_hole_ilen < hole_ilen {
@@ -170,8 +170,8 @@ impl ConnectedComponent {
             }
             row_end += 1
         }
-        let height = (&(row_end - row_start));
-        let half_height = (&(height / 2));
+        let height = row_end - row_start;
+        let half_height = height / 2;
         let mut upper_mass = 0;
         for i1 in row_start..row_start + half_height {
             upper_mass += self.mask[i1 as usize].co()

@@ -231,8 +231,8 @@ impl<'a> SemaExprEngine<'a> {
             ),
             SynExprData::SelfValue(regional_token_idx) => (
                 Ok(SemaExprData::SelfValue(regional_token_idx)),
-                match self.self_ty {
-                    Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
+                match self.self_value_ty {
+                    Some(self_value_ty) => Ok(self_value_ty),
                     None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
             ),

@@ -10,8 +10,9 @@ use super::*;
 use husky_coword::Ident;
 use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEtherealSignature};
 
+#[deprecated(note = "use FluffyMemberDynamicDispatch instantiation instead")]
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-// #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDyanmicDispatch {
     indirections: FluffyIndirections,
     ty_path: TypePath,
@@ -29,6 +30,12 @@ impl FluffyFieldDyanmicDispatch {
 
     pub fn signature(&self) -> &FluffyFieldSignature {
         &self.signature
+    }
+
+    pub fn expr_ty(&self) -> FluffyTerm {
+        self.signature
+            .return_ty()
+            .with_place(self.indirections.final_place)
     }
 }
 

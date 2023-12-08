@@ -51,7 +51,7 @@ pub fn is_seven() -> OneVsAll {
         return OneVsAll::Yes;
     }
     require!(let some = special_seven_match().matches[0 as usize]);
-    let others = special_seven_match().others;
+    let others = (&special_seven_match().others);
     require!(false);
     OneVsAll::Yes
 }

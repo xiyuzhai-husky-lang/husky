@@ -30,7 +30,7 @@ pub fn is_two() -> OneVsAll {
     require!(let none = is_nine());
     require!(let none = is_six());
     let cc_num = major_concave_components().ilen();
-    let eff_holes = major_connected_component().eff_holes();
+    let eff_holes = (&major_connected_component().eff_holes());
     require!(let none = eff_holes.matches[1 as usize]);
     let left_cc = two_match().matches[0 as usize];
     let right_cc = two_match().matches[1 as usize];

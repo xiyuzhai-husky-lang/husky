@@ -23,7 +23,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
     while start > -L && !is_convex(line_segment_sketch, start) {
         start -= 1
     }
-    let ccv_start = (&start);
+    let ccv_start = start;
     while start < ccv_start + L {
         while end <= start + L && !is_convex(line_segment_sketch, end) {
             end += 1
@@ -48,11 +48,11 @@ impl ConcaveComponent {
 
     pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
-        let curve_start = self.strokes.first().unwrap().start;
+        let curve_start = (&self.strokes.first().unwrap().start);
         let curve_ls = self.line_segment();
         let dp_norm = curve_ls.displacement().norm();
         for i in self.strokes.start()..self.strokes.end() {
-            let point = self.strokes[i as usize].end;
+            let point = (&self.strokes[i as usize].end);
             let point_dist = curve_ls.dist_to_point((&point));
             if point_dist > hausdorff_norm {
                 hausdorff_norm = point_dist
@@ -73,13 +73,13 @@ impl ConcaveComponent {
     }
 
     pub fn bounding_box(&'static self) -> BoundingBox {
-        let start_point = self.strokes.first().unwrap().start;
+        let start_point = (&self.strokes.first().unwrap().start);
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
         let mut ymin = start_point.y.into_inner();
         let mut ymax = start_point.y.into_inner();
         for i in self.strokes.start()..self.strokes.end() {
-            let point = self.strokes[i as usize].end;
+            let point = (&self.strokes[i as usize].end);
             xmin = xmin.min(point.x.into_inner());
             xmax = xmax.max(point.x.into_inner());
             ymin = ymin.min(point.y.into_inner());

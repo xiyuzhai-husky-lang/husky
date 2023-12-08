@@ -360,7 +360,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -424,7 +424,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -449,7 +449,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -490,7 +490,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -585,7 +585,7 @@
                                                             Application(
                                                                 EtherealTermApplication(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 50,
                                                                     },
                                                                 ),
                                                             ),
@@ -659,7 +659,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 111,
+                                                        value: 112,
                                                     },
                                                 ),
                                             ),
@@ -686,7 +686,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 49,
+                                                            value: 50,
                                                         },
                                                     ),
                                                 ),
@@ -706,7 +706,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 50,
                                                     },
                                                 ),
                                             ),
@@ -735,7 +735,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 49,
+                                                            value: 50,
                                                         },
                                                     ),
                                                 ),
@@ -755,7 +755,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 50,
                                                     },
                                                 ),
                                             ),
@@ -783,7 +783,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 49,
+                            value: 50,
                         },
                     ),
                 ),
@@ -1762,7 +1762,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -1819,7 +1819,7 @@
                                                             Application(
                                                                 EtherealTermApplication(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 50,
                                                                     },
                                                                 ),
                                                             ),
@@ -1981,7 +1981,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -2086,7 +2086,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2126,9 +2128,9 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: Leashed,
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: Leashed,
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -2174,7 +2176,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2596,7 +2600,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -2693,7 +2697,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3180,7 +3186,9 @@
                         PatternExprTypeInfo {
                             ty: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3238,7 +3246,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3632,7 +3642,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -3765,7 +3775,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -3822,7 +3832,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -3851,7 +3863,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -4276,7 +4290,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -4402,7 +4416,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -5163,7 +5179,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -5220,7 +5236,7 @@
                                                             Application(
                                                                 EtherealTermApplication(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 50,
                                                                     },
                                                                 ),
                                                             ),
@@ -5420,7 +5436,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 106,
+                                                    value: 107,
                                                 },
                                             ),
                                         ),
@@ -5525,7 +5541,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -5565,9 +5583,9 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: Leashed,
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: Leashed,
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -5613,7 +5631,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -5818,7 +5838,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -6277,7 +6299,9 @@
                                     hole_kind: UnspecifiedFloatType,
                                     fill: Some(
                                         FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                Leashed,
+                                            ),
                                             base: Ethereal(
                                                 EntityPath(
                                                     TypeOntology(
@@ -6296,7 +6320,9 @@
                                     constraints: [
                                         CoercibleFrom {
                                             target: FluffyTerm {
-                                                place: None,
+                                                place: Some(
+                                                    Leashed,
+                                                ),
                                                 base: Ethereal(
                                                     EntityPath(
                                                         TypeOntology(
@@ -6374,7 +6400,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -6536,7 +6562,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -6593,7 +6619,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -6640,7 +6668,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -6660,7 +6690,7 @@
                                             Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_place: Leashed,
                                                     },
                                                 ),
                                             ),
@@ -6808,7 +6838,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -6828,7 +6860,7 @@
                                             Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_place: Leashed,
                                                     },
                                                 ),
                                             ),
@@ -7324,7 +7356,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 63,
+                                                                value: 64,
                                                             },
                                                         ),
                                                     ),
@@ -7350,12 +7382,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 63,
+                                                    value: 64,
                                                 },
                                             ),
                                         ),
@@ -7375,12 +7409,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 63,
+                                                    value: 64,
                                                 },
                                             ),
                                         ),
@@ -7412,12 +7448,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 63,
+                                                    value: 64,
                                                 },
                                             ),
                                         ),
@@ -7512,7 +7550,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 113,
+                                                            value: 114,
                                                         },
                                                     ),
                                                 ),
@@ -7527,12 +7565,14 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 63,
+                                                        value: 64,
                                                     },
                                                 ),
                                             ),
@@ -7557,7 +7597,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 113,
+                                                            value: 114,
                                                         },
                                                     ),
                                                 ),
@@ -7572,12 +7612,14 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 63,
+                                                        value: 64,
                                                     },
                                                 ),
                                             ),
@@ -7601,7 +7643,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 113,
+                            value: 114,
                         },
                     ),
                 ),
@@ -7978,7 +8020,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 63,
+                                                                value: 64,
                                                             },
                                                         ),
                                                     ),
@@ -8004,12 +8046,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 63,
+                                                    value: 64,
                                                 },
                                             ),
                                         ),
@@ -8065,9 +8109,9 @@
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: Leashed,
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: Leashed,
                                         },
                                         signature: Int {
                                             element_ty: FluffyTerm {
@@ -8092,7 +8136,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8121,7 +8167,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8162,7 +8210,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8349,12 +8399,14 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 63,
+                                                        value: 64,
                                                     },
                                                 ),
                                             ),
@@ -8462,7 +8514,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -8511,7 +8565,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -8926,7 +8982,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8955,7 +9013,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -8996,7 +9056,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -9100,7 +9162,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 73,
+                                                            value: 74,
                                                         },
                                                     ),
                                                 ),
@@ -9115,7 +9177,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -9149,7 +9213,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 73,
+                                                            value: 74,
                                                         },
                                                     ),
                                                 ),
@@ -9164,7 +9228,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -9197,7 +9263,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 73,
+                            value: 74,
                         },
                     ),
                 ),
@@ -9511,7 +9577,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 73,
+                                                    value: 74,
                                                 },
                                             ),
                                         ),
@@ -9562,7 +9628,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 69,
+                                                                value: 70,
                                                             },
                                                         ),
                                                     ),
@@ -9572,7 +9638,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 431,
+                                                            value: 433,
                                                         },
                                                     ),
                                                 ),
@@ -9588,12 +9654,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 69,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -9613,12 +9681,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 69,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -9650,12 +9720,14 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Leashed,
+                                    ),
                                     base: Ethereal(
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 69,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -9731,7 +9803,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 73,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
@@ -9750,7 +9822,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 70,
+                                                            value: 71,
                                                         },
                                                     ),
                                                 ),
@@ -9765,12 +9837,14 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 69,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -9795,7 +9869,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 70,
+                                                            value: 71,
                                                         },
                                                     ),
                                                 ),
@@ -9810,12 +9884,14 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Leashed,
+                                        ),
                                         base: Ethereal(
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 69,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -9839,7 +9915,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 70,
+                            value: 71,
                         },
                     ),
                 ),
