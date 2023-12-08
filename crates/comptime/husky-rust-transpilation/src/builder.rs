@@ -1,8 +1,8 @@
-mod ad_hoc;
 mod hir_ty;
 pub(crate) mod keyword;
 mod literal;
 mod macro_name;
+mod misc;
 mod punctuation;
 
 pub(crate) use self::keyword::*;

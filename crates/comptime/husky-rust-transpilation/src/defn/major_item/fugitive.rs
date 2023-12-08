@@ -49,13 +49,13 @@ impl TranspileToRustWith for FunctionGnHirDefn {
 impl TranspileToRustWith for ValHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) =
-            self.body_with_hir_expr_region(db)
-        else {
-            return;
-        };
         self.hir_decl(db).transpile_to_rust(builder);
-        builder.eager_body(hir_eager_expr_region, body)
+        match self.body_with_hir_expr_region(db) {
+            Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) => {
+                builder.eager_body(hir_eager_expr_region, body)
+            }
+            _ => builder.curly_block(|builder| builder.on_fresh_line(|builder| builder.todo())),
+        }
     }
 }
 

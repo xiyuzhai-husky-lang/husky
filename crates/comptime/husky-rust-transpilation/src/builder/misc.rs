@@ -104,3 +104,9 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str(" != 0")
     }
 }
+
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
+    pub(crate) fn todo(&mut self) {
+        self.write_str("todo!()")
+    }
+}
