@@ -3,7 +3,7 @@ use crate::*;
 pub struct RawContour {
     pub cc: Leash<ConnectedComponent>,
     pub points: Vec<Point2d>,
-} 
+}
 
 impl RawContour {
     pub fn __constructor(cc: Leash<ConnectedComponent>, points: Vec<Point2d>) -> Self {
@@ -19,7 +19,7 @@ pub enum Direction {
     Left,
     Down,
     Right,
-} 
+}
 
 pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
     row >> j - 1 | 3
@@ -194,7 +194,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
 pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,
-} 
+}
 
 impl StreakCache {
     pub fn __constructor(prev1: i32, prev2: i32) -> Self {

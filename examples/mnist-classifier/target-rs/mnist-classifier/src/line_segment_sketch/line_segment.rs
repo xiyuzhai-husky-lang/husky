@@ -3,7 +3,7 @@ use super::*;
 pub struct LineSegment {
     pub start: Point2d,
     pub end: Point2d,
-} 
+}
 
 impl LineSegment {
     pub fn __constructor(start: Point2d, end: Point2d) -> Self {

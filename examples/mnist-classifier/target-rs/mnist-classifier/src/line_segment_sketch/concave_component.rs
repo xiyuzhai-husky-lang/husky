@@ -3,7 +3,7 @@ use super::*;
 pub struct ConcaveComponent {
     pub line_segment_sketch: Leash<LineSegmentSketch>,
     pub strokes: CyclicSliceLeashed<LineSegmentStroke>,
-} 
+}
 
 impl ConcaveComponent {
     pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, strokes: CyclicSliceLeashed<LineSegmentStroke>) -> Self {

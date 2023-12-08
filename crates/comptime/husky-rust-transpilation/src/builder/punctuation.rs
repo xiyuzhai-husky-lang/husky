@@ -28,13 +28,13 @@ pub enum RustPunctuation {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) enum RustBracket {
-    Par,        // Parentheses ()
-    Box,        // Box brackets []
-    TurboFish,  // Turbofish ::<>
-    Angle,      // Angle <>
-    Curl,       // Curly brackets {}
-    CurlSpaced, // Curly brackets {  }
-    Vertical,   // Vertical bars ||
+    Par,           // Parentheses ()
+    Box,           // Box brackets []
+    TurboFish,     // Turbofish ::<>
+    Angle,         // Angle <>
+    Curl,          // Curly brackets {}
+    MultilineCurl, // Curly brackets {  }
+    Vertical,      // Vertical bars ||
 }
 
 impl RustBracket {
@@ -45,7 +45,7 @@ impl RustBracket {
             RustBracket::TurboFish => "::<",
             RustBracket::Angle => "<",
             RustBracket::Curl => "{",
-            RustBracket::CurlSpaced => " {",
+            RustBracket::MultilineCurl => " {",
             RustBracket::Vertical => "|",
         }
     }
@@ -57,7 +57,7 @@ impl RustBracket {
             RustBracket::TurboFish => ">",
             RustBracket::Angle => ">",
             RustBracket::Curl => "}",
-            RustBracket::CurlSpaced => "} ",
+            RustBracket::MultilineCurl => "}",
             RustBracket::Vertical => "|",
         }
     }

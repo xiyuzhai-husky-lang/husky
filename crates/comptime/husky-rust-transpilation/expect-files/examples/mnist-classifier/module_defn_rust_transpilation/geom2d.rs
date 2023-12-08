@@ -3,7 +3,7 @@ use crate::*;
 pub struct Point2d {
     pub x: f32,
     pub y: f32,
-} 
+}
 
 impl Point2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
@@ -17,7 +17,7 @@ impl Point2d {
 pub struct RelativePoint2d {
     pub x: f32,
     pub y: f32,
-} 
+}
 
 impl RelativePoint2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
@@ -31,7 +31,7 @@ impl RelativePoint2d {
 pub struct Vector2d {
     pub x: f32,
     pub y: f32,
-} 
+}
 
 impl Vector2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
@@ -45,7 +45,7 @@ impl Vector2d {
 pub struct ClosedRange {
     pub min: f32,
     pub max: f32,
-} 
+}
 
 impl ClosedRange {
     pub fn __constructor(min: f32, max: f32) -> Self {
@@ -59,7 +59,7 @@ impl ClosedRange {
 pub struct BoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
-} 
+}
 
 impl BoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
@@ -73,7 +73,7 @@ impl BoundingBox {
 pub struct RelativeBoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
-} 
+}
 
 impl RelativeBoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {

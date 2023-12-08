@@ -4,18 +4,18 @@ use husky_core::*;
 pub enum Class<Label> {
     Known(Label),
     Unknown,
-} 
+}
 
 pub enum OneVsAll {
     Yes,
     No,
-} 
+}
 
 pub enum OneVsAllResult {
     ConfidentYes,
     ConfidentNo,
     Unconfident,
-} 
+}
 
 impl Default for OneVsAll {
     fn default() -> OneVsAll {

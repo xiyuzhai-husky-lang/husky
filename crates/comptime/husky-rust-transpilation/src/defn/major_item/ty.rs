@@ -38,7 +38,7 @@ impl TranspileToRustWith for EnumHirDefn {
             hir_decl.template_parameters(db).transpile_to_rust(builder);
         });
         builder.bracketed_multiline_comma_list(
-            RustBracket::CurlSpaced,
+            RustBracket::MultilineCurl,
             hir_decl
                 .path(db)
                 .ty_variant_paths(db)
@@ -68,7 +68,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
-            builder.bracketed_multiline_comma_list(RustBracket::CurlSpaced, fields);
+            builder.bracketed_multiline_comma_list(RustBracket::MultilineCurl, fields);
             builder.on_fresh_paragraph(|builder| {
                 builder.keyword(RustKeyword::Impl);
                 hir_decl.path(db).ident(db).transpile_to_rust(builder);
