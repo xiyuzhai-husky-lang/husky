@@ -235,10 +235,11 @@ impl<E> TranspileToRustWith<E> for HirPrefixOpr {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let s = match self {
             HirPrefixOpr::Minus => "-",
-            HirPrefixOpr::Not => "!",
+            HirPrefixOpr::NotBool => "!",
             HirPrefixOpr::BitNot => "!",
             HirPrefixOpr::TakeRef => "&",
             HirPrefixOpr::Deref => "*",
+            HirPrefixOpr::NotInt => todo!(),
         };
         builder.write_str(s)
     }

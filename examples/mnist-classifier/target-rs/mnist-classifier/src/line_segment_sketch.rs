@@ -14,31 +14,24 @@ pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<Point2d>,
     pub start: Point2d,
     pub end: Point2d,
-} 
+}
 
 impl LineSegmentStroke {
     pub fn __constructor(points: CyclicSliceLeashed<Point2d>) -> Self {
         let start = points.first().unwrap().clone();
         let end = points.last().unwrap().clone();
-        Self{
-            points,
-            start,
-            end,
-        }
+        Self { points, start, end }
     }
 }
 
 pub struct LineSegmentSketch {
     pub contour: Leash<RawContour>,
     pub strokes: Vec<LineSegmentStroke>,
-} 
+}
 
 impl LineSegmentSketch {
     pub fn __constructor(contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>) -> Self {
-        Self{
-            contour,
-            strokes,
-        }
+        Self { contour, strokes }
     }
 }
 
@@ -75,7 +68,10 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
     let mut right_bound = go_right((&dp), r);
     let mut left_bound = go_left((&dp), r);
     let mut r_max = 0.0f32;
-    while end <= max_end && right_bound.rotation_direction_to((&dp)) >= 0 && dp.rotation_direction_to((&left_bound)) >= 0 {
+    while end <= max_end
+        && right_bound.rotation_direction_to((&dp)) >= 0
+        && dp.rotation_direction_to((&left_bound)) >= 0
+    {
         let dp_norm = dp.norm();
         if dp_norm < r_max - r {
             break;
@@ -132,7 +128,10 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
             }
         }
         if right_bound.rotation_direction_to((&left_bound)) >= 0 {
-            if start <= start0 && !(right_bound.rotation_direction_to((&dp)) >= 0 && dp.rotation_direction_to((&left_bound)) >= 0) {
+            if start <= start0
+                && !(right_bound.rotation_direction_to((&dp)) >= 0
+                    && dp.rotation_direction_to((&left_bound)) >= 0)
+            {
                 break;
             }
             start -= 1
@@ -159,9 +158,12 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
         if line_segments.ilen() > 0 {
             let dp_extend_end = ls_extend_end.displacement();
             let dp_previous = line_segments.last().unwrap().displacement();
-            if dp_extend_end.cross((&dp_previous)).abs() < 0.01f32 && dp_extend_end.dot((&dp_previous)) > 0.0f32 {
+            if dp_extend_end.cross((&dp_previous)).abs() < 0.01f32
+                && dp_extend_end.dot((&dp_previous)) > 0.0f32
+            {
                 let N = ct.points.ilen();
-                line_segments.last().unwrap() = LineSegmentStroke::new(ct, line_segments.last().unwrap().points.start(), end);
+                line_segments.last().unwrap() =
+                    LineSegmentStroke::new(ct, line_segments.last().unwrap().points.start(), end);
                 extend_start_flag = false
             }
         }
@@ -173,7 +175,11 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to((&ls.end));
-                if dp.cross((&dp_last)).abs() < 0.001f32 && dp.dot((&dp_last)) > 0.0f32 && dp.cross((&dp1)).abs() < 0.001f32 && dp.dot((&dp1)) > 0.0f32 {
+                if dp.cross((&dp_last)).abs() < 0.001f32
+                    && dp.dot((&dp_last)) > 0.0f32
+                    && dp.cross((&dp1)).abs() < 0.001f32
+                    && dp.dot((&dp1)) > 0.0f32
+                {
                     let ls_last = line_segments.pop().unwrap();
                     ls = LineSegmentStroke::new(ct, ls_last.points.start(), ls.points.end())
                 }
@@ -190,7 +196,11 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     let last_line_segment = line_segments.last().unwrap();
     if last_line_segment.points.end() >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.pop().unwrap();
-        line_segments.first().unwrap() = LineSegmentStroke::new(ct, last_line_segment.points.start() - N, line_segments.first().unwrap().points.end() - 1)
+        line_segments.first().unwrap() = LineSegmentStroke::new(
+            ct,
+            last_line_segment.points.start() - N,
+            line_segments.first().unwrap().points.end() - 1,
+        )
     }
     line_segments
 }
@@ -224,7 +234,10 @@ impl LineSegmentSketch {
             ymin = ymin.min(point.y);
             ymax = ymax.max(point.y)
         }
-        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
+        return BoundingBox::__constructor(
+            ClosedRange::__constructor(xmin, xmax),
+            ClosedRange::__constructor(ymin, ymax),
+        );
     }
 
     pub fn new(ct: Leash<RawContour>, r: f32) -> LineSegmentSketch {

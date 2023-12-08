@@ -15,7 +15,7 @@ use husky_hir_eager_expr::{
     HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx,
     HirEagerRitchieParameterArgumentMatch, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
-use husky_hir_opr::binary::HirBinaryOpr;
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr};
 use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract};
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::p;
@@ -166,9 +166,21 @@ impl HirEagerExprSite {
                 opr,
                 opd_hir_expr_idx,
             } => {
-                // todo: check some details
-                opr.transpile_to_rust(builder);
-                (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
+                match opr {
+                    HirPrefixOpr::NotInt => builder.bracketed(RustBracket::Par, |builder| {
+                        (
+                            opd_hir_expr_idx,
+                            self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::EqComparison)),
+                        )
+                            .transpile_to_rust(builder);
+                        builder.ne_zero()
+                    }),
+                    _ => {
+                        // todo: check some details
+                        opr.transpile_to_rust(builder);
+                        (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
+                    }
+                }
             }
             HirEagerExprData::Suffix {
                 opd_hir_expr_idx,

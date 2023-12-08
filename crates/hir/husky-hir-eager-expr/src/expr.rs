@@ -178,7 +178,7 @@ impl ToHirEager for SemaExprIdx {
             } => match opr {
                 SemaBinaryOpr::As => HirEagerExprData::As {
                     opd: lopd.to_hir_eager(builder),
-                    ty: builder.hir_ty(ropd).unwrap(),
+                    ty: builder.expr_term_hir_ty(ropd).unwrap(),
                 },
                 _ => HirEagerExprData::Binary {
                     lopd: lopd.to_hir_eager(builder),
@@ -199,7 +199,12 @@ impl ToHirEager for SemaExprIdx {
                 opd_sema_expr_idx,
                 ..
             } => HirEagerExprData::Prefix {
-                opr: HirPrefixOpr::from_sema(opr),
+                opr: HirPrefixOpr::from_sema(
+                    opr,
+                    builder.expr_ty(opd_sema_expr_idx),
+                    builder.db(),
+                    builder.fluffy_terms(),
+                ),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             &SemaExprData::Suffix {

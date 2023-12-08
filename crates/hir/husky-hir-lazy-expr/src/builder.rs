@@ -1,5 +1,5 @@
 use crate::{source_map::HirLazyExprSourceMap, *};
-use husky_fluffy_term::{FluffyTermBase, FluffyTerms};
+use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
@@ -107,7 +107,11 @@ impl<'a> HirLazyExprBuilder<'a> {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
-    pub(crate) fn hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
+    pub(crate) fn expr_ty(&self, sema_expr_idx: SemaExprIdx) -> FluffyTerm {
+        sema_expr_idx.ty(self.sema_expr_region_data.sema_expr_arena2())
+    }
+
+    pub(crate) fn expr_term_hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
         HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
     }
 

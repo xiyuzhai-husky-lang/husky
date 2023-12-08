@@ -5,7 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+either.workspace = true
+# abstraction
+salsa.workspace = true
 # kernel
 husky-opr = { path = "../../kernel/husky-opr" }
+husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-entity-path.workspace = true
 # semantics
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }

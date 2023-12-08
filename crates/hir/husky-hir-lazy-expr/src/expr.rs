@@ -191,7 +191,12 @@ impl ToHirLazy for SemaExprIdx {
                 opd_sema_expr_idx,
                 ..
             } => HirLazyExprData::Prefix {
-                opr: HirPrefixOpr::from_sema(opr),
+                opr: HirPrefixOpr::from_sema(
+                    opr,
+                    builder.expr_ty(opd_sema_expr_idx),
+                    builder.db(),
+                    builder.fluffy_terms(),
+                ),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Suffix {
