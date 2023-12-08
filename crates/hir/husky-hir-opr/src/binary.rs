@@ -10,8 +10,6 @@ pub enum HirBinaryOpr {
     AssignShift(BinaryShiftOpr),
     Comparison(BinaryComparisonOpr),
     ShortCircuitLogic(BinaryShortcuitLogicOpr),
-    #[deprecated]
-    As, // as
 }
 
 impl HirBinaryOpr {
@@ -24,7 +22,6 @@ impl HirBinaryOpr {
             SemaBinaryOpr::AssignShift(opr) => HirBinaryOpr::AssignShift(opr),
             SemaBinaryOpr::Comparison(opr) => HirBinaryOpr::Comparison(opr),
             SemaBinaryOpr::ShortCircuitLogic(opr) => HirBinaryOpr::ShortCircuitLogic(opr),
-            SemaBinaryOpr::As => HirBinaryOpr::As,
 
             // For the variants without a direct match, you will need to decide the appropriate action.
             SemaBinaryOpr::ScopeResolution => {
@@ -40,6 +37,9 @@ impl HirBinaryOpr {
             }
             SemaBinaryOpr::In => {
                 panic!("In operator is not expected in HirBinaryOpr")
+            }
+            SemaBinaryOpr::As => {
+                panic!("As is not supported in HirBinaryOpr")
             }
         }
     }
@@ -66,7 +66,6 @@ impl HirBinaryOpr {
             },
             HirBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             HirBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
-            HirBinaryOpr::As => "as",
         }
     }
 
@@ -92,7 +91,6 @@ impl HirBinaryOpr {
                 BinaryShiftOpr::Shl => " <<= ",
                 BinaryShiftOpr::Shr => " >>= ",
             },
-            HirBinaryOpr::As => " as ",
         }
     }
 }
