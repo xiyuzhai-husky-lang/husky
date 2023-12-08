@@ -76,8 +76,6 @@ pub struct BoundingBox {
 
 impl BoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
-        ;
-        ;
         Self{
             xrange,
             yrange,
@@ -93,8 +91,6 @@ pub struct RelativeBoundingBox {
 
 impl RelativeBoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
-        ;
-        ;
         Self{
             xrange,
             yrange,

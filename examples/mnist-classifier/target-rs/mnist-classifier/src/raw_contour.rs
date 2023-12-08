@@ -8,8 +8,6 @@ pub struct RawContour {
 
 impl RawContour {
     pub fn __constructor(cc: Leash<ConnectedComponent>, points: Vec<Point2d>) -> Self {
-        ;
-        ;
         Self{
             cc,
             points,
@@ -203,8 +201,6 @@ pub struct StreakCache {
 
 impl StreakCache {
     pub fn __constructor(prev1: i32, prev2: i32) -> Self {
-        ;
-        ;
         Self{
             prev1,
             prev2,

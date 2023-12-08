@@ -10,7 +10,10 @@ impl Point2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
         let x = NotNan::new(x).unwrap();
         let y = NotNan::new(y).unwrap();
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -24,7 +27,10 @@ impl RelativePoint2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
         let x = NotNan::new(x).unwrap();
         let y = NotNan::new(y).unwrap();
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -38,7 +44,10 @@ impl Vector2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
         let x = NotNan::new(x).unwrap();
         let y = NotNan::new(y).unwrap();
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -52,7 +61,10 @@ impl ClosedRange {
     pub fn __constructor(min: f32, max: f32) -> Self {
         let min = NotNan::new(min).unwrap();
         let max = NotNan::new(max).unwrap();
-        Self { min, max }
+        Self{
+            min,
+            max,
+        }
     }
 }
 
@@ -64,7 +76,10 @@ pub struct BoundingBox {
 
 impl BoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
-        Self { xrange, yrange }
+        Self{
+            xrange,
+            yrange,
+        }
     }
 }
 
@@ -76,7 +91,10 @@ pub struct RelativeBoundingBox {
 
 impl RelativeBoundingBox {
     pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
-        Self { xrange, yrange }
+        Self{
+            xrange,
+            yrange,
+        }
     }
 }
 
@@ -90,15 +108,11 @@ impl Point2d {
     }
 
     pub fn to(self, other: &Point2d) -> Vector2d {
-        Vector2d::__constructor(
-            other.x.into_inner() - self.x.into_inner(),
-            other.y.into_inner() - self.y.into_inner(),
-        )
+        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(self) -> f32 {
-        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner())
-            .sqrt()
+        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
     pub fn dist(self, other: &Point2d) -> f32 {
@@ -112,15 +126,11 @@ impl Vector2d {
     }
 
     pub fn to(self, other: &Vector2d) -> Vector2d {
-        Vector2d::__constructor(
-            other.x.into_inner() - self.x.into_inner(),
-            other.y.into_inner() - self.y.into_inner(),
-        )
+        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(self) -> f32 {
-        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner())
-            .sqrt()
+        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
     pub fn dot(self, other: &Vector2d) -> f32 {
@@ -184,17 +194,11 @@ impl ClosedRange {
 
 impl BoundingBox {
     pub fn relative_bounding_box(self, other: &BoundingBox) -> RelativeBoundingBox {
-        RelativeBoundingBox::__constructor(
-            self.xrange.relative_range((&other.xrange)),
-            self.yrange.relative_range((&other.yrange)),
-        )
+        RelativeBoundingBox::__constructor(self.xrange.relative_range((&other.xrange)), self.yrange.relative_range((&other.yrange)))
     }
 
     pub fn relative_point(self, point: &Point2d) -> RelativePoint2d {
-        RelativePoint2d::__constructor(
-            self.xrange.relative_point(point.x.into_inner()),
-            self.yrange.relative_point(point.x.into_inner()),
-        )
+        RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
     }
 
     pub fn xmin(self) -> f32 {
