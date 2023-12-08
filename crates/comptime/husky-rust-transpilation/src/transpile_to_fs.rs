@@ -1,5 +1,6 @@
 use crate::{
     defn::module_defn_rust_transpilation,
+    fmt::RUSTFMT,
     linkage::package_linkages_transpilation,
     manifest::{
         linktime_target_rust_workspace_manifest, package_linkages_rust_package_manifest,
@@ -20,6 +21,7 @@ pub trait TranspileToFsFull: Is<LinktimeTargetPath> {
 
 impl TranspileToFsFull for LinktimeTargetPath {
     fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()> {
+        husky_io_utils::diff_write(self.rust_workspace_rustfmt_toml_path(db), RUSTFMT, true);
         husky_io_utils::diff_write(
             self.rust_workspace_manifest_path(db),
             linktime_target_rust_workspace_manifest(db, self),
