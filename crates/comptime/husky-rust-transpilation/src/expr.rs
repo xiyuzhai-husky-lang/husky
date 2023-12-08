@@ -328,7 +328,26 @@ impl HirEagerExprSite {
                 )
                     .transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
-                ident.transpile_to_rust(builder);
+                let places = instantiation.places();
+                match places.len() {
+                    0 => ident.transpile_to_rust(builder),
+                    1 => match places[0].location() {
+                        Some(location) => match self.location_contract(location) {
+                            Some(contract) => match contract {
+                                HirEagerContract::Pure => ident.transpile_to_rust(builder),
+                                HirEagerContract::Move => todo!(),
+                                HirEagerContract::Borrow => todo!(),
+                                HirEagerContract::BorrowMut => builder.method_fn_ident_mut(ident),
+                                HirEagerContract::Const => todo!(),
+                                HirEagerContract::Leash => todo!(),
+                                HirEagerContract::At => todo!(),
+                            },
+                            None => todo!(),
+                        },
+                        None => ident.transpile_to_rust(builder),
+                    },
+                    _ => todo!(),
+                }
                 builder.bracketed_comma_list(
                     RustBracket::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
