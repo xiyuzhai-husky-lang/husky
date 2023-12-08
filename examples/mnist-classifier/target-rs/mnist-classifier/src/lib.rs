@@ -20,6 +20,7 @@ pub use self::major::*;
 use malamute::*;
 use mnist::*;
 
+#[ad_hoc_task_dependency::val_item]
 pub fn main() -> Class<MnistLabel> {
     unveil!(is_one());
     unveil!(is_six());

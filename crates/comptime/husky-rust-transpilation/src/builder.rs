@@ -3,6 +3,7 @@ pub(crate) mod keyword;
 mod literal;
 mod macro_name;
 mod misc;
+mod proc_macro;
 mod punctuation;
 
 pub(crate) use self::keyword::*;
