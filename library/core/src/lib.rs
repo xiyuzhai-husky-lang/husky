@@ -1,9 +1,11 @@
 pub mod num;
 pub mod ops;
+pub mod slice;
 pub mod vec;
 
 pub use self::num::*;
 pub use self::ops::*;
+pub use self::slice::*;
 pub use self::vec::*;
 
 pub type Leash<T> = &'static T;

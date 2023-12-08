@@ -151,6 +151,8 @@ pub enum PreludeTypePath {
 impl PreludeTypePath {
     pub const UNIT: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Unit);
     pub const NEVER: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Never);
+    pub const CYCLIC_SLICE: Self =
+        PreludeTypePath::Container(PreludeContainerTypePath::CyclicSlice);
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
