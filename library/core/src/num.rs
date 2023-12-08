@@ -35,3 +35,13 @@ impl __U32X for u32 {
         todo!()
     }
 }
+
+pub trait __F32X: Copy {
+    fn sgnx(self) -> i32;
+}
+
+impl __F32X for f32 {
+    fn sgnx(self) -> i32 {
+        todo!()
+    }
+}
