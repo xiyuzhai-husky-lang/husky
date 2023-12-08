@@ -9,6 +9,7 @@ pub enum RustMacroName {
     Require,
     Assert,
     Matches,
+    Unveil,
 }
 
 impl RustMacroName {
@@ -22,6 +23,7 @@ impl RustMacroName {
             RustMacroName::Require => "require!",
             RustMacroName::Assert => "assert!",
             RustMacroName::Matches => "matches!",
+            RustMacroName::Unveil => "unveil!",
         }
     }
 }
