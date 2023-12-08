@@ -20,6 +20,7 @@ impl HirEagerExprSite {
         &self,
         self_value_place: HirPlace,
         contract: HirEagerContract,
+        has_self_value_binding: bool,
     ) -> Self {
         let mut location_contract_map = self.location_contract_map.clone();
         if let Some(location) = self_value_place.location()
@@ -31,7 +32,11 @@ impl HirEagerExprSite {
             location_contract_map,
             rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             // this is because `RustBinding::SelfValue` automatically covers the contract
-            rust_bindings: RustBinding::SelfValue.into(),
+            rust_bindings: if has_self_value_binding {
+                RustBinding::SelfValue.into()
+            } else {
+                Default::default()
+            },
         }
     }
 

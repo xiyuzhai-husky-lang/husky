@@ -15,7 +15,7 @@ use husky_hir_eager_expr::{
     HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx,
     HirEagerRitchieParameterArgumentMatch, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
-use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr};
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract};
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::p;
@@ -29,7 +29,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         let entry = slf.entry(builder.hir_eager_expr_arena());
         let data = &entry.data;
         let precedence = hir_eager_expr_precedence(data);
-        let needs_deref = hir_eager_expr_needs_deref(entry);
+        let needs_deref = site.hir_eager_expr_needs_deref(entry);
         if needs_deref {
             match data {
                 HirEagerExprData::MethodFnCall { ident, .. } if ident.data(db) == "clone" => {
@@ -78,23 +78,46 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
     }
 }
 
-fn hir_eager_expr_needs_deref(entry: &HirEagerExprEntry) -> bool {
-    match entry.data {
-        HirEagerExprData::ConstSymbol(_)
-        | HirEagerExprData::Variable(_)
-        | HirEagerExprData::FunctionFnCall { .. }
-        | HirEagerExprData::AssociatedFunctionFnCall { .. }
-        | HirEagerExprData::MemoizedField { .. }
-        | HirEagerExprData::MethodFnCall { .. } => match entry.ty_place {
-            HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
-            HirPlace::Ref { .. } | HirPlace::RefMut { .. } | HirPlace::Leashed => true,
-            _ => false,
-        },
-        _ => false,
-    }
-}
-
 impl HirEagerExprSite {
+    fn hir_eager_expr_needs_deref(&self, entry: &HirEagerExprEntry) -> bool {
+        match entry.data {
+            HirEagerExprData::Variable(_) => match entry.ty_place {
+                HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
+                HirPlace::Ref { .. } => true,
+                HirPlace::RefMut { .. } => true,
+                _ => false,
+            },
+            HirEagerExprData::ConstSymbol(_)
+            | HirEagerExprData::FunctionFnCall { .. }
+            | HirEagerExprData::AssociatedFunctionFnCall { .. }
+            | HirEagerExprData::MemoizedField { .. }
+            | HirEagerExprData::MethodFnCall { .. }
+            | HirEagerExprData::Suffix {
+                opr: HirSuffixOpr::Unveil | HirSuffixOpr::Unwrap,
+                ..
+            } => match entry.ty_place {
+                HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
+                ty_place => match ty_place.location() {
+                    Some(location) => match self.location_contract(location) {
+                        Some(contract) => match contract {
+                            HirEagerContract::Pure | HirEagerContract::Const => {
+                                !entry.is_ty_always_copyable
+                            }
+                            HirEagerContract::Move => false,
+                            HirEagerContract::Borrow => true,
+                            HirEagerContract::BorrowMut => true,
+                            HirEagerContract::Leash => todo!(),
+                            HirEagerContract::At => todo!(),
+                        },
+                        None => false,
+                    },
+                    None => false,
+                },
+            },
+            _ => false,
+        }
+    }
+
     // `precedence` is guaranteed to equal `hir_eager_expr_precedence(data)`
     // passed to avoid recomputing it
     fn transpile_hir_eager_expr_to_rust(
@@ -132,7 +155,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                     (
                         lopd,
-                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure),
+                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure, true),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -144,7 +167,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
                     (
                         lopd,
-                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure),
+                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure, true),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -152,6 +175,21 @@ impl HirEagerExprSite {
                     builder.bracketed_list_with(RustBracket::Par, |builder| {
                         (ropd, self.any_precedence()).transpile_to_rust(builder)
                     })
+                }
+                HirBinaryOpr::Assign
+                | HirBinaryOpr::AssignClosed(_)
+                | HirBinaryOpr::AssignShift(_) => {
+                    (
+                        lopd,
+                        self.self_expr_on_site(
+                            builder.hir_eager_expr_arena()[lopd].ty_place,
+                            HirEagerContract::BorrowMut,
+                            false,
+                        ),
+                    )
+                        .transpile_to_rust(builder);
+                    opr.transpile_to_rust(builder);
+                    (ropd, greater(self)).transpile_to_rust(builder)
                 }
                 _ => {
                     (lopd, geq(self)).transpile_to_rust(builder);
@@ -242,6 +280,7 @@ impl HirEagerExprSite {
                     self.self_expr_on_site(
                         builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
                         HirEagerContract::At,
+                        true,
                     ),
                 )
                     .transpile_to_rust(builder);
@@ -271,6 +310,7 @@ impl HirEagerExprSite {
                     self.self_expr_on_site(
                         builder.hir_eager_expr_arena()[self_argument].ty_place,
                         self_contract,
+                        true,
                     ),
                 )
                     .transpile_to_rust(builder);
@@ -294,6 +334,7 @@ impl HirEagerExprSite {
                     self.self_expr_on_site(
                         builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
                         HirEagerContract::At,
+                        true,
                     ),
                 )
                     .transpile_to_rust(builder);
