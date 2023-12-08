@@ -1368,6 +1368,17 @@
                                         },
                                         Return {
                                             result: 58,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -3049,6 +3060,17 @@
                                         },
                                         Return {
                                             result: 32,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -3928,6 +3950,17 @@
                                         },
                                         Return {
                                             result: 29,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -5308,6 +5341,11 @@
                                         },
                                         Return {
                                             result: 55,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },

@@ -4482,6 +4482,17 @@
                                         },
                                         Return {
                                             result: 36,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                         Break,
                                         Eval {
@@ -4710,6 +4721,17 @@
                                         },
                                         Return {
                                             result: 110,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -7170,6 +7192,11 @@
                                         },
                                         Return {
                                             result: 37,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                         Break,
                                         Eval {
@@ -7342,9 +7369,31 @@
                                         },
                                         Return {
                                             result: 118,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                         Return {
                                             result: 119,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: StackPure {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                2,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -15496,6 +15545,11 @@
                                         },
                                         Return {
                                             result: 52,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },

@@ -5291,6 +5291,19 @@
                                     result: SemaExprIdx(
                                         51,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: MutableStackOwned {
+                                                    location: StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -19092,6 +19105,19 @@
                                     result: SemaExprIdx(
                                         117,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: MutableStackOwned {
+                                                    location: StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -30777,6 +30803,13 @@
                                     result: SemaExprIdx(
                                         25,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -34709,6 +34742,13 @@
                                     result: SemaExprIdx(
                                         21,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -37971,6 +38011,13 @@
                                     result: SemaExprIdx(
                                         17,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -40626,6 +40673,13 @@
                                     },
                                     result: SemaExprIdx(
                                         14,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -46853,6 +46907,13 @@
                                     },
                                     result: SemaExprIdx(
                                         55,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -54907,6 +54968,13 @@
                                     result: SemaExprIdx(
                                         26,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -59238,6 +59306,13 @@
                                     },
                                     result: SemaExprIdx(
                                         26,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),

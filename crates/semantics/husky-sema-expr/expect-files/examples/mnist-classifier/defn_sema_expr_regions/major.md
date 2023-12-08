@@ -3098,6 +3098,9 @@
                                     result: SemaExprIdx(
                                         21,
                                     ),
+                                    coersion: Some(
+                                        PlaceToLeash,
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -6075,6 +6078,13 @@
                                     },
                                     result: SemaExprIdx(
                                         14,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),

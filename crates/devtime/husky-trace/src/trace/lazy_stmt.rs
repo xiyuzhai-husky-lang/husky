@@ -360,10 +360,7 @@ impl TraceId {
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemaStmtData::Return {
-                    return_token: _,
-                    result: _,
-                } => {
+                SemaStmtData::Return { .. } => {
                     let path_data = LazyStmtEssence::Return {};
                     let lazy_stmt_trace = TraceId::new_lazy_stmt(
                         parent_trace_path,

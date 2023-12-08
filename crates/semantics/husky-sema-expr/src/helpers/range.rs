@@ -520,6 +520,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             SemaStmtData::Return {
                 return_token,
                 ref result,
+                ..
             } => {
                 let start = return_token.regional_token_idx();
                 let end = self[result].end();

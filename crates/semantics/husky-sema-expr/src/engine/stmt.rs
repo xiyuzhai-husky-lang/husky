@@ -77,16 +77,18 @@ impl<'a> SemaExprEngine<'a> {
                 return_token,
                 result,
             } => {
-                let result = match self.return_ty {
-                    Some(return_ty) => {
-                        self.build_sema_expr(result, ExpectCoersion::new_move(return_ty.into()))
-                    }
-                    None => self.build_sema_expr(result, ExpectAnyDerived),
+                let (result, coersion) = match self.return_ty {
+                    Some(return_ty) => self.build_sema_expr_with_outcome(
+                        result,
+                        ExpectCoersion::new_move(return_ty.into()),
+                    ),
+                    None => (self.build_sema_expr(result, ExpectAnyDerived), None),
                 };
                 (
                     Ok(SemaStmtData::Return {
                         return_token,
                         result,
+                        coersion,
                     }),
                     Ok(self.term_menu.never().into()),
                 )

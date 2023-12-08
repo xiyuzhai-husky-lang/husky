@@ -30,6 +30,7 @@ pub enum SemaStmtData {
     Return {
         return_token: ReturnRegionalToken,
         result: SemaExprIdx,
+        coersion: Option<FluffyCoersion>,
     },
     Require {
         require_token: RequireRegionalToken,

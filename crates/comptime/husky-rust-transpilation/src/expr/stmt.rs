@@ -16,10 +16,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.punctuation(RustPunctuation::Assign);
                 (initial_value, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }),
-            HirEagerStmtData::Return { result } => builder.on_fresh_semicolon_line(|builder| {
-                builder.keyword(RustKeyword::Return);
-                (result, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
-            }),
+            HirEagerStmtData::Return { result, coersion } => {
+                builder.on_fresh_semicolon_line(|builder| {
+                    builder.keyword(RustKeyword::Return);
+                    (result, HirEagerExprSite::new_root(Some(coersion))).transpile_to_rust(builder)
+                })
+            }
             HirEagerStmtData::Require { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| {
                     builder.macro_name(RustMacroName::Require);

@@ -19,6 +19,7 @@ pub enum HirEagerStmtData {
     },
     Return {
         result: HirEagerExprIdx,
+        coersion: HirEagerCoersion,
     },
     Require {
         condition: HirEagerCondition,
@@ -82,8 +83,11 @@ impl ToHirEager for SemaStmtIdx {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
                 initial_value: initial_value.to_hir_eager(builder),
             },
-            SemaStmtData::Return { result, .. } => HirEagerStmtData::Return {
+            SemaStmtData::Return {
+                result, coersion, ..
+            } => HirEagerStmtData::Return {
                 result: result.to_hir_eager(builder),
+                coersion: coersion.unwrap().to_hir_eager(builder),
             },
             SemaStmtData::Require { condition, .. } => HirEagerStmtData::Require {
                 condition: condition.to_hir_eager(builder),

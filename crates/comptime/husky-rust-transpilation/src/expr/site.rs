@@ -101,6 +101,7 @@ impl HirEagerExprSite {
         }
     }
 
+    #[deprecated(note = "change coersion type to HirEagerCoersion")]
     pub(crate) fn new_root(coersion: Option<HirEagerCoersion>) -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
