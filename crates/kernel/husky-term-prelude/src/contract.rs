@@ -47,6 +47,7 @@ impl From<SymbolModifier> for TermContract {
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),
             SymbolModifier::Tilde => todo!(),
+            SymbolModifier::At => todo!(),
         }
     }
 }

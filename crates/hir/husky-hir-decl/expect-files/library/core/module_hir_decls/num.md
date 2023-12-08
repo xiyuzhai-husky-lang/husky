@@ -231,7 +231,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -290,7 +299,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -477,7 +495,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -656,7 +683,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -715,7 +751,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -902,7 +947,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -1081,7 +1135,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -1140,7 +1203,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -1228,7 +1300,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -1415,7 +1496,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -1594,7 +1684,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -1752,7 +1851,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -1931,7 +2039,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -2089,7 +2206,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -2268,7 +2394,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -2426,7 +2561,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -2605,7 +2749,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -2763,7 +2916,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -2942,7 +3104,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -3100,7 +3271,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -3279,7 +3459,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -3437,7 +3626,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -3616,7 +3814,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -3774,7 +3981,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -3953,7 +4169,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -4111,7 +4336,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -4290,7 +4524,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -4448,7 +4691,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -4627,7 +4879,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -4686,7 +4947,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -4745,7 +5015,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -4833,7 +5112,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -4921,7 +5209,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -4980,7 +5277,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -5039,7 +5345,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -5098,7 +5413,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -5256,7 +5580,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -5435,7 +5768,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -5494,7 +5836,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
@@ -5652,7 +6003,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {

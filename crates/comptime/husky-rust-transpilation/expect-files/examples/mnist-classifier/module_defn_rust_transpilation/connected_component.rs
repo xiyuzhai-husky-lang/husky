@@ -191,7 +191,7 @@ impl ConnectedComponent {
         self.distribution().lower_mass as f32
     }
 
-    pub fn top_k_row_span_sum(self, k: i32) -> f32 {
+    pub fn top_k_row_span_sum(&self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;
         assert!(k > 0);
         let mut i = 1;
@@ -209,7 +209,7 @@ impl ConnectedComponent {
         return top_k_row_span_sum as f32;
     }
 
-    pub fn top_k_row_right_mass_sum(self, k: i32) -> f32 {
+    pub fn top_k_row_right_mass_sum(&self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;
         assert!(k > 0);
         let mut i = 1;

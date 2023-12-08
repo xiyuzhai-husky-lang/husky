@@ -344,7 +344,7 @@ impl RawContour {
         return contour_len;
     }
 
-    pub fn displacement(self, start: i32, end: i32) -> Vector2d {
+    pub fn displacement(&self, start: i32, end: i32) -> Vector2d {
         let N = self.points.ilen();
         let ct_start = self.points[start.rem_euclid(N) as usize];
         let ct_end = self.points[end.rem_euclid(N) as usize];

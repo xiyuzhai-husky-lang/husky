@@ -12,6 +12,7 @@ pub enum SymbolModifier {
     AmbersandMut(Option<Label>),
     Le,
     Tilde,
+    At,
 }
 
 impl SymbolModifier {

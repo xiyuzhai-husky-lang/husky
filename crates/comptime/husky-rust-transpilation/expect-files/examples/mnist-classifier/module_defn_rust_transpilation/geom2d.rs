@@ -103,45 +103,45 @@ impl Point2d {
         Point2d::__constructor((29 - shift) as f32, (29 - i) as f32)
     }
 
-    pub fn vector(self) -> Vector2d {
+    pub fn vector(&self) -> Vector2d {
         Vector2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
-    pub fn to(self, other: &Point2d) -> Vector2d {
+    pub fn to(&self, other: &Point2d) -> Vector2d {
         Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
-    pub fn norm(self) -> f32 {
+    pub fn norm(&self) -> f32 {
         (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
-    pub fn dist(self, other: &Point2d) -> f32 {
+    pub fn dist(&self, other: &Point2d) -> f32 {
         self.to(other).norm()
     }
 }
 
 impl Vector2d {
-    pub fn point(self) -> Point2d {
+    pub fn point(&self) -> Point2d {
         Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
-    pub fn to(self, other: &Vector2d) -> Vector2d {
+    pub fn to(&self, other: &Vector2d) -> Vector2d {
         Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
-    pub fn norm(self) -> f32 {
+    pub fn norm(&self) -> f32 {
         (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
-    pub fn dot(self, other: &Vector2d) -> f32 {
+    pub fn dot(&self, other: &Vector2d) -> f32 {
         self.x.into_inner() * other.x.into_inner() + self.y.into_inner() * other.y.into_inner()
     }
 
-    pub fn cross(self, other: &Vector2d) -> f32 {
+    pub fn cross(&self, other: &Vector2d) -> f32 {
         self.x.into_inner() * other.y.into_inner() - self.y.into_inner() * other.x.into_inner()
     }
 
-    pub fn angle(self, is_branch_cut_positive: bool) -> f32 {
+    pub fn angle(&self, is_branch_cut_positive: bool) -> f32 {
         let cos_value = (self.x.into_inner() / self.norm()).min(1.0f32);
         if cos_value + 1.0f32 < 0.001f32 {
             if is_branch_cut_positive {
@@ -154,11 +154,11 @@ impl Vector2d {
         }
     }
 
-    pub fn rotation_direction_to(self, other: &Vector2d) -> i32 {
+    pub fn rotation_direction_to(&self, other: &Vector2d) -> i32 {
         self.cross(other).sgnx()
     }
 
-    pub fn angle_to(self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
+    pub fn angle_to(&self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
         let self_norm = self.norm();
         assert!(self_norm > 0.0f32);
         let other_norm = other.norm();
@@ -178,7 +178,7 @@ impl Vector2d {
 }
 
 impl ClosedRange {
-    pub fn relative_range(self, other: &ClosedRange) -> ClosedRange {
+    pub fn relative_range(&self, other: &ClosedRange) -> ClosedRange {
         assert!(self.max.into_inner() > self.min.into_inner());
         let span = self.max.into_inner() - self.min.into_inner();
         let rel_min = (other.min.into_inner() - self.min.into_inner()) / span;
@@ -186,52 +186,52 @@ impl ClosedRange {
         ClosedRange::__constructor(rel_min, rel_max)
     }
 
-    pub fn relative_point(self, v: f32) -> f32 {
+    pub fn relative_point(&self, v: f32) -> f32 {
         let span = self.max.into_inner() - self.min.into_inner();
         (v - self.min.into_inner()) / span
     }
 }
 
 impl BoundingBox {
-    pub fn relative_bounding_box(self, other: &BoundingBox) -> RelativeBoundingBox {
+    pub fn relative_bounding_box(&self, other: &BoundingBox) -> RelativeBoundingBox {
         RelativeBoundingBox::__constructor(self.xrange.relative_range((&other.xrange)), self.yrange.relative_range((&other.yrange)))
     }
 
-    pub fn relative_point(self, point: &Point2d) -> RelativePoint2d {
+    pub fn relative_point(&self, point: &Point2d) -> RelativePoint2d {
         RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
     }
 
-    pub fn xmin(self) -> f32 {
+    pub fn xmin(&self) -> f32 {
         self.xrange.min.into_inner()
     }
 
-    pub fn xmax(self) -> f32 {
+    pub fn xmax(&self) -> f32 {
         self.xrange.max.into_inner()
     }
 
-    pub fn ymin(self) -> f32 {
+    pub fn ymin(&self) -> f32 {
         self.yrange.min.into_inner()
     }
 
-    pub fn ymax(self) -> f32 {
+    pub fn ymax(&self) -> f32 {
         self.yrange.max.into_inner()
     }
 }
 
 impl RelativeBoundingBox {
-    pub fn xmin(self) -> f32 {
+    pub fn xmin(&self) -> f32 {
         self.xrange.min.into_inner()
     }
 
-    pub fn xmax(self) -> f32 {
+    pub fn xmax(&self) -> f32 {
         self.xrange.max.into_inner()
     }
 
-    pub fn ymin(self) -> f32 {
+    pub fn ymin(&self) -> f32 {
         self.yrange.min.into_inner()
     }
 
-    pub fn ymax(self) -> f32 {
+    pub fn ymax(&self) -> f32 {
         self.yrange.max.into_inner()
     }
 }

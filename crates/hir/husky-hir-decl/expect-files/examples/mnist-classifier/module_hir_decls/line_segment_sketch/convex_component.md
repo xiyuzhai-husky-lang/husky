@@ -107,7 +107,16 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter,
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 66,
+                                },
+                            ),
+                        ),
+                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),

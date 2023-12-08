@@ -21,7 +21,7 @@ pub enum TraitForTypeItemEtherealSignatureTemplate {
 }
 
 impl TraitForTypeItemEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
             TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => None,

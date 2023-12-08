@@ -34,7 +34,7 @@ impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
             }
             EphemSymbolModifierRegionalTokens::Le(..) => SymbolModifier::Le,
             EphemSymbolModifierRegionalTokens::Tilde(..) => SymbolModifier::Tilde,
-            EphemSymbolModifierRegionalTokens::At(_, _) => todo!(),
+            EphemSymbolModifierRegionalTokens::At(_, _) => SymbolModifier::At,
         }
     }
 }

@@ -58,6 +58,7 @@ impl SymbolType {
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),
             SymbolModifier::Tilde => todo!(),
+            SymbolModifier::At => todo!(),
         };
         Self(ty.with_place(new_place))
     }
@@ -116,6 +117,7 @@ impl SymbolType {
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),
             SymbolModifier::Tilde => todo!(),
+            SymbolModifier::At => todo!(),
         };
         Ok(Self(ty.with_place(new_place)))
     }

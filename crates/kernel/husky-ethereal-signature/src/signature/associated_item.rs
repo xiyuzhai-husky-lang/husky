@@ -22,9 +22,7 @@ pub enum AssociatedItemEtherealSignatureTemplate {
 impl AssociatedItemEtherealSignatureTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
-            AssociatedItemEtherealSignatureTemplate::TraitForType(template) => {
-                template.self_value_ty(db)
-            }
+            AssociatedItemEtherealSignatureTemplate::TraitForType(template) => template.self_ty(db),
             AssociatedItemEtherealSignatureTemplate::Type(template) => template.self_ty(db),
             AssociatedItemEtherealSignatureTemplate::Trait(template) => template.self_ty(db),
         }
