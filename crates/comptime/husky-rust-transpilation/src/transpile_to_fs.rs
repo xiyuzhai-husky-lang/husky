@@ -9,10 +9,11 @@ use crate::{
     package::{rust_transpilation_packages, RustTranspilationPackage},
     *,
 };
+use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_syn_tree::helpers::paths::crate_module_paths;
 use husky_io_utils::error::IOResult;
 use husky_task::IsTask;
-use husky_vfs::linktime_target_path::{LinktimeTargetPath, TranspilationSetup};
+use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use is::Is;
 
 pub trait TranspileToFsFull: Is<LinktimeTargetPath> {

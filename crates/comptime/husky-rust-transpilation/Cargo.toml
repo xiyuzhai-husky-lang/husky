@@ -39,6 +39,7 @@ husky-expr = { path = "../../kernel/husky-expr" }
 husky-linkage.workspace = true
 # semantics
 husky-manifest.workspace = true
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # syntax
 husky-entity-syn-tree.workspace = true
 # utils

@@ -2,6 +2,9 @@
 members = ["math", "math/linkages"]
 resolver = "2"
 
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../ad-hoc-task-dependency"
+
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 

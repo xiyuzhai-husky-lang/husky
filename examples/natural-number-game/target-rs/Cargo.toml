@@ -2,6 +2,9 @@
 members = ["natural-number-game", "natural-number-game/linkages"]
 resolver = "2"
 
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../../registry/ad-hoc-task-dependency"
+
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 

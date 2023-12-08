@@ -2,6 +2,9 @@
 members = ["quick-sort", "quick-sort/linkages"]
 resolver = "2"
 
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../../../registry/ad-hoc-task-dependency"
+
 [workspace.dependencies.husky-core]
 path = "../../../../library/core"
 

@@ -2,6 +2,9 @@
 members = ["mnist-classifier", "mnist-classifier/linkages", "malamute", "malamute/linkages"]
 resolver = "2"
 
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../../registry/ad-hoc-task-dependency"
+
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 

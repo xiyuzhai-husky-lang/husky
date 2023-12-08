@@ -10,6 +10,7 @@ pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
 use crate::{expr::site::HirEagerExprSite, *};
+use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, TranspilationSetup};
 use husky_coword::{Ident, Label};
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
@@ -34,6 +35,7 @@ const INDENT_UNIT: u32 = 4;
 pub(crate) struct RustTranspilationBuilderBase<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) toolchain: Toolchain,
+    pub(crate) rust_transpilation_setup_data: &'a RustTranspilationSetupData,
     result: String,
     current_indent: u32,
     is_list_start: Option<bool>,
@@ -44,11 +46,13 @@ impl<'a> RustTranspilationBuilderBase<'a> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
         toolchain: Toolchain,
+        setup: TranspilationSetup,
         result: Option<&'static str>,
     ) -> Self {
         Self {
             db,
             toolchain,
+            rust_transpilation_setup_data: setup.rust_data(db).unwrap(),
             result: result.unwrap_or_default().to_string(),
             current_indent: 0,
             is_list_start: None,

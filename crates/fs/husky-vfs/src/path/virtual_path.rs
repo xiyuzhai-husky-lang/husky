@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 use std::path::{Path, PathBuf};
 
@@ -20,7 +22,10 @@ impl VirtualPath {
             .current_dir()
             .join(&self.data(db))
             .canonicalize()
-            .map_err(|_e| todo!())
+            .map_err(|e| {
+                p!(e);
+                todo!()
+            })
     }
 
     pub fn join(self, path: impl AsRef<Path>, db: &::salsa::Db) -> Self {
