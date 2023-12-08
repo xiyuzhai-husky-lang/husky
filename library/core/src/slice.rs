@@ -31,3 +31,11 @@ impl<T> CyclicSliceLeashed<T> {
         todo!()
     }
 }
+
+impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        todo!()
+    }
+}
