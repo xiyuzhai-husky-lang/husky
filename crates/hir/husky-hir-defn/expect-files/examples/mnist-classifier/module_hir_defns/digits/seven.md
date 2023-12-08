@@ -174,62 +174,133 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
+                                                        },
                                                     ),
-                                                    text: "0.0f32",
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Less,
-                                            ),
-                                            ropd: 5,
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 7,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Prefix {
-                                            opr: Minus,
-                                            opd_hir_expr_idx: 8,
-                                        },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..4,
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
                                             ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 7,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Prefix {
+                                                opr: Minus,
+                                                opd_hir_expr_idx: 8,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..4,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },
@@ -477,113 +548,240 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
                                                     ),
-                                                    text: "0.0f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Less,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MemoizedField {
-                                            owner_hir_expr_idx: 7,
-                                            ident: `relative_bounding_box`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
-                                            ),
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 8,
-                                            ident: `ymax`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.6,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
+                                                        },
                                                     ),
-                                                    text: "0.6f32",
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 9,
-                                            opr: Comparison(
-                                                Greater,
-                                            ),
-                                            ropd: 10,
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 12,
-                                            ident: `end`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 13,
-                                            ident: `y`,
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..5,
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MemoizedField {
+                                                owner_hir_expr_idx: 7,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 291,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 454,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 8,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 288,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 464,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 9,
+                                                opr: Comparison(
+                                                    Greater,
+                                                ),
+                                                ropd: 10,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 12,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 143,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 457,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 13,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..5,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },
@@ -775,170 +973,335 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 1,
-                                            ident: `displacement`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Variable(
-                                            2,
-                                        ),
-                                        HirEagerExprData::PropsStructField {
-                                            owner_hir_expr_idx: 3,
-                                            ident: `y`,
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.0,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
                                                     ),
-                                                    text: "0.0f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 4,
-                                            opr: Comparison(
-                                                Less,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MemoizedField {
-                                            owner_hir_expr_idx: 7,
-                                            ident: `relative_bounding_box`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
-                                            ),
-                                        },
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 8,
-                                            ident: `ymin`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
                                                 ),
                                             },
-                                            item_groups: [],
                                         },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        0.3,
-                                                    ),
-                                                    text: "0.3f32",
-                                                },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 9,
-                                            opr: Comparison(
-                                                Less,
-                                            ),
-                                            ropd: 10,
-                                        },
-                                        HirEagerExprData::Variable(
-                                            1,
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 12,
-                                            ident: `start_tangent`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [],
-                                        },
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::Bool(
-                                                true,
-                                            ),
-                                        ),
-                                        HirEagerExprData::MethodFnCall {
-                                            self_argument: 13,
-                                            ident: `angle`,
-                                            path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
-                                            ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            item_groups: [
-                                                Regular(
-                                                    HirRitchieRegularParameter {
-                                                        contract: Pure,
-                                                        ty: PathLeading(
-                                                            HirTypePathLeading(
-                                                                Id {
-                                                                    value: 54,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    14,
-                                                    Trivial(
-                                                        TrivialHirEagerCoersion {
-                                                            expectee_place: Const,
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 1,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 293,
                                                         },
                                                     ),
                                                 ),
-                                            ],
-                                        },
-                                        HirEagerExprData::Variable(
-                                            3,
-                                        ),
-                                        HirEagerExprData::Literal(
-                                            TermLiteral::F32(
-                                                TermF32Literal {
-                                                    value: OrderedFloat(
-                                                        30.0,
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 458,
+                                                            },
+                                                        ),
                                                     ),
-                                                    text: "30.0f32",
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
-                                            ),
-                                        ),
-                                        HirEagerExprData::Binary {
-                                            lopd: 16,
-                                            opr: Comparison(
-                                                Less,
-                                            ),
-                                            ropd: 17,
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
                                         },
-                                        HirEagerExprData::Variable(
-                                            3,
-                                        ),
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..7,
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                2,
                                             ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 267,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 4,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                ropd: 5,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MemoizedField {
+                                                owner_hir_expr_idx: 7,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 291,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 454,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 8,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 463,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 9,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                ropd: 10,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                1,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 12,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 409,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 459,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                Bool(
+                                                    true,
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: MethodFnCall {
+                                                self_argument: 13,
+                                                ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 350,
+                                                        },
+                                                    ),
+                                                ),
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 476,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 54,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        14,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Const,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                3,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Literal(
+                                                F32(
+                                                    TermF32Literal(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Binary {
+                                                lopd: 16,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                ropd: 17,
+                                            },
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Variable(
+                                                3,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..7,
+                                                ),
+                                            },
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                     ],
                                 },

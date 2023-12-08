@@ -509,36 +509,27 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::PrincipalEntityPath(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 508,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 542,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                        HirEagerExprEntry {
+                                            data: PrincipalEntityPath(
+                                                TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 510,
                                                             },
                                                         ),
-                                                    },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..2,
-                                            ),
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },

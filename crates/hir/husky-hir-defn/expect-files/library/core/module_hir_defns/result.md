@@ -857,11 +857,17 @@
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::Todo,
-                                        HirEagerExprData::Block {
-                                            stmts: ArenaIdxRange(
-                                                1..2,
-                                            ),
+                                        HirEagerExprEntry {
+                                            data: Todo,
+                                            ty_place: Transient,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: Block {
+                                                stmts: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            },
+                                            ty_place: Transient,
                                         },
                                     ],
                                 },

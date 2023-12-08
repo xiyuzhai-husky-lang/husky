@@ -361,6 +361,10 @@ impl SemaExprIdx {
         arena[self].data_result()
     }
 
+    pub fn ty<'a>(self, arena: &'a SemaExprArena) -> FluffyTerm {
+        arena[self].ok_ty().unwrap()
+    }
+
     pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FluffyTerm> {
         arena[self].ok_ty()
     }

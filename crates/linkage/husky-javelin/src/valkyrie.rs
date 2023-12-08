@@ -109,9 +109,9 @@ impl ValkyrieRides {
         hir_eager_expr_region: HirEagerExprRegion,
         db: &::salsa::Db,
     ) {
-        for data in hir_eager_expr_region.expr_arena(db) {
+        for entry in hir_eager_expr_region.expr_arena(db) {
             #[deprecated(note = "incomplete")]
-            match *data {
+            match entry.data {
                 HirEagerExprData::AssociatedFn {
                     associated_item_path,
                 } => (), // ad hoc

@@ -82,6 +82,10 @@ impl SemaExprRegionData {
         self.sema_expr_arena.arena_ref()
     }
 
+    pub fn sema_expr_arena2(&self) -> &SemaExprArena {
+        &self.sema_expr_arena
+    }
+
     pub fn sema_stmt_arena(&self) -> SemaStmtArenaRef {
         self.sema_stmt_arena.arena_ref()
     }

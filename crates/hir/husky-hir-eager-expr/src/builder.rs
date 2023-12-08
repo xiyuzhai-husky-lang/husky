@@ -8,7 +8,7 @@ use crate::{
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyTermBase, FluffyTerms};
 use husky_sema_expr::{
-    SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
+    SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
@@ -20,7 +20,7 @@ use salsa::DebugWithDb;
 pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region_data: &'a SemaExprRegionData,
+    pub(crate) sema_expr_region_data: &'a SemaExprRegionData,
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
     hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
@@ -71,6 +71,11 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
         self.sema_expr_region_data.sema_expr_arena()
+    }
+
+    #[deprecated(note = "ad hoc")]
+    pub(crate) fn sema_expr_arena_ref2(&self) -> &'a SemaExprArena {
+        self.sema_expr_region_data.sema_expr_arena2()
     }
 
     pub(crate) fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
@@ -124,9 +129,9 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn alloc_expr(
         &mut self,
         sema_expr_idx: SemaExprIdx,
-        hir_eager_expr: HirEagerExprData,
+        hir_eager_expr_entry: HirEagerExprEntry,
     ) -> HirEagerExprIdx {
-        let hir_eager_expr_idx = self.hir_eager_expr_arena.alloc_one(hir_eager_expr);
+        let hir_eager_expr_idx = self.hir_eager_expr_arena.alloc_one(hir_eager_expr_entry);
         self.sema_to_hir_eager_expr_idx_map
             .insert_new(sema_expr_idx, hir_eager_expr_idx);
         hir_eager_expr_idx

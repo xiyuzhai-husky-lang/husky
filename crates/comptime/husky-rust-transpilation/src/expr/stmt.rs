@@ -6,7 +6,7 @@ use husky_hir_opr::suffix::HirSuffixOpr;
 impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (IsLastStmt(is_last_stmt), slf) = self;
-        match *slf.data(builder.hir_eager_stmt_arena()) {
+        match *slf.entry(builder.hir_eager_stmt_arena()) {
             HirEagerStmtData::Let {
                 pattern,
                 initial_value,

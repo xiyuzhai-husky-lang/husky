@@ -24,7 +24,7 @@ use vec_like::SmallVecMap;
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
     fn transpile_to_rust(mut self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (slf, mut site) = self;
-        let data = slf.data(builder.hir_eager_expr_arena());
+        let data = &slf.entry(builder.hir_eager_expr_arena()).data;
         let precedence = hir_eager_expr_precedence(data);
         let needs_deref = false;
         if needs_deref {

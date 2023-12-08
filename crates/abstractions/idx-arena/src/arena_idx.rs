@@ -33,7 +33,7 @@ impl<T> ArenaIdx<T> {
         self.raw.get() as usize - 1
     }
 
-    pub fn data(self, arena: &Arena<T>) -> &T {
+    pub fn entry(self, arena: &Arena<T>) -> &T {
         &arena[self]
     }
 }

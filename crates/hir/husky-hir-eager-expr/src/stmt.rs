@@ -60,7 +60,7 @@ pub enum HirEagerStmtData {
     },
     Match {
         case_branches: Vec<HirEagerCaseBranch>,
-        match_target: ArenaIdx<HirEagerExprData>,
+        match_target: HirEagerExprIdx,
     },
 }
 
