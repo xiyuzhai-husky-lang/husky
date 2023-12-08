@@ -1098,7 +1098,9 @@
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 17,
+                                            coersion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -1124,14 +1126,18 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 2,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 6,
+                                            coersion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {

@@ -159,12 +159,7 @@ impl TraceId {
         let sema_stmt_arena = sema_expr_region.data(db).sema_stmt_arena();
         for stmt in stmts {
             match stmt.data(sema_stmt_arena) {
-                SemaStmtData::Let {
-                    let_token: _,
-                    let_pattern_sema_obelisk: _,
-                    eq_token: _,
-                    initial_value_sema_expr_idx: _,
-                } => {
+                SemaStmtData::Let { .. } => {
                     let essence = EagerStmtEssence::Let {};
                     let eager_stmt_trace = TraceId::new_eager_stmt(
                         parent_trace_path,

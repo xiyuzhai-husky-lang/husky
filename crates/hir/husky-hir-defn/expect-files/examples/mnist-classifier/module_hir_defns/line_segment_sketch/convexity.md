@@ -1764,7 +1764,9 @@
                                                 pattern_expr_idx: 7,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 46,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 53,
@@ -1782,7 +1784,9 @@
                                                 pattern_expr_idx: 10,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 72,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 79,
@@ -1800,14 +1804,18 @@
                                                 pattern_expr_idx: 5,
                                                 ty: None,
                                             },
+                                            contract: Move,
                                             initial_value: 27,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 6,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 36,
+                                            coersion: None,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -1845,14 +1853,18 @@
                                                 pattern_expr_idx: 8,
                                                 ty: None,
                                             },
+                                            contract: Move,
                                             initial_value: 55,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 9,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 62,
+                                            coersion: None,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -1906,28 +1918,36 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 3,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 10,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 19,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 4,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 22,
+                                            coersion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {

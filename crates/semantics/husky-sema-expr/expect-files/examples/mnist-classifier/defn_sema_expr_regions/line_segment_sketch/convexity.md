@@ -8876,6 +8876,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             99,
@@ -8884,6 +8885,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         49,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -8962,6 +8964,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             163,
@@ -8970,6 +8973,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         76,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9048,6 +9052,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Move,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             62,
@@ -9056,6 +9061,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         28,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9095,6 +9101,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             67,
@@ -9103,6 +9110,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         38,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9220,6 +9228,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Move,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             130,
@@ -9228,6 +9237,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         58,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9267,6 +9277,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             135,
@@ -9275,6 +9286,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         65,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9470,6 +9482,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -9478,6 +9491,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9517,6 +9531,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             13,
@@ -9525,6 +9540,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         10,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9564,6 +9580,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             28,
@@ -9572,6 +9589,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         20,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -9611,6 +9629,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             47,
@@ -9619,6 +9638,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         23,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(

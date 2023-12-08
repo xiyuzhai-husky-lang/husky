@@ -7,6 +7,7 @@ pub use self::loop_stmt::*;
 use crate::{coersion::HirEagerCoersion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fluffy_term::ExpectationOutcome;
+use husky_hir_ty::ritchie::HirEagerContract;
 use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -15,7 +16,9 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 pub enum HirEagerStmtData {
     Let {
         pattern: HirEagerLetVariablesPattern,
+        contract: HirEagerContract,
         initial_value: HirEagerExprIdx,
+        coersion: Option<HirEagerCoersion>,
     },
     Return {
         result: HirEagerExprIdx,
@@ -75,13 +78,17 @@ impl ToHirEager for SemaStmtIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
-            SemaStmtData::Let {
+            &SemaStmtData::Let {
                 ref let_pattern_sema_obelisk,
-                initial_value_sema_expr_idx: initial_value,
+                contract,
+                initial_value_sema_expr_idx,
+                coersion,
                 ..
             } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
-                initial_value: initial_value.to_hir_eager(builder),
+                contract: HirEagerContract::from_term(contract),
+                initial_value: initial_value_sema_expr_idx.to_hir_eager(builder),
+                coersion: coersion.map(|coersion| coersion.to_hir_eager(builder)),
             },
             SemaStmtData::Return {
                 result, coersion, ..

@@ -4067,6 +4067,7 @@
                                         colon_token: None,
                                         ty_sema_expr_idx: None,
                                     },
+                                    contract: Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             19,
@@ -4075,6 +4076,7 @@
                                     initial_value_sema_expr_idx: SemaExprIdx(
                                         13,
                                     ),
+                                    coersion: None,
                                 },
                             ),
                             ty_result: Ok(

@@ -23,7 +23,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
     while start > -L && !is_convex(line_segment_sketch, start) {
         start -= 1
     }
-    let ccv_start = start;
+    let ccv_start = (&start);
     while start < ccv_start + L {
         while end <= start + L && !is_convex(line_segment_sketch, end) {
             end += 1
