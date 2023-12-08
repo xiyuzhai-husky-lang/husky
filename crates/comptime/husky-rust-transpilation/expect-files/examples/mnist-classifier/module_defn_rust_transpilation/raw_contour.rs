@@ -246,16 +246,16 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                     boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                            contour.last().unwrap() = get_concave_middle_point((&contour));
+                            (*contour.last().unwrap()) = get_concave_middle_point((&contour));
                             contour.push(Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
-                            contour.last().unwrap() = Point2d::from_i_shift28(i, j);
+                            (*contour.last().unwrap()) = Point2d::from_i_shift28(i, j);
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
-                            contour.last().unwrap() = Point2d::from_i_shift28(i, j);
+                            (*contour.last().unwrap()) = Point2d::from_i_shift28(i, j);
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else {
