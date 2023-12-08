@@ -6,6 +6,7 @@ mod submodule;
 mod ty_variant;
 
 use crate::*;
+use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
@@ -20,11 +21,16 @@ use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: ModulePath) -> String {
+pub(crate) fn module_defn_rust_transpilation(
+    db: &::salsa::Db,
+    module_path: ModulePath,
+    setup: TranspilationSetup,
+) -> String {
     let is_root = module_path.is_root(db);
     let mut builder_base = RustTranspilationBuilderBase::new(
         db,
         module_path.toolchain(db),
+        setup,
         is_root.then_some(
             r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
@@ -80,8 +86,12 @@ use husky_core::*;
 
 #[test]
 fn module_defn_rust_transpilation_works() {
-    DB::default().ast_expect_test_display(
-        |db, module_path| crate::defn::module_defn_rust_transpilation(db, module_path).to_string(),
+    let db = &mut DB::default();
+    db.ast_expect_test_display(
+        |db, module_path: ModulePath| {
+            let setup = TranspilationSetup::new_ad_hoc(module_path.package_path(db), db);
+            crate::defn::module_defn_rust_transpilation(db, module_path, setup).to_string()
+        },
         &AstTestConfig::new("module_defn_rust_transpilation")
             .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary)
             .with_expect_file_extension("rs"),

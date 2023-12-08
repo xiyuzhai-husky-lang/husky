@@ -1,5 +1,6 @@
 use super::*;
 use husky_cargo_utils::compile_workspace;
+use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
 use husky_task::IsTask;
 use husky_vfs::PackagePath;

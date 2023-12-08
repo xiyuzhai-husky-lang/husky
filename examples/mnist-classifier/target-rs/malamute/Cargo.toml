@@ -3,5 +3,8 @@ name = "malamute"
 edition = "2021"
 version = "0.1.0"
 
+[dependencies.ad-hoc-task-dependency]
+workspace = true
+
 [dependencies.husky-core]
 workspace = true

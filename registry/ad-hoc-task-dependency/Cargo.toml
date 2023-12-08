@@ -1,0 +1,16 @@
+[package]
+name = "ad-hoc-task-dependency"
+version = "0.1.0"
+authors = ["my_name"]
+edition = "2021"
+
+[workspace]
+members = ["macros"]
+
+[workspace.dependencies]
+syn = { version = "2.0.38", features = ["full", "extra-traits"] }
+# members
+ad-hoc-task-dependency-macros = { path = "macros" }
+
+[dependencies]
+ad-hoc-task-dependency-macros.workspace = true

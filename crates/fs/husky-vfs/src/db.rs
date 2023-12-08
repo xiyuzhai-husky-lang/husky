@@ -327,8 +327,6 @@ pub struct VfsJar(
     crate::path::module_path::relative_path::module_relative_stem,
     crate::path::linktime_target_path::linktime_target_rust_workspace_rustfmt_toml_path,
     crate::path::linktime_target_path::linktime_target_rust_workspace_manifest_path,
-    crate::path::linktime_target_path::linktime_target_transpilation_setup,
-    crate::path::linktime_target_path::TranspilationSetup,
     CratePath,
     ModulePath,
     module_ancestry,
@@ -340,10 +338,10 @@ pub struct VfsJar(
     module_virtual_path,
     package_manifest_file,
     module_file,
-    Toolchain,
-    PublishedToolchain,
-    published_toolchain_library_path,
-    current_toolchain,
+    crate::toolchain::Toolchain,
+    crate::toolchain::PublishedToolchain,
+    crate::toolchain::published_toolchain_library_path,
+    crate::toolchain::current_toolchain,
     crate::snippet::Snippet,
 );
 

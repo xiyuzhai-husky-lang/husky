@@ -33,13 +33,6 @@ impl Toolchain {
             ToolchainData::Local { library_path } => library_path.abs_path(db).unwrap(),
         }
     }
-
-    pub fn registry_path(self, db: &::salsa::Db) -> &Path {
-        match self.data(db) {
-            ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path: _ } => todo!(),
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

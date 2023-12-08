@@ -6,6 +6,7 @@ use cargo_manifest::{
     Dependency, DependencyDetail, Edition, InheritedDependencyDetail, Manifest, MaybeInherited,
     Package, Product, Resolver, True, Workspace,
 };
+use husky_corgi_config::transpilation_setup::{HasTranspilationSetup, TranspilationSetup};
 use husky_manifest::HasPackageManifest;
 use husky_print_utils::p;
 use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
@@ -33,20 +34,48 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let toolchain = linktime_target_path.toolchain(db);
     let library_abs_path = toolchain.library_abs_path(db);
     let library_diffpath = diff_paths(&library_abs_path, &rust_workspace_abs_dir).unwrap();
-    let dependencies = [(
-        "husky-core".to_string(),
-        Dependency::Detailed(DependencyDetail {
-            path: Some(
-                library_diffpath
-                    .join("core")
-                    .as_os_str()
-                    .to_str()
-                    .unwrap()
-                    .to_string(),
-            ),
-            ..Default::default()
-        }),
-    )]
+    let rust_transpilation_setup_data = linktime_target_path
+        .transpilation_setup(db)
+        .rust_data(db)
+        .unwrap();
+    let task_dependency_abs_path = rust_transpilation_setup_data
+        .task_dependency_path
+        .abs_path(db)
+        .unwrap();
+    let task_dependency_diffpath =
+        diff_paths(&task_dependency_abs_path, &rust_workspace_abs_dir).unwrap();
+    let dependencies = [
+        (
+            "husky-core".to_string(),
+            Dependency::Detailed(DependencyDetail {
+                path: Some(
+                    library_diffpath
+                        .join("core")
+                        .as_os_str()
+                        .to_str()
+                        .unwrap()
+                        .to_string(),
+                ),
+                ..Default::default()
+            }),
+        ),
+        (
+            rust_transpilation_setup_data
+                .task_dependency_name
+                .data(db)
+                .to_string(),
+            Dependency::Detailed(DependencyDetail {
+                path: Some(
+                    task_dependency_diffpath
+                        .as_os_str()
+                        .to_str()
+                        .unwrap()
+                        .to_string(),
+                ),
+                ..Default::default()
+            }),
+        ),
+    ]
     .into_iter()
     .chain(rust_transpilation_packages.iter().map(|package| {
         (
@@ -86,18 +115,26 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
 pub(crate) fn package_source_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
+    transpilation_setup: TranspilationSetup,
 ) -> String {
-    let dependencies = ["husky-core".to_string()]
-        .into_iter()
-        .chain(
-            package_path
-                .package_dependencies(db)
-                .unwrap()
-                .iter()
-                .map(|dep| dep.package_path().name_string(db)),
-        )
-        .map(|name| (name, INHERITED))
-        .collect();
+    let rust_transpilation_setup_data = transpilation_setup.rust_data(db).unwrap();
+    let dependencies = [
+        "husky-core".to_string(),
+        rust_transpilation_setup_data
+            .task_dependency_name
+            .data(db)
+            .to_string(),
+    ]
+    .into_iter()
+    .chain(
+        package_path
+            .package_dependencies(db)
+            .unwrap()
+            .iter()
+            .map(|dep| dep.package_path().name_string(db)),
+    )
+    .map(|name| (name, INHERITED))
+    .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),
