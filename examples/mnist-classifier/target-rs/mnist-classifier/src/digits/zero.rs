@@ -9,3 +9,6 @@ pub fn almost_closed(cc: Leash<ConcaveComponent>) -> Option<f32> {
     Some(-cc.angle_change() + 0.0f32)
 }
 
+pub fn is_zero() -> OneVsAll {
+    todo!()
+}

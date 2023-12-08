@@ -8,6 +8,10 @@ pub fn six_match_refined1() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![upmost, bottom1])
 }
 
+pub fn is_six() -> OneVsAll {
+    todo!()
+}
+
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0.0f32);

@@ -17,6 +17,10 @@ pub struct BinaryImage28([u32; 30]);
 
 pub struct BinaryGrid28([u32; 31]);
 
+pub fn input() -> BinaryImage28 {
+    todo!()
+}
+
 impl BinaryImage28 {
     
 }
