@@ -1830,7 +1830,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
-                                                opr: Not,
+                                                opr: NotBool,
                                                 opd_hir_expr_idx: 24,
                                             },
                                             ty_place: Transient,
@@ -2187,7 +2187,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
-                                                opr: Not,
+                                                opr: NotInt,
                                                 opd_hir_expr_idx: 49,
                                             },
                                             ty_place: Transient,
@@ -6383,7 +6383,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
-                                                opr: Not,
+                                                opr: NotInt,
                                                 opd_hir_expr_idx: 14,
                                             },
                                             ty_place: Transient,

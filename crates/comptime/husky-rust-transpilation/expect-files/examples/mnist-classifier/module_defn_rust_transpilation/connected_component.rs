@@ -75,7 +75,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                     {
                         let old_row = mask[(i + 1) as usize];
                         let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
-                        if !new_row {
+                        if (new_row != 0) {
                             break;
                         }
                         if old_row != new_row {
@@ -161,7 +161,7 @@ impl ConnectedComponent {
         let mut row_end = row_start + 1;
         while row_end < 29 {
             {
-                if !self.mask[row_end as usize] {
+                if (self.mask[row_end as usize] != 0) {
                     break;
                 }
             }
