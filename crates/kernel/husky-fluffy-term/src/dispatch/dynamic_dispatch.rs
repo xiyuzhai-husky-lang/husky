@@ -18,7 +18,7 @@ pub struct FluffyDynamicDispatch<S: MemberSignature> {
 
 /// members means dynamic associated items, i.e. those accessed through an instance
 pub trait MemberSignature {
-    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm>;
+    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm>;
 }
 
 impl<S: MemberSignature> FluffyDynamicDispatch<S> {
@@ -38,7 +38,7 @@ impl<S: MemberSignature> FluffyDynamicDispatch<S> {
     }
 
     pub fn expr_ty_result(&self) -> FluffyTermResult<FluffyTerm> {
-        self.signature.expr_ty()
+        self.signature.expr_ty(self.indirections.final_place)
     }
 }
 
@@ -61,6 +61,7 @@ impl FluffyIndirection {
                 FluffyPlace::RefMut { guard } => todo!(),
                 FluffyPlace::Leashed => todo!(),
                 FluffyPlace::Todo => todo!(),
+                FluffyPlace::EtherealSymbol(_) => todo!(),
             },
             FluffyIndirection::Leash => FluffyPlace::Leashed,
         }

@@ -231,7 +231,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -284,7 +290,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -293,7 +305,13 @@
                                                     1..4,
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                     ],
@@ -539,7 +557,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -592,7 +616,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -601,7 +631,13 @@
                                                     1..4,
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                     ],
@@ -847,7 +883,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -900,7 +942,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -909,7 +957,13 @@
                                                     1..4,
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                     ],

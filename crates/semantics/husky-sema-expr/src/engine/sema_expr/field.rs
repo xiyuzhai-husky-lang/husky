@@ -32,7 +32,7 @@ impl<'a> SemaExprEngine<'a> {
             Ok(field_dispatch) => field_dispatch,
             Err(e) => return (Err(e), todo!()),
         };
-        let expr_ty = field_dispatch.signature().return_ty();
+        let expr_ty = field_dispatch.expr_ty();
         (
             Ok(SemaExprData::Field {
                 owner_sema_expr_idx,

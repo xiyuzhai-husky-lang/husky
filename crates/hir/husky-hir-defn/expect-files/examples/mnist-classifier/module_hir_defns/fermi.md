@@ -512,7 +512,13 @@
                                                     7,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1162,7 +1168,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1197,7 +1203,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1282,7 +1288,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1317,7 +1323,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1340,7 +1346,7 @@
                                                     9,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1351,7 +1357,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1383,7 +1389,7 @@
                                                         11,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
+                                                                expectee_place: Leashed,
                                                             },
                                                         ),
                                                     ),
@@ -1641,7 +1647,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1676,7 +1682,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1761,7 +1767,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1796,7 +1802,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1819,7 +1825,7 @@
                                                     9,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1830,7 +1836,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1862,7 +1868,7 @@
                                                         11,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
+                                                                expectee_place: Leashed,
                                                             },
                                                         ),
                                                     ),
@@ -2120,7 +2126,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -2155,7 +2161,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -2240,7 +2246,7 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -2275,7 +2281,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -2298,7 +2304,7 @@
                                                     9,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -2309,7 +2315,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {

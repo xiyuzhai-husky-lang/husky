@@ -970,7 +970,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },

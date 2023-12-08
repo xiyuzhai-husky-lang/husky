@@ -12,7 +12,7 @@ pub(crate) enum RustBinding {
     WrapInSome,
 }
 
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub(crate) struct RustBindings {
     /// the order is the same as how it's written
     bindings: SmallVec<[RustBinding; 3]>,

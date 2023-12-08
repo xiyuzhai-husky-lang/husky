@@ -11,19 +11,21 @@ pub fn nine_match_refine() -> FermiMatchResult {
 pub fn is_nine() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_six());
-    let eff_holes = major_connected_component().eff_holes();
+    let eff_holes = (&major_connected_component().eff_holes());
     require!(let none = eff_holes.matches[1 as usize]);
     let down_match = nine_match().matches[0 as usize];
     require!(let some = down_match);
     let down_match_dp_y = down_match.unwrap().displacement().y.into_inner();
-    let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
+    let higher_excess =
+        major_connected_component().upper_mass() - major_connected_component().lower_mass();
     require!(higher_excess > 7.0f32);
     if let none = eff_holes.matches[0 as usize] {
         require!(major_concave_components().ilen() >= 2);
         let nine_match_refine_result = nine_match_refine().matches[0 as usize];
         require!(let some = nine_match_refine_result);
         require!(nine_match_refine().norm() < 1.0f32);
-        let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
+        let higher_excess =
+            major_connected_component().upper_mass() - major_connected_component().lower_mass();
         let upper_arc = nine_match_refine().matches[0 as usize];
         require!(let some = upper_arc);
         require!(upper_arc.unwrap().displacement().y.into_inner() > 0.0f32);

@@ -10009,7 +10009,17 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Symbol(
                                             EtherealTermSymbol(
@@ -10179,7 +10189,17 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Symbol(
                                             EtherealTermSymbol(
@@ -10840,7 +10860,17 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Symbol(
                                             EtherealTermSymbol(
@@ -11010,7 +11040,17 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        RefMut {
+                                            guard: Left(
+                                                StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         Symbol(
                                             EtherealTermSymbol(
@@ -14642,7 +14682,17 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             Symbol(
                                                 EtherealTermSymbol(
@@ -14733,7 +14783,17 @@
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                RefMut {
+                                                    guard: Left(
+                                                        StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                             base: Ethereal(
                                                 Symbol(
                                                     EtherealTermSymbol(
@@ -14753,7 +14813,17 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             Symbol(
                                                 EtherealTermSymbol(
@@ -14769,7 +14839,15 @@
                                             Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_place: RefMut {
+                                                            guard: Left(
+                                                                StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                 ),
                                             ),
@@ -15447,7 +15525,17 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             Symbol(
                                                 EtherealTermSymbol(
@@ -15538,7 +15626,17 @@
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
-                                            place: None,
+                                            place: Some(
+                                                RefMut {
+                                                    guard: Left(
+                                                        StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
                                             base: Ethereal(
                                                 Symbol(
                                                     EtherealTermSymbol(
@@ -15558,7 +15656,17 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             Symbol(
                                                 EtherealTermSymbol(
@@ -15574,7 +15682,15 @@
                                             Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_place: RefMut {
+                                                            guard: Left(
+                                                                StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                 ),
                                             ),

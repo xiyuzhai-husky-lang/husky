@@ -195,7 +195,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -277,7 +277,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -285,7 +285,7 @@
                                                 opr: Minus,
                                                 opd_hir_expr_idx: 9,
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {

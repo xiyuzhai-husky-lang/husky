@@ -171,7 +171,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
             start = extend_start(ct, start, end, r);
             let mut ls = LineSegmentStroke::new(ct, start, end);
             if line_segments.ilen() > 0 {
-                let ls_last = (*line_segments.last().unwrap());
+                let ls_last = line_segments.last().unwrap();
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to((&ls.end));
@@ -189,7 +189,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     }
     let N = ct.points.ilen();
     let first_line_segment_points_end = line_segments.first().unwrap().points.end();
-    let last_line_segment = (*line_segments.last().unwrap());
+    let last_line_segment = line_segments.last().unwrap();
     if last_line_segment.points.end() >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.pop().unwrap();
         (*line_segments.first().unwrap()) = LineSegmentStroke::new(ct, last_line_segment.points.start() - N, line_segments.first().unwrap().points.end() - 1)
@@ -214,13 +214,13 @@ impl LineSegmentSketch {
     }
 
     pub fn bounding_box(&'static self) -> BoundingBox {
-        let start_point = self.strokes[0 as usize].start;
+        let start_point = (&self.strokes[0 as usize].start);
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
         let mut ymin = start_point.y.into_inner();
         let mut ymax = start_point.y.into_inner();
         for i in 0..self.strokes.ilen() {
-            let point = self.strokes[i as usize].end;
+            let point = (&self.strokes[i as usize].end);
             xmin = xmin.min(point.x.into_inner());
             xmax = xmax.max(point.x.into_inner());
             ymin = ymin.min(point.y.into_inner());

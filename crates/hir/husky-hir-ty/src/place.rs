@@ -100,6 +100,7 @@ impl HirPlace {
             },
             FluffyPlace::Leashed => HirPlace::Leashed,
             FluffyPlace::Todo => HirPlace::Todo,
+            FluffyPlace::EtherealSymbol(_) => todo!(),
         }
     }
 

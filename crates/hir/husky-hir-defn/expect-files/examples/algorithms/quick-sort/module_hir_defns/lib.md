@@ -1606,7 +1606,15 @@
                                                     13,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1644,7 +1652,15 @@
                                                     16,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1812,7 +1828,15 @@
                                                     30,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1850,7 +1874,15 @@
                                                     33,
                                                 ],
                                             },
-                                            ty_place: Transient,
+                                            ty_place: RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {

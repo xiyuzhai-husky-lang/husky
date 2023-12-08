@@ -293,7 +293,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -342,7 +348,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -680,7 +686,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -729,7 +741,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -1067,7 +1079,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1116,7 +1134,7 @@
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: Leashed,
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {

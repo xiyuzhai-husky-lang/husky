@@ -372,7 +372,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 436,
+                                    value: 439,
                                 },
                             ),
                         ),
@@ -392,7 +392,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -432,9 +440,21 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -466,7 +486,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -493,7 +521,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -533,9 +569,21 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -567,7 +615,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -608,9 +664,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -618,7 +686,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 442,
+                                                                value: 444,
                                                             },
                                                         ),
                                                     ),
@@ -683,7 +751,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -725,7 +799,13 @@
                                                 coersion: Some(
                                                     Trivial(
                                                         TrivialFluffyCoersion {
-                                                            expectee_place: Transient,
+                                                            expectee_place: StackPure {
+                                                                location: StackLocationIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 ),
@@ -894,7 +974,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -923,7 +1011,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -952,7 +1048,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -999,7 +1103,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -1019,7 +1131,13 @@
                                             Coersion(
                                                 Trivial(
                                                     TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                 ),
                                             ),
@@ -2364,7 +2482,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 437,
+                                    value: 440,
                                 },
                             ),
                         ),
@@ -2384,7 +2502,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2425,9 +2551,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -2435,7 +2573,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 450,
+                                                                value: 453,
                                                             },
                                                         ),
                                                     ),
@@ -2478,7 +2616,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -2527,7 +2671,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2567,9 +2719,21 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -2601,7 +2765,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -2649,7 +2821,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -2694,9 +2866,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -2704,7 +2888,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 442,
+                                                                value: 444,
                                                             },
                                                         ),
                                                     ),
@@ -2769,7 +2953,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -2814,7 +3004,7 @@
                                                             expectee_place: StackPure {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        1,
+                                                                        2,
                                                                     ),
                                                                 ),
                                                             },
@@ -2874,7 +3064,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -2920,7 +3110,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    2,
+                                                    3,
                                                 ),
                                             ),
                                         },
@@ -2968,7 +3158,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -2976,7 +3166,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -2987,7 +3177,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 426,
+                                                                value: 428,
                                                             },
                                                         ),
                                                     ),
@@ -3055,7 +3245,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -3103,7 +3293,7 @@
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        2,
+                                                                        3,
                                                                     ),
                                                                 ),
                                                             },
@@ -3245,7 +3435,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    2,
+                                                    3,
                                                 ),
                                             ),
                                         },
@@ -3293,7 +3483,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        2,
+                                                        3,
                                                     ),
                                                 ),
                                             },
@@ -3301,7 +3491,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        2,
+                                                        3,
                                                     ),
                                                 ),
                                             },
@@ -3312,7 +3502,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 425,
+                                                                value: 427,
                                                             },
                                                         ),
                                                     ),
@@ -3358,7 +3548,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    2,
+                                                                    3,
                                                                 ),
                                                             ),
                                                         },
@@ -3410,7 +3600,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3450,9 +3648,21 @@
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(
                                             ItemPathId(
@@ -3484,7 +3694,15 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -3532,7 +3750,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -3577,9 +3795,21 @@
                                     },
                                     dispatch: FluffyDynamicDispatch {
                                         indirections: FluffyIndirections {
-                                            initial_place: Transient,
+                                            initial_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Transient,
+                                            final_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
@@ -3587,7 +3817,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 442,
+                                                                value: 444,
                                                             },
                                                         ),
                                                     ),
@@ -3652,7 +3882,13 @@
                                                 },
                                                 instantiation: FluffyInstantiation {
                                                     env: MethodFn {
-                                                        self_place: Transient,
+                                                        self_place: StackPure {
+                                                            location: StackLocationIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -3697,7 +3933,7 @@
                                                             expectee_place: StackPure {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        1,
+                                                                        2,
                                                                     ),
                                                                 ),
                                                             },
@@ -3757,7 +3993,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -3803,7 +4039,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    3,
+                                                    4,
                                                 ),
                                             ),
                                         },
@@ -3851,7 +4087,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -3859,7 +4095,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -3870,7 +4106,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 426,
+                                                                value: 428,
                                                             },
                                                         ),
                                                     ),
@@ -3938,7 +4174,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -3986,7 +4222,7 @@
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        3,
+                                                                        4,
                                                                     ),
                                                                 ),
                                                             },
@@ -4128,7 +4364,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    3,
+                                                    4,
                                                 ),
                                             ),
                                         },
@@ -4176,7 +4412,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        3,
+                                                        4,
                                                     ),
                                                 ),
                                             },
@@ -4184,7 +4420,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        3,
+                                                        4,
                                                     ),
                                                 ),
                                             },
@@ -4195,7 +4431,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 425,
+                                                                value: 427,
                                                             },
                                                         ),
                                                     ),
@@ -4241,7 +4477,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    3,
+                                                                    4,
                                                                 ),
                                                             ),
                                                         },
@@ -4308,7 +4544,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -4354,7 +4590,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    2,
+                                                    3,
                                                 ),
                                             ),
                                         },
@@ -4402,7 +4638,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -4410,7 +4646,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -4421,7 +4657,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 427,
+                                                                value: 429,
                                                             },
                                                         ),
                                                     ),
@@ -4489,7 +4725,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -4537,7 +4773,7 @@
                                                             expectee_place: ImmutableStackOwned {
                                                                 location: StackLocationIdx(
                                                                     ShiftedU32(
-                                                                        2,
+                                                                        3,
                                                                     ),
                                                                 ),
                                                             },
@@ -4713,7 +4949,7 @@
                                         ImmutableStackOwned {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -4761,7 +4997,7 @@
                                             initial_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -4769,7 +5005,7 @@
                                             final_place: ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -4780,7 +5016,7 @@
                                                     TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 425,
+                                                                value: 427,
                                                             },
                                                         ),
                                                     ),
@@ -4826,7 +5062,7 @@
                                                         self_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -5553,7 +5789,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    1,
+                                                    2,
                                                 ),
                                             ),
                                         },
@@ -5578,34 +5814,6 @@
                 },
                 current_syn_symbol_map: ArenaMap {
                     data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 241,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
                         Some(
                             SymbolType(
                                 FluffyTerm {
@@ -5642,6 +5850,34 @@
                                             location: StackLocationIdx(
                                                 ShiftedU32(
                                                     3,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 241,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        Some(
+                            SymbolType(
+                                FluffyTerm {
+                                    place: Some(
+                                        ImmutableStackOwned {
+                                            location: StackLocationIdx(
+                                                ShiftedU32(
+                                                    4,
                                                 ),
                                             ),
                                         },
@@ -5705,7 +5941,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -5763,7 +6007,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -5792,7 +6044,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -5843,7 +6103,7 @@
                                             StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -5870,7 +6130,7 @@
                                                         expectee_place: StackPure {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -5925,7 +6185,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -5980,7 +6240,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        2,
+                                                        3,
                                                     ),
                                                 ),
                                             },
@@ -6007,7 +6267,7 @@
                                                         expectee_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    2,
+                                                                    3,
                                                                 ),
                                                             ),
                                                         },
@@ -6158,7 +6418,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        2,
+                                                        3,
                                                     ),
                                                 ),
                                             },
@@ -6248,7 +6508,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -6277,7 +6545,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -6328,7 +6604,7 @@
                                             StackPure {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -6355,7 +6631,7 @@
                                                         expectee_place: StackPure {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    1,
+                                                                    2,
                                                                 ),
                                                             ),
                                                         },
@@ -6410,7 +6686,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -6465,7 +6741,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        3,
+                                                        4,
                                                     ),
                                                 ),
                                             },
@@ -6492,7 +6768,7 @@
                                                         expectee_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    3,
+                                                                    4,
                                                                 ),
                                                             ),
                                                         },
@@ -6643,7 +6919,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        3,
+                                                        4,
                                                     ),
                                                 ),
                                             },
@@ -6737,7 +7013,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },
@@ -6792,7 +7068,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        2,
+                                                        3,
                                                     ),
                                                 ),
                                             },
@@ -6819,7 +7095,7 @@
                                                         expectee_place: ImmutableStackOwned {
                                                             location: StackLocationIdx(
                                                                 ShiftedU32(
-                                                                    2,
+                                                                    3,
                                                                 ),
                                                             ),
                                                         },
@@ -6903,7 +7179,7 @@
                                             ImmutableStackOwned {
                                                 location: StackLocationIdx(
                                                     ShiftedU32(
-                                                        1,
+                                                        2,
                                                     ),
                                                 ),
                                             },

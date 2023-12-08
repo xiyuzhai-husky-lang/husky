@@ -348,7 +348,13 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            ty_place: Transient,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
@@ -383,7 +389,13 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: Transient,
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {

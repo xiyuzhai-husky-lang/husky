@@ -23,7 +23,7 @@ impl FluffyFieldSignature {
 }
 
 impl MemberSignature for FluffyFieldSignature {
-    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
         todo!()
     }
 }

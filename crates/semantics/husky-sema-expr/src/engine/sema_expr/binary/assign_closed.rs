@@ -40,6 +40,7 @@ impl<'a> SemaExprEngine<'a> {
                         FluffyPlace::RefMut { guard } => todo!(),
                         FluffyPlace::Leashed => todo!(),
                         FluffyPlace::Todo => todo!(),
+                        FluffyPlace::EtherealSymbol(_) => todo!(),
                     },
                     // ad hoc
                     None => (), // todo!(),

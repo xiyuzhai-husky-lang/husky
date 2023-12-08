@@ -13,9 +13,11 @@ pub enum FluffyIndexSignature {
 }
 
 impl MemberSignature for FluffyIndexSignature {
-    fn expr_ty(&self) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(&self, self_value_final_place: FluffyPlace) -> FluffyTermResult<FluffyTerm> {
         match self {
-            FluffyIndexSignature::Int { element_ty } => Ok(*element_ty),
+            FluffyIndexSignature::Int { element_ty } => {
+                Ok(element_ty.with_place(self_value_final_place))
+            }
             FluffyIndexSignature::Regular { element_ty } => todo!(),
             FluffyIndexSignature::Index { element_ty } => todo!(),
         }

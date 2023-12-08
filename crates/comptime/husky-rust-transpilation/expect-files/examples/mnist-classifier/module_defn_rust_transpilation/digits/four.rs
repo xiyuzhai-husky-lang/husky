@@ -19,7 +19,7 @@ pub fn components_max_heights() -> FermiMatchResult {
 pub fn is_four() -> OneVsAll {
     require!(let some = left_components().matches[0 as usize]);
     require!(let some = left_components().matches[1 as usize]);
-    let eff_holes = major_connected_component().eff_holes();
+    let eff_holes = (&major_connected_component().eff_holes());
     require!(let none = eff_holes.matches[1 as usize]);
     let down_match = components_max_downwards().matches[0 as usize];
     require!(let some = down_match);
