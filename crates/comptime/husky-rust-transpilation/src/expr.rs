@@ -224,10 +224,18 @@ impl HirEagerExprSite {
             HirEagerExprData::Suffix {
                 opd_hir_expr_idx,
                 opr,
-            } => {
-                (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
-                opr.transpile_to_rust(builder)
-            }
+            } => match opr {
+                HirSuffixOpr::Incr | HirSuffixOpr::Decr | HirSuffixOpr::Unwrap => {
+                    (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
+                    opr.transpile_to_rust(builder)
+                }
+                HirSuffixOpr::Unveil => {
+                    builder.macro_name(RustMacroName::Unveil);
+                    builder.bracketed(RustBracket::Par, |builder| {
+                        (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
+                    })
+                }
+            },
             HirEagerExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,

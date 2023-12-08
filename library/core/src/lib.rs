@@ -24,3 +24,10 @@ macro_rules! require {
         }
     }
 }
+
+#[macro_export]
+macro_rules! unveil {
+    ($result: expr) => {
+        todo!()
+    };
+}

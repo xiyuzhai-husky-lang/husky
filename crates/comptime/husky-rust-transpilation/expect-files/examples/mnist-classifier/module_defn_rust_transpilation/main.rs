@@ -21,14 +21,14 @@ use malamute::*;
 use mnist::*;
 
 pub fn main() -> Class<MnistLabel> {
-    is_one()?;
-    is_six()?;
-    is_zero()?;
-    is_seven()?;
-    is_eight()?;
-    is_three()?;
-    is_nine()?;
-    is_five()?;
-    is_two()?;
+    unveil!(is_one());
+    unveil!(is_six());
+    unveil!(is_zero());
+    unveil!(is_seven());
+    unveil!(is_eight());
+    unveil!(is_three());
+    unveil!(is_nine());
+    unveil!(is_five());
+    unveil!(is_two());
     Class::Unknown
 }
