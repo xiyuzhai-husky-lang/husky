@@ -1,14 +1,15 @@
-use std::path::Path;
-
 use husky_entity_syn_tree::helpers::paths::crate_module_paths;
 use husky_io_utils::error::IOResult;
 use husky_manifest::HasPackageManifest;
 use husky_print_utils::p;
+use husky_task::IsTask;
 use husky_vfs::{
+    linktime_target_path::TranspilationSetup,
     path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
     PackagePathSource,
 };
 use pathdiff::diff_paths;
+use std::path::Path;
 
 use crate::{
     defn::module_defn_rust_transpilation,
@@ -128,7 +129,11 @@ fn rust_transpilation_packages_works() {
 }
 
 impl RustTranspilationPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
+    pub(crate) fn transpile_to_fs(
+        &self,
+        setup: TranspilationSetup,
+        db: &::salsa::Db,
+    ) -> IOResult<()> {
         let workspace_dir = self.target_path.rust_workspace_abs_dir(db);
         match self.kind {
             package::RustTranspilationPackageKind::Source => {

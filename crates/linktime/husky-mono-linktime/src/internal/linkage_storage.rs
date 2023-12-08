@@ -1,13 +1,14 @@
 use super::*;
 use husky_cargo_utils::compile_workspace;
 use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
+use husky_task::IsTask;
 use husky_vfs::PackagePath;
 
 pub struct MonoLinkageStorage {}
 
 impl MonoLinkageStorage {
     pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        match target_path.transpile_to_fs_full(db) {
+        match target_path.transpile_to_fs_full(target_path.transpilation_setup(db), db) {
             Ok(()) => (),
             Err(_) => todo!(),
         };

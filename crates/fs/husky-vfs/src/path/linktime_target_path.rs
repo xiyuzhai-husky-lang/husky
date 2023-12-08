@@ -38,6 +38,10 @@ impl LinktimeTargetPath {
     pub fn rust_workspace_manifest_path<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
         linktime_target_rust_workspace_manifest_path(db, self)
     }
+
+    pub fn transpilation_setup(self, db: &::salsa::Db) -> TranspilationSetup {
+        linktime_target_transpilation_setup(db, self)
+    }
 }
 
 /// returns absolute path
@@ -88,3 +92,51 @@ fn linktime_target_rust_workspace_manifest_path(
         LinktimeTargetPathData::Workspace(_) => todo!(),
     }
 }
+
+#[salsa::tracked(jar = VfsJar)]
+fn linktime_target_transpilation_setup(
+    db: &::salsa::Db,
+    path: LinktimeTargetPath,
+) -> TranspilationSetup {
+    TranspilationSetup::new(db, path, Some(RustTranspilationSetupData {}), None)
+}
+
+#[salsa::tracked(jar = VfsJar)]
+pub struct TranspilationSetup {
+    #[id]
+    path: LinktimeTargetPath,
+    #[return_ref]
+    pub _rust_data: Option<RustTranspilationSetupData>,
+    #[return_ref]
+    pub _mlir_data: Option<MlirTranspilationSetupData>,
+}
+
+impl TranspilationSetup {
+    pub fn rust_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a RustTranspilationSetupData> {
+        todo!()
+    }
+
+    pub fn c_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a CTranspilationSetupData> {
+        todo!()
+    }
+
+    pub fn llvm_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a LlvmTranspilationSetupData> {
+        todo!()
+    }
+
+    pub fn mlir_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a MlirTranspilationSetupData> {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct RustTranspilationSetupData {}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct CTranspilationSetupData {}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct LlvmTranspilationSetupData {}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct MlirTranspilationSetupData {}

@@ -11,16 +11,17 @@ use crate::{
 };
 use husky_entity_syn_tree::helpers::paths::crate_module_paths;
 use husky_io_utils::error::IOResult;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_task::IsTask;
+use husky_vfs::linktime_target_path::{LinktimeTargetPath, TranspilationSetup};
 use is::Is;
 
 pub trait TranspileToFsFull: Is<LinktimeTargetPath> {
     /// transpile the target crate and its dependencies
-    fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()>;
+    fn transpile_to_fs_full(self, setup: TranspilationSetup, db: &::salsa::Db) -> IOResult<()>;
 }
 
 impl TranspileToFsFull for LinktimeTargetPath {
-    fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()> {
+    fn transpile_to_fs_full(self, setup: TranspilationSetup, db: &::salsa::Db) -> IOResult<()> {
         husky_io_utils::diff_write(self.rust_workspace_rustfmt_toml_path(db), RUSTFMT, true);
         husky_io_utils::diff_write(
             self.rust_workspace_manifest_path(db),
@@ -28,7 +29,7 @@ impl TranspileToFsFull for LinktimeTargetPath {
             true,
         );
         for package in rust_transpilation_packages(db, self) {
-            package.transpile_to_fs(db)?
+            package.transpile_to_fs(setup, db)?
         }
         Ok(())
     }
