@@ -1887,9 +1887,19 @@
                                         },
                                         Return {
                                             result: 82,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                         Return {
                                             result: 85,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {

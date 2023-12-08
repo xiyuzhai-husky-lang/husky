@@ -14,7 +14,7 @@ pub fn major_connected_component() -> Leash<ConnectedComponent> {
             i0 = i
         }
     }
-    return connected_components()[i0 as usize];
+    return (&connected_components()[i0 as usize]);
 }
 
 pub fn ignored_connected_components_row_span_sum_sum() -> f32 {

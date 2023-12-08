@@ -11368,6 +11368,13 @@
                                     result: SemaExprIdx(
                                         32,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(

@@ -1263,6 +1263,17 @@
                                         },
                                         Return {
                                             result: 42,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -3347,6 +3358,17 @@
                                         },
                                         Return {
                                             result: 104,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -4900,6 +4922,11 @@
                                         },
                                         Return {
                                             result: 19,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -5416,6 +5443,11 @@
                                         },
                                         Return {
                                             result: 19,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -5831,6 +5863,11 @@
                                         },
                                         Return {
                                             result: 14,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -6157,6 +6194,11 @@
                                         },
                                         Return {
                                             result: 12,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -7193,6 +7235,11 @@
                                         },
                                         Return {
                                             result: 50,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -8150,6 +8197,11 @@
                                         },
                                         Return {
                                             result: 23,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -8709,6 +8761,11 @@
                                         },
                                         Return {
                                             result: 23,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },

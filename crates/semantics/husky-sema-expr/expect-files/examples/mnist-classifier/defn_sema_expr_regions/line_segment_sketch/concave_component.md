@@ -5644,6 +5644,19 @@
                                     result: SemaExprIdx(
                                         64,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: MutableStackOwned {
+                                                    location: StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -16439,6 +16452,19 @@
                                     result: SemaExprIdx(
                                         33,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: MutableStackOwned {
+                                                    location: StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -21782,6 +21808,19 @@
                                     },
                                     result: SemaExprIdx(
                                         30,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: MutableStackOwned {
+                                                    location: StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -29851,6 +29890,13 @@
                                     },
                                     result: SemaExprIdx(
                                         59,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),

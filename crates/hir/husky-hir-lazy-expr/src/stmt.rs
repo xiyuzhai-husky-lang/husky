@@ -56,8 +56,7 @@ impl ToHirLazy for SemaStmtIdx {
                 initial_value: initial_value.to_hir_lazy(builder),
             },
             SemaStmtData::Return {
-                return_token: _,
-                result,
+                result, coersion, ..
             } => HirLazyStmt::Return {
                 result: result.to_hir_lazy(builder),
             },

@@ -15593,6 +15593,13 @@
                                     result: SemaExprIdx(
                                         39,
                                     ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             ty_result: Ok(
@@ -15706,6 +15713,13 @@
                                     },
                                     result: SemaExprIdx(
                                         51,
+                                    ),
+                                    coersion: Some(
+                                        Trivial(
+                                            TrivialFluffyCoersion {
+                                                expectee_place: Transient,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),

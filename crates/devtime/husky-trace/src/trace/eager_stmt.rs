@@ -178,10 +178,7 @@ impl TraceId {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Return {
-                    return_token: _,
-                    result: _,
-                } => {
+                SemaStmtData::Return { .. } => {
                     let essence = EagerStmtEssence::Return {};
                     let eager_stmt_trace = TraceId::new_eager_stmt(
                         parent_trace_path,

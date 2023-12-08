@@ -9845,6 +9845,17 @@
                                         },
                                         Return {
                                             result: 297,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -12032,6 +12043,11 @@
                                         },
                                         Return {
                                             result: 50,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: Transient,
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
@@ -13433,6 +13449,17 @@
                                         },
                                         Return {
                                             result: 58,
+                                            coersion: Trivial(
+                                                TrivialHirEagerCoersion {
+                                                    expectee_place: MutableStackOwned {
+                                                        location: StackLocationIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
                                         },
                                     ],
                                 },
