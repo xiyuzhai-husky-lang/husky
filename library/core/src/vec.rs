@@ -1,3 +1,5 @@
+use crate::*;
+
 pub trait __VecX {
     type Element;
 
@@ -9,6 +11,12 @@ pub trait __VecX {
         &mut self,
         f: fn(Self::Element) -> Option<f32>,
     ) -> Option<Self::Element>;
+
+    fn cyclic_slice_leashed(
+        &'static self,
+        start: i32,
+        end: i32,
+    ) -> CyclicSliceLeashed<Self::Element>;
 }
 
 impl<T> __VecX for Vec<T> {
@@ -23,6 +31,14 @@ impl<T> __VecX for Vec<T> {
     }
 
     fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) -> Option<T> {
+        todo!()
+    }
+
+    fn cyclic_slice_leashed(
+        &'static self,
+        start: i32,
+        end: i32,
+    ) -> CyclicSliceLeashed<Self::Element> {
         todo!()
     }
 }
