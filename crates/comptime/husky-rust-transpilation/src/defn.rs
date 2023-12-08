@@ -135,6 +135,24 @@ impl<'a> TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameters {
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerSelfValueParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        let db = builder.db();
+        let HirEagerSelfValueParameter { contract, self_ty } = self;
+        match contract {
+            HirEagerContract::Pure => {
+                if !self_ty.always_copyable(db) {
+                    builder.punctuation(RustPunctuation::Ambersand)
+                }
+            }
+            HirEagerContract::Move => (),
+            HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+            HirEagerContract::BorrowMut => {
+                builder.punctuation(RustPunctuation::Ambersand);
+                builder.keyword(RustKeyword::Mut)
+            }
+            HirEagerContract::Const => todo!(),
+            HirEagerContract::Leash => todo!(),
+            HirEagerContract::At => todo!(),
+        }
         builder.self_value()
     }
 }

@@ -31,6 +31,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
                         SymbolModifier::AmbersandMut(_) => todo!(),
                         SymbolModifier::Le => todo!(),
                         SymbolModifier::Tilde => todo!(),
+                        SymbolModifier::At => todo!(),
                     }
                 }
                 ident.transpile_to_rust(builder)

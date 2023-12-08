@@ -23,8 +23,16 @@ impl TraitForTypeMethodFnHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
+        let self_ty = HirType::from_ethereal(
+            path.ethereal_signature_template(db)
+                .unwrap()
+                .self_ty(db)
+                .unwrap(),
+            db,
+        )
+        .unwrap();
         let self_value_parameter =
-            HirEagerSelfValueParameter::from_syn(syn_decl.self_value_parameter(db), db);
+            HirEagerSelfValueParameter::from_syn(self_ty, syn_decl.self_value_parameter(db));
         let parenate_parameters =
             HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = builder.return_ty_before_colon(syn_decl.return_ty(db));

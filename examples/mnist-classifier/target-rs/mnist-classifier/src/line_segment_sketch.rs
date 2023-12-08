@@ -203,7 +203,7 @@ impl LineSegmentStroke {
         LineSegmentStroke::__constructor(ct.points.cyclic_slice_leashed(from, to + 1))
     }
 
-    pub fn displacement(self) -> Vector2d {
+    pub fn displacement(&self) -> Vector2d {
         self.start.to((&self.end))
     }
 }
