@@ -8,8 +8,6 @@ pub struct ConvexComponent {
 
 impl ConvexComponent {
     pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, line_segments: CyclicSliceLeashed<LineSegmentStroke>) -> Self {
-        ;
-        ;
         Self{
             line_segment_sketch,
             line_segments,

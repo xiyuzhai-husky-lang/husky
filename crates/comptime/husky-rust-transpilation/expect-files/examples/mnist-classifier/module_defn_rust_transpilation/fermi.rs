@@ -8,8 +8,6 @@ pub struct FermiMatchResult {
 
 impl FermiMatchResult {
     pub fn __constructor(matches: Vec<Option<Leash<ConcaveComponent>>>, others: Vec<Leash<ConcaveComponent>>) -> Self {
-        ;
-        ;
         Self{
             matches,
             others,

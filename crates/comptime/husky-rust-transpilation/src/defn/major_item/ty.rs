@@ -108,14 +108,14 @@ impl TranspileToRustWith for PropsStructHirDefn {
                                             .transpile_to_rust(builder)
                                     })
                                 }
-                                builder.on_fresh_semicolon_line(|builder| {
-                                    if field.ty().is_float(db) {
+                                if field.ty().is_float(db) {
+                                    builder.on_fresh_semicolon_line(|builder| {
                                         builder.keyword(RustKeyword::Let);
                                         field.ident().transpile_to_rust(builder);
                                         builder.punctuation(RustPunctuation::Assign);
                                         builder.new_not_nan(field.ident())
-                                    }
-                                })
+                                    })
+                                }
                             }
                             builder.on_fresh_line(|builder| {
                                 builder.self_ty();

@@ -19,11 +19,8 @@ pub struct LineSegmentStroke {
 
 impl LineSegmentStroke {
     pub fn __constructor(points: CyclicSliceLeashed<Point2d>) -> Self {
-        ;
         let start = points.first().unwrap().clone();
-        ;
         let end = points.last().unwrap().clone();
-        ;
         Self{
             points,
             start,
@@ -40,8 +37,6 @@ pub struct LineSegmentSketch {
 
 impl LineSegmentSketch {
     pub fn __constructor(contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>) -> Self {
-        ;
-        ;
         Self{
             contour,
             strokes,
