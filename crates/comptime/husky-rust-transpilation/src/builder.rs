@@ -460,6 +460,10 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn self_value(&mut self) {
         self.word("self")
     }
+
+    pub(crate) fn self_value_leashed(&mut self) {
+        self.word("&'static self")
+    }
 }
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {

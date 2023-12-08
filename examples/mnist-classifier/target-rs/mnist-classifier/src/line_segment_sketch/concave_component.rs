@@ -7,15 +7,20 @@ pub struct ConcaveComponent {
 }
 
 impl ConcaveComponent {
-    pub fn __constructor(line_segment_sketch: Leash<LineSegmentSketch>, strokes: CyclicSliceLeashed<LineSegmentStroke>) -> Self {
-        Self{
+    pub fn __constructor(
+        line_segment_sketch: Leash<LineSegmentSketch>,
+        strokes: CyclicSliceLeashed<LineSegmentStroke>,
+    ) -> Self {
+        Self {
             line_segment_sketch,
             strokes,
         }
     }
 }
 
-pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {
+pub fn find_concave_components(
+    line_segment_sketch: Leash<LineSegmentSketch>,
+) -> Vec<ConcaveComponent> {
     let mut concave_components: Vec<ConcaveComponent> = vec![];
     let L = line_segment_sketch.strokes.ilen();
     let mut start = 0;
@@ -29,7 +34,10 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
             end += 1
         }
         if end > start + 1 {
-            concave_components.push(ConcaveComponent::__constructor(line_segment_sketch, line_segment_sketch.strokes.cyclic_slice_leashed(start, end)))
+            concave_components.push(ConcaveComponent::__constructor(
+                line_segment_sketch,
+                line_segment_sketch.strokes.cyclic_slice_leashed(start, end),
+            ))
         }
         start = end;
         end = start + 1
@@ -38,15 +46,15 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
 }
 
 impl ConcaveComponent {
-    pub fn norm(self) -> f32 {
+    pub fn norm(&'static self) -> f32 {
         self.hausdorff_norm()
     }
 
-    pub fn rel_norm(self) -> f32 {
+    pub fn rel_norm(&'static self) -> f32 {
         self.norm() / self.displacement().norm()
     }
 
-    pub fn hausdorff_norm(self) -> f32 {
+    pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
         let curve_start = self.strokes.first().unwrap().start;
         let curve_ls = self.line_segment();
@@ -61,7 +69,7 @@ impl ConcaveComponent {
         return hausdorff_norm;
     }
 
-    pub fn angle_change(self) -> f32 {
+    pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
         let mut dp0 = self.strokes[self.strokes.start() as usize].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
@@ -72,7 +80,7 @@ impl ConcaveComponent {
         return angle_change;
     }
 
-    pub fn bounding_box(self) -> BoundingBox {
+    pub fn bounding_box(&'static self) -> BoundingBox {
         let start_point = self.strokes.first().unwrap().start;
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
@@ -85,15 +93,23 @@ impl ConcaveComponent {
             ymin = ymin.min(point.y.into_inner());
             ymax = ymax.max(point.y.into_inner())
         }
-        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
+        return BoundingBox::__constructor(
+            ClosedRange::__constructor(xmin, xmax),
+            ClosedRange::__constructor(ymin, ymax),
+        );
     }
 
-    pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.line_segment_sketch.bounding_box().relative_bounding_box((&self.bounding_box()))
+    pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
+        self.line_segment_sketch
+            .bounding_box()
+            .relative_bounding_box((&self.bounding_box()))
     }
 
     pub fn line_segment(&self) -> LineSegment {
-        LineSegment::__constructor(self.strokes.first().unwrap().start.clone(), self.strokes.last().unwrap().end.clone())
+        LineSegment::__constructor(
+            self.strokes.first().unwrap().start.clone(),
+            self.strokes.last().unwrap().end.clone(),
+        )
     }
 
     pub fn start(&self) -> Point2d {
