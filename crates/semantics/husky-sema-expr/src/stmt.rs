@@ -24,8 +24,10 @@ pub enum SemaStmtData {
     Let {
         let_token: LetRegionalToken,
         let_pattern_sema_obelisk: LetPatternSemaSyndicate,
+        contract: TermContract,
         eq_token: EqRegionalToken,
         initial_value_sema_expr_idx: SemaExprIdx,
+        coersion: Option<FluffyCoersion>,
     },
     Return {
         return_token: ReturnRegionalToken,

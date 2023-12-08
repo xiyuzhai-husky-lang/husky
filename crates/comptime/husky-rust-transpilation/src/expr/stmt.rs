@@ -10,11 +10,22 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmtData::Let {
                 pattern,
                 initial_value,
+                contract,
+                coersion,
             } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                (initial_value, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
+                let initial_value_entry = &builder.hir_eager_expr_arena()[initial_value];
+                (
+                    initial_value,
+                    HirEagerExprSite::new_let_initial_value(
+                        contract,
+                        initial_value_entry,
+                        coersion,
+                    ),
+                )
+                    .transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result, coersion } => {
                 builder.on_fresh_semicolon_line(|builder| {

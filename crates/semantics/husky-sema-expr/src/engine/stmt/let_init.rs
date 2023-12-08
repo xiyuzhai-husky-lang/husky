@@ -34,24 +34,29 @@ impl<'a> SemaExprEngine<'a> {
                     todo!()
                 }
             };
-        let (initial_value_sema_expr_idx, pattern_ty) = match annotated_pattern_ty {
+        let contract = self.syn_expr_region_data.pattern_contract(
+            let_pattern_syn_obelisk
+                .as_ref()
+                .expect("must be okay")
+                .syn_pattern_root()
+                .syn_pattern_expr_idx(),
+        );
+        let ((initial_value_sema_expr_idx, pattern_ty), coersion) = match annotated_pattern_ty {
             Some(pattern_ty) => {
-                let contract = self.syn_expr_region_data.pattern_contract(
-                    let_pattern_syn_obelisk
-                        .as_ref()
-                        .expect("must be okay")
-                        .syn_pattern_root()
-                        .syn_pattern_expr_idx(),
+                let (initial_value_sema_expr_idx, coersion) = self.build_sema_expr_with_outcome(
+                    initial_value,
+                    ExpectCoersion::new(contract, pattern_ty),
                 );
-                let initial_value_sema_expr_idx =
-                    self.build_sema_expr(initial_value, ExpectCoersion::new(contract, pattern_ty));
-                (initial_value_sema_expr_idx, Some(pattern_ty))
+                ((initial_value_sema_expr_idx, Some(pattern_ty)), coersion)
             }
             None => {
-                self.build_sema_expr_with_ty(
-                    initial_value,
-                    // ad hoc
-                    ExpectAnyOriginal,
+                (
+                    self.build_sema_expr_with_ty(
+                        initial_value,
+                        // ad hoc
+                        ExpectAnyOriginal,
+                    ),
+                    None,
                 )
             }
         };
@@ -78,8 +83,10 @@ impl<'a> SemaExprEngine<'a> {
             Ok(SemaStmtData::Let {
                 let_token,
                 let_pattern_sema_obelisk,
+                contract,
                 eq_token,
                 initial_value_sema_expr_idx,
+                coersion,
             }),
             ty_result,
         )

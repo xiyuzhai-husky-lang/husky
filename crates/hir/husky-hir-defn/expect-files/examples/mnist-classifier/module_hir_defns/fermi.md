@@ -829,7 +829,9 @@
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 8,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 13,
@@ -847,7 +849,9 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Move,
                                             initial_value: 2,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -862,7 +866,15 @@
                                                     ),
                                                 ),
                                             },
+                                            contract: Move,
                                             initial_value: 3,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -1439,7 +1451,15 @@
                                                     ),
                                                 ),
                                             },
+                                            contract: Move,
                                             initial_value: 1,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Const,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -1910,7 +1930,15 @@
                                                     ),
                                                 ),
                                             },
+                                            contract: Move,
                                             initial_value: 1,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Const,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -2400,7 +2428,15 @@
                                                     ),
                                                 ),
                                             },
+                                            contract: Move,
                                             initial_value: 1,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_place: Const,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {

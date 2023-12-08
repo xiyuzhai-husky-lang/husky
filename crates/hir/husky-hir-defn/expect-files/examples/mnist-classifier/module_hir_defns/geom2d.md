@@ -4046,7 +4046,9 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 7,
+                                            coersion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -5161,7 +5163,9 @@
                                                 pattern_expr_idx: 4,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 35,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 40,
@@ -5179,7 +5183,9 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 2,
+                                            coersion: None,
                                         },
                                         Assert {
                                             condition: Other {
@@ -5192,7 +5198,9 @@
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 7,
+                                            coersion: None,
                                         },
                                         Assert {
                                             condition: Other {
@@ -5205,7 +5213,9 @@
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 19,
+                                            coersion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -5905,21 +5915,27 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 10,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 17,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 24,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 27,
@@ -6269,7 +6285,9 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
+                                            contract: Pure,
                                             initial_value: 5,
+                                            coersion: None,
                                         },
                                         Eval {
                                             expr_idx: 11,

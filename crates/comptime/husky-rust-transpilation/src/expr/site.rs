@@ -119,6 +119,42 @@ impl HirEagerExprSite {
         }
     }
 
+    pub(crate) fn new_let_initial_value(
+        contract: HirEagerContract,
+        initial_value_entry: &HirEagerExprEntry,
+        coersion: Option<HirEagerCoersion>,
+    ) -> Self {
+        let mut location_contract_map: SmallVecPairMap<StackLocationIdx, HirEagerContract, 2> =
+            Default::default();
+        if let Some(location) = initial_value_entry.ty_place.location()
+            && contract != HirEagerContract::At
+        {
+            location_contract_map.insert((location, contract))
+        };
+        let mut rust_bindings: RustBindings = match initial_value_entry.ty_place {
+            HirPlace::Transient => Default::default(),
+            _ => match contract {
+                HirEagerContract::Pure | HirEagerContract::Const | HirEagerContract::Leash
+                    if initial_value_entry.is_ty_always_copyable =>
+                {
+                    RustBinding::Reref.into()
+                }
+                HirEagerContract::Borrow => RustBinding::Reref.into(),
+                HirEagerContract::BorrowMut => RustBinding::RerefMut.into(),
+                _ => Default::default(),
+            },
+        };
+        match coersion {
+            Some(coersion) => (),
+            None => (),
+        };
+        Self {
+            rust_precedence_range: RustPrecedenceRange::ANY,
+            rust_bindings,
+            location_contract_map,
+        }
+    }
+
     pub(crate) fn location_contract(&self, location: StackLocationIdx) -> Option<HirEagerContract> {
         self.location_contract_map.get_value(location).copied()
     }

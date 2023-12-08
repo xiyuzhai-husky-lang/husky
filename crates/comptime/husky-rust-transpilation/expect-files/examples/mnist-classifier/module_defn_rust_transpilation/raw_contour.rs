@@ -221,8 +221,8 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     for i in 1..=29 {
         let r_ur = cc.mask[(i - 1) as usize];
         let r_dr = cc.mask[i as usize];
-        let r_ul = r_ur << 1;
-        let r_dl = r_dr << 1;
+        let r_ul = (&(r_ur << 1));
+        let r_dl = (&(r_dr << 1));
         boundary_unsearched[i as usize] = r_ur | r_dr | r_ul | r_dl | !(r_ur | r_dr | r_ul | r_dl)
     }
     for k in 1..=29 {
@@ -233,9 +233,9 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             let mut row_above = cc.mask[(i - 1) as usize];
             let mut row_below = cc.mask[i as usize];
             let mut inward_direction = get_inward_direction(row_above, row_below, j);
-            let i0 = i;
-            let j0 = j;
-            let dir0 = inward_direction;
+            let i0 = (&i);
+            let j0 = (&j);
+            let dir0 = (&inward_direction);
             let mut prev_angle_change1 = 0;
             let mut prev_angle_change2 = 0;
             let mut total_angle_change = 0;
