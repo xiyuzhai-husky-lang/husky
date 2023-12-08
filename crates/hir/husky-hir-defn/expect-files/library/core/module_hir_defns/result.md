@@ -860,6 +860,7 @@
                                         HirEagerExprEntry {
                                             data: Todo,
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
                                             data: Block {
@@ -868,6 +869,7 @@
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },

@@ -109,3 +109,5 @@ pub trait FluffyTermEngine<'a>: Sized {
         format!("{:?}", self.expr_region_data().path().debug(self.db()))
     }
 }
+
+pub trait FluffyTermEngineMut<'a>: FluffyTermEngine<'a> {}

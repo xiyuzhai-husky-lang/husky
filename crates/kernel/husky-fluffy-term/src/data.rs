@@ -79,14 +79,20 @@ impl<'a> FluffyTermData<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => {
-                if parameter_variable.is_some() {
-                    todo!()
+                if let Some(parameter_variable) = parameter_variable {
+                    format!(
+                        "<{}: {}> -> {}",
+                        parameter_variable.show(db, terms),
+                        parameter_ty.show(db, terms),
+                        return_ty.show(db, terms)
+                    )
+                } else {
+                    format!(
+                        "{} -> {}",
+                        parameter_ty.show(db, terms),
+                        return_ty.show(db, terms)
+                    )
                 }
-                format!(
-                    "{} -> {}",
-                    parameter_ty.show(db, terms),
-                    return_ty.show(db, terms)
-                )
             }
             FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => "_i".to_string(),
@@ -94,7 +100,7 @@ impl<'a> FluffyTermData<'a> {
                 HoleKind::ImplicitType => "_t".to_string(),
                 HoleKind::Any => "_a".to_string(),
             },
-            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Category(_) => "Type".to_string(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
@@ -118,7 +124,7 @@ impl<'a> FluffyTermData<'a> {
                 RitchieKind::Trait(_) => todo!(),
             },
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Variable { ty } => "variableTodo".to_string(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -193,12 +199,15 @@ impl FluffyTerm {
         }
     }
 
+    /// `None` means the notion is not applicable,
+    /// because the term is either a non type or a conceptual type
     #[deprecated(note = "ad hoc implementation")]
     pub fn is_always_copyable(
         self,
-        engine: &impl FluffyTermEngine,
+        db: &::salsa::Db,
+        terms: &FluffyTerms,
     ) -> FluffyTermResult<Option<bool>> {
-        match self.base_ty_data(engine) {
+        match self.base_ty_data_inner(db, terms) {
             FluffyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path,
@@ -206,7 +215,7 @@ impl FluffyTerm {
                 ty_ethereal_term,
             } => match ty_ethereal_term {
                 Some(ty_ethereal_term) => {
-                    is_ty_term_always_copyable(ty_ethereal_term, engine.db()).map_err(Into::into)
+                    is_ty_term_always_copyable(ty_ethereal_term, db).map_err(Into::into)
                 }
                 None => todo!(),
             },
@@ -217,13 +226,13 @@ impl FluffyTerm {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => todo!(),
+            } => Ok(None),
             FluffyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(Some(true)),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyBaseTypeData::Category(_) => todo!(),
+            FluffyBaseTypeData::Category(_) => Ok(None),
             FluffyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
