@@ -12,7 +12,7 @@ pub enum MnistLabel {
     Seven,
     Eight,
     Nine,
-} 
+}
 
 pub struct BinaryImage28([u32; 30]);
 

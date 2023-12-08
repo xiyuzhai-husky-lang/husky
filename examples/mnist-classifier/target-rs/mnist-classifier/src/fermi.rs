@@ -3,7 +3,7 @@ use crate::*;
 pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<ConcaveComponent>>>,
     pub others: Vec<Leash<ConcaveComponent>>,
-} 
+}
 
 impl FermiMatchResult {
     pub fn __constructor(matches: Vec<Option<Leash<ConcaveComponent>>>, others: Vec<Leash<ConcaveComponent>>) -> Self {
