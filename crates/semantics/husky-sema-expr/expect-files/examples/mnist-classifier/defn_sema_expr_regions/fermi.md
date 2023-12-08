@@ -1265,6 +1265,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    self_contract: Leash,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
@@ -1305,6 +1306,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Leash,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 69,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -1601,6 +1617,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         9,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
@@ -1645,6 +1662,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 72,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -2073,6 +2105,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         16,
                                     ),
+                                    self_contract: BorrowMut,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         43,
                                     ),
@@ -2117,6 +2150,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: BorrowMut,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 87,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {
@@ -2264,6 +2312,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         15,
                                     ),
+                                    self_contract: BorrowMut,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
@@ -2308,6 +2357,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: BorrowMut,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 86,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {
@@ -5499,6 +5563,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
@@ -5531,6 +5596,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 87,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -6042,6 +6122,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
@@ -6086,6 +6167,25 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 53,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {
@@ -8388,6 +8488,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
@@ -8420,6 +8521,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 87,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -8931,6 +9047,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
@@ -8975,6 +9092,25 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 53,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {
@@ -11297,6 +11433,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
@@ -11329,6 +11466,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 87,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -11840,6 +11992,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         13,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
@@ -11872,6 +12025,25 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 53,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -11936,6 +12108,7 @@
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
@@ -11980,6 +12153,25 @@
                                                         ),
                                                     ),
                                                 ),
+                                                self_value_parameter: FluffyRitchieRegularParameter {
+                                                    contract: Pure,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 53,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyRitchieRegularParameter {

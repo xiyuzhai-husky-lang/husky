@@ -52,7 +52,7 @@ impl ConcaveComponent {
         let dp_norm = curve_ls.displacement().norm();
         for i in self.strokes.start()..self.strokes.end() {
             let point = self.strokes[i as usize].end;
-            let point_dist = curve_ls.dist_to_point(&point);
+            let point_dist = curve_ls.dist_to_point((&point));
             if point_dist > hausdorff_norm {
                 hausdorff_norm = point_dist
             }
@@ -65,7 +65,7 @@ impl ConcaveComponent {
         let mut dp0 = self.strokes[self.strokes.start() as usize].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
             let dp = self.strokes[i as usize].displacement();
-            angle_change += dp0.angle_to(&dp, true);
+            angle_change += dp0.angle_to((&dp), true);
             dp0 = dp
         }
         return angle_change;
@@ -88,7 +88,7 @@ impl ConcaveComponent {
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.line_segment_sketch.bounding_box().relative_bounding_box(&self.bounding_box())
+        self.line_segment_sketch.bounding_box().relative_bounding_box((&self.bounding_box()))
     }
 
     pub fn line_segment(self) -> LineSegment {

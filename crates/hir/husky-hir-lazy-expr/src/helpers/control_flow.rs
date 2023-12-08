@@ -195,6 +195,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             HirLazyExprData::Todo => (),
             HirLazyExprData::Unreachable => (),
             HirLazyExprData::AssociatedFn { .. } => (),
+            HirLazyExprData::As { opd, .. } => self.expr_has_control_flow(opd)?,
         }
         HasControlFlow::False
     }

@@ -4,11 +4,11 @@ use husky_regional_token::IdentRegionalToken;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct MethodFnFluffySignature {
-    path: AssociatedItemPath,
-    // todo: self_parameter_contracted_ty
-    parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
-    return_ty: FluffyTerm,
-    instantiation: FluffyInstantiation,
+    pub path: AssociatedItemPath,
+    pub self_value_parameter: FluffyRitchieRegularParameter,
+    pub parenate_parameters: SmallVec<[FluffyRitchieParameter; 4]>,
+    pub return_ty: FluffyTerm,
+    pub instantiation: FluffyInstantiation,
 }
 
 impl MemberSignature for MethodFnFluffySignature {
@@ -24,6 +24,7 @@ impl MethodFnFluffySignature {
     ) -> Self {
         Self {
             path: eth_sig.path().into(),
+            self_value_parameter: eth_sig.self_value_parameter.into(),
             parenate_parameters: eth_sig
                 .parenate_parameters()
                 .iter()
@@ -192,6 +193,11 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     }
     JustOk(MethodFnFluffySignature {
         path: template.path(db).into(),
+        self_value_parameter: template.self_value_parameter(db).instantiate(
+            engine,
+            expr_idx,
+            &mut instantiation_builder,
+        ),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()

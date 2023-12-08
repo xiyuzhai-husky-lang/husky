@@ -672,7 +672,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            10,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -684,31 +684,16 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 286,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     29,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -718,51 +703,44 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 2,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 1,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 3,
+                                                ropd: 2,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 3,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 4,
-                                                opr: As,
-                                                ropd: 5,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     29,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
@@ -772,51 +750,36 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 7,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 5,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 8,
+                                                ropd: 6,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 7,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 9,
-                                                opr: As,
-                                                ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -833,7 +796,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        6,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -851,7 +814,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        11,
+                                                        8,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -861,21 +824,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 9,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -981,7 +946,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            7,
+                            6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -993,69 +958,38 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 288,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 288,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -1072,7 +1006,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        3,
+                                                        2,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1090,7 +1024,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1100,21 +1034,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr_idx: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1243,7 +1179,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            12,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -1255,23 +1191,7 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 288,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -1281,51 +1201,44 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 3,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 2,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 5,
+                                                ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -1335,59 +1248,45 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 7,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 6,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 9,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 8,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 7,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 10,
+                                                ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 288,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -1404,7 +1303,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        6,
+                                                        5,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1422,7 +1321,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        11,
+                                                        10,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1432,21 +1331,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1564,45 +1465,37 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Mul,
@@ -1610,47 +1503,40 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 7,
                                                 opr: Closed(
                                                     Mul,
@@ -1658,9 +1544,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
                                                     Add,
@@ -1668,25 +1555,15 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 11,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 69,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 166,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `sqrt`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1697,14 +1574,16 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -1852,13 +1731,14 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -1868,25 +1748,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 298,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 490,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `to`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1922,25 +1792,15 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 473,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `norm`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1951,14 +1811,16 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -2143,7 +2005,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            7,
+                            6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -2155,69 +2017,38 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 286,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -2234,7 +2065,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        3,
+                                                        2,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2252,7 +2083,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2262,21 +2093,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr_idx: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2405,7 +2238,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            12,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -2417,23 +2250,7 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 288,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -2443,51 +2260,44 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 3,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 2,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 5,
+                                                ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -2497,59 +2307,45 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 7,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 6,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 9,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 8,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 7,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 10,
+                                                ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 288,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -2566,7 +2362,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        6,
+                                                        5,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2584,7 +2380,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        11,
+                                                        10,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2594,21 +2390,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2726,45 +2524,37 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Mul,
@@ -2772,47 +2562,40 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 7,
                                                 opr: Closed(
                                                     Mul,
@@ -2820,9 +2603,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
                                                     Add,
@@ -2830,25 +2614,15 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 11,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 69,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 166,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `sqrt`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2859,14 +2633,16 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -3014,26 +2790,22 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -3043,22 +2815,18 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Mul,
@@ -3066,28 +2834,25 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -3097,22 +2862,18 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 7,
                                                 opr: Closed(
                                                     Mul,
@@ -3120,9 +2881,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
                                                     Add,
@@ -3130,14 +2892,16 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -3291,26 +3055,22 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -3320,22 +3080,18 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Mul,
@@ -3343,28 +3099,25 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -3374,22 +3127,18 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 7,
                                                 opr: Closed(
                                                     Mul,
@@ -3397,9 +3146,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
                                                     Sub,
@@ -3407,14 +3157,16 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -3556,7 +3308,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            29,
+                            28,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -3568,48 +3320,34 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 473,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `norm`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3620,9 +3358,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Div,
@@ -3630,37 +3369,29 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            1.0,
+                                                        ),
+                                                        text: "1.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 5,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 168,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `min`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3690,9 +3421,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -3702,21 +3434,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            1.0,
+                                                        ),
+                                                        text: "1.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 8,
                                                 opr: Closed(
                                                     Add,
@@ -3724,21 +3459,24 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 31,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            0.001,
+                                                        ),
+                                                        text: "0.001f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 10,
                                                 opr: Comparison(
                                                     Less,
@@ -3746,9 +3484,10 @@
                                                 ropd: 11,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -3758,75 +3497,66 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Prefix {
+                                            data: HirEagerExprData::Prefix {
                                                 opr: Minus,
                                                 opd_hir_expr_idx: 15,
                                             },
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 17,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 267,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 18,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 70,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 169,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `sgnx`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3837,33 +3567,24 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 19,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 19,
-                                                opr: As,
-                                                ropd: 20,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -3873,25 +3594,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 22,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 73,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 172,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 21,
+                                                self_contract: Pure,
+                                                ident: `acos`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3902,68 +3613,77 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 21,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 20,
                                                 opr: Closed(
                                                     Mul,
                                                 ),
-                                                ropd: 23,
+                                                ropd: 22,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 24,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 23,
                                                 opr: Closed(
                                                     Mul,
                                                 ),
-                                                ropd: 25,
+                                                ropd: 24,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 32,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            3.1415925,
+                                                        ),
+                                                        text: "3.1415926f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 26,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 25,
                                                 opr: Closed(
                                                     Div,
                                                 ),
-                                                ropd: 27,
+                                                ropd: 26,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     5..7,
                                                 ),
                                             },
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -4011,7 +3731,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 28,
+                                            expr_idx: 27,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4201,13 +3921,14 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -4217,25 +3938,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 349,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 475,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `cross`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4271,25 +3982,15 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 70,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 169,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `sgnx`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4300,14 +4001,16 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -4476,7 +4179,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            42,
+                            41,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -4488,29 +4191,19 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 473,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `norm`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4521,9 +4214,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -4533,21 +4227,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            0.0,
+                                                        ),
+                                                        text: "0.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 3,
                                                 opr: Comparison(
                                                     Greater,
@@ -4555,9 +4252,10 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -4567,25 +4265,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 473,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `norm`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4596,9 +4284,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -4608,21 +4297,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            0.0,
+                                                        ),
+                                                        text: "0.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 8,
                                                 opr: Comparison(
                                                     Greater,
@@ -4630,15 +4322,17 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -4648,25 +4342,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 11,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 348,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 474,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `dot`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4702,9 +4386,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -4714,9 +4399,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -4726,9 +4412,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 14,
                                                 opr: Closed(
                                                     Mul,
@@ -4736,9 +4423,10 @@
                                                 ropd: 15,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 13,
                                                 opr: Closed(
                                                     Div,
@@ -4746,37 +4434,29 @@
                                                 ropd: 16,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            1.0,
+                                                        ),
+                                                        text: "1.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 17,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 168,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `min`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4806,9 +4486,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -4818,21 +4499,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            1.0,
+                                                        ),
+                                                        text: "1.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 20,
                                                 opr: Closed(
                                                     Add,
@@ -4840,21 +4524,24 @@
                                                 ropd: 21,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 31,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            0.001,
+                                                        ),
+                                                        text: "0.001f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 22,
                                                 opr: Comparison(
                                                     Less,
@@ -4862,9 +4549,10 @@
                                                 ropd: 23,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -4874,46 +4562,53 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Prefix {
+                                            data: HirEagerExprData::Prefix {
                                                 opr: Minus,
                                                 opd_hir_expr_idx: 27,
                                             },
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -4923,25 +4618,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 29,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 353,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 477,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `rotation_direction_to`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4977,33 +4662,24 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 31,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 31,
-                                                opr: As,
-                                                ropd: 32,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5013,25 +4689,15 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 34,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 73,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 172,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 33,
+                                                self_contract: Pure,
+                                                ident: `acos`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5042,19 +4708,21 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 33,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 32,
                                                 opr: Closed(
                                                     Mul,
                                                 ),
-                                                ropd: 35,
+                                                ropd: 34,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5064,58 +4732,66 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            180.0,
+                                                        ),
+                                                        text: "180.0f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 37,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 36,
                                                 opr: Closed(
                                                     Mul,
                                                 ),
-                                                ropd: 38,
+                                                ropd: 37,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                F32(
-                                                    TermF32Literal(
-                                                        Id {
-                                                            value: 32,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::F32(
+                                                    TermF32Literal {
+                                                        value: OrderedFloat(
+                                                            3.1415925,
+                                                        ),
+                                                        text: "3.1415926f32",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 39,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 38,
                                                 opr: Closed(
                                                     Div,
                                                 ),
-                                                ropd: 40,
+                                                ropd: 39,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     6..12,
                                                 ),
                                             },
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -5167,10 +4843,10 @@
                                                 pattern_expr_idx: 4,
                                                 ty: None,
                                             },
-                                            initial_value: 36,
+                                            initial_value: 35,
                                         },
                                         Eval {
-                                            expr_idx: 41,
+                                            expr_idx: 40,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5500,7 +5176,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            29,
+                            28,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -5512,45 +5188,37 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Comparison(
                                                     Greater,
@@ -5558,47 +5226,40 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 6,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 7,
                                                 opr: Closed(
                                                     Sub,
@@ -5606,9 +5267,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -5618,41 +5280,33 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 11,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 13,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 12,
                                                 opr: Closed(
                                                     Sub,
@@ -5660,9 +5314,10 @@
                                                 ropd: 14,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5672,9 +5327,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 15,
                                                 opr: Closed(
                                                     Div,
@@ -5682,9 +5338,10 @@
                                                 ropd: 16,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -5694,41 +5351,33 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 18,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 20,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 19,
                                                 opr: Closed(
                                                     Sub,
@@ -5736,9 +5385,10 @@
                                                 ropd: 21,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5748,9 +5398,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 22,
                                                 opr: Closed(
                                                     Div,
@@ -5758,25 +5409,10 @@
                                                 ropd: 23,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 289,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5786,9 +5422,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -5798,17 +5435,11 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 289,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 25,
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -5825,7 +5456,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        26,
+                                                        25,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
@@ -5849,7 +5480,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        27,
+                                                        26,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
@@ -5865,14 +5496,16 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..6,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
@@ -5906,7 +5539,7 @@
                                             initial_value: 24,
                                         },
                                         Eval {
-                                            expr_idx: 28,
+                                            expr_idx: 27,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6102,45 +5735,37 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 2,
                                                 opr: Closed(
                                                     Sub,
@@ -6148,9 +5773,10 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -6160,28 +5786,25 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 7,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 6,
                                                 opr: Closed(
                                                     Sub,
@@ -6189,9 +5812,10 @@
                                                 ropd: 8,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -6201,9 +5825,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 9,
                                                 opr: Closed(
                                                     Div,
@@ -6211,14 +5836,16 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..3,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -6456,7 +6083,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            12,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -6468,42 +6095,22 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 291,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -6513,38 +6120,23 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 358,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 493,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 2,
+                                                self_contract: Pure,
+                                                ident: `relative_range`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6564,7 +6156,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -6574,28 +6166,25 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 7,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 6,
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -6605,38 +6194,23 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 9,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 358,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 493,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 7,
+                                                self_contract: Pure,
+                                                ident: `relative_range`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6648,6 +6222,55 @@
                                                     Regular(
                                                         HirRitchieRegularParameter {
                                                             contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 58,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        9,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: false,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: None,
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 58,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        5,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
@@ -6666,76 +6289,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 291,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [],
-                                                    separator: None,
-                                                },
-                                                item_groups: [
-                                                    Regular(
-                                                        HirRitchieRegularParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 58,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        6,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Regular(
-                                                        HirRitchieRegularParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 58,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        11,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6870,7 +6440,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            12,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -6882,42 +6452,22 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 287,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 1,
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -6927,38 +6477,23 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 4,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 3,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 3,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 361,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 494,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 2,
+                                                self_contract: Pure,
+                                                ident: `relative_point`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6978,7 +6513,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -6988,28 +6523,25 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 7,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 6,
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -7019,38 +6551,23 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
-                                                owner_hir_expr_idx: 9,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 266,
-                                                        },
-                                                    ),
-                                                ),
+                                            data: HirEagerExprData::PropsStructField {
+                                                owner_hir_expr_idx: 8,
+                                                ident: `x`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 8,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 361,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 494,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 7,
+                                                self_contract: Pure,
+                                                ident: `relative_point`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7062,6 +6579,55 @@
                                                     Regular(
                                                         HirRitchieRegularParameter {
                                                             contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 15,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        9,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: None,
+                                                },
+                                                item_groups: [
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 15,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        5,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: Transient,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
@@ -7080,76 +6646,23 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: TypeConstructorFnCall {
-                                                path: TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 1,
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [],
-                                                    separator: None,
-                                                },
-                                                item_groups: [
-                                                    Regular(
-                                                        HirRitchieRegularParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 15,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        6,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Regular(
-                                                        HirRitchieRegularParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 15,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        11,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr_idx: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -7267,44 +6780,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -7423,44 +6928,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -7579,44 +7076,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -7735,44 +7224,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -7963,44 +7444,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -8119,44 +7592,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 362,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -8275,44 +7740,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 59,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -8431,44 +7888,36 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 363,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: PropsStructField {
+                                            data: HirEagerExprData::PropsStructField {
                                                 owner_hir_expr_idx: 2,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 54,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },

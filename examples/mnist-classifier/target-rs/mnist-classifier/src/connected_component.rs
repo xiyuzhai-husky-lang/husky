@@ -33,7 +33,7 @@ impl EffHoles {
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len();
     require!(len > 4.0f32);
-    Some(len + 0.0f32)
+    (Some(len + 0.0f32))
 }
 
 pub struct ConnectedComponent {
@@ -108,7 +108,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
 
 impl ConnectedComponent {
     pub fn raw_contours(self) -> Vec<RawContour> {
-        find_raw_contours(&self)
+        find_raw_contours((&self))
     }
 
     pub fn eff_holes(self) -> EffHoles {

@@ -4,13 +4,17 @@ mod html;
 pub use self::call_list::*;
 pub use self::html::*;
 
-use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
+use crate::{coersion::HirEagerCoersion, symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{instantiation::HirInstantiation, place::HirPlace, HirConstSymbol};
+use husky_hir_ty::{
+    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirConstSymbol,
+    HirType,
+};
 use husky_print_utils::p;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
+use husky_sema_opr::binary::SemaBinaryOpr;
 use husky_syn_expr::InheritedSynSymbolKind;
 use vec_like::VecMap;
 
@@ -19,6 +23,7 @@ pub type HirEagerExprIdx = ArenaIdx<HirEagerExprEntry>;
 pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExprEntry>;
 pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     pub data: HirEagerExprData,
@@ -53,6 +58,10 @@ pub enum HirEagerExprData {
         opd_hir_expr_idx: HirEagerExprIdx,
         opr: HirSuffixOpr,
     },
+    As {
+        opd: HirEagerExprIdx,
+        ty: HirType,
+    },
     TypeConstructorFnCall {
         path: TypePath,
         instantiation: HirInstantiation,
@@ -84,6 +93,7 @@ pub enum HirEagerExprData {
     },
     MethodFnCall {
         self_argument: HirEagerExprIdx,
+        self_contract: HirEagerContract,
         ident: Ident,
         path: AssociatedItemPath,
         instantiation: HirInstantiation,
@@ -123,20 +133,12 @@ impl ToHirEager for SemaExprIdx {
                     _ => unreachable!(),
                 })
             }
-            SemaExprData::PrincipalEntityPath {
-                path_expr_idx: _,
-                path,
-                ty_path_disambiguation: _,
-            } => {
+            SemaExprData::PrincipalEntityPath { path, .. } => {
                 // ad hoc
                 HirEagerExprData::PrincipalEntityPath(*path)
             }
             SemaExprData::AssociatedItem {
-                parent_expr_idx: _,
-                parent_path: _,
-                colon_colon_regional_token: _,
-                ident_token: _,
-                static_dispatch,
+                static_dispatch, ..
             } => match static_dispatch {
                 StaticDispatch::AssociatedFn(signature) => HirEagerExprData::AssociatedFn {
                     associated_item_path: signature.path(),
@@ -144,10 +146,9 @@ impl ToHirEager for SemaExprIdx {
                 StaticDispatch::AssociatedGn => unreachable!(),
             },
             &SemaExprData::InheritedSynSymbol {
-                ident: _,
-                regional_token_idx: _,
                 inherited_syn_symbol_idx,
                 inherited_syn_symbol_kind,
+                ..
             } => match inherited_syn_symbol_kind {
                 InheritedSynSymbolKind::TemplateParameter(_) => todo!(),
                 InheritedSynSymbolKind::ParenateParameter { .. }
@@ -158,21 +159,14 @@ impl ToHirEager for SemaExprIdx {
                 ),
             },
             &SemaExprData::CurrentSynSymbol {
-                ident: _,
-                regional_token_idx: _,
                 current_syn_symbol_idx,
-                current_syn_symbol_kind: _,
+                ..
             } => HirEagerExprData::Variable(
                 builder
                     .current_syn_symbol_to_hir_eager_runtime_symbol(current_syn_symbol_idx)
                     .unwrap(),
             ),
-            SemaExprData::FrameVarDecl {
-                regional_token_idx: _,
-                ident: _,
-                frame_var_symbol_idx: _,
-                current_syn_symbol_kind: _,
-            } => todo!(),
+            SemaExprData::FrameVarDecl { .. } => todo!(),
             SemaExprData::SelfType(_) => {
                 unreachable!()
             }
@@ -180,15 +174,17 @@ impl ToHirEager for SemaExprIdx {
                 HirEagerExprData::Variable(builder.self_value_variable().unwrap())
             }
             &SemaExprData::Binary {
-                lopd,
-                opr,
-                opr_regional_token_idx: _,
-                dispatch: _,
-                ropd,
-            } => HirEagerExprData::Binary {
-                lopd: lopd.to_hir_eager(builder),
-                opr: HirBinaryOpr::from_sema(opr),
-                ropd: ropd.to_hir_eager(builder),
+                lopd, opr, ropd, ..
+            } => match opr {
+                SemaBinaryOpr::As => HirEagerExprData::As {
+                    opd: lopd.to_hir_eager(builder),
+                    ty: builder.hir_ty(ropd).unwrap(),
+                },
+                _ => HirEagerExprData::Binary {
+                    lopd: lopd.to_hir_eager(builder),
+                    opr: HirBinaryOpr::from_sema(opr),
+                    ropd: ropd.to_hir_eager(builder),
+                },
             },
             SemaExprData::Be {
                 src,
@@ -310,12 +306,13 @@ impl ToHirEager for SemaExprIdx {
                 },
             },
             SemaExprData::MethodApplication { .. } => todo!(),
-            SemaExprData::MethodFnCall {
+            &SemaExprData::MethodFnCall {
                 self_argument_sema_expr_idx,
+                self_contract,
                 ident_token,
-                dispatch,
-                template_arguments,
-                ritchie_parameter_argument_matches,
+                ref dispatch,
+                ref template_arguments,
+                ref ritchie_parameter_argument_matches,
                 ..
             } => {
                 let MethodFluffySignature::MethodFn(signature) = dispatch.signature() else {
@@ -323,6 +320,7 @@ impl ToHirEager for SemaExprIdx {
                 };
                 HirEagerExprData::MethodFnCall {
                     self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
+                    self_contract: HirEagerContract::from_term(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
                     instantiation: HirInstantiation::from_fluffy(
@@ -432,11 +430,6 @@ impl ToHirEager for SemaExprIdx {
             .place()
             .map(|place| HirPlace::from_fluffy(place))
             .unwrap_or(HirPlace::Transient);
-        use salsa::DebugWithDb;
-        p!(
-            data.debug(builder.db()),
-            ty.show(builder.db(), builder.fluffy_terms())
-        );
         let entry = HirEagerExprEntry {
             data,
             ty_place,

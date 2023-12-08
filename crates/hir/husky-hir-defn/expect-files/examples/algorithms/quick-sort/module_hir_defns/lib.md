@@ -139,7 +139,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            12,
+                            10,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -151,7 +151,7 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -163,30 +163,20 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
+                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 1,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 148,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 226,
-                                                            },
-                                                        ),
-                                                    ),
+                                                self_contract: Pure,
+                                                ident: `len`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            Type(
+                                                            HirTemplateSymbol::Type(
                                                                 Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
@@ -195,9 +185,9 @@
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            Explicit(
-                                                                Type(
-                                                                    Symbol(
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
                                                                         Type {
                                                                             attrs: HirTemplateSymbolAttrs {
                                                                                 class: Comptime,
@@ -217,25 +207,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Fugitive(
-                                                        FugitivePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 253,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -247,21 +222,21 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 0,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -271,63 +246,47 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                USize(
-                                                    TermUSizeLiteral(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::USize(
+                                                    TermUSizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 6,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 5,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 7,
+                                                ropd: 6,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 46,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 7,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 8,
-                                                opr: As,
-                                                ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: FunctionFnCall {
-                                                path: FugitivePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 253,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 3,
+                                            data: HirEagerExprData::FunctionFnCall {
+                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -344,7 +303,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        4,
+                                                        3,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
@@ -370,7 +329,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Const,
@@ -388,7 +347,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        10,
+                                                        8,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -398,14 +357,16 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..3,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -419,7 +380,7 @@
                                             initial_value: 2,
                                         },
                                         Eval {
-                                            expr_idx: 11,
+                                            expr_idx: 9,
                                             coersion: None,
                                             discarded: false,
                                         },
@@ -680,7 +641,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            23,
+                            20,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -692,7 +653,7 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -702,9 +663,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -714,9 +676,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
+                                            data: HirEagerExprData::Binary {
                                                 lopd: 1,
                                                 opr: Comparison(
                                                     Less,
@@ -724,25 +687,10 @@
                                                 ropd: 2,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Fugitive(
-                                                        FugitivePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 254,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -754,9 +702,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -766,9 +715,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -778,17 +728,11 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: FunctionFnCall {
-                                                path: FugitivePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 254,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 4,
+                                            data: HirEagerExprData::FunctionFnCall {
+                                                path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -805,7 +749,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
@@ -814,6 +758,30 @@
                                                                             ShiftedU32(
                                                                                 1,
                                                                             ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 9,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        5,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_place: StackPure {
+                                                                    location: StackLocationIdx(
+                                                                        ShiftedU32(
+                                                                            2,
                                                                         ),
                                                                     ),
                                                                 },
@@ -837,30 +805,6 @@
                                                                 expectee_place: StackPure {
                                                                     location: StackLocationIdx(
                                                                         ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Regular(
-                                                        HirRitchieRegularParameter {
-                                                            contract: Pure,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 9,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        7,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_place: StackPure {
-                                                                    location: StackLocationIdx(
-                                                                        ShiftedU32(
                                                                             3,
                                                                         ),
                                                                     ),
@@ -871,25 +815,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Fugitive(
-                                                        FugitivePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 253,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -901,9 +830,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -913,9 +843,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -925,39 +856,33 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 12,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 10,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 13,
+                                                ropd: 11,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: FunctionFnCall {
-                                                path: FugitivePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 253,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 9,
+                                            data: HirEagerExprData::FunctionFnCall {
+                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -974,7 +899,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        10,
+                                                        8,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
@@ -1000,7 +925,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        11,
+                                                        9,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
@@ -1024,7 +949,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        14,
+                                                        12,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1034,25 +959,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Fugitive(
-                                                        FugitivePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 253,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -1064,9 +974,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -1076,31 +987,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 18,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 15,
                                                 opr: Closed(
                                                     Add,
                                                 ),
-                                                ropd: 19,
+                                                ropd: 16,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -1110,17 +1022,11 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: FunctionFnCall {
-                                                path: FugitivePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 253,
-                                                        },
-                                                    ),
-                                                ),
-                                                function_hir_eager_expr_idx: 16,
+                                            data: HirEagerExprData::FunctionFnCall {
+                                                path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
                                                     separator: None,
@@ -1137,7 +1043,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        17,
+                                                        14,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: RefMut {
@@ -1163,7 +1069,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        20,
+                                                        17,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -1181,7 +1087,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        21,
+                                                        18,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
@@ -1197,14 +1103,16 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     4..5,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -1215,10 +1123,10 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
-                                            initial_value: 8,
+                                            initial_value: 7,
                                         },
                                         Eval {
-                                            expr_idx: 15,
+                                            expr_idx: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1229,7 +1137,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 22,
+                                            expr_idx: 19,
                                             coersion: None,
                                             discarded: false,
                                         },
@@ -1515,7 +1423,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            63,
+                            56,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -1527,7 +1435,7 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -1537,33 +1445,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 1,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 1,
-                                                opr: As,
-                                                ropd: 2,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
@@ -1573,31 +1472,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 4,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 3,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 5,
+                                                ropd: 4,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
@@ -1607,17 +1507,19 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                Bool(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::Bool(
                                                     true,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1627,31 +1529,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 9,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 8,
                                                 opr: AssignClosed(
                                                     Add,
                                                 ),
-                                                ropd: 10,
+                                                ropd: 9,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -1663,9 +1566,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1675,42 +1579,34 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 12,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 13,
-                                                opr: As,
-                                                ropd: 14,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Index {
-                                                owner_hir_expr_idx: 12,
+                                            data: HirEagerExprData::Index {
+                                                owner_hir_expr_idx: 11,
                                                 items: [
-                                                    15,
+                                                    13,
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -1722,9 +1618,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -1734,28 +1631,31 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Index {
-                                                owner_hir_expr_idx: 17,
+                                            data: HirEagerExprData::Index {
+                                                owner_hir_expr_idx: 15,
                                                 items: [
-                                                    18,
+                                                    16,
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 16,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 14,
                                                 opr: Comparison(
                                                     Less,
                                                 ),
-                                                ropd: 19,
+                                                ropd: 17,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1765,31 +1665,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 21,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 19,
                                                 opr: AssignClosed(
                                                     Add,
                                                 ),
-                                                ropd: 22,
+                                                ropd: 20,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1799,31 +1700,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 24,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 22,
                                                 opr: AssignClosed(
                                                     Sub,
                                                 ),
-                                                ropd: 25,
+                                                ropd: 23,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1833,31 +1735,32 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 0,
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 27,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 25,
                                                 opr: Comparison(
                                                     Geq,
                                                 ),
-                                                ropd: 28,
+                                                ropd: 26,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -1869,9 +1772,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -1881,131 +1785,129 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
+                                            data: HirEagerExprData::As {
+                                                opd: 29,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Index {
+                                                owner_hir_expr_idx: 28,
+                                                items: [
+                                                    30,
+                                                ],
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: false,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                1,
+                                            ),
+                                            ty_place: RefMut {
+                                                guard: Left(
+                                                    StackLocationIdx(
+                                                        ShiftedU32(
+                                                            1,
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 31,
-                                                opr: As,
-                                                ropd: 32,
                                             },
-                                            ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Index {
-                                                owner_hir_expr_idx: 30,
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Index {
+                                                owner_hir_expr_idx: 32,
                                                 items: [
                                                     33,
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
-                                                1,
-                                            ),
-                                            ty_place: RefMut {
-                                                guard: Left(
-                                                    StackLocationIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
-                                                4,
-                                            ),
-                                            ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Index {
-                                                owner_hir_expr_idx: 35,
-                                                items: [
-                                                    36,
-                                                ],
-                                            },
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 34,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 31,
                                                 opr: Comparison(
                                                     Greater,
                                                 ),
-                                                ropd: 37,
+                                                ropd: 34,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 29,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 27,
                                                 opr: ShortCircuitLogic(
                                                     And,
+                                                ),
+                                                ropd: 35,
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                6,
+                                            ),
+                                            ty_place: MutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::ISize(
+                                                    TermISizeLiteral {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 37,
+                                                opr: AssignClosed(
+                                                    Sub,
                                                 ),
                                                 ropd: 38,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
-                                                6,
-                                            ),
-                                            ty_place: MutableStackOwned {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Literal(
-                                                ISize(
-                                                    TermISizeLiteral(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Const,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 40,
-                                                opr: AssignClosed(
-                                                    Sub,
-                                                ),
-                                                ropd: 41,
-                                            },
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2015,9 +1917,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2027,19 +1930,21 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 43,
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 40,
                                                 opr: Comparison(
                                                     Geq,
                                                 ),
-                                                ropd: 44,
+                                                ropd: 41,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -2051,9 +1956,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2063,33 +1969,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 44,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 47,
-                                                opr: As,
-                                                ropd: 48,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2099,54 +1996,34 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 46,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 50,
-                                                opr: As,
-                                                ropd: 51,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 46,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 149,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 227,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 43,
+                                                self_contract: BorrowMut,
+                                                ident: `swap`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            Type(
+                                                            HirTemplateSymbol::Type(
                                                                 Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
@@ -2155,9 +2032,9 @@
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            Explicit(
-                                                                Type(
-                                                                    Symbol(
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
                                                                         Type {
                                                                             attrs: HirTemplateSymbolAttrs {
                                                                                 class: Comptime,
@@ -2170,10 +2047,10 @@
                                                             ),
                                                         ),
                                                         (
-                                                            Type(
+                                                            HirTemplateSymbol::Type(
                                                                 SelfLifetime,
                                                             ),
-                                                            SelfLifetime,
+                                                            HirTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -2192,7 +2069,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        49,
+                                                        45,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2210,7 +2087,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        52,
+                                                        47,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2220,9 +2097,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: RefMut {
@@ -2234,9 +2112,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2246,33 +2125,24 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 50,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 55,
-                                                opr: As,
-                                                ropd: 56,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
@@ -2282,54 +2152,34 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: PrincipalEntityPath(
-                                                MajorItem(
-                                                    Type(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::As {
+                                                opd: 52,
+                                                ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
                                                 ),
-                                            ),
-                                            ty_place: Transient,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: Binary {
-                                                lopd: 58,
-                                                opr: As,
-                                                ropd: 59,
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: MethodFnCall {
-                                                self_argument: 54,
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 149,
-                                                        },
-                                                    ),
-                                                ),
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 227,
-                                                            },
-                                                        ),
-                                                    ),
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 49,
+                                                self_contract: BorrowMut,
+                                                ident: `swap`,
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            Type(
+                                                            HirTemplateSymbol::Type(
                                                                 Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
@@ -2338,9 +2188,9 @@
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            Explicit(
-                                                                Type(
-                                                                    Symbol(
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
                                                                         Type {
                                                                             attrs: HirTemplateSymbolAttrs {
                                                                                 class: Comptime,
@@ -2353,10 +2203,10 @@
                                                             ),
                                                         ),
                                                         (
-                                                            Type(
+                                                            HirTemplateSymbol::Type(
                                                                 SelfLifetime,
                                                             ),
-                                                            SelfLifetime,
+                                                            HirTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
                                                     separator: Some(
@@ -2375,7 +2225,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        57,
+                                                        51,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2393,7 +2243,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        60,
+                                                        53,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Transient,
@@ -2403,9 +2253,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Variable(
+                                            data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
@@ -2415,9 +2266,10 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     10..16,
                                                 ),
@@ -2429,13 +2281,14 @@
                                                     ),
                                                 ),
                                             },
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 23,
+                                            expr_idx: 21,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2446,7 +2299,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 42,
+                                            expr_idx: 39,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2458,7 +2311,7 @@
                                         },
                                         Break,
                                         Eval {
-                                            expr_idx: 53,
+                                            expr_idx: 48,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2469,7 +2322,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 11,
+                                            expr_idx: 10,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2481,7 +2334,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 20,
+                                                hir_eager_expr_idx: 18,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -2489,7 +2342,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 26,
+                                            expr_idx: 24,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2501,7 +2354,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 39,
+                                                hir_eager_expr_idx: 36,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -2511,7 +2364,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 45,
+                                                    hir_eager_expr_idx: 42,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -2532,25 +2385,25 @@
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
-                                            initial_value: 3,
+                                            initial_value: 2,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
-                                            initial_value: 6,
+                                            initial_value: 5,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
-                                            initial_value: 7,
+                                            initial_value: 6,
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 8,
+                                                hir_eager_expr_idx: 7,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -2558,7 +2411,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 61,
+                                            expr_idx: 54,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2569,7 +2422,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 62,
+                                            expr_idx: 55,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2760,94 +2613,105 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     4,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     65,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     2,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     31,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Prefix {
+                                            data: HirEagerExprData::Prefix {
                                                 opr: Minus,
                                                 opd_hir_expr_idx: 4,
                                             },
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     0,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     99,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     2,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     83,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     782,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                I32(
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::I32(
                                                     1,
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: NewList {
+                                            data: HirEagerExprData::NewList {
                                                 items: [
                                                     1,
                                                     2,
@@ -2862,14 +2726,16 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },
@@ -2997,79 +2863,73 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 18,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "beach",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "hotel",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 20,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "airplane",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "car",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 22,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "house",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Literal(
-                                                String(
-                                                    StringLiteralData(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
+                                            data: HirEagerExprData::Literal(
+                                                TermLiteral::String(
+                                                    StringLiteralData {
+                                                        data: "art",
+                                                    },
                                                 ),
                                             ),
                                             ty_place: Const,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: NewList {
+                                            data: HirEagerExprData::NewList {
                                                 items: [
                                                     1,
                                                     2,
@@ -3080,14 +2940,16 @@
                                                 ],
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: Block {
+                                            data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             },
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
                                         },
                                     ],
                                 },

@@ -39,7 +39,7 @@ impl HirBinaryOpr {
                 panic!("In operator is not expected in HirBinaryOpr")
             }
             SemaBinaryOpr::As => {
-                panic!("As is not supported in HirBinaryOpr")
+                panic!("As is not considered as an operator in HirBinaryOpr")
             }
         }
     }

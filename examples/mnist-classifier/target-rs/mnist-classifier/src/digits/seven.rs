@@ -1,24 +1,24 @@
 use super::*;
 
 pub fn simple_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
+    fermi_match(major_concave_components(), (&vec![simple_leftdown_pattern]))
 }
 
 pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
-    Some(-dp.y)
+    (Some(-dp.y))
 }
 
 pub fn special_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
+    fermi_match(major_concave_components(), (&vec![leftupcc_pattern, leftdowncc_pattern]))
 }
 
 pub fn leftupcc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
     require!(cc.relative_bounding_box().ymax() > 0.6f32);
-    Some(cc.end().y)
+    (Some(cc.end().y))
 }
 
 pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -27,7 +27,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     require!(cc.relative_bounding_box().ymin() < 0.3f32);
     let ang = cc.start_tangent().angle(true);
     require!(ang < 30.0f32);
-    Some(ang)
+    (Some(ang))
 }
 
 pub fn is_seven() -> OneVsAll {

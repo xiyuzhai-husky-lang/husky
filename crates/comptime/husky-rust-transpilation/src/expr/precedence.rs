@@ -100,7 +100,6 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
                 BinaryShortcuitLogicOpr::And => RustPrecedence::And,
                 BinaryShortcuitLogicOpr::Or => RustPrecedence::Or,
             },
-            HirBinaryOpr::As => RustPrecedence::As,
         },
         HirEagerExprData::Be { .. } => RustPrecedence::Be,
         HirEagerExprData::Prefix { .. }
@@ -114,5 +113,6 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::MethodFnCall { .. }
         | HirEagerExprData::Index { .. } => RustPrecedence::Suffix,
         HirEagerExprData::Block { .. } => RustPrecedence::None,
+        HirEagerExprData::As { .. } => RustPrecedence::As,
     }
 }

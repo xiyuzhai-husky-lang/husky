@@ -113,4 +113,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn cyclic_slice_leashed_ty(&mut self) {
         self.write_str("CyclicSliceLeashed")
     }
+
+    pub(crate) fn lpar(&mut self) {
+        self.write_str("(")
+    }
+
+    pub(crate) fn rpar(&mut self) {
+        self.write_str(")")
+    }
 }

@@ -7,6 +7,7 @@ use crate::{
 };
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyTermBase, FluffyTerms};
+use husky_hir_ty::HirType;
 use husky_sema_expr::{
     SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
@@ -170,6 +171,10 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub fn db(&self) -> &'a ::salsa::Db {
         self.db
+    }
+
+    pub(crate) fn hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
+        HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
     }
 
     pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EtherealTerm {

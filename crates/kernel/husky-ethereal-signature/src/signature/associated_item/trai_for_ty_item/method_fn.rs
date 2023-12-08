@@ -99,11 +99,11 @@ fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
-    path: TraitForTypeItemPath,
-    instantiation: EtherealInstantiation,
-    self_value_parameter: EtherealRitchieParameter,
-    parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
-    return_ty: EtherealTerm,
+    pub path: TraitForTypeItemPath,
+    pub instantiation: EtherealInstantiation,
+    pub self_value_parameter: EtherealRitchieRegularParameter,
+    pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
+    pub return_ty: EtherealTerm,
 }
 
 impl TraitForTypeMethodFnEtherealSignature {

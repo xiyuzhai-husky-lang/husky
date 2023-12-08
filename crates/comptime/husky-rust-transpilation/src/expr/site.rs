@@ -18,11 +18,13 @@ impl HirEagerExprSite {
     /// `self` refers to the parent expr on site
     pub(crate) fn self_expr_on_site(
         &self,
-        coersion: HirEagerCoersion,
+        self_value_place: HirPlace,
         contract: HirEagerContract,
     ) -> Self {
         let mut location_contract_map = self.location_contract_map.clone();
-        if let Some(location) = coersion.place_after_coersion().location() {
+        if let Some(location) = self_value_place.location()
+            && contract != HirEagerContract::At
+        {
             location_contract_map.insert((location, contract))
         }
         Self {
