@@ -98,6 +98,17 @@ impl HirInstantiation {
         self.symbol_map.as_ref()
     }
 
+    pub fn places(&self) -> SmallVec<[HirPlace; 2]> {
+        self.symbol_map
+            .iter()
+            .filter_map(|&(_, res)| match res {
+                HirTermSymbolResolution::Explicit(_) => None,
+                HirTermSymbolResolution::SelfLifetime => None,
+                HirTermSymbolResolution::SelfPlace(place) => Some(place),
+            })
+            .collect()
+    }
+
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }

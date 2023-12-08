@@ -103,6 +103,12 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
     pub(crate) fn ne_zero(&mut self) {
         self.write_str(" != 0")
     }
+
+    pub(crate) fn method_fn_ident_mut(&mut self, ident: Ident) {
+        let db = self.db;
+        self.write_str(ident.data(db));
+        self.write_str("_mut")
+    }
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
