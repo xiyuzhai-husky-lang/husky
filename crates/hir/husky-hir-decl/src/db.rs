@@ -2,6 +2,8 @@ use crate::*;
 
 #[salsa::jar(db = HirDeclDb)]
 pub struct HirDeclJar(
+    // attr
+    crate::decl::attr::attr_hir_decl,
     // template
     item_hir_template_parameter_stats,
     submodule_hir_decl,

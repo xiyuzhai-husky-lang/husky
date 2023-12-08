@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawContour {
     pub cc: Leash<ConnectedComponent>,
     pub points: Vec<Point2d>,
@@ -14,6 +15,7 @@ impl RawContour {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Direction {
     Up,
     Left,
@@ -191,6 +193,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,

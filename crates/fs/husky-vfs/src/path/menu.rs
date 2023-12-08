@@ -12,7 +12,9 @@ pub struct VfsPathMenu {
     core_array: SubmodulePath,
     core_basic: SubmodulePath,
     core_clone: SubmodulePath,
+    core_cmp: SubmodulePath,
     core_default: SubmodulePath,
+    core_fmt: SubmodulePath,
     core_vec: SubmodulePath,
     core_marker: SubmodulePath,
     core_mem: SubmodulePath,
@@ -63,10 +65,22 @@ impl VfsPathMenu {
             Ident::from_ref(db, "clone").expect("should be valid identifier"),
         )
         .expect("should be valid");
+        let core_cmp = ModulePath::new_child(
+            db,
+            core_root,
+            Ident::from_ref(db, "cmp").expect("should be valid identifier"),
+        )
+        .expect("should be valid");
         let core_default = ModulePath::new_child(
             db,
             core_root,
             Ident::from_ref(db, "default").expect("should be valid identifier"),
+        )
+        .expect("should be valid");
+        let core_fmt = ModulePath::new_child(
+            db,
+            core_root,
+            Ident::from_ref(db, "fmt").expect("should be valid identifier"),
         )
         .expect("should be valid");
         let core_vec = ModulePath::new_child(
@@ -151,7 +165,9 @@ impl VfsPathMenu {
             core_array,
             core_basic,
             core_clone,
+            core_cmp,
             core_default,
+            core_fmt,
             core_marker,
             core_mem,
             core_num,
@@ -189,6 +205,14 @@ impl VfsPathMenu {
 
     pub fn core_clone(&self) -> SubmodulePath {
         self.core_clone
+    }
+
+    pub fn core_cmp(&self) -> SubmodulePath {
+        self.core_cmp
+    }
+
+    pub fn core_fmt(&self) -> SubmodulePath {
+        self.core_fmt
     }
 
     pub fn core_default(&self) -> SubmodulePath {

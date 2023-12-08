@@ -10,6 +10,7 @@ pub use self::line_segment::*;
 
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<Point2d>,
     pub start: Point2d,
@@ -28,6 +29,7 @@ impl LineSegmentStroke {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentSketch {
     pub contour: Leash<RawContour>,
     pub strokes: Vec<LineSegmentStroke>,

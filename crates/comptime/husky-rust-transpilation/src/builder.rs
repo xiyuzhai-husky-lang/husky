@@ -27,11 +27,13 @@ use husky_hir_ty::{
 };
 use husky_print_utils::p;
 use husky_term_prelude::TermLiteral;
+use husky_vfs::Toolchain;
 
 const INDENT_UNIT: u32 = 4;
 
 pub(crate) struct RustTranspilationBuilderBase<'a> {
-    db: &'a ::salsa::Db,
+    pub(crate) db: &'a ::salsa::Db,
+    pub(crate) toolchain: Toolchain,
     result: String,
     current_indent: u32,
     is_list_start: Option<bool>,
@@ -39,9 +41,14 @@ pub(crate) struct RustTranspilationBuilderBase<'a> {
 }
 
 impl<'a> RustTranspilationBuilderBase<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, result: Option<&'static str>) -> Self {
+    pub(crate) fn new(
+        db: &'a ::salsa::Db,
+        toolchain: Toolchain,
+        result: Option<&'static str>,
+    ) -> Self {
         Self {
             db,
+            toolchain,
             result: result.unwrap_or_default().to_string(),
             current_indent: 0,
             is_list_start: None,

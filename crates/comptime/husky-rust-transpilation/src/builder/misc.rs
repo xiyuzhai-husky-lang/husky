@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::SubmoduleItemPath;
+use husky_entity_path::{SubmoduleItemPath, TraitPath};
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
 use husky_manifest::PackageDependency;
 use husky_vfs::SubmodulePath;
@@ -120,5 +120,13 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn rpar(&mut self) {
         self.write_str(")")
+    }
+
+    pub(crate) fn derive(&mut self, trais: &[TraitPath]) {
+        self.on_fresh_line(|builder| {
+            builder.write_str("#[derive");
+            builder.bracketed_comma_list(RustBracket::Par, trais);
+            builder.write_str("]\n")
+        })
     }
 }

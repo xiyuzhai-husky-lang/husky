@@ -1,12 +1,12 @@
 #![feature(iter_advance_by)]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
-mod db;
-mod decl;
-mod error;
-mod parameter;
-mod parser;
-mod sheet;
+pub mod db;
+pub mod decl;
+pub mod error;
+pub mod parameter;
+pub mod parser;
+pub mod sheet;
 #[cfg(test)]
 mod tests;
 
