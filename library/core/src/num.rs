@@ -8,6 +8,8 @@ pub trait __U32X: Copy {
     fn co(self) -> i32;
 
     fn right_mass(self) -> i32;
+
+    fn last_bits(self, k: i32) -> u32;
 }
 
 impl __U32X for u32 {
@@ -26,6 +28,10 @@ impl __U32X for u32 {
     }
 
     fn right_mass(self) -> i32 {
+        todo!()
+    }
+
+    fn last_bits(self, k: i32) -> u32 {
         todo!()
     }
 }
