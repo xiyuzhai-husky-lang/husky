@@ -11,13 +11,13 @@ pub use self::line_segment::*;
 use crate::*;
 
 pub struct LineSegmentStroke {
-    pub points: Leash<CyclicSlice<Point2d>>,
+    pub points: CyclicSliceLeashed<Point2d>,
     pub start: Point2d,
     pub end: Point2d,
 } 
 
 impl LineSegmentStroke {
-    pub fn __constructor(points: Leash<CyclicSlice<Point2d>>) -> Self {
+    pub fn __constructor(points: CyclicSliceLeashed<Point2d>) -> Self {
         let start = points.first().unwrap().clone();
         let end = points.last().unwrap().clone();
         Self{

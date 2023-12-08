@@ -1,5 +1,5 @@
 use either::*;
-use husky_entity_path::PreludeContainerTypePath;
+use husky_entity_path::{PreludeContainerTypePath, PreludeIndirectionTypePath, PreludeIntTypePath};
 use husky_hir_ty::ritchie::{HirRitchieParameter, HirRitchieType};
 use husky_term_prelude::RitchieTypeKind;
 
@@ -24,6 +24,18 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                         debug_assert_eq!(template_arguments.len(), 1);
                         builder.bracketed(RustBracket::Box, |builder| {
                             template_arguments[0].transpile_to_rust(builder)
+                        })
+                    }
+                    Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::Leash))
+                        if let HirTemplateArgument::Type(HirType::PathLeading(inner_ty)) =
+                            template_arguments[0]
+                            && inner_ty.ty_path(db).refine(db)
+                                == Left(PreludeTypePath::CYCLIC_SLICE) =>
+                    {
+                        debug_assert_eq!(template_arguments.len(), 1);
+                        builder.cyclic_slice_leashed_ty();
+                        builder.bracketed(RustBracket::Angle, |builder| {
+                            inner_ty.template_arguments(db)[0].transpile_to_rust(builder)
                         })
                     }
                     _ => {
