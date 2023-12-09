@@ -144,6 +144,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(".into_inner()")
     }
 
+    #[deprecated(note = "remove this; no need to conver to not nan")]
     pub(crate) fn new_not_nan(&mut self, ident: Ident) {
         self.write_str("NotNan::new(");
         ident.transpile_to_rust(self);
