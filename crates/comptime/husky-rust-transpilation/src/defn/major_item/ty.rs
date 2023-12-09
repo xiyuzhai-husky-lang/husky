@@ -108,6 +108,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
                                             .transpile_to_rust(builder)
                                     })
                                 }
+                                #[deprecated(note = "remove this; no need to conver to not nan")]
                                 if field.ty().is_float(db) {
                                     builder.on_fresh_semicolon_line(|builder| {
                                         builder.keyword(RustKeyword::Let);
@@ -137,6 +138,7 @@ struct HirEagerParenateParameterFromField {
     ty: HirType,
 }
 
+#[deprecated(note = "remove this; no need to conver to not nan")]
 struct FieldHirType(HirType);
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameterFromField {
@@ -147,6 +149,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameterFromFi
     }
 }
 
+#[deprecated(note = "remove this; no need to conver to not nan")]
 impl TranspileToRustWith<HirEagerExprRegion> for FieldHirType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
