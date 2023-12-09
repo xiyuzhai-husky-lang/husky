@@ -134,6 +134,20 @@ pub fn crate_module_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<Module
     module_paths
 }
 
+pub trait HasModulePaths: is::Is<CratePath> {
+    fn module_paths<'a>(self, db: &'a salsa::Db) -> &'a [ModulePath];
+}
+
+impl<T> HasModulePaths for T
+where
+    T: is::Is<CratePath>,
+{
+    fn module_paths<'a>(self, db: &'a salsa::Db) -> &'a [ModulePath] {
+        let slf = self.into();
+        crate_module_paths(db, slf)
+    }
+}
+
 pub fn collect_module_paths(
     module_path: ModulePath,
     module_paths: &mut Vec<ModulePath>,

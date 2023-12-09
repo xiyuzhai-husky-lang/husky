@@ -1,5 +1,6 @@
 #![allow(warnings, non_snake_case)]
 use husky_core::*;
+::ad_hoc_task_dependency::init_crate!();
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum MnistLabel {

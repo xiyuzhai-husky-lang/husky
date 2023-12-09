@@ -7,7 +7,13 @@ mod ty_variant;
 
 use crate::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
+use husky_entity_kind::{
+    AssociatedItemKind, EntityKind, FugitiveKind, MajorItemKind, TraitItemKind, TypeItemKind,
+};
+use husky_entity_path::{ItemPath, MajorItemPath};
+use husky_entity_syn_tree::helpers::paths::{
+    crate_module_paths, module_item_paths, module_submodule_item_paths, HasModulePaths,
+};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,
@@ -27,17 +33,29 @@ pub(crate) fn module_defn_rust_transpilation(
     setup: TranspilationSetup,
 ) -> String {
     let is_root = module_path.is_root(db);
-    let mut builder_base = RustTranspilationBuilderBase::new(
-        db,
-        module_path.toolchain(db),
-        setup,
-        is_root.then_some(
-            r#"#![allow(warnings, non_snake_case)]
+    let result = if is_root {
+        if crate_has_ingredients(db, module_path.crate_path(db)) {
+            Some(format!(
+                r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
+::{}::init_crate!();
 
 "#,
-        ),
-    );
+                setup.rust_data(db).unwrap().task_dependency_ident.data(db)
+            ))
+        } else {
+            Some(format!(
+                r#"#![allow(warnings, non_snake_case)]
+    use husky_core::*;
+    
+    "#
+            ))
+        }
+    } else {
+        None
+    };
+    let mut builder_base =
+        RustTranspilationBuilderBase::new(db, module_path.toolchain(db), setup, result);
     let mut builder: RustTranspilationBuilder = RustTranspilationBuilder::new(&mut builder_base);
     let submodule_paths = module_submodule_item_paths(db, module_path);
     // declare submodules
@@ -82,6 +100,69 @@ use husky_core::*;
         }
     }
     builder_base.finish()
+}
+
+fn crate_has_ingredients(db: &::salsa::Db, crate_path: CratePath) -> bool {
+    crate_path
+        .module_paths(db)
+        .iter()
+        .copied()
+        .any(|module_path| module_has_ingredients(db, module_path))
+}
+
+fn module_has_ingredients(db: &::salsa::Db, module_path: ModulePath) -> bool {
+    module_item_paths(db, module_path)
+        .iter()
+        .copied()
+        .any(|item_path| is_ingredient(item_path, db))
+}
+
+fn is_ingredient(path: ItemPath, db: &::salsa::Db) -> bool {
+    match path.item_kind(db) {
+        EntityKind::Module => false,
+        EntityKind::MajorItem {
+            module_item_kind,
+            connection,
+        } => match module_item_kind {
+            MajorItemKind::Type(_) => false,
+            MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
+                FugitiveKind::FunctionFn => false,
+                // gn doesn't directly needs jars
+                FugitiveKind::FunctionGn => false,
+                FugitiveKind::AliasType => false,
+                FugitiveKind::Val => true,
+            },
+            MajorItemKind::Trait => false,
+        },
+        EntityKind::AssociatedItem {
+            associated_item_kind,
+        } => match associated_item_kind {
+            AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
+                TraitItemKind::MethodFn => false,
+                TraitItemKind::AssociatedType => false,
+                TraitItemKind::AssociatedVal => true,
+                TraitItemKind::AssociatedFunctionFn => false,
+            },
+            AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
+                TypeItemKind::MethodFn => false,
+                TypeItemKind::AssociatedFunctionFn => false,
+                TypeItemKind::AssociatedVal => true,
+                TypeItemKind::AssociatedType => false,
+                TypeItemKind::MemoizedField => true,
+            },
+            AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
+                match trai_for_ty_item_kind {
+                    TraitItemKind::MethodFn => false,
+                    TraitItemKind::AssociatedType => false,
+                    TraitItemKind::AssociatedVal => true,
+                    TraitItemKind::AssociatedFunctionFn => false,
+                }
+            }
+        },
+        EntityKind::TypeVariant => false,
+        EntityKind::ImplBlock => false,
+        EntityKind::Attr => false,
+    }
 }
 
 #[test]

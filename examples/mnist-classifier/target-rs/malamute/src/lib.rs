@@ -1,5 +1,7 @@
 #![allow(warnings, non_snake_case)]
-use husky_core::*;
+    use husky_core::*;
+    
+    
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Class<Label> {
