@@ -1,6 +1,6 @@
 use super::*;
 
-#[ad_hoc_task_dependency::val_item_return_ref(38)]
+#[ad_hoc_task_dependency::val_item(ingredient_index = 38, return_ref)]
 pub fn simple_seven_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
@@ -11,7 +11,7 @@ pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     Some(-dp.y.into_inner())
 }
 
-#[ad_hoc_task_dependency::val_item_return_ref(39)]
+#[ad_hoc_task_dependency::val_item(ingredient_index = 39, return_ref)]
 pub fn special_seven_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }
@@ -32,7 +32,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     Some(ang)
 }
 
-#[ad_hoc_task_dependency::val_item(40)]
+#[ad_hoc_task_dependency::val_item(ingredient_index = 40)]
 pub fn is_seven() -> OneVsAll {
     require!(let none = is_six());
     require!(let none = is_zero());

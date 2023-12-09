@@ -88,10 +88,10 @@ impl IngredientPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub(crate) struct IngredientIndex(usize);
+pub(crate) struct IngredientIndex(u32);
 
 impl IngredientIndex {
-    pub(crate) fn raw(self) -> usize {
+    pub(crate) fn raw(self) -> u32 {
         self.0
     }
 }
@@ -119,5 +119,5 @@ fn item_path_ingredient_index(
         .ingredient_paths(db)
         .iter()
         .position(|ingredient_path| *ingredient_path.item_path == item_path_id)
-        .map(IngredientIndex)
+        .map(|raw| IngredientIndex(raw.try_into().unwrap()))
 }

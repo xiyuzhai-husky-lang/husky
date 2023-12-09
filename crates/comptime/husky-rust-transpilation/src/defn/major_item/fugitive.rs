@@ -50,16 +50,22 @@ impl TranspileToRustWith for ValHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
+        let body_with_hir_expr_region = self.body_with_hir_expr_region(db).unwrap();
+        let is_lazy = match body_with_hir_expr_region {
+            (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) => false,
+            _ => true,
+        };
         builder.val_item_attr(
             hir_decl.path(db).into(),
+            is_lazy,
             hir_decl.return_ty(db).always_copyable(db),
         );
         hir_decl.transpile_to_rust(builder);
-        match self.body_with_hir_expr_region(db) {
-            Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) => {
+        match self.body_with_hir_expr_region(db).unwrap() {
+            (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) => {
                 builder.eager_body(hir_eager_expr_region, body)
             }
-            _ => builder.empty_curly_block(),
+            _ => builder.omitted_curly_block(),
         }
     }
 }

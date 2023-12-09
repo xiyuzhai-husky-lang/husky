@@ -7,12 +7,7 @@ use syn::{Ident, ItemFn, ReturnType, Signature};
 
 #[proc_macro_attribute]
 pub fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
-    val_item::val_item_aux(input, false)
-}
-
-#[proc_macro_attribute]
-pub fn val_item_return_ref(args: TokenStream, input: TokenStream) -> TokenStream {
-    val_item::val_item_aux(input, true)
+    val_item::val_item(args, input)
 }
 
 #[proc_macro_attribute]
