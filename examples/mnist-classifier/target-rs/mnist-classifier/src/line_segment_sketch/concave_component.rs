@@ -38,17 +38,17 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
 }
 
 impl ConcaveComponent {
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(15)]
 pub fn norm(&'static self) -> f32 {
         self.hausdorff_norm()
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(16)]
 pub fn rel_norm(&'static self) -> f32 {
         self.norm() / self.displacement().norm()
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(17)]
 pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
         let curve_start = &self.strokes.first().unwrap().start;
@@ -64,7 +64,7 @@ pub fn hausdorff_norm(&'static self) -> f32 {
         return hausdorff_norm;
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(18)]
 pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
         let mut dp0 = self.strokes[self.strokes.start() as usize].displacement();
@@ -76,7 +76,7 @@ pub fn angle_change(&'static self) -> f32 {
         return angle_change;
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(19)]
 pub fn bounding_box(&'static self) -> BoundingBox {
         let start_point = &self.strokes.first().unwrap().start;
         let mut xmin = start_point.x.into_inner();
@@ -93,7 +93,7 @@ pub fn bounding_box(&'static self) -> BoundingBox {
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(20)]
 pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
         self.line_segment_sketch.bounding_box().relative_bounding_box(&self.bounding_box())
     }

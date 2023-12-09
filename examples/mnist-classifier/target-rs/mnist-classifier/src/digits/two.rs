@@ -1,6 +1,6 @@
 use super::*;
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(46)]
 pub fn two_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
@@ -23,7 +23,7 @@ pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     Some(dp.x.into_inner())
 }
 
-#[ad_hoc_task_dependency::val_item]
+#[ad_hoc_task_dependency::val_item(47)]
 pub fn is_two() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_three());

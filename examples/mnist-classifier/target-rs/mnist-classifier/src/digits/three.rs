@@ -1,11 +1,11 @@
 use super::*;
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(31)]
 pub fn three_fermi_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
-#[ad_hoc_task_dependency::val_item]
+#[ad_hoc_task_dependency::val_item(32)]
 pub fn is_three() -> OneVsAll {
     require!(major_concave_components().ilen() >= 2);
     require!(major_concave_components().ilen() <= 4);

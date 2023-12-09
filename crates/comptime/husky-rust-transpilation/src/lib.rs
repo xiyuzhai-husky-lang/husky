@@ -7,6 +7,7 @@ pub mod db;
 mod defn;
 mod expr;
 mod fmt;
+mod ingredient;
 mod linkage;
 mod manifest;
 mod package;

@@ -5,7 +5,7 @@ mod major_item;
 mod submodule;
 mod ty_variant;
 
-use crate::*;
+use crate::{ingredient::HasIngredientPaths, *};
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_kind::{
     AssociatedItemKind, EntityKind, FugitiveKind, MajorItemKind, TraitItemKind, TypeItemKind,
@@ -34,7 +34,7 @@ pub(crate) fn module_defn_rust_transpilation(
 ) -> String {
     let is_root = module_path.is_root(db);
     let result = if is_root {
-        if crate_has_ingredients(db, module_path.crate_path(db)) {
+        if module_path.crate_path(db).has_ingredients(db) {
             Some(format!(
                 r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
@@ -100,69 +100,6 @@ use husky_core::*;
         }
     }
     builder_base.finish()
-}
-
-fn crate_has_ingredients(db: &::salsa::Db, crate_path: CratePath) -> bool {
-    crate_path
-        .module_paths(db)
-        .iter()
-        .copied()
-        .any(|module_path| module_has_ingredients(db, module_path))
-}
-
-fn module_has_ingredients(db: &::salsa::Db, module_path: ModulePath) -> bool {
-    module_item_paths(db, module_path)
-        .iter()
-        .copied()
-        .any(|item_path| is_ingredient(item_path, db))
-}
-
-fn is_ingredient(path: ItemPath, db: &::salsa::Db) -> bool {
-    match path.item_kind(db) {
-        EntityKind::Module => false,
-        EntityKind::MajorItem {
-            module_item_kind,
-            connection,
-        } => match module_item_kind {
-            MajorItemKind::Type(_) => false,
-            MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
-                FugitiveKind::FunctionFn => false,
-                // gn doesn't directly needs jars
-                FugitiveKind::FunctionGn => false,
-                FugitiveKind::AliasType => false,
-                FugitiveKind::Val => true,
-            },
-            MajorItemKind::Trait => false,
-        },
-        EntityKind::AssociatedItem {
-            associated_item_kind,
-        } => match associated_item_kind {
-            AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
-                TraitItemKind::MethodFn => false,
-                TraitItemKind::AssociatedType => false,
-                TraitItemKind::AssociatedVal => true,
-                TraitItemKind::AssociatedFunctionFn => false,
-            },
-            AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
-                TypeItemKind::MethodFn => false,
-                TypeItemKind::AssociatedFunctionFn => false,
-                TypeItemKind::AssociatedVal => true,
-                TypeItemKind::AssociatedType => false,
-                TypeItemKind::MemoizedField => true,
-            },
-            AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
-                match trai_for_ty_item_kind {
-                    TraitItemKind::MethodFn => false,
-                    TraitItemKind::AssociatedType => false,
-                    TraitItemKind::AssociatedVal => true,
-                    TraitItemKind::AssociatedFunctionFn => false,
-                }
-            }
-        },
-        EntityKind::TypeVariant => false,
-        EntityKind::ImplBlock => false,
-        EntityKind::Attr => false,
-    }
 }
 
 #[test]

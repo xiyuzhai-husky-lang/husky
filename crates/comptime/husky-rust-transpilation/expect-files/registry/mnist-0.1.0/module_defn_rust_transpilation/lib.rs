@@ -22,10 +22,8 @@ pub struct BinaryImage28([u32; 30]);
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28([u32; 31]);
 
-#[ad_hoc_task_dependency::val_item_return_ref]
-pub fn input() -> BinaryImage28 {
-    todo!()
-}
+#[ad_hoc_task_dependency::val_item_return_ref(0)]
+pub fn input() -> BinaryImage28 {}
 
 impl BinaryImage28 {
     

@@ -110,12 +110,12 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
 }
 
 impl ConnectedComponent {
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(1)]
 pub fn raw_contours(&'static self) -> Vec<RawContour> {
         find_raw_contours(&self)
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(2)]
 pub fn eff_holes(&'static self) -> EffHoles {
         let mut raw_contours = self.raw_contours().collect_leashes();
         let mut matches: Vec<Option<Leash<RawContour>>> = vec![];
@@ -125,7 +125,7 @@ pub fn eff_holes(&'static self) -> EffHoles {
         return EffHoles::__constructor(matches);
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(3)]
 pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
         let raw_contours = &self.raw_contours();
@@ -138,7 +138,7 @@ pub fn max_hole_ilen(&'static self) -> f32 {
         return max_hole_ilen as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(4)]
 pub fn max_row_span(&'static self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
@@ -147,7 +147,7 @@ pub fn max_row_span(&'static self) -> f32 {
         return max_row as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(5)]
 pub fn row_span_sum(&'static self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
@@ -156,7 +156,7 @@ pub fn row_span_sum(&'static self) -> f32 {
         return row_span_sum as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(6)]
 pub fn distribution(&'static self) -> ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
@@ -189,12 +189,12 @@ pub fn distribution(&'static self) -> ConnectedComponentDistribution {
         return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(7)]
 pub fn upper_mass(&'static self) -> f32 {
         self.distribution().upper_mass as f32
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(8)]
 pub fn lower_mass(&'static self) -> f32 {
         self.distribution().lower_mass as f32
     }
