@@ -149,7 +149,6 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameterFromFi
     }
 }
 
-#[deprecated(note = "remove this; no need to conver to not nan")]
 impl TranspileToRustWith<HirEagerExprRegion> for FieldHirType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
