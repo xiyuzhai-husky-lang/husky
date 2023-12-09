@@ -26,7 +26,7 @@ pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: 
 }
 
 impl FermiMatchResult {
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(21)]
 pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
@@ -35,7 +35,7 @@ pub fn norm(&'static self) -> f32 {
         return norm;
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(22)]
 pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
@@ -44,7 +44,7 @@ pub fn rel_norm(&'static self) -> f32 {
         return norm;
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(23)]
 pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {

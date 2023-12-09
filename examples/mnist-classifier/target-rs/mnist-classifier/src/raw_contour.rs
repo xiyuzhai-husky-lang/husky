@@ -307,12 +307,12 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 }
 
 impl RawContour {
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(9)]
 pub fn line_segment_sketch(&'static self) -> LineSegmentSketch {
         LineSegmentSketch::new(&self, 1.4f32)
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(10)]
 pub fn bounding_box(&'static self) -> BoundingBox {
         let start_point = &self.points[0 as usize];
         let mut xmin = start_point.x.into_inner();
@@ -329,12 +329,12 @@ pub fn bounding_box(&'static self) -> BoundingBox {
         return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref]
+    #[ad_hoc_task_dependency::memoized_field_return_ref(11)]
 pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
         self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
-    #[ad_hoc_task_dependency::memoized_field]
+    #[ad_hoc_task_dependency::memoized_field(12)]
 pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..self.points.ilen() {

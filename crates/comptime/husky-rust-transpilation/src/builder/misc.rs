@@ -150,4 +150,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         ident.transpile_to_rust(self);
         self.write_str(").unwrap()")
     }
+
+    pub(crate) fn empty_curly_block(&mut self) {
+        self.write_str(" {}")
+    }
 }

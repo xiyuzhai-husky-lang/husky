@@ -1,5 +1,23 @@
 use super::*;
 
+pub trait HasItemPaths: Copy {
+    fn item_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [ItemPath] {
+        todo!()
+    }
+}
+
+impl HasItemPaths for ModulePath {
+    fn item_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [ItemPath] {
+        module_item_paths(db, self)
+    }
+}
+
+impl HasItemPaths for CratePath {
+    fn item_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [ItemPath] {
+        crate_item_paths(db, self)
+    }
+}
+
 // include submodules, major items, associated items
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
@@ -90,6 +108,17 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
     }
     paths
 }
+
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath> {
+    crate_path
+        .module_paths(db)
+        .iter()
+        .map(|module_path| module_path.item_paths(db).iter().copied())
+        .flatten()
+        .collect()
+}
+
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn module_submodule_item_paths(
     db: &::salsa::Db,

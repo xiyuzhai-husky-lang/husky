@@ -1,16 +1,16 @@
 use super::*;
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(43)]
 pub fn nine_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![downmost])
 }
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(44)]
 pub fn nine_match_refine() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![big_cc])
 }
 
-#[ad_hoc_task_dependency::val_item]
+#[ad_hoc_task_dependency::val_item(45)]
 pub fn is_nine() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_six());

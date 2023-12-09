@@ -1,6 +1,6 @@
 use super::*;
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(33)]
 pub fn left_components() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
@@ -9,17 +9,17 @@ pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
     Some(cc.relative_bounding_box().xmax())
 }
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(34)]
 pub fn components_max_downwards() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
-#[ad_hoc_task_dependency::val_item_return_ref]
+#[ad_hoc_task_dependency::val_item_return_ref(35)]
 pub fn components_max_heights() -> FermiMatchResult {
     fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
-#[ad_hoc_task_dependency::val_item]
+#[ad_hoc_task_dependency::val_item(36)]
 pub fn is_four() -> OneVsAll {
     require!(let some = left_components().matches[0 as usize]);
     require!(let some = left_components().matches[1 as usize]);
