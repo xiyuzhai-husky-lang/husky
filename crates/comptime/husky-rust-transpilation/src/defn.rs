@@ -106,8 +106,12 @@ use husky_core::*;
 fn module_defn_rust_transpilation_works() {
     let db = &mut DB::default();
     db.ast_expect_test_display(
-        |db, module_path: ModulePath| {
-            let setup = TranspilationSetup::new_ad_hoc(module_path.package_path(db), db);
+        |db, module_path: ModulePath| -> String {
+            let package_path = module_path.package_path(db);
+            if package_path.is_virtual(db) {
+                return "// virtual package".to_string();
+            }
+            let setup = TranspilationSetup::new_ad_hoc(package_path, db);
             crate::defn::module_defn_rust_transpilation(db, module_path, setup).to_string()
         },
         &AstTestConfig::new("module_defn_rust_transpilation")

@@ -151,7 +151,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(").unwrap()")
     }
 
-    pub(crate) fn empty_curly_block(&mut self) {
+    pub(crate) fn omitted_curly_block(&mut self) {
         self.write_str(" {}")
     }
 }

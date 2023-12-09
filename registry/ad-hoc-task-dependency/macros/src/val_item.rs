@@ -1,6 +1,49 @@
 use super::*;
+use syn::ext::IdentExt;
 
-pub(crate) fn val_item_aux(input: TokenStream, return_ref: bool) -> TokenStream {
+type Equals = syn::Token![=];
+type Comma = syn::Token![,];
+
+struct Args {
+    ingredient_index: u32,
+    // default false
+    lazy: bool,
+    // default false
+    return_ref: bool,
+}
+
+impl syn::parse::Parse for Args {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let ident: syn::Ident = syn::Ident::parse_any(input)?;
+        assert!(ident == "ingredient_index");
+        let _eq = Equals::parse(input)?;
+        let lit = syn::LitInt::parse(input)?;
+        let ingredient_index: u32 = lit.base10_parse()?;
+        let mut slf = Self {
+            ingredient_index,
+            lazy: false,
+            return_ref: false,
+        };
+        loop {
+            if input.is_empty() {
+                return Ok(slf);
+            }
+            let _comma = Comma::parse(input)?;
+            let ident: syn::Ident = syn::Ident::parse_any(input)?;
+            if ident == "lazy" {
+                assert!(!slf.lazy);
+                slf.lazy = true
+            } else if ident == "return_ref" {
+                assert!(!slf.return_ref);
+                slf.return_ref = true
+            }
+        }
+        Ok(slf)
+    }
+}
+
+pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
+    let args = syn::parse_macro_input!(args as Args);
     let ItemFn {
         attrs,
         vis,
@@ -24,23 +67,41 @@ pub(crate) fn val_item_aux(input: TokenStream, return_ref: bool) -> TokenStream 
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    if return_ref {
-        quote! {
-            #vis fn #ident() -> &'static #return_ty {
-                todo!()
+    if args.lazy {
+        if args.return_ref {
+            quote! {
+                #vis fn #ident() -> &'static #return_ty {
+                    todo!()
+                }
             }
-
-            #vis fn #aux_ident() -> #return_ty #block
+            .into()
+        } else {
+            quote! {
+                #vis fn #ident() -> #return_ty {
+                    todo!()
+                }
+            }
+            .into()
         }
-        .into()
     } else {
-        quote! {
-            #vis fn #ident() -> #return_ty {
-                todo!()
-            }
+        if args.return_ref {
+            quote! {
+                #vis fn #ident() -> &'static #return_ty {
+                    todo!()
+                }
 
-            #vis fn #aux_ident() -> #return_ty #block
+                #vis fn #aux_ident() -> #return_ty #block
+            }
+            .into()
+        } else {
+            quote! {
+                #vis fn #ident() -> #return_ty {
+                    todo!()
+                }
+
+                #vis fn #aux_ident() -> #return_ty #block
+            }
+            .into()
         }
-        .into()
     }
 }

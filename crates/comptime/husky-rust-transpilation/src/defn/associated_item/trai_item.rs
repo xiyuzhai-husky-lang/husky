@@ -35,6 +35,7 @@ impl TranspileToRustWith for TraitAssociatedValHirDefn {
         let hir_decl = self.hir_decl(db);
         builder.val_item_attr(
             hir_decl.path(db).into(),
+            todo!(),
             hir_decl.return_ty(db).always_copyable(db),
         );
         todo!()
