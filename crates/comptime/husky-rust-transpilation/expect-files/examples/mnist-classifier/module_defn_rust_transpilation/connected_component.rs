@@ -35,7 +35,7 @@ impl EffHoles {
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len();
     require!(len > 4.0f32);
-    (Some(len + 0.0f32))
+    Some(len + 0.0f32)
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -112,7 +112,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
 impl ConnectedComponent {
     #[ad_hoc_task_dependency::memoized_field_return_ref]
 pub fn raw_contours(&'static self) -> Vec<RawContour> {
-        find_raw_contours((&self))
+        find_raw_contours(&self)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref]
@@ -128,7 +128,7 @@ pub fn eff_holes(&'static self) -> EffHoles {
     #[ad_hoc_task_dependency::memoized_field]
 pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
-        let raw_contours = (&self.raw_contours());
+        let raw_contours = &self.raw_contours();
         for i in (0 + 1)..raw_contours.ilen() {
             let hole_ilen = raw_contours[i as usize].points.ilen();
             if max_hole_ilen < hole_ilen {

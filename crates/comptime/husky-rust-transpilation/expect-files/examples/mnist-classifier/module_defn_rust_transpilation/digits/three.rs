@@ -2,7 +2,7 @@ use super::*;
 
 #[ad_hoc_task_dependency::val_item_return_ref]
 pub fn three_fermi_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), (&vec![downarc, uparc, back]))
+    fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
 #[ad_hoc_task_dependency::val_item]
@@ -19,7 +19,7 @@ pub fn is_three() -> OneVsAll {
     require!(de > 0.0f32 || de < -100.0f32);
     let downarc_enpoint = downarc.unwrap().end();
     let uparc_startpoint = uparc.unwrap().start();
-    let distance = downarc_enpoint.dist((&uparc_startpoint));
+    let distance = downarc_enpoint.dist(&uparc_startpoint);
     require!(distance < 20.0f32);
     require!(three_fermi_match().norm() < 2.5f32);
     require!(downarc.unwrap().angle_change() < -100.0f32);

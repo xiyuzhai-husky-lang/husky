@@ -2,7 +2,7 @@ use super::*;
 
 #[ad_hoc_task_dependency::val_item_return_ref]
 pub fn upper_mouth_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), (&vec![big_mouth]))
+    fermi_match(major_concave_components(), &vec![big_mouth])
 }
 
 #[ad_hoc_task_dependency::val_item]
@@ -25,5 +25,5 @@ pub fn big_mouth(cc: Leash<ConcaveComponent>) -> Option<f32> {
     if cc.relative_bounding_box().ymax() > 0.5f32 {
         require!(cc.strokes.first().unwrap().start.x.into_inner() > cc.strokes.first().unwrap().end.x.into_inner());
     }
-    (Some(cc.relative_bounding_box().ymax()))
+    Some(cc.relative_bounding_box().ymax())
 }

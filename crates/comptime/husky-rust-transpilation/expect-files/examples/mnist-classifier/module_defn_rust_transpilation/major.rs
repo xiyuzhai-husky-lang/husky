@@ -16,7 +16,7 @@ pub fn major_connected_component() -> Leash<ConnectedComponent> {
             i0 = i
         }
     }
-    return (&connected_components()[i0 as usize]);
+    return &connected_components()[i0 as usize];
 }
 
 #[ad_hoc_task_dependency::val_item]
@@ -30,20 +30,20 @@ pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
 
 #[ad_hoc_task_dependency::val_item]
 pub fn major_raw_contours() -> Leash<Vec<RawContour>> {
-    (&major_connected_component().raw_contours())
+    &major_connected_component().raw_contours()
 }
 
 #[ad_hoc_task_dependency::val_item]
 pub fn major_raw_contour() -> Leash<RawContour> {
-    (&major_connected_component().raw_contours()[0 as usize])
+    &major_connected_component().raw_contours()[0 as usize]
 }
 
 #[ad_hoc_task_dependency::val_item]
 pub fn major_line_segment_sketch() -> Leash<LineSegmentSketch> {
-    (&major_raw_contour().line_segment_sketch())
+    &major_raw_contour().line_segment_sketch()
 }
 
 #[ad_hoc_task_dependency::val_item]
 pub fn major_concave_components() -> Leash<Vec<ConcaveComponent>> {
-    (&major_line_segment_sketch().concave_components())
+    &major_line_segment_sketch().concave_components()
 }

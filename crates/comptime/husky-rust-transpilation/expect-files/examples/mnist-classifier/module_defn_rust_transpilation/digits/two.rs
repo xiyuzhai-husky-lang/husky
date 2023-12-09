@@ -2,25 +2,25 @@ use super::*;
 
 #[ad_hoc_task_dependency::val_item_return_ref]
 pub fn two_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), (&vec![left_cc_pattern, right_cc_pattern, down_cc_pattern]))
+    fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
-    (Some(dp.y.into_inner()))
+    Some(dp.y.into_inner())
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() > 0.0f32);
-    (Some(dp.y.into_inner()))
+    Some(dp.y.into_inner())
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.x.into_inner() > 0.0f32);
-    (Some(dp.x.into_inner()))
+    Some(dp.x.into_inner())
 }
 
 #[ad_hoc_task_dependency::val_item]
@@ -32,7 +32,7 @@ pub fn is_two() -> OneVsAll {
     require!(let none = is_nine());
     require!(let none = is_six());
     let cc_num = major_concave_components().ilen();
-    let eff_holes = (&major_connected_component().eff_holes());
+    let eff_holes = &major_connected_component().eff_holes();
     require!(let none = eff_holes.matches[1 as usize]);
     let left_cc = two_match().matches[0 as usize];
     let right_cc = two_match().matches[1 as usize];
