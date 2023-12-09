@@ -210,8 +210,8 @@ impl StreakCache {
 
 pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
     let N = points.ilen();
-    let p0 = (&points[(N - 2) as usize]);
-    let p2 = (&points[(N - 1) as usize]);
+    let p0 = &points[(N - 2) as usize];
+    let p2 = &points[(N - 1) as usize];
     Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
 }
 
@@ -249,16 +249,16 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                     boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                            (*contour.last_mut().unwrap()) = get_concave_middle_point((&contour));
+                            *contour.last_mut().unwrap() = get_concave_middle_point(&contour);
                             contour.push(Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
-                            (*contour.last_mut().unwrap()) = Point2d::from_i_shift28(i, j);
+                            *contour.last_mut().unwrap() = Point2d::from_i_shift28(i, j);
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
-                            (*contour.last_mut().unwrap()) = Point2d::from_i_shift28(i, j);
+                            *contour.last_mut().unwrap() = Point2d::from_i_shift28(i, j);
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else {
@@ -309,18 +309,18 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 impl RawContour {
     #[ad_hoc_task_dependency::memoized_field_return_ref]
 pub fn line_segment_sketch(&'static self) -> LineSegmentSketch {
-        LineSegmentSketch::new((&self), 1.4f32)
+        LineSegmentSketch::new(&self, 1.4f32)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref]
 pub fn bounding_box(&'static self) -> BoundingBox {
-        let start_point = (&self.points[0 as usize]);
+        let start_point = &self.points[0 as usize];
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
         let mut ymin = start_point.y.into_inner();
         let mut ymax = start_point.y.into_inner();
         for i in 0..self.points.ilen() {
-            let point = (&self.points[i as usize]);
+            let point = &self.points[i as usize];
             xmin = xmin.min(point.x.into_inner());
             xmax = xmax.max(point.x.into_inner());
             ymin = ymin.min(point.y.into_inner());
@@ -331,27 +331,27 @@ pub fn bounding_box(&'static self) -> BoundingBox {
 
     #[ad_hoc_task_dependency::memoized_field_return_ref]
 pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
-        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box((&self.bounding_box()))
+        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
     #[ad_hoc_task_dependency::memoized_field]
 pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..self.points.ilen() {
-            let a = (&self.points[(i - 1) as usize]);
-            let b = (&self.points[i as usize]);
+            let a = &self.points[(i - 1) as usize];
+            let b = &self.points[i as usize];
             contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs()
         }
-        let a = (&self.points[(self.points.ilen() - 1) as usize]);
-        let b = (&self.points[0 as usize]);
+        let a = &self.points[(self.points.ilen() - 1) as usize];
+        let b = &self.points[0 as usize];
         contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs();
         return contour_len;
     }
 
     pub fn displacement(&self, start: i32, end: i32) -> Vector2d {
         let N = self.points.ilen();
-        let ct_start = (&self.points[start.rem_euclid(N) as usize]);
-        let ct_end = (&self.points[end.rem_euclid(N) as usize]);
+        let ct_start = &self.points[start.rem_euclid(N) as usize];
+        let ct_end = &self.points[end.rem_euclid(N) as usize];
         ct_start.to(ct_end)
     }
 }

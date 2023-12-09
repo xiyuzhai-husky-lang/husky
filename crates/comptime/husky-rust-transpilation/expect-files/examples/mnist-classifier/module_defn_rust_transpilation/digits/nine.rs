@@ -2,19 +2,19 @@ use super::*;
 
 #[ad_hoc_task_dependency::val_item_return_ref]
 pub fn nine_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), (&vec![downmost]))
+    fermi_match(major_concave_components(), &vec![downmost])
 }
 
 #[ad_hoc_task_dependency::val_item_return_ref]
 pub fn nine_match_refine() -> FermiMatchResult {
-    fermi_match(major_concave_components(), (&vec![big_cc]))
+    fermi_match(major_concave_components(), &vec![big_cc])
 }
 
 #[ad_hoc_task_dependency::val_item]
 pub fn is_nine() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_six());
-    let eff_holes = (&major_connected_component().eff_holes());
+    let eff_holes = &major_connected_component().eff_holes();
     require!(let none = eff_holes.matches[1 as usize]);
     let down_match = nine_match().matches[0 as usize];
     require!(let some = down_match);
@@ -43,12 +43,12 @@ pub fn is_nine() -> OneVsAll {
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
-    (Some(dp.y.into_inner()))
+    Some(dp.y.into_inner())
 }
 
 pub fn big_cc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() > 0.0f32);
     require!(cc.relative_bounding_box().ymin() > 0.4f32);
-    (Some(cc.relative_bounding_box().ymin()))
+    Some(cc.relative_bounding_box().ymin())
 }

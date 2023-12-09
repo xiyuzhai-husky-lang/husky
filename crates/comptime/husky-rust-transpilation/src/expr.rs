@@ -32,21 +32,35 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         let precedence = hir_eager_expr_precedence(data);
         let needs_deref = site.hir_eager_expr_needs_deref(entry);
         if needs_deref {
-            match data {
-                HirEagerExprData::MethodFnCall { ident, .. } if ident.data(db) == "clone" => {
-                    use salsa::DebugWithDb;
-                    p!(entry.debug(db));
-                    todo!()
-                }
-                _ => (),
-            }
             site.rust_bindings.push(RustBinding::Deref)
         }
-        if !site.rust_bindings.is_empty() {
-            site.rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Prefix)
-        }
         let mut wrap_in_some_flag = false;
-        if site.rust_bindings.is_non_trivial() {
+        if let Some(rust_binding) = site.rust_bindings.last() {
+            match rust_binding {
+                RustBinding::Deref
+                | RustBinding::DerefCustomed
+                | RustBinding::Reref
+                | RustBinding::RerefMut => {
+                    site.rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Prefix)
+                }
+                RustBinding::SelfValue => (),
+                RustBinding::WrapInSome => site.rust_precedence_range = RustPrecedenceRange::ANY,
+            }
+        }
+        let needs_extra_pars = site
+            .rust_bindings
+            .first()
+            .map(|rust_binding| match rust_binding {
+                RustBinding::Deref
+                | RustBinding::DerefCustomed
+                | RustBinding::Reref
+                | RustBinding::RerefMut => {
+                    !site.rust_precedence_range.include(RustPrecedence::Prefix)
+                }
+                RustBinding::SelfValue | RustBinding::WrapInSome => false,
+            })
+            .unwrap_or(false);
+        if needs_extra_pars {
             builder.lpar();
         }
         for &rust_binding in &*site.rust_bindings {
@@ -63,7 +77,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
                 RustBinding::WrapInSome => builder.wrap_in_some_left(&mut wrap_in_some_flag),
             }
         }
-        if !wrap_in_some_flag && !site.rust_precedence_range.include(precedence) {
+        if !site.rust_precedence_range.include(precedence) {
             builder.bracketed_list_with(RustBracket::Par, |builder| {
                 site.transpile_hir_eager_expr_to_rust(data, precedence, builder)
             })
@@ -73,7 +87,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if wrap_in_some_flag {
             builder.wrap_in_some_right()
         }
-        if site.rust_bindings.is_non_trivial() {
+        if needs_extra_pars {
             builder.rpar();
         }
     }

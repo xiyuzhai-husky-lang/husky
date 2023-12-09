@@ -194,7 +194,7 @@ impl ClosedRange {
 
 impl BoundingBox {
     pub fn relative_bounding_box(&self, other: &BoundingBox) -> RelativeBoundingBox {
-        RelativeBoundingBox::__constructor(self.xrange.relative_range((&other.xrange)), self.yrange.relative_range((&other.yrange)))
+        RelativeBoundingBox::__constructor(self.xrange.relative_range(&other.xrange), self.yrange.relative_range(&other.yrange))
     }
 
     pub fn relative_point(&self, point: &Point2d) -> RelativePoint2d {
