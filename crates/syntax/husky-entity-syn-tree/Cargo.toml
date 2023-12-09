@@ -13,6 +13,7 @@ smallvec.workspace = true
 salsa.workspace = true
 enum-class.workspace = true
 with-db = { path = "../../abstractions/with-db" }
+is = { path = "../../abstractions/is" }
 idx-arena.workspace = true
 vec-like.workspace = true
 original-error.workspace = true

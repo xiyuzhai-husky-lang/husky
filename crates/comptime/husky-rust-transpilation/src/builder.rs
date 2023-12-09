@@ -48,13 +48,13 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         db: &'a ::salsa::Db,
         toolchain: Toolchain,
         setup: TranspilationSetup,
-        result: Option<&'static str>,
+        result: Option<String>,
     ) -> Self {
         Self {
             db,
             toolchain,
             rust_transpilation_setup_data: setup.rust_data(db).unwrap(),
-            result: result.unwrap_or_default().to_string(),
+            result: result.unwrap_or_default(),
             current_indent: 0,
             is_list_start: None,
             spaced: true,
