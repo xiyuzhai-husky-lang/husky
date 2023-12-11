@@ -110,10 +110,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -155,9 +156,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -189,9 +187,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -231,10 +226,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -266,10 +262,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -301,10 +298,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -359,10 +357,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -386,10 +385,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -431,9 +431,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -473,10 +470,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -508,10 +506,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -551,18 +550,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PathLeading {
-                                        path: JavelinPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                        ),
-                                        instantiation: JavelinInstantiation {
-                                            symbol_resolutions: [],
-                                            separator: None,
-                                        },
-                                    },
-                                },
-                                data: LinkageData::PathLeading,
+                                data: LinkageData::FunctionFnItem(
+                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                ),
                             },
                         ),
                         arguments: [
@@ -639,10 +629,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -684,9 +675,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -718,9 +706,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -774,10 +759,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -801,10 +787,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -828,10 +815,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `y`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -855,9 +843,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -911,10 +896,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -938,10 +924,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `y`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -973,10 +960,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `others`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1008,10 +996,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1087,9 +1076,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1121,10 +1107,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `y`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1282,10 +1269,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `y`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1325,18 +1313,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PathLeading {
-                                        path: JavelinPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                        ),
-                                        instantiation: JavelinInstantiation {
-                                            symbol_resolutions: [],
-                                            separator: None,
-                                        },
-                                    },
-                                },
-                                data: LinkageData::PathLeading,
+                                data: LinkageData::FunctionFnItem(
+                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1443,10 +1422,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1470,9 +1450,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1526,10 +1503,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1553,10 +1531,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1587,10 +1566,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `y`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1677,10 +1657,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1727,18 +1708,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PathLeading {
-                                        path: JavelinPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                        ),
-                                        instantiation: JavelinInstantiation {
-                                            symbol_resolutions: [],
-                                            separator: None,
-                                        },
-                                    },
-                                },
-                                data: LinkageData::PathLeading,
+                                data: LinkageData::FunctionFnItem(
+                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1817,10 +1789,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -1851,10 +1824,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `x`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2008,10 +1982,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2051,18 +2026,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PathLeading {
-                                        path: JavelinPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                        ),
-                                        instantiation: JavelinInstantiation {
-                                            symbol_resolutions: [],
-                                            separator: None,
-                                        },
-                                    },
-                                },
-                                data: LinkageData::PathLeading,
+                                data: LinkageData::FunctionFnItem(
+                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2134,10 +2100,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2221,10 +2188,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2300,10 +2268,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2327,10 +2296,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2372,9 +2342,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2428,10 +2395,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2455,10 +2423,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2534,10 +2503,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2561,10 +2531,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2606,9 +2577,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2640,10 +2608,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2667,10 +2636,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::PropsStructField,
+                                data: LinkageData::PropsStructField {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    instantiation: LinkageInstantiation,
+                                    ident: `matches`,
                                 },
-                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2712,9 +2682,6 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Index,
-                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2768,10 +2735,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::MemoizedField,
-                                },
-                                data: LinkageData::MemoizedField,
+                                data: LinkageData::MemoizedField(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [
@@ -2795,10 +2763,11 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                javelin: Javelin {
-                                    data: JavelinData::Method,
-                                },
-                                data: LinkageData::Method,
+                                data: LinkageData::MethodFn(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                    ),
+                                ),
                             },
                         ),
                         arguments: [

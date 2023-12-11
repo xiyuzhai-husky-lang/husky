@@ -80,6 +80,7 @@ pub enum HirLazyExprData {
     },
     PropsStructField {
         owner: HirLazyExprIdx,
+        owner_base_ty: HirType,
         ident: Ident,
     },
     MemoizedField {
@@ -268,12 +269,19 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::Field {
                 owner_sema_expr_idx,
+                owner_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FluffyFieldSignature::PropsStruct { ty } => HirLazyExprData::PropsStructField {
                     owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                    owner_base_ty: HirType::from_fluffy(
+                        owner_ty,
+                        builder.db(),
+                        builder.fluffy_terms(),
+                    )
+                    .unwrap(),
                     ident: ident_token.ident(),
                 },
                 FluffyFieldSignature::Memoized {

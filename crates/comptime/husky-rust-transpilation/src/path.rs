@@ -8,18 +8,11 @@ use husky_entity_path::{
 
 impl<E> TranspileToRustWith<E> for AssociatedItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db();
         match self {
-            AssociatedItemPath::TypeItem(path) => {
-                path.impl_block(db).ty_path(db).transpile_to_rust(builder)
-            }
-            AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TraitForTypeItem(path) => {
-                todo!()
-            }
+            AssociatedItemPath::TypeItem(slf) => slf.transpile_to_rust(builder),
+            AssociatedItemPath::TraitItem(slf) => slf.transpile_to_rust(builder),
+            AssociatedItemPath::TraitForTypeItem(slf) => slf.transpile_to_rust(builder),
         }
-        builder.punctuation(RustPunctuation::ColonColon);
-        self.ident(db).transpile_to_rust(builder)
     }
 }
 
@@ -112,8 +105,8 @@ impl<E> TranspileToRustWith<E> for PatternPath {
     }
 }
 
-impl TranspileToRustWith<()> for TypeItemPath {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+impl<E> TranspileToRustWith<E> for TypeItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         self.impl_block(db).ty_path(db).transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::ColonColon);
@@ -121,8 +114,8 @@ impl TranspileToRustWith<()> for TypeItemPath {
     }
 }
 
-impl TranspileToRustWith<()> for TraitItemPath {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+impl<E> TranspileToRustWith<E> for TraitItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         self.trai_path(db).transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::ColonColon);
@@ -130,8 +123,8 @@ impl TranspileToRustWith<()> for TraitItemPath {
     }
 }
 
-impl TranspileToRustWith<()> for TraitForTypeItemPath {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+impl<E> TranspileToRustWith<E> for TraitForTypeItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         builder.bracketed(RustBracket::Angle, |builder| {
             match self.impl_block(db).ty_sketch(db) {

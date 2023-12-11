@@ -1,11 +1,13 @@
 #![feature(trait_upcasting)]
 #![feature(associated_type_bounds)]
+pub mod instantiation;
 pub mod jar;
 pub mod linkage;
 #[cfg(test)]
 mod tests;
 pub mod version_stamp;
 
+use self::instantiation::*;
 use self::jar::*;
 use self::linkage::*;
 #[cfg(test)]

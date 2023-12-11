@@ -80,6 +80,7 @@ fn build_val_repr_expansion(
     builder.finish()
 }
 
+// todo: linkage_instantiation
 struct ValReprExpansionBuilder<'a> {
     val_domain_repr: ValDomainRepr,
     body: HirLazyExprIdx,
@@ -362,7 +363,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_item(path, instantiation, self.db));
+                let opn = ValOpn::LinkageImpl(Linkage::new_ty_constructor_fn(
+                    path,
+                    instantiation,
+                    self.db,
+                ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
@@ -373,7 +378,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_item(path, instantiation, self.db));
+                let opn = ValOpn::LinkageImpl(Linkage::new_ty_variant_constructor_fn(
+                    path,
+                    instantiation,
+                    self.db,
+                ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
@@ -384,7 +393,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_item(path, instantiation, self.db));
+                let opn = ValOpn::LinkageImpl(Linkage::new_function_fn_item(
+                    path,
+                    instantiation,
+                    self.db,
+                ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
@@ -395,31 +408,46 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_item(path, instantiation, self.db));
+                let opn = ValOpn::LinkageImpl(Linkage::new_associated_function_fn_item(
+                    path,
+                    instantiation,
+                    self.db,
+                ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
             }
             HirLazyExprData::FunctionGnItemCall { .. } => todo!(),
-            HirLazyExprData::PropsStructField { owner, .. } => (
-                ValOpn::LinkageImpl(Linkage::new_props_struct_field(self.db)),
+            HirLazyExprData::PropsStructField {
+                owner,
+                owner_base_ty,
+                ident,
+                ..
+            } => (
+                ValOpn::LinkageImpl(Linkage::new_props_struct_field(
+                    self.db,
+                    owner_base_ty,
+                    ident,
+                )),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
                 )],
             ),
             HirLazyExprData::MemoizedField {
                 owner,
+                path,
                 ref indirections,
                 ref instantiation,
                 ..
             } => (
-                ValOpn::LinkageImpl(Linkage::new_memoized_field(self.db)),
+                ValOpn::LinkageImpl(Linkage::new_memoized_field(self.db, path)),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
                 )],
             ),
             HirLazyExprData::MethodFnCall {
                 self_argument,
+                path,
                 ref indirections,
                 ref instantiation,
                 ref item_groups,
@@ -429,7 +457,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.build_expr(val_domain_repr_guard, self_argument)
                 )];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
-                (ValOpn::LinkageImpl(Linkage::new_method(self.db)), arguments)
+                (
+                    ValOpn::LinkageImpl(Linkage::new_method(self.db, path)),
+                    arguments,
+                )
             }
             HirLazyExprData::NewTuple { items: _ } => todo!(),
             HirLazyExprData::Index { owner, ref items } => {

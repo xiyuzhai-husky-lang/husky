@@ -62,6 +62,7 @@ impl HirType {
         }
     }
 
+    /// this will ignore the place
     pub fn from_fluffy(
         term: FluffyTerm,
         db: &::salsa::Db,

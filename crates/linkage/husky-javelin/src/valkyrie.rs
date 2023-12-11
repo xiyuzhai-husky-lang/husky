@@ -209,14 +209,14 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => self.try_add_ride(path.into(), instantiation),
-                HirLazyExprData::PropsStructField { owner, ident } => (), // ad hoc
+                HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     owner,
                     ident,
                     path,
                     ref indirections,
                     ref instantiation,
-                } => (), // ad hoc
+                } => self.try_add_ride(path.into(), instantiation),
                 HirLazyExprData::MethodFnCall {
                     path,
                     ref instantiation,

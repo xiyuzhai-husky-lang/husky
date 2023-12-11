@@ -289,12 +289,7 @@ impl<'a> SemaExprEngine<'a> {
             }
             SemaExprData::FunctionFnCall { .. } => todo!(),
             SemaExprData::FunctionGnCall { .. } => todo!(),
-            SemaExprData::Field {
-                owner_sema_expr_idx,
-                dot_regional_token_idx,
-                ident_token,
-                dispatch: field_dispatch,
-            } => todo!(),
+            SemaExprData::Field { .. } => todo!(),
             SemaExprData::MethodApplication { .. } => todo!(),
             SemaExprData::MethodFnCall { .. } => todo!(),
             SemaExprData::MethodGnCall { .. } => todo!(),
