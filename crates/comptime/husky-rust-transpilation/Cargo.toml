@@ -36,6 +36,7 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
 # linkage
+husky-javelin.workspace = true
 husky-linkage.workspace = true
 # semantics
 husky-manifest.workspace = true

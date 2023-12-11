@@ -188,7 +188,7 @@ fn transpile_package_linkages_to_fs(
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_linkages_rust_package_manifest(db, package_path),
+        package_linkages_rust_package_manifest(db, package_path, setup),
         true,
     );
     husky_io_utils::diff_write(

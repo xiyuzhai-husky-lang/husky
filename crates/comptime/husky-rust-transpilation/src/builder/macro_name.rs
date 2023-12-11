@@ -10,6 +10,7 @@ pub enum RustMacroName {
     Assert,
     Matches,
     Unveil,
+    Linkages,
 }
 
 impl RustMacroName {
@@ -24,6 +25,7 @@ impl RustMacroName {
             RustMacroName::Assert => "assert!",
             RustMacroName::Matches => "matches!",
             RustMacroName::Unveil => "unveil!",
+            RustMacroName::Linkages => "linkages!",
         }
     }
 }

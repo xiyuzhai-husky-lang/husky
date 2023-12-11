@@ -175,6 +175,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         f(self);
         self.write_str(";")
     }
+    pub(crate) fn on_fresh_semicolon_paragraph(&mut self, f: impl FnOnce(&mut Self)) {
+        self.fresh_paragraph();
+        f(self);
+        self.write_str(";")
+    }
 
     pub(crate) fn on_fresh_line(&mut self, f: impl FnOnce(&mut Self)) {
         self.fresh_line();
@@ -273,6 +278,28 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             self.fresh_line();
             item.transpile_to_rust(self);
             self.write_str(",")
+        }
+        self.current_indent -= INDENT_UNIT;
+        self.fresh_line();
+        self.write_str(bracket.ket_code());
+    }
+
+    pub(crate) fn bracketed_multiline_comma_list_without_last_comma<A: TranspileToRustWith<E>>(
+        &mut self,
+        bracket: RustBracket,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.write_str(bracket.bra_code());
+        self.current_indent += INDENT_UNIT;
+        let mut start = true;
+        for item in items {
+            if start {
+                start = false
+            } else {
+                self.write_str(",")
+            }
+            self.fresh_line();
+            item.transpile_to_rust(self);
         }
         self.current_indent -= INDENT_UNIT;
         self.fresh_line();
