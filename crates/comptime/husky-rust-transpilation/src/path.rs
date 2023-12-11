@@ -2,7 +2,8 @@ use super::*;
 use either::*;
 use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
-    PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitPath, TypePath, TypeVariantPath,
+    PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
+    TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
 
 impl<E> TranspileToRustWith<E> for AssociatedItemPath {
@@ -108,5 +109,39 @@ impl<E> TranspileToRustWith<E> for PatternPath {
             PatternPath::Type(path) => path.transpile_to_rust(builder),
             PatternPath::TypeVariant(path) => path.transpile_to_rust(builder),
         }
+    }
+}
+
+impl TranspileToRustWith<()> for TypeItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+        let db = builder.db;
+        self.impl_block(db).ty_path(db).transpile_to_rust(builder);
+        builder.punctuation(RustPunctuation::ColonColon);
+        self.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRustWith<()> for TraitItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+        let db = builder.db;
+        self.trai_path(db).transpile_to_rust(builder);
+        builder.punctuation(RustPunctuation::ColonColon);
+        self.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRustWith<()> for TraitForTypeItemPath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
+        let db = builder.db;
+        builder.bracketed(RustBracket::Angle, |builder| {
+            match self.impl_block(db).ty_sketch(db) {
+                TypeSketch::DeriveAny => builder.todo(),
+                TypeSketch::Path(path) => path.transpile_to_rust(builder),
+            }
+            builder.keyword(RustKeyword::As);
+            self.impl_block(db).trai_path(db).transpile_to_rust(builder)
+        });
+        builder.punctuation(RustPunctuation::ColonColon);
+        self.ident(db).transpile_to_rust(builder)
     }
 }

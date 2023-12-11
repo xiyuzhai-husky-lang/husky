@@ -1,29 +1,9 @@
-// todo: Linkage {
-//     javelin: Javelin {
-//         data: JavelinData::PathLeading {
-//             path: JavelinPath::Fugitive(
-//                 FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-//             ),
-//             instantiation: JavelinInstantiation {
-//                 symbol_resolutions: [],
-//                 separator: None,
-//             },
-//         },
-//     },
-//     data: LinkageData::PathLeading,
-// }
+use husky_core::*;
+use ad_hoc_task_dependency::*;
+use quick_sort::*;
 
-// todo: Linkage {
-//     javelin: Javelin {
-//         data: JavelinData::PathLeading {
-//             path: JavelinPath::Fugitive(
-//                 FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-//             ),
-//             instantiation: JavelinInstantiation {
-//                 symbol_resolutions: [],
-//                 separator: None,
-//             },
-//         },
-//     },
-//     data: LinkageData::PathLeading,
-// }
+#[rustfmt::skip]
+linkages![
+    quick_sort_works_for_integers,
+    quick_sort_works_for_strs,
+];

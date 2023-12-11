@@ -154,4 +154,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn omitted_curly_block(&mut self) {
         self.write_str(" {}")
     }
+
+    pub(crate) fn rustfmt_skip(&mut self) {
+        self.result += "#[rustfmt::skip]\n"
+    }
 }

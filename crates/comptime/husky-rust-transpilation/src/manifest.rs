@@ -175,19 +175,27 @@ pub(crate) fn package_source_rust_package_manifest(
 pub(crate) fn package_linkages_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
+    transpilation_setup: TranspilationSetup,
 ) -> String {
-    let dependencies = ["husky-core".to_string()]
-        .into_iter()
-        .chain(
-            package_path
-                .package_dependencies(db)
-                .unwrap()
-                .iter()
-                .map(|dep| dep.package_path().name_string(db)),
-        )
-        .chain([package_path.name_string(db)])
-        .map(|name| (name, INHERITED))
-        .collect();
+    let rust_transpilation_setup_data = transpilation_setup.rust_data(db).unwrap();
+    let dependencies = [
+        "husky-core".to_string(),
+        rust_transpilation_setup_data
+            .task_dependency_name
+            .data(db)
+            .to_string(),
+    ]
+    .into_iter()
+    .chain(
+        package_path
+            .package_dependencies(db)
+            .unwrap()
+            .iter()
+            .map(|dep| dep.package_path().name_string(db)),
+    )
+    .chain([package_path.name_string(db)])
+    .map(|name| (name, INHERITED))
+    .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: format!("{}-linkages", package_path.name(db).data(db)),
