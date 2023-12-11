@@ -3,7 +3,7 @@ use ad_hoc_task_dependency::*;
 use mnist_classifier::*;
 
 #[rustfmt::skip]
-linkages![
+linkage_impls![
     ConnectedComponentDistribution::__constructor,
     EffHoles::__constructor,
     hole_tmpl,

@@ -3,6 +3,6 @@ use husky_core::*;
 use malamute::*;
 
 #[rustfmt::skip]
-linkages![
+linkage_impls![
     <OneVsAll as Default>::default,
 ];

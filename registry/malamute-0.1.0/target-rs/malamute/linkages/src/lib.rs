@@ -3,6 +3,6 @@ use ad_hoc_task_dependency::*;
 use malamute::*;
 
 #[rustfmt::skip]
-linkages![
+linkage_impls![
     <OneVsAll as Default>::default,
 ];

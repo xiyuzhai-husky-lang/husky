@@ -26,7 +26,7 @@ use {}::*;
     let mut builder = RustTranspilationBuilder::new(&mut builder_base);
     builder.on_fresh_semicolon_paragraph(|builder| {
         builder.rustfmt_skip();
-        builder.macro_name(RustMacroName::Linkages);
+        builder.macro_name(RustMacroName::LinkageImpls);
         builder.bracketed_multiline_comma_list(RustBracket::Box, package_linkages(db, package_path))
     });
     builder_base.finish()
