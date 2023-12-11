@@ -17,19 +17,10 @@ pub struct Javelin {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum JavelinData {
-    Coersion {},
     PathLeading {
         path: JavelinPath,
         instantiation: JavelinInstantiation,
     },
-    // todo: merge into Item
-    PropsStructField,
-    // todo: merge into Item
-    MemoizedField,
-    // todo: merge into Item
-    Index,
-    // todo: merge into Item
-    Method,
 }
 
 impl Javelin {
@@ -53,19 +44,19 @@ impl Javelin {
     }
 
     pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::PropsStructField)
+        Self::new(db, todo!())
     }
 
     pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::MemoizedField)
+        Self::new(db, todo!())
     }
 
     pub fn new_method(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::Method)
+        Self::new(db, todo!())
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::Index)
+        Self::new(db, todo!())
     }
 
     pub fn new_item(

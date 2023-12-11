@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::{FugitivePath, TypeItemPath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
@@ -16,20 +17,9 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    Coersion {},
-    PathLeading {
-        // path: JavelinPath,
-        // instantiation: LinkageInstantiation,
-    },
-    // todo: merge into Item
-    PropsStructField,
-    // todo: merge into Item
-    MemoizedField,
-    // todo: merge into Item
-    Index,
-    // todo: merge into Item
-    Method,
-    Todo,
+    FunctionFnItem(FugitivePath),
+    ValItem(FugitivePath),
+    TypeMethodFn(TypeItemPath),
 }
 
 impl Linkage {
@@ -41,11 +31,7 @@ impl Linkage {
         Some(Self::new(
             db,
             Javelin::from_item_path(item_path, db)?,
-            LinkageData::PathLeading {
-                // path: JavelinPath::try_from_item_path(item_path)?,
-                // // ad hoc consider places
-                // instantiation: JavelinInstantiation::new_first_born(),
-            },
+            todo!(),
         ))
     }
 
@@ -54,27 +40,19 @@ impl Linkage {
     }
 
     pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        Self::new(
-            db,
-            Javelin::new_props_struct_field(db),
-            LinkageData::PropsStructField,
-        )
+        Self::new(db, Javelin::new_props_struct_field(db), todo!())
     }
 
     pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        Self::new(
-            db,
-            Javelin::new_memoized_field(db),
-            LinkageData::MemoizedField,
-        )
+        Self::new(db, Javelin::new_memoized_field(db), todo!())
     }
 
     pub fn new_method(db: &::salsa::Db) -> Self {
-        Self::new(db, Javelin::new_method(db), LinkageData::Method)
+        Self::new(db, Javelin::new_method(db), todo!())
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
-        Self::new(db, Javelin::new_index(db), LinkageData::Index)
+        Self::new(db, Javelin::new_index(db), todo!())
     }
 
     pub fn new_item(
@@ -82,14 +60,7 @@ impl Linkage {
         hir_instantiation: &HirInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(
-            db,
-            Javelin::new_item(path, hir_instantiation, db),
-            LinkageData::PathLeading {
-                // path: JavelinPath::try_from_item_path(path.into()).unwrap(),
-                // instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
-            },
-        )
+        Self::new(db, Javelin::new_item(path, hir_instantiation, db), todo!())
     }
 }
 
@@ -105,15 +76,10 @@ impl HasVersionStamp for Linkage {
 #[salsa::tracked(jar = LinkageJar, return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
     match javelin.data(db) {
-        JavelinData::Coersion {} => todo!(),
         JavelinData::PathLeading {
             path,
             instantiation,
-        } => smallvec![Linkage::new(db, javelin, LinkageData::PathLeading {})],
-        JavelinData::PropsStructField => todo!(),
-        JavelinData::MemoizedField => todo!(),
-        JavelinData::Index => todo!(),
-        JavelinData::Method => todo!(),
+        } => smallvec![Linkage::new(db, javelin, todo!())],
     }
 }
 
