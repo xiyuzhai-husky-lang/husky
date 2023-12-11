@@ -3330,7 +3330,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -3417,7 +3417,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -3562,7 +3562,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -3663,7 +3663,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -3959,7 +3959,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4046,7 +4046,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4140,7 +4140,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4265,7 +4265,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -5934,7 +5934,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6021,7 +6021,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6482,7 +6482,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6569,7 +6569,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6663,7 +6663,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6788,7 +6788,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -6913,7 +6913,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -7040,7 +7040,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -7130,7 +7130,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -8677,7 +8677,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -8791,7 +8791,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -10035,7 +10035,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -10149,7 +10149,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -10255,7 +10255,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -10380,7 +10380,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 64,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -12485,7 +12485,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 68,
+                                                                value: 69,
                                                             },
                                                         ),
                                                     ),
@@ -13787,7 +13787,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 72,
+                                                                        value: 73,
                                                                     },
                                                                 ),
                                                             ),
@@ -14249,7 +14249,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 61,
+                                        value: 64,
                                     },
                                 ),
                             ),
@@ -14686,7 +14686,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 62,
+                                                                        value: 65,
                                                                     },
                                                                 ),
                                                             ),
@@ -15685,7 +15685,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 63,
+                                                                        value: 66,
                                                                     },
                                                                 ),
                                                             ),
@@ -15703,7 +15703,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 63,
+                                                                        value: 66,
                                                                     },
                                                                 ),
                                                             ),
@@ -16283,7 +16283,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 68,
+                                                                        value: 69,
                                                                     },
                                                                 ),
                                                             ),

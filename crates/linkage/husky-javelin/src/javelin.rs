@@ -1,4 +1,4 @@
-use husky_entity_path::ItemPath;
+use husky_entity_path::{AssociatedItemPath, ItemPath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_ty::instantiation::HirInstantiation;
 use husky_vfs::PackagePath;
@@ -37,26 +37,6 @@ impl Javelin {
                 instantiation: JavelinInstantiation::new_empty(),
             },
         ))
-    }
-
-    pub fn new_suffix(db: &::salsa::Db) -> Self {
-        todo!()
-    }
-
-    pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        Self::new(db, todo!())
-    }
-
-    pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        Self::new(db, todo!())
-    }
-
-    pub fn new_method(db: &::salsa::Db) -> Self {
-        Self::new(db, todo!())
-    }
-
-    pub fn new_index(db: &::salsa::Db) -> Self {
-        Self::new(db, todo!())
     }
 
     pub fn new_item(

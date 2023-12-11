@@ -788,7 +788,7 @@
                                             PathLeading(
                                                 HirTypePathLeading(
                                                     Id {
-                                                        value: 68,
+                                                        value: 69,
                                                     },
                                                 ),
                                             ),

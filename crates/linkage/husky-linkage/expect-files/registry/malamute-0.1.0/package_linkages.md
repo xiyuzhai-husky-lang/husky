@@ -1,59 +1,29 @@
 [
     Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::default::Default`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
+        data: LinkageData::AssociatedFunctionFn(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
+                                            trai_path: TraitPath(`core::default::Default`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
                                         },
-                                        ident: `default`,
-                                        item_kind: AssociatedFunctionFn,
                                     },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        data: LinkageData::TraitForTypeAssociatedFunctionFn(
-            TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `malamute`,
-                                        trai_path: TraitPath(`core::default::Default`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
+                                    ident: `default`,
+                                    item_kind: AssociatedFunctionFn,
                                 },
-                                ident: `default`,
-                                item_kind: AssociatedFunctionFn,
-                            },
+                            ),
                         ),
-                    ),
-                },
+                    },
+                ),
             ),
         ),
     },

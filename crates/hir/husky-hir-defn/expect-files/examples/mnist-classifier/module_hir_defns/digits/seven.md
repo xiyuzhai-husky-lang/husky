@@ -1204,7 +1204,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 59,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),

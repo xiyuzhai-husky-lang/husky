@@ -36,6 +36,7 @@ impl<'a> SemaExprEngine<'a> {
         (
             Ok(SemaExprData::Field {
                 owner_sema_expr_idx,
+                owner_ty,
                 dot_regional_token_idx,
                 ident_token,
                 dispatch: field_dispatch,

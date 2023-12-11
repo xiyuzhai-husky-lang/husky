@@ -2111,6 +2111,24 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: Some(
+                                            Leashed,
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 221,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         27,
                                     ),
@@ -5566,6 +5584,24 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: Some(
+                                            Leashed,
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 221,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
@@ -5771,6 +5807,18 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         12,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         27,
                                     ),
@@ -7319,6 +7367,18 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -7983,6 +8043,18 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 47,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -8915,6 +8987,18 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -9591,6 +9675,18 @@
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    owner_ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 74,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),

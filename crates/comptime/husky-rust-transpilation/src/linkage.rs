@@ -38,11 +38,17 @@ impl TranspileToRustWith<()> for Linkage {
         match *self.data(db) {
             LinkageData::FunctionFnItem(path) => path.transpile_to_rust(builder),
             LinkageData::ValItem(path) => path.transpile_to_rust(builder),
-            LinkageData::TypeMethodFn(path) => path.transpile_to_rust(builder),
+            LinkageData::MethodFn(path) => path.transpile_to_rust(builder),
             LinkageData::TypeConstructor(ty_path) => builder.ty_constructor(ty_path),
-            LinkageData::TypeAssociatedFunctionFn(path) => path.transpile_to_rust(builder),
-            LinkageData::TraitForTypeMethodFn(path) => path.transpile_to_rust(builder),
-            LinkageData::TraitForTypeAssociatedFunctionFn(path) => path.transpile_to_rust(builder),
+            LinkageData::AssociatedFunctionFn(path) => path.transpile_to_rust(builder),
+            LinkageData::MemoizedField(path) => path.transpile_to_rust(builder),
+            LinkageData::PropsStructField {
+                ty_path,
+                ref instantiation,
+                ident,
+            } => todo!(),
+            LinkageData::Index => todo!(),
+            LinkageData::TypeVariantConstructor(path) => path.transpile_to_rust(builder),
         }
     }
 }

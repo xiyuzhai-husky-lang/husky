@@ -115,6 +115,7 @@ pub enum SemaExprData {
     },
     Field {
         owner_sema_expr_idx: SemaExprIdx,
+        owner_ty: FluffyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         dispatch: FluffyFieldDyanmicDispatch,

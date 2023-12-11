@@ -129,7 +129,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::PropsStructField { owner, ident } => (),
+                HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     path,
                     ref indirections,
