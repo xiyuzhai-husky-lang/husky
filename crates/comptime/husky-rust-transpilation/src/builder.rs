@@ -41,6 +41,8 @@ pub(crate) struct RustTranspilationBuilderBase<'a> {
     current_indent: u32,
     is_list_start: Option<bool>,
     spaced: bool,
+    /// None if transpile linkages
+    pub(crate) crate_path: Option<CratePath>,
 }
 
 impl<'a> RustTranspilationBuilderBase<'a> {
@@ -49,6 +51,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         toolchain: Toolchain,
         setup: TranspilationSetup,
         result: Option<String>,
+        crate_path: Option<CratePath>,
     ) -> Self {
         Self {
             db,
@@ -58,6 +61,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
             current_indent: 0,
             is_list_start: None,
             spaced: true,
+            crate_path,
         }
     }
 

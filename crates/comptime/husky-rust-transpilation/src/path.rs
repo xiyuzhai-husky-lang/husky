@@ -5,6 +5,7 @@ use husky_entity_path::{
     PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
     TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
+use husky_vfs::{CrateKind, ModulePathData, PackagePathSource};
 
 impl<E> TranspileToRustWith<E> for AssociatedItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
@@ -58,6 +59,8 @@ impl<E> TranspileToRustWith<E> for MajorItemPath {
 impl<E> TranspileToRustWith<E> for FugitivePath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
+        self.module_path(db).transpile_to_rust(builder);
+        builder.punctuation(RustPunctuation::ColonColon);
         self.ident(db).transpile_to_rust(builder)
     }
 }
@@ -84,7 +87,39 @@ impl<E> TranspileToRustWith<E> for TypePath {
             },
             Left(PreludeTypePath::UNIT) => builder.unit(),
             Left(PreludeTypePath::StringLiteral) => todo!(),
-            _ => self.ident(db).transpile_to_rust(builder),
+            Left(_) => self.ident(db).transpile_to_rust(builder),
+            _ => {
+                self.module_path(db).transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::ColonColon);
+                self.ident(db).transpile_to_rust(builder)
+            }
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for ModulePath {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db();
+        match self.data(db) {
+            ModulePathData::Root(crate_path) => {
+                if Some(crate_path) == builder.crate_path {
+                    builder.crate_()
+                } else {
+                    let package_path = crate_path.package_path(db);
+                    match package_path.data(db) {
+                        PackagePathSource::Library => match package_path.ident(db).data(db) {
+                            "core" => builder.husky_core(),
+                            _ => todo!(),
+                        },
+                        _ => crate_path.package_ident(db).transpile_to_rust(builder),
+                    }
+                }
+            }
+            ModulePathData::Child { parent, ident } => {
+                parent.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::ColonColon);
+                ident.transpile_to_rust(builder)
+            }
         }
     }
 }

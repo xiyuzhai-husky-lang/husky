@@ -158,4 +158,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn rustfmt_skip(&mut self) {
         self.result += "#[rustfmt::skip]\n"
     }
+
+    pub(crate) fn crate_(&mut self) {
+        self.result += "crate"
+    }
+
+    pub(crate) fn husky_core(&mut self) {
+        self.result += "husky_core"
+    }
 }

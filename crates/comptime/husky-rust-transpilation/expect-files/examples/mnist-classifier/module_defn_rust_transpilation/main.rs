@@ -22,7 +22,7 @@ use malamute::*;
 use mnist::*;
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 0)]
-pub fn main() -> Class<MnistLabel> {
+pub fn main() -> malamute::Class<mnist::MnistLabel> {
     unveil!(is_one());
     unveil!(is_six());
     unveil!(is_zero());

@@ -1,30 +1,30 @@
 use super::*;
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 46, return_ref)]
-pub fn two_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
+pub fn two_match() -> crate::fermi::FermiMatchResult {
+    crate::fermi::fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
-pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
     Some(dp.y.into_inner())
 }
 
-pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() > 0.0f32);
     Some(dp.y.into_inner())
 }
 
-pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.x.into_inner() > 0.0f32);
     Some(dp.x.into_inner())
 }
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 47)]
-pub fn is_two() -> OneVsAll {
+pub fn is_two() -> malamute::OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_three());
     require!(let none = is_seven());

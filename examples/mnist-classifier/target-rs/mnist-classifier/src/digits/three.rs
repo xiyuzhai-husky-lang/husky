@@ -1,12 +1,12 @@
 use super::*;
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 31, return_ref)]
-pub fn three_fermi_match() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![downarc, uparc, back])
+pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
+    crate::fermi::fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 32)]
-pub fn is_three() -> OneVsAll {
+pub fn is_three() -> malamute::OneVsAll {
     require!(major_concave_components().ilen() >= 2);
     require!(major_concave_components().ilen() <= 4);
     let downarc = three_fermi_match().matches[0 as usize];
@@ -26,19 +26,19 @@ pub fn is_three() -> OneVsAll {
     OneVsAll::Yes
 }
 
-pub fn uparc(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
-pub fn downarc(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
-pub fn back(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn back(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() >= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())

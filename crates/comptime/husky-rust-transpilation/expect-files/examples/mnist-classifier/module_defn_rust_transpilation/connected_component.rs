@@ -21,18 +21,18 @@ impl ConnectedComponentDistribution {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EffHoles {
-    pub matches: Vec<Option<Leash<RawContour>>>,
+    pub matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>,
 }
 
 impl EffHoles {
-    pub fn __constructor(matches: Vec<Option<Leash<RawContour>>>) -> Self {
+    pub fn __constructor(matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>) -> Self {
         Self{
             matches,
         }
     }
 }
 
-pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
+pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
     let len = ct.contour_len();
     require!(len > 4.0f32);
     Some(len + 0.0f32)
@@ -40,11 +40,11 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConnectedComponent {
-    pub mask: BinaryImage28,
+    pub mask: mnist::BinaryImage28,
 }
 
 impl ConnectedComponent {
-    pub fn __constructor(mask: BinaryImage28) -> Self {
+    pub fn __constructor(mask: mnist::BinaryImage28) -> Self {
         Self{
             mask,
         }
@@ -61,15 +61,15 @@ pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     return y;
 }
 
-pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent> {
-    let mut result: Vec<ConnectedComponent> = vec![];
+pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::connected_component::ConnectedComponent> {
+    let mut result: Vec<crate::connected_component::ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {
         while unsearched[j as usize] != 0 {
             let a = unsearched[j as usize];
             let shift = a.ctz();
-            let mut mask = BinaryImage28::new_zeros();
-            mask[j as usize] = horizontal_extend(a, 1 << shift);
+            let mut mask = mnist::BinaryImage28::new_zeros();
+            mask[j as usize] = crate::connected_component::horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
                 flag = true;
@@ -77,7 +77,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 while i < 30 - 1 {
                     {
                         let old_row = mask[(i + 1) as usize];
-                        let new_row = old_row | horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
+                        let new_row = old_row | crate::connected_component::horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if (new_row != 0) {
                             break;
                         }
@@ -91,7 +91,7 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
                 while i >= j {
                     {
                         let old_row = mask[i as usize];
-                        let new_row = old_row | horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
+                        let new_row = old_row | crate::connected_component::horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
                             mask[i as usize] = new_row
@@ -103,26 +103,26 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
             for k in j..30 {
                 unsearched[k as usize] &= !mask[k as usize]
             }
-            result.push(ConnectedComponent::__constructor(mask))
+            result.push(crate::connected_component::ConnectedComponent::__constructor(mask))
         }
     }
     return result;
 }
 
-impl ConnectedComponent {
+impl crate::connected_component::ConnectedComponent {
     #[ad_hoc_task_dependency::memoized_field_return_ref(1)]
-pub fn raw_contours(&'static self) -> Vec<RawContour> {
-        find_raw_contours(&self)
+pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
+        crate::raw_contour::find_raw_contours(&self)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(2)]
-pub fn eff_holes(&'static self) -> EffHoles {
+pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
         let mut raw_contours = self.raw_contours().collect_leashes();
-        let mut matches: Vec<Option<Leash<RawContour>>> = vec![];
+        let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
-        return EffHoles::__constructor(matches);
+        return crate::connected_component::EffHoles::__constructor(matches);
     }
 
     #[ad_hoc_task_dependency::memoized_field(3)]
@@ -157,7 +157,7 @@ pub fn row_span_sum(&'static self) -> f32 {
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(6)]
-pub fn distribution(&'static self) -> ConnectedComponentDistribution {
+pub fn distribution(&'static self) -> crate::connected_component::ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
             {
@@ -186,7 +186,7 @@ pub fn distribution(&'static self) -> ConnectedComponentDistribution {
         for i2 in (row_end - half_height..row_end).rev() {
             lower_mass += self.mask[i2 as usize].co()
         }
-        return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
+        return crate::connected_component::ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
     #[ad_hoc_task_dependency::memoized_field(7)]
