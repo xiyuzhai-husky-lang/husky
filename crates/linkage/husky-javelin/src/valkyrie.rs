@@ -28,14 +28,9 @@ impl ValkyrieJavelin {
     fn new(javelin: Javelin, db: &::salsa::Db) -> Self {
         #[cfg(debug_assertions)]
         match javelin.data(db) {
-            JavelinData::Coersion {} => todo!(),
             JavelinData::PathLeading { instantiation, .. } => {
                 debug_assert!(!instantiation.is_univalent())
             }
-            JavelinData::PropsStructField => (),
-            JavelinData::MemoizedField => (),
-            JavelinData::Index => (),
-            JavelinData::Method => (),
         }
         Self(javelin)
     }
@@ -264,7 +259,6 @@ pub(crate) fn javelin_generated_valkyrie_javelins(
     javelin: Javelin,
 ) -> VecSet<ValkyrieJavelin> {
     match *javelin.data(db) {
-        JavelinData::Coersion {} => Default::default(),
         JavelinData::PathLeading {
             path,
             ref instantiation,
@@ -278,10 +272,6 @@ pub(crate) fn javelin_generated_valkyrie_javelins(
                 .map(|ride| ride.to_javelin(instantiation, db))
                 .collect()
         }
-        JavelinData::PropsStructField => todo!(),
-        JavelinData::MemoizedField => todo!(),
-        JavelinData::Index => todo!(),
-        JavelinData::Method => todo!(),
     }
 }
 
