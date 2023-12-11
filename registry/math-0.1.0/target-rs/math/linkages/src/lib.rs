@@ -3,5 +3,5 @@ use ad_hoc_task_dependency::*;
 use math::*;
 
 #[rustfmt::skip]
-linkages![
+linkage_impls![
 ];
