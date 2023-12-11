@@ -4,9 +4,5 @@ use malamute::*;
 
 #[rustfmt::skip]
 linkages![
-    OneVsAll,
-    OneVsAllResult,
     <OneVsAll as Default>::default,
-    <Class as Unveil>::Output,
-    <OneVsAll as Unveil>::Output,
 ];

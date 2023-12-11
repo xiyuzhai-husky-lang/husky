@@ -35,28 +35,15 @@ use {}::*;
 impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
-        match self.data(db) {
-            LinkageData::FunctionFnItem(_) => todo!(),
-            LinkageData::ValItem(_) => todo!(),
-            LinkageData::TypeMethodFn(_) => todo!(),
+        match *self.data(db) {
+            LinkageData::FunctionFnItem(path) => path.transpile_to_rust(builder),
+            LinkageData::ValItem(path) => path.transpile_to_rust(builder),
+            LinkageData::TypeMethodFn(path) => path.transpile_to_rust(builder),
+            LinkageData::TypeConstructor(ty_path) => builder.ty_constructor(ty_path),
+            LinkageData::TypeAssociatedFunctionFn(path) => path.transpile_to_rust(builder),
+            LinkageData::TraitForTypeMethodFn(path) => path.transpile_to_rust(builder),
+            LinkageData::TraitForTypeAssociatedFunctionFn(path) => path.transpile_to_rust(builder),
         }
-        //     LinkageData::Coersion {} => todo!(),
-        //     LinkageData::PathLeading {} => {
-        //         let JavelinData::PathLeading {
-        //             path,
-        //             instantiation,
-        //         } = self.javelin(db).data(db)
-        //         else {
-        //             unreachable!()
-        //         };
-        //         path.transpile_to_rust(builder)
-        //     }
-        //     LinkageData::PropsStructField => todo!(),
-        //     LinkageData::MemoizedField => todo!(),
-        //     LinkageData::Index => todo!(),
-        //     LinkageData::Method => todo!(),
-        //     LinkageData::Todo => todo!(),
-        // }
     }
 }
 

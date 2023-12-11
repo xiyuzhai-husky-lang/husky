@@ -4,13 +4,10 @@ use mnist::*;
 
 #[rustfmt::skip]
 linkages![
-    MnistLabel,
     BinaryImage28,
     BinaryGrid28,
     <BinaryImage28 as Visualize>::visualize,
     BinaryImage28::new_zeros,
-    <BinaryImage28 as IntIndex>::Output,
     <BinaryGrid28 as Visualize>::visualize,
     BinaryGrid28::new_zeros,
-    <BinaryGrid28 as IntIndex>::Output,
 ];
