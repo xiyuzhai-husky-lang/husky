@@ -1,26 +1,26 @@
 use super::*;
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 33, return_ref)]
-pub fn left_components() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
+pub fn left_components() -> crate::fermi::FermiMatchResult {
+    crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
 
-pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     Some(cc.relative_bounding_box().xmax())
 }
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 34, return_ref)]
-pub fn components_max_downwards() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![displacement_downwards])
+pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
+    crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 35, return_ref)]
-pub fn components_max_heights() -> FermiMatchResult {
-    fermi_match(major_concave_components(), &vec![cc_box_heights])
+pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
+    crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
 #[ad_hoc_task_dependency::val_item(ingredient_index = 36)]
-pub fn is_four() -> OneVsAll {
+pub fn is_four() -> malamute::OneVsAll {
     require!(let some = left_components().matches[0 as usize]);
     require!(let some = left_components().matches[1 as usize]);
     let eff_holes = &major_connected_component().eff_holes();
@@ -49,13 +49,13 @@ pub fn is_four() -> OneVsAll {
     OneVsAll::Yes
 }
 
-pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
     Some(dp.y.into_inner())
 }
 
-pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
+pub fn cc_box_heights(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() > 0.0f32);
     require!(cc.relative_bounding_box().ymin() > 0.4f32);

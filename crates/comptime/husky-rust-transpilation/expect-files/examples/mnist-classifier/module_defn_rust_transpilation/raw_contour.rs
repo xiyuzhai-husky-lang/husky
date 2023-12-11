@@ -2,12 +2,12 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawContour {
-    pub cc: Leash<ConnectedComponent>,
-    pub points: Vec<Point2d>,
+    pub cc: Leash<crate::connected_component::ConnectedComponent>,
+    pub points: Vec<crate::geom2d::Point2d>,
 }
 
 impl RawContour {
-    pub fn __constructor(cc: Leash<ConnectedComponent>, points: Vec<Point2d>) -> Self {
+    pub fn __constructor(cc: Leash<crate::connected_component::ConnectedComponent>, points: Vec<crate::geom2d::Point2d>) -> Self {
         Self{
             cc,
             points,
@@ -35,9 +35,9 @@ pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     row >> j - 1 | 1
 }
 
-pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction {
-    let pixel_pair_above = get_pixel_pair(row_above, j);
-    let pixel_pair_below = get_pixel_pair(row_below, j);
+pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::raw_contour::Direction {
+    let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
+    let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
     match pixel_pair_above{
         0 => {
             match pixel_pair_below{
@@ -90,7 +90,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction
     }
 }
 
-pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
+pub fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::raw_contour::Direction) -> i32 {
     let raw_angle_change = ((outward as i32 - inward as i32) as u32).last_bits(2);
     match raw_angle_change{
         0 | 1 | 2 => {
@@ -105,9 +105,9 @@ pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     }
 }
 
-pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: Direction) -> Direction {
-    let pixel_pair_above = get_pixel_pair(row_above, j);
-    let pixel_pair_below = get_pixel_pair(row_below, j);
+pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: crate::raw_contour::Direction) -> crate::raw_contour::Direction {
+    let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
+    let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
     match pixel_pair_above{
         0 => {
             match pixel_pair_below{
@@ -132,10 +132,10 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
                 }
                 2 => {
                     match inward_direction{
-                        Direction::Down => {
+                        crate::raw_contour::Direction::Down => {
                             Direction::Left
                         }
-                        Direction::Up => {
+                        crate::raw_contour::Direction::Up => {
                             Direction::Right
                         }
                         _ => {
@@ -158,10 +158,10 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
                 }
                 1 => {
                     match inward_direction{
-                        Direction::Left => {
+                        crate::raw_contour::Direction::Left => {
                             Direction::Up
                         }
-                        Direction::Right => {
+                        crate::raw_contour::Direction::Right => {
                             Direction::Down
                         }
                         _ => {
@@ -208,16 +208,16 @@ impl StreakCache {
     }
 }
 
-pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
+pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
     let p0 = &points[(N - 2) as usize];
     let p2 = &points[(N - 1) as usize];
-    Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
+    crate::geom2d::Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
 }
 
-pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
-    let mut result: Vec<RawContour> = vec![];
-    let mut boundary_unsearched = BinaryGrid28::new_zeros();
+pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponent>) -> Vec<crate::raw_contour::RawContour> {
+    let mut result: Vec<crate::raw_contour::RawContour> = vec![];
+    let mut boundary_unsearched = mnist::BinaryGrid28::new_zeros();
     for i in 1..=29 {
         let r_ur = cc.mask[(i - 1) as usize];
         let r_dr = cc.mask[i as usize];
@@ -227,12 +227,12 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     }
     for k in 1..=29 {
         while boundary_unsearched[k as usize] != 0 {
-            let mut contour: Vec<Point2d> = vec![];
+            let mut contour: Vec<crate::geom2d::Point2d> = vec![];
             let mut i = k;
             let mut j = boundary_unsearched[k as usize].ctz();
             let mut row_above = cc.mask[(i - 1) as usize];
             let mut row_below = cc.mask[i as usize];
-            let mut inward_direction = get_inward_direction(row_above, row_below, j);
+            let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
             let dir0 = inward_direction;
@@ -244,25 +244,25 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             let mut current_streak = -1;
             loop {
                 {
-                    let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction);
-                    let angle_change = get_angle_change(inward_direction, outward_direction);
+                    let outward_direction = crate::raw_contour::get_outward_direction(row_above, row_below, j, inward_direction);
+                    let angle_change = crate::raw_contour::get_angle_change(inward_direction, outward_direction);
                     boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
-                            *contour.last_mut().unwrap() = get_concave_middle_point(&contour);
-                            contour.push(Point2d::from_i_shift28(i, j));
+                            *contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
+                            contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
-                            *contour.last_mut().unwrap() = Point2d::from_i_shift28(i, j);
+                            *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
                         } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
-                            *contour.last_mut().unwrap() = Point2d::from_i_shift28(i, j);
+                            *contour.last_mut().unwrap() = crate::geom2d::Point2d::from_i_shift28(i, j);
                             prev_streak2 = -1;
                             prev_streak1 = -1
                         } else {
-                            contour.push(Point2d::from_i_shift28(i, j));
+                            contour.push(crate::geom2d::Point2d::from_i_shift28(i, j));
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
                         }
@@ -271,20 +271,20 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                         prev_angle_change1 = angle_change
                     }
                     match outward_direction{
-                        Direction::Up => {
+                        crate::raw_contour::Direction::Up => {
                             i = i - 1;
                             row_below = row_above;
                             row_above = cc.mask[(i - 1) as usize]
                         }
-                        Direction::Down => {
+                        crate::raw_contour::Direction::Down => {
                             i = i + 1;
                             row_above = row_below;
                             row_below = cc.mask[i as usize]
                         }
-                        Direction::Left => {
+                        crate::raw_contour::Direction::Left => {
                             j = j + 1
                         }
-                        Direction::Right => {
+                        crate::raw_contour::Direction::Right => {
                             j = j - 1
                         }
                     }
@@ -300,20 +300,20 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }
-            result.push(RawContour::__constructor(cc, contour))
+            result.push(crate::raw_contour::RawContour::__constructor(cc, contour))
         }
     }
     return result;
 }
 
-impl RawContour {
+impl crate::raw_contour::RawContour {
     #[ad_hoc_task_dependency::memoized_field_return_ref(9)]
-pub fn line_segment_sketch(&'static self) -> LineSegmentSketch {
-        LineSegmentSketch::new(&self, 1.4f32)
+pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
+        crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(10)]
-pub fn bounding_box(&'static self) -> BoundingBox {
+pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.points[0 as usize];
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
@@ -326,11 +326,11 @@ pub fn bounding_box(&'static self) -> BoundingBox {
             ymin = ymin.min(point.y.into_inner());
             ymax = ymax.max(point.y.into_inner())
         }
-        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
+        return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(11)]
-pub fn relative_bounding_box(&'static self) -> RelativeBoundingBox {
+pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
@@ -348,7 +348,7 @@ pub fn contour_len(&'static self) -> f32 {
         return contour_len;
     }
 
-    pub fn displacement(&self, start: i32, end: i32) -> Vector2d {
+    pub fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
         let ct_start = &self.points[start.rem_euclid(N) as usize];
         let ct_end = &self.points[end.rem_euclid(N) as usize];

@@ -54,8 +54,13 @@ use husky_core::*;
     } else {
         None
     };
-    let mut builder_base =
-        RustTranspilationBuilderBase::new(db, module_path.toolchain(db), setup, result);
+    let mut builder_base = RustTranspilationBuilderBase::new(
+        db,
+        module_path.toolchain(db),
+        setup,
+        result,
+        Some(module_path.crate_path(db)),
+    );
     let mut builder: RustTranspilationBuilder = RustTranspilationBuilder::new(&mut builder_base);
     let submodule_paths = module_submodule_item_paths(db, module_path);
     // declare submodules

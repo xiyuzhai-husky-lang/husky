@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegment {
-    pub start: Point2d,
-    pub end: Point2d,
+    pub start: crate::geom2d::Point2d,
+    pub end: crate::geom2d::Point2d,
 }
 
 impl LineSegment {
-    pub fn __constructor(start: Point2d, end: Point2d) -> Self {
+    pub fn __constructor(start: crate::geom2d::Point2d, end: crate::geom2d::Point2d) -> Self {
         Self{
             start,
             end,
@@ -15,12 +15,12 @@ impl LineSegment {
     }
 }
 
-impl LineSegment {
-    pub fn displacement(&self) -> Vector2d {
+impl crate::line_segment_sketch::line_segment::LineSegment {
+    pub fn displacement(&self) -> crate::geom2d::Vector2d {
         self.start.to(&self.end)
     }
 
-    pub fn dist_to_point(&self, pt: &Point2d) -> f32 {
+    pub fn dist_to_point(&self, pt: &crate::geom2d::Point2d) -> f32 {
         let ab = self.displacement();
         let ap = self.start.to(pt);
         if ab.dot(&ap) < 0.0f32 {

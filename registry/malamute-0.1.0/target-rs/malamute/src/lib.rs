@@ -22,18 +22,18 @@ pub enum OneVsAllResult {
     Unconfident,
 }
 
-impl Default for OneVsAll {
-    fn default() -> OneVsAll {
+impl Default for crate::OneVsAll {
+    fn default() -> crate::OneVsAll {
         OneVsAll::No
     }
 }
 
-impl <Label, >Unveil<OneVsAll> for Class<Label> {
+impl <Label, >Unveil<crate::OneVsAll> for crate::Class<Label> {
     
     type Output = ();
 }
 
-impl Unveil<OneVsAllResult> for OneVsAll {
+impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
     
     type Output = ();
 }

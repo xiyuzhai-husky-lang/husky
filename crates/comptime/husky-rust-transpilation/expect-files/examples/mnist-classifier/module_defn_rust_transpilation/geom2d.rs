@@ -70,12 +70,12 @@ impl ClosedRange {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BoundingBox {
-    pub xrange: ClosedRange,
-    pub yrange: ClosedRange,
+    pub xrange: crate::geom2d::ClosedRange,
+    pub yrange: crate::geom2d::ClosedRange,
 }
 
 impl BoundingBox {
-    pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+    pub fn __constructor(xrange: crate::geom2d::ClosedRange, yrange: crate::geom2d::ClosedRange) -> Self {
         Self{
             xrange,
             yrange,
@@ -85,12 +85,12 @@ impl BoundingBox {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativeBoundingBox {
-    pub xrange: ClosedRange,
-    pub yrange: ClosedRange,
+    pub xrange: crate::geom2d::ClosedRange,
+    pub yrange: crate::geom2d::ClosedRange,
 }
 
 impl RelativeBoundingBox {
-    pub fn __constructor(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+    pub fn __constructor(xrange: crate::geom2d::ClosedRange, yrange: crate::geom2d::ClosedRange) -> Self {
         Self{
             xrange,
             yrange,
@@ -98,46 +98,46 @@ impl RelativeBoundingBox {
     }
 }
 
-impl Point2d {
-    pub fn from_i_shift28(i: i32, shift: i32) -> Point2d {
-        Point2d::__constructor((29 - shift) as f32, (29 - i) as f32)
+impl crate::geom2d::Point2d {
+    pub fn from_i_shift28(i: i32, shift: i32) -> crate::geom2d::Point2d {
+        crate::geom2d::Point2d::__constructor((29 - shift) as f32, (29 - i) as f32)
     }
 
-    pub fn vector(&self) -> Vector2d {
-        Vector2d::__constructor(self.x.into_inner(), self.y.into_inner())
+    pub fn vector(&self) -> crate::geom2d::Vector2d {
+        crate::geom2d::Vector2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
-    pub fn to(&self, other: &Point2d) -> Vector2d {
-        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
+    pub fn to(&self, other: &crate::geom2d::Point2d) -> crate::geom2d::Vector2d {
+        crate::geom2d::Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(&self) -> f32 {
         (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
-    pub fn dist(&self, other: &Point2d) -> f32 {
+    pub fn dist(&self, other: &crate::geom2d::Point2d) -> f32 {
         self.to(other).norm()
     }
 }
 
-impl Vector2d {
-    pub fn point(&self) -> Point2d {
-        Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
+impl crate::geom2d::Vector2d {
+    pub fn point(&self) -> crate::geom2d::Point2d {
+        crate::geom2d::Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
     }
 
-    pub fn to(&self, other: &Vector2d) -> Vector2d {
-        Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
+    pub fn to(&self, other: &crate::geom2d::Vector2d) -> crate::geom2d::Vector2d {
+        crate::geom2d::Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
     }
 
     pub fn norm(&self) -> f32 {
         (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
     }
 
-    pub fn dot(&self, other: &Vector2d) -> f32 {
+    pub fn dot(&self, other: &crate::geom2d::Vector2d) -> f32 {
         self.x.into_inner() * other.x.into_inner() + self.y.into_inner() * other.y.into_inner()
     }
 
-    pub fn cross(&self, other: &Vector2d) -> f32 {
+    pub fn cross(&self, other: &crate::geom2d::Vector2d) -> f32 {
         self.x.into_inner() * other.y.into_inner() - self.y.into_inner() * other.x.into_inner()
     }
 
@@ -154,11 +154,11 @@ impl Vector2d {
         }
     }
 
-    pub fn rotation_direction_to(&self, other: &Vector2d) -> i32 {
+    pub fn rotation_direction_to(&self, other: &crate::geom2d::Vector2d) -> i32 {
         self.cross(other).sgnx()
     }
 
-    pub fn angle_to(&self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
+    pub fn angle_to(&self, other: &crate::geom2d::Vector2d, is_branch_cut_positive: bool) -> f32 {
         let self_norm = self.norm();
         assert!(self_norm > 0.0f32);
         let other_norm = other.norm();
@@ -177,13 +177,13 @@ impl Vector2d {
     }
 }
 
-impl ClosedRange {
-    pub fn relative_range(&self, other: &ClosedRange) -> ClosedRange {
+impl crate::geom2d::ClosedRange {
+    pub fn relative_range(&self, other: &crate::geom2d::ClosedRange) -> crate::geom2d::ClosedRange {
         assert!(self.max.into_inner() > self.min.into_inner());
         let span = self.max.into_inner() - self.min.into_inner();
         let rel_min = (other.min.into_inner() - self.min.into_inner()) / span;
         let rel_max = (other.max.into_inner() - self.min.into_inner()) / span;
-        ClosedRange::__constructor(rel_min, rel_max)
+        crate::geom2d::ClosedRange::__constructor(rel_min, rel_max)
     }
 
     pub fn relative_point(&self, v: f32) -> f32 {
@@ -192,13 +192,13 @@ impl ClosedRange {
     }
 }
 
-impl BoundingBox {
-    pub fn relative_bounding_box(&self, other: &BoundingBox) -> RelativeBoundingBox {
-        RelativeBoundingBox::__constructor(self.xrange.relative_range(&other.xrange), self.yrange.relative_range(&other.yrange))
+impl crate::geom2d::BoundingBox {
+    pub fn relative_bounding_box(&self, other: &crate::geom2d::BoundingBox) -> crate::geom2d::RelativeBoundingBox {
+        crate::geom2d::RelativeBoundingBox::__constructor(self.xrange.relative_range(&other.xrange), self.yrange.relative_range(&other.yrange))
     }
 
-    pub fn relative_point(&self, point: &Point2d) -> RelativePoint2d {
-        RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
+    pub fn relative_point(&self, point: &crate::geom2d::Point2d) -> crate::geom2d::RelativePoint2d {
+        crate::geom2d::RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
     }
 
     pub fn xmin(&self) -> f32 {
@@ -218,7 +218,7 @@ impl BoundingBox {
     }
 }
 
-impl RelativeBoundingBox {
+impl crate::geom2d::RelativeBoundingBox {
     pub fn xmin(&self) -> f32 {
         self.xrange.min.into_inner()
     }

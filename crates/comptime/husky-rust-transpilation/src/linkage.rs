@@ -22,6 +22,7 @@ use {}::*;
             setup.rust_data(db).unwrap().task_dependency_ident.data(db),
             package_path.ident(db).data(db)
         )),
+        None,
     );
     let mut builder = RustTranspilationBuilder::new(&mut builder_base);
     builder.on_fresh_semicolon_paragraph(|builder| {

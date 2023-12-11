@@ -5,14 +5,14 @@
 
 pub fn quick_sort<T: Ord>(ref mut arr: &mut [T]) {
     let len = arr.len();
-    quick_sort_aux(arr, 0, (len - 1) as isize)
+    crate::quick_sort_aux(arr, 0, (len - 1) as isize)
 }
 
 pub fn quick_sort_aux<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) {
     if low < high {
-        let p = partition(arr, low, high);
-        quick_sort_aux(arr, low, p - 1);
-        quick_sort_aux(arr, p + 1, high)
+        let p = crate::partition(arr, low, high);
+        crate::quick_sort_aux(arr, low, p - 1);
+        crate::quick_sort_aux(arr, p + 1, high)
     }
 }
 
