@@ -11,7 +11,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -25,7 +27,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -39,7 +43,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -53,7 +59,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -67,7 +75,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -81,7 +91,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -116,7 +128,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -130,7 +165,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -144,7 +181,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -158,21 +197,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -186,7 +213,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -200,7 +229,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -214,7 +245,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -228,7 +261,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -242,7 +277,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -256,7 +293,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -270,7 +309,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -284,7 +325,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -298,7 +341,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -333,7 +378,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -347,7 +415,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -361,7 +431,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -375,7 +447,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -389,7 +463,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -403,7 +479,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -417,7 +495,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -431,7 +511,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -445,7 +527,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeAssociatedFunctionFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -459,7 +543,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -473,7 +559,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -487,7 +575,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -501,7 +591,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -515,7 +607,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -529,7 +623,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -543,7 +639,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -557,7 +655,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -571,7 +671,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -585,7 +687,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -599,7 +703,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -613,7 +719,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -627,7 +735,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -641,7 +751,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -655,7 +767,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -669,7 +783,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -683,7 +799,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -697,7 +815,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -711,7 +831,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -725,7 +847,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -739,7 +863,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -753,7 +879,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -767,7 +895,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -781,7 +911,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -795,7 +927,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -809,7 +943,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -823,7 +959,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -837,7 +975,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -851,7 +991,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -865,7 +1007,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -879,7 +1023,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -914,7 +1060,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -928,7 +1097,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeAssociatedFunctionFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -942,7 +1113,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -977,7 +1150,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -991,7 +1187,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeAssociatedFunctionFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1005,7 +1203,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1019,7 +1219,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1054,7 +1256,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1068,7 +1293,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1082,7 +1309,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1096,7 +1325,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1110,7 +1341,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1124,7 +1357,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1138,7 +1373,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1152,7 +1389,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1187,7 +1426,30 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1201,7 +1463,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1215,7 +1479,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1229,7 +1495,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1243,7 +1511,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1257,7 +1527,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeConstructor(
+            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1271,7 +1543,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1285,7 +1559,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1299,7 +1575,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1313,7 +1591,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1327,7 +1607,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1341,7 +1623,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1355,7 +1639,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1369,7 +1655,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1383,7 +1671,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1397,7 +1687,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1411,7 +1703,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1425,7 +1719,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1439,7 +1735,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1453,7 +1751,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1467,7 +1767,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1481,7 +1783,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1495,7 +1799,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1509,7 +1815,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1523,7 +1831,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1537,7 +1847,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1551,7 +1863,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1565,7 +1879,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::FunctionFnItem(
+            FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1616,7 +1932,28 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::clone`,
+                                        trai_path: TraitPath(`core::clone::Clone`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `clone`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1660,7 +1997,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1698,7 +2037,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1742,7 +2083,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1786,7 +2129,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1830,7 +2175,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1874,7 +2221,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1912,7 +2261,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -1963,7 +2314,28 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::clone`,
+                                        trai_path: TraitPath(`core::clone::Clone`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `clone`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2001,7 +2373,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2039,7 +2413,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2083,7 +2459,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2121,7 +2499,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2165,7 +2545,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2203,7 +2585,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2247,7 +2631,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2291,7 +2677,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2329,7 +2717,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2389,7 +2779,28 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::visual`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2427,7 +2838,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2471,7 +2884,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2531,7 +2946,28 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TraitForTypeMethodFn(
+            TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::visual`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2569,7 +3005,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2607,7 +3045,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2645,7 +3085,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2680,7 +3122,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2733,7 +3177,9 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+        ),
     },
     Linkage {
         javelin: Javelin {
@@ -2795,6 +3241,8 @@
                 },
             },
         },
-        data: LinkageData::PathLeading,
+        data: LinkageData::TypeMethodFn(
+            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+        ),
     },
 ]
