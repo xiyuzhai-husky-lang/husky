@@ -10,6 +10,33 @@ pub enum LinkageType {
     Ritchie(LinkageTypeRitchie),
 }
 
+impl LinkageInstantiate for HirType {
+    type Output = LinkageType;
+
+    fn linkage_instantiate(
+        self,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &salsa::Db,
+    ) -> Self::Output {
+        match self {
+            HirType::PathLeading(slf) => LinkageType::PathLeading(LinkageTypePathLeading::new(
+                db,
+                slf.ty_path(db),
+                slf.template_arguments(db)
+                    .iter()
+                    .map(|&arg| {
+                        LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
+                    })
+                    .collect(),
+            )),
+            HirType::Symbol(slf) => todo!(),
+            HirType::TypeAssociatedType(_) => todo!(),
+            HirType::TraitAssociatedType(_) => todo!(),
+            HirType::Ritchie(_) => todo!(),
+        }
+    }
+}
+
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
 pub struct LinkageTypePathLeading {
     pub ty_path: TypePath,
@@ -38,7 +65,21 @@ impl LinkageType {
                 ),
             )
             .into(),
-            HirType::Symbol(_) => unreachable!(),
+            HirType::Symbol(symbol) => {
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+                p!(symbol.debug(db), linkage_instantiation.debug(db));
+                match linkage_instantiation {
+                    Some(linkage_instantiation) => {
+                        match linkage_instantiation.resolve(symbol.into()) {
+                            LinkageTermSymbolResolution::Explicit(_) => todo!(),
+                            LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                            LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                        }
+                    }
+                    None => todo!(),
+                }
+            }
             HirType::TypeAssociatedType(_) => unreachable!(),
             HirType::TraitAssociatedType(_) => unreachable!(),
             HirType::Ritchie(_) => LinkageTypeRitchie::new(db).into(),

@@ -34,10 +34,10 @@ impl EtherealSelfTypeInTraitImpl {
     }
 }
 
-impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
-    type Target = EtherealTerm;
+impl EtherealInstantiate for EtherealSelfTypeInTraitImpl {
+    type Output = EtherealTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
             EtherealSelfTypeInTraitImpl::DeriveAny(term_symbol) => {

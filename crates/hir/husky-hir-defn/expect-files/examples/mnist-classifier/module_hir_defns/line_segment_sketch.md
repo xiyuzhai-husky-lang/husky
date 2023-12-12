@@ -175,7 +175,7 @@
                                                 symbol_map: [
                                                     (
                                                         HirTemplateSymbol::Type(
-                                                            Type {
+                                                            HirTypeSymbol::Type {
                                                                 attrs: HirTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -244,7 +244,7 @@
                                                 symbol_map: [
                                                     (
                                                         HirTemplateSymbol::Type(
-                                                            SelfType,
+                                                            HirTypeSymbol::SelfType,
                                                         ),
                                                         HirTermSymbolResolution::Explicit(
                                                             HirTemplateArgument::Type(
@@ -293,7 +293,7 @@
                                                 symbol_map: [
                                                     (
                                                         HirTemplateSymbol::Type(
-                                                            Type {
+                                                            HirTypeSymbol::Type {
                                                                 attrs: HirTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -362,7 +362,7 @@
                                                 symbol_map: [
                                                     (
                                                         HirTemplateSymbol::Type(
-                                                            SelfType,
+                                                            HirTypeSymbol::SelfType,
                                                         ),
                                                         HirTermSymbolResolution::Explicit(
                                                             HirTemplateArgument::Type(
@@ -2886,7 +2886,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -5459,7 +5459,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8073,7 +8073,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8446,7 +8446,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8553,7 +8553,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8575,7 +8575,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -8900,7 +8900,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8955,7 +8955,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -8977,7 +8977,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -9051,7 +9051,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -9073,7 +9073,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -9162,7 +9162,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -9673,7 +9673,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -9748,7 +9748,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -9770,7 +9770,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -10464,7 +10464,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -10486,7 +10486,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfLifetime,
+                                                                HirTypeSymbol::SelfLifetime,
                                                             ),
                                                             HirTermSymbolResolution::SelfLifetime,
                                                         ),
@@ -10600,7 +10600,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -10696,7 +10696,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -10886,7 +10886,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -10974,7 +10974,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -10996,7 +10996,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfLifetime,
+                                                                HirTypeSymbol::SelfLifetime,
                                                             ),
                                                             HirTermSymbolResolution::SelfLifetime,
                                                         ),
@@ -11175,7 +11175,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11230,7 +11230,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11252,7 +11252,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -11341,7 +11341,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11396,7 +11396,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11418,7 +11418,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -11524,7 +11524,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11627,7 +11627,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11649,7 +11649,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfLifetime,
+                                                                HirTypeSymbol::SelfLifetime,
                                                             ),
                                                             HirTermSymbolResolution::SelfLifetime,
                                                         ),
@@ -11696,7 +11696,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11718,7 +11718,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -11833,7 +11833,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11912,7 +11912,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -11934,7 +11934,7 @@
                                                         ),
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfPlace,
+                                                                HirTypeSymbol::SelfPlace,
                                                             ),
                                                             HirTermSymbolResolution::SelfPlace(
                                                                 MutableStackOwned {
@@ -12023,7 +12023,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -13700,7 +13700,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -14431,7 +14431,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfType,
+                                                                HirTypeSymbol::SelfType,
                                                             ),
                                                             HirTermSymbolResolution::Explicit(
                                                                 HirTemplateArgument::Type(
@@ -15017,7 +15017,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },

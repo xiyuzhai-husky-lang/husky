@@ -29,10 +29,10 @@ impl EtherealInstantiation {
     }
 }
 
-pub trait EtherealTermInstantiate: Copy {
-    type Target;
+pub trait EtherealInstantiate: Copy {
+    type Output;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output;
 }
 
 pub trait EtherealTermInstantiateRef {

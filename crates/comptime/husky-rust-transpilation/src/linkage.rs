@@ -1,7 +1,26 @@
 use crate::*;
+use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
+use husky_entity_path::{
+    AssociatedItemPath, FugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
+    PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
+    TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
+};
+use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
+use husky_hir_ty::HirType;
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
-use husky_linkage::linkage::{package_linkages, Linkage, LinkageData};
+use husky_linkage::{
+    instantiation::{LinkageInstantiate, LinkageInstantiation},
+    template_argument::{
+        ty::{LinkageType, LinkageTypeRitchie},
+        LinkageTemplateArgument,
+    },
+};
+use husky_linkage::{
+    linkage::{package_linkages, Linkage, LinkageData},
+    template_argument::ty::LinkageTypePathLeading,
+};
+use husky_vfs::{CrateKind, ModulePathData, PackagePathSource};
 use salsa::DebugWithDb;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
@@ -48,7 +67,7 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::MethodFn {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => (path, instantiation).transpile_to_rust(builder),
             LinkageData::TypeConstructor {
                 path,
                 ref instantiation,
@@ -81,5 +100,101 @@ impl TranspileToRustWith<()> for JavelinPath {
             JavelinPath::TypeConstructor(slf) => slf.transpile_to_rust(builder),
             JavelinPath::TypeVariantConstructor(slf) => slf.transpile_to_rust(builder),
         }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, instantiation) = self;
+        match path {
+            AssociatedItemPath::TypeItem(slf) => (slf, instantiation).transpile_to_rust(builder),
+            AssociatedItemPath::TraitItem(slf) => (slf, instantiation).transpile_to_rust(builder),
+            AssociatedItemPath::TraitForTypeItem(slf) => {
+                (slf, instantiation).transpile_to_rust(builder)
+            }
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, linkage_instantiation) = self;
+        let db = builder.db;
+        let self_ty = HirType::from_ethereal(
+            path.impl_block(db)
+                .ethereal_signature_template(db)
+                .unwrap()
+                .self_ty(db),
+            db,
+        )
+        .unwrap()
+        .linkage_instantiate(linkage_instantiation, db);
+        builder.bracketed(RustBracket::Angle, |builder| {
+            self_ty.transpile_to_rust(builder)
+        });
+        builder.punctuation(RustPunctuation::ColonColon);
+        path.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageType {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        match self {
+            LinkageType::PathLeading(slf) => slf.transpile_to_rust(builder),
+            LinkageType::Ritchie(slf) => slf.transpile_to_rust(builder),
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageTypePathLeading {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db;
+        self.ty_path(db).transpile_to_rust(builder);
+        builder.bracketed_comma_list(RustBracket::Angle, self.template_arguments(db))
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        match self {
+            LinkageTemplateArgument::Vacant => todo!(),
+            LinkageTemplateArgument::Type(_) => todo!(),
+            LinkageTemplateArgument::Constant(_) => todo!(),
+            LinkageTemplateArgument::Lifetime => todo!(),
+            LinkageTemplateArgument::Place(_) => todo!(),
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageTypeRitchie {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        todo!()
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, instantiation) = self;
+        let db = builder.db;
+        path.trai_path(db).transpile_to_rust(builder);
+        builder.punctuation(RustPunctuation::ColonColon);
+        path.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, instantiation) = self;
+        let db = builder.db;
+        builder.bracketed(RustBracket::Angle, |builder| {
+            match path.impl_block(db).ty_sketch(db) {
+                TypeSketch::DeriveAny => builder.todo(),
+                TypeSketch::Path(path) => path.transpile_to_rust(builder),
+            }
+            builder.keyword(RustKeyword::As);
+            path.impl_block(db).trai_path(db).transpile_to_rust(builder)
+        });
+        builder.punctuation(RustPunctuation::ColonColon);
+        path.ident(db).transpile_to_rust(builder)
     }
 }

@@ -356,10 +356,10 @@ impl std::fmt::Display for EtherealTermApplication {
     }
 }
 
-impl EtherealTermInstantiate for EtherealTermApplication {
-    type Target = EtherealTerm;
+impl EtherealInstantiate for EtherealTermApplication {
+    type Output = EtherealTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         Self::new_reduced(
             db,
             self.function(db).instantiate(db, instantiation),

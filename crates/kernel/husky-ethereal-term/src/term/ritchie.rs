@@ -157,10 +157,10 @@ impl EtherealRitchieParameter {
     }
 }
 
-impl EtherealTermInstantiate for EtherealRitchieParameter {
-    type Target = Self;
+impl EtherealInstantiate for EtherealRitchieParameter {
+    type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         todo!()
     }
 }

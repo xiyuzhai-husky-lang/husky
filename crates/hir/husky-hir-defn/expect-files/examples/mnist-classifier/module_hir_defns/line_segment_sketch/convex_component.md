@@ -429,7 +429,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                SelfType,
+                                                                HirTypeSymbol::SelfType,
                                                             ),
                                                             HirTermSymbolResolution::Explicit(
                                                                 HirTemplateArgument::Type(

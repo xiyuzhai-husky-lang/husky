@@ -4,7 +4,7 @@ use husky_fluffy_term::{
     instantiation::{FluffyInstantiation, FluffyTermSymbolResolution},
     FluffyTerms,
 };
-use vec_like::SmallVecPairMap;
+use vec_like::{SmallVecMap, SmallVecPairMap};
 
 /// `HirInstantiation` maps each hir symbol to its hir resolution.
 ///
@@ -62,38 +62,40 @@ impl HirInstantiation {
         db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> Self {
-        Self {
-            symbol_map: fluffy_instantiation
-                .symbol_map()
-                .iter()
-                .filter_map(|&(symbol, resolution)| {
-                    match HirTemplateSymbol::from_ethereal(symbol, db) {
-                        Some(symbol) => Some((
-                            symbol,
-                            match resolution {
-                                FluffyTermSymbolResolution::Explicit(fluffy_term) => {
-                                    HirTermSymbolResolution::Explicit(
-                                        HirTemplateArgument::from_fluffy(
-                                            fluffy_term,
-                                            db,
-                                            fluffy_terms,
-                                        )
-                                        .expect("some"),
-                                    )
-                                }
-                                FluffyTermSymbolResolution::SelfLifetime => {
-                                    HirTermSymbolResolution::SelfLifetime
-                                }
-                                FluffyTermSymbolResolution::SelfPlace(place) => {
-                                    HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
-                                }
-                            },
-                        )),
-                        None => None,
+        let (symbol_map0, symbol_map1) = &fluffy_instantiation.symbol_map_splitted();
+        let t = |&(symbol, resolution)| match HirTemplateSymbol::from_ethereal(symbol, db) {
+            Some(symbol) => Some((
+                symbol,
+                match resolution {
+                    FluffyTermSymbolResolution::Explicit(fluffy_term) => {
+                        HirTermSymbolResolution::Explicit(
+                            HirTemplateArgument::from_fluffy(fluffy_term, db, fluffy_terms)
+                                .expect("some"),
+                        )
                     }
-                })
-                .collect(),
-            separator: fluffy_instantiation.separator(),
+                    FluffyTermSymbolResolution::SelfLifetime => {
+                        HirTermSymbolResolution::SelfLifetime
+                    }
+                    FluffyTermSymbolResolution::SelfPlace(place) => {
+                        HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
+                    }
+                },
+            )),
+            None => None,
+        };
+        let mut symbol_map: SmallVecMap<(HirTemplateSymbol, HirTermSymbolResolution), 4> =
+            symbol_map0.iter().filter_map(t).collect();
+        let mut separator: Option<u8> = None;
+        match symbol_map1 {
+            Some(symbol_map1) => {
+                separator = Some(symbol_map.len().try_into().unwrap());
+                symbol_map.extend(symbol_map1.iter().filter_map(t)).unwrap()
+            }
+            None => (),
+        }
+        Self {
+            symbol_map,
+            separator,
         }
     }
 

@@ -45,6 +45,22 @@ impl FluffyInstantiation {
         self.symbol_map.as_ref()
     }
 
+    pub fn symbol_map_splitted(
+        &self,
+    ) -> (
+        &[(EtherealTermSymbol, FluffyTermSymbolResolution)],
+        Option<&[(EtherealTermSymbol, FluffyTermSymbolResolution)]>,
+    ) {
+        let symbol_map: &[_] = self.symbol_map.as_ref();
+        match self.separator {
+            Some(separator) => {
+                let separator = separator as usize;
+                (&symbol_map[0..separator], Some(&symbol_map[separator..]))
+            }
+            None => (symbol_map, None),
+        }
+    }
+
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }
