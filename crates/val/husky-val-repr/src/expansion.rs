@@ -12,7 +12,7 @@ use husky_hir_lazy_expr::{
     HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 
-use husky_linkage::linkage::Linkage;
+use husky_linkage::{instantiation::LinkageInstantiation, linkage::Linkage};
 
 use husky_val::ValOpn;
 use husky_vfs::ModulePath;
@@ -54,6 +54,7 @@ fn val_repr_expansion(db: &::salsa::Db, val_repr: ValRepr) -> Option<ValReprExpa
                 body,
                 hir_lazy_expr_region,
                 &[],
+                LinkageInstantiation::new_empty(),
                 db,
             ))
         }
@@ -67,6 +68,7 @@ fn build_val_repr_expansion(
     body: HirLazyExprIdx,
     hir_lazy_expr_region: HirLazyExprRegion,
     argument_val_reprs: &[ValRepr],
+    linkage_instantiation: LinkageInstantiation,
     db: &::salsa::Db,
 ) -> ValReprExpansion {
     let mut builder = ValReprExpansionBuilder::new(
@@ -74,6 +76,7 @@ fn build_val_repr_expansion(
         body,
         hir_lazy_expr_region,
         argument_val_reprs,
+        linkage_instantiation,
         db,
     );
     builder.build_all();
@@ -91,6 +94,7 @@ struct ValReprExpansionBuilder<'a> {
     hir_lazy_stmt_val_repr_map: HirLazyStmtMap<ValRepr>,
     root_hir_lazy_stmt_val_reprs: SmallVec<[ValRepr; 4]>,
     hir_lazy_expr_control_flow_region: &'a HirLazyExprRegionControlFlowChart,
+    linkage_instantiation: LinkageInstantiation,
     db: &'a ::salsa::Db,
 }
 
@@ -100,6 +104,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
         body: HirLazyExprIdx,
         hir_lazy_expr_region: HirLazyExprRegion,
         argument_val_reprs: &[ValRepr],
+        linkage_instantiation: LinkageInstantiation,
         db: &'a ::salsa::Db,
     ) -> Self {
         let hir_lazy_expr_region_data = hir_lazy_expr_region.data(db);
@@ -115,7 +120,6 @@ impl<'a> ValReprExpansionBuilder<'a> {
             variable_val_repr_map.insert_new(hir_lazy_variable_idx, argument_val_repr)
         }
         Self {
-            db,
             val_domain_repr,
             body,
             hir_lazy_expr_region_data,
@@ -128,6 +132,8 @@ impl<'a> ValReprExpansionBuilder<'a> {
             ),
             root_hir_lazy_stmt_val_reprs: smallvec![],
             hir_lazy_expr_control_flow_region: hir_lazy_expr_region.control_flow(db),
+            linkage_instantiation,
+            db,
         }
     }
 
@@ -366,6 +372,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let opn = ValOpn::LinkageImpl(Linkage::new_ty_constructor_fn(
                     path,
                     instantiation,
+                    &self.linkage_instantiation,
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
@@ -381,6 +388,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let opn = ValOpn::LinkageImpl(Linkage::new_ty_variant_constructor_fn(
                     path,
                     instantiation,
+                    &self.linkage_instantiation,
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
@@ -396,6 +404,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let opn = ValOpn::LinkageImpl(Linkage::new_function_fn_item(
                     path,
                     instantiation,
+                    &self.linkage_instantiation,
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
@@ -411,6 +420,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let opn = ValOpn::LinkageImpl(Linkage::new_associated_function_fn_item(
                     path,
                     instantiation,
+                    &self.linkage_instantiation,
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
@@ -425,9 +435,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ..
             } => (
                 ValOpn::LinkageImpl(Linkage::new_props_struct_field(
-                    self.db,
                     owner_base_ty,
                     ident,
+                    &self.linkage_instantiation,
+                    self.db,
                 )),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
@@ -440,7 +451,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref instantiation,
                 ..
             } => (
-                ValOpn::LinkageImpl(Linkage::new_memoized_field(self.db, path)),
+                ValOpn::LinkageImpl(Linkage::new_memoized_field(
+                    path,
+                    instantiation,
+                    &self.linkage_instantiation,
+                    self.db,
+                )),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
                 )],
@@ -458,7 +474,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 )];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (
-                    ValOpn::LinkageImpl(Linkage::new_method(self.db, path)),
+                    ValOpn::LinkageImpl(Linkage::new_method(
+                        path,
+                        instantiation,
+                        &self.linkage_instantiation,
+                        self.db,
+                    )),
                     arguments,
                 )
             }

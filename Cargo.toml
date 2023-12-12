@@ -88,6 +88,7 @@ parsec = { path = "crates/abstractions/parsec" }
 salsa = { path = "crates/abstractions/salsa" }
 vec-like = { path = "crates/abstractions/vec-like" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
+is = { path = "crates/abstractions/is" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 # fs

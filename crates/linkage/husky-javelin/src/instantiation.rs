@@ -8,8 +8,8 @@ use vec_like::SmallVecPairMap;
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavelinInstantiation {
-    symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, JavelinTermSymbolResolution, 4>,
-    separator: Option<u8>,
+    pub symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, JavelinTermSymbolResolution, 4>,
+    pub separator: Option<u8>,
 }
 impl JavelinInstantiation {
     pub(crate) fn from_hir(

@@ -3,6 +3,7 @@
 pub mod instantiation;
 pub mod jar;
 pub mod linkage;
+pub mod template_argument;
 #[cfg(test)]
 mod tests;
 pub mod version_stamp;

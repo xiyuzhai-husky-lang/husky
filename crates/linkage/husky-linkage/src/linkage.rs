@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{template_argument::ty::LinkageType, *};
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssociatedItemPath, FugitivePath, TypeItemPath, TypeVariantPath};
@@ -26,16 +26,36 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    FunctionFnItem(FugitivePath),
-    ValItem(FugitivePath),
-    MemoizedField(AssociatedItemPath),
-    MethodFn(AssociatedItemPath),
-    AssociatedFunctionFn(AssociatedItemPath),
-    TypeConstructor(TypePath),
-    TypeVariantConstructor(TypeVariantPath),
-    PropsStructField {
-        ty_path: TypePath,
+    FunctionFnItem {
+        path: FugitivePath,
         instantiation: LinkageInstantiation,
+    },
+    ValItem {
+        path: FugitivePath,
+        instantiation: LinkageInstantiation,
+    },
+    MemoizedField {
+        path: AssociatedItemPath,
+        instantiation: LinkageInstantiation,
+    },
+    MethodFn {
+        path: AssociatedItemPath,
+        instantiation: LinkageInstantiation,
+    },
+    AssociatedFunctionFn {
+        path: AssociatedItemPath,
+        instantiation: LinkageInstantiation,
+    },
+    TypeConstructor {
+        path: TypePath,
+        instantiation: LinkageInstantiation,
+    },
+    TypeVariantConstructor {
+        path: TypeVariantPath,
+        instantiation: LinkageInstantiation,
+    },
+    PropsStructField {
+        self_ty: LinkageType,
         ident: Ident,
     },
     Index,
@@ -56,28 +76,54 @@ impl Linkage {
 
     // todo: linkage_instantiation
     // todo: change to `JavelinType`
-    pub fn new_props_struct_field(db: &::salsa::Db, owner_base_ty: HirType, ident: Ident) -> Self {
-        let data = match owner_base_ty {
-            HirType::PathLeading(hir_ty) => LinkageData::PropsStructField {
-                ty_path: hir_ty.ty_path(db),
-                instantiation: LinkageInstantiation::new_ad_hoc(),
-                ident,
-            },
-            HirType::Symbol(_) => todo!(),
-            HirType::TypeAssociatedType(_) => todo!(),
-            HirType::TraitAssociatedType(_) => todo!(),
-            HirType::Ritchie(_) => todo!(),
-        };
+    pub fn new_props_struct_field(
+        self_ty: HirType,
+        ident: Ident,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        let self_ty = LinkageType::from_hir(self_ty, Some(linkage_instantiation), db);
+        let data = LinkageData::PropsStructField { self_ty, ident };
         Self::new(db, data)
     }
 
     // todo: linkage_instantiation
-    pub fn new_memoized_field(db: &::salsa::Db, path: AssociatedItemPath) -> Self {
-        Self::new(db, LinkageData::MemoizedField(path))
+    pub fn new_memoized_field(
+        path: AssociatedItemPath,
+        hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkageData::MemoizedField {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 
-    pub fn new_method(db: &::salsa::Db, path: AssociatedItemPath) -> Self {
-        Self::new(db, LinkageData::MethodFn(path))
+    pub fn new_method(
+        path: AssociatedItemPath,
+        hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkageData::MethodFn {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
@@ -87,33 +133,77 @@ impl Linkage {
     pub fn new_ty_constructor_fn(
         path: TypePath,
         hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(db, LinkageData::TypeConstructor(path))
+        Self::new(
+            db,
+            LinkageData::TypeConstructor {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 
     pub fn new_ty_variant_constructor_fn(
         path: TypeVariantPath,
         hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(db, LinkageData::TypeVariantConstructor(path))
+        Self::new(
+            db,
+            LinkageData::TypeVariantConstructor {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 
     pub fn new_function_fn_item(
         path: FugitivePath,
         hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(db, LinkageData::FunctionFnItem(path))
+        Self::new(
+            db,
+            LinkageData::FunctionFnItem {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 
     pub fn new_associated_function_fn_item(
         path: AssociatedItemPath,
         hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(db, LinkageData::AssociatedFunctionFn(path))
+        Self::new(
+            db,
+            LinkageData::AssociatedFunctionFn {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
     }
 }
 
@@ -134,24 +224,56 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             ref instantiation,
         } => match path {
             JavelinPath::Fugitive(path) => match path.fugitive_kind(db) {
-                FugitiveKind::FunctionFn => {
-                    smallvec![Linkage::new(db, LinkageData::FunctionFnItem(path))]
-                }
+                FugitiveKind::FunctionFn => LinkageInstantiation::from_javelin(instantiation, db)
+                    .into_iter()
+                    .map(|instantiation| {
+                        Linkage::new(
+                            db,
+                            LinkageData::FunctionFnItem {
+                                path,
+                                instantiation,
+                            },
+                        )
+                    })
+                    .collect(),
                 FugitiveKind::FunctionGn => smallvec![],
                 FugitiveKind::AliasType => smallvec![],
                 FugitiveKind::Val => {
-                    smallvec![Linkage::new(db, LinkageData::ValItem(path))]
+                    smallvec![Linkage::new(
+                        db,
+                        LinkageData::ValItem {
+                            path,
+                            instantiation: todo!(),
+                        }
+                    )]
                 }
             },
             JavelinPath::TypeItem(path) => match path.item_kind(db) {
-                TypeItemKind::MethodFn => {
-                    smallvec![Linkage::new(db, LinkageData::MethodFn(path.into()))]
-                }
+                TypeItemKind::MethodFn => LinkageInstantiation::from_javelin(instantiation, db)
+                    .into_iter()
+                    .map(|instantiation| {
+                        Linkage::new(
+                            db,
+                            LinkageData::MethodFn {
+                                path: path.into(),
+                                instantiation,
+                            },
+                        )
+                    })
+                    .collect(),
                 TypeItemKind::AssociatedFunctionFn => {
-                    smallvec![Linkage::new(
-                        db,
-                        LinkageData::AssociatedFunctionFn(path.into())
-                    )]
+                    LinkageInstantiation::from_javelin(instantiation, db)
+                        .into_iter()
+                        .map(|instantiation| {
+                            Linkage::new(
+                                db,
+                                LinkageData::AssociatedFunctionFn {
+                                    path: path.into(),
+                                    instantiation,
+                                },
+                            )
+                        })
+                        .collect()
                 }
                 TypeItemKind::AssociatedVal => todo!(),
                 TypeItemKind::AssociatedType => smallvec![],
@@ -159,23 +281,51 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             },
             JavelinPath::TraitItem(_) => todo!(),
             JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {
-                TraitItemKind::MethodFn => {
-                    smallvec![Linkage::new(db, LinkageData::MethodFn(path.into()))]
-                }
+                TraitItemKind::MethodFn => LinkageInstantiation::from_javelin(instantiation, db)
+                    .into_iter()
+                    .map(|instantiation| {
+                        Linkage::new(
+                            db,
+                            LinkageData::MethodFn {
+                                path: path.into(),
+                                instantiation,
+                            },
+                        )
+                    })
+                    .collect(),
                 TraitItemKind::AssociatedType => smallvec![],
                 TraitItemKind::AssociatedVal => todo!(),
                 TraitItemKind::AssociatedFunctionFn => {
-                    smallvec![Linkage::new(
-                        db,
-                        LinkageData::AssociatedFunctionFn(path.into())
-                    )]
+                    LinkageInstantiation::from_javelin(instantiation, db)
+                        .into_iter()
+                        .map(|instantiation| {
+                            Linkage::new(
+                                db,
+                                LinkageData::AssociatedFunctionFn {
+                                    path: path.into(),
+                                    instantiation,
+                                },
+                            )
+                        })
+                        .collect()
                 }
             },
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                 TypeKind::Enum => smallvec![],
                 TypeKind::Inductive => unreachable!(),
                 TypeKind::Record => unreachable!(),
-                TypeKind::Struct => smallvec![Linkage::new(db, LinkageData::TypeConstructor(path))],
+                TypeKind::Struct => LinkageInstantiation::from_javelin(instantiation, db)
+                    .into_iter()
+                    .map(|instantiation| {
+                        Linkage::new(
+                            db,
+                            LinkageData::TypeConstructor {
+                                path,
+                                instantiation,
+                            },
+                        )
+                    })
+                    .collect(),
                 TypeKind::Structure => unreachable!(),
                 TypeKind::Extern => {
                     p!(path.debug(db));

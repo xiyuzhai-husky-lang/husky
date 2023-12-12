@@ -37,19 +37,36 @@ impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinkageData::FunctionFnItem(path) => path.transpile_to_rust(builder),
-            LinkageData::ValItem(path) => path.transpile_to_rust(builder),
-            LinkageData::MethodFn(path) => path.transpile_to_rust(builder),
-            LinkageData::TypeConstructor(ty_path) => builder.ty_constructor(ty_path),
-            LinkageData::AssociatedFunctionFn(path) => path.transpile_to_rust(builder),
-            LinkageData::MemoizedField(path) => path.transpile_to_rust(builder),
-            LinkageData::PropsStructField {
-                ty_path,
+            LinkageData::FunctionFnItem {
+                path,
                 ref instantiation,
-                ident,
-            } => todo!(),
+            } => path.transpile_to_rust(builder),
+            LinkageData::ValItem {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
+            LinkageData::MethodFn {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
+            LinkageData::TypeConstructor {
+                path,
+                ref instantiation,
+            } => builder.ty_constructor(path),
+            LinkageData::AssociatedFunctionFn {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
+            LinkageData::MemoizedField {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
+            LinkageData::PropsStructField { .. } => todo!(),
             LinkageData::Index => todo!(),
-            LinkageData::TypeVariantConstructor(path) => path.transpile_to_rust(builder),
+            LinkageData::TypeVariantConstructor {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
         }
     }
 }

@@ -1248,11 +1248,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1330,11 +1334,40 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [
+                                    (
+                                        Type(
+                                            Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        Explicit(
+                                            Type(
+                                                PathLeading(
+                                                    LinkageTypePathLeading(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ],
+                                separator: Some(
+                                    1,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1521,9 +1554,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1645,9 +1682,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1783,9 +1824,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1891,9 +1936,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -1978,11 +2027,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2060,9 +2113,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2147,11 +2204,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2229,9 +2290,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2316,11 +2381,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2398,9 +2467,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2578,9 +2651,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2665,11 +2742,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2856,11 +2937,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -2939,8 +3024,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -3187,11 +3276,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -3270,8 +3363,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -3555,11 +3652,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -3638,8 +3739,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -3913,11 +4018,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -3995,11 +4104,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4162,11 +4277,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4244,11 +4363,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4472,11 +4597,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4554,11 +4683,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4673,11 +4808,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -4755,11 +4894,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -5382,9 +5527,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -5469,11 +5618,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -5968,9 +6121,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -6102,11 +6259,15 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -6221,9 +6382,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -6433,9 +6598,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -6557,9 +6726,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -7049,9 +7222,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -7136,11 +7313,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -10123,8 +10304,21 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        LinkageTemplateArgument::Type(
+                                            LinkageType::PathLeading(
+                                                LinkageTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    template_arguments: [],
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -10565,11 +10759,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -10793,11 +10991,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -10912,11 +11114,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -11973,11 +12179,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -12056,8 +12266,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -12246,9 +12460,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -12381,11 +12599,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -12463,9 +12685,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -12775,11 +13001,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -12929,11 +13159,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -13012,8 +13246,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -13093,11 +13331,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -13175,11 +13417,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -13434,11 +13682,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -13517,8 +13769,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -36656,9 +36912,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -36790,11 +37050,15 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -36909,9 +37173,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -37121,9 +37389,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -37245,9 +37517,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -37737,9 +38013,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -37824,11 +38104,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -40337,8 +40621,21 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        LinkageTemplateArgument::Type(
+                                            LinkageType::PathLeading(
+                                                LinkageTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    template_arguments: [],
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -40779,11 +41076,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -41007,11 +41308,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -41126,11 +41431,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -42187,11 +42496,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -42270,8 +42583,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -42460,9 +42777,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -42595,11 +42916,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -42677,9 +43002,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -42989,11 +43318,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -43143,11 +43476,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -43226,8 +43563,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -43307,11 +43648,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -43389,11 +43734,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -43648,11 +43999,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -43731,8 +44086,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -45003,11 +45362,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45085,11 +45448,40 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [
+                                    (
+                                        Type(
+                                            Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        Explicit(
+                                            Type(
+                                                PathLeading(
+                                                    LinkageTypePathLeading(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ],
+                                separator: Some(
+                                    1,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45276,9 +45668,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45400,9 +45796,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45538,9 +45938,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45646,9 +46050,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45733,11 +46141,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45815,9 +46227,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45902,11 +46318,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -45984,9 +46404,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46071,11 +46495,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46153,9 +46581,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46333,9 +46765,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46420,11 +46856,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46611,11 +47051,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -46694,8 +47138,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -46942,11 +47390,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -47025,8 +47477,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -47310,11 +47766,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -47393,8 +47853,12 @@
                 opn: ValOpn::LinkageImpl(
                     Linkage {
                         data: LinkageData::PropsStructField {
-                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            instantiation: LinkageInstantiation,
+                            self_ty: LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    template_arguments: [],
+                                },
+                            ),
                             ident: `matches`,
                         },
                     },
@@ -47668,11 +48132,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -47750,11 +48218,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -47917,11 +48391,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -47999,11 +48477,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -48227,11 +48711,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -48309,11 +48797,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -48428,11 +48922,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -48510,11 +49008,17 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MethodFn(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MethodFn {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -49137,9 +49641,13 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::FunctionFnItem(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        ),
+                        data: LinkageData::FunctionFnItem {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
@@ -49224,11 +49732,15 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::MemoizedField(
-                            AssociatedItemPath::TypeItem(
+                        data: LinkageData::MemoizedField {
+                            path: AssociatedItemPath::TypeItem(
                                 TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                             ),
-                        ),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
                     },
                 ),
                 arguments: [
