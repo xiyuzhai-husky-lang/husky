@@ -1,24 +1,29 @@
 use super::*;
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 33, return_ref)]
 pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
 
+#[rustfmt::skip]
 pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     Some(cc.relative_bounding_box().xmax())
 }
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 34, return_ref)]
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 35, return_ref)]
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 36)]
 pub fn is_four() -> malamute::OneVsAll {
     require!(let some = left_components().matches[0 as usize]);
@@ -49,12 +54,14 @@ pub fn is_four() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+#[rustfmt::skip]
 pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
     Some(dp.y.into_inner())
 }
 
+#[rustfmt::skip]
 pub fn cc_box_heights(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() > 0.0f32);

@@ -1,5 +1,6 @@
 use super::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConcaveComponent {
     pub line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>,
@@ -15,6 +16,7 @@ impl ConcaveComponent {
     }
 }
 
+#[rustfmt::skip]
 pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
     let mut concave_components: Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> = vec![];
     let L = line_segment_sketch.strokes.ilen();
@@ -37,6 +39,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
     return concave_components;
 }
 
+#[rustfmt::skip]
 impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_task_dependency::memoized_field(15)]
 pub fn norm(&'static self) -> f32 {

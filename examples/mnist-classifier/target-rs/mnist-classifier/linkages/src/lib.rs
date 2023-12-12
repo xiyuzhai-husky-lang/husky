@@ -1,5 +1,5 @@
-use ad_hoc_task_dependency::*;
 use husky_core::*;
+use ad_hoc_task_dependency::*;
 use mnist_classifier::*;
 
 #[rustfmt::skip]

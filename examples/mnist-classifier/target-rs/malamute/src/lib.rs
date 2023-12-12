@@ -3,18 +3,21 @@
     
     
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Class<Label> {
     Known(Label),
     Unknown,
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum OneVsAll {
     Yes,
     No,
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum OneVsAllResult {
     ConfidentYes,
@@ -22,17 +25,20 @@ pub enum OneVsAllResult {
     Unconfident,
 }
 
+#[rustfmt::skip]
 impl Default for crate::OneVsAll {
     fn default() -> crate::OneVsAll {
         OneVsAll::No
     }
 }
 
+#[rustfmt::skip]
 impl <Label, >Unveil<crate::OneVsAll> for crate::Class<Label> {
     
     type Output = ();
 }
 
+#[rustfmt::skip]
 impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
     
     type Output = ();

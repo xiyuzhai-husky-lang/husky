@@ -1,5 +1,6 @@
 use super::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegment {
     pub start: crate::geom2d::Point2d,
@@ -15,6 +16,7 @@ impl LineSegment {
     }
 }
 
+#[rustfmt::skip]
 impl crate::line_segment_sketch::line_segment::LineSegment {
     pub fn displacement(&self) -> crate::geom2d::Vector2d {
         self.start.to(&self.end)
