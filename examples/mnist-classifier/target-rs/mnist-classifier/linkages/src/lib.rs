@@ -1,5 +1,5 @@
-use ad_hoc_task_dependency::*;
 use husky_core::*;
+use ad_hoc_task_dependency::*;
 use mnist_classifier::*;
 
 #[rustfmt::skip]
@@ -104,7 +104,7 @@ linkage_impls![
     <Vec<mnist_classifier::connected_component::ConnectedComponent>>::push,
     <Vec<mnist_classifier::geom2d::Point2d>>::ilen,
     <[mnist_classifier::geom2d::Point2d]>::last,
-    <[mnist_classifier::geom2d::Point2d]>::last,
+    <[mnist_classifier::geom2d::Point2d]>::last_mut,
     <Vec<mnist_classifier::geom2d::Point2d>>::push,
     <Vec<mnist_classifier::geom2d::Point2d>>::pop,
     <Vec<mnist_classifier::raw_contour::RawContour>>::push,
@@ -113,13 +113,13 @@ linkage_impls![
     <CyclicSliceLeashed<mnist_classifier::geom2d::Point2d>>::last,
     <Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>>::ilen,
     <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::last,
-    <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::last,
+    <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::last_mut,
     <CyclicSliceLeashed<mnist_classifier::geom2d::Point2d>>::start,
     <Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>>::pop,
     <CyclicSliceLeashed<mnist_classifier::geom2d::Point2d>>::end,
     <Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>>::push,
     <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::first,
-    <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::first,
+    <[mnist_classifier::line_segment_sketch::LineSegmentStroke]>::first_mut,
     <Vec<mnist_classifier::geom2d::Point2d>>::cyclic_slice_leashed,
     <Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>>::cyclic_slice_leashed,
     <Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>::push,
