@@ -139,7 +139,11 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_ride(path.into(), instantiation),
+                } => {
+                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                        self.try_add_ride(javelin_path, instantiation)
+                    }
+                }
                 HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx,
                     ident,
@@ -158,7 +162,11 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_ride(path.into(), instantiation),
+                } => {
+                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                        self.try_add_ride(javelin_path, instantiation)
+                    }
+                }
                 HirEagerExprData::NewTuple { ref items } => (),
                 HirEagerExprData::Index {
                     owner_hir_expr_idx,
@@ -208,7 +216,11 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_ride(path.into(), instantiation),
+                } => {
+                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                        self.try_add_ride(javelin_path, instantiation)
+                    }
+                }
                 HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     owner,
@@ -216,12 +228,20 @@ impl ValkyrieRides {
                     path,
                     ref indirections,
                     ref instantiation,
-                } => self.try_add_ride(path.into(), instantiation),
+                } => {
+                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                        self.try_add_ride(javelin_path, instantiation)
+                    }
+                }
                 HirLazyExprData::MethodFnCall {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_ride(path.into(), instantiation), // todo: handle indirections
+                } => {
+                    if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
+                        self.try_add_ride(javelin_path, instantiation)
+                    }
+                }
                 HirLazyExprData::NewTuple { ref items } => (),
                 HirLazyExprData::Index { owner, ref items } => (),
                 HirLazyExprData::NewList { ref items } => (),

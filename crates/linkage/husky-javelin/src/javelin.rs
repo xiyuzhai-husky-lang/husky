@@ -32,7 +32,7 @@ impl Javelin {
         Some(Self::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(item_path)?,
+                path: JavelinPath::try_from_item_path(item_path, db)?,
                 // ad hoc consider places
                 instantiation: JavelinInstantiation::new_empty(),
             },
@@ -47,7 +47,7 @@ impl Javelin {
         Self::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(path.into()).unwrap(),
+                path: JavelinPath::try_from_item_path(path.into(), db).unwrap(),
                 instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
             },
         )
