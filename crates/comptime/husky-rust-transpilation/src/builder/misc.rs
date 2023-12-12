@@ -166,4 +166,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn husky_core(&mut self) {
         self.result += "husky_core"
     }
+
+    pub(crate) fn ad_hoc_fn(&mut self) {
+        self.result += "fn(/* ad hoc*/)"
+    }
 }

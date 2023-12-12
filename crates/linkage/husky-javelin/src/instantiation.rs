@@ -11,6 +11,15 @@ pub struct JavelinInstantiation {
     pub symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, JavelinTermSymbolResolution, 4>,
     pub separator: Option<u8>,
 }
+
+impl std::ops::Deref for JavelinInstantiation {
+    type Target = [(HirTemplateSymbol, JavelinTermSymbolResolution)];
+
+    fn deref(&self) -> &Self::Target {
+        &self.symbol_resolutions
+    }
+}
+
 impl JavelinInstantiation {
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,

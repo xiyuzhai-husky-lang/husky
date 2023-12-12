@@ -966,7 +966,24 @@
                 ),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            SelfType,
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -979,7 +996,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -992,7 +1038,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1005,7 +1074,82 @@
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            Ref,
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            RefMut,
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1018,7 +1162,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1031,7 +1204,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1044,7 +1246,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1057,7 +1288,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1089,7 +1343,24 @@
                 ),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            SelfType,
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1102,7 +1373,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1115,7 +1409,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1128,7 +1445,82 @@
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            Ref,
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            RefMut,
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1141,7 +1533,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1154,7 +1569,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1167,7 +1611,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1180,7 +1647,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1193,7 +1689,82 @@
                 TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            Ref,
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfPlace(
+                            RefMut,
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1206,7 +1777,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1219,7 +1813,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1232,7 +1849,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1245,7 +1891,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1258,7 +1927,30 @@
                 TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1271,7 +1963,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1284,7 +1999,30 @@
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                Ritchie(
+                                    LinkageTypeRitchie(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1297,7 +2035,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
@@ -1310,7 +2077,36 @@
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
                 separator: Some(
                     1,
                 ),
