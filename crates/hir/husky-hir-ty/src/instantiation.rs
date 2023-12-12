@@ -6,6 +6,9 @@ use husky_fluffy_term::{
 };
 use vec_like::SmallVecPairMap;
 
+/// `HirInstantiation` maps each hir symbol to its hir resolution.
+///
+/// hir resolution might still contain hir symbols.
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirInstantiation {
