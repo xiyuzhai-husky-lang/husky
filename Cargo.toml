@@ -21,7 +21,7 @@ members = [
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*"
-]
+, "crates/hir/husky-hir-signature"]
 resolver = "2"
 
 [profile.dev]
