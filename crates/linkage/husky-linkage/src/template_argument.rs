@@ -6,7 +6,7 @@ use self::{constant::LinkageConstant, ty::*};
 use super::*;
 use crate::{instantiation::LinkageInstantiation, template_argument::place::LinkagePlace};
 use husky_hir_ty::HirTemplateArgument;
-use husky_javelin::template_argument::constant::JavelinConstant;
+use husky_javelin::template_argument::{constant::JavelinConstant, JavelinTemplateArgument};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -47,6 +47,22 @@ impl LinkageTemplateArgument {
             ),
             HirTemplateArgument::Lifetime(_) => LinkageTemplateArgument::Lifetime,
             HirTemplateArgument::Place(_) => LinkageTemplateArgument::Place(todo!()),
+        }
+    }
+
+    pub(crate) fn from_javelin(
+        arg: JavelinTemplateArgument,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        match arg {
+            JavelinTemplateArgument::Vacant => todo!(),
+            JavelinTemplateArgument::Type(javelin_ty) => LinkageTemplateArgument::Type(
+                LinkageType::from_javelin(javelin_ty, linkage_instantiation, db),
+            ),
+            JavelinTemplateArgument::Constant(_) => todo!(),
+            JavelinTemplateArgument::Lifetime => todo!(),
+            JavelinTemplateArgument::Place => todo!(),
         }
     }
 }

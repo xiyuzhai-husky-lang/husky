@@ -120,6 +120,9 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, linkage_instantiation) = self;
         let db = builder.db;
+        use husky_print_utils::p;
+        use salsa::DebugWithDb;
+        p!(self.debug(db));
         let self_ty = HirType::from_ethereal(
             path.impl_block(db)
                 .ethereal_signature_template(db)
@@ -150,7 +153,10 @@ impl<E> TranspileToRustWith<E> for LinkageTypePathLeading {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         self.ty_path(db).transpile_to_rust(builder);
-        builder.bracketed_comma_list(RustBracket::Angle, self.template_arguments(db))
+        let template_arguments = self.template_arguments(db);
+        if !template_arguments.is_empty() {
+            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+        }
     }
 }
 
@@ -158,7 +164,7 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             LinkageTemplateArgument::Vacant => todo!(),
-            LinkageTemplateArgument::Type(_) => todo!(),
+            LinkageTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
             LinkageTemplateArgument::Constant(_) => todo!(),
             LinkageTemplateArgument::Lifetime => todo!(),
             LinkageTemplateArgument::Place(_) => todo!(),
@@ -168,7 +174,7 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
 
 impl<E> TranspileToRustWith<E> for LinkageTypeRitchie {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        todo!()
+        builder.ad_hoc_fn()
     }
 }
 

@@ -1,10 +1,11 @@
 use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::HirType;
+use husky_javelin::template_argument::ty::{JavelinType, JavelinTypePathLeading};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinkageType {
     PathLeading(LinkageTypePathLeading),
     Ritchie(LinkageTypeRitchie),
@@ -19,16 +20,21 @@ impl LinkageInstantiate for HirType {
         db: &salsa::Db,
     ) -> Self::Output {
         match self {
-            HirType::PathLeading(slf) => LinkageType::PathLeading(LinkageTypePathLeading::new(
-                db,
-                slf.ty_path(db),
-                slf.template_arguments(db)
-                    .iter()
-                    .map(|&arg| {
-                        LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
-                    })
-                    .collect(),
-            )),
+            HirType::PathLeading(slf) => {
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+                p!(slf.ty_path(db).debug(db));
+                LinkageType::PathLeading(LinkageTypePathLeading::new(
+                    db,
+                    slf.ty_path(db),
+                    slf.template_arguments(db)
+                        .iter()
+                        .map(|&arg| {
+                            LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
+                        })
+                        .collect(),
+                ))
+            }
             HirType::Symbol(slf) => todo!(),
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
@@ -65,24 +71,54 @@ impl LinkageType {
                 ),
             )
             .into(),
-            HirType::Symbol(symbol) => {
-                use husky_print_utils::p;
-                use salsa::DebugWithDb;
-                p!(symbol.debug(db), linkage_instantiation.debug(db));
-                match linkage_instantiation {
-                    Some(linkage_instantiation) => {
-                        match linkage_instantiation.resolve(symbol.into()) {
-                            LinkageTermSymbolResolution::Explicit(_) => todo!(),
-                            LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                            LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
-                        }
-                    }
-                    None => todo!(),
-                }
-            }
+            HirType::Symbol(symbol) => match linkage_instantiation {
+                Some(linkage_instantiation) => match linkage_instantiation.resolve(symbol.into()) {
+                    LinkageTermSymbolResolution::Explicit(arg) => match arg {
+                        LinkageTemplateArgument::Vacant => todo!(),
+                        LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
+                        LinkageTemplateArgument::Constant(_) => todo!(),
+                        LinkageTemplateArgument::Lifetime => todo!(),
+                        LinkageTemplateArgument::Place(_) => todo!(),
+                    },
+                    LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                    LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                },
+                None => todo!(),
+            },
             HirType::TypeAssociatedType(_) => unreachable!(),
             HirType::TraitAssociatedType(_) => unreachable!(),
             HirType::Ritchie(_) => LinkageTypeRitchie::new(db).into(),
         }
+    }
+
+    pub(crate) fn from_javelin(
+        javelin_ty: JavelinType,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        match javelin_ty {
+            JavelinType::PathLeading(javelin_ty) => {
+                LinkageTypePathLeading::from_javelin(javelin_ty, linkage_instantiation, db).into()
+            }
+            JavelinType::Ritchie(javelin_ty) => LinkageTypeRitchie::new(db).into(),
+        }
+    }
+}
+
+impl LinkageTypePathLeading {
+    fn from_javelin(
+        javelin_ty: JavelinTypePathLeading,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        LinkageTypePathLeading::new(
+            db,
+            javelin_ty.ty_path(db),
+            javelin_ty
+                .template_arguments(db)
+                .iter()
+                .map(|&arg| LinkageTemplateArgument::from_javelin(arg, linkage_instantiation, db))
+                .collect(),
+        )
     }
 }
