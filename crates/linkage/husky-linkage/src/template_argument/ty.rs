@@ -20,22 +20,27 @@ impl LinkageInstantiate for HirType {
         db: &salsa::Db,
     ) -> Self::Output {
         match self {
-            HirType::PathLeading(slf) => {
-                use husky_print_utils::p;
-                use salsa::DebugWithDb;
-                p!(slf.ty_path(db).debug(db));
-                LinkageType::PathLeading(LinkageTypePathLeading::new(
-                    db,
-                    slf.ty_path(db),
-                    slf.template_arguments(db)
-                        .iter()
-                        .map(|&arg| {
-                            LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
-                        })
-                        .collect(),
-                ))
-            }
-            HirType::Symbol(slf) => todo!(),
+            HirType::PathLeading(slf) => LinkageType::PathLeading(LinkageTypePathLeading::new(
+                db,
+                slf.ty_path(db),
+                slf.template_arguments(db)
+                    .iter()
+                    .map(|&arg| {
+                        LinkageTemplateArgument::from_hir(arg, Some(linkage_instantiation), db)
+                    })
+                    .collect(),
+            )),
+            HirType::Symbol(slf) => match linkage_instantiation.resolve(slf.into()) {
+                LinkageTermSymbolResolution::Explicit(arg) => match arg {
+                    LinkageTemplateArgument::Vacant => todo!(),
+                    LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
+                    LinkageTemplateArgument::Constant(_) => todo!(),
+                    LinkageTemplateArgument::Lifetime => todo!(),
+                    LinkageTemplateArgument::Place(_) => todo!(),
+                },
+                LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+            },
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
             HirType::Ritchie(_) => todo!(),

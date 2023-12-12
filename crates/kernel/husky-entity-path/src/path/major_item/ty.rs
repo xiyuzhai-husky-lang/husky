@@ -152,6 +152,7 @@ impl PreludeTypePath {
     pub const UNIT: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Unit);
     pub const BOOL: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Bool);
     pub const NEVER: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Never);
+    pub const VEC: Self = PreludeTypePath::Container(PreludeContainerTypePath::Vec);
     pub const CYCLIC_SLICE: Self =
         PreludeTypePath::Container(PreludeContainerTypePath::CyclicSlice);
 }

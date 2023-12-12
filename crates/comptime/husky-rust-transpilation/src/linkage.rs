@@ -120,9 +120,6 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, linkage_instantiation) = self;
         let db = builder.db;
-        use husky_print_utils::p;
-        use salsa::DebugWithDb;
-        p!(self.debug(db));
         let self_ty = HirType::from_ethereal(
             path.impl_block(db)
                 .ethereal_signature_template(db)
@@ -132,11 +129,36 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
         )
         .unwrap()
         .linkage_instantiate(linkage_instantiation, db);
+        let ident = path.ident(db).unwrap();
         builder.bracketed(RustBracket::Angle, |builder| {
+            match self_ty {
+                LinkageType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
+                    Left(PreludeTypePath::VEC) => match ident.data(db) {
+                        "first" | "last" => {
+                            builder.bracketed_comma_list(
+                                RustBracket::Box,
+                                self_ty.template_arguments(db),
+                            );
+                            return;
+                        }
+                        _ => (),
+                    },
+                    Left(PreludeTypePath::CYCLIC_SLICE) => {
+                        builder.cyclic_slice_leashed_ty();
+                        builder.bracketed_comma_list(
+                            RustBracket::Angle,
+                            self_ty.template_arguments(db),
+                        );
+                        return;
+                    }
+                    _ => (),
+                },
+                _ => (),
+            }
             self_ty.transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);
-        path.ident(db).transpile_to_rust(builder)
+        ident.transpile_to_rust(builder)
     }
 }
 
@@ -190,13 +212,19 @@ impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinkageInstantiation) {
 
 impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let (path, instantiation) = self;
+        let (path, linkage_instantiation) = self;
         let db = builder.db;
         builder.bracketed(RustBracket::Angle, |builder| {
-            match path.impl_block(db).ty_sketch(db) {
-                TypeSketch::DeriveAny => builder.todo(),
-                TypeSketch::Path(path) => path.transpile_to_rust(builder),
-            }
+            let self_ty = HirType::from_ethereal(
+                path.impl_block(db)
+                    .ethereal_signature_template(db)
+                    .unwrap()
+                    .self_ty(db),
+                db,
+            )
+            .unwrap()
+            .linkage_instantiate(linkage_instantiation, db);
+            self_ty.transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
             path.impl_block(db).trai_path(db).transpile_to_rust(builder)
         });
