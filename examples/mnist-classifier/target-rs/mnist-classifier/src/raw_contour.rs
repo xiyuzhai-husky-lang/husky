@@ -1,5 +1,6 @@
 use crate::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawContour {
     pub cc: Leash<crate::connected_component::ConnectedComponent>,
@@ -15,6 +16,7 @@ impl RawContour {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Direction {
     Up,
@@ -23,18 +25,22 @@ pub enum Direction {
     Right,
 }
 
+#[rustfmt::skip]
 pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
     row >> j - 1 | 3
 }
 
+#[rustfmt::skip]
 pub fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
     row >> j | 1
 }
 
+#[rustfmt::skip]
 pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     row >> j - 1 | 1
 }
 
+#[rustfmt::skip]
 pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::raw_contour::Direction {
     let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
     let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
@@ -90,6 +96,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::ra
     }
 }
 
+#[rustfmt::skip]
 pub fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::raw_contour::Direction) -> i32 {
     let raw_angle_change = ((outward as i32 - inward as i32) as u32).last_bits(2);
     match raw_angle_change{
@@ -105,6 +112,7 @@ pub fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::r
     }
 }
 
+#[rustfmt::skip]
 pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: crate::raw_contour::Direction) -> crate::raw_contour::Direction {
     let pixel_pair_above = crate::raw_contour::get_pixel_pair(row_above, j);
     let pixel_pair_below = crate::raw_contour::get_pixel_pair(row_below, j);
@@ -193,6 +201,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StreakCache {
     pub prev1: i32,
@@ -208,6 +217,7 @@ impl StreakCache {
     }
 }
 
+#[rustfmt::skip]
 pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
     let p0 = &points[(N - 2) as usize];
@@ -215,6 +225,7 @@ pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::
     crate::geom2d::Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
 }
 
+#[rustfmt::skip]
 pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponent>) -> Vec<crate::raw_contour::RawContour> {
     let mut result: Vec<crate::raw_contour::RawContour> = vec![];
     let mut boundary_unsearched = mnist::BinaryGrid28::new_zeros();
@@ -306,6 +317,7 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
     return result;
 }
 
+#[rustfmt::skip]
 impl crate::raw_contour::RawContour {
     #[ad_hoc_task_dependency::memoized_field_return_ref(9)]
 pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {

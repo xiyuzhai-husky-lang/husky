@@ -14,6 +14,7 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
             Left(PreludeTraitPath::VISUALIZE | PreludeTraitPath::INT_INDEX) => return,
             _ => (),
         }
+        builder.rustfmt_skip();
         hir_decl.transpile_to_rust(builder);
         builder.curly_block(|builder| {
             for &(_, trai_for_ty_item_path) in hir_decl.path(db).associated_item_paths(db) {

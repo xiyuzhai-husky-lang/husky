@@ -21,6 +21,7 @@ pub use self::major::*;
 use malamute::*;
 use mnist::*;
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 0)]
 pub fn main() -> malamute::Class<mnist::MnistLabel> {
     unveil!(is_one());

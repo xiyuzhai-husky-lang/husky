@@ -1,5 +1,6 @@
 use super::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConvexComponent {
     pub line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>,

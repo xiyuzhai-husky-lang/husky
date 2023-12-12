@@ -1,21 +1,25 @@
 use super::*;
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 38, return_ref)]
 pub fn simple_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
 
+#[rustfmt::skip]
 pub fn simple_leftdown_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
     Some(-dp.y.into_inner())
 }
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 39, return_ref)]
 pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
+#[rustfmt::skip]
 pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
@@ -23,6 +27,7 @@ pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
     Some(cc.end().y.into_inner())
 }
 
+#[rustfmt::skip]
 pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y.into_inner() < 0.0f32);
@@ -32,6 +37,7 @@ pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_componen
     Some(ang)
 }
 
+#[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 40)]
 pub fn is_seven() -> malamute::OneVsAll {
     require!(let none = is_six());

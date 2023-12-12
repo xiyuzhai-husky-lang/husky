@@ -92,10 +92,20 @@ use husky_core::*;
         },
     });
     for item_path in module_item_paths(db, module_path) {
+        match item_path.item_kind(db) {
+            EntityKind::MajorItem {
+                module_item_kind: MajorItemKind::Fugitive(FugitiveKind::FunctionGn),
+                ..
+            } => continue,
+            _ => (),
+        };
         if let Some(hir_defn) = item_path.hir_defn(db) {
             match hir_defn {
                 HirDefn::MajorItem(hir_defn) => {
-                    builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));
+                    builder.on_fresh_paragraph(|builder| {
+                        builder.rustfmt_skip();
+                        hir_defn.transpile_to_rust(builder)
+                    });
                 }
                 HirDefn::ImplBlock(hir_defn) => {
                     builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));

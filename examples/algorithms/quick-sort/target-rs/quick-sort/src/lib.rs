@@ -3,11 +3,13 @@
     
     
 
+#[rustfmt::skip]
 pub fn quick_sort<T: Ord>(ref mut arr: &mut [T]) {
     let len = arr.len();
     crate::quick_sort_aux(arr, 0, (len - 1) as isize)
 }
 
+#[rustfmt::skip]
 pub fn quick_sort_aux<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) {
     if low < high {
         let p = crate::partition(arr, low, high);
@@ -16,6 +18,7 @@ pub fn quick_sort_aux<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) {
     }
 }
 
+#[rustfmt::skip]
 pub fn partition<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) -> isize {
     let pivot = high as usize;
     let mut store_index = low - 1;
@@ -39,10 +42,12 @@ pub fn partition<T: Ord>(ref mut arr: &mut [T], low: isize, high: isize) -> isiz
     store_index
 }
 
+#[rustfmt::skip]
 pub fn quick_sort_works_for_integers() {
     let mut v: Vec<i32> = vec![4, 65, 2, -31, 0, 99, 2, 83, 782, 1];
 }
 
+#[rustfmt::skip]
 pub fn quick_sort_works_for_strs() {
     let mut strs = vec!["beach", "hotel", "airplane", "car", "house", "art"];
 }

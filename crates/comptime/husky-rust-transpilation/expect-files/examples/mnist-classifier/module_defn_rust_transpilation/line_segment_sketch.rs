@@ -10,6 +10,7 @@ pub use self::line_segment::*;
 
 use crate::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<crate::geom2d::Point2d>,
@@ -29,6 +30,7 @@ impl LineSegmentStroke {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentSketch {
     pub contour: Leash<crate::raw_contour::RawContour>,
@@ -44,6 +46,7 @@ impl LineSegmentSketch {
     }
 }
 
+#[rustfmt::skip]
 pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
     assert!(L > r);
@@ -53,6 +56,7 @@ pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d 
     crate::geom2d::Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
 }
 
+#[rustfmt::skip]
 pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
     assert!(L > r);
@@ -62,6 +66,7 @@ pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     crate::geom2d::Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
 }
 
+#[rustfmt::skip]
 pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32) -> i32 {
     let mut end = start;
     let mut dp = ct.displacement(start, end + 1);
@@ -101,6 +106,7 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
     return end;
 }
 
+#[rustfmt::skip]
 pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end: i32, r: f32) -> i32 {
     let mut start = end;
     let mut dp0 = ct.displacement(end, start - 1);
@@ -149,6 +155,7 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
     }
 }
 
+#[rustfmt::skip]
 pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> Vec<crate::line_segment_sketch::LineSegmentStroke> {
     let mut line_segments: Vec<crate::line_segment_sketch::LineSegmentStroke> = vec![];
     let mut start = 0;
@@ -197,6 +204,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     line_segments
 }
 
+#[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
         assert!(from <= to);
@@ -208,6 +216,7 @@ impl crate::line_segment_sketch::LineSegmentStroke {
     }
 }
 
+#[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentSketch {
     #[ad_hoc_task_dependency::memoized_field_return_ref(13)]
 pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {

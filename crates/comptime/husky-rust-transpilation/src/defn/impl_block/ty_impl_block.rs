@@ -6,6 +6,7 @@ impl TranspileToRustWith for TypeImplBlockHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl();
+        builder.rustfmt_skip();
         hir_decl.transpile_to_rust(builder);
         builder.curly_block(|builder| {
             for &(_, ty_item_path) in hir_decl.path(db).associated_item_paths(db) {

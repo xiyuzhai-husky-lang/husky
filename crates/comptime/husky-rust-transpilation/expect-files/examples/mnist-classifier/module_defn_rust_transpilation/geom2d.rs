@@ -1,5 +1,6 @@
 use crate::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Point2d {
     pub x: NotNan<f32>,
@@ -17,6 +18,7 @@ impl Point2d {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativePoint2d {
     pub x: NotNan<f32>,
@@ -34,6 +36,7 @@ impl RelativePoint2d {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Vector2d {
     pub x: NotNan<f32>,
@@ -51,6 +54,7 @@ impl Vector2d {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ClosedRange {
     pub min: NotNan<f32>,
@@ -68,6 +72,7 @@ impl ClosedRange {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BoundingBox {
     pub xrange: crate::geom2d::ClosedRange,
@@ -83,6 +88,7 @@ impl BoundingBox {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativeBoundingBox {
     pub xrange: crate::geom2d::ClosedRange,
@@ -98,6 +104,7 @@ impl RelativeBoundingBox {
     }
 }
 
+#[rustfmt::skip]
 impl crate::geom2d::Point2d {
     pub fn from_i_shift28(i: i32, shift: i32) -> crate::geom2d::Point2d {
         crate::geom2d::Point2d::__constructor((29 - shift) as f32, (29 - i) as f32)
@@ -120,6 +127,7 @@ impl crate::geom2d::Point2d {
     }
 }
 
+#[rustfmt::skip]
 impl crate::geom2d::Vector2d {
     pub fn point(&self) -> crate::geom2d::Point2d {
         crate::geom2d::Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
@@ -177,6 +185,7 @@ impl crate::geom2d::Vector2d {
     }
 }
 
+#[rustfmt::skip]
 impl crate::geom2d::ClosedRange {
     pub fn relative_range(&self, other: &crate::geom2d::ClosedRange) -> crate::geom2d::ClosedRange {
         assert!(self.max.into_inner() > self.min.into_inner());
@@ -192,6 +201,7 @@ impl crate::geom2d::ClosedRange {
     }
 }
 
+#[rustfmt::skip]
 impl crate::geom2d::BoundingBox {
     pub fn relative_bounding_box(&self, other: &crate::geom2d::BoundingBox) -> crate::geom2d::RelativeBoundingBox {
         crate::geom2d::RelativeBoundingBox::__constructor(self.xrange.relative_range(&other.xrange), self.yrange.relative_range(&other.yrange))
@@ -218,6 +228,7 @@ impl crate::geom2d::BoundingBox {
     }
 }
 
+#[rustfmt::skip]
 impl crate::geom2d::RelativeBoundingBox {
     pub fn xmin(&self) -> f32 {
         self.xrange.min.into_inner()

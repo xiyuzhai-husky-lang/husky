@@ -1,5 +1,6 @@
 use crate::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>>,
@@ -15,6 +16,7 @@ impl FermiMatchResult {
     }
 }
 
+#[rustfmt::skip]
 pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>, templates: &Vec<fn(Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32>>) -> crate::fermi::FermiMatchResult {
     let mut others = concave_components.collect_leashes();
     let mut matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>> = vec![];
@@ -25,6 +27,7 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
     return crate::fermi::FermiMatchResult::__constructor(matches, others);
 }
 
+#[rustfmt::skip]
 impl crate::fermi::FermiMatchResult {
     #[ad_hoc_task_dependency::memoized_field(21)]
 pub fn norm(&'static self) -> f32 {

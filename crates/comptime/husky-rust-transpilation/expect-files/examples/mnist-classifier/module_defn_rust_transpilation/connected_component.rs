@@ -1,5 +1,6 @@
 use crate::*;
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConnectedComponentDistribution {
     pub row_start: i32,
@@ -19,6 +20,7 @@ impl ConnectedComponentDistribution {
     }
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>,
@@ -32,12 +34,14 @@ impl EffHoles {
     }
 }
 
+#[rustfmt::skip]
 pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
     let len = ct.contour_len();
     require!(len > 4.0f32);
     Some(len + 0.0f32)
 }
 
+#[rustfmt::skip]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConnectedComponent {
     pub mask: mnist::BinaryImage28,
@@ -51,6 +55,7 @@ impl ConnectedComponent {
     }
 }
 
+#[rustfmt::skip]
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a | (x | x << 1 | x >> 1);
     let mut z = a | (y | y << 1 | y >> 1);
@@ -61,6 +66,7 @@ pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     return y;
 }
 
+#[rustfmt::skip]
 pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::connected_component::ConnectedComponent> {
     let mut result: Vec<crate::connected_component::ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
@@ -109,6 +115,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
     return result;
 }
 
+#[rustfmt::skip]
 impl crate::connected_component::ConnectedComponent {
     #[ad_hoc_task_dependency::memoized_field_return_ref(1)]
 pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
