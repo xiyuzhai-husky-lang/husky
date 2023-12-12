@@ -31,42 +31,7 @@
                 ),
             ),
             rides: VecSet {
-                data: [
-                    ValkyrieRide {
-                        javelin_item_path: TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 246,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    Type(
-                                        SelfType,
-                                    ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 55,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                ],
+                data: [],
             },
         },
     ),

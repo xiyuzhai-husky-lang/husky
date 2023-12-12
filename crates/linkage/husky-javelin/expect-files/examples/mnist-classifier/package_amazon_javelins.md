@@ -80,40 +80,6 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                 ),
@@ -272,40 +238,6 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::raw_contour`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -824,40 +756,6 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
                 ),
@@ -873,40 +771,6 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -946,40 +810,6 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1071,40 +901,6 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeConstructor(
                     TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],

@@ -1,5 +1,5 @@
-use husky_core::*;
 use ad_hoc_task_dependency::*;
+use husky_core::*;
 use mnist_classifier::*;
 
 #[rustfmt::skip]
@@ -10,7 +10,6 @@ linkage_impls![
     mnist_classifier::connected_component::ConnectedComponent::__constructor,
     mnist_classifier::connected_component::horizontal_extend,
     mnist_classifier::connected_component::find_connected_components,
-    <mnist_classifier::connected_component::ConnectedComponent as Visualize>::visualize,
     mnist_classifier::connected_component::ConnectedComponent::top_k_row_span_sum,
     mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum,
     mnist_classifier::raw_contour::RawContour::__constructor,
@@ -23,7 +22,6 @@ linkage_impls![
     mnist_classifier::raw_contour::StreakCache::__constructor,
     mnist_classifier::raw_contour::get_concave_middle_point,
     mnist_classifier::raw_contour::find_raw_contours,
-    <mnist_classifier::raw_contour::RawContour as Visualize>::visualize,
     mnist_classifier::raw_contour::RawContour::displacement,
     mnist_classifier::geom2d::Point2d::__constructor,
     mnist_classifier::geom2d::RelativePoint2d::__constructor,
@@ -63,14 +61,11 @@ linkage_impls![
     mnist_classifier::line_segment_sketch::extend_end,
     mnist_classifier::line_segment_sketch::extend_start,
     mnist_classifier::line_segment_sketch::find_line_segments,
-    <mnist_classifier::line_segment_sketch::LineSegmentStroke as Visualize>::visualize,
     mnist_classifier::line_segment_sketch::LineSegmentStroke::new,
     mnist_classifier::line_segment_sketch::LineSegmentStroke::displacement,
-    <mnist_classifier::line_segment_sketch::LineSegmentSketch as Visualize>::visualize,
     mnist_classifier::line_segment_sketch::LineSegmentSketch::new,
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::__constructor,
     mnist_classifier::line_segment_sketch::concave_component::find_concave_components,
-    <mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as Visualize>::visualize,
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::line_segment,
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::start,
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end,
@@ -78,7 +73,6 @@ linkage_impls![
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::start_tangent,
     mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_tangent,
     mnist_classifier::line_segment_sketch::convex_component::ConvexComponent::__constructor,
-    <mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as Visualize>::visualize,
     mnist_classifier::line_segment_sketch::convexity::is_convex,
     mnist_classifier::line_segment_sketch::line_segment::LineSegment::__constructor,
     mnist_classifier::line_segment_sketch::line_segment::LineSegment::displacement,
@@ -124,10 +118,8 @@ linkage_impls![
     Vec::push,
     Vec::first,
     Vec::cyclic_slice_leashed,
-    <todo!() as Visualize>::visualize,
     Vec::cyclic_slice_leashed,
     Vec::push,
-    <todo!() as Visualize>::visualize,
     CyclicSlice::first,
     CyclicSlice::last,
     Vec::collect_leashes,

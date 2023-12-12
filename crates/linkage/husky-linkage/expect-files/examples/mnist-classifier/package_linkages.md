@@ -31,34 +31,6 @@
     },
     Linkage {
         data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::connected_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
             ),
@@ -119,34 +91,6 @@
     Linkage {
         data: LinkageData::FunctionFnItem(
             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::raw_contour`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
         ),
     },
     Linkage {
@@ -397,34 +341,6 @@
         ),
     },
     Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    },
-    Linkage {
         data: LinkageData::AssociatedFunctionFn(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
@@ -435,34 +351,6 @@
         data: LinkageData::MethodFn(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
-            ),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
             ),
         ),
     },
@@ -481,34 +369,6 @@
     Linkage {
         data: LinkageData::FunctionFnItem(
             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
         ),
     },
     Linkage {
@@ -556,34 +416,6 @@
     Linkage {
         data: LinkageData::TypeConstructor(
             TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
         ),
     },
     Linkage {
@@ -891,32 +723,6 @@
     },
     Linkage {
         data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::visual`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
             ),
@@ -926,32 +732,6 @@
         data: LinkageData::MethodFn(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
-            ),
-        ),
-    },
-    Linkage {
-        data: LinkageData::MethodFn(
-            AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::visual`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
             ),
         ),
     },

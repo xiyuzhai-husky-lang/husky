@@ -24,7 +24,7 @@ impl AmazonJavelin {
         Some(AmazonJavelin(Javelin::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(item_path)?,
+                path: JavelinPath::try_from_item_path(item_path, db)?,
                 // ad hoc consider places
                 instantiation: JavelinInstantiation::new_empty(),
             },

@@ -77,7 +77,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 235,
+                    value: 209,
                 },
             ),
         ): PackagePath(
@@ -88,7 +88,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 232,
+                    value: 206,
                 },
             ),
         ): PackagePath(
@@ -99,7 +99,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 229,
+                    value: 203,
                 },
             ),
         ): PackagePath(
@@ -176,7 +176,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 237,
+                    value: 208,
                 },
             ),
         ): PackagePath(
@@ -187,7 +187,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 234,
+                    value: 205,
                 },
             ),
         ): PackagePath(
@@ -198,18 +198,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 231,
-                },
-            ),
-        ): PackagePath(
-            Id {
-                value: 4,
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 228,
+                    value: 202,
                 },
             ),
         ): PackagePath(
@@ -286,7 +275,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 236,
+                    value: 207,
                 },
             ),
         ): PackagePath(
@@ -297,7 +286,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 233,
+                    value: 204,
                 },
             ),
         ): PackagePath(
@@ -308,18 +297,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 230,
-                },
-            ),
-        ): PackagePath(
-            Id {
-                value: 4,
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 227,
+                    value: 201,
                 },
             ),
         ): PackagePath(
@@ -329,6 +307,69 @@ ValkyrieJavelinPantheon {
         ),
     },
     package_valkyrie_javelins: [
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 201,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 202,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 203,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 204,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 205,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 206,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 207,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 208,
+                },
+            ),
+        ),
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 209,
+                },
+            ),
+        ),
         ValkyrieJavelin(
             Javelin(
                 Id {
@@ -445,83 +486,6 @@ ValkyrieJavelinPantheon {
             Javelin(
                 Id {
                     value: 226,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 227,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 228,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 229,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 230,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 231,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 232,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 233,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 234,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 235,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 236,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 237,
                 },
             ),
         ),
