@@ -1,20 +1,25 @@
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol,
+    HirTemplateSymbol, HirType,
 };
 use husky_javelin::instantiation::{JavelinInstantiation, JavelinTermSymbolResolution};
 use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
-use crate::template_argument::{place::LinkagePlace, LinkageTemplateArgument};
+use crate::template_argument::{
+    place::LinkagePlace,
+    ty::{LinkageType, LinkageTypePathLeading},
+    LinkageTemplateArgument,
+};
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LinkageInstantiation {
     symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, LinkageTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinkageTermSymbolResolution {
     Explicit(LinkageTemplateArgument),
     SelfLifetime,
@@ -53,6 +58,11 @@ impl LinkageInstantiation {
             )),
             separator: hir_instantiation.separator(),
         }
+    }
+
+    #[track_caller]
+    pub(crate) fn resolve(&self, symbol: HirTemplateSymbol) -> LinkageTermSymbolResolution {
+        self.symbol_resolutions[symbol].1
     }
 }
 
@@ -123,4 +133,14 @@ impl LinkageTermSymbolResolution {
             HirTermSymbolResolution::SelfPlace(_) => todo!(),
         }
     }
+}
+
+pub trait LinkageInstantiate {
+    type Output;
+
+    fn linkage_instantiate(
+        self,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self::Output;
 }

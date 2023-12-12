@@ -2,6 +2,7 @@ use husky_term_prelude::Variance;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirTypeSymbol {
     Type {

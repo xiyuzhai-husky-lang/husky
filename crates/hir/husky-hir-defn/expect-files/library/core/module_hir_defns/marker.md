@@ -103,7 +103,7 @@
                         template_arguments: [],
                     },
                     self_ty: HirType::Symbol(
-                        SelfType,
+                        HirTypeSymbol::SelfType,
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         path: RegionPath::Decl(

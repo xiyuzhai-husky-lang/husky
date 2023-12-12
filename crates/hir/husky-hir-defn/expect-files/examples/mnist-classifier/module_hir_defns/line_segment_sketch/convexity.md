@@ -175,7 +175,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -765,7 +765,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -820,7 +820,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -919,7 +919,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -1352,7 +1352,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -1407,7 +1407,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },
@@ -1506,7 +1506,7 @@
                                                     symbol_map: [
                                                         (
                                                             HirTemplateSymbol::Type(
-                                                                Type {
+                                                                HirTypeSymbol::Type {
                                                                     attrs: HirTemplateSymbolAttrs {
                                                                         class: Comptime,
                                                                     },

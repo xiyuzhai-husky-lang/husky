@@ -541,10 +541,10 @@ impl EtherealTerm {
     }
 }
 
-impl EtherealTermInstantiate for EtherealTerm {
-    type Target = EtherealTerm;
+impl EtherealInstantiate for EtherealTerm {
+    type Output = EtherealTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(term) => term.instantiate(db, instantiation),

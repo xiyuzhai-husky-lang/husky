@@ -114,7 +114,7 @@
                                             ),
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                Type {
+                                                HirTypeSymbol::Type {
                                                     attrs: HirTemplateSymbolAttrs {
                                                         class: Comptime,
                                                     },

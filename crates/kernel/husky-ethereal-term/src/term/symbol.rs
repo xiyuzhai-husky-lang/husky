@@ -73,10 +73,10 @@ impl salsa::DisplayWithDb for EtherealTermSymbol {
     }
 }
 
-impl EtherealTermInstantiate for EtherealTermSymbol {
-    type Target = EtherealTerm;
+impl EtherealInstantiate for EtherealTermSymbol {
+    type Output = EtherealTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         /// it's assumed that all symbols will be replaced by its map
         /// otherwise it's illegal
         instantiation.symbol_mapped(self)

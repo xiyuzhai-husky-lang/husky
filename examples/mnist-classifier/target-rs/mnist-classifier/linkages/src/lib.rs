@@ -1,5 +1,5 @@
-use husky_core::*;
 use ad_hoc_task_dependency::*;
+use husky_core::*;
 use mnist_classifier::*;
 
 #[rustfmt::skip]
@@ -103,7 +103,7 @@ linkage_impls![
     <todo!() as Clone>::clone,
     Vec::push,
     Vec::ilen,
-    Vec::last,
+    <[i32]>::last,
     Vec::push,
     Vec::pop,
     Vec::push,
