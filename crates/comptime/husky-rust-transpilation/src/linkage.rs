@@ -10,8 +10,9 @@ use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
 use husky_hir_ty::HirType;
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
 use husky_linkage::{
-    instantiation::{LinkageInstantiate, LinkageInstantiation},
+    instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
     template_argument::{
+        place,
         ty::{LinkageType, LinkageTypeRitchie},
         LinkageTemplateArgument,
     },
@@ -158,7 +159,25 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
             self_ty.transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);
-        ident.transpile_to_rust(builder)
+        let places = linkage_instantiation.places();
+        match places.len() {
+            0 => ident.transpile_to_rust(builder),
+            1 => {
+                let (symbol, place) = places[0];
+                match place {
+                    LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::Place(_)) => {
+                        todo!()
+                    }
+                    LinkageTermSymbolResolution::SelfPlace(place) => match place {
+                        place::LinkagePlace::Ref => ident.transpile_to_rust(builder),
+                        place::LinkagePlace::RefMut => builder.method_fn_ident_mut(ident),
+                        place::LinkagePlace::Transient => todo!(),
+                    },
+                    _ => unreachable!(),
+                }
+            }
+            _ => todo!(),
+        }
     }
 }
 

@@ -72,6 +72,23 @@ impl LinkageInstantiation {
     pub(crate) fn resolve(&self, symbol: HirTemplateSymbol) -> LinkageTermSymbolResolution {
         self.symbol_resolutions[symbol].1
     }
+
+    pub fn places(&self) -> SmallVec<[(HirTemplateSymbol, LinkageTermSymbolResolution); 2]> {
+        self.symbol_resolutions
+            .iter()
+            .filter_map(|&(symbol, resolution)| match resolution {
+                LinkageTermSymbolResolution::Explicit(arg) => match arg {
+                    LinkageTemplateArgument::Vacant => todo!(),
+                    LinkageTemplateArgument::Type(_) => None,
+                    LinkageTemplateArgument::Constant(_) => todo!(),
+                    LinkageTemplateArgument::Lifetime => todo!(),
+                    LinkageTemplateArgument::Place(_) => todo!(),
+                },
+                LinkageTermSymbolResolution::SelfLifetime => None,
+                LinkageTermSymbolResolution::SelfPlace(_) => Some((symbol, resolution)),
+            })
+            .collect()
+    }
 }
 
 impl LinkageInstantiation {
