@@ -12,6 +12,7 @@ itertools.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 enum-class.workspace = true
+is.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 # fs
 husky-vfs.workspace = true

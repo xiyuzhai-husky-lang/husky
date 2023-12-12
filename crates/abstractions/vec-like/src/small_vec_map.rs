@@ -78,6 +78,10 @@ where
         Ok(Self { entries: data })
     }
 
+    pub unsafe fn from_smallvec_unchecked(entries: SmallVec<[E; N]>) -> Self {
+        Self { entries }
+    }
+
     pub fn len(&self) -> usize {
         self.entries.len()
     }

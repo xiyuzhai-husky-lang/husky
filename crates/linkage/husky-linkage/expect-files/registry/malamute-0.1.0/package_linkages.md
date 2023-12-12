@@ -1,7 +1,7 @@
 [
     Linkage {
-        data: LinkageData::AssociatedFunctionFn(
-            AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::AssociatedFunctionFn {
+            path: AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
                         data: ItemPathData::AssociatedItem(
@@ -25,6 +25,10 @@
                     },
                 ),
             ),
-        ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
     },
 ]
