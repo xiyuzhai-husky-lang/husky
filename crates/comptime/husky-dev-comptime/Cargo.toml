@@ -13,6 +13,7 @@ husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
+husky-toolchain-config.workspace = true
 husky-vfs.workspace = true
 # hir
 husky-hir-ty.workspace = true
@@ -57,6 +58,8 @@ husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-entity-syn-tree.workspace = true
+# utils
+husky-print-utils.workspace = true
 # val
 husky-val.workspace = true
 husky-val-repr.workspace = true

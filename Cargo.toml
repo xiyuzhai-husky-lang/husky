@@ -147,6 +147,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
+husky-toml-utils = {path = "crates/utils/husky-toml-utils"}
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }

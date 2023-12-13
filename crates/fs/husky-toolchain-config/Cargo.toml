@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 semver = "1.0.17"
+serde.workspace = true
 # abstractions
 salsa.workspace = true
 # lex
@@ -18,6 +19,8 @@ husky-coword.workspace = true
 husky-toml-ast.workspace = true
 husky-toolchain-config-ast.workspace = true
 husky-vfs.workspace = true
+# utils
+husky-toml-utils.workspace = true
 
 [dev-dependencies]
 husky-toolchain-config = { path = ".", features = ["test_utils"] }
