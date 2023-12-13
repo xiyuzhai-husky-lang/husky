@@ -1,18 +1,6 @@
-/// this is the same as husky_vfs::toolchain_config
-///
-/// todo: refactor husky-vfs into two crates, let this crate depends on one and be dependent of the other
-mod db;
-
-pub use db::*;
-
 use husky_toml_utils::read_toml;
-use husky_vfs::{Toolchain, ToolchainData, VirtualPath};
-use serde::*;
-use std::path::Path;
-use std::path::PathBuf;
 
-#[salsa::jar(db = ToolchainConfigDb)]
-pub struct ToolchainConfigJar();
+use crate::*;
 
 pub struct ToolchainConfig {
     toml: ToolchainToml,
@@ -25,13 +13,13 @@ impl ToolchainConfig {
     }
 }
 
-#[derive(Deserialize)]
+#[derive(serde::Deserialize)]
 pub struct ToolchainToml {
     #[serde(rename = "toolchain")]
     pub toolchain_section: ToolchainSection,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(serde::Deserialize)]
 pub struct ToolchainSection {
     #[serde(rename = "library-path")]
     library_path: PathBuf,

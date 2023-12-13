@@ -11,13 +11,13 @@ serde.workspace = true
 # abstractions
 salsa.workspace = true
 # lex
-husky-text-protocol.workspace = true
-husky-toml-token.workspace = true
+# husky-text-protocol.workspace = true
+# husky-toml-token.workspace = true
 # kernel
 husky-coword.workspace = true
 # fs
-husky-toml-ast.workspace = true
-husky-toolchain-config-ast.workspace = true
+# husky-toml-ast.workspace = true
+# husky-toolchain-config-ast.workspace = true
 husky-vfs.workspace = true
 # utils
 husky-toml-utils.workspace = true
