@@ -49,31 +49,21 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 [dev-dependencies]
 expect-test = "1.4.0"
 # fs
+husky-corgi-config.workspace = true
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", features = [
     "test_utils"
 ] }
-# lex
-husky-toml-token = { path = "../../lex/husky-toml-token", features = [
-    "test_utils"
-] }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
-husky-toml-ast = { path = "../../syntax/husky-toml-ast", features = [
-    "test_utils"
-] }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast", features = [
-    "test_utils"
-] }
-husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast", features = [
-    "test_utils"
-] }
-# infer
-husky-corgi-config = { path = "../../semantics/husky-corgi-config", features = [
-    "test_utils"
-] }
+# semantics
 husky-entity-syn-tree = { path = ".", features = ["test_utils"] }
+# toml
+husky-corgi-config-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-toml-ast.workspace = true
+husky-toml-token.workspace = true
 
 [features]
 test_utils = ["salsa/test_utils"]

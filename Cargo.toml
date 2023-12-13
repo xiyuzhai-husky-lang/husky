@@ -93,6 +93,9 @@ is = { path = "crates/abstractions/is" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 # fs
+husky-corgi-config ={path = "crates/fs/husky-corgi-config"}
+husky-manifest ={path = "crates/fs/husky-manifest"}
+husky-toolchain-config ={path = "crates/fs/husky-toolchain-config"}
 husky-vfs = { path = "crates/fs/husky-vfs" }
 # hir
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
@@ -120,7 +123,6 @@ husky-stack-location = { path = "crates/kernel/husky-stack-location" }
 # lex
 husky-token-data = { path = "crates/lex/husky-token-data" }
 husky-token = { path = "crates/lex/husky-token" }
-husky-toml-token = { path = "crates/lex/husky-toml-token" }
 husky-text = { path = "crates/lex/husky-text" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
@@ -128,18 +130,19 @@ husky-linkage = { path = "crates/linkage/husky-linkage" }
 # protocols
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 # semantics
-husky-manifest = { path = "crates/semantics/husky-manifest" }
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
-husky-corgi-config = { path = "crates/semantics/husky-corgi-config" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
-husky-toml-ast = { path = "crates/syntax/husky-toml-ast" }
-husky-manifest-ast = { path = "crates/syntax/husky-manifest-ast" }
-husky-corgi-config-ast = { path = "crates/syntax/husky-corgi-config-ast" }
 husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
+# toml
+husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
+husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
+husky-toml-ast = { path = "crates/toml/husky-toml-ast" }
+husky-toml-token = { path = "crates/toml/husky-toml-token" }
+husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }

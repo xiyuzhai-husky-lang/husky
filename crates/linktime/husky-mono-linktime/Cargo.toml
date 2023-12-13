@@ -16,15 +16,15 @@ vec-like.workspace = true
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # fs
-husky-regular-value = { path = "../../kernel/husky-regular-value" }
+husky-manifest.workspace = true
+husky-corgi-config.workspace = true
 # kernel
+husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-task.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
 # semantics
-husky-manifest = { path = "../../semantics/husky-manifest" }
-husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # utils
 husky-cargo-utils.workspace = true
 husky-print-utils.workspace = true

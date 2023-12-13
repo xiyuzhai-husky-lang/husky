@@ -6,7 +6,7 @@ resolver = "2"
 path = "../../../registry/ad-hoc-task-dependency"
 
 [workspace.dependencies.husky-core]
-path = "../../../../../.huskyup/toolchains/nightly/lib/rustlib/src/husky/library/core"
+path = "../../../library/core"
 
 [workspace.dependencies.malamute]
 path = "malamute"

@@ -15,10 +15,9 @@ husky-toml-token.workspace = true
 # kernel
 husky-coword.workspace = true
 # fs
-husky-vfs.workspace = true
-# syntax
 husky-toml-ast.workspace = true
-husky-toolchain-config-ast = { path = "../../syntax/husky-toolchain-config-ast" }
+husky-toolchain-config-ast.workspace = true
+husky-vfs.workspace = true
 
 [dev-dependencies]
 husky-toolchain-config = { path = ".", features = ["test_utils"] }

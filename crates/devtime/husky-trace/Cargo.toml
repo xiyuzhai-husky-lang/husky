@@ -76,19 +76,10 @@ husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
-husky-toml-ast = { path = "../../syntax/husky-toml-ast", features = [
-    "test_utils"
-] }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast", features = [
-    "test_utils"
-] }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree", features = [
     "test_utils"
 ] }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl", features = [
-    "test_utils"
-] }
-husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast", features = [
     "test_utils"
 ] }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr", features = [
@@ -97,6 +88,10 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr", features = [
 husky-syn-defn = { path = "../../syntax/husky-syn-defn", features = [
     "test_utils"
 ] }
+# toml
+husky-corgi-config-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-toml-ast.workspace = true
 # val
 husky-val = { path = "../../val/husky-val", features = ["test_utils"] }
 husky-val-repr = { path = "../../val/husky-val-repr", features = [

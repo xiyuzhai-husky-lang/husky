@@ -41,7 +41,7 @@ husky-javelin.workspace = true
 husky-linkage.workspace = true
 # semantics
 husky-manifest.workspace = true
-husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
+husky-corgi-config.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 # utils
