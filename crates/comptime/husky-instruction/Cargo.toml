@@ -21,9 +21,7 @@ husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-hir-ty.workspace = true
 husky-coword.workspace = true
-husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
-    "constant"
-] }
+husky-regular-value = { workspace = true, features = ["constant"] }
 # syntax
 husky-entity-kind.workspace = true
 husky-ast.workspace = true

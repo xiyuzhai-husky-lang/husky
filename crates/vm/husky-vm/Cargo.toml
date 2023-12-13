@@ -17,9 +17,7 @@ enum-class.workspace = true
 husky-coword.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
-husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
-    "vm_support"
-] }
+husky-regular-value = { workspace = true, features = ["vm_support"] }
 # syntax
 husky-syn-expr.workspace = true
 # utils

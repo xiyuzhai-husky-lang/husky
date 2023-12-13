@@ -153,4 +153,5 @@ husky-toml-utils = {path = "crates/utils/husky-toml-utils"}
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }
 # vm
+husky-regular-value = { path = "crates/vm/husky-regular-value" }
 husky-vm = { path = "crates/vm/husky-vm" }

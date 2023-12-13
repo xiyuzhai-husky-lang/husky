@@ -8,7 +8,7 @@ edition = "2021"
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # kernel
-husky-regular-value = { path = "../../kernel/husky-regular-value" }
+husky-regular-value.workspace = true
 husky-task.workspace = true
 # linkage
 husky-linkage-impl.workspace = true

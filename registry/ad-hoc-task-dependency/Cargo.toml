@@ -14,3 +14,6 @@ ad-hoc-task-dependency-macros = { path = "macros" }
 
 [dependencies]
 ad-hoc-task-dependency-macros.workspace = true
+husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
+    "standard"
+] }

@@ -17,7 +17,7 @@ husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 husky-vfs.workspace = true
 # kernel
 husky-task.workspace = true
-husky-regular-value = { path = "../../kernel/husky-regular-value" }
+husky-regular-value.workspace = true
 # linkage
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
