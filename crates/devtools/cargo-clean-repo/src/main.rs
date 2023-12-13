@@ -12,7 +12,7 @@ fn main() {
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
     // remove_folder_in_tests("try/try");
-    // clean_expect_files();
+    clean_expect_files();
     // clean_library_adversarials();
     // clean_tests()
     // restructure()

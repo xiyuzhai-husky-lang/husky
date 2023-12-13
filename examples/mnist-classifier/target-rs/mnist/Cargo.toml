@@ -1,7 +1,0 @@
-[package]
-name = "mnist"
-edition = "2021"
-version = "0.1.0"
-
-[dependencies.husky-core]
-workspace = true

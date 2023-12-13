@@ -1,3 +1,0 @@
-SynNodeDeclSheet {
-    decls: [],
-}

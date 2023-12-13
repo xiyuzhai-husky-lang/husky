@@ -228,10 +228,6 @@ fn collect_package_relative_dirs_works() {
                 "./mnist-classifier",
                 `mnist-classifier`,
             ),
-            (
-                "./natural-number-game",
-                `natural-number-game`,
-            ),
         ]
     "#]]
     .assert_debug_eq(&collect_package_relative_dirs(db, &examples_dir).debug(db));
