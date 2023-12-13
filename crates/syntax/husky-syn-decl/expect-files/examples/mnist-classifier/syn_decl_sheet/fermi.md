@@ -243,7 +243,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 239,
+                                                                    value: 238,
                                                                 },
                                                             ),
                                                         ),
@@ -263,7 +263,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 427,
+                                                                    value: 426,
                                                                 },
                                                             ),
                                                         ),

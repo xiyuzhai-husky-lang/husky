@@ -18,8 +18,8 @@ pub fn compile_workspace(manifest_path: &std::path::Path) {
             // todo!()
         }
         Err(error) => {
-            // p!(error);
-            // todo!()
+            p!(manifest_path, error);
+            todo!()
         }
     }
 }

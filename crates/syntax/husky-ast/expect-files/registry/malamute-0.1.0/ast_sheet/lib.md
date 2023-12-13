@@ -19,7 +19,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 523,
+                                            value: 522,
                                         },
                                     ),
                                 ),
@@ -63,7 +63,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 211,
+                                            value: 210,
                                         },
                                     ),
                                 ),
@@ -107,7 +107,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 271,
+                                            value: 270,
                                         },
                                     ),
                                 ),
@@ -151,7 +151,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 526,
+                                            value: 525,
                                         },
                                     ),
                                 ),
@@ -191,7 +191,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 49,
+                                value: 48,
                             },
                         ),
                     ),
@@ -233,7 +233,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 49,
+                                value: 48,
                             },
                         ),
                     ),
@@ -279,7 +279,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 529,
+                                            value: 528,
                                         },
                                     ),
                                 ),
@@ -323,7 +323,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 530,
+                                            value: 529,
                                         },
                                     ),
                                 ),
@@ -367,7 +367,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 531,
+                                            value: 530,
                                         },
                                     ),
                                 ),
@@ -401,7 +401,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 49,
+                                value: 48,
                             },
                         ),
                     ),

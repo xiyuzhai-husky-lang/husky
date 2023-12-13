@@ -59,7 +59,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 239,
+                                                            value: 238,
                                                         },
                                                     ),
                                                 ),
@@ -83,7 +83,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 427,
+                                                            value: 426,
                                                         },
                                                     ),
                                                 ),
@@ -318,7 +318,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 239,
+                                                                    value: 238,
                                                                 },
                                                             ),
                                                         ),
@@ -338,7 +338,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 427,
+                                                                    value: 426,
                                                                 },
                                                             ),
                                                         ),

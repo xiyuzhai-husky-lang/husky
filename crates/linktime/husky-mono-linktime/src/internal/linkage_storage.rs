@@ -29,6 +29,6 @@ fn generate_linkage_storage_works() {
             MonoLinkageStorage::generate(LinktimeTargetPath::new_package(package_path, db), db);
         },
         &VfsTestConfig::new("generate_linkage_storage")
-            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary),
+            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExamplesOnly),
     );
 }

@@ -208,7 +208,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 305,
+                                                    value: 304,
                                                 },
                                             ),
                                         ),
@@ -218,7 +218,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 263,
+                                                    value: 262,
                                                 },
                                             ),
                                         ),
@@ -471,7 +471,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 305,
+                                                    value: 304,
                                                 },
                                             ),
                                         ),
@@ -481,7 +481,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 263,
+                                                    value: 262,
                                                 },
                                             ),
                                         ),
@@ -714,7 +714,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 305,
+                                                    value: 304,
                                                 },
                                             ),
                                         ),
@@ -724,7 +724,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 263,
+                                                    value: 262,
                                                 },
                                             ),
                                         ),
@@ -988,6 +988,16 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
+                                                    value: 308,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
                                                     value: 309,
                                                 },
                                             ),
@@ -998,17 +1008,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 310,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 263,
+                                                    value: 262,
                                                 },
                                             ),
                                         ),
@@ -1277,7 +1277,7 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 301,
+                                                                                value: 300,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1307,7 +1307,7 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 300,
+                                                                                value: 299,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1323,6 +1323,49 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 301,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                5,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -1356,79 +1399,6 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                5,
-                                            ),
-                                            ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
-                                            },
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 303,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
@@ -1446,6 +1416,36 @@
                                                                         Coword(
                                                                             Id {
                                                                                 value: 300,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 299,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1493,7 +1493,7 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 303,
+                                                                                value: 302,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1523,7 +1523,7 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 300,
+                                                                                value: 299,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1812,7 +1812,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 311,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -1822,7 +1822,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 312,
+                                                        value: 311,
                                                     },
                                                 ),
                                             ),
@@ -2091,7 +2091,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 314,
+                                                    value: 313,
                                                 },
                                             ),
                                         ),
@@ -2101,7 +2101,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 315,
+                                                    value: 314,
                                                 },
                                             ),
                                         ),
@@ -2418,7 +2418,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 316,
+                                                        value: 315,
                                                     },
                                                 ),
                                             ),
@@ -2589,6 +2589,16 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
+                                                    value: 308,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
                                                     value: 309,
                                                 },
                                             ),
@@ -2599,7 +2609,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 310,
+                                                    value: 262,
                                                 },
                                             ),
                                         ),
@@ -2609,17 +2619,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 263,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 318,
+                                                    value: 317,
                                                 },
                                             ),
                                         ),
@@ -2894,36 +2894,6 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
                                                                                 value: 301,
                                                                             },
                                                                         ),
@@ -2935,210 +2905,6 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Unreachable,
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                6,
-                                            ),
-                                            ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
-                                            },
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 303,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            ty_place: StackPure {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        4,
-                                                    ),
-                                                ),
-                                            },
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 303,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Unreachable,
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Unreachable,
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                6,
-                                            ),
-                                            ty_place: ImmutableStackOwned {
-                                                location: StackLocationIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
-                                            },
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
@@ -3159,6 +2925,84 @@
                                                                         Coword(
                                                                             Id {
                                                                                 value: 300,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Unreachable,
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                6,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 302,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 301,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3250,6 +3094,36 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 300,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -3284,7 +3158,50 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 303,
+                                                                                value: 299,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            ty_place: StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        4,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 299,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3314,7 +3231,90 @@
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
+                                                                                value: 301,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Unreachable,
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Unreachable,
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                6,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
                                                                                 value: 302,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PrincipalEntityPath(
+                                                PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 275,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 301,
                                                                             },
                                                                         ),
                                                                     ),
@@ -3743,7 +3743,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 311,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -3753,7 +3753,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 312,
+                                                        value: 311,
                                                     },
                                                 ),
                                             ),
@@ -4220,7 +4220,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 253,
+                                                    value: 252,
                                                 },
                                             ),
                                         ),
@@ -4772,7 +4772,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 295,
+                                                        value: 294,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 322,
                                                     },
                                                 ),
                                             ),
@@ -4783,16 +4793,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 323,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 324,
                                                     },
                                                 ),
                                             ),
@@ -4915,7 +4915,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 277,
+                                                    value: 276,
                                                 },
                                             ),
                                         ),
@@ -9912,7 +9912,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 251,
+                                                            value: 250,
                                                         },
                                                     ),
                                                 ),
@@ -10006,7 +10006,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 325,
+                                                        value: 324,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 326,
                                                     },
                                                 ),
                                             ),
@@ -10042,7 +10052,9 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: None,
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10058,7 +10070,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 331,
+                                                        value: 250,
                                                     },
                                                 ),
                                             ),
@@ -10070,7 +10082,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 251,
+                                                        value: 262,
                                                     },
                                                 ),
                                             ),
@@ -10082,7 +10094,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 263,
+                                                        value: 308,
                                                     },
                                                 ),
                                             ),
@@ -10106,19 +10118,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 310,
+                                                        value: 317,
                                                     },
                                                 ),
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 318,
+                                                        value: 331,
                                                     },
                                                 ),
                                             ),
@@ -10144,7 +10154,9 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: None,
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10214,9 +10226,7 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10231,16 +10241,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 341,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 342,
                                                     },
                                                 ),
                                             ),
@@ -10752,7 +10752,7 @@
                                                         property_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 253,
+                                                                    value: 252,
                                                                 },
                                                             ),
                                                         ),
@@ -12128,7 +12128,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 251,
+                                                            value: 250,
                                                         },
                                                     ),
                                                 ),
@@ -12166,6 +12166,18 @@
                                     data: [
                                         Ident {
                                             symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 283,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -12211,23 +12223,11 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 288,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
                                             symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 289,
+                                                        value: 288,
                                                     },
                                                 ),
                                             ),
@@ -13465,7 +13465,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 251,
+                                                            value: 250,
                                                         },
                                                     ),
                                                 ),
@@ -13545,7 +13545,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 243,
+                                                        value: 242,
                                                     },
                                                 ),
                                             ),
@@ -14205,6 +14205,16 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 294,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 295,
                                                     },
                                                 ),
@@ -14216,16 +14226,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 296,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 297,
                                                     },
                                                 ),
                                             ),

@@ -272,7 +272,7 @@ Ok(
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 511,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
@@ -299,7 +299,7 @@ Ok(
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 511,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
@@ -694,7 +694,7 @@ Ok(
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 443,
+                                                        value: 442,
                                                     },
                                                 ),
                                             ),
@@ -721,7 +721,7 @@ Ok(
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 443,
+                                                        value: 442,
                                                     },
                                                 ),
                                             ),

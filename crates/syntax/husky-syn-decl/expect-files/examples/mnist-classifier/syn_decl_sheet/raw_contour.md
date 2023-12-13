@@ -216,7 +216,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 277,
+                                                                    value: 276,
                                                                 },
                                                             ),
                                                         ),
@@ -236,7 +236,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 253,
+                                                                    value: 252,
                                                                 },
                                                             ),
                                                         ),
@@ -2740,7 +2740,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 320,
+                                                                    value: 319,
                                                                 },
                                                             ),
                                                         ),
@@ -2760,7 +2760,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 321,
+                                                                    value: 320,
                                                                 },
                                                             ),
                                                         ),

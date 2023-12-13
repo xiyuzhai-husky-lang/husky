@@ -55,6 +55,7 @@ impl<'a> VfsTestConfig<'a> {
 pub enum VfsTestDomainsConfig {
     Full,
     ExcludeLibrary,
+    ExamplesOnly,
 }
 
 impl Default for VfsTestDomainsConfig {
@@ -104,6 +105,11 @@ impl VfsTestDomainsConfig {
                     ),
                 ]
             }
+            VfsTestDomainsConfig::ExamplesOnly => vec![VfsTestDomain::new(
+                env.lang_dev_examples_dir().to_owned(),
+                dir.join("expect-files/examples"),
+                Some(dir.join("adversarials/examples")),
+            )],
         }
     }
 }
