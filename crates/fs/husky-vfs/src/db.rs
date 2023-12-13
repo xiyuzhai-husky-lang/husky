@@ -10,11 +10,6 @@ pub trait VfsDb {
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-    fn collect_local_packages(
-        &self,
-        toolchain: Toolchain,
-        dir: &Path,
-    ) -> VfsResult<Vec<PackagePath>>;
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
@@ -159,20 +154,6 @@ impl VfsDb for Db {
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>> {
         self.vfs_cache().live_packages()
-    }
-
-    fn collect_local_packages(
-        &self,
-        toolchain: Toolchain,
-        dir: &Path,
-    ) -> VfsResult<Vec<PackagePath>> {
-        collect_husky_package_dirs(self, dir)
-            .into_iter()
-            .map(|(path, name)| {
-                PackagePath::new_local_or_toolchain_package(self, toolchain, name, &path)
-                    .map_err(|e| e.into())
-            })
-            .collect()
     }
 
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {

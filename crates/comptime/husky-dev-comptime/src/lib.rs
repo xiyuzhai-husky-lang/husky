@@ -3,6 +3,7 @@ pub mod db;
 use self::db::DevComptimeDb;
 use husky_coword::Kebab;
 use husky_task::{helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
+use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
     VfsDb, VfsJar,
@@ -25,10 +26,7 @@ pub enum DevComptimeTarget {
 impl<Task: IsTask> DevComptime<Task> {
     pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
         let db = DevComptimeDb::default();
-        let toolchain = match db.current_toolchain() {
-            Ok(toolchain) => toolchain,
-            Err(_) => todo!(),
-        };
+        let toolchain = toolchain_config(target_crate_path, &*db).toolchain();
         let target_package_path = match PackagePath::new_local_or_toolchain_package(
             &db,
             toolchain,
