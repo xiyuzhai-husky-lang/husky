@@ -49,7 +49,8 @@ pub(crate) fn cyclic_dependent_package_paths_aux(
     todo!()
 }
 
-fn full_dependent_package_paths(
+/// includes package_path itself
+pub(crate) fn full_dependent_package_paths(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<&[PackagePath]> {
@@ -60,8 +61,21 @@ fn full_dependent_package_paths(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn full_dependent_package_paths_aux(
-    _db: &::salsa::Db,
-    _package_path: PackagePath,
+    db: &::salsa::Db,
+    package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
-    todo!()
+    let mut package_paths: VecSet<PackagePath> = VecSet::new_one_elem_set(package_path);
+    let mut first_unsearched = 0usize;
+    while first_unsearched < package_paths.len() {
+        let first_unsearched = std::mem::replace(&mut first_unsearched, package_paths.len());
+        for i in first_unsearched..package_paths.len() {
+            package_paths.extend(
+                package_paths[i]
+                    .dependencies(db)?
+                    .iter()
+                    .map(|dep| dep.package_path()),
+            );
+        }
+    }
+    Ok(package_paths)
 }

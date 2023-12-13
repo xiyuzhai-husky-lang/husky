@@ -128,7 +128,7 @@ pub(crate) fn package_source_rust_package_manifest(
     .into_iter()
     .chain(
         package_path
-            .package_dependencies(db)
+            .dependencies(db)
             .unwrap()
             .iter()
             .map(|dep| dep.package_path().name_string(db)),
@@ -188,7 +188,7 @@ pub(crate) fn package_linkages_rust_package_manifest(
     .into_iter()
     .chain(
         package_path
-            .package_dependencies(db)
+            .dependencies(db)
             .unwrap()
             .iter()
             .map(|dep| dep.package_path().name_string(db)),

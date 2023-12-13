@@ -92,7 +92,7 @@ pub(crate) fn rust_transpilation_packages(
             ];
             packages.extend(
                 package_path
-                    .package_dependencies(db)
+                    .dependencies(db)
                     .expect("no error at this stage")
                     .iter()
                     .map(|dep| {

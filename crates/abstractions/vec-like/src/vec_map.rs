@@ -250,11 +250,7 @@ where
     }
 
     /// use this when you are absoluately sure!
-    pub unsafe fn insert_new_unchecked(&mut self, new: Entry)
-    where
-        K: Copy,
-    {
-        debug_assert!(!self.has(new.key()));
+    pub unsafe fn insert_new_unchecked(&mut self, new: Entry) {
         self.entries.push(new)
     }
 
@@ -425,12 +421,15 @@ impl<K, V> VecPairMap<K, V> {
 
 impl<K, Entry> VecMap<Entry>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
     Entry: AsVecMapEntry<K = K>,
 {
     pub fn from_iter_assuming_no_repetitions<T: IntoIterator<Item = Entry>>(
         iter: T,
-    ) -> Result<Self, InsertEntryRepeatError<Entry>> {
+    ) -> Result<Self, InsertEntryRepeatError<Entry>>
+    where
+        K: Copy,
+    {
         let mut map = Self::default();
         for v in iter {
             // ignore errors
@@ -452,9 +451,10 @@ where
 
     /// if there are repetitive keys, take the first value
     /// deprecated
-    pub fn from_iter_ignoring_following_repetitions<T: IntoIterator<Item = Entry>>(
-        iter: T,
-    ) -> Self {
+    pub fn from_iter_ignoring_following_repetitions<T: IntoIterator<Item = Entry>>(iter: T) -> Self
+    where
+        K: Copy,
+    {
         let mut map = Self::default();
         for v in iter {
             // ignore errors

@@ -76,11 +76,7 @@ use husky_core::*;
     builder.on_fresh_paragraph(|builder| match module_path.data(db) {
         // use all in dependencies if root
         ModulePathData::Root(crate_path) => builder.on_fresh_paragraph(|builder| {
-            for dep in crate_path
-                .package_path(db)
-                .package_dependencies(db)
-                .unwrap()
-            {
+            for dep in crate_path.package_path(db).dependencies(db).unwrap() {
                 builder.use_all_in_dep(dep)
             }
         }),

@@ -146,12 +146,12 @@ impl<K> VecSet<K> {
     }
 
     /// no assumptions
-    pub fn extend(&mut self, other: &Self)
+    pub fn extend(&mut self, other: impl IntoIterator<Item = K>)
     where
         K: Copy + PartialEq + Eq,
     {
-        for entry in &other.data {
-            self.insert(*entry)
+        for entry in other {
+            self.insert(entry)
         }
     }
 

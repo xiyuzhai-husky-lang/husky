@@ -56,6 +56,7 @@ futures-util = { version = "0.3", default-features = false, features = [
     "std"
 ] }
 fxhash = "0.2.1"
+libloading = "0.8.1"
 # warning: change to 0.94.1 will leads to bugs for vscode extension
 lsp-types = { version = "=0.94.0", features = ["proposed"] }
 ordered-float = "4.1.0"
