@@ -13,6 +13,7 @@ pub use self::sections::*;
 use self::builder::*;
 use husky_corgi_config_ast::*;
 use husky_vfs::{error::VfsResult, *};
+use salsa::DebugWithDb;
 
 #[salsa::jar(db = CorgiConfigDb)]
 pub struct CorgiConfigJar(
@@ -61,6 +62,9 @@ fn package_corgi_config(
     package_path: PackagePath,
 ) -> CorgiConfigResult<CorgiConfig> {
     let corgi_config_paths = package_corgi_config_paths(db, package_path)?;
+    use husky_print_utils::p;
+    use salsa::DebugWithDb;
+    p!(package_path.debug(db));
     let mut builder = CorgiConfigBuilder::new(db);
     for path in corgi_config_paths {
         builder.read(*path)?
