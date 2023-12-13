@@ -6,7 +6,8 @@ use self::internal::MonoLinkTimeInternal;
 #[cfg(test)]
 use self::tests::*;
 use husky_linkage::linkage::Linkage;
-use husky_task::link::{IsLinkageImpl, IsLinktime};
+use husky_linkage_impl::IsLinkageImpl;
+use husky_task::linktime::IsLinktime;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 

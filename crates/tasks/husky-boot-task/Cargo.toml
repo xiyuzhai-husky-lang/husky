@@ -11,7 +11,7 @@ husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-task.workspace = true
 # linkage
-husky-trivial-linkage-impl = { path = "../../linkage/husky-trivial-linkage-impl" }
+husky-linkage-impl.workspace = true
 # linktime
 husky-boot-linktime = { path = "../../linktime/husky-boot-linktime" }
 # protocols

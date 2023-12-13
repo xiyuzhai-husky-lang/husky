@@ -12,8 +12,9 @@ enum-class.workspace = true
 salsa.workspace = true
 # fs
 husky-vfs.workspace = true
-# kernel
+# linkage
 husky-linkage.workspace = true
+husky-linkage-impl.workspace = true
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
