@@ -6,13 +6,12 @@ use salsa::Db;
 use vec_like::VecSet;
 pub trait VfsDb {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
-    fn current_toolchain(&self) -> VfsResult<Toolchain>;
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
-    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
+    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath>;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
 // don't leak this outside the crate
@@ -263,7 +262,14 @@ impl VfsDb for Db {
         modules
     }
 
-    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath> {
+    /// toolchain is
+    /// - equal to the first live package's toolchain if live packages are not empty
+    /// - equal to the toolchain found by iterating through config files under path's ancestry
+    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath> {
+        let toolchain = match self.live_packages().unwrap().first() {
+            Some(package_path) => package_path.toolchain(self),
+            None => crate::toolchain_config::toolchain_config(path, self).toolchain(),
+        };
         let module_path = resolve_module_path(self, toolchain, path)?;
         let package_path = module_path.package_path(self);
         self.vfs_cache().add_live_package(package_path);
@@ -272,10 +278,6 @@ impl VfsDb for Db {
 
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path {
         published_toolchain_library_path(self, toolchain)
-    }
-
-    fn current_toolchain(&self) -> VfsResult<Toolchain> {
-        current_toolchain(self)
     }
 }
 
@@ -322,7 +324,6 @@ pub struct VfsJar(
     crate::toolchain::Toolchain,
     crate::toolchain::PublishedToolchain,
     crate::toolchain::published_toolchain_library_path,
-    crate::toolchain::current_toolchain,
     crate::snippet::Snippet,
 );
 

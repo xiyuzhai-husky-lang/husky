@@ -134,7 +134,7 @@ pub(crate) fn handle_folding_range(
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
-    let module = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let module = snapshot.resolve_module_path(&path)?;
     Ok(Some(snapshot.folding_ranges(module).to_vec()))
 }
 
@@ -151,7 +151,7 @@ pub(crate) fn handle_hover(
     params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
-    let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let module_path = snapshot.resolve_module_path(&path)?;
     let position = match params.position {
         lsp_ext::PositionOrRange::Position(position) => position,
         lsp_ext::PositionOrRange::Range(range) => range.start,

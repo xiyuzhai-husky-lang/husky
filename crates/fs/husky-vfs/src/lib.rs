@@ -16,6 +16,7 @@ pub mod test_utils;
 #[cfg(test)]
 mod tests;
 mod toolchain;
+pub mod toolchain_config;
 mod watch;
 
 pub use self::cache::VfsCache;
