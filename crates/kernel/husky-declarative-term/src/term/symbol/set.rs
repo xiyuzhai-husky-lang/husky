@@ -24,7 +24,7 @@ impl DeclarativeTermSymbols {
             (Some(fst), None) => Some(fst),
             (Some(fst), Some(snd)) => {
                 let mut symbols = fst.symbols(db).clone();
-                symbols.extend(snd.symbols(db));
+                symbols.extend(snd.symbols(db).iter().copied());
                 Some(DeclarativeTermSymbols::new(db, symbols))
             }
         }

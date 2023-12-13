@@ -7,9 +7,12 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 smallvec.workspace = true
+libloading.workspace = true
+fxhash.workspace = true
 # abstractions
 salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
+vec-like.workspace = true
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # fs
@@ -20,6 +23,7 @@ husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
 # semantics
+husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # utils
 husky-cargo-utils.workspace = true

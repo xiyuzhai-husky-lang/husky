@@ -2,7 +2,7 @@
 mod db;
 mod dependency;
 mod error;
-mod has_manifest;
+pub mod has_manifest;
 mod sections;
 
 pub use self::db::*;
@@ -26,6 +26,7 @@ pub struct ManifestJar(
     cyclic_dependent_package_paths_aux,
     PackageDevDependenciesSection,
     package_dev_dependencies_unchecked,
+    linktime_target_path_all_packages,
 );
 
 #[salsa::tracked(db = ManifestDb, jar = ManifestJar)]

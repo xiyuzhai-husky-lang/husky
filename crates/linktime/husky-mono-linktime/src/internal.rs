@@ -1,8 +1,8 @@
-mod linkage_storage;
-mod mapgen;
+mod libraries;
+mod linkage_impls;
 
-use self::linkage_storage::MonoLinkageStorage;
-use self::mapgen::generate_map;
+use self::linkage_impls::generate_linkage_impls;
+use self::{libraries::MonoLinkageLibraries, linkage_impls::LinkageImpls};
 use crate::*;
 use husky_linkage::version_stamp::LinkageVersionStamp;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
@@ -13,8 +13,8 @@ where
     LinkageImpl: IsLinkageImpl,
 {
     target_path: LinktimeTargetPath,
-    linkage_storage: MonoLinkageStorage,
-    map: HashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>,
+    linkage_storage: MonoLinkageLibraries,
+    linkage_impls: LinkageImpls<LinkageImpl>,
 }
 
 impl<LinkageImpl: IsLinkageImpl> MonoLinkTimeInternal<LinkageImpl>
@@ -22,17 +22,17 @@ where
     LinkageImpl: IsLinkageImpl,
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        let linkage_storage = MonoLinkageStorage::generate(target_path, db);
-        let map = generate_map(target_path, &linkage_storage, db);
+        let linkage_storage = MonoLinkageLibraries::generate(target_path, db);
+        let linkage_impls = generate_linkage_impls(target_path, &linkage_storage, db);
         Self {
             target_path,
             linkage_storage,
-            map,
+            linkage_impls,
         }
     }
 
     pub(crate) fn get_linkage(&self, linkage: Linkage, db: &::salsa::Db) -> Option<LinkageImpl> {
-        let (deps, linkage_impl) = self.map.get(&linkage).copied().expect("todo");
+        let (deps, linkage_impl) = self.linkage_impls.get(&linkage).copied().expect("todo");
         (deps == linkage.version_stamp(db)).then_some(linkage_impl)
     }
 
@@ -42,16 +42,24 @@ where
         key: Linkage,
         db: &::salsa::Db,
     ) -> LinkageImpl {
-        let (deps, linkage) = self.map.get(&key).copied().expect("should be some");
+        let (deps, linkage) = self
+            .linkage_impls
+            .get(&key)
+            .copied()
+            .expect("should be some");
         if deps == key.version_stamp(db) {
             return linkage;
         }
         self.reload(db);
-        self.map.get(&key).copied().expect("should be some").1
+        self.linkage_impls
+            .get(&key)
+            .copied()
+            .expect("should be some")
+            .1
     }
 
     fn reload(&mut self, db: &::salsa::Db) {
-        self.linkage_storage = MonoLinkageStorage::generate(self.target_path, db);
-        self.map = generate_map(self.target_path, &self.linkage_storage, db)
+        self.linkage_storage = MonoLinkageLibraries::generate(self.target_path, db);
+        self.linkage_impls = generate_linkage_impls(self.target_path, &self.linkage_storage, db)
     }
 }

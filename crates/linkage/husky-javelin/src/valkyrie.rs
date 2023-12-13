@@ -322,7 +322,7 @@ fn package_valkyrie_javelin_pantheon(
         package_valkyrie_javelins: Default::default(),
     };
     for dep in package_path
-        .package_dependencies(db)
+        .dependencies(db)
         .expect("no error at this stage")
     {
         pantheon.add_valkyrie_javelins_instantiated_by_package(package_valkyrie_javelin_pantheon(

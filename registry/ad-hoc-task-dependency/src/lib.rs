@@ -8,7 +8,8 @@ macro_rules! init_crate {
 #[macro_export]
 macro_rules! linkage_impls {
     ($($linkage_impl: expr),*,) => {
-        pub fn linkage_impls() -> Vec<::ad_hoc_task_dependency::LinkageImpl> {
+        #[no_mangle]
+        pub extern "C" fn linkage_impls() -> Vec<::ad_hoc_task_dependency::LinkageImpl> {
             vec![
                 $($linkage_impl.into_linkage_impl()),*
             ]
