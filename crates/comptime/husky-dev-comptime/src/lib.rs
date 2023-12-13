@@ -2,7 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 use husky_coword::Kebab;
-use husky_task::{helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
+use husky_task::{helpers::TaskDevLinkTime, linktime::IsLinktime, IsTask};
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,

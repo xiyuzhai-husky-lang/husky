@@ -3,7 +3,7 @@ use std::iter::zip;
 use super::*;
 use husky_linkage::linkage::package_linkages;
 
-pub(crate) type LinkageImpls<LinkageImpl> =
+pub(crate) type LinkageImplMap<LinkageImpl> =
     fxhash::FxHashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>;
 
 /// extract from library for efficient lookup
@@ -11,8 +11,8 @@ pub(super) fn generate_linkage_impls<LinkageImpl: IsLinkageImpl>(
     target_path: LinktimeTargetPath,
     libraries: &MonoLinkageLibraries,
     db: &::salsa::Db,
-) -> LinkageImpls<LinkageImpl> {
-    let mut linkage_impls = LinkageImpls::default();
+) -> LinkageImplMap<LinkageImpl> {
+    let mut linkage_impls = LinkageImplMap::default();
     for &(package_path, ref library) in libraries.cdylibs.iter() {
         let package_linkages = package_linkages(db, package_path);
         let package_linkage_impls: libloading::Symbol<fn() -> Vec<LinkageImpl>> =

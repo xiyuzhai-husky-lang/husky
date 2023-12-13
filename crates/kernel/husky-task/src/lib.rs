@@ -1,10 +1,10 @@
 #![feature(associated_type_bounds)]
 pub mod ascension;
 pub mod helpers;
-pub mod link;
+pub mod linktime;
 
 use self::ascension::*;
-use self::link::*;
+use self::linktime::*;
 use husky_vfs::CratePath;
 
 pub trait IsTask: Send + 'static {

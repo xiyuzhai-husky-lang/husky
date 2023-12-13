@@ -14,4 +14,6 @@ version-stamp = { path = "../../abstractions/version-stamp" }
 husky-task.workspace = true
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-vfs.workspace = true
+# linkage
 husky-linkage.workspace = true
+husky-linkage-impl.workspace = true

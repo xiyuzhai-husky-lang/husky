@@ -1,9 +1,10 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
+use husky_linkage_impl::IsLinkageImpl;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
-use husky_task::{ascension::IsDevAscension, link::IsLinkageImpl, IsTask};
+use husky_task::{ascension::IsDevAscension, IsTask};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_visual_protocol::IsVisualProtocol;
 use serde::{Deserialize, Serialize};

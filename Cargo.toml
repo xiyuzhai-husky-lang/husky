@@ -127,6 +127,7 @@ husky-text = { path = "crates/lex/husky-text" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
 husky-linkage = { path = "crates/linkage/husky-linkage" }
+husky-linkage-impl = { path = "crates/linkage/husky-linkage-impl" }
 # protocols
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 # semantics

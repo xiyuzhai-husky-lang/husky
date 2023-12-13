@@ -24,6 +24,7 @@ husky-task.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
+husky-linkage-impl.workspace = true
 # semantics
 # utils
 husky-cargo-utils.workspace = true
