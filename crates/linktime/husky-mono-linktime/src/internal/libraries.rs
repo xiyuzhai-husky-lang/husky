@@ -10,7 +10,7 @@ use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap, VecSet};
 
 pub struct MonoLinkageLibraries {
-    cdylibs: VecPairMap<PackagePath, Library>,
+    pub cdylibs: VecPairMap<PackagePath, Library>,
 }
 
 impl MonoLinkageLibraries {
