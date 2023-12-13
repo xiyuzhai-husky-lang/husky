@@ -6,6 +6,7 @@ use salsa::Db;
 use vec_like::VecSet;
 pub trait VfsDb {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
+    /// live packages are those whose information have been queried or modified through this db
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
