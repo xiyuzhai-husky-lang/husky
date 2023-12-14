@@ -4,6 +4,15 @@ use std::cell::Cell;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SampleId(ShiftedU32);
 
+#[test]
+fn sample_id_size_works() {
+    assert_eq!(std::mem::size_of::<SampleId>(), std::mem::size_of::<u32>());
+    assert_eq!(
+        std::mem::size_of::<Option<SampleId>>(),
+        std::mem::size_of::<u32>()
+    )
+}
+
 pub type BasePoint = SampleId;
 
 pub type DevEvalContext = husky_task_prelude::DevEvalContext<BasePoint>;
