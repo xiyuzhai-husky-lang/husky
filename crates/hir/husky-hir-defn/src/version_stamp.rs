@@ -2,6 +2,7 @@ mod associated_item;
 mod major_item;
 
 use crate::*;
+use ::version_stamp::HasVersionStamp;
 use vec_like::VecSet;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
