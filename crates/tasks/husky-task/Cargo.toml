@@ -18,3 +18,5 @@ husky-linkage-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
+# tasks
+husky-task-prelude.workspace = true

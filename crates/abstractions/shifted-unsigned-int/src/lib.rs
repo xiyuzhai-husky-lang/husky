@@ -1,7 +1,7 @@
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 use std::{
-    num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8},
+    num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8, NonZeroUsize},
     ops::AddAssign,
 };
 
@@ -102,6 +102,30 @@ impl From<usize> for ShiftedU64 {
 }
 
 impl Into<usize> for ShiftedU64 {
+    fn into(self) -> usize {
+        self.0.get() as usize - 1
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
+pub struct ShiftedUsize(NonZeroUsize);
+
+impl Default for ShiftedUsize {
+    fn default() -> Self {
+        0usize.into()
+    }
+}
+
+impl From<usize> for ShiftedUsize {
+    fn from(value: usize) -> Self {
+        debug_assert!(value + 1 < usize::MAX as usize);
+        ShiftedUsize(unsafe { NonZeroUsize::new_unchecked((value + 1) as usize) })
+    }
+}
+
+impl Into<usize> for ShiftedUsize {
     fn into(self) -> usize {
         self.0.get() as usize - 1
     }

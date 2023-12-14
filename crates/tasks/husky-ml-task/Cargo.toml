@@ -15,7 +15,6 @@ husky-rust-transpilation.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-task.workspace = true
 husky-regular-value.workspace = true
 # linkage
 husky-linkage.workspace = true
@@ -25,5 +24,8 @@ husky-mono-linktime.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
+# tasks
+husky-task.workspace = true
+husky-ml-task-prelude.workspace = true
 # val
 husky-val.workspace = true
