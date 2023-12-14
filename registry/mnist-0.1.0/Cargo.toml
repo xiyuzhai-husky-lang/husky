@@ -4,4 +4,12 @@ version = "0.1.0"
 authors = ["my_name"]
 edition = "2021"
 
-[workspace]
+[workspace.dependencies]
+husky-ml-task-prelude = { path = "../../crates/tasks/husky-ml-task-prelude" }
+husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
+    "standard"
+] }
+
+[dependencies]
+husky-ml-task-prelude.workspace = true
+husky-linkage-impl.workspace = true
