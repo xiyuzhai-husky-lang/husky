@@ -15,6 +15,10 @@ impl<BasePoint: 'static> DevEvalContext<BasePoint> {
     fn memoized_field<T>(self) -> T {
         todo!()
     }
+
+    pub fn base_point(&self) -> &BasePoint {
+        &self.base_point
+    }
 }
 
 pub trait IsDevRuntime<BasePoint> {
