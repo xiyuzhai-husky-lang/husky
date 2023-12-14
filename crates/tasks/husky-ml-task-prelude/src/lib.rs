@@ -4,6 +4,12 @@ use std::cell::Cell;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SampleId(ShiftedU32);
 
+impl SampleId {
+    pub fn index(self) -> usize {
+        self.0.into()
+    }
+}
+
 #[test]
 fn sample_id_size_works() {
     assert_eq!(std::mem::size_of::<SampleId>(), std::mem::size_of::<u32>());

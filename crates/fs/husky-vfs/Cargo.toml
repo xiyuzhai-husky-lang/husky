@@ -39,7 +39,7 @@ husky-print-utils.workspace = true
 husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils", optional = true }
 husky-io-utils = { path = "../../utils/husky-io-utils", optional = true }
-xrng = { path = "../../utils/husky-rng-utils", optional = true }
+husky-xrng-utils = { path = "../../utils/husky-rng-utils", optional = true }
 husky-toml-utils.workspace = true
 
 [dev-dependencies]
@@ -50,7 +50,7 @@ husky-vfs = { path = ".", features = ["test_utils"] }
 default = ["dep:relative-path"]
 test_utils = [
     "dep:indicatif",
-    "dep:xrng",
+    "dep:husky-xrng-utils",
     "dep:husky-io-utils",
     "dep:husky-adversarial-utils"
 ]

@@ -35,8 +35,8 @@ fn test() {
     )
 }
 
+use husky_xrng_utils::XRng;
 use rand::{thread_rng, Rng};
-use xrng::XRng;
 
 // chatgpt only get half of it correct, has to use random_string, sad
 pub fn new_rand_string(seed: u64, max_length: usize, pieces: &[&str]) -> String {
