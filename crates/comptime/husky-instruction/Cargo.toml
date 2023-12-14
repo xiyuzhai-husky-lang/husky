@@ -26,10 +26,9 @@ husky-regular-value = { workspace = true, features = ["constant"] }
 husky-entity-kind.workspace = true
 husky-ast.workspace = true
 husky-opr.workspace = true
+
 # vm
 # utils
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-instruction = { path = ".", features = ["test_utils"] }

@@ -21,7 +21,6 @@ husky-text-protocol.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils.workspace = true
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [dev-dependencies]
 husky-text = { path = ".", features = ["test_utils"] }

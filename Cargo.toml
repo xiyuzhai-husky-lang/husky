@@ -142,6 +142,8 @@ husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
 husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
+# runtime
+husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 # semantics
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
 # syntax

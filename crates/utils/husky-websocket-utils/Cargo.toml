@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 atomic_enum.workspace = true
-axum = { workspace = true, optional = true }
+axum = { workspace = true, features = ["ws"], optional = true }
 tokio.workspace = true
 tokio-tungstenite.workspace = true
 thiserror.workspace = true
@@ -25,4 +25,4 @@ husky-print-utils.workspace = true
 [features]
 serde_json = ["dep:serde_json"]
 imgui_client = []
-easy_server = ["dep:axum", "axum/ws"]
+easy_server = ["dep:axum"]

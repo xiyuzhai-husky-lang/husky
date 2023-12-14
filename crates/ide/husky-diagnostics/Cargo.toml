@@ -34,7 +34,6 @@ husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils.workspace = true
 
 [dev-dependencies]

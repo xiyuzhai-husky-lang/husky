@@ -5,7 +5,6 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-flurry.workspace = true
 dashmap.workspace = true
 either.workspace = true
 serde.workspace = true
@@ -28,5 +27,3 @@ husky-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # val
 husky-val.workspace = true
-# vm
-husky-vm.workspace = true
