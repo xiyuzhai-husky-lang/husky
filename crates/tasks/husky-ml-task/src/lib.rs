@@ -45,7 +45,7 @@ where
 {
     type Base = DevInput;
 
-    type Linktime = MonoLinkTime<MlLinkage>;
+    type Linktime = MonoLinkTime;
 
     type Value = RegularValue;
 
@@ -70,19 +70,4 @@ where
 pub enum DevInput {
     Train(),
     Val(),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum MlLinkage {}
-
-impl IsLinkageImpl for MlLinkage {
-    type Value = RegularValue;
-
-    fn eval_fn() -> Self::Value {
-        todo!()
-    }
-
-    fn eval_gn() -> Self::Value {
-        todo!()
-    }
 }
