@@ -18,4 +18,4 @@ husky-scope = { path = "../../kernel/husky-scope" }
 husky-token-data.workspace = true
 husky-token.workspace = true
 # syntax
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true

@@ -33,12 +33,12 @@ husky-token-data.workspace = true
 husky-entity-syn-tree.workspace = true
 husky-syn-decl.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel
 husky-coword.workspace = true
 # infer
@@ -48,7 +48,7 @@ husky-corgi-config.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-syn-expr.workspace = true

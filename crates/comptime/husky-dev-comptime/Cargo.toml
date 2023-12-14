@@ -9,7 +9,7 @@ dashmap.workspace = true
 # abstractions
 salsa.workspace = true
 # comptime
-husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
+husky-rust-transpilation.workspace = true
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs

@@ -9,8 +9,8 @@ lsp-types.workspace = true
 husky-text-protocol.workspace = true
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-print-utils.workspace = true
+husky-opr.workspace = true
 husky-entity-kind.workspace = true
 
 # infer
@@ -20,7 +20,7 @@ husky-corgi-config.workspace = true
 # lex
 husky-toml-token.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-corgi-config-ast.workspace = true

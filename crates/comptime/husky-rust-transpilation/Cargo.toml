@@ -33,7 +33,7 @@ husky-ethereal-signature.workspace = true
 husky-task.workspace = true
 husky-term-prelude.workspace = true
 husky-stack-location.workspace = true
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
 # linkage
@@ -46,7 +46,7 @@ husky-corgi-config.workspace = true
 husky-entity-syn-tree.workspace = true
 # utils
 husky-io-utils = { path = "../../utils/husky-io-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 # hir
@@ -67,7 +67,7 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-entity-syn-tree.workspace = true

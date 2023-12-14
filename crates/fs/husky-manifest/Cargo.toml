@@ -23,7 +23,7 @@ husky-vfs.workspace = true
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-manifest = { path = ".", features = ["test_utils"] }

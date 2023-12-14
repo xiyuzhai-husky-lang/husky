@@ -9,7 +9,7 @@ either.workspace = true
 # abstraction
 salsa.workspace = true
 # kernel
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-entity-path.workspace = true
 # semantics

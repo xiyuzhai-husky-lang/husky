@@ -85,14 +85,17 @@ rustc-hash = "1.1.0"
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
+is = { path = "crates/abstractions/is" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
+propagate = { path = "crates/abstractions/propagate" }
 salsa = { path = "crates/abstractions/salsa" }
-vec-like = { path = "crates/abstractions/vec-like" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
-is = { path = "crates/abstractions/is" }
+ui = { path = "crates/abstractions/ui" }
+vec-like = { path = "crates/abstractions/vec-like" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
+husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
 # fs
 husky-corgi-config ={path = "crates/fs/husky-corgi-config"}
 husky-manifest ={path = "crates/fs/husky-manifest"}
@@ -118,19 +121,27 @@ husky-ethereal-term = { path = "crates/kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "crates/kernel/husky-ethereal-signature" }
 husky-expr = { path = "crates/kernel/husky-expr" }
 husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
+husky-opr = { path = "crates/kernel/husky-opr" }
+husky-stack-location = { path = "crates/kernel/husky-stack-location" }
 husky-task = { path = "crates/kernel/husky-task" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
-husky-stack-location = { path = "crates/kernel/husky-stack-location" }
 # lex
+husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
 husky-token = { path = "crates/lex/husky-token" }
 husky-text = { path = "crates/lex/husky-text" }
+husky-text-span = { path = "crates/lex/husky-text-span" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
 husky-linkage = { path = "crates/linkage/husky-linkage" }
 husky-linkage-impl = { path = "crates/linkage/husky-linkage-impl" }
+# linktime
+husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 # protocols
+husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
+husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
+husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # semantics
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
 # syntax
@@ -138,6 +149,7 @@ husky-ast = { path = "crates/syntax/husky-ast" }
 husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
+husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
 # tasks
 husky-ml-task = {path = "crates/tasks/husky-ml-task"}
@@ -152,6 +164,7 @@ husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-toml-utils = {path = "crates/utils/husky-toml-utils"}
+husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }

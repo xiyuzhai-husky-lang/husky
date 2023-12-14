@@ -16,5 +16,5 @@ husky-vfs.workspace = true
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # protocols
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
+husky-visual-protocol.workspace = true
+husky-trace-protocol.workspace = true

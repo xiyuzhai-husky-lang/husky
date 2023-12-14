@@ -20,7 +20,7 @@ husky-vfs.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 husky-entity-kind.workspace = true
 husky-task.workspace = true
 # lex
@@ -29,7 +29,7 @@ husky-text-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"
 ] }
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+husky-visual-protocol.workspace = true
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-val-repr.workspace = true
@@ -41,7 +41,7 @@ husky-syn-defn.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 sync-utils = { path = "../../utils/husky-sync-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 # vm
