@@ -21,13 +21,15 @@ husky-coword.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-entity-kind.workspace = true
-husky-task.workspace = true
 # lex
 husky-text-protocol.workspace = true
 husky-token.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 husky-ast.workspace = true
+# tasks
+husky-task.workspace = true
+husky-task-prelude.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils.workspace = true

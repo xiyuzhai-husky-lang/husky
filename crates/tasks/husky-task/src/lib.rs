@@ -1,9 +1,9 @@
 #![feature(associated_type_bounds)]
-pub mod ascension;
+pub mod dev_ascension;
 pub mod helpers;
 pub mod linktime;
 
-use self::ascension::*;
+use self::dev_ascension::*;
 use self::linktime::*;
 use husky_vfs::CratePath;
 

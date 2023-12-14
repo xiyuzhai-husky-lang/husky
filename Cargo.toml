@@ -84,6 +84,9 @@ rustc-hash = "1.1.0"
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
+enum-class-macros = { path = "crates/abstractions/enum-class-macros" }
+enum-index = { path = "crates/abstractions/enum-index" }
+enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
 original-error = { path = "crates/abstractions/original-error" }
@@ -123,7 +126,6 @@ husky-expr = { path = "crates/kernel/husky-expr" }
 husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
 husky-opr = { path = "crates/kernel/husky-opr" }
 husky-stack-location = { path = "crates/kernel/husky-stack-location" }
-husky-task = { path = "crates/kernel/husky-task" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
@@ -154,7 +156,11 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
 # tasks
+husky-task = { path = "crates/tasks/husky-task" }
+husky-task-prelude = { path = "crates/tasks/husky-task-prelude" }
+husky-io-task = {path = "crates/tasks/husky-io-task"}
 husky-ml-task = {path = "crates/tasks/husky-ml-task"}
+husky-ml-task-prelude = {path = "crates/tasks/husky-ml-task-prelude"}
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

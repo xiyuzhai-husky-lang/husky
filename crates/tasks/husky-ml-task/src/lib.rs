@@ -2,9 +2,14 @@ mod runtime_storage;
 
 use self::runtime_storage::*;
 use husky_linkage_impl::IsLinkageImpl;
+use husky_ml_task_prelude::DEV_EVAL_CONTEXT;
+use husky_ml_task_prelude::{DevEvalContext, SampleId};
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
-use husky_task::{ascension::IsDevAscension, IsTask};
+use husky_task::{
+    dev_ascension::{IsDevAscension, LocalDevEvalContext},
+    IsTask,
+};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_visual_protocol::IsVisualProtocol;
 use serde::{Deserialize, Serialize};
@@ -43,7 +48,7 @@ impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
     VisualProtocol: IsVisualProtocol,
 {
-    type Base = DevInput;
+    type BasePoint = SampleId;
 
     type Linktime = MonoLinkTime;
 
@@ -54,6 +59,10 @@ where
     type RuntimeSpecificConfig = ();
 
     type TraceProtocol = MlTraceProtocol<VisualProtocol>;
+
+    fn local_dev_eval_context() -> &'static LocalDevEvalContext<SampleId> {
+        &DEV_EVAL_CONTEXT
+    }
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Clone)]
