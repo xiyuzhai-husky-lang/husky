@@ -9,6 +9,6 @@ edition = "2021"
 salsa.workspace = true
 idx-arena.workspace = true
 # lex
-husky-regional-token = { path = "../../lex/husky-regional-token" }
+husky-regional-token.workspace = true
 # syntax
 husky-ast.workspace = true

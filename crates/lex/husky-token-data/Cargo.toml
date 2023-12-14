@@ -25,18 +25,18 @@ husky-text-protocol.workspace = true
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
 husky-term-prelude.workspace = true
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
 # syntax
-husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
+husky-syn-opr.workspace = true
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
 husky-token-data = { path = ".", features = ["test_utils"] }

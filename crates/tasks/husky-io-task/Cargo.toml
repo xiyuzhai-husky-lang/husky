@@ -15,6 +15,6 @@ husky-val.workspace = true
 husky-task.workspace = true
 husky-regular-value.workspace = true
 # linktime
-husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
+husky-mono-linktime.workspace = true
 # vm
 husky-vm.workspace = true

@@ -7,8 +7,8 @@ edition = "2021"
 [dependencies]
 serde.workspace = true
 # abstractions
-ui = { path = "../../abstractions/ui" }
+ui.workspace = true
 # kernel
 husky-task.workspace = true
 # protocols
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+husky-visual-protocol.workspace = true

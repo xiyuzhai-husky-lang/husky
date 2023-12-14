@@ -33,7 +33,7 @@ husky-sema-expr.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-hir-eager-expr = { path = ".", features = ["test_utils"] }

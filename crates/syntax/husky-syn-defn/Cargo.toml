@@ -26,13 +26,13 @@ husky-entity-syn-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 # abstractions
 salsa = { path = "../../abstractions/salsa", features = ["test_utils"] }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }
 # infer
 husky-corgi-config.workspace = true
 # kernel
@@ -41,7 +41,7 @@ husky-term-prelude.workspace = true
 husky-toml-token.workspace = true
 husky-token-data.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-corgi-config-ast.workspace = true

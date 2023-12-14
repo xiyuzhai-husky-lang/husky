@@ -11,8 +11,8 @@ once_cell = "1.16.0"
 salsa.workspace = true
 vec-like.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
 husky-coword = { path = ".", features = ["test_utils"] }

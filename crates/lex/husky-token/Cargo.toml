@@ -29,21 +29,21 @@ husky-coword.workspace = true
 husky-entity-kind.workspace = true
 husky-term-prelude.workspace = true
 # syntax
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [lib]
 
 [dev-dependencies]
 indicatif = "0.17.2"
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel
 husky-entity-path.workspace = true
 # utils

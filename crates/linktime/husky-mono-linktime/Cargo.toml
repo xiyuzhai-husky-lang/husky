@@ -14,7 +14,7 @@ salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 vec-like.workspace = true
 # comptime
-husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
+husky-rust-transpilation.workspace = true
 # fs
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
@@ -32,4 +32,4 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-dev-comptime.workspace = true
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }

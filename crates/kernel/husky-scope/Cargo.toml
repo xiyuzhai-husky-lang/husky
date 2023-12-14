@@ -12,9 +12,9 @@ enum-class.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
-husky-regional-token = { path = "../../lex/husky-regional-token" }
+husky-regional-token.workspace = true
 
 [dev-dependencies]
 # kernel
 husky-coword.workspace = true
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }

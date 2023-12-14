@@ -23,6 +23,6 @@ husky-trace-doc = { path = "../../gui/husky-trace-doc", features = [
 ] }
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
+husky-trace-protocol.workspace = true
 # utils
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-unicode-symbols.workspace = true

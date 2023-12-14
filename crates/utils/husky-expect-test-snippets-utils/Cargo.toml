@@ -14,6 +14,6 @@ serde_json.workspace = true
 convert_case = "0.6.0"
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-print-utils.workspace = true
 husky-unwind-utils = { path = "../../utils/husky-unwind-utils" }
 husky-control-flow-utils = { path = "../../utils/husky-control-flow-utils" }

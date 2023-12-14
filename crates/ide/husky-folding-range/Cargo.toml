@@ -20,7 +20,7 @@ husky-token.workspace = true
 [dev-dependencies]
 expect-test = "1.4.0"
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel
 husky-entity-path.workspace = true
 husky-ethereal-term.workspace = true
@@ -30,7 +30,7 @@ husky-term-prelude.workspace = true
 # lex
 husky-token-data.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_utils"] }
 husky-folding-range = { path = ".", features = ["test_utils"] }
 
 [features]

@@ -12,7 +12,7 @@ serde.workspace = true
 # abstractions
 salsa.workspace = true
 # comptime
-husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
+husky-rust-transpilation.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
@@ -22,10 +22,10 @@ husky-regular-value.workspace = true
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # linktime
-husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
+husky-mono-linktime.workspace = true
 # protocols
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+husky-trace-protocol.workspace = true
+husky-visual-protocol.workspace = true
 # val
 husky-val.workspace = true
 # vm

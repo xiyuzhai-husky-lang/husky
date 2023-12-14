@@ -21,15 +21,14 @@ husky-term-prelude.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
 # kernel
 husky-coword.workspace = true
 # lex
 husky-token.workspace = true
-husky-declarative-term = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

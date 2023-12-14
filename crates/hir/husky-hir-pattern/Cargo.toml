@@ -18,7 +18,7 @@ husky-sema-expr.workspace = true
 husky-term-prelude.workspace = true
 husky-entity-path.workspace = true
 husky-coword.workspace = true
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-opr.workspace = true
 husky-hir-ty.workspace = true
 # syntax
 husky-syn-expr.workspace = true
