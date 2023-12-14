@@ -7,4 +7,4 @@ edition = "2021"
 [dependencies]
 rand = "0.8.5"
 fastrand = "1.8.0"
-xrng = { path = "../../utils/husky-rng-utils" }
+husky-xrng-utils = { path = "../../utils/husky-rng-utils" }

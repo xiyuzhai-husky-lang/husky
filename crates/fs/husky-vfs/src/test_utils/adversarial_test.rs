@@ -10,7 +10,7 @@ use self::edit::*;
 use super::*;
 use serde::{Deserialize, Serialize};
 
-use xrng::XRng;
+use husky_xrng_utils::XRng;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AdversarialKind {

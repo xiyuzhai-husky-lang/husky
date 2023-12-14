@@ -1,3 +1,9 @@
+use dataset::MNIST_DATASET;
+use husky_ml_task_prelude::sample_id;
+
+mod dataset;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MnistLabel {
     Zero,
     One,
@@ -9,6 +15,12 @@ pub enum MnistLabel {
     Seven,
     Eight,
     Nine,
+}
+
+impl From<u8> for MnistLabel {
+    fn from(value: u8) -> Self {
+        todo!()
+    }
 }
 
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
@@ -60,5 +72,5 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 impl BinaryGrid28 {}
 
 pub fn input() -> &'static BinaryImage28 {
-    todo!()
+    MNIST_DATASET.input(sample_id())
 }
