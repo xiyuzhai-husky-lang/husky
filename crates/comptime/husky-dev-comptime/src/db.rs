@@ -49,7 +49,7 @@ use std::panic::RefUnwindSafe;
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // val
-    husky_val::db::ValJar
+    husky_val::jar::ValJar
 )]
 pub struct DevComptimeDb;
 

@@ -59,7 +59,7 @@ use husky_vfs::VfsJar;
     husky_linkage::jar::LinkageJar,
     husky_javelin::jar::JavelinJar,
     // val
-    husky_val::db::ValJar,
+    husky_val::jar::ValJar,
     husky_val_repr::db::ValReprJar,
     // ide
     husky_token_info::db::TokenInfoJar,

@@ -139,6 +139,8 @@ husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
+# tasks
+husky-ml-task = {path = "crates/tasks/husky-ml-task"}
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

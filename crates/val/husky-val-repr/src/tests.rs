@@ -62,7 +62,7 @@ use husky_vfs::VfsJar;
     husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,
     // val
-    husky_val::db::ValJar,
+    husky_val::jar::ValJar,
     crate::db::ValReprJar,
 )]
 #[derive(Default)]
