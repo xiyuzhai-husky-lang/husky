@@ -207,14 +207,6 @@ impl Linkage {
     }
 }
 
-impl HasVersionStamp for Linkage {
-    type VersionStamp = LinkageVersionStamp;
-
-    fn version_stamp(self, db: &::salsa::Db) -> LinkageVersionStamp {
-        todo!()
-    }
-}
-
 #[deprecated(note = "ad hoc implementation")]
 #[salsa::tracked(jar = LinkageJar, return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
