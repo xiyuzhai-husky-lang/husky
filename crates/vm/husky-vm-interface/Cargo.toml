@@ -10,7 +10,6 @@ cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 # kernel
 husky-regular-value.workspace = true
 # utils
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 # vm
 husky-vm-binding = { path = "../../vm/husky-vm-binding", optional = true }

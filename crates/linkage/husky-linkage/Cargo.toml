@@ -7,7 +7,6 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 fxhash.workspace = true
-itertools.workspace = true
 # abstractions
 salsa.workspace = true
 vec-like.workspace = true

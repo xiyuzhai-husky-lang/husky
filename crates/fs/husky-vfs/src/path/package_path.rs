@@ -95,6 +95,10 @@ impl PackagePath {
         self.name(db).ident(db)
     }
 
+    pub fn name_str<'a>(self, db: &'a ::salsa::Db) -> &'a str {
+        self.name(db).data(db)
+    }
+
     pub fn name_string(self, db: &::salsa::Db) -> String {
         self.name(db).data(db).to_string()
     }

@@ -30,18 +30,11 @@ husky-entity-syn-tree.workspace = true
 husky-ast.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils.workspace = true
 sync-utils = { path = "../../utils/husky-sync-utils" }
-# infer
-# comptime
-# husky-layout = { path = "../../comptime/husky-layout" }
-# husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
-# husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
-# vm
 husky-vm.workspace = true
 # runtime
-husky-val-repr.workspace = true
+# husky-val-repr.workspace = true
 husky-instruction = { path = "../../comptime/husky-instruction" }
 
 [dev-dependencies]

@@ -34,9 +34,7 @@ husky-linkage.workspace = true
 husky-val.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils.workspace = true
-sync-utils = { path = "../../utils/husky-sync-utils" }
 
 [dev-dependencies]
 # hir
@@ -57,6 +55,8 @@ husky-token.workspace = true
 husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
+# runtime
+husky-dev-runtime.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
