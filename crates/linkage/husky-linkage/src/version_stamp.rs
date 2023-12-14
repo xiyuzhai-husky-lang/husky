@@ -177,6 +177,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         }
     }
 
+    // todo: consider trait implementation
     fn add_template_argument(&mut self, arg: LinkageTemplateArgument) {
         match arg {
             LinkageTemplateArgument::Vacant => (),
