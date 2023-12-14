@@ -255,7 +255,7 @@ impl HirEagerExprSite {
                 ref instantiation,
                 ref item_groups,
             } => {
-                builder.ty_constructor(path);
+                builder.ty_constructor_linkage(path);
                 builder.bracketed_comma_list(
                     RustBracket::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),

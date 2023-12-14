@@ -33,7 +33,7 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str(".rev()")
     }
 
-    pub(crate) fn ty_constructor(&mut self, ty_path: TypePath) {
+    pub(crate) fn ty_constructor_linkage(&mut self, ty_path: TypePath) {
         ty_path.transpile_to_rust(self);
         match ty_path.hir_defn(self.db).unwrap() {
             TypeHirDefn::PropsStruct(_) => self.write_str("::__constructor"),

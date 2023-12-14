@@ -10,35 +10,58 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     fn eval_gn() -> Self::Value;
 }
 
-pub trait IntoLinkageImpl<LinkageImpl, Marker> {
-    fn into_linkage_impl(self) -> LinkageImpl;
+pub trait IsLinkageImplSource<Marker> {
+    type LinkageImpl;
+
+    fn into_linkage_impl(self, m: Marker) -> Self::LinkageImpl;
 }
 
 #[macro_export]
 macro_rules! linkage_impls {
-    ($($linkage_impl: expr),*,) => {
+    ($($linkage_impl_src: expr),*,) => {
         #[no_mangle]
         pub extern "C" fn linkage_impls() -> AnyLinkageImpls {
             AnyLinkageImpls::new(vec![
-                $(LinkageImplSource($linkage_impl).into_linkage_impl()),*
+                $({
+                    fn fn_wrapper() {
+                        todo!();
+                    }
+                    fn gn_wrapper() {
+                        todo!();
+                    }
+                    // pass `linkage_impl_src` two times
+                    // - one time is to determine the parameter types and return type
+                    // - the other time is to actually give the fn pointer with implicit coersion
+                    LinkageImplSource {
+                        linkage_impl_src: $linkage_impl_src,
+                        fn_wrapper,
+                        gn_wrapper
+                    }.into_linkage_impl($linkage_impl_src)}),*
             ])
         }
     }
 }
 
+/// meant to be used in `LinkageImpl` definition
 macro_rules! impl_into_linkage_impl {
     (
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<F, $($input,)* $output> IntoLinkageImpl<LinkageImpl, ($($input,)* $output,)> for LinkageImplSource<F>
+        impl<F, $($input,)* $output> IsLinkageImplSource<fn($($input,)*) -> $output> for LinkageImplSource<F>
         where
-            F: FnOnce($($input,)*) -> $output,
+            F: Fn($($input,)*) -> $output,
             $($input: Send, )*
             $output: Send,
         {
-            fn into_linkage_impl(self) -> LinkageImpl {
-                todo!()
+            type LinkageImpl = LinkageImpl;
+
+            fn into_linkage_impl(self, m: fn($($input,)*) -> $output) -> Self::LinkageImpl {
+                LinkageImpl::RitchieFn {
+                    fn_pointer: unsafe {
+                        std::mem::transmute(m)
+                    },
+                }
             }
         }
     };
