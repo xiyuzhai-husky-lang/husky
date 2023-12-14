@@ -7,6 +7,7 @@ use husky_entity_path::{
     TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
 use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
+use husky_hir_decl::HasHirDecl;
 use husky_hir_ty::HirType;
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
 use husky_linkage::{
@@ -72,7 +73,7 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::TypeConstructor {
                 path,
                 ref instantiation,
-            } => builder.ty_constructor(path),
+            } => builder.ty_constructor_linkage(path),
             LinkageData::AssociatedFunctionFn {
                 path,
                 ref instantiation,
