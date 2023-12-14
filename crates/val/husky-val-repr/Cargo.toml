@@ -70,6 +70,8 @@ husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
+# tasks
+husky-ml-task.workspace = true
 # val
 husky-val.workspace = true
 husky-val-repr = { path = "../../val/husky-val-repr", features = [

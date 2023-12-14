@@ -2,12 +2,15 @@ use crate::DevInput;
 use dashmap::DashMap;
 
 use husky_regular_value::RegularValue;
-use husky_val::{deps::ValDeps, Val};
+use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(ValDeps, VMResult<RegularValue>)>>>>,
+    map: DashMap<
+        MlDevRuntimeStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, VMResult<RegularValue>)>>>,
+    >,
 }
 
 // ad hoc
@@ -37,10 +40,12 @@ impl MlDevRuntimeStorage {
 
         let mu = self.map.entry(key).or_default().clone();
         let mut opt_stored_value = mu.lock().expect("todo");
-        let new_deps = key.val.deps(db);
+        let new_version_stamp = key.val.version_stamp(db);
         match *opt_stored_value {
-            Some((old_deps, ref result)) if old_deps == new_deps => return share(result),
-            _ => *opt_stored_value = Some((new_deps, f())),
+            Some((old_version_stamp, ref result)) if old_version_stamp == new_version_stamp => {
+                return share(result)
+            }
+            _ => *opt_stored_value = Some((new_version_stamp, f())),
         };
         share(&opt_stored_value.as_ref().expect("should be some").1)
     }

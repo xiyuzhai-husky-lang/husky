@@ -1,8 +1,8 @@
-pub mod db;
-pub mod deps;
+pub mod jar;
 pub mod val;
+pub mod version_stamp;
 
-pub use self::db::*;
+pub use self::jar::*;
 pub use self::val::*;
 
-use self::deps::*;
+use self::version_stamp::*;
