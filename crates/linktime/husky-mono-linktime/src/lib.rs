@@ -12,7 +12,7 @@ use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
-pub struct MonoLinkTime<LinkageImpl>
+pub struct MonoLinkTime<LinkageImpl = husky_linkage_impl::standard::LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
