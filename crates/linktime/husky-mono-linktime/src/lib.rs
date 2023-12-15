@@ -26,7 +26,12 @@ where
     type LinkageImpl = LinkageImpl;
 
     fn linkage_impl(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {
-        if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
+        if let Some(linkage) = self
+            .internal
+            .read()
+            .expect("todo")
+            .get_linkage_impl(key, db)
+        {
             linkage
         } else {
             self.internal
