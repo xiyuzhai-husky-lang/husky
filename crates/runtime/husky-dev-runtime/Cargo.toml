@@ -26,6 +26,8 @@ husky-fluffy-term.workspace = true
 # lex
 husky-text-protocol.workspace = true
 husky-token.workspace = true
+# linkage
+husky-linkage-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 # syntax

@@ -7,8 +7,8 @@ pub use self::any::AnyLinkageImpls;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Value;
-    fn eval_fn() -> Self::Value;
-    fn eval_gn() -> Self::Value;
+    fn eval_fn(self, arguments: SmallVec<[RegularValue; 4]>) -> Self::Value;
+    fn eval_gn(self) -> Self::Value;
 }
 
 pub trait IsLinkageImplSource<Marker> {
@@ -24,7 +24,7 @@ macro_rules! linkage_impls {
         pub extern "C" fn linkage_impls() -> AnyLinkageImpls {
             AnyLinkageImpls::new(vec![
                 $({
-                    fn fn_wrapper() {
+                    fn fn_wrapper(arguments: __Arguments) -> __Value {
                         todo!();
                     }
                     fn gn_wrapper() {
@@ -59,6 +59,7 @@ macro_rules! impl_into_linkage_impl {
 
             fn into_linkage_impl(self, m: fn($($input,)*) -> $output) -> Self::LinkageImpl {
                 LinkageImpl::RitchieFn {
+                    fn_wrapper: self.fn_wrapper,
                     fn_pointer: unsafe {
                         std::mem::transmute(m)
                     },
@@ -67,6 +68,7 @@ macro_rules! impl_into_linkage_impl {
         }
     };
 }
+use husky_regular_value::RegularValue;
 pub(crate) use impl_into_linkage_impl;
 
 #[rustfmt::skip]
@@ -91,3 +93,4 @@ macro_rules! all_ritchies {
     };
 }
 pub(crate) use all_ritchies;
+use smallvec::SmallVec;
