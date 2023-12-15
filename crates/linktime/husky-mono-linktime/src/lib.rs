@@ -37,7 +37,7 @@ where
             self.internal
                 .write()
                 .expect("todo")
-                .get_linkage_with_reload(key, db)
+                .get_linkage_impl_with_reload(key, db)
         }
     }
 

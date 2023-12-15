@@ -41,7 +41,7 @@ where
     }
 
     /// still need the key to avoid redundant reload when two attempts simultaneously want to lock
-    pub(crate) fn get_linkage_with_reload(
+    pub(crate) fn get_linkage_impl_with_reload(
         &mut self,
         key: Linkage,
         db: &::salsa::Db,
