@@ -36,7 +36,14 @@ where
         linkage: Linkage,
         db: &::salsa::Db,
     ) -> Option<LinkageImpl> {
-        let (deps, linkage_impl) = self.linkage_impls.get(&linkage).copied().expect("todo");
+        let Some(&(deps, linkage_impl)) = self.linkage_impls.get(&linkage) else {
+            use husky_print_utils::p;
+            use salsa::DebugWithDb;
+            let linkages: Vec<Linkage> = self.linkage_impls.clone().into_keys().collect();
+            p!(linkages.debug_with(db));
+            p!(linkage.debug(db));
+            unreachable!()
+        };
         (deps == linkage.version_stamp(db)).then_some(linkage_impl)
     }
 
