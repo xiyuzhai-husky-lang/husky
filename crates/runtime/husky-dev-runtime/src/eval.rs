@@ -1,17 +1,17 @@
-use std::{
-    convert::Infallible,
-    ops::{FromResidual, Try},
-};
-
 use crate::*;
 use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
+use husky_linkage_impl::IsLinkageImpl;
 use husky_task::{helpers::TaskValue, IsTask};
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
-use smallvec::SmallVec;
+use smallvec::*;
+use std::{
+    convert::Infallible,
+    ops::{FromResidual, Try},
+};
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_val_at_base_point(
@@ -39,6 +39,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::ValItemLazilyDefined(_) => todo!(),
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
+                linkage_impl.eval_fn(smallvec![]);
                 todo!()
             }
             ValOpn::FunctionGn(_) => todo!(),

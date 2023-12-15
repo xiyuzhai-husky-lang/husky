@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 colored.workspace = true
 rustc_version.workspace = true
+smallvec.workspace = true
 # vm
 husky-regular-value.workspace = true
 
