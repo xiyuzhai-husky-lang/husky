@@ -31,7 +31,11 @@ where
         }
     }
 
-    pub(crate) fn get_linkage(&self, linkage: Linkage, db: &::salsa::Db) -> Option<LinkageImpl> {
+    pub(crate) fn get_linkage_impl(
+        &self,
+        linkage: Linkage,
+        db: &::salsa::Db,
+    ) -> Option<LinkageImpl> {
         let (deps, linkage_impl) = self.linkage_impls.get(&linkage).copied().expect("todo");
         (deps == linkage.version_stamp(db)).then_some(linkage_impl)
     }
