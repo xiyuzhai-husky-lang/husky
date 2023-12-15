@@ -9,6 +9,7 @@ pub use self::incubator::*;
 pub use self::snapshot::*;
 
 use crate::*;
+use husky_task_prelude::value::IsTaskValue;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -81,4 +82,127 @@ fn regular_value_size_works() {
         std::mem::size_of::<RegularValue>(),
         std::mem::size_of::<[u64; REGULAR_VALUE_SIZE_OVER_I64]>()
     )
+}
+
+impl IsTaskValue for RegularValue {}
+
+impl std::ops::Add<RegularValue> for RegularValue {
+    type Output = Self;
+
+    fn add(self, rhs: RegularValue) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::AddAssign<RegularValue> for RegularValue {
+    fn add_assign(&mut self, rhs: RegularValue) {
+        todo!()
+    }
+}
+impl std::ops::BitOr for RegularValue {
+    type Output = Self;
+
+    fn bitor(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::BitOrAssign for RegularValue {
+    fn bitor_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::BitXor for RegularValue {
+    type Output = Self;
+
+    fn bitxor(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::BitXorAssign for RegularValue {
+    fn bitxor_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Div for RegularValue {
+    type Output = Self;
+
+    fn div(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::Mul for RegularValue {
+    type Output = Self;
+
+    fn mul(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::MulAssign for RegularValue {
+    fn mul_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Neg for RegularValue {
+    type Output = Self;
+
+    fn neg(self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::Not for RegularValue {
+    type Output = Self;
+
+    fn not(self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::Shl for RegularValue {
+    type Output = Self;
+
+    fn shl(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::ShlAssign for RegularValue {
+    fn shl_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Shr for RegularValue {
+    type Output = Self;
+
+    fn shr(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::ShrAssign for RegularValue {
+    fn shr_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Sub for RegularValue {
+    type Output = Self;
+
+    fn sub(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::SubAssign for RegularValue {
+    fn sub_assign(&mut self, rhs: Self) {
+        todo!()
+    }
 }

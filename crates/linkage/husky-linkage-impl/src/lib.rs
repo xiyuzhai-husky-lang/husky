@@ -7,14 +7,32 @@ pub use self::any::AnyLinkageImpls;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Value;
-    fn eval_fn(self, arguments: SmallVec<[RegularValue; 4]>) -> Self::Value;
+    type FnArguments: Default;
+    type GnArguments;
+
+    fn eval_fn(self, arguments: Self::FnArguments) -> Self::Value;
     fn eval_gn(self) -> Self::Value;
 }
 
-pub trait IsLinkageImplSource<Marker> {
-    type LinkageImpl;
+pub trait IsLinkageImplSource<LinkageImpl: IsLinkageImpl, Marker> {
+    type FnOutput;
+    type GnOutput;
 
-    fn into_linkage_impl(self, m: Marker) -> Self::LinkageImpl;
+    fn into_linkage_impl(
+        self,
+        fn_wrapper: fn(
+            <LinkageImpl as IsLinkageImpl>::FnArguments,
+        ) -> <LinkageImpl as IsLinkageImpl>::Value,
+        gn_wrapper: fn(
+            <LinkageImpl as IsLinkageImpl>::GnArguments,
+        ) -> <LinkageImpl as IsLinkageImpl>::Value,
+        m: Marker,
+    ) -> LinkageImpl;
+
+    fn fn_wrapper_aux(
+        self,
+        arguments: <LinkageImpl as IsLinkageImpl>::FnArguments,
+    ) -> Self::FnOutput;
 }
 
 #[macro_export]
@@ -24,20 +42,18 @@ macro_rules! linkage_impls {
         pub extern "C" fn linkage_impls() -> AnyLinkageImpls {
             AnyLinkageImpls::new(vec![
                 $({
-                    fn fn_wrapper(arguments: __Arguments) -> __Value {
+                    fn fn_wrapper(arguments: FnArguments) -> Value {
+                        LinkageImplSource($linkage_impl_src).fn_wrapper_aux(arguments);
                         todo!();
                     }
-                    fn gn_wrapper() {
+                    fn gn_wrapper(arguments: GnArguments) -> Value {
                         todo!();
                     }
                     // pass `linkage_impl_src` two times
                     // - one time is to determine the parameter types and return type
                     // - the other time is to actually give the fn pointer with implicit coersion
-                    LinkageImplSource {
-                        linkage_impl_src: $linkage_impl_src,
-                        fn_wrapper,
-                        gn_wrapper
-                    }.into_linkage_impl($linkage_impl_src)}),*
+                    LinkageImplSource($linkage_impl_src)
+                        .into_linkage_impl(fn_wrapper, gn_wrapper, $linkage_impl_src)}),*
             ])
         }
     }
@@ -49,26 +65,43 @@ macro_rules! impl_into_linkage_impl {
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<F, $($input,)* $output> IsLinkageImplSource<fn($($input,)*) -> $output> for LinkageImplSource<F>
+        impl<F, $($input,)* $output> IsLinkageImplSource<LinkageImpl, fn($($input,)*) -> $output> for LinkageImplSource<F>
         where
             F: Fn($($input,)*) -> $output,
-            $($input: Send, )*
+            $($input: Send + From<<LinkageImpl as IsLinkageImpl>::Value>, )*
             $output: Send,
         {
-            type LinkageImpl = LinkageImpl;
+            type FnOutput = $output;
+            type GnOutput = std::convert::Infallible;
 
-            fn into_linkage_impl(self, m: fn($($input,)*) -> $output) -> Self::LinkageImpl {
+            fn into_linkage_impl(
+                self,
+                fn_wrapper: fn(<LinkageImpl as IsLinkageImpl>::FnArguments)
+                    -> <LinkageImpl as IsLinkageImpl>::Value,
+                gn_wrapper: fn(<LinkageImpl as IsLinkageImpl>::GnArguments)
+                    -> <LinkageImpl as IsLinkageImpl>::Value,
+                m: fn($($input,)*) -> $output
+            ) -> LinkageImpl {
                 LinkageImpl::RitchieFn {
-                    fn_wrapper: self.fn_wrapper,
+                    fn_wrapper,
                     fn_pointer: unsafe {
                         std::mem::transmute(m)
                     },
                 }
             }
+
+            fn fn_wrapper_aux(self, arguments: <LinkageImpl as IsLinkageImpl>::FnArguments)
+                -> Self::FnOutput {
+                let mut arguments = arguments.into_iter();
+                self.0(
+                    $(<$input as From<<LinkageImpl as IsLinkageImpl>::Value>>::from(
+                        arguments.next().unwrap()
+                    ),)*
+                )
+            }
         }
     };
 }
-use husky_regular_value::RegularValue;
 pub(crate) use impl_into_linkage_impl;
 
 #[rustfmt::skip]

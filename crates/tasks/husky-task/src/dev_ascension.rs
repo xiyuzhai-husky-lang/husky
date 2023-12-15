@@ -1,4 +1,5 @@
 use crate::*;
+use husky_task_prelude::value::IsTaskValue;
 use husky_task_prelude::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_vfs::VfsDb;
@@ -7,7 +8,7 @@ use std::{cell::Cell, thread::LocalKey};
 pub trait IsDevAscension {
     type BasePoint: 'static;
     type Linktime: IsLinktime;
-    type Value;
+    type Value: IsTaskValue;
     type RuntimeStorage: Default + Send;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol;

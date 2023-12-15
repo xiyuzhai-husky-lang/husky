@@ -2,21 +2,25 @@ use super::*;
 use husky_regular_value::RegularValue;
 use smallvec::SmallVec;
 
-pub type __Arguments = SmallVec<[RegularValue; 4]>;
-pub type __Value = RegularValue;
+pub type FnArguments = SmallVec<[RegularValue; 4]>;
+// ad hoc
+pub type GnArguments = SmallVec<[RegularValue; 4]>;
+pub type Value = RegularValue;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl {
     RitchieFn {
-        fn_wrapper: fn(__Arguments) -> __Value,
+        fn_wrapper: fn(FnArguments) -> Value,
         fn_pointer: fn(),
     },
 }
 
 impl IsLinkageImpl for LinkageImpl {
     type Value = RegularValue;
+    type FnArguments = FnArguments;
+    type GnArguments = GnArguments;
 
-    fn eval_fn(self, arguments: SmallVec<[RegularValue; 4]>) -> Self::Value {
+    fn eval_fn(self, arguments: FnArguments) -> Self::Value {
         match self {
             LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(arguments),
         }
@@ -27,10 +31,6 @@ impl IsLinkageImpl for LinkageImpl {
     }
 }
 
-pub struct LinkageImplSource<T> {
-    pub linkage_impl_src: T,
-    pub fn_wrapper: fn(SmallVec<[RegularValue; 4]>) -> RegularValue,
-    pub gn_wrapper: fn(),
-}
+pub struct LinkageImplSource<T>(pub T);
 
 all_ritchies! {impl_into_linkage_impl}

@@ -39,7 +39,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::ValItemLazilyDefined(_) => todo!(),
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                linkage_impl.eval_fn(smallvec![]);
+                linkage_impl.eval_fn(Default::default());
                 todo!()
             }
             ValOpn::FunctionGn(_) => todo!(),

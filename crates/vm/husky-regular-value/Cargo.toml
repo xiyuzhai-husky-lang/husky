@@ -9,6 +9,8 @@ edition = "2021"
 salsa = { workspace = true, optional = true }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
+# tasks
+husky-task-prelude.workspace = true
 # utils
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
