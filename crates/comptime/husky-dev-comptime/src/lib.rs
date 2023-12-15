@@ -2,7 +2,12 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 use husky_coword::Kebab;
-use husky_task::{helpers::TaskDevLinkTime, linktime::IsLinktime, IsTask};
+use husky_linkage::linkage::Linkage;
+use husky_task::{
+    helpers::{TaskDevLinkTime, TaskDevLinkageImpl},
+    linktime::IsLinktime,
+    IsTask,
+};
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
@@ -47,6 +52,10 @@ impl<Task: IsTask> DevComptime<Task> {
 
     pub fn target(&self) -> DevComptimeTarget {
         self.target
+    }
+
+    pub fn linkage_impl(&self, linkage: Linkage) -> TaskDevLinkageImpl<Task> {
+        self.linktime.linkage_impl(linkage, self.db())
     }
 }
 

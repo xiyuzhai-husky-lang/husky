@@ -1,3 +1,5 @@
+#![feature(try_trait_v2_residual)]
+#![feature(try_trait_v2)]
 mod config;
 mod eval;
 
@@ -6,7 +8,7 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_task::{dev_ascension::with_eval_context, helpers::TaskDevAscension};
 use husky_task::{
-    helpers::{DevRuntimeStorage, TaskDevAscensionBasePoint, TaskDevLinkTime},
+    helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
     IsTask,
 };
 use husky_task_prelude::{IsDevRuntime, IsDevRuntimeDyn};
@@ -59,7 +61,7 @@ where
     }
 }
 
-impl<Task: IsTask> IsDevRuntime<TaskDevAscensionBasePoint<Task>> for DevRuntime<Task> {
+impl<Task: IsTask> IsDevRuntime<TaskDevBasePoint<Task>> for DevRuntime<Task> {
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
