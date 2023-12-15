@@ -47,9 +47,11 @@ impl PackagePath {
     pub fn new_local_or_toolchain_package(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        name: Kebab,
         path: &Path,
     ) -> VfsResult<Self> {
+        let manifest_path = path.join("Corgi.toml");
+        let name = read_package_name_from_manifest(db, &manifest_path)
+            .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
         match name.data(db) {
             "core" | "std" => {
                 debug_assert_eq!(

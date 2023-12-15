@@ -7,37 +7,43 @@ edition = "2021"
 serde.workspace = true
 salsa.workspace = true
 lsp-types.workspace = true
-indexmap = "1.8.1"
-libloading = "0.7.3"
 relative-path = "1.7.2"
 # abstractions
 idx-arena.workspace = true
 # comptime
-husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
+husky-dev-comptime.workspace = true
+husky-instruction = { path = "../../comptime/husky-instruction" }
 # fs
 husky-vfs.workspace = true
 # kernel
 husky-coword.workspace = true
+husky-entity-kind.workspace = true
+husky-entity-path.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
-husky-entity-kind.workspace = true
+husky-fluffy-term.workspace = true
 # lex
 husky-text-protocol.workspace = true
 husky-token.workspace = true
+# protocols
+husky-visual-protocol.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 husky-ast.workspace = true
 # tasks
-husky-task.workspace = true
 husky-task-prelude.workspace = true
+husky-task.workspace = true
+husky-ml-task-prelude.workspace = true
+husky-ml-task.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-vm.workspace = true
-# runtime
-# husky-val-repr.workspace = true
-husky-instruction = { path = "../../comptime/husky-instruction" }
+# val
+husky-val.workspace = true
+husky-val-repr.workspace = true
 
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }

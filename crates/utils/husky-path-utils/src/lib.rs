@@ -1,11 +1,11 @@
-mod env;
+pub mod dev_paths;
 mod error;
 mod module_tree;
 mod rel;
 #[cfg(test)]
 mod tests;
 
-pub use self::env::*;
+pub use self::dev_paths::*;
 pub use self::error::*;
 pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;

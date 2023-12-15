@@ -170,6 +170,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
+husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-toml-utils = {path = "crates/utils/husky-toml-utils"}
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }

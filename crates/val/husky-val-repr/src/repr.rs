@@ -5,6 +5,9 @@ pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 use crate::*;
 use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_expr::HirExprIdx;
+use husky_linkage::linkage::Linkage;
 use husky_val::{Val, ValArgument, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
@@ -51,10 +54,16 @@ impl ValRepr {
 #[salsa::tracked(jar = ValReprJar)]
 fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> ValRepr {
     let domain = ValDomainRepr::Omni;
-    let opr = ValOpn::ValItem(path);
+    let FugitiveHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
+        unreachable!()
+    };
+    let opn = match Linkage::new_val_item(path, db) {
+        Some(linkage) => ValOpn::Linkage(linkage),
+        None => ValOpn::ValItemLazilyDefined(path),
+    };
     let opds = smallvec![];
     let caching_class = ValCachingClass::ValItem;
-    ValRepr::new(db, domain, opr, opds, caching_class)
+    ValRepr::new(db, domain, opn, opds, caching_class)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

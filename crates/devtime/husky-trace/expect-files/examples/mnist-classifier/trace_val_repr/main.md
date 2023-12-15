@@ -94,8 +94,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -143,7 +151,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                 },
@@ -199,12 +207,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                 },
@@ -241,8 +249,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -297,12 +313,12 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                 },
@@ -339,7 +355,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -448,7 +464,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -1178,8 +1194,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -1246,7 +1270,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -1332,7 +1356,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -1552,7 +1576,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -1612,8 +1636,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -1680,7 +1712,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -1822,7 +1854,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -1934,7 +1966,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -2025,7 +2057,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -2111,7 +2143,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -2202,7 +2234,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -2288,7 +2320,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -2379,7 +2411,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -2465,7 +2497,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -2649,7 +2681,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -2740,7 +2772,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -2867,8 +2899,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -2935,7 +2975,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -3021,7 +3061,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -3206,8 +3246,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -3274,7 +3322,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -3360,7 +3408,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -3582,8 +3630,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -3650,7 +3706,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -3736,7 +3792,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -3931,7 +3987,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -4016,7 +4072,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -4102,7 +4158,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -4190,7 +4246,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -4275,7 +4331,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -4361,7 +4417,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -4527,8 +4583,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -4595,7 +4659,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -4681,7 +4745,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -4738,8 +4802,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -4806,7 +4878,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -4892,7 +4964,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -5525,7 +5597,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -5616,7 +5688,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -5755,8 +5827,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -5799,12 +5879,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 8,
+                            value: 18,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 4,
+                            value: 14,
                         },
                     ),
                 },
@@ -5855,17 +5935,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 8,
+                            value: 18,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 4,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 4,
+                            value: 14,
                         },
                     ),
                 },
@@ -5902,8 +5982,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -5953,17 +6041,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 8,
+                            value: 18,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 4,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 4,
+                            value: 14,
                         },
                     ),
                 },
@@ -6000,7 +6088,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -6119,7 +6207,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -6195,8 +6283,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -6257,7 +6353,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -6312,8 +6408,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -6380,7 +6484,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -6596,7 +6700,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -6656,8 +6760,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -6724,7 +6836,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -7220,7 +7332,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -7311,7 +7423,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -9430,8 +9542,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -9474,12 +9594,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 18,
+                            value: 28,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 7,
+                            value: 18,
                         },
                     ),
                 },
@@ -9530,17 +9650,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 18,
+                            value: 28,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 7,
+                            value: 18,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 7,
+                            value: 18,
                         },
                     ),
                 },
@@ -9577,8 +9697,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -9628,17 +9756,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 18,
+                            value: 28,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 7,
+                            value: 18,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 7,
+                            value: 18,
                         },
                     ),
                 },
@@ -9675,8 +9803,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -9719,12 +9855,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 20,
+                            value: 30,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 9,
+                            value: 20,
                         },
                     ),
                 },
@@ -9775,17 +9911,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 20,
+                            value: 30,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 9,
+                            value: 20,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 9,
+                            value: 20,
                         },
                     ),
                 },
@@ -9822,8 +9958,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -9873,17 +10017,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 20,
+                            value: 30,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 9,
+                            value: 20,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 9,
+                            value: 20,
                         },
                     ),
                 },
@@ -9920,7 +10064,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -9966,7 +10110,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10029,7 +10173,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -10082,7 +10226,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10133,7 +10277,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10191,7 +10335,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10233,8 +10377,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -10276,7 +10428,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10301,7 +10453,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -10374,7 +10526,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10443,7 +10595,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10468,7 +10620,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -10538,7 +10690,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10589,7 +10741,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10647,7 +10799,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10689,8 +10841,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -10732,7 +10892,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10757,7 +10917,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -10821,7 +10981,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10879,7 +11039,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10921,8 +11081,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -10964,7 +11132,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10989,7 +11157,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -11044,8 +11212,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -11087,7 +11263,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11112,7 +11288,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -11192,7 +11368,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11306,7 +11482,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11365,7 +11541,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11424,7 +11600,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11483,7 +11659,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11542,7 +11718,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11601,7 +11777,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11660,7 +11836,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11756,7 +11932,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11860,7 +12036,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11919,7 +12095,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11994,7 +12170,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12083,7 +12259,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12152,7 +12328,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12177,7 +12353,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -12238,7 +12414,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12263,7 +12439,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -12334,7 +12510,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12385,7 +12561,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12433,7 +12609,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12458,7 +12634,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -12529,8 +12705,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -12572,7 +12756,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12597,7 +12781,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -12658,7 +12842,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12683,7 +12867,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -12779,7 +12963,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12868,7 +13052,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12931,8 +13115,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -12974,7 +13166,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12999,7 +13191,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -13063,7 +13255,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13132,7 +13324,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13157,7 +13349,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -13218,7 +13410,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13243,7 +13435,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -13304,7 +13496,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13329,7 +13521,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -13390,7 +13582,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13415,7 +13607,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -13497,7 +13689,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13586,7 +13778,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13655,7 +13847,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13680,7 +13872,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -13741,7 +13933,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13766,7 +13958,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -13837,7 +14029,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13888,7 +14080,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13957,7 +14149,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14045,7 +14237,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14120,8 +14312,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14164,12 +14364,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 28,
+                            value: 38,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 12,
+                            value: 23,
                         },
                     ),
                 },
@@ -14220,17 +14420,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 28,
+                            value: 38,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 12,
+                            value: 23,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 12,
+                            value: 23,
                         },
                     ),
                 },
@@ -14267,8 +14467,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14318,17 +14526,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 28,
+                            value: 38,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 12,
+                            value: 23,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 12,
+                            value: 23,
                         },
                     ),
                 },
@@ -14365,8 +14573,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14409,12 +14625,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14451,8 +14667,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14502,17 +14726,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14556,12 +14780,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14598,8 +14822,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14649,17 +14881,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14703,12 +14935,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14760,7 +14992,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -14797,8 +15029,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -14848,17 +15088,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14902,12 +15142,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -14959,7 +15199,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -14996,8 +15236,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -15047,17 +15295,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15101,12 +15349,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15158,7 +15406,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -15195,8 +15443,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -15246,17 +15502,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15300,12 +15556,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15356,17 +15612,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15418,7 +15674,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -15462,12 +15718,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15518,17 +15774,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15579,17 +15835,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15633,12 +15889,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15689,17 +15945,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15751,7 +16007,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -15795,12 +16051,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15852,7 +16108,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -15903,17 +16159,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -15964,17 +16220,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16025,17 +16281,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16079,12 +16335,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16135,17 +16391,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16196,17 +16452,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16250,12 +16506,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16307,7 +16563,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -16358,17 +16614,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16419,17 +16675,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16473,12 +16729,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16530,7 +16786,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -16581,17 +16837,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16642,17 +16898,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16696,12 +16952,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16753,7 +17009,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -16804,17 +17060,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16865,17 +17121,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16926,17 +17182,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -16980,12 +17236,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17036,17 +17292,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17090,12 +17346,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17132,8 +17388,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -17183,17 +17447,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17237,12 +17501,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17293,17 +17557,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17354,17 +17618,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17408,12 +17672,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -17483,8 +17747,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -17527,12 +17799,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 38,
+                            value: 48,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 16,
+                            value: 27,
                         },
                     ),
                 },
@@ -17583,17 +17855,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 38,
+                            value: 48,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 16,
+                            value: 27,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 16,
+                            value: 27,
                         },
                     ),
                 },
@@ -17630,8 +17902,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -17681,17 +17961,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 38,
+                            value: 48,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 16,
+                            value: 27,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 16,
+                            value: 27,
                         },
                     ),
                 },
@@ -17728,8 +18008,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -17772,12 +18060,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 42,
+                            value: 52,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 18,
+                            value: 29,
                         },
                     ),
                 },
@@ -17828,17 +18116,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 42,
+                            value: 52,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 18,
+                            value: 29,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 18,
+                            value: 29,
                         },
                     ),
                 },
@@ -17875,8 +18163,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -17926,17 +18222,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 42,
+                            value: 52,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 18,
+                            value: 29,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 18,
+                            value: 29,
                         },
                     ),
                 },
@@ -17973,8 +18269,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18017,12 +18321,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 44,
+                            value: 54,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 20,
+                            value: 31,
                         },
                     ),
                 },
@@ -18073,17 +18377,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 44,
+                            value: 54,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 20,
+                            value: 31,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 20,
+                            value: 31,
                         },
                     ),
                 },
@@ -18120,8 +18424,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18171,17 +18483,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 44,
+                            value: 54,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 20,
+                            value: 31,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 20,
+                            value: 31,
                         },
                     ),
                 },
@@ -18218,8 +18530,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18262,12 +18582,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18304,8 +18624,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18355,17 +18683,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18417,7 +18745,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -18461,12 +18789,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18503,8 +18831,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18554,17 +18890,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18616,7 +18952,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -18660,12 +18996,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18717,7 +19053,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -18754,8 +19090,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -18805,17 +19149,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18859,12 +19203,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18915,17 +19259,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -18976,17 +19320,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19038,7 +19382,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -19082,12 +19426,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19139,7 +19483,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -19176,8 +19520,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -19227,17 +19579,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19281,12 +19633,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19337,17 +19689,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19399,7 +19751,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -19443,12 +19795,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19500,7 +19852,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -19551,17 +19903,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19612,17 +19964,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19673,17 +20025,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19727,12 +20079,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19784,7 +20136,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -19821,8 +20173,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -19872,17 +20232,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -19919,8 +20279,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -19970,17 +20338,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20024,12 +20392,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20080,17 +20448,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20150,12 +20518,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20199,12 +20567,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20248,12 +20616,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20297,12 +20665,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20346,12 +20714,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20395,12 +20763,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20444,12 +20812,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20493,12 +20861,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20542,12 +20910,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20591,12 +20959,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20640,12 +21008,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20689,12 +21057,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20738,12 +21106,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20787,12 +21155,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20836,12 +21204,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20892,17 +21260,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -20953,17 +21321,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -21015,7 +21383,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                 },
@@ -21059,12 +21427,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 46,
+                            value: 56,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 22,
+                            value: 33,
                         },
                     ),
                 },
@@ -21134,8 +21502,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21178,12 +21554,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 52,
+                            value: 62,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 24,
+                            value: 35,
                         },
                     ),
                 },
@@ -21253,8 +21629,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21297,12 +21681,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 54,
+                            value: 64,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 26,
+                            value: 37,
                         },
                     ),
                 },
@@ -21353,17 +21737,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 54,
+                            value: 64,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 26,
+                            value: 37,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 26,
+                            value: 37,
                         },
                     ),
                 },
@@ -21400,8 +21784,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21451,17 +21843,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 54,
+                            value: 64,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 26,
+                            value: 37,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 26,
+                            value: 37,
                         },
                     ),
                 },
@@ -21498,8 +21890,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21542,12 +21942,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 58,
+                            value: 68,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 28,
+                            value: 39,
                         },
                     ),
                 },
@@ -21598,17 +21998,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 58,
+                            value: 68,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 28,
+                            value: 39,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 28,
+                            value: 39,
                         },
                     ),
                 },
@@ -21645,8 +22045,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21696,17 +22104,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 58,
+                            value: 68,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 28,
+                            value: 39,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 28,
+                            value: 39,
                         },
                     ),
                 },
@@ -21743,8 +22151,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -21787,12 +22203,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -21829,7 +22245,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -21881,7 +22297,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -21925,12 +22341,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -21967,7 +22383,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -22019,7 +22435,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -22063,12 +22479,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22105,8 +22521,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -22156,17 +22580,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22210,12 +22634,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22267,7 +22691,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -22304,8 +22728,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -22355,17 +22787,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22425,12 +22857,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22474,12 +22906,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22523,12 +22955,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22588,12 +23020,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22637,12 +23069,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22693,17 +23125,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22763,12 +23195,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22812,12 +23244,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22861,12 +23293,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22910,12 +23342,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -22966,17 +23398,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23020,12 +23452,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23062,8 +23494,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -23113,17 +23553,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23175,7 +23615,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -23219,12 +23659,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23276,7 +23716,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -23313,8 +23753,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -23364,17 +23812,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23418,12 +23866,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23467,12 +23915,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -23542,8 +23990,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -23586,12 +24042,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 66,
+                            value: 76,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 32,
+                            value: 43,
                         },
                     ),
                 },
@@ -23642,17 +24098,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 66,
+                            value: 76,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 32,
+                            value: 43,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 32,
+                            value: 43,
                         },
                     ),
                 },
@@ -23689,8 +24145,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -23740,17 +24204,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 66,
+                            value: 76,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 32,
+                            value: 43,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 32,
+                            value: 43,
                         },
                     ),
                 },
@@ -23787,8 +24251,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -23831,12 +24303,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -23873,7 +24345,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -23925,7 +24397,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -23969,12 +24441,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24011,7 +24483,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -24063,7 +24535,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -24107,12 +24579,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24149,7 +24621,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -24201,7 +24673,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -24245,12 +24717,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24287,8 +24759,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -24339,7 +24819,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -24383,12 +24863,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24440,7 +24920,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -24477,8 +24957,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -24528,17 +25016,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24575,8 +25063,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -24626,17 +25122,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24696,12 +25192,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24761,12 +25257,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24810,12 +25306,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24852,8 +25348,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -24903,17 +25407,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -24964,17 +25468,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -25026,7 +25530,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -25070,12 +25574,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -25145,8 +25649,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -25189,12 +25701,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 72,
+                            value: 82,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 36,
+                            value: 47,
                         },
                     ),
                 },
@@ -25245,17 +25757,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 72,
+                            value: 82,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 36,
+                            value: 47,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 36,
+                            value: 47,
                         },
                     ),
                 },
@@ -25292,8 +25804,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -25343,17 +25863,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 72,
+                            value: 82,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 36,
+                            value: 47,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 36,
+                            value: 47,
                         },
                     ),
                 },
@@ -25390,8 +25910,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -25434,12 +25962,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 74,
+                            value: 84,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 38,
+                            value: 49,
                         },
                     ),
                 },
@@ -25490,17 +26018,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 74,
+                            value: 84,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 38,
+                            value: 49,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 38,
+                            value: 49,
                         },
                     ),
                 },
@@ -25537,8 +26065,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -25588,17 +26124,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 74,
+                            value: 84,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 38,
+                            value: 49,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 38,
+                            value: 49,
                         },
                     ),
                 },
@@ -25635,8 +26171,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -25679,12 +26223,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -25721,7 +26265,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -25773,7 +26317,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -25817,12 +26361,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -25859,7 +26403,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -25911,7 +26455,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -25955,12 +26499,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26012,7 +26556,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -26049,8 +26593,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -26100,17 +26652,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26154,12 +26706,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26210,17 +26762,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26271,17 +26823,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26333,7 +26885,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -26377,12 +26929,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26434,7 +26986,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -26471,8 +27023,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -26522,17 +27082,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26576,12 +27136,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26632,17 +27192,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26694,7 +27254,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -26738,12 +27298,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26795,7 +27355,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -26846,17 +27406,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26907,17 +27467,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -26968,17 +27528,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27022,12 +27582,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27079,7 +27639,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -27116,8 +27676,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -27167,17 +27735,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27214,8 +27782,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -27265,17 +27841,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27319,12 +27895,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27375,17 +27951,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27445,12 +28021,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27494,12 +28070,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27543,12 +28119,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27592,12 +28168,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27641,12 +28217,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27690,12 +28266,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27739,12 +28315,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27788,12 +28364,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27837,12 +28413,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27886,12 +28462,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27935,12 +28511,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -27984,12 +28560,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28033,12 +28609,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28082,12 +28658,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28131,12 +28707,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28187,17 +28763,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28248,17 +28824,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28310,7 +28886,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -28354,12 +28930,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -28429,8 +29005,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -28473,12 +29057,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 82,
+                            value: 92,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 42,
+                            value: 53,
                         },
                     ),
                 },
@@ -28529,17 +29113,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 82,
+                            value: 92,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 42,
+                            value: 53,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 42,
+                            value: 53,
                         },
                     ),
                 },
@@ -28576,8 +29160,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -28627,17 +29219,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 82,
+                            value: 92,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 42,
+                            value: 53,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 42,
+                            value: 53,
                         },
                     ),
                 },
@@ -28674,8 +29266,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -28718,12 +29318,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -28760,7 +29360,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -28812,7 +29412,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -28856,12 +29456,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -28898,8 +29498,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -28950,7 +29558,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -28994,12 +29602,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29036,8 +29644,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -29088,7 +29704,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29132,12 +29748,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29174,7 +29790,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -29226,7 +29842,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29270,12 +29886,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29312,8 +29928,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -29364,7 +29988,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29408,12 +30032,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29450,7 +30074,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -29502,7 +30126,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29546,12 +30170,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29603,7 +30227,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29640,8 +30264,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -29691,17 +30323,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29745,12 +30377,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29802,7 +30434,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -29839,8 +30471,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -29890,17 +30530,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -29944,12 +30584,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30000,17 +30640,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30061,17 +30701,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30123,7 +30763,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -30167,12 +30807,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30224,7 +30864,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -30261,8 +30901,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -30312,17 +30960,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30366,12 +31014,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30423,7 +31071,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -30460,8 +31108,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -30511,17 +31167,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30565,12 +31221,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30622,7 +31278,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -30659,8 +31315,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -30710,17 +31374,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30764,12 +31428,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30820,17 +31484,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30874,12 +31538,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -30931,7 +31595,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -30968,8 +31632,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -31019,17 +31691,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31066,8 +31738,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -31117,17 +31797,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31171,12 +31851,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31227,17 +31907,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31297,12 +31977,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31346,12 +32026,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31395,12 +32075,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31444,12 +32124,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31493,12 +32173,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31542,12 +32222,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31591,12 +32271,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31640,12 +32320,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31689,12 +32369,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31738,12 +32418,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31787,12 +32467,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31836,12 +32516,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31885,12 +32565,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31934,12 +32614,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -31983,12 +32663,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32039,17 +32719,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32109,12 +32789,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32158,12 +32838,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32207,12 +32887,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32256,12 +32936,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32305,12 +32985,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32354,12 +33034,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32410,17 +33090,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32464,12 +33144,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -32539,8 +33219,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -32583,12 +33271,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -32639,17 +33327,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -32692,12 +33380,12 @@
                     },
                     caller_sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 263,
+                            value: 160,
                         },
                     ),
                 },
@@ -32786,8 +33474,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist::input`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist::input`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -32837,17 +33533,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -32890,12 +33586,12 @@
                     },
                     caller_sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 263,
+                            value: 160,
                         },
                     ),
                 },
@@ -32984,8 +33680,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -33028,12 +33732,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33085,7 +33789,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                 },
@@ -33129,12 +33833,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33186,7 +33890,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                 },
@@ -33248,12 +33952,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33297,12 +34001,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33354,7 +34058,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                 },
@@ -33391,8 +34095,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -33442,17 +34154,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33503,17 +34215,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33573,12 +34285,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33622,12 +34334,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33671,12 +34383,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33727,17 +34439,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33788,17 +34500,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33847,17 +34559,17 @@
                     hir_eager_expr_idx: None,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -33894,8 +34606,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -33938,12 +34658,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -33994,17 +34714,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -34100,12 +34820,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -34142,8 +34862,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -34186,12 +34914,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -34242,17 +34970,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -34289,8 +35017,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -34333,12 +35069,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34390,7 +35126,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                 },
@@ -34452,12 +35188,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34501,12 +35237,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34557,17 +35293,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34604,8 +35340,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -34655,17 +35399,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34716,17 +35460,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34775,17 +35519,17 @@
                     hir_eager_expr_idx: None,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -34822,8 +35566,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -34866,12 +35618,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 94,
+                            value: 14,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 46,
+                            value: 10,
                         },
                     ),
                 },
@@ -34922,17 +35674,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -35028,12 +35780,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -35084,17 +35836,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -35131,8 +35883,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -35175,12 +35935,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35224,12 +35984,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35291,12 +36051,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35340,12 +36100,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35396,17 +36156,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 98,
+                            value: 26,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 54,
+                            value: 16,
                         },
                     ),
                 },
@@ -35443,8 +36203,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -35487,12 +36255,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 100,
+                            value: 104,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 56,
+                            value: 61,
                         },
                     ),
                 },
@@ -35529,8 +36297,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -35573,12 +36349,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35622,12 +36398,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35689,12 +36465,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35738,12 +36514,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -35794,17 +36570,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 100,
+                            value: 104,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 56,
+                            value: 61,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 56,
+                            value: 61,
                         },
                     ),
                 },
@@ -35841,8 +36617,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -35885,12 +36669,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 102,
+                            value: 106,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                 },
@@ -35927,8 +36711,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -35971,12 +36763,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -36020,12 +36812,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -36087,12 +36879,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -36136,12 +36928,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 96,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 51,
+                            value: 8,
                         },
                     ),
                 },
@@ -36192,17 +36984,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 102,
+                            value: 106,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                 },
@@ -36239,8 +37031,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -36283,12 +37083,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 104,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 60,
+                            value: 12,
                         },
                     ),
                 },
@@ -36325,8 +37125,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -36369,12 +37177,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 102,
+                            value: 106,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                 },
@@ -36425,17 +37233,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 104,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 60,
+                            value: 12,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 60,
+                            value: 12,
                         },
                     ),
                 },
@@ -36472,8 +37280,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -36516,12 +37332,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 106,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 62,
+                            value: 4,
                         },
                     ),
                 },
@@ -36558,8 +37374,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -36602,12 +37426,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 104,
+                            value: 16,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 60,
+                            value: 12,
                         },
                     ),
                 },
@@ -36658,17 +37482,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 106,
+                            value: 8,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 62,
+                            value: 4,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 62,
+                            value: 4,
                         },
                     ),
                 },
@@ -36705,8 +37529,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::main`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -36749,12 +37581,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -36791,7 +37623,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -36910,7 +37742,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -36986,8 +37818,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -37048,7 +37888,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -37103,8 +37943,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -37171,7 +38019,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -37387,7 +38235,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -37447,8 +38295,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -37515,7 +38371,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -38011,7 +38867,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -38102,7 +38958,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -40195,12 +41051,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -40237,7 +41093,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -40283,7 +41139,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40346,7 +41202,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -40399,7 +41255,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40450,7 +41306,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40508,7 +41364,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40550,8 +41406,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -40593,7 +41457,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40618,7 +41482,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -40691,7 +41555,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40760,7 +41624,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40785,7 +41649,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -40855,7 +41719,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40906,7 +41770,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -40964,7 +41828,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41006,8 +41870,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -41049,7 +41921,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41074,7 +41946,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -41138,7 +42010,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41196,7 +42068,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41238,8 +42110,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -41281,7 +42161,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41306,7 +42186,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -41361,8 +42241,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -41404,7 +42292,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41429,7 +42317,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -41509,7 +42397,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41623,7 +42511,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41682,7 +42570,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41741,7 +42629,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41800,7 +42688,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41859,7 +42747,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41918,7 +42806,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -41977,7 +42865,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42073,7 +42961,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42177,7 +43065,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42236,7 +43124,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42311,7 +43199,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42400,7 +43288,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42469,7 +43357,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42494,7 +43382,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -42555,7 +43443,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42580,7 +43468,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -42651,7 +43539,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42702,7 +43590,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42750,7 +43638,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42775,7 +43663,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -42846,8 +43734,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -42889,7 +43785,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -42914,7 +43810,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -42975,7 +43871,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43000,7 +43896,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -43096,7 +43992,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43185,7 +44081,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43248,8 +44144,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -43291,7 +44195,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43316,7 +44220,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -43380,7 +44284,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43449,7 +44353,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43474,7 +44378,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -43535,7 +44439,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43560,7 +44464,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -43621,7 +44525,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43646,7 +44550,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -43707,7 +44611,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43732,7 +44636,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -43814,7 +44718,7 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43903,7 +44807,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43972,7 +44876,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -43997,7 +44901,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -44058,7 +44962,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -44083,7 +44987,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -44154,7 +45058,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -44205,7 +45109,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -44274,7 +45178,7 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -44362,7 +45266,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 22,
+                            value: 32,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -44411,12 +45315,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -44453,7 +45357,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -44562,7 +45466,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -45292,8 +46196,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -45360,7 +46272,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -45446,7 +46358,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -45666,7 +46578,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -45726,8 +46638,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -45794,7 +46714,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -45936,7 +46856,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -46048,7 +46968,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -46139,7 +47059,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -46225,7 +47145,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -46316,7 +47236,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -46402,7 +47322,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -46493,7 +47413,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -46579,7 +47499,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -46763,7 +47683,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -46854,7 +47774,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -46981,8 +47901,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -47049,7 +47977,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -47135,7 +48063,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -47320,8 +48248,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -47388,7 +48324,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -47474,7 +48410,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -47696,8 +48632,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -47764,7 +48708,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -47850,7 +48794,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::PropsStructField {
                             self_ty: LinkageType::PathLeading(
@@ -48045,7 +48989,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -48130,7 +49074,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -48216,7 +49160,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -48304,7 +49248,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::Index,
                     },
@@ -48389,7 +49333,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -48475,7 +49419,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -48641,8 +49585,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -48709,7 +49661,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -48795,7 +49747,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -48852,8 +49804,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -48920,7 +49880,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -49006,7 +49966,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodFn {
                             path: AssociatedItemPath::TypeItem(
@@ -49639,7 +50599,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::FunctionFnItem {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -49730,7 +50690,7 @@
                         },
                     ),
                 ),
-                opn: ValOpn::LinkageImpl(
+                opn: ValOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssociatedItemPath::TypeItem(
@@ -49843,12 +50803,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -49885,8 +50845,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -49929,12 +50897,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -49971,7 +50939,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -50023,7 +50991,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -50067,12 +51035,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50109,7 +51077,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -50161,7 +51129,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -50205,12 +51173,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50247,8 +51215,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -50298,17 +51274,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50352,12 +51328,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50409,7 +51385,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -50446,8 +51422,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -50497,17 +51481,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50567,12 +51551,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50616,12 +51600,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50665,12 +51649,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50730,12 +51714,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50779,12 +51763,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50835,17 +51819,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50905,12 +51889,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -50954,12 +51938,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51003,12 +51987,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51052,12 +52036,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51108,17 +52092,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51162,12 +52146,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51204,8 +52188,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -51255,17 +52247,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51317,7 +52309,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -51361,12 +52353,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51418,7 +52410,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                 },
@@ -51455,8 +52447,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -51506,17 +52506,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51560,12 +52560,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51609,12 +52609,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 64,
+                            value: 74,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 30,
+                            value: 41,
                         },
                     ),
                 },
@@ -51658,12 +52658,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -51700,8 +52700,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -51744,12 +52752,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -51786,7 +52794,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -51838,7 +52846,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -51882,12 +52890,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -51924,7 +52932,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -51976,7 +52984,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -52020,12 +53028,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52062,7 +53070,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -52114,7 +53122,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -52158,12 +53166,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52200,8 +53208,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -52252,7 +53268,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -52296,12 +53312,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52353,7 +53369,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -52390,8 +53406,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -52441,17 +53465,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52488,8 +53512,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -52539,17 +53571,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52609,12 +53641,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52674,12 +53706,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52723,12 +53755,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52765,8 +53797,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -52816,17 +53856,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52877,17 +53917,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -52939,7 +53979,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                 },
@@ -52983,12 +54023,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 68,
+                            value: 78,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 34,
+                            value: 45,
                         },
                     ),
                 },
@@ -53032,12 +54072,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -53074,8 +54114,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53118,12 +54166,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53160,8 +54208,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53211,17 +54267,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53265,12 +54321,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53307,8 +54363,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53358,17 +54422,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53412,12 +54476,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53469,7 +54533,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -53506,8 +54570,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53557,17 +54629,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53611,12 +54683,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53668,7 +54740,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -53705,8 +54777,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53756,17 +54836,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53810,12 +54890,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -53867,7 +54947,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -53904,8 +54984,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -53955,17 +55043,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54009,12 +55097,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54065,17 +55153,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54127,7 +55215,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -54171,12 +55259,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54227,17 +55315,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54288,17 +55376,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54342,12 +55430,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54398,17 +55486,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54460,7 +55548,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -54504,12 +55592,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54561,7 +55649,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -54612,17 +55700,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54673,17 +55761,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54734,17 +55822,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54788,12 +55876,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54844,17 +55932,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54905,17 +55993,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -54959,12 +56047,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55016,7 +56104,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -55067,17 +56155,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55128,17 +56216,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55182,12 +56270,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55239,7 +56327,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -55290,17 +56378,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55351,17 +56439,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55405,12 +56493,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55462,7 +56550,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                 },
@@ -55513,17 +56601,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55574,17 +56662,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55635,17 +56723,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55689,12 +56777,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55745,17 +56833,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55799,12 +56887,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55841,8 +56929,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -55892,17 +56988,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -55946,12 +57042,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -56002,17 +57098,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -56063,17 +57159,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -56117,12 +57213,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 30,
+                            value: 40,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 14,
+                            value: 25,
                         },
                     ),
                 },
@@ -56166,12 +57262,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -56208,8 +57304,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -56252,12 +57356,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56294,7 +57398,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -56346,7 +57450,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -56390,12 +57494,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56432,7 +57536,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -56484,7 +57588,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -56528,12 +57632,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56585,7 +57689,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -56622,8 +57726,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -56673,17 +57785,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56727,12 +57839,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56783,17 +57895,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56844,17 +57956,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -56906,7 +58018,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -56950,12 +58062,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57007,7 +58119,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -57044,8 +58156,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -57095,17 +58215,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57149,12 +58269,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57205,17 +58325,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57267,7 +58387,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -57311,12 +58431,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57368,7 +58488,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -57419,17 +58539,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57480,17 +58600,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57541,17 +58661,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57595,12 +58715,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57652,7 +58772,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -57689,8 +58809,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -57740,17 +58868,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57787,8 +58915,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -57838,17 +58974,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57892,12 +59028,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -57948,17 +59084,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58018,12 +59154,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58067,12 +59203,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58116,12 +59252,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58165,12 +59301,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58214,12 +59350,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58263,12 +59399,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58312,12 +59448,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58361,12 +59497,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58410,12 +59546,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58459,12 +59595,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58508,12 +59644,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58557,12 +59693,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58606,12 +59742,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58655,12 +59791,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58704,12 +59840,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58760,17 +59896,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58821,17 +59957,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58883,7 +60019,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                 },
@@ -58927,12 +60063,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 76,
+                            value: 86,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 40,
+                            value: 51,
                         },
                     ),
                 },
@@ -58976,12 +60112,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -59018,8 +60154,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -59062,12 +60206,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 52,
+                            value: 62,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 24,
+                            value: 35,
                         },
                     ),
                 },
@@ -59111,12 +60255,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },
@@ -59153,8 +60297,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -59197,12 +60349,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59239,7 +60391,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
@@ -59291,7 +60443,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -59335,12 +60487,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59377,8 +60529,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -59429,7 +60589,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -59473,12 +60633,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59515,8 +60675,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -59567,7 +60735,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -59611,12 +60779,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59653,7 +60821,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
@@ -59705,7 +60873,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -59749,12 +60917,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59791,8 +60959,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -59843,7 +61019,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -59887,12 +61063,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -59929,7 +61105,7 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
+                opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
@@ -59981,7 +61157,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60025,12 +61201,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60082,7 +61258,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60119,8 +61295,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -60170,17 +61354,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60224,12 +61408,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60281,7 +61465,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60318,8 +61502,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -60369,17 +61561,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60423,12 +61615,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60479,17 +61671,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60540,17 +61732,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60602,7 +61794,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60646,12 +61838,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60703,7 +61895,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60740,8 +61932,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -60791,17 +61991,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60845,12 +62045,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -60902,7 +62102,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -60939,8 +62139,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -60990,17 +62198,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61044,12 +62252,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61101,7 +62309,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -61138,8 +62346,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -61189,17 +62405,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61243,12 +62459,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61299,17 +62515,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61353,12 +62569,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61410,7 +62626,7 @@
                     ],
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 },
@@ -61447,8 +62663,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -61498,17 +62722,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61545,8 +62769,16 @@
         Some(
             ValRepr {
                 val_domain_repr: Omni,
-                opn: ValOpn::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::ValItem {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            instantiation: LinkageInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
                 ),
                 arguments: [],
                 caching_class: ValItem,
@@ -61596,17 +62828,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61650,12 +62882,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61706,17 +62938,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61776,12 +63008,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61825,12 +63057,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61874,12 +63106,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61923,12 +63155,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -61972,12 +63204,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62021,12 +63253,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62070,12 +63302,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62119,12 +63351,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62168,12 +63400,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62217,12 +63449,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62266,12 +63498,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62315,12 +63547,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62364,12 +63596,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62413,12 +63645,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62462,12 +63694,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62518,17 +63750,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62588,12 +63820,12 @@
                     },
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62637,12 +63869,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62686,12 +63918,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62735,12 +63967,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62784,12 +64016,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62833,12 +64065,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62889,17 +64121,17 @@
                     ),
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                     hir_eager_expr_source_map: HirEagerExprSourceMap(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62943,12 +64175,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 44,
+                            value: 55,
                         },
                     ),
                 },
@@ -62992,12 +64224,12 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sema_expr_region: SemaExprRegion(
                         Id {
-                            value: 92,
+                            value: 102,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
                         Id {
-                            value: 64,
+                            value: 65,
                         },
                     ),
                 },

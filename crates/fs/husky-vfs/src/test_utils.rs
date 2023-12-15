@@ -88,7 +88,6 @@ impl VfsTestUtils for Db {
                 let package_path = PackagePath::new_local_or_toolchain_package(
                     self,
                     toolchain,
-                    name,
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();

@@ -5,6 +5,10 @@ use std::cell::Cell;
 pub struct SampleId(ShiftedU32);
 
 impl SampleId {
+    pub fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+
     pub fn index(self) -> usize {
         self.0.into()
     }

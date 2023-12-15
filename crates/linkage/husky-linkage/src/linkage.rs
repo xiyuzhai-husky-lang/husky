@@ -4,7 +4,8 @@ use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssociatedItemPath, FugitivePath, TypeItemPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
-use husky_hir_defn::HasHirDefn;
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{
     instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments, HirType,
 };
@@ -62,16 +63,22 @@ pub enum LinkageData {
 }
 
 impl Linkage {
-    pub fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
-        let stats = item_hir_template_parameter_stats(db, *item_path)?;
-        if stats.tys + stats.constants > 0 {
-            return None;
+    /// gives a linkage if the item is eagerly defined or extern
+    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
+        let FugitiveHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
+            unreachable!()
+        };
+        match hir_defn.body_with_hir_expr_region(db) {
+            Some((HirExprIdx::Lazy(_), _)) => None,
+            Some((HirExprIdx::Eager(_), _)) | None => Some(Self::new(
+                db,
+                LinkageData::ValItem {
+                    path,
+                    // ad hoc
+                    instantiation: LinkageInstantiation::new_empty(),
+                },
+            )),
         }
-        Some(Self::new(db, todo!()))
-    }
-
-    pub fn new_suffix(db: &::salsa::Db) -> Self {
-        todo!()
     }
 
     // todo: linkage_instantiation

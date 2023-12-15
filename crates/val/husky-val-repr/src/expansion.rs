@@ -39,7 +39,7 @@ impl ValRepr {
 #[salsa::tracked(jar = ValReprJar)]
 fn val_repr_expansion(db: &::salsa::Db, val_repr: ValRepr) -> Option<ValReprExpansion> {
     match val_repr.opn(db) {
-        ValOpn::ValItem(fugitive_path) => {
+        ValOpn::ValItemLazilyDefined(fugitive_path) => {
             let FugitiveHirDefn::Val(hir_defn) = fugitive_path.hir_defn(db)? else {
                 unreachable!()
             };
@@ -369,7 +369,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_ty_constructor_fn(
+                let opn = ValOpn::Linkage(Linkage::new_ty_constructor_fn(
                     path,
                     instantiation,
                     &self.linkage_instantiation,
@@ -385,7 +385,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_ty_variant_constructor_fn(
+                let opn = ValOpn::Linkage(Linkage::new_ty_variant_constructor_fn(
                     path,
                     instantiation,
                     &self.linkage_instantiation,
@@ -401,7 +401,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_function_fn_item(
+                let opn = ValOpn::Linkage(Linkage::new_function_fn_item(
                     path,
                     instantiation,
                     &self.linkage_instantiation,
@@ -417,7 +417,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::LinkageImpl(Linkage::new_associated_function_fn_item(
+                let opn = ValOpn::Linkage(Linkage::new_associated_function_fn_item(
                     path,
                     instantiation,
                     &self.linkage_instantiation,
@@ -434,7 +434,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ident,
                 ..
             } => (
-                ValOpn::LinkageImpl(Linkage::new_props_struct_field(
+                ValOpn::Linkage(Linkage::new_props_struct_field(
                     owner_base_ty,
                     ident,
                     &self.linkage_instantiation,
@@ -451,7 +451,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref instantiation,
                 ..
             } => (
-                ValOpn::LinkageImpl(Linkage::new_memoized_field(
+                ValOpn::Linkage(Linkage::new_memoized_field(
                     path,
                     instantiation,
                     &self.linkage_instantiation,
@@ -474,7 +474,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 )];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (
-                    ValOpn::LinkageImpl(Linkage::new_method(
+                    ValOpn::Linkage(Linkage::new_method(
                         path,
                         instantiation,
                         &self.linkage_instantiation,
@@ -493,7 +493,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         self.build_expr(val_domain_repr_guard, item),
                     ))
                 }
-                (ValOpn::LinkageImpl(Linkage::new_index(self.db)), arguments)
+                (ValOpn::Linkage(Linkage::new_index(self.db)), arguments)
             }
             HirLazyExprData::NewList { ref items } => (
                 ValOpn::NewList,

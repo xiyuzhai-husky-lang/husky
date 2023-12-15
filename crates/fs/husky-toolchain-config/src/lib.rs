@@ -39,6 +39,8 @@ pub struct ToolchainSection {
 
 /// ad hoc
 pub fn toolchain_config(mut dir: &Path, db: &::salsa::Db) -> ToolchainConfig {
+    println!("{:?}", dir);
+    let mut dir: &Path = &dir.canonicalize().unwrap();
     let husky_toolchain_toml_path = loop {
         let husky_toolchain_toml_path = dir.join("husky-toolchain.toml");
         if husky_toolchain_toml_path.exists() {

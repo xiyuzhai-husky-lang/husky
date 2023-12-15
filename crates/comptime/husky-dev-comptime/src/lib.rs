@@ -24,18 +24,15 @@ pub enum DevComptimeTarget {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
+    pub fn new(target_crate_path: impl AsRef<Path>) -> VfsResult<Self> {
+        let target_crate_path = target_crate_path.as_ref();
         let db = DevComptimeDb::default();
         let toolchain = toolchain_config(target_crate_path, &*db).toolchain();
-        let target_package_path = match PackagePath::new_local_or_toolchain_package(
-            &db,
-            toolchain,
-            Kebab::from_ref(&db, "mnist-classifier").unwrap(),
-            target_crate_path,
-        ) {
-            Ok(package_path) => package_path,
-            Err(_e) => todo!(),
-        };
+        let target_package_path =
+            match PackagePath::new_local_or_toolchain_package(&db, toolchain, target_crate_path) {
+                Ok(package_path) => package_path,
+                Err(_e) => todo!(),
+            };
         let target_crate_path = CratePath::new(target_package_path, CrateKind::Main, &db)?;
         Ok(Self {
             linktime: IsLinktime::new_linktime(
