@@ -11,7 +11,7 @@ serde_json.workspace = true
 vec-like.workspace = true
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
-husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
+husky-dev-comptime.workspace = true
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs

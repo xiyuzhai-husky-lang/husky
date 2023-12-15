@@ -1,8 +1,5 @@
-#![feature(try_trait_v2)]
-
 mod config;
-mod evaluator;
-mod hot_reload;
+mod eval;
 
 pub use self::config::*;
 
@@ -27,7 +24,7 @@ pub struct DevRuntime<Task: IsTask> {
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn new(
         task: Task,
-        target_crate: &Path,
+        target_crate: impl AsRef<Path>,
         config: Option<DevRuntimeConfig<Task>>,
     ) -> VfsResult<Self> {
         Ok(Self {
@@ -44,14 +41,6 @@ impl<Task: IsTask> DevRuntime<Task> {
 
     pub fn target(&self) -> DevComptimeTarget {
         self.comptime.target()
-    }
-
-    pub fn with_eval_context<R>(
-        &self,
-        base_point: TaskDevAscensionBasePoint<Task>,
-        f: impl FnOnce() -> R,
-    ) -> R {
-        with_eval_context::<TaskDevAscension<Task>, _, _>(self, base_point, f)
     }
 }
 

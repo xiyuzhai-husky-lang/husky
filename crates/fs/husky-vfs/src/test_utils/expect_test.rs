@@ -15,7 +15,6 @@ pub(super) fn vfs_expect_test<U>(
             let package_path = PackagePath::new_local_or_toolchain_package(
                 db,
                 toolchain,
-                package_name,
                 &path.to_logical_path(&test_domain.src_base()),
             )
             .unwrap();

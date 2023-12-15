@@ -30,6 +30,8 @@ husky-term-prelude.workspace = true
 husky-task.workspace = true
 # linkage
 husky-linkage.workspace = true
+# syntax
+husky-entity-syn-tree.workspace = true
 # val
 husky-val.workspace = true
 # utils
@@ -55,8 +57,8 @@ husky-token.workspace = true
 husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
-# runtime
-husky-dev-runtime.workspace = true
+# protocols
+husky-visual-protocol = { workspace = true, features = ["trivial"] }
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
@@ -65,7 +67,6 @@ husky-sema-expr.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-syn-tree.workspace = true
 husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true

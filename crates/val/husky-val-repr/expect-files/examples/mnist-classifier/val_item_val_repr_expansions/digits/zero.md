@@ -74,7 +74,7 @@
                 hir_lazy_expr_val_repr_map: [
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
+                        opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
@@ -82,8 +82,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -96,7 +104,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -128,7 +136,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -226,8 +234,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -240,7 +256,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -272,7 +288,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -350,8 +366,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -364,7 +388,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::PropsStructField {
                                     self_ty: LinkageType::PathLeading(
@@ -423,7 +447,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -448,8 +472,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -462,7 +494,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -560,8 +592,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -574,7 +614,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::PropsStructField {
                                     self_ty: LinkageType::PathLeading(
@@ -633,7 +673,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -686,7 +726,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -720,7 +760,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -754,7 +794,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -869,8 +909,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -895,7 +943,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -932,7 +980,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -969,7 +1017,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1001,7 +1049,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -1038,7 +1086,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1070,7 +1118,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -1107,7 +1155,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1155,7 +1203,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -1235,7 +1283,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -1272,7 +1320,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1350,8 +1398,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -1364,7 +1420,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1396,7 +1452,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::PropsStructField {
                                     self_ty: LinkageType::PathLeading(
@@ -1446,7 +1502,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -1471,8 +1527,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -1485,7 +1549,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1517,7 +1581,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::PropsStructField {
                                     self_ty: LinkageType::PathLeading(
@@ -1567,7 +1631,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -1592,8 +1656,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -1606,7 +1678,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1638,7 +1710,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::PropsStructField {
                                     self_ty: LinkageType::PathLeading(
@@ -1688,7 +1760,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -1719,7 +1791,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -1772,7 +1844,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1804,7 +1876,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -1838,7 +1910,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::Index,
                             },
@@ -1891,7 +1963,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -1923,7 +1995,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -1982,8 +2054,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -1996,7 +2076,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -2028,7 +2108,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -2056,8 +2136,16 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
                         ),
                         arguments: [],
                         caching_class: ValItem,
@@ -2070,7 +2158,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
@@ -2102,7 +2190,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodFn {
                                     path: AssociatedItemPath::TypeItem(
@@ -2343,7 +2431,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::FunctionFnItem {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
@@ -2380,7 +2468,7 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::LinkageImpl(
+                        opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(

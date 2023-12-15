@@ -72,19 +72,12 @@ pub(crate) fn resolve_module_path(
         .file_stem()
         .and_then(|s| s.to_str())
         .ok_or(VfsError::ModulePathResolveFailure)?;
-    let manifest_path = parent
-        .parent()
-        .ok_or(VfsError::ModulePathResolveFailure)?
-        .join("Corgi.toml");
-    Ok(if parent.ends_with("src") && manifest_path.exists() {
-        let package_name = read_package_name_from_manifest(db, &manifest_path)
-            .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
+    Ok(if parent.ends_with("src") {
         match file_stem {
             "lib" => CratePath::new(
                 PackagePath::new_local_or_toolchain_package(
                     db,
                     toolchain,
-                    package_name,
                     parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
                 )?,
                 CrateKind::Lib,
@@ -95,7 +88,6 @@ pub(crate) fn resolve_module_path(
                 PackagePath::new_local_or_toolchain_package(
                     db,
                     toolchain,
-                    package_name,
                     parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
                 )?,
                 CrateKind::Main,
