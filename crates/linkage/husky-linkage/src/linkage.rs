@@ -242,7 +242,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         db,
                         LinkageData::ValItem {
                             path,
-                            instantiation: todo!(),
+                            instantiation: LinkageInstantiation::new_empty(),
                         }
                     )]
                 }
@@ -276,7 +276,20 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 }
                 TypeItemKind::AssociatedVal => todo!(),
                 TypeItemKind::AssociatedType => smallvec![],
-                TypeItemKind::MemoizedField => todo!(),
+                TypeItemKind::MemoizedField => {
+                    LinkageInstantiation::from_javelin(instantiation, db)
+                        .into_iter()
+                        .map(|instantiation| {
+                            Linkage::new(
+                                db,
+                                LinkageData::MemoizedField {
+                                    path: path.into(),
+                                    instantiation,
+                                },
+                            )
+                        })
+                        .collect()
+                }
             },
             JavelinPath::TraitItem(_) => todo!(),
             JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {

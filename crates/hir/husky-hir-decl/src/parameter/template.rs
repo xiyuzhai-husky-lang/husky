@@ -138,7 +138,7 @@ impl std::ops::Deref for HirTemplateParameters {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 pub struct HirTemplateParameterStats {
     pub tys: u8,
     pub constants: u8,
@@ -159,7 +159,10 @@ pub fn item_hir_template_parameter_stats(
         places: 0,
     };
     let hir_decl = item_path.hir_decl(db)?;
-    for param in hir_decl.template_parameters(db)? {
+    let Some(template_parameters) = hir_decl.template_parameters(db) else {
+        return Some(HirTemplateParameterStats::default());
+    };
+    for param in template_parameters {
         match param.data {
             HirTemplateParameterData::Type { .. } => stats.tys += 1,
             HirTemplateParameterData::Constant { .. } => stats.constants += 1,

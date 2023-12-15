@@ -23,37 +23,6 @@ pub enum JavelinData {
     },
 }
 
-impl Javelin {
-    pub fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
-        let stats = item_hir_template_parameter_stats(db, *item_path)?;
-        if stats.tys + stats.constants > 0 {
-            return None;
-        }
-        Some(Self::new(
-            db,
-            JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(item_path, db)?,
-                // ad hoc consider places
-                instantiation: JavelinInstantiation::new_empty(),
-            },
-        ))
-    }
-
-    pub fn new_item(
-        path: impl Into<ItemPath>,
-        hir_instantiation: &HirInstantiation,
-        db: &::salsa::Db,
-    ) -> Self {
-        Self::new(
-            db,
-            JavelinData::PathLeading {
-                path: JavelinPath::try_from_item_path(path.into(), db).unwrap(),
-                instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
-            },
-        )
-    }
-}
-
 /// package javelins are package amazon javelins and valkyrie javelins
 pub fn package_javelins<'db>(
     db: &'db ::salsa::Db,
