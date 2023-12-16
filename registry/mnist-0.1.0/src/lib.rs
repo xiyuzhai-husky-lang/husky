@@ -1,8 +1,10 @@
 use dataset::MNIST_DATASET;
 use husky_ml_task_prelude::sample_id;
+use husky_standard_value::{FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value};
 
 mod dataset;
 
+#[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MnistLabel {
     Zero,
@@ -23,6 +25,7 @@ impl From<u8> for MnistLabel {
     }
 }
 
+#[husky_standard_value::value_conversion]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct BinaryImage28([u32; 30]);
 
@@ -46,6 +49,7 @@ impl std::ops::IndexMut<usize> for BinaryImage28 {
     }
 }
 
+#[husky_standard_value::value_conversion]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28([u32; 31]);
 
