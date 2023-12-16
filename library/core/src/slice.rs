@@ -1,3 +1,6 @@
+use crate::*;
+
+#[husky_standard_value::value_conversion]
 #[derive(Debug, PartialEq, Eq)]
 pub struct CyclicSliceLeashed<T>
 where
