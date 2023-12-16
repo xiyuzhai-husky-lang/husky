@@ -5,5 +5,9 @@ edition = "2021"
 
 [workspace]
 
+[workspace.dependencies]
+husky-standard-value = { path = "../../crates/vm/husky-standard-value" }
+
 [dependencies]
 ordered-float = "4.2.0"
+husky-standard-value.workspace = true

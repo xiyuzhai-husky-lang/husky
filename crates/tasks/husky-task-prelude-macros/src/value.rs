@@ -120,17 +120,47 @@ pub(crate) fn value(
             }
         }
 
-        // impl #generics_with_t From<CyclicSliceLeashed<__T>> for #self_ty {
-        //     fn from(t: CyclicSliceLeashed<__T>) -> Self {
-        //         todo!()
-        //     }
-        // }
+        impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T] {
+            fn from_value(value: #value_ty) -> Self {
+                todo!()
+            }
+        }
 
-        // impl #generics_with_t Into<CyclicSliceLeashed<__T>> for #self_ty {
-        //     fn into(self) -> CyclicSliceLeashed<__T> {
-        //         todo!()
-        //     }
-        // }
+        impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp [__T] {
+            fn into_value(self) -> #value_ty {
+                todo!()
+            }
+        }
+
+        impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T] {
+            fn from_value(value: #value_ty) -> Self {
+                todo!()
+            }
+        }
+
+        impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp mut [__T] {
+            fn into_value(self) -> #value_ty {
+                todo!()
+            }
+        }
+
+        macro_rules! impl_ritchie_fn_version_conversion {
+            ([$($input: ident),*], $output: ident) => {
+                impl<$($input,)* $output> FromValue for fn($($input,)*) -> $output {
+                    fn from_value(value: #value_ty) -> Self {
+                        todo!()
+                    }
+                }
+
+                impl<$($input,)* $output> IntoValue for fn($($input,)*) -> $output {
+                    fn into_value(self) -> #value_ty {
+                        todo!()
+                    }
+                }
+            };
+        }
+
+        all_ritchies! { impl_ritchie_fn_version_conversion }
     }
     .into()
 }

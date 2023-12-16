@@ -1,5 +1,5 @@
 use crate::{r#static::StaticDyn, *};
-use husky_task_prelude::value::IsTaskValue;
+use husky_task_prelude::{all_ritchies, value::IsTaskValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
