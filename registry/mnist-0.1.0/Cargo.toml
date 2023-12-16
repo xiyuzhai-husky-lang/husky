@@ -9,6 +9,7 @@ husky-ml-task-prelude = { path = "../../crates/tasks/husky-ml-task-prelude" }
 husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
     "standard"
 ] }
+husky-standard-value = { path = "../../crates/vm/husky-standard-value" }
 husky-xrng-utils = { path = "../../crates/utils/husky-rng-utils" }
 lazy_static = "1.4.0"
 
@@ -17,3 +18,4 @@ husky-ml-task-prelude.workspace = true
 husky-linkage-impl.workspace = true
 lazy_static.workspace = true
 husky-xrng-utils.workspace = true
+husky-standard-value.workspace = true
