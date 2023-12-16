@@ -24,15 +24,17 @@ fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
     quote::quote! {
         #item
 
-        impl #generics From<__Value> for #ident #generics_without_bounds {
-            fn from(value: __Value) -> Self {
+        // todo: value generics
+        impl #generics __FromValue for #ident #generics_without_bounds {
+            fn from_value(value: __Value) -> Self {
                 // Value::from_owned(self)
                 todo!()
             }
         }
 
-        impl #generics Into<__Value> for #ident #generics_without_bounds {
-            fn into(self) -> __Value {
+        // todo: value generics
+        impl #generics __IntoValue for #ident #generics_without_bounds {
+            fn into_value(self) -> __Value {
                 // Value::from_owned(self)
                 todo!()
             }
@@ -55,6 +57,7 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
     quote::quote! {
         #item
 
+        // todo: value generics
         impl #generics __FromValue for #ident #generics_without_bounds {
             fn from_value(value: __Value) -> Self {
                 // Value::from_owned(self)
@@ -62,6 +65,7 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             }
         }
 
+        // todo: value generics
         impl #generics __IntoValue for #ident #generics_without_bounds {
             fn into_value(self) -> __Value {
                 // Value::from_owned(self)

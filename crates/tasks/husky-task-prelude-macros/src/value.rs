@@ -34,7 +34,8 @@ pub(crate) fn value(
     };
     let value_ty = self_ty(ident, generics);
     let primitive_ty_value_conversions = [
-        "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64", "i128", "isize",
+        "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64", "i128",
+        "isize", "f32", "f64",
     ]
     .into_iter()
     .map(|ty_str| {

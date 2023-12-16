@@ -230,6 +230,36 @@ impl std::ops::SubAssign for Value {
     }
 }
 
+impl From<()> for Value {
+    fn from(value: ()) -> Self {
+        Value::Unit(())
+    }
+}
+
+impl Into<()> for Value {
+    fn into(self) -> () {
+        match self {
+            Value::Unit(()) => (),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl From<bool> for Value {
+    fn from(value: bool) -> Self {
+        Value::Bool(value)
+    }
+}
+
+impl Into<bool> for Value {
+    fn into(self) -> bool {
+        match self {
+            Value::Bool(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
+
 impl From<u8> for Value {
     fn from(value: u8) -> Self {
         Value::U8(value)
@@ -405,6 +435,36 @@ impl Into<isize> for Value {
     fn into(self) -> isize {
         match self {
             Value::ISize(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl From<f32> for Value {
+    fn from(value: f32) -> Self {
+        Value::F32(value)
+    }
+}
+
+impl Into<f32> for Value {
+    fn into(self) -> f32 {
+        match self {
+            Value::F32(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl From<f64> for Value {
+    fn from(value: f64) -> Self {
+        Value::F64(value)
+    }
+}
+
+impl Into<f64> for Value {
+    fn into(self) -> f64 {
+        match self {
+            Value::F64(value) => value,
             _ => unreachable!(),
         }
     }
