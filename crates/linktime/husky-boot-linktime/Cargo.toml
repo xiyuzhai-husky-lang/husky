@@ -12,7 +12,7 @@ salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 # kernel
 husky-task.workspace = true
-husky-regular-value.workspace = true
+husky-standard-value.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true

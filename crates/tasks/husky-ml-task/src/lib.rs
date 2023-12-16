@@ -5,7 +5,7 @@ use husky_linkage_impl::IsLinkageImpl;
 use husky_ml_task_prelude::DEV_EVAL_CONTEXT;
 use husky_ml_task_prelude::{DevEvalContext, SampleId};
 use husky_mono_linktime::MonoLinkTime;
-use husky_regular_value::RegularValue;
+use husky_standard_value::Value;
 use husky_task::{
     dev_ascension::{IsDevAscension, LocalDevEvalContext},
     IsTask,
@@ -52,7 +52,7 @@ where
 
     type Linktime = MonoLinkTime;
 
-    type Value = RegularValue;
+    type Value = Value;
 
     type RuntimeStorage = MlDevRuntimeStorage;
 

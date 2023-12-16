@@ -68,7 +68,7 @@ macro_rules! impl_into_linkage_impl {
         impl<F, $($input,)* $output> IsLinkageImplSource<LinkageImpl, fn($($input,)*) -> $output> for LinkageImplSource<F>
         where
             F: Fn($($input,)*) -> $output,
-            $($input: Send + From<<LinkageImpl as IsLinkageImpl>::Value>, )*
+            $($input: Send + FromValue, )*
             $output: Send,
         {
             type FnOutput = $output;
@@ -94,7 +94,7 @@ macro_rules! impl_into_linkage_impl {
                 -> Self::FnOutput {
                 let mut arguments = arguments.into_iter();
                 self.0(
-                    $(<$input as From<<LinkageImpl as IsLinkageImpl>::Value>>::from(
+                    $(<$input as FromValue>::from_value(
                         arguments.next().unwrap()
                     ),)*
                 )

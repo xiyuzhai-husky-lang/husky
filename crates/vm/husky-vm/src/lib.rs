@@ -39,7 +39,7 @@
 
 // use husky_coword::Ident;
 // use husky_ethereal_term::EtherealTerm;
-// use husky_regular_value::*;
+// use husky_standard_value::*;
 // use std::sync::Arc;
 
 // pub fn eval_fast<'temp>(

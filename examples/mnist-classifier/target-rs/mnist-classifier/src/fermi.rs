@@ -1,6 +1,7 @@
 use crate::*;
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>>,

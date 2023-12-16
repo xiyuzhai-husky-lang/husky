@@ -1,6 +1,7 @@
 use crate::*;
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Point2d {
     pub x: NotNan<f32>,
@@ -19,6 +20,7 @@ impl Point2d {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativePoint2d {
     pub x: NotNan<f32>,
@@ -37,6 +39,7 @@ impl RelativePoint2d {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Vector2d {
     pub x: NotNan<f32>,
@@ -55,6 +58,7 @@ impl Vector2d {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ClosedRange {
     pub min: NotNan<f32>,
@@ -73,6 +77,7 @@ impl ClosedRange {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BoundingBox {
     pub xrange: crate::geom2d::ClosedRange,
@@ -89,6 +94,7 @@ impl BoundingBox {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RelativeBoundingBox {
     pub xrange: crate::geom2d::ClosedRange,

@@ -13,7 +13,7 @@ either.workspace = true
 # kernel
 husky-val.workspace = true
 husky-task.workspace = true
-husky-regular-value.workspace = true
+husky-standard-value.workspace = true
 # linktime
 husky-mono-linktime.workspace = true
 # vm

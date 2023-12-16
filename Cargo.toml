@@ -65,10 +65,11 @@ paste = "1.0.6"
 pathdiff = "0.2.1"
 proc-macro2 = "1.0.69"
 rustc_version = "0.4"
+quote = "1.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 smallvec = "1.10.0"
-syn = { version = "2.0.38", features = ["full", "extra-traits"] }
+syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
 thiserror = "1.0.37"
 tokio = { version = "1.32.0", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
@@ -158,9 +159,11 @@ husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
 # tasks
 husky-task = { path = "crates/tasks/husky-task" }
 husky-task-prelude = { path = "crates/tasks/husky-task-prelude" }
+husky-task-prelude-macros = {path = "crates/tasks/husky-task-prelude-macros"}
 husky-io-task = {path = "crates/tasks/husky-io-task"}
 husky-ml-task = {path = "crates/tasks/husky-ml-task"}
 husky-ml-task-prelude = {path = "crates/tasks/husky-ml-task-prelude"}
+husky-ml-task-prelude-macros = {path = "crates/tasks/husky-ml-task-prelude-macros"}
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
@@ -170,6 +173,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
+husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-toml-utils = {path = "crates/utils/husky-toml-utils"}
@@ -178,5 +182,6 @@ husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }
 # vm
-husky-regular-value = { path = "crates/vm/husky-regular-value" }
+husky-standard-value = { path = "crates/vm/husky-standard-value" }
+husky-standard-value-macros = { path = "crates/vm/husky-standard-value-macros" }
 husky-vm = { path = "crates/vm/husky-vm" }

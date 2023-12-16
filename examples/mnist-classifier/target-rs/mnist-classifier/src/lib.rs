@@ -1,6 +1,8 @@
 #![allow(warnings, non_snake_case)]
 use husky_core::*;
-::ad_hoc_task_dependency::init_crate!();
+use ad_hoc_task_dependency::{Value as __Value, FromValue as __FromValue, IntoValue as __IntoValue};
+
+ad_hoc_task_dependency::init_crate!();
 
 pub mod connected_component;
 pub mod raw_contour;

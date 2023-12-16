@@ -5,7 +5,7 @@ use super::*;
 pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let generics = &item.generics;
-    let generics_without_db = generics_without_db(generics);
+    let generics_without_trais = generics_with_debug_with_db(generics);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -30,7 +30,7 @@ pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStre
     let where_clause = &item.generics.where_clause;
     if item.variants.is_empty() {
         quote! {
-        impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+        impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
             fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                 unreachable!()
             }
@@ -48,7 +48,7 @@ pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStre
             })
             .collect::<proc_macro2::TokenStream>();
         quote! {
-            impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+            impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
                 fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;

@@ -9,7 +9,9 @@ colored.workspace = true
 rustc_version.workspace = true
 smallvec.workspace = true
 # vm
-husky-regular-value.workspace = true
+husky-standard-value.workspace = true
+# tasks
+husky-task-prelude.workspace = true
 
 [features]
 default = ["standard"]

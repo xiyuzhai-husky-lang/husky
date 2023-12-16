@@ -8,7 +8,7 @@ edition = "2021"
 # comptime
 husky-dev-comptime.workspace = true
 # kernel
-husky-regular-value.workspace = true
+husky-standard-value.workspace = true
 husky-task.workspace = true
 # linkage
 husky-linkage-impl.workspace = true

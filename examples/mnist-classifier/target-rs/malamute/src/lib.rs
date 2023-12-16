@@ -1,9 +1,10 @@
 #![allow(warnings, non_snake_case)]
-    use husky_core::*;
-    
+use husky_core::*;
+use ad_hoc_task_dependency::{Value as __Value, FromValue as __FromValue, IntoValue as __IntoValue};
     
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Class<Label> {
     Known(Label),
@@ -11,6 +12,7 @@ pub enum Class<Label> {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum OneVsAll {
     Yes,
@@ -18,6 +20,7 @@ pub enum OneVsAll {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum OneVsAllResult {
     ConfidentYes,

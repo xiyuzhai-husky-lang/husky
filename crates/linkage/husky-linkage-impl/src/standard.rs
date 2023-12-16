@@ -1,11 +1,12 @@
 use super::*;
-use husky_regular_value::RegularValue;
 use smallvec::SmallVec;
 
-pub type FnArguments = SmallVec<[RegularValue; 4]>;
+pub use husky_standard_value::{value_conversion, FromValue, IntoValue};
+
+pub type FnArguments = SmallVec<[Value; 4]>;
 // ad hoc
-pub type GnArguments = SmallVec<[RegularValue; 4]>;
-pub type Value = RegularValue;
+pub type GnArguments = SmallVec<[Value; 4]>;
+pub type Value = husky_standard_value::Value;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl {
@@ -16,7 +17,7 @@ pub enum LinkageImpl {
 }
 
 impl IsLinkageImpl for LinkageImpl {
-    type Value = RegularValue;
+    type Value = Value;
     type FnArguments = FnArguments;
     type GnArguments = GnArguments;
 

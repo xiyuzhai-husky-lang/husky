@@ -170,4 +170,15 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn ad_hoc_fn(&mut self) {
         self.result += "fn(/* ad hoc*/)"
     }
+
+    pub(crate) fn value_conversion(&mut self) {
+        use std::fmt::Write;
+
+        let db = self.db;
+        let task_dep = self
+            .rust_transpilation_setup_data
+            .task_dependency_ident
+            .data(db);
+        write!(self.result, "#[{}::value_conversion]\n", task_dep).unwrap()
+    }
 }

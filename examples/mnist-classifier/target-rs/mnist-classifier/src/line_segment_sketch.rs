@@ -11,6 +11,7 @@ pub use self::line_segment::*;
 use crate::*;
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<crate::geom2d::Point2d>,
@@ -31,6 +32,7 @@ impl LineSegmentStroke {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LineSegmentSketch {
     pub contour: Leash<crate::raw_contour::RawContour>,

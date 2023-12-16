@@ -14,6 +14,7 @@ impl TranspileToRustWith for TypeHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let rust_attrs = Attrs::new(self.path(db).attr_paths(db), builder);
+        builder.value_conversion();
         rust_attrs.transpile_to_rust(builder);
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.transpile_to_rust(builder),

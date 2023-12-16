@@ -1,5 +1,5 @@
 [package]
-name = "husky-regular-value"
+name = "husky-standard-value"
 version = "0.1.0"
 edition = "2021"
 
@@ -13,6 +13,8 @@ husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
 husky-task-prelude.workspace = true
 # utils
 wild-utils = { path = "../../utils/husky-wild-utils" }
+# vm
+husky-standard-value-macros.workspace = true
 
 [features]
 constant = ["salsa", "dep:husky-term-prelude", "dep:husky-hir-prelude"]

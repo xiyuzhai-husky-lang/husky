@@ -11,7 +11,7 @@ pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::Token
     };
     // todo: refactor this as a function
     let generics = &item.generics;
-    let generics_without_db = generics_without_db(generics);
+    let generics_without_trais = generics_with_debug_with_db(generics);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -35,7 +35,7 @@ pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::Token
     };
     let where_clause = &item.generics.where_clause;
     quote! {
-        impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+        impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
             fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
