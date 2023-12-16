@@ -1,5 +1,7 @@
 pub mod value;
 
+pub use husky_task_prelude_macros::*;
+
 #[derive(Clone, Copy)]
 pub struct DevEvalContext<BasePoint: 'static> {
     runtime: &'static dyn IsDevRuntimeDyn<BasePoint>,

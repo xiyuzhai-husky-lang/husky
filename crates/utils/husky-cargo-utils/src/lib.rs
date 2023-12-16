@@ -7,7 +7,7 @@ use husky_print_utils::p;
 pub fn compile_workspace<R>(
     manifest_path: &std::path::Path,
     f: impl FnOnce(Compilation) -> R,
-) -> R {
+) -> Result<R, ()> {
     assert!(manifest_path.is_absolute());
     let config = cargo::Config::default().expect("what the hell");
     let workspace = Workspace::new(manifest_path, &config).expect("what the hell");
@@ -15,10 +15,11 @@ pub fn compile_workspace<R>(
         cargo::ops::CompileOptions::new(&config, CompileMode::Build).expect("what the hell");
     compile_opts.spec = cargo::ops::Packages::Default;
     match cargo::ops::compile(&workspace, &compile_opts) {
-        Ok(compilation) => f(compilation),
+        Ok(compilation) => Ok(f(compilation)),
         Err(error) => {
-            p!(manifest_path, error);
-            todo!()
+            // p!(manifest_path, error);
+            // todo!()
+            Err(())
         }
     }
 }

@@ -25,7 +25,7 @@ impl Cdylib {
 }
 
 impl MonoLinkageLibraries {
-    pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
+    pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
         match target_path.transpile_to_fs_full(target_path.transpilation_setup(db), db) {
             Ok(()) => (),
             Err(_) => todo!(),
@@ -55,8 +55,8 @@ impl MonoLinkageLibraries {
                     },
                 ))
             },
-        );
-        Self { cdylibs }
+        )?;
+        Ok(Self { cdylibs })
     }
 }
 

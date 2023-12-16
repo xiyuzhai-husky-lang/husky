@@ -22,7 +22,9 @@ where
     LinkageImpl: IsLinkageImpl,
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        let linkage_storage = MonoLinkageLibraries::generate(target_path, db);
+        let Ok(linkage_storage) = MonoLinkageLibraries::generate(target_path, db) else {
+            todo!()
+        };
         let linkage_impls = generate_linkage_impls(target_path, &linkage_storage, db);
         Self {
             target_path,
@@ -70,7 +72,7 @@ where
     }
 
     fn reload(&mut self, db: &::salsa::Db) {
-        self.linkage_storage = MonoLinkageLibraries::generate(self.target_path, db);
+        self.linkage_storage = MonoLinkageLibraries::generate(self.target_path, db).unwrap();
         self.linkage_impls = generate_linkage_impls(self.target_path, &self.linkage_storage, db)
     }
 }

@@ -17,5 +17,33 @@ pub trait IsTaskValue:
     + std::ops::ShrAssign<Self>
     + std::ops::Sub<Self, Output = Self>
     + std::ops::SubAssign<Self>
+    + From<u8>
+    + Into<u8>
+    + From<u16>
+    + Into<u16>
+    + From<u32>
+    + Into<u32>
+    + From<u64>
+    + Into<u64>
+    + From<u128>
+    + Into<u128>
+    + From<i8>
+    + Into<i8>
+    + From<i16>
+    + Into<i16>
+    + From<i32>
+    + Into<i32>
+    + From<i64>
+    + Into<i64>
+    + From<i128>
+    + Into<i128>
 {
+    fn from_ref<'a, T>(t: &'a T) -> Self;
+    fn into_ref<'a, T>(t: &'a mut T) -> Self;
+    fn from_leash<T>(t: &'static T) -> Self;
+    fn into_leash<T>(t: &'static mut T) -> Self;
+    fn from_mut<'a, T>(self) -> &'a mut T;
+    fn into_mut<'a, T>(self) -> &'a mut T;
+    fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self;
+    fn into_option_ref<'a, T>(t: Option<&'a mut T>) -> Self;
 }

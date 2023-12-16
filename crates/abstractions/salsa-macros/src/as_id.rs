@@ -1,4 +1,5 @@
 use crate::options::Options;
+use husky_macro_utils::self_ty;
 use syn::Item;
 
 type Args = Options<WrapId>;
@@ -47,27 +48,7 @@ pub(crate) fn as_id(
             }
             let field_ident = &fields.named[0].ident;
             let field_ty = &fields.named[0].ty;
-            let self_ty = if item.generics.params.is_empty() {
-                quote! { #ident }
-            } else {
-                let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
-                    item.generics.params.iter().map(|param| match param {
-                        syn::GenericParam::Type(param) => {
-                            let ident = &param.ident;
-                            quote! { #ident }
-                        }
-                        syn::GenericParam::Lifetime(param) => {
-                            let lifetime = &param.lifetime;
-                            quote! { #lifetime }
-                        }
-                        syn::GenericParam::Const(param) => {
-                            let ident = &param.ident;
-                            quote! { #ident }
-                        }
-                    }),
-                );
-                quote! { #ident<#arguments> }
-            };
+            let self_ty = self_ty(ident, &item.generics);
             let where_clause = &item.generics.where_clause;
             if where_clause.is_some() {
                 todo!()

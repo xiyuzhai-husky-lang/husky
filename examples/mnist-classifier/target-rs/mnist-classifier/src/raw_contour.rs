@@ -1,6 +1,7 @@
 use crate::*;
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawContour {
     pub cc: Leash<crate::connected_component::ConnectedComponent>,
@@ -17,6 +18,7 @@ impl RawContour {
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Direction {
     Up,
@@ -202,6 +204,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
 }
 
 #[rustfmt::skip]
+#[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct StreakCache {
     pub prev1: i32,

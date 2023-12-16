@@ -24,5 +24,5 @@
 // // pub use self::virtual_enum::*;
 // // pub use self::virtual_function::*;
 
-// pub use husky_regular_value::*;
+// pub use husky_standard_value::*;
 // pub use std::ffi::c_void;

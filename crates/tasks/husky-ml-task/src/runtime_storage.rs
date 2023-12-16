@@ -1,16 +1,13 @@
 use crate::DevInput;
 use dashmap::DashMap;
 
-use husky_regular_value::RegularValue;
+use husky_standard_value::Value;
 use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    map: DashMap<
-        MlDevRuntimeStorageKey,
-        Arc<Mutex<Option<(ValVersionStamp, VMResult<RegularValue>)>>>,
-    >,
+    map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(ValVersionStamp, VMResult<Value>)>>>>,
 }
 
 // ad hoc
@@ -28,10 +25,10 @@ impl MlDevRuntimeStorage {
     pub fn get_or_try_init<E>(
         &self,
         key: MlDevRuntimeStorageKey,
-        f: impl FnOnce() -> VMResult<RegularValue>,
+        f: impl FnOnce() -> VMResult<Value>,
         db: &::salsa::Db,
-    ) -> VMResult<RegularValue> {
-        fn share(result: &VMResult<RegularValue>) -> VMResult<RegularValue> {
+    ) -> VMResult<Value> {
+        fn share(result: &VMResult<Value>) -> VMResult<Value> {
             match result {
                 Ok(ref value) => Ok(value.share()),
                 Err(_) => todo!(),

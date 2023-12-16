@@ -15,7 +15,7 @@ husky-rust-transpilation.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-regular-value.workspace = true
+husky-standard-value.workspace = true
 # linkage
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
