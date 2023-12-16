@@ -17,6 +17,10 @@ pub trait IsTaskValue:
     + std::ops::ShrAssign<Self>
     + std::ops::Sub<Self, Output = Self>
     + std::ops::SubAssign<Self>
+    + From<()>
+    + Into<()>
+    + From<bool>
+    + Into<bool>
     + From<u8>
     + Into<u8>
     + From<u16>
@@ -37,6 +41,10 @@ pub trait IsTaskValue:
     + Into<i64>
     + From<i128>
     + Into<i128>
+    + From<f32>
+    + Into<f32>
+    + From<f64>
+    + Into<f64>
 {
     fn from_ref<'a, T>(t: &'a T) -> Self;
     fn into_ref<'a, T>(t: &'a mut T) -> Self;
