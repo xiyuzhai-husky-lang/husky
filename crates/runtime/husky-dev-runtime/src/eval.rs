@@ -2,12 +2,12 @@ use crate::*;
 use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
-use husky_linkage_impl::IsLinkageImpl;
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point},
     helpers::TaskValue,
     IsTask,
 };
+use husky_task_prelude::IsLinkageImpl;
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;

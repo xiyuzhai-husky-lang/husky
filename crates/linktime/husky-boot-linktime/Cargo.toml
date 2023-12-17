@@ -17,3 +17,5 @@ husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
+# tasks
+husky-task-prelude.workspace = true

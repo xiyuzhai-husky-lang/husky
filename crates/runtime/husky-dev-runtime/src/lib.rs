@@ -6,7 +6,10 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_task::{dev_ascension::with_dev_eval_context, helpers::TaskDevAscension};
+use husky_task::{
+    dev_ascension::with_dev_eval_context,
+    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue},
+};
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
     IsTask,
@@ -61,10 +64,14 @@ where
     }
 }
 
-impl<Task: IsTask> IsDevRuntime<TaskDevBasePoint<Task>> for DevRuntime<Task> {
+impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
         &*(unsafe { self as *const _ })
+    }
+
+    fn eval_val_item(&self) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
+        todo!()
     }
 }

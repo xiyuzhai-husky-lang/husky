@@ -45,6 +45,7 @@ pub trait IsTaskValue:
     + Into<f32>
     + From<f64>
     + Into<f64>
+    + 'static
 {
     fn from_ref<'a, T>(t: &'a T) -> Self;
     fn into_ref<'a, T>(t: &'a mut T) -> Self;

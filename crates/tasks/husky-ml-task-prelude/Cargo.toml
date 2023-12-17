@@ -7,6 +7,10 @@ edition = "2021"
 [dependencies]
 # abstractions
 shifted-unsigned-int.workspace = true
+# linkage
+husky-linkage-impl.workspace = true
 # tasks
 husky-task-prelude.workspace = true
 husky-ml-task-prelude-macros.workspace = true
+# vm
+husky-standard-value.workspace = true

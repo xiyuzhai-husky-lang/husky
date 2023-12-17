@@ -1,5 +1,7 @@
+pub mod linkage_impl;
 pub mod value;
 
+pub use self::linkage_impl::*;
 pub use husky_task_prelude_macros::*;
 
 use once_cell::sync::OnceCell;
@@ -25,14 +27,27 @@ pub struct JarIndex(ShiftedU32);
 
 pub type JarIndexOnceCell = OnceCell<JarIndex>;
 
-#[derive(Clone, Copy)]
-pub struct DevEvalContext<BasePoint: 'static> {
-    runtime: &'static dyn IsDevRuntimeDyn<BasePoint>,
-    base_point: BasePoint,
+pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
+    runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
+    base_point: LinkageImpl::BasePoint,
 }
 
-impl<BasePoint: 'static> DevEvalContext<BasePoint> {
-    pub fn new(runtime: &'static dyn IsDevRuntimeDyn<BasePoint>, base_point: BasePoint) -> Self {
+impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
+    fn clone(&self) -> Self {
+        Self {
+            runtime: self.runtime,
+            base_point: self.base_point,
+        }
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> Copy for DevEvalContext<LinkageImpl> {}
+
+impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
+    pub fn new(
+        runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
+        base_point: LinkageImpl::BasePoint,
+    ) -> Self {
         Self {
             runtime,
             base_point,
@@ -40,6 +55,7 @@ impl<BasePoint: 'static> DevEvalContext<BasePoint> {
     }
 
     pub fn eval_val_item<T>(self, f: impl FnOnce() -> T) -> T {
+        self.runtime.eval_val_item_dyn();
         todo!()
     }
 
@@ -51,22 +67,30 @@ impl<BasePoint: 'static> DevEvalContext<BasePoint> {
         todo!()
     }
 
-    pub fn base_point(&self) -> &BasePoint {
+    pub fn base_point(&self) -> &LinkageImpl::BasePoint {
         &self.base_point
     }
 }
 
-pub trait IsDevRuntime<BasePoint> {
-    type StaticSelf: IsDevRuntime<BasePoint> + 'static;
+pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
+    type StaticSelf: IsDevRuntime<LinkageImpl> + 'static;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
+
+    fn eval_val_item(&self) -> LinkageImpl::Value;
 }
 
-pub trait IsDevRuntimeDyn<BasePoint> {}
+pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
+    fn eval_val_item_dyn(&self) -> LinkageImpl::Value;
+}
 
-impl<BasePoint, Runtime> IsDevRuntimeDyn<BasePoint> for Runtime where
-    Runtime: IsDevRuntime<BasePoint>
+impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
+where
+    Runtime: IsDevRuntime<LinkageImpl>,
 {
+    fn eval_val_item_dyn(&self) -> LinkageImpl::Value {
+        self.eval_val_item()
+    }
 }
 
 #[rustfmt::skip]

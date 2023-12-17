@@ -1,5 +1,6 @@
 pub use husky_ml_task_prelude_macros::*;
 
+use husky_standard_value::Value;
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, thread::LocalKey};
 
@@ -33,7 +34,8 @@ fn sample_id_size_works() {
 
 pub type BasePoint = SampleId;
 
-pub type DevEvalContext = husky_task_prelude::DevEvalContext<BasePoint>;
+pub type DevEvalContext =
+    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<BasePoint>>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

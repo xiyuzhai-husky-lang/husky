@@ -2,8 +2,8 @@ mod internal;
 
 use self::internal::BootLinkTimeInternal;
 use husky_linkage::linkage::Linkage;
-use husky_linkage_impl::IsLinkageImpl;
 use husky_task::linktime::IsLinktime;
+use husky_task_prelude::IsLinkageImpl;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
@@ -33,7 +33,6 @@ impl<LinkageImpl> IsLinktime for BootLinkTime<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl<BasePoint = ()>,
 {
-    type BasePoint = ();
     type LinkageImpl = LinkageImpl;
 
     fn linkage_impl(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {
