@@ -32,10 +32,10 @@ fn sample_id_size_works() {
     )
 }
 
-pub type BasePoint = InputId;
+pub type Pedestal = InputId;
 
 pub type DevEvalContext =
-    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<BasePoint>>;
+    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<Pedestal>>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

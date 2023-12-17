@@ -1,7 +1,7 @@
 use crate::DevEvalContext;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
-    type BasePoint: Copy + 'static;
+    type Pedestal: Copy + 'static;
     type Value: 'static;
     type Error;
     type FnArguments: Default;

@@ -9,9 +9,9 @@ pub type FnArguments = SmallVec<[Value; 4]>;
 pub type GnArguments = SmallVec<[Value; 4]>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LinkageImpl<BasePoint>
+pub enum LinkageImpl<Pedestal>
 where
-    BasePoint: Copy + 'static,
+    Pedestal: Copy + 'static,
 {
     RitchieFn {
         fn_wrapper: fn(DevEvalContext<Self>, FnArguments) -> Value,
@@ -19,11 +19,11 @@ where
     },
 }
 
-impl<BasePoint> IsLinkageImpl for LinkageImpl<BasePoint>
+impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
 where
-    BasePoint: Copy + 'static,
+    Pedestal: Copy + 'static,
 {
-    type BasePoint = BasePoint;
+    type Pedestal = Pedestal;
     type Value = Value;
     type Error = ();
     type FnArguments = FnArguments;
@@ -40,6 +40,6 @@ where
     }
 }
 
-pub struct LinkageImplSource<BasePoint, T>(pub std::marker::PhantomData<BasePoint>, pub T);
+pub struct LinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
 
 all_ritchies! {impl_into_linkage_impl}

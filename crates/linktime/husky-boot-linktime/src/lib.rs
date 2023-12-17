@@ -31,7 +31,7 @@ unsafe impl<LinkageImpl> Send for BootLinkTime<LinkageImpl> where LinkageImpl: I
 
 impl<LinkageImpl> IsLinktime for BootLinkTime<LinkageImpl>
 where
-    LinkageImpl: IsLinkageImpl<BasePoint = ()>,
+    LinkageImpl: IsLinkageImpl<Pedestal = ()>,
 {
     type LinkageImpl = LinkageImpl;
 

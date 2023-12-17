@@ -71,9 +71,9 @@ macro_rules! impl_into_linkage_impl {
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<BasePoint, F, $($input,)* $output> IsLinkageImplSource<LinkageImpl<BasePoint>, fn($($input,)*) -> $output> for LinkageImplSource<LinkageImpl<BasePoint>, F>
+        impl<Pedestal, F, $($input,)* $output> IsLinkageImplSource<LinkageImpl<Pedestal>, fn($($input,)*) -> $output> for LinkageImplSource<LinkageImpl<Pedestal>, F>
         where
-            BasePoint: Copy + 'static,
+            Pedestal: Copy + 'static,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue, )*
             $output: Send,
@@ -84,13 +84,13 @@ macro_rules! impl_into_linkage_impl {
             fn into_linkage_impl(
                 self,
                 fn_wrapper: fn(
-                    DevEvalContext<LinkageImpl<BasePoint>>,
-                    <LinkageImpl<BasePoint> as IsLinkageImpl>::FnArguments
-                ) -> <LinkageImpl<BasePoint> as IsLinkageImpl>::Value,
-                gn_wrapper: fn(<LinkageImpl<BasePoint> as IsLinkageImpl>::GnArguments)
-                    -> <LinkageImpl<BasePoint> as IsLinkageImpl>::Value,
+                    DevEvalContext<LinkageImpl<Pedestal>>,
+                    <LinkageImpl<Pedestal> as IsLinkageImpl>::FnArguments
+                ) -> <LinkageImpl<Pedestal> as IsLinkageImpl>::Value,
+                gn_wrapper: fn(<LinkageImpl<Pedestal> as IsLinkageImpl>::GnArguments)
+                    -> <LinkageImpl<Pedestal> as IsLinkageImpl>::Value,
                 m: fn($($input,)*) -> $output
-            ) -> LinkageImpl<BasePoint> {
+            ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
                     fn_wrapper,
                     fn_pointer: unsafe {
@@ -99,7 +99,7 @@ macro_rules! impl_into_linkage_impl {
                 }
             }
 
-            fn fn_wrapper_aux(self, arguments: <LinkageImpl<BasePoint> as IsLinkageImpl>::FnArguments)
+            fn fn_wrapper_aux(self, arguments: <LinkageImpl<Pedestal> as IsLinkageImpl>::FnArguments)
                 -> Self::FnOutput {
                 let mut arguments = arguments.into_iter();
                 self.1(
