@@ -2,8 +2,7 @@ mod runtime_storage;
 
 use self::runtime_storage::*;
 use husky_linkage_impl::IsLinkageImpl;
-use husky_ml_task_prelude::DEV_EVAL_CONTEXT;
-use husky_ml_task_prelude::{DevEvalContext, SampleId};
+use husky_ml_task_prelude::{DevEvalContext, SampleId, DEV_EVAL_CONTEXT};
 use husky_mono_linktime::MonoLinkTime;
 use husky_standard_value::Value;
 use husky_task::{
@@ -50,7 +49,7 @@ where
 {
     type BasePoint = SampleId;
 
-    type Linktime = MonoLinkTime;
+    type Linktime = MonoLinkTime<husky_linkage_impl::standard::LinkageImpl<SampleId>>;
 
     type Value = Value;
 
@@ -60,7 +59,7 @@ where
 
     type TraceProtocol = MlTraceProtocol<VisualProtocol>;
 
-    fn local_dev_eval_context() -> &'static LocalDevEvalContext<SampleId> {
+    fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<SampleId> {
         &DEV_EVAL_CONTEXT
     }
 }

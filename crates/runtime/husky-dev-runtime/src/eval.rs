@@ -3,7 +3,11 @@ use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
 use husky_linkage_impl::IsLinkageImpl;
-use husky_task::{helpers::TaskValue, IsTask};
+use husky_task::{
+    dev_ascension::{dev_eval_context, with_runtime_and_base_point},
+    helpers::TaskValue,
+    IsTask,
+};
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
@@ -19,7 +23,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         val_repr: ValRepr,
         base_point: TaskDevBasePoint<Task>,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
-        with_eval_context::<TaskDevAscension<Task>, _, _>(self, base_point, || {
+        with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, base_point, || {
             self.eval_val(val_repr)
         })
     }
@@ -39,7 +43,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::ValItemLazilyDefined(_) => todo!(),
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                linkage_impl.eval_fn(Default::default());
+                linkage_impl.eval_fn(dev_eval_context::<Task::DevAscension>(), Default::default());
                 todo!()
             }
             ValOpn::FunctionGn(_) => todo!(),

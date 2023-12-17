@@ -39,6 +39,14 @@ impl<BasePoint: 'static> DevEvalContext<BasePoint> {
         }
     }
 
+    pub fn eval_val_item<T>(self, f: impl FnOnce() -> T) -> T {
+        todo!()
+    }
+
+    pub fn eval_val_item_return_ref<T>(self, f: impl FnOnce() -> T) -> &'static T {
+        todo!()
+    }
+
     fn memoized_field<T>(self) -> T {
         todo!()
     }
