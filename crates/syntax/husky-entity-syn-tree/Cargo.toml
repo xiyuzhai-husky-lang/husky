@@ -13,7 +13,7 @@ smallvec.workspace = true
 salsa.workspace = true
 enum-class.workspace = true
 with-db = { path = "../../abstractions/with-db" }
-is = { path = "../../abstractions/is" }
+is.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
 original-error.workspace = true
@@ -40,6 +40,8 @@ husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
 husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 # infer
 husky-manifest.workspace = true
+# task
+husky-task-prelude.workspace = true
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils.workspace = true

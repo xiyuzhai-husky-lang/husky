@@ -6,6 +6,4 @@ pub struct RustTranspilationJar(
     crate::manifest::linktime_target_rust_workspace_manifest,
     crate::manifest::package_source_rust_package_manifest,
     crate::manifest::package_linkages_rust_package_manifest,
-    crate::ingredient::crate_ingredient_paths,
-    crate::ingredient::item_path_ingredient_index,
 );

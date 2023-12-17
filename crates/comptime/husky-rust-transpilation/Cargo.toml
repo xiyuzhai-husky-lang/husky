@@ -14,7 +14,7 @@ salsa.workspace = true
 either.workspace = true
 enum-class.workspace = true
 vec-like.workspace = true
-is = { path = "../../abstractions/is" }
+is.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir

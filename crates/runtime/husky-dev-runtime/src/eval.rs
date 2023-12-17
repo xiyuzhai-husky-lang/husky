@@ -146,7 +146,7 @@ fn val_repr_eval_works() {
     )
     .unwrap();
     let db = runtime.db();
-    let DevComptimeTarget::SingleCrate(crate_path) = runtime.target() else {
+    let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
         unreachable!()
     };
     for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {

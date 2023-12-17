@@ -1,6 +1,6 @@
 use super::*;
-use crate::ingredient::HasIngredientIndex;
 use husky_entity_path::ItemPath;
+use husky_entity_syn_tree::helpers::ingredient::HasIngredientIndex;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn val_item_attr(

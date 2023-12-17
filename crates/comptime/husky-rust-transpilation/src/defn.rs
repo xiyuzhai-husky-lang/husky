@@ -5,7 +5,7 @@ mod major_item;
 mod submodule;
 mod ty_variant;
 
-use crate::{ingredient::HasIngredientPaths, *};
+use crate::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_kind::{
     AssociatedItemKind, EntityKind, FugitiveKind, MajorItemKind, TraitItemKind, TypeItemKind,
@@ -23,7 +23,6 @@ use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieRegularParameter};
 use husky_manifest::HasPackageManifest;
-use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
@@ -34,28 +33,17 @@ pub(crate) fn module_defn_rust_transpilation(
 ) -> String {
     let is_root = module_path.is_root(db);
     let result = if is_root {
-        if module_path.crate_path(db).has_ingredients(db) {
-            Some(format!(
-                r#"#![allow(warnings, non_snake_case)]
+        Some(format!(
+            r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
 use {}::{{*, ugly::*}};
 
 {}::init_crate!();
 
 "#,
-                setup.rust_data(db).unwrap().task_dependency_ident.data(db),
-                setup.rust_data(db).unwrap().task_dependency_ident.data(db)
-            ))
-        } else {
-            Some(format!(
-                r#"#![allow(warnings, non_snake_case)]
-use husky_core::*;
-use {}::{{*, ugly::*}};
-    
-"#,
-                setup.rust_data(db).unwrap().task_dependency_ident.data(db),
-            ))
-        }
+            setup.rust_data(db).unwrap().task_dependency_ident.data(db),
+            setup.rust_data(db).unwrap().task_dependency_ident.data(db)
+        ))
     } else {
         None
     };
