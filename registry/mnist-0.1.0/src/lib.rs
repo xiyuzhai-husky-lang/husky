@@ -1,5 +1,5 @@
 use dataset::MNIST_DATASET;
-use husky_ml_task_prelude::sample_id;
+use husky_ml_task_prelude::input_id;
 use husky_standard_value::{FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value};
 
 mod dataset;
@@ -76,5 +76,5 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 impl BinaryGrid28 {}
 
 pub fn input() -> &'static BinaryImage28 {
-    MNIST_DATASET.input(sample_id())
+    MNIST_DATASET.input(input_id())
 }

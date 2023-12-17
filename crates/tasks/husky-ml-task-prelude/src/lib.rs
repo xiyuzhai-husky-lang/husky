@@ -19,8 +19,13 @@ impl InputId {
 
 /// panics if dev eval context is empty
 #[track_caller]
-pub fn sample_id() -> InputId {
-    *DEV_EVAL_CONTEXT.get().unwrap().base_point()
+pub fn input_id() -> InputId {
+    DEV_EVAL_CONTEXT
+        .get()
+        .unwrap()
+        .pedestal()
+        .input_id()
+        .unwrap()
 }
 
 #[test]
@@ -32,10 +37,24 @@ fn sample_id_size_works() {
     )
 }
 
-pub type Pedestal = InputId;
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum MlPedestal {
+    Specific(InputId),
+    Generic,
+}
+
+impl MlPedestal {
+    pub fn input_id(self) -> Option<InputId> {
+        match self {
+            MlPedestal::Specific(input_id) => Some(input_id),
+            MlPedestal::Generic => None,
+        }
+    }
+}
 
 pub type DevEvalContext =
-    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<Pedestal>>;
+    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

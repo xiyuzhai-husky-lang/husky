@@ -20,17 +20,10 @@ pub trait IsDevAscension {
 // jar_index: JarIndex,
 // ingredient_index: IngredientIndex,
 pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
-    fn get_or_try_init_gn_value(
+    fn get_or_try_init_val_value(
         &self,
         val: Val,
-        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
-        db: &::salsa::Db,
-    ) -> LinkageImplValueResult<LinkageImpl>;
-
-    fn get_or_try_init_val_item_value(
-        &self,
-        val: Val,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplValueResult<LinkageImpl>;
