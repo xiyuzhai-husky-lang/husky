@@ -7,7 +7,7 @@ type Equals = syn::Token![=];
 type Comma = syn::Token![,];
 
 struct Args {
-    ingredient_index: u32,
+    ingredient_index: usize,
     // default false
     lazy: bool,
     // default false
@@ -20,7 +20,7 @@ impl syn::parse::Parse for Args {
         assert!(ident == "ingredient_index");
         let _eq = Equals::parse(input)?;
         let lit = syn::LitInt::parse(input)?;
-        let ingredient_index: u32 = lit.base10_parse()?;
+        let ingredient_index: usize = lit.base10_parse()?;
         let mut slf = Self {
             ingredient_index,
             lazy: false,
@@ -102,7 +102,13 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    __dev_eval_context().eval_val_item(#aux_ident)
+                    __eval_val_item(
+                        #ingredient_index,
+                        || {
+                            #aux_ident();
+                            todo!()
+                        }
+                    )
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block

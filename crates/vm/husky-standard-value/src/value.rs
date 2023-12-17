@@ -51,6 +51,8 @@ pub enum Value {
     Intrinsic(Box<dyn StaticDyn>),
 }
 
+unsafe impl Send for Value {}
+
 impl Value {
     pub fn share(&self) -> Value {
         todo!()

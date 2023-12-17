@@ -1,17 +1,45 @@
 use crate::*;
-use husky_task_prelude::{value::IsTaskValue, IsLinkageImpl};
+use husky_task_prelude::{
+    value::IsTaskValue, IsLinkageImpl, LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
+};
 use husky_task_prelude::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
 use husky_trace_protocol::protocol::IsTraceProtocol;
+use husky_val::Val;
 use husky_vfs::VfsDb;
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
     type Linktime: IsLinktime;
-    type RuntimeStorage: Default + Send;
+    type RuntimeStorage: IsRuntimeStorage<<Self::Linktime as IsLinktime>::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol;
     fn dev_eval_context_local_key(
     ) -> &'static LocalDevEvalContext<<Self::Linktime as IsLinktime>::LinkageImpl>;
+}
+
+// jar_index: JarIndex,
+// ingredient_index: IngredientIndex,
+pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
+    fn get_or_try_init_gn_value(
+        &self,
+        val: Val,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        db: &::salsa::Db,
+    ) -> LinkageImplValueResult<LinkageImpl>;
+
+    fn get_or_try_init_val_item_value(
+        &self,
+        val: Val,
+        base_point: LinkageImpl::BasePoint,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        db: &::salsa::Db,
+    ) -> LinkageImplValueResult<LinkageImpl>;
+
+    fn get_or_try_init_memoized_field_value(
+        &self,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        db: &::salsa::Db,
+    ) -> LinkageImplValueResult<LinkageImpl>;
 }
 
 pub type LocalDevEvalContext<LinkageImpl> =

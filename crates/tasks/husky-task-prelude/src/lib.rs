@@ -10,22 +10,51 @@ use shifted_unsigned_int::ShiftedU32;
 #[macro_export]
 macro_rules! init_crate {
     () => {
-        pub(crate) static __JAR_INDEX: __JarIndexOnceCell = __JarIndexOnceCell::new();
+        pub(crate) static __TASK_JAR_INDEX: __TaskJarIndexOnceCell = __TaskJarIndexOnceCell::new();
 
-        pub fn __set_jar_index(jar_index: __JarIndex) {
-            __JAR_INDEX.set(jar_index).unwrap();
+        pub fn __set_jar_index(jar_index: __TaskJarIndex) {
+            __TASK_JAR_INDEX.set(jar_index).unwrap();
         }
 
-        pub(crate) fn __get_jar_index(jar_index: __JarIndex) {
-            __JAR_INDEX.get().expect("`__JAR_INDEX` is not initialized");
+        pub(crate) fn __jar_index() -> __TaskJarIndex {
+            *__TASK_JAR_INDEX
+                .get()
+                .expect("`__TASK_JAR_INDEX` is not initialized")
+        }
+
+        pub(crate) fn __eval_val_item<T>(
+            ingredient_index: usize,
+            f: impl FnOnce() -> __Value + 'static,
+        ) -> T
+        where
+            T: 'static,
+        {
+            __dev_eval_context().eval_val_item(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
+                f,
+            )
         }
     };
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct JarIndex(ShiftedU32);
+pub struct TaskJarIndex(ShiftedU32);
 
-pub type JarIndexOnceCell = OnceCell<JarIndex>;
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TaskIngredientIndex(ShiftedU32);
+
+impl TaskIngredientIndex {
+    pub fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+
+    pub fn index(self) -> usize {
+        self.0.into()
+    }
+}
+
+pub type TaskJarIndexOnceCell = OnceCell<TaskJarIndex>;
 
 pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
@@ -54,8 +83,24 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         }
     }
 
-    pub fn eval_val_item<T>(self, f: impl FnOnce() -> T) -> T {
-        self.runtime.eval_val_item_dyn();
+    pub fn eval_val_item<T>(
+        self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        f: impl FnOnce() -> LinkageImpl::Value + 'static,
+    ) -> T
+    where
+        T: 'static,
+    {
+        self.runtime.eval_val_item_dyn(
+            jar_index,
+            ingredient_index,
+            self.base_point,
+            Box::new(move || {
+                f();
+                todo!()
+            }),
+        );
         todo!()
     }
 
@@ -77,19 +122,36 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
 
-    fn eval_val_item(&self) -> LinkageImpl::Value;
+    fn eval_val_item(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::BasePoint,
+    ) -> LinkageImpl::Value;
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
-    fn eval_val_item_dyn(&self) -> LinkageImpl::Value;
+    fn eval_val_item_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::BasePoint,
+        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+    ) -> LinkageImpl::Value;
 }
 
 impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
 where
     Runtime: IsDevRuntime<LinkageImpl>,
 {
-    fn eval_val_item_dyn(&self) -> LinkageImpl::Value {
-        self.eval_val_item()
+    fn eval_val_item_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::BasePoint,
+        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+    ) -> LinkageImpl::Value {
+        self.eval_val_item(jar_index, ingredient_index, base_point)
     }
 }
 

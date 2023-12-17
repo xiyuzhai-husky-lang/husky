@@ -25,6 +25,7 @@ where
 {
     type BasePoint = BasePoint;
     type Value = Value;
+    type Error = ();
     type FnArguments = FnArguments;
     type GnArguments = GnArguments;
 
