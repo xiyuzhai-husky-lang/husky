@@ -12,13 +12,15 @@ use husky_entity_syn_tree::helpers::{
 };
 use husky_task::{
     dev_ascension::{with_dev_eval_context, IsRuntimeStorage},
-    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue},
+    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue, TaskValueResult},
 };
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
     IsTask,
 };
-use husky_task_prelude::{IsDevRuntime, IsDevRuntimeDyn, TaskIngredientIndex, TaskJarIndex};
+use husky_task_prelude::{
+    IsDevRuntime, IsDevRuntimeDyn, LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
+};
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
@@ -86,23 +88,15 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: TaskDevBasePoint<Task>,
+        f: impl FnOnce() -> TaskValueResult<Task>,
     ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
         let target_path = self.linktime_target_path().unwrap();
         let db = self.db();
         // todo: use comptime cached vals instead
-        let ItemPath::MajorItem(MajorItemPath::Fugitive(path)) =
-            package_path_from_jar_index(target_path, jar_index, db)
-                .lib_crate_path(db)
-                .unwrap()
-                .ingredient_paths(db)[ingredient_index.index()]
-            .item_path()
-        else {
-            unreachable!()
-        };
-        let val: Val = ValRepr::new_val_item(path, db).val(db);
+        let val: Val = self.comptime.ingredient_val(jar_index, ingredient_index);
         &self
             .storage
-            .get_or_try_init_val_item_value(val, base_point, || todo!(), self.db());
+            .get_or_try_init_val_item_value(val, base_point, f, self.db());
         todo!()
     }
 }

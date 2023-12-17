@@ -15,6 +15,8 @@ use husky_task::{
     linktime::IsLinktime,
     IsTask,
 };
+use husky_task_prelude::TaskIngredientIndex;
+use husky_task_prelude::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
@@ -29,7 +31,10 @@ pub struct DevComptime<Task: IsTask> {
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
     linktime: TaskDevLinkTime<Task>,
-    ingredient_vals: Vec<(PackagePath, Vec<(IngredientPath, Option<Val>)>)>,
+    ingredient_vals: Vec<(
+        PackagePath,
+        Vec<(IngredientPath, Option<ValRepr>, Option<Val>)>,
+    )>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -84,12 +89,25 @@ impl<Task: IsTask> DevComptime<Task> {
     pub fn linkage_impl(&self, linkage: Linkage) -> TaskDevLinkageImpl<Task> {
         self.linktime.linkage_impl(linkage, self.db())
     }
+
+    pub fn ingredient_val(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+    ) -> Val {
+        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
+            .2
+            .unwrap()
+    }
 }
 
 fn ingredient_vals(
     target_path: LinktimeTargetPath,
     db: &::salsa::Db,
-) -> Vec<(PackagePath, Vec<(IngredientPath, Option<Val>)>)> {
+) -> Vec<(
+    PackagePath,
+    Vec<(IngredientPath, Option<ValRepr>, Option<Val>)>,
+)> {
     target_path
         .all_packages(db)
         .unwrap()
@@ -105,11 +123,11 @@ fn ingredient_vals(
                     .ingredient_paths(db)
                     .iter()
                     .map(|&ingredient_path| {
-                        let val = match ingredient_path.item_path() {
+                        let val_repr = match ingredient_path.item_path() {
                             ItemPath::MajorItem(MajorItemPath::Fugitive(path))
                                 if path.fugitive_kind(db) == FugitiveKind::Val =>
                             {
-                                Some(ValRepr::new_val_item(path, db).val(db))
+                                Some(ValRepr::new_val_item(path, db))
                             }
                             ItemPath::AssociatedItem(path) => match path {
                                 AssociatedItemPath::TypeItem(path) => match path.item_kind(db) {
@@ -129,7 +147,8 @@ fn ingredient_vals(
                             },
                             _ => None,
                         };
-                        (ingredient_path, val)
+                        let val = val_repr.map(|val_repr| val_repr.val(db));
+                        (ingredient_path, val_repr, val)
                     })
                     .collect(),
             )

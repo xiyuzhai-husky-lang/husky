@@ -137,6 +137,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::BasePoint,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImpl::Value;
 }
 
@@ -161,7 +162,7 @@ where
         base_point: LinkageImpl::BasePoint,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value {
-        self.eval_val_item(jar_index, ingredient_index, base_point)
+        self.eval_val_item(jar_index, ingredient_index, base_point, f)
     }
 }
 
