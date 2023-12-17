@@ -1,4 +1,4 @@
-use husky_task_prelude::IsLinkageImpl;
+use husky_task_prelude::{IsLinkageImpl, LinkageImplValueResult};
 
 use crate::*;
 
@@ -15,3 +15,4 @@ pub type TaskLinkageImpl<Task> =
     <<TaskDevAscension<Task> as IsDevAscension>::Linktime as IsLinktime>::LinkageImpl;
 pub type TaskValue<Task> = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value;
 pub type TaskTraceProtocol<Task> = <TaskDevAscension<Task> as IsDevAscension>::TraceProtocol;
+pub type TaskValueResult<Task> = LinkageImplValueResult<TaskLinkageImpl<Task>>;

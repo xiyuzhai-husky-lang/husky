@@ -4,6 +4,7 @@ use husky_entity_kind::*;
 use husky_entity_path::{FugitivePath, ItemPath, ItemPathId};
 use husky_task_prelude::TaskIngredientIndex;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct IngredientPath {
     item_path: ItemPath,

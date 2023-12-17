@@ -51,7 +51,7 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         f: impl FnOnce() -> ValueResult,
         db: &::salsa::Db,
     ) -> ValueResult {
-        let key = todo!();
+        let key = MlDevRuntimeValItemStorageKey { val, input_id };
         fn share(result: &ValueResult) -> ValueResult {
             match result {
                 Ok(ref value) => Ok(value.share()),

@@ -32,16 +32,21 @@ impl MonoLinkageLibraries {
             Err(_) => todo!(),
         };
         let rust_workspace_dir = target_path.rust_workspace_abs_dir(db);
-        let all_packages: HashMap<PathBuf, PackagePath> = HashMap::from_iter(
+        let all_packages: HashMap<PathBuf, (TaskJarIndex, PackagePath)> = HashMap::from_iter(
             target_path
                 .all_packages(db)
                 .unwrap()
                 .iter()
-                .map(|&package_path| {
+                .copied()
+                .enumerate()
+                .map(|(i, package_path)| {
                     let linkages_cargo_toml_path = rust_workspace_dir
                         .join(package_path.name(db).data(db))
                         .join("linkages/Cargo.toml");
-                    (linkages_cargo_toml_path, package_path)
+                    (
+                        linkages_cargo_toml_path,
+                        (TaskJarIndex::from_index(i), package_path),
+                    )
                 }),
         );
         let cdylibs: VecPairMap<PackagePath, Cdylib> = compile_workspace(
@@ -53,12 +58,11 @@ impl MonoLinkageLibraries {
                         .iter()
                         .enumerate()
                         .map(|(i, unit_output)| {
+                            let (jar_index, package_path) =
+                                all_packages[unit_output.unit.pkg.manifest_path()];
                             (
-                                all_packages[unit_output.unit.pkg.manifest_path()],
-                                Cdylib(
-                                    TaskJarIndex::from_index(i),
-                                    Library::new(unit_output.path.clone()).unwrap(),
-                                ),
+                                package_path,
+                                Cdylib(jar_index, Library::new(unit_output.path.clone()).unwrap()),
                             )
                         }),
                 )

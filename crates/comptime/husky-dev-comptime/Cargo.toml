@@ -59,6 +59,8 @@ husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-entity-syn-tree.workspace = true
+# task
+husky-task-prelude.workspace = true
 # utils
 husky-print-utils.workspace = true
 # val
