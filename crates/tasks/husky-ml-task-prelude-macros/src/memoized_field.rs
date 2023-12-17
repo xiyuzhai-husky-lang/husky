@@ -1,4 +1,6 @@
 use super::*;
+use quote::quote;
+use syn::{Ident, ItemFn, ReturnType, Signature};
 
 pub(crate) fn memoized_field_aux(input: TokenStream, return_ref: bool) -> TokenStream {
     let ItemFn {

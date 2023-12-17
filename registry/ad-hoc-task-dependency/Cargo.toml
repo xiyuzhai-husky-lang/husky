@@ -5,15 +5,14 @@ authors = ["my_name"]
 edition = "2021"
 
 [workspace]
-members = ["macros"]
 
 [workspace.dependencies]
 syn = { version = "2.0.38", features = ["full", "extra-traits"] }
-# members
-ad-hoc-task-dependency-macros = { path = "macros" }
 
 [dependencies]
-ad-hoc-task-dependency-macros.workspace = true
+# linkage
 husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
     "standard"
 ] }
+# tasks
+husky-ml-task-prelude = { path = "../../crates/tasks/husky-ml-task-prelude" }
