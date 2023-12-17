@@ -38,7 +38,7 @@ pub(crate) fn module_defn_rust_transpilation(
             Some(format!(
                 r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
-use {}::ugly::*;
+use {}::{{*, ugly::*}};
 
 {}::init_crate!();
 
@@ -50,7 +50,7 @@ use {}::ugly::*;
             Some(format!(
                 r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
-use {}::{{Value as __Value, FromValue as __FromValue, IntoValue as __IntoValue}};
+use {}::{{*, ugly::*}};
     
 "#,
                 setup.rust_data(db).unwrap().task_dependency_ident.data(db),

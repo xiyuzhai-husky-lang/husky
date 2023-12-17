@@ -93,7 +93,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
-                    todo!()
+                    __dev_eval_context().eval_val_item_return_ref(#aux_ident)
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block
@@ -102,7 +102,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    todo!()
+                    __dev_eval_context().eval_val_item(#aux_ident)
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block

@@ -37,7 +37,7 @@ pub(crate) fn package_linkages_transpilation(
         setup,
         Some(format!(
             r#"use husky_core::*;
-use {}::*;
+use {}::{{*, ugly::*}};
 use {}::*;
 "#,
             setup.rust_data(db).unwrap().task_dependency_ident.data(db),

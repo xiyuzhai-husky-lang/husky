@@ -6,11 +6,16 @@ pub mod standard;
 pub use self::any::AnyLinkageImpls;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
+    type BasePoint: Copy + 'static;
     type Value;
     type FnArguments: Default;
     type GnArguments;
 
-    fn eval_fn(self, arguments: Self::FnArguments) -> Self::Value;
+    fn eval_fn(
+        self,
+        ctx: DevEvalContext<Self::BasePoint>,
+        arguments: Self::FnArguments,
+    ) -> Self::Value;
     fn eval_gn(self) -> Self::Value;
 }
 
@@ -21,6 +26,7 @@ pub trait IsLinkageImplSource<LinkageImpl: IsLinkageImpl, Marker> {
     fn into_linkage_impl(
         self,
         fn_wrapper: fn(
+            DevEvalContext<<LinkageImpl as IsLinkageImpl>::BasePoint>,
             <LinkageImpl as IsLinkageImpl>::FnArguments,
         ) -> <LinkageImpl as IsLinkageImpl>::Value,
         gn_wrapper: fn(
@@ -40,21 +46,34 @@ macro_rules! linkage_impls {
     ($($linkage_impl_src: expr),*,) => {
         #[no_mangle]
         pub extern "C" fn linkage_impls() -> AnyLinkageImpls {
-            AnyLinkageImpls::new(vec![
-                $({
-                    fn fn_wrapper(arguments: FnArguments) -> Value {
-                        LinkageImplSource($linkage_impl_src).fn_wrapper_aux(arguments);
-                        todo!();
-                    }
-                    fn gn_wrapper(arguments: GnArguments) -> Value {
-                        todo!();
-                    }
-                    // pass `linkage_impl_src` two times
-                    // - one time is to determine the parameter types and return type
-                    // - the other time is to actually give the fn pointer with implicit coersion
-                    LinkageImplSource($linkage_impl_src)
-                        .into_linkage_impl(fn_wrapper, gn_wrapper, $linkage_impl_src)}),*
-            ])
+            let linkages: Vec<__LinkageImpl> =
+                vec![
+                    $({
+                        fn fn_wrapper(ctx: __DevEvalContext, arguments: FnArguments) -> Value {
+                            __with_dev_eval_context(
+                                ctx,
+                                || {
+                                    LinkageImplSource(
+                                        std::marker::PhantomData::<__BasePoint>,
+                                        $linkage_impl_src,
+                                    ).fn_wrapper_aux(arguments);
+                                    todo!();
+                                }
+                            )
+                        }
+                        fn gn_wrapper(arguments: GnArguments) -> Value {
+                            todo!();
+                        }
+                        // pass `linkage_impl_src` two times
+                        // - one time is to determine the parameter types and return type
+                        // - the other time is to actually give the fn pointer with implicit coersion
+                        LinkageImplSource(
+                            std::marker::PhantomData::<__BasePoint>,
+                            $linkage_impl_src,
+                        )
+                            .into_linkage_impl(fn_wrapper, gn_wrapper, $linkage_impl_src)}),*
+                ];
+            AnyLinkageImpls::new(linkages)
         }
     }
 }
@@ -65,8 +84,9 @@ macro_rules! impl_into_linkage_impl {
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<F, $($input,)* $output> IsLinkageImplSource<LinkageImpl, fn($($input,)*) -> $output> for LinkageImplSource<F>
+        impl<BasePoint, F, $($input,)* $output> IsLinkageImplSource<LinkageImpl<BasePoint>, fn($($input,)*) -> $output> for LinkageImplSource<BasePoint, F>
         where
+            BasePoint: Copy + 'static,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue, )*
             $output: Send,
@@ -76,12 +96,14 @@ macro_rules! impl_into_linkage_impl {
 
             fn into_linkage_impl(
                 self,
-                fn_wrapper: fn(<LinkageImpl as IsLinkageImpl>::FnArguments)
-                    -> <LinkageImpl as IsLinkageImpl>::Value,
-                gn_wrapper: fn(<LinkageImpl as IsLinkageImpl>::GnArguments)
-                    -> <LinkageImpl as IsLinkageImpl>::Value,
+                fn_wrapper: fn(
+                    DevEvalContext<BasePoint>,
+                    <LinkageImpl<BasePoint> as IsLinkageImpl>::FnArguments
+                ) -> <LinkageImpl<BasePoint> as IsLinkageImpl>::Value,
+                gn_wrapper: fn(<LinkageImpl<BasePoint> as IsLinkageImpl>::GnArguments)
+                    -> <LinkageImpl<BasePoint> as IsLinkageImpl>::Value,
                 m: fn($($input,)*) -> $output
-            ) -> LinkageImpl {
+            ) -> LinkageImpl<BasePoint> {
                 LinkageImpl::RitchieFn {
                     fn_wrapper,
                     fn_pointer: unsafe {
@@ -90,10 +112,10 @@ macro_rules! impl_into_linkage_impl {
                 }
             }
 
-            fn fn_wrapper_aux(self, arguments: <LinkageImpl as IsLinkageImpl>::FnArguments)
+            fn fn_wrapper_aux(self, arguments: <LinkageImpl<BasePoint> as IsLinkageImpl>::FnArguments)
                 -> Self::FnOutput {
                 let mut arguments = arguments.into_iter();
-                self.0(
+                self.1(
                     $(<$input as FromValue>::from_value(
                         arguments.next().unwrap()
                     ),)*
@@ -102,6 +124,7 @@ macro_rules! impl_into_linkage_impl {
         }
     };
 }
+use husky_task_prelude::DevEvalContext;
 pub(crate) use impl_into_linkage_impl;
 
 use smallvec::SmallVec;

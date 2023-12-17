@@ -31,8 +31,9 @@ unsafe impl<LinkageImpl> Send for BootLinkTime<LinkageImpl> where LinkageImpl: I
 
 impl<LinkageImpl> IsLinktime for BootLinkTime<LinkageImpl>
 where
-    LinkageImpl: IsLinkageImpl,
+    LinkageImpl: IsLinkageImpl<BasePoint = ()>,
 {
+    type BasePoint = ();
     type LinkageImpl = LinkageImpl;
 
     fn linkage_impl(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {

@@ -6,7 +6,7 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_task::{dev_ascension::with_eval_context, helpers::TaskDevAscension};
+use husky_task::{dev_ascension::with_dev_eval_context, helpers::TaskDevAscension};
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
     IsTask,
