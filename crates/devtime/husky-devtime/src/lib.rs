@@ -37,7 +37,7 @@ impl<Task: IsTask> Devtime<Task> {
     }
 
     pub fn target(&self) -> DevComptimeTarget {
-        self.runtime.target()
+        self.runtime.comptime_target()
     }
 }
 

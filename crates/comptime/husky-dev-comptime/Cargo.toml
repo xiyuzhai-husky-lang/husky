@@ -30,6 +30,7 @@ husky-term-prelude.workspace = true
 husky-declarative-term.workspace = true
 husky-declarative-ty.workspace = true
 husky-declarative-signature.workspace = true
+husky-entity-kind.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-fluffy-term.workspace = true
