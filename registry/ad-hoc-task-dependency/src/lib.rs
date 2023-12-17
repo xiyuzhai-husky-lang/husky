@@ -1,7 +1,4 @@
-pub use husky_linkage_impl::{standard::*, *};
-pub use husky_ml_task_prelude::*;
+pub mod ugly;
 
-#[macro_export]
-macro_rules! init_crate {
-    () => {};
-}
+pub use husky_linkage_impl::{standard::*, *};
+pub use husky_task_prelude::*;
