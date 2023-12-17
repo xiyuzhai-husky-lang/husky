@@ -31,7 +31,8 @@ pub trait IsLinkageImplSource<LinkageImpl: IsLinkageImpl, Marker> {
 macro_rules! linkage_impls {
     ($($linkage_impl_src: expr),*,) => {
         #[no_mangle]
-        pub extern "C" fn linkage_impls() -> AnyLinkageImpls {
+        pub extern "C" fn linkage_impls(jar_index: __TaskJarIndex) -> AnyLinkageImpls {
+            __set_jar_index(jar_index);
             let linkages: Vec<__LinkageImpl> =
                 vec![
                     $({

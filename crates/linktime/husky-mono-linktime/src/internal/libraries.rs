@@ -5,6 +5,7 @@ use husky_linkage_impl::AnyLinkageImpls;
 use husky_manifest::{has_manifest::HasPackageManifest, HasAllPackages};
 use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
 use husky_task::IsTask;
+use husky_task_prelude::TaskJarIndex;
 use husky_vfs::{linktime_target_path::LinktimeTargetPathData, PackagePath};
 use libloading::Library;
 use std::path::PathBuf;
@@ -14,13 +15,13 @@ pub struct MonoLinkageLibraries {
     pub cdylibs: VecPairMap<PackagePath, Cdylib>,
 }
 
-pub struct Cdylib(Library);
+pub struct Cdylib(TaskJarIndex, Library);
 
 impl Cdylib {
     pub(crate) fn linkage_impls<LinkageImpl: IsLinkageImpl>(&self) -> Vec<LinkageImpl> {
-        let package_linkage_impls: libloading::Symbol<fn() -> AnyLinkageImpls> =
-            unsafe { self.0.get(b"linkage_impls").unwrap() };
-        package_linkage_impls().downcast()
+        let package_linkage_impls: libloading::Symbol<fn(TaskJarIndex) -> AnyLinkageImpls> =
+            unsafe { self.1.get(b"linkage_impls").unwrap() };
+        package_linkage_impls(self.0).downcast()
     }
 }
 
@@ -46,14 +47,21 @@ impl MonoLinkageLibraries {
         let cdylibs: VecPairMap<PackagePath, Cdylib> = compile_workspace(
             target_path.rust_workspace_manifest_path(db),
             |compilation| unsafe {
-                VecMap::from_iter_assuming_no_repetitions_unchecked(compilation.cdylibs.iter().map(
-                    |unit_output| {
-                        (
-                            all_packages[unit_output.unit.pkg.manifest_path()],
-                            Cdylib(Library::new(unit_output.path.clone()).unwrap()),
-                        )
-                    },
-                ))
+                VecMap::from_iter_assuming_no_repetitions_unchecked(
+                    compilation
+                        .cdylibs
+                        .iter()
+                        .enumerate()
+                        .map(|(i, unit_output)| {
+                            (
+                                all_packages[unit_output.unit.pkg.manifest_path()],
+                                Cdylib(
+                                    TaskJarIndex::from_index(i),
+                                    Library::new(unit_output.path.clone()).unwrap(),
+                                ),
+                            )
+                        }),
+                )
             },
         )?;
         Ok(Self { cdylibs })
