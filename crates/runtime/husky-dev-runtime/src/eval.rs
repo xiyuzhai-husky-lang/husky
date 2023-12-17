@@ -18,17 +18,17 @@ use std::{
 };
 
 impl<Task: IsTask> DevRuntime<Task> {
-    pub fn eval_val_at_base_point(
+    pub fn eval_val(
         &self,
         val_repr: ValRepr,
-        base_point: TaskDevBasePoint<Task>,
+        pedestal: TaskDevPedestal<Task>,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
-        with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, base_point, || {
-            self.eval_val(val_repr)
+        with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
+            self.eval_val_aux(val_repr)
         })
     }
 
-    fn eval_val(&self, val_repr: ValRepr) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    fn eval_val_aux(&self, val_repr: ValRepr) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
         let db = self.db();
         let arguments: SmallVec<[TaskValue<Task>; 4]> = val_repr
             .arguments(db)
@@ -154,6 +154,6 @@ fn val_repr_eval_works() {
             continue;
         };
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
-        runtime.eval_val_at_base_point(val_repr, InputId::from_index(0));
+        runtime.eval_val(val_repr, InputId::from_index(0).into());
     }
 }

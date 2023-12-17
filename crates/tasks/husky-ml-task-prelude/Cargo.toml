@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 # abstractions
 shifted-unsigned-int.workspace = true
+enum-class.workspace = true
 # linkage
 husky-linkage-impl.workspace = true
 # tasks

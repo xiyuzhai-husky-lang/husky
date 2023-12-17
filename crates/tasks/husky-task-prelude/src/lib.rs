@@ -122,7 +122,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         todo!()
     }
 
-    pub fn base_point(&self) -> &LinkageImpl::Pedestal {
+    pub fn pedestal(&self) -> &LinkageImpl::Pedestal {
         &self.base_point
     }
 }

@@ -15,7 +15,7 @@ use husky_task::{
     helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue, TaskValueResult},
 };
 use husky_task::{
-    helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
+    helpers::{DevRuntimeStorage, TaskDevLinkTime, TaskDevPedestal},
     IsTask,
 };
 use husky_task_prelude::{
@@ -87,7 +87,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: TaskDevBasePoint<Task>,
+        base_point: TaskDevPedestal<Task>,
         f: impl FnOnce() -> TaskValueResult<Task>,
     ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
         let target_path = self.linktime_target_path().unwrap();
@@ -96,7 +96,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         let val: Val = self.comptime.ingredient_val(jar_index, ingredient_index);
         &self
             .storage
-            .get_or_try_init_val_item_value(val, base_point, f, self.db());
+            .get_or_try_init_val_value(val, base_point, f, self.db());
         todo!()
     }
 }

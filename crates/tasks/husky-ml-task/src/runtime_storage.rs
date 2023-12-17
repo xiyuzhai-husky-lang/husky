@@ -26,7 +26,7 @@ pub struct MlDevRuntimeGnStorageKey {
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct MlDevRuntimeValItemStorageKey {
     val: Val,
-    input_id: InputId,
+    pedestal: MlPedestal,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
@@ -35,23 +35,14 @@ pub struct MlDevRuntimeMemoizedFieldStorageKey {
 }
 
 impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
-    fn get_or_try_init_gn_value(
+    fn get_or_try_init_val_value(
         &self,
         val: Val,
-        f: impl FnOnce() -> ValueResult,
-        db: &salsa::Db,
-    ) -> ValueResult {
-        todo!()
-    }
-
-    fn get_or_try_init_val_item_value(
-        &self,
-        val: Val,
-        input_id: InputId,
+        pedestal: MlPedestal,
         f: impl FnOnce() -> ValueResult,
         db: &::salsa::Db,
     ) -> ValueResult {
-        let key = MlDevRuntimeValItemStorageKey { val, input_id };
+        let key = MlDevRuntimeValItemStorageKey { val, pedestal };
         fn share(result: &ValueResult) -> ValueResult {
             match result {
                 Ok(ref value) => Ok(value.share()),

@@ -1,7 +1,7 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
-use husky_ml_task_prelude::{DevEvalContext, InputId, DEV_EVAL_CONTEXT};
+use husky_ml_task_prelude::{DevEvalContext, InputId, MlPedestal, DEV_EVAL_CONTEXT};
 use husky_mono_linktime::MonoLinkTime;
 use husky_standard_value::Value;
 use husky_task::{
@@ -42,13 +42,13 @@ pub struct MlDevAscension<VisualProtocol>(PhantomData<VisualProtocol>)
 where
     VisualProtocol: IsVisualProtocol;
 
-type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<InputId>;
+type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
 impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
     VisualProtocol: IsVisualProtocol,
 {
-    type Linktime = MonoLinkTime<husky_linkage_impl::standard::LinkageImpl<InputId>>;
+    type Linktime = MonoLinkTime<LinkageImpl>;
 
     type RuntimeStorage = MlDevRuntimeStorage;
 
