@@ -1,6 +1,6 @@
 #![allow(warnings, non_snake_case)]
 use husky_core::*;
-use ad_hoc_task_dependency::{Value as __Value, FromValue as __FromValue, IntoValue as __IntoValue};
+use ad_hoc_task_dependency::ugly::*;
 
 ad_hoc_task_dependency::init_crate!();
 

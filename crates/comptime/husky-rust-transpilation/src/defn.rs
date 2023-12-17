@@ -38,7 +38,7 @@ pub(crate) fn module_defn_rust_transpilation(
             Some(format!(
                 r#"#![allow(warnings, non_snake_case)]
 use husky_core::*;
-use {}::{{Value as __Value, FromValue as __FromValue, IntoValue as __IntoValue}};
+use {}::ugly::*;
 
 {}::init_crate!();
 

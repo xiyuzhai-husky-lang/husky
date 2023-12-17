@@ -2,6 +2,29 @@ pub mod value;
 
 pub use husky_task_prelude_macros::*;
 
+use once_cell::sync::OnceCell;
+use shifted_unsigned_int::ShiftedU32;
+
+#[macro_export]
+macro_rules! init_crate {
+    () => {
+        pub(crate) static __JAR_INDEX: __JarIndexOnceCell = __JarIndexOnceCell::new();
+
+        pub fn __set_jar_index(jar_index: __JarIndex) {
+            __JAR_INDEX.set(jar_index).unwrap();
+        }
+
+        pub(crate) fn __get_jar_index(jar_index: __JarIndex) {
+            __JAR_INDEX.get().expect("`__JAR_INDEX` is not initialized");
+        }
+    };
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct JarIndex(ShiftedU32);
+
+pub type JarIndexOnceCell = OnceCell<JarIndex>;
+
 #[derive(Clone, Copy)]
 pub struct DevEvalContext<BasePoint: 'static> {
     runtime: &'static dyn IsDevRuntimeDyn<BasePoint>,
