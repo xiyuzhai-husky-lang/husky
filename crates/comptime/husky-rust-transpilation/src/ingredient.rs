@@ -2,6 +2,7 @@ use super::*;
 use husky_entity_kind::*;
 use husky_entity_path::{FugitivePath, ItemPath, ItemPathId};
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, HasItemPaths, HasModulePaths};
+use husky_task_prelude::TaskIngredientIndex;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub(crate) struct IngredientPath {
@@ -87,24 +88,15 @@ impl IngredientPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub(crate) struct IngredientIndex(u32);
-
-impl IngredientIndex {
-    pub(crate) fn raw(self) -> u32 {
-        self.0
-    }
-}
-
 pub(crate) trait HasIngredientIndex: Into<ItemPath> {
-    fn ingredient_index(self, db: &::salsa::Db) -> Option<IngredientIndex>;
+    fn ingredient_index(self, db: &::salsa::Db) -> Option<TaskIngredientIndex>;
 }
 
 impl<P> HasIngredientIndex for P
 where
     P: Into<ItemPath>,
 {
-    fn ingredient_index(self, db: &::salsa::Db) -> Option<IngredientIndex> {
+    fn ingredient_index(self, db: &::salsa::Db) -> Option<TaskIngredientIndex> {
         item_path_ingredient_index(db, *self.into())
     }
 }
@@ -113,11 +105,11 @@ where
 fn item_path_ingredient_index(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
-) -> Option<IngredientIndex> {
+) -> Option<TaskIngredientIndex> {
     item_path_id
         .crate_path(db)
         .ingredient_paths(db)
         .iter()
         .position(|ingredient_path| *ingredient_path.item_path == item_path_id)
-        .map(|raw| IngredientIndex(raw.try_into().unwrap()))
+        .map(|raw| TaskIngredientIndex::from_index(raw))
 }

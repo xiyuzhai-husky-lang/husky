@@ -20,3 +20,5 @@ husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
 # tasks
 husky-task-prelude.workspace = true
+# val
+husky-val.workspace = true

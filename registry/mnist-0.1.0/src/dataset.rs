@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ml_task_prelude::SampleId;
+use husky_ml_task_prelude::InputId;
 
 lazy_static::lazy_static! {
     pub(crate) static ref MNIST_DATASET: MnistDataset = MnistDataset::new(35016232u64);
@@ -21,15 +21,15 @@ impl MnistDataset {
         }
     }
 
-    pub(crate) fn input(&'static self, sample_id: SampleId) -> &'static BinaryImage28 {
+    pub(crate) fn input(&'static self, sample_id: InputId) -> &'static BinaryImage28 {
         &self.images[self.index(sample_id)]
     }
 
-    pub(crate) fn label(&'static self, sample_id: SampleId) -> MnistLabel {
+    pub(crate) fn label(&'static self, sample_id: InputId) -> MnistLabel {
         self.labels[self.index(sample_id)]
     }
 
-    fn index(&'static self, sample_id: SampleId) -> usize {
+    fn index(&'static self, sample_id: InputId) -> usize {
         self.permutation[sample_id.index()] as usize
     }
 }

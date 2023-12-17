@@ -133,7 +133,7 @@ impl<B, C1, C2: FromIterator<C1>> std::iter::FromIterator<ValControlFlow<B, C1>>
 fn val_repr_eval_works() {
     use husky_dev_comptime::DevComptime;
     use husky_ml_task::MlTask;
-    use husky_ml_task_prelude::SampleId;
+    use husky_ml_task_prelude::InputId;
     use husky_path_utils::dev_paths::*;
     use husky_vfs::VfsDb;
     use husky_visual_protocol::trivial::TrivialVisualProtocol;
@@ -154,6 +154,6 @@ fn val_repr_eval_works() {
             continue;
         };
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
-        runtime.eval_val_at_base_point(val_repr, SampleId::from_index(0));
+        runtime.eval_val_at_base_point(val_repr, InputId::from_index(0));
     }
 }

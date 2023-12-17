@@ -4,10 +4,10 @@ use husky_standard_value::Value;
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, thread::LocalKey};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct SampleId(ShiftedU32);
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct InputId(ShiftedU32);
 
-impl SampleId {
+impl InputId {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
@@ -19,20 +19,20 @@ impl SampleId {
 
 /// panics if dev eval context is empty
 #[track_caller]
-pub fn sample_id() -> SampleId {
+pub fn sample_id() -> InputId {
     *DEV_EVAL_CONTEXT.get().unwrap().base_point()
 }
 
 #[test]
 fn sample_id_size_works() {
-    assert_eq!(std::mem::size_of::<SampleId>(), std::mem::size_of::<u32>());
+    assert_eq!(std::mem::size_of::<InputId>(), std::mem::size_of::<u32>());
     assert_eq!(
-        std::mem::size_of::<Option<SampleId>>(),
+        std::mem::size_of::<Option<InputId>>(),
         std::mem::size_of::<u32>()
     )
 }
 
-pub type BasePoint = SampleId;
+pub type BasePoint = InputId;
 
 pub type DevEvalContext =
     husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<BasePoint>>;

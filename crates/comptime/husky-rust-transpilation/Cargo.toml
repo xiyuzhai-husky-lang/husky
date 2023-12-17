@@ -44,6 +44,8 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
+# tasks
+husky-task-prelude.workspace = true
 # utils
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-print-utils.workspace = true

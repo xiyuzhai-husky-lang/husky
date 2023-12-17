@@ -20,7 +20,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
             self.result,
             "#[{}::val_item(ingredient_index = {}{}{})]\n",
             task_dependency_ident,
-            path.ingredient_index(db).unwrap().raw(),
+            path.ingredient_index(db).unwrap().index(),
             is_lazy.then_some(", lazy").unwrap_or_default(),
             return_ref.then_some(", return_ref").unwrap_or_default(),
         )
@@ -43,7 +43,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
                 self.result,
                 "#[{}::memoized_field({})]\n",
                 task_dependency_ident,
-                path.ingredient_index(db).unwrap().raw()
+                path.ingredient_index(db).unwrap().index()
             )
             .unwrap()
         } else {
@@ -51,7 +51,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
                 self.result,
                 "#[{}::memoized_field_return_ref({})]\n",
                 task_dependency_ident,
-                path.ingredient_index(db).unwrap().raw()
+                path.ingredient_index(db).unwrap().index()
             )
             .unwrap()
         }

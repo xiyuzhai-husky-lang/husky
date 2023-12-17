@@ -53,7 +53,7 @@ impl Into<usize> for ShiftedU16 {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU32(NonZeroU32);

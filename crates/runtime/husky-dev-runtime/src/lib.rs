@@ -7,14 +7,14 @@ pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_task::{
-    dev_ascension::with_dev_eval_context,
+    dev_ascension::{with_dev_eval_context, IsRuntimeStorage},
     helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue},
 };
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevBasePoint, TaskDevLinkTime},
     IsTask,
 };
-use husky_task_prelude::{IsDevRuntime, IsDevRuntimeDyn};
+use husky_task_prelude::{IsDevRuntime, IsDevRuntimeDyn, TaskIngredientIndex, TaskJarIndex};
 use husky_vfs::error::VfsResult;
 
 use std::path::Path;
@@ -71,7 +71,15 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &*(unsafe { self as *const _ })
     }
 
-    fn eval_val_item(&self) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
+    fn eval_val_item(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        input_id: TaskDevBasePoint<Task>,
+    ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
+        &self
+            .storage
+            .get_or_try_init_val_item_value(todo!(), todo!(), || todo!(), self.db());
         todo!()
     }
 }
