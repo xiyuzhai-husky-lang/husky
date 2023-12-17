@@ -41,6 +41,16 @@ macro_rules! init_crate {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TaskJarIndex(ShiftedU32);
 
+impl TaskJarIndex {
+    pub fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+
+    pub fn index(self) -> usize {
+        self.0.into()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TaskIngredientIndex(ShiftedU32);
 
