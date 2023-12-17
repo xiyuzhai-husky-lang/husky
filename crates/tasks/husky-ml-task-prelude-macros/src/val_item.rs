@@ -1,5 +1,7 @@
+// todo: move to ml-task-macros
 use super::*;
-use syn::ext::IdentExt;
+use quote::quote;
+use syn::{ext::IdentExt, Ident, ItemFn, ReturnType, Signature};
 
 type Equals = syn::Token![=];
 type Comma = syn::Token![,];
@@ -43,7 +45,11 @@ impl syn::parse::Parse for Args {
 }
 
 pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
-    let args = syn::parse_macro_input!(args as Args);
+    let Args {
+        ingredient_index,
+        lazy,
+        return_ref,
+    } = syn::parse_macro_input!(args as Args);
     let ItemFn {
         attrs,
         vis,
@@ -67,8 +73,8 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    if args.lazy {
-        if args.return_ref {
+    if lazy {
+        if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
                     todo!()
@@ -84,7 +90,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
             .into()
         }
     } else {
-        if args.return_ref {
+        if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
                     todo!()

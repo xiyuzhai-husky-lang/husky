@@ -9,3 +9,4 @@ edition = "2021"
 shifted-unsigned-int.workspace = true
 # tasks
 husky-task-prelude.workspace = true
+husky-ml-task-prelude-macros.workspace = true
