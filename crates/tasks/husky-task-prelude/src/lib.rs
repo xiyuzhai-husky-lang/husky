@@ -68,7 +68,7 @@ pub type TaskJarIndexOnceCell = OnceCell<TaskJarIndex>;
 
 pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-    base_point: LinkageImpl::BasePoint,
+    base_point: LinkageImpl::Pedestal,
 }
 
 impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
@@ -85,7 +85,7 @@ impl<LinkageImpl: IsLinkageImpl> Copy for DevEvalContext<LinkageImpl> {}
 impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn new(
         runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-        base_point: LinkageImpl::BasePoint,
+        base_point: LinkageImpl::Pedestal,
     ) -> Self {
         Self {
             runtime,
@@ -122,7 +122,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         todo!()
     }
 
-    pub fn base_point(&self) -> &LinkageImpl::BasePoint {
+    pub fn base_point(&self) -> &LinkageImpl::Pedestal {
         &self.base_point
     }
 }
@@ -136,7 +136,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::BasePoint,
+        base_point: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImpl::Value;
 }
@@ -146,7 +146,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::BasePoint,
+        base_point: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value;
 }
@@ -159,7 +159,7 @@ where
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::BasePoint,
+        base_point: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value {
         self.eval_val_item(jar_index, ingredient_index, base_point, f)

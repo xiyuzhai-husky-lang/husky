@@ -30,7 +30,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     fn get_or_try_init_val_item_value(
         &self,
         val: Val,
-        base_point: LinkageImpl::BasePoint,
+        base_point: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplValueResult<LinkageImpl>;
@@ -69,7 +69,7 @@ pub fn with_runtime_and_base_point<
     R,
 >(
     runtime: &Runtime,
-    base_point: <<DevAscension::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::BasePoint,
+    base_point: <<DevAscension::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::Pedestal,
     f: impl FnOnce() -> R,
 ) -> R {
     let local_dev_eval_context = DevAscension::dev_eval_context_local_key();
