@@ -31,11 +31,14 @@ pub enum OriginalDeclarativeTypeError {
     #[error("declarative_term error")]
     DeclarativeTerm(#[from] DeclarativeTermError),
     #[error("EnumTypeHasNoConstructor")]
-    EnumTypeHasNoConstructor,
+    EnumTypeNoConstructor,
     #[error("InductiveTypeHasNoConstructor")]
     InductiveTypeHasNoConstructor,
     #[error("todo")]
     Todo,
+    #[error("todo")]
+    #[deprecated]
+    ExternTypeHasNoConstructor,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
