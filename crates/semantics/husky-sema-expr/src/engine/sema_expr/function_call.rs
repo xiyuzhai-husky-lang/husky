@@ -35,10 +35,10 @@ impl<'a> SemaExprEngine<'a> {
                 ),
             );
         };
-        match outcome.variant() {
+        match *outcome.variant() {
             ExpectEqsFunctionTypeOutcomeData::Ritchie {
                 ritchie_kind,
-                parameter_contracted_tys,
+                ref parameter_contracted_tys,
             } => {
                 let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     syn_expr_idx,
@@ -66,10 +66,14 @@ impl<'a> SemaExprEngine<'a> {
                 return_ty,
             } => {
                 let argument_sema_expr_idx = match items.len() {
-                    0 => unreachable!(),
+                    0 => self.new_unit_expr(
+                        lpar_regional_token_idx,
+                        rpar_regional_token_idx,
+                        parameter_ty,
+                    ),
                     1 => self.build_sema_expr(
                         items.first().expect("len is 1").syn_expr_idx(),
-                        ExpectCoersion::new_const(*parameter_ty),
+                        ExpectCoersion::new_const(parameter_ty),
                     ),
                     // parameter_ty must be a tuple
                     // distribute the types for a tuple
@@ -80,7 +84,7 @@ impl<'a> SemaExprEngine<'a> {
                         function_sema_expr_idx,
                         argument_sema_expr_idx,
                     }),
-                    Ok(*return_ty),
+                    Ok(return_ty),
                 )
             }
         }

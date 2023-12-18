@@ -507,6 +507,7 @@ where
     }
 
     fn accept_list_start(&mut self, bra: SynBracket, bra_regional_token_idx: RegionalTokenIdx) {
+        self.reduce(Precedence::Application);
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
             let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {

@@ -1,6 +1,7 @@
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {
-    ScopeResolution = 230,
+    ScopeResolution = 240,
+    Application = 230,
     Prefix = 220,
     As = 210,
     Power = 200,
@@ -15,7 +16,6 @@ pub enum Precedence {
     And = 90,
     Or = 80,
     Is = 60,
-    Application = 50,
     Be = 40,
     /// means `->`
     Curry = 30,

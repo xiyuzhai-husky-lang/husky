@@ -19,14 +19,6 @@ impl DeclarativeTermExplicitApplicationOrRitchieCall {
         extra_comma: bool,
         db: &::salsa::Db,
     ) -> Self {
-        use husky_print_utils::p;
-        use salsa::DebugWithDb;
-        p!(
-            function.debug(db),
-            template_arguments.debug(db),
-            items.debug(db)
-        );
-        assert!(!items.is_empty());
         Self::new_inner(db, function, template_arguments, items, extra_comma)
     }
 

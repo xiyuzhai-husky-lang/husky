@@ -7,7 +7,8 @@ use super::*;
 #[repr(u8)]
 pub(crate) enum RustPrecedence {
     Atom = 255,
-    Suffix = 240,
+    Suffix = 250,
+    FunctionCallOrArrayIndexing = 230,
     Prefix = 220,
     As = 210,
     Power = 200,
