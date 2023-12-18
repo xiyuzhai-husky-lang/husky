@@ -113,7 +113,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 smallvec![],
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -217,7 +217,7 @@ impl ExpectEqsRitchieType {
                 Default::default(),
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

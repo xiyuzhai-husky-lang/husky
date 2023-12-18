@@ -23,6 +23,7 @@ husky-entity-kind.workspace = true
 husky-coword.workspace = true
 # syntax
 husky-opr.workspace = true
+husky-entity-syn-tree.workspace = true
 husky-syn-decl.workspace = true
 # utils
 husky-print-utils.workspace = true
@@ -41,7 +42,6 @@ husky-toml-token.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-syn-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-declarative-ty = { path = ".", features = ["test_utils"] }

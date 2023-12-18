@@ -10,7 +10,7 @@ impl FluffyTerm {
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -39,7 +39,7 @@ impl FluffyTerm {
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

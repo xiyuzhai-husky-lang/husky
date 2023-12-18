@@ -83,7 +83,7 @@ impl ExpectFluffyTerm for ExpectIntType {
             //     HoleKind::Any => todo!(),
             // },
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

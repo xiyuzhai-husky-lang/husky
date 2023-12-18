@@ -36,7 +36,7 @@ impl FluffyTerms {
         parameter_rune: FluffyTermRune,
     ) -> HollowTerm {
         let hole_kind = match parameter_rune.data_inner(db, self) {
-            FluffyTermData::Rune { ty } => match ty.data_inner(db, self) {
+            FluffyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {
                 FluffyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -65,7 +65,7 @@ impl FluffyTerms {
                     return_ty,
                 } => todo!(),
                 FluffyTermData::Symbol { .. } => HoleKind::Any,
-                FluffyTermData::Rune { ty } => todo!(),
+                FluffyTermData::Rune { .. } => todo!(),
                 _ => unreachable!(),
             },
             FluffyTermData::Hole(_, _) => todo!(),

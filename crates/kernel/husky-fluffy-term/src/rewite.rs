@@ -112,7 +112,7 @@ impl FluffyTerm {
             }
             FluffyTermData::Symbol { .. } => todo!(),
             // todo: this is wrong
-            FluffyTermData::Rune { ty } => substitution_rules
+            FluffyTermData::Rune { .. } => substitution_rules
                 .iter()
                 .copied()
                 .find_map(|rule| (*rule.rune == self).then_some(rule.substitute))

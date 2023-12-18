@@ -59,7 +59,7 @@ impl<'a> SemaExprEngine<'a> {
                         ..
                     } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Rune { ty } => todo!(),
+                    FluffyTermData::Rune { .. } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 }
             }
@@ -184,7 +184,7 @@ impl<'a> SemaExprEngine<'a> {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

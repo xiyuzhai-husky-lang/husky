@@ -105,7 +105,7 @@ impl<'a> SemaExprEngine<'a> {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())

@@ -26,6 +26,9 @@ impl<'a> SemaExprEngine<'a> {
                 Err(DerivedSemaExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into()),
             );
         };
+        p!(function_sema_expr_idx
+            .data_result(&self.sema_expr_arena)
+            .debug(self.db));
         match function_ty_outcome.variant() {
             ExpectEqsFunctionTypeOutcomeData::Curry {
                 variance,
@@ -90,12 +93,16 @@ impl<'a> SemaExprEngine<'a> {
         let ty_result = match shift {
             0 => match parameter_rune {
                 Some(parameter_rune) => match self.infer_expr_term(argument_sema_expr_idx) {
-                    Some(argument_term) => Ok(return_ty.substitute_rune(
-                        self,
-                        syn_expr_idx.into(),
-                        parameter_rune,
-                        argument_term,
-                    )),
+                    Some(argument_term) => {
+                        p!(parameter_rune.show(self.db, self.fluffy_terms()));
+                        p!(return_ty.show(self.db, self.fluffy_terms()));
+                        Ok(return_ty.substitute_rune(
+                            self,
+                            syn_expr_idx.into(),
+                            parameter_rune,
+                            argument_term,
+                        ))
+                    }
                     None => Err(
                         DerivedSemaExprTypeError::UnableToInferArgumentTermForDependentType.into(),
                     ),
