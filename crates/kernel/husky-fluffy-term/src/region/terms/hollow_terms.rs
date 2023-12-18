@@ -149,18 +149,34 @@ impl HollowTerms {
             HollowTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
             } => {
-                if let Some(parameter_variable) = parameter_variable {
-                    merger.accept_one(parameter_variable);
-                }
+                merger.accept(parameter_rune.map(|rune| *rune));
                 merger.accept_one(parameter_ty);
                 merger.accept_one(return_ty);
                 match merger.data_kind() {
                     FluffyTermDataKind::Err => todo!(),
-                    FluffyTermDataKind::Ethereal => todo!(),
+                    FluffyTermDataKind::Ethereal => {
+                        let parameter_rune = parameter_rune.map(|parameter_rune| {
+                            parameter_rune.resolve_as_ethereal(self).unwrap().rune()
+                        });
+                        let parameter_ty = parameter_ty.resolve_as_ethereal(self).unwrap();
+                        let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
+                        self.entries[idx].resolve_progress =
+                            HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTermCurry::new(
+                                    db,
+                                    curry_kind,
+                                    variance,
+                                    parameter_rune,
+                                    parameter_ty,
+                                    return_ty,
+                                )
+                                .into(),
+                            )
+                    }
                     FluffyTermDataKind::Solid => todo!(),
                     FluffyTermDataKind::Hollow => return,
                 }

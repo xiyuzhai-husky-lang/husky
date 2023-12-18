@@ -23,7 +23,7 @@ pub enum FluffyTermData<'a> {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         ty_ethereal_term: Option<EtherealTermCurry>,
@@ -39,7 +39,7 @@ pub enum FluffyTermData<'a> {
         term: EtherealTermSymbol,
         ty: FluffyTerm,
     },
-    Variable {
+    Rune {
         ty: FluffyTerm,
     },
     TypeVariant {
@@ -74,15 +74,15 @@ impl<'a> FluffyTermData<'a> {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => {
-                if let Some(parameter_variable) = parameter_variable {
+                if let Some(parameter_rune) = parameter_rune {
                     format!(
                         "<{}: {}> -> {}",
-                        parameter_variable.show(db, terms),
+                        parameter_rune.show(db, terms),
                         parameter_ty.show(db, terms),
                         return_ty.show(db, terms)
                     )
@@ -124,7 +124,7 @@ impl<'a> FluffyTermData<'a> {
                 RitchieKind::Trait(_) => todo!(),
             },
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Variable { ty } => "variableTodo".to_string(),
+            FluffyTermData::Rune { ty } => "variableTodo".to_string(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -142,7 +142,7 @@ pub enum FluffyBaseTypeData<'a> {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         ty_ethereal_term: Option<EtherealTermCurry>,
@@ -155,7 +155,10 @@ pub enum FluffyBaseTypeData<'a> {
         return_ty: FluffyTerm,
     },
     Symbol {
-        term: EtherealTermSymbol,
+        symbol: EtherealTermSymbol,
+    },
+    Rune {
+        rune: EtherealTermRune,
     },
 }
 
@@ -227,7 +230,7 @@ impl FluffyTerm {
             FluffyBaseTypeData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -249,7 +252,8 @@ impl FluffyTerm {
                 },
                 RitchieKind::Trait(_) => todo!(),
             },
-            FluffyBaseTypeData::Symbol { term } => Ok(Some(false)), // ad hoc
+            FluffyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
+            FluffyBaseTypeData::Rune { rune } => todo!(), // ad hoc
         }
     }
 }

@@ -43,7 +43,7 @@ impl HirTemplateArgument {
         Some(match argument {
             EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
             EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Fugitive(path) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

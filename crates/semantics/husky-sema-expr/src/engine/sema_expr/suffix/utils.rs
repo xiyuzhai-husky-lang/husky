@@ -66,7 +66,7 @@ impl<'a> SemaExprEngine<'a> {
                             return_ty,
                         } => todo!(),
                         FluffyTermData::Symbol { .. } => todo!(),
-                        FluffyTermData::Variable { ty } => todo!(),
+                        FluffyTermData::Rune { ty } => todo!(),
                         FluffyTermData::TypeVariant { path } => todo!(),
                     },
                     None => (

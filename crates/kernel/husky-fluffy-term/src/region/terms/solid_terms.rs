@@ -67,7 +67,7 @@ impl SolidTerm {
             SolidTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => todo!(),

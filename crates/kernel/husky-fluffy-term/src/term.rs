@@ -2,7 +2,8 @@ mod application;
 mod curry;
 mod hole;
 mod ritchie;
-mod symbol_ty;
+pub mod rune;
+pub mod symbol_ty;
 mod utils;
 
 use salsa::DisplayWithDb;
@@ -10,6 +11,7 @@ use salsa::DisplayWithDb;
 pub use self::application::*;
 pub use self::hole::*;
 pub use self::ritchie::*;
+pub use self::rune::*;
 pub use self::symbol_ty::*;
 
 use crate::*;

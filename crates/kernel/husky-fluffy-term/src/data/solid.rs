@@ -13,7 +13,7 @@ pub enum SolidTermData {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<SolidTerm>,
+        parameter_rune: Option<SolidTerm>,
         parameter_ty: SolidTerm,
         return_ty: SolidTerm,
     },
@@ -41,13 +41,14 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
             SolidTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyTermData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
-                parameter_variable: parameter_variable.map(Into::into),
+                parameter_rune: todo!(),
+                // parameter_rune.map(Into::into),
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,
@@ -77,13 +78,14 @@ impl<'a> Into<FluffyBaseTypeData<'a>> for &'a SolidTermData {
             SolidTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyBaseTypeData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
-                parameter_variable: parameter_variable.map(Into::into),
+                parameter_rune: todo!(),
+                // parameter_rune.map(Into::into),
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,

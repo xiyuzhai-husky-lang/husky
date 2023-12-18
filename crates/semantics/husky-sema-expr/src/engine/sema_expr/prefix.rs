@@ -39,7 +39,7 @@ impl<'a> SemaExprEngine<'a> {
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
-                        parameter_variable,
+                        parameter_rune: parameter_rune,
                         parameter_ty,
                         return_ty,
                         ty_ethereal_term,
@@ -59,7 +59,7 @@ impl<'a> SemaExprEngine<'a> {
                         ..
                     } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::Rune { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 }
             }
@@ -170,7 +170,7 @@ impl<'a> SemaExprEngine<'a> {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -184,7 +184,7 @@ impl<'a> SemaExprEngine<'a> {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

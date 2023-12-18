@@ -5,7 +5,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

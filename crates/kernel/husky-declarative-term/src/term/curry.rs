@@ -9,7 +9,7 @@ pub struct DeclarativeTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<DeclarativeTermRune>,
+    pub parameter_rune: Option<DeclarativeTermRune>,
     /// X
     pub parameter_ty: DeclarativeTerm,
     /// Y
@@ -30,13 +30,13 @@ impl DeclarativeTermCurry {
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,
     ) -> Self {
-        let (return_ty, parameter_variable) = return_ty.r#abstract(db, parameter_symbol);
+        let (return_ty, parameter_rune) = return_ty.r#abstract(db, parameter_symbol);
         DeclarativeTermCurry::new_inner(
             db,
             toolchain,
             curry_kind,
             variance,
-            parameter_variable,
+            parameter_rune,
             parameter_ty,
             return_ty,
         )
@@ -72,7 +72,7 @@ impl DeclarativeTermCurry {
             symbol.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            self.parameter_variable(db),
+            self.parameter_rune(db),
             self.parameter_ty(db)
                 .substitute_symbol_with_variable(db, symbol, variable),
             self.return_ty(db)
@@ -85,10 +85,10 @@ impl DeclarativeTermCurry {
         db: &::salsa::Db,
         substitute: DeclarativeTerm,
     ) -> DeclarativeTerm {
-        match self.parameter_variable(db) {
-            Some(parameter_variable) => self.return_ty(db).substitute(
+        match self.parameter_rune(db) {
+            Some(parameter_rune) => self.return_ty(db).substitute(
                 db,
-                &DeclarativeTermSubstitution::new(parameter_variable, substitute),
+                &DeclarativeTermSubstitution::new(parameter_rune, substitute),
             ),
             None => self.return_ty(db),
         }
@@ -101,14 +101,14 @@ impl DeclarativeTermCurry {
         db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
-        let parameter_variable = self.parameter_variable(db);
-        if parameter_variable.is_some() {
+        let parameter_rune = self.parameter_rune(db);
+        if parameter_rune.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
-        if let Some(parameter_variable) = parameter_variable {
-            ctx.fmt_with_variable(db, parameter_variable, |ctx| {
-                ctx.fmt_variable(db, parameter_variable, f);
+        if let Some(parameter_rune) = parameter_rune {
+            ctx.fmt_with_variable(db, parameter_rune, |ctx| {
+                ctx.fmt_variable(db, parameter_rune, f);
                 f.write_str(": ")?;
                 self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
                 f.write_str(") -> ")?;
@@ -139,13 +139,13 @@ impl salsa::DisplayWithDb for DeclarativeTermCurry {
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
     fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
-        let old_parameter_variable = self.parameter_variable(db);
-        let parameter_variable = old_parameter_variable.map(|v| v.substitute(db, substituation));
+        let old_parameter_variable = self.parameter_rune(db);
+        let parameter_rune = old_parameter_variable.map(|v| v.substitute(db, substituation));
         let old_parameter_ty = self.parameter_ty(db);
         let parameter_ty = old_parameter_ty.substitute(db, substituation);
         let old_return_ty = self.return_ty(db);
         let return_ty = old_return_ty.substitute(db, substituation);
-        if old_parameter_variable == parameter_variable
+        if old_parameter_variable == parameter_rune
             && old_parameter_ty == parameter_ty
             && old_return_ty == return_ty
         {
@@ -156,7 +156,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            parameter_variable,
+            parameter_rune,
             parameter_ty,
             return_ty,
         )

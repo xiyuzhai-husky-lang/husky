@@ -120,7 +120,7 @@ impl EtherealTerm {
             EtherealTerm::Symbol(symbol) => {
                 RawType::Declarative(symbol.ty(db).into_declarative(db))
             }
-            EtherealTerm::Variable(variable) => {
+            EtherealTerm::Rune(variable) => {
                 RawType::Declarative(variable.ty(db).into_declarative(db))
             }
             EtherealTerm::EntityPath(path) => match path {

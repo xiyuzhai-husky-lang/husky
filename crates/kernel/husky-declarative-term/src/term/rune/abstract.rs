@@ -66,7 +66,7 @@ impl DeclarativeTerm {
         // scan
         match self {
             DeclarativeTerm::Curry(term) => {
-                if let Some(v) = term.parameter_variable(db) {
+                if let Some(v) = term.parameter_rune(db) {
                     if let Ok(ty) = v.ty(db) {
                         t(ty)
                     }

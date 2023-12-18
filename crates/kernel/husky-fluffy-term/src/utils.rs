@@ -10,7 +10,7 @@ impl FluffyTerm {
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -39,7 +39,7 @@ impl FluffyTerm {
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -58,7 +58,7 @@ impl FluffyTerm {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -73,7 +73,7 @@ impl FluffyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Symbol { .. } | FluffyTermData::Variable { .. } => 0,
+            FluffyTermData::Symbol { .. } | FluffyTermData::Rune { .. } => 0,
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -83,7 +83,7 @@ fn curry_destination(db: &::salsa::Db, term: EtherealTerm) -> EtherealTerm {
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(_) => todo!(),
-        EtherealTerm::Variable(_) => todo!(),
+        EtherealTerm::Rune(_) => todo!(),
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_)

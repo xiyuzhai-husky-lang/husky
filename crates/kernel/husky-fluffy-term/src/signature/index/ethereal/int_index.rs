@@ -58,7 +58,7 @@ fn coersible_to_int(engine: &mut impl FluffyTermEngine, index_ty: FluffyTerm) ->
             return_ty,
         } => false,
         FluffyTermData::Symbol { term, ty } => false,
-        FluffyTermData::Variable { ty } => unreachable!(),
+        FluffyTermData::Rune { ty } => unreachable!(),
         FluffyTermData::TypeVariant { path } => unreachable!(),
     }
 }

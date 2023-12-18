@@ -43,7 +43,7 @@ impl FluffyTerm {
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
-                        parameter_variable,
+                        parameter_rune: parameter_rune,
                         parameter_ty,
                         return_ty,
                         ty_ethereal_term,
@@ -57,7 +57,7 @@ impl FluffyTerm {
                         ..
                     } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::Rune { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())

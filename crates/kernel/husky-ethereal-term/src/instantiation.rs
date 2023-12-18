@@ -110,7 +110,7 @@ impl EtherealInstantiationBuilder {
         match src {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(_) => todo!(),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

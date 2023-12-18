@@ -81,7 +81,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
 ) -> EtherealSignatureResult<bool> {
     match ty_term {
         EtherealTerm::Symbol(_) => return Ok(false), // ad hoc
-        EtherealTerm::Variable(_) => todo!(),
+        EtherealTerm::Rune(_) => todo!(),
         EtherealTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
                 RitchieTypeKind::Fn => match trai_path.refine(db) {

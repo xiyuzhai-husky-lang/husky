@@ -6,7 +6,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(_) => None,
             EtherealTerm::Symbol(term) => Some(term.toolchain(db)),
-            EtherealTerm::Variable(term) => term.toolchain(db),
+            EtherealTerm::Rune(term) => term.toolchain(db),
             EtherealTerm::EntityPath(path) => Some(path.toolchain(db)),
             EtherealTerm::Category(_) => None,
             EtherealTerm::Universe(_) => None,

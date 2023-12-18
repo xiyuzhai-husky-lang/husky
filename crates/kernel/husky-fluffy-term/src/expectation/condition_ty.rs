@@ -59,7 +59,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -72,7 +72,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
                 return_ty,
             } => todo!(),
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

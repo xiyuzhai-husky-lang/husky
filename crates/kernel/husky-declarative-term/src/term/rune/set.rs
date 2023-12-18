@@ -47,7 +47,7 @@ impl DeclarativeTerm {
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(self, db: &::salsa::Db,) -> Option<DeclarativeTermRunes> {
+    pub(crate) fn variables(self, db: &::salsa::Db) -> Option<DeclarativeTermRunes> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Rune(variable) => Some(DeclarativeTermRunes::new(
@@ -92,7 +92,7 @@ pub(crate) fn declarative_term_curry_placeholders(
     let return_ty_variables = term.return_ty(db).variables(db);
     DeclarativeTermRunes::merge(
         parameter_ty_variables,
-        DeclarativeTermRunes::remove(return_ty_variables, term.parameter_variable(db)),
+        DeclarativeTermRunes::remove(return_ty_variables, term.parameter_rune(db)),
     )
 }
 

@@ -18,7 +18,7 @@ impl HirTrait {
         match trai_term {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),

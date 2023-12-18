@@ -88,7 +88,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -117,7 +117,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::Literal(_) => todo!(),
                 FluffyTermData::TypeOntology {
@@ -129,7 +129,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 FluffyTermData::Curry {
                     curry_kind,
                     variance,
-                    parameter_variable,
+                    parameter_rune: parameter_rune,
                     parameter_ty,
                     return_ty,
                     ty_ethereal_term,
@@ -148,7 +148,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                 } => todo!(),
                 FluffyTermData::Symbol { term, ty } => todo!(),
-                FluffyTermData::Variable { ty } => todo!(),
+                FluffyTermData::Rune { ty } => todo!(),
                 FluffyTermData::TypeVariant { path } => todo!(),
             },
         }
