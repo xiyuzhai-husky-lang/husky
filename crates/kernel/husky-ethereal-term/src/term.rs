@@ -34,7 +34,7 @@ pub enum EtherealTerm {
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
-    Variable(EtherealTermRune),
+    Rune(EtherealTermRune),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -302,7 +302,7 @@ impl EtherealTerm {
                 s.index(db).into(),
             )
             .into(),
-            EtherealTerm::Variable(v) => {
+            EtherealTerm::Rune(v) => {
                 DeclarativeTermRune::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db)).into()
             }
             EtherealTerm::EntityPath(path) => path.into(),
@@ -326,7 +326,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(_)
             | EtherealTerm::Symbol(_)
-            | EtherealTerm::Variable(_)
+            | EtherealTerm::Rune(_)
             | EtherealTerm::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
@@ -532,7 +532,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(term) => term.show_with_db_fmt(f, db),
             EtherealTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::Variable(term) => term.show_with_db_fmt(f, db, ctx),
+            EtherealTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::EntityPath(term) => term.show_with_db_fmt(f, db),
             EtherealTerm::Category(term) => f.write_str(&term.to_string()),
             EtherealTerm::Universe(term) => f.write_str(&term.to_string()),
@@ -554,7 +554,7 @@ impl EtherealInstantiate for EtherealTerm {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(term) => term.instantiate(db, instantiation),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(_) => self,
             EtherealTerm::Category(_) => self,
             EtherealTerm::Universe(_) => todo!(),

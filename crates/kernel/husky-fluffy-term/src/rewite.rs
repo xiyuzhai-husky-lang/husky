@@ -3,32 +3,32 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ImplicitParameterSubstitution {
-    variable: FluffyTerm,
+    rune: FluffyTermRune,
     substitute: FluffyTerm,
 }
 
 impl ImplicitParameterSubstitution {
-    pub(crate) fn new(variable: FluffyTerm, substitute: impl Into<FluffyTerm>) -> Self {
+    pub(crate) fn new(rune: FluffyTermRune, substitute: impl Into<FluffyTerm>) -> Self {
         Self {
-            variable,
+            rune,
             substitute: substitute.into(),
         }
     }
 }
 
 impl FluffyTerm {
-    pub fn substitute_variable(
+    pub fn substitute_rune(
         self,
         engine: &mut impl FluffyTermEngine,
         src: HoleSource,
-        variable: FluffyTerm,
+        rune: FluffyTermRune,
         substitute: FluffyTerm,
     ) -> Self {
         self.rewrite_inner(
             engine.db(),
             engine.fluffy_terms_mut(),
             src,
-            &[ImplicitParameterSubstitution::new(variable, substitute)],
+            &[ImplicitParameterSubstitution::new(rune, substitute)],
         )
     }
 
@@ -71,13 +71,14 @@ impl FluffyTerm {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => {
-                let parameter_variable =
-                    parameter_variable.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
+                p!(substitution_rules, parameter_rune);
+                let parameter_rune =
+                    parameter_rune.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
                 let parameter_ty = parameter_ty.rewrite_inner(db, terms, src, substitution_rules);
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
                 FluffyTerm::new_curry(
@@ -85,7 +86,7 @@ impl FluffyTerm {
                     terms,
                     curry_kind,
                     variance,
-                    parameter_variable,
+                    parameter_rune,
                     parameter_ty,
                     return_ty,
                 )
@@ -110,10 +111,11 @@ impl FluffyTerm {
                 FluffyTerm::new_richie(db, terms, ritchie_kind, parameter_contracted_tys, return_ty)
             }
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => substitution_rules
+            // todo: this is wrong
+            FluffyTermData::Rune { ty } => substitution_rules
                 .iter()
                 .copied()
-                .find_map(|rule| (rule.variable == self).then_some(rule.substitute))
+                .find_map(|rule| (*rule.rune == self).then_some(rule.substitute))
                 .unwrap_or(self),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

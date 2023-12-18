@@ -233,7 +233,7 @@ fn unveil_impl_block_signature_templates(
             // ad hoc
             Nothing
         }
-        EtherealTerm::Variable(_) => todo!(),
+        EtherealTerm::Rune(_) => todo!(),
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),

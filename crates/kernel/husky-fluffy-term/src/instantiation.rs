@@ -193,7 +193,7 @@ impl FluffyInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(_) => todo!(),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
@@ -283,7 +283,7 @@ impl FluffyInstantiate for EtherealTerm {
                     },
                 },
             },
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(_) => self.into(),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

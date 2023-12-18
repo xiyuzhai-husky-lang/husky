@@ -23,7 +23,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
             FluffyBaseTypeData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -49,7 +49,8 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyBaseTypeData::Symbol { term } => todo!(),
+            FluffyBaseTypeData::Symbol { symbol: term } => todo!(),
+            FluffyBaseTypeData::Rune { rune } => todo!(),
         }
     }
 }

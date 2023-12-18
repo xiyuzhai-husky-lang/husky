@@ -36,7 +36,7 @@ impl EtherealTerm {
     pub(crate) fn symbols(self, db: &::salsa::Db) -> Option<EtherealTermSymbols> {
         match self {
             EtherealTerm::Literal(_)
-            | EtherealTerm::Variable(_)
+            | EtherealTerm::Rune(_)
             | EtherealTerm::EntityPath(_)
             | EtherealTerm::Category(_) => None,
             EtherealTerm::Universe(_) => None, // ad hoc

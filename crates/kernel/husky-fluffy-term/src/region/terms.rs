@@ -29,14 +29,14 @@ impl FluffyTerms {
         }
     }
 
-    pub(crate) fn new_hole_from_parameter_symbol(
+    pub(crate) fn new_hole_from_parameter_rune(
         &mut self,
         db: &::salsa::Db,
         hole_source: HoleSource,
-        parameter_symbol: FluffyTerm,
+        parameter_rune: FluffyTermRune,
     ) -> HollowTerm {
-        let hole_kind = match parameter_symbol.data_inner(db, self) {
-            FluffyTermData::Variable { ty } => match ty.data_inner(db, self) {
+        let hole_kind = match parameter_rune.data_inner(db, self) {
+            FluffyTermData::Rune { ty } => match ty.data_inner(db, self) {
                 FluffyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -46,7 +46,7 @@ impl FluffyTerms {
                 FluffyTermData::Curry {
                     curry_kind,
                     variance,
-                    parameter_variable,
+                    parameter_rune: parameter_rune,
                     parameter_ty,
                     return_ty,
                     ty_ethereal_term,
@@ -65,10 +65,20 @@ impl FluffyTerms {
                     return_ty,
                 } => todo!(),
                 FluffyTermData::Symbol { .. } => HoleKind::Any,
-                FluffyTermData::Variable { ty } => todo!(),
+                FluffyTermData::Rune { ty } => todo!(),
                 _ => unreachable!(),
             },
-            _ => unreachable!(),
+            FluffyTermData::Hole(_, _) => todo!(),
+            // match parameter_symbol.base() {
+            //     FluffyTermBase::Ethereal(_) => todo!(),
+            //     FluffyTermBase::Solid(_) => todo!(),
+            //     FluffyTermBase::Hollow(hole_term) => return hole_term,
+            //     FluffyTermBase::Place => todo!(),
+            // },
+            _ => {
+                p!(parameter_rune.data_inner(db, self).debug(db));
+                unreachable!()
+            }
         };
         self.hollow_terms.alloc_new(HollowTermData::Hole {
             hole_source,

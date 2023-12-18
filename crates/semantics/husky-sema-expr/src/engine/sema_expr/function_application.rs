@@ -29,7 +29,7 @@ impl<'a> SemaExprEngine<'a> {
         match function_ty_outcome.variant() {
             ExpectEqsFunctionTypeOutcomeData::Curry {
                 variance,
-                parameter_symbol,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => {
@@ -37,7 +37,7 @@ impl<'a> SemaExprEngine<'a> {
                     .calc_function_application_expr_ty_aux(
                         expr_idx,
                         *variance,
-                        *parameter_symbol,
+                        *parameter_rune,
                         *parameter_ty,
                         *return_ty,
                         argument_syn_expr_idx,
@@ -69,7 +69,7 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         syn_expr_idx: SynExprIdx,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_syn_expr_idx: SynExprIdx,
@@ -88,12 +88,12 @@ impl<'a> SemaExprEngine<'a> {
             argument_ty.curry_parameter_count(self) - parameter_ty.curry_parameter_count(self);
         // needs also to check type
         let ty_result = match shift {
-            0 => match parameter_variable {
-                Some(parameter_variable) => match self.infer_expr_term(argument_sema_expr_idx) {
-                    Some(argument_term) => Ok(return_ty.substitute_variable(
+            0 => match parameter_rune {
+                Some(parameter_rune) => match self.infer_expr_term(argument_sema_expr_idx) {
+                    Some(argument_term) => Ok(return_ty.substitute_rune(
                         self,
                         syn_expr_idx.into(),
-                        parameter_variable,
+                        parameter_rune,
                         argument_term,
                     )),
                     None => Err(
@@ -106,7 +106,7 @@ impl<'a> SemaExprEngine<'a> {
             shift => self
                 .synthesize_function_application_expr_ty(
                     variance,
-                    parameter_variable,
+                    parameter_rune,
                     parameter_ty,
                     return_ty,
                     argument_ty,

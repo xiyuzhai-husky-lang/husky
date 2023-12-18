@@ -10,7 +10,7 @@ pub enum HollowTermData {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },
@@ -90,13 +90,13 @@ impl HollowTerm {
             HollowTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyTermData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
-                parameter_variable: parameter_variable.map(Into::into),
+                parameter_rune: *parameter_rune,
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,
@@ -155,13 +155,13 @@ impl HollowTerm {
             HollowTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyBaseTypeData::Curry {
                 curry_kind: *curry_kind,
                 variance: *variance,
-                parameter_variable: parameter_variable.map(Into::into),
+                parameter_rune: parameter_rune.map(Into::into),
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,

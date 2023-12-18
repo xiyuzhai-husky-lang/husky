@@ -10,7 +10,7 @@ pub(super) fn ethereal_term_data<'a>(
             term,
             ty: term.ty(db).into(),
         },
-        EtherealTerm::Variable(term) => FluffyTermData::Variable {
+        EtherealTerm::Rune(term) => FluffyTermData::Rune {
             ty: term.ty(db).into(),
         },
         EtherealTerm::EntityPath(path) => match path {
@@ -30,7 +30,7 @@ pub(super) fn ethereal_term_data<'a>(
         EtherealTerm::Curry(term) => FluffyTermData::Curry {
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
-            parameter_variable: term.parameter_variable(db).map(Into::into),
+            parameter_rune: term.parameter_rune(db).map(Into::into),
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),
@@ -164,8 +164,8 @@ pub(super) fn ethereal_term_data2<'a>(
 ) -> FluffyBaseTypeData<'a> {
     match term {
         EtherealTerm::Literal(_) => todo!(),
-        EtherealTerm::Symbol(term) => FluffyBaseTypeData::Symbol { term },
-        EtherealTerm::Variable(term) => unreachable!(),
+        EtherealTerm::Symbol(symbol) => FluffyBaseTypeData::Symbol { symbol },
+        EtherealTerm::Rune(rune) => FluffyBaseTypeData::Rune { rune },
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),
@@ -183,7 +183,7 @@ pub(super) fn ethereal_term_data2<'a>(
         EtherealTerm::Curry(term) => FluffyBaseTypeData::Curry {
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
-            parameter_variable: term.parameter_variable(db).map(Into::into),
+            parameter_rune: term.parameter_rune(db).map(Into::into),
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
             ty_ethereal_term: Some(term),

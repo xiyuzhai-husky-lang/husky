@@ -12,7 +12,7 @@ pub struct EtherealTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<EtherealTermRune>,
+    pub parameter_rune: Option<EtherealTermRune>,
     /// X
     pub parameter_ty: EtherealTerm,
     /// Y
@@ -42,14 +42,14 @@ impl EtherealTermCurry {
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        let parameter_variable = self.parameter_variable(db);
-        if parameter_variable.is_some() {
+        let parameter_rune = self.parameter_rune(db);
+        if parameter_rune.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
-        if let Some(parameter_variable) = parameter_variable {
-            ctx.fmt_with_variable(db, parameter_variable, |ctx| {
-                ctx.fmt_variable(db, parameter_variable, f);
+        if let Some(parameter_rune) = parameter_rune {
+            ctx.fmt_with_variable(db, parameter_rune, |ctx| {
+                ctx.fmt_variable(db, parameter_rune, f);
                 f.write_str(": ")?;
                 self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
                 f.write_str(") -> ")?;
@@ -77,9 +77,9 @@ pub(crate) fn term_curry_from_declarative(
         db,
         declarative_term_curry.curry_kind(db),
         declarative_term_curry.variance(db),
-        match declarative_term_curry.parameter_variable(db) {
-            Some(parameter_variable) => {
-                Some(EtherealTermRune::from_declarative(db, parameter_variable)?)
+        match declarative_term_curry.parameter_rune(db) {
+            Some(parameter_rune) => {
+                Some(EtherealTermRune::from_declarative(db, parameter_rune)?)
             }
             None => None,
         },

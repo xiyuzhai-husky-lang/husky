@@ -183,7 +183,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
     let argument = term_application.argument(db);
     match function.raw_ty(db)? {
         RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
-            match function_ty.parameter_variable(db) {
+            match function_ty.parameter_rune(db) {
                 Some(function_ty_parameter_variable) => {
                     ethereal_term_application_declarative_ty_dependent_aux(
                         db,
@@ -206,7 +206,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
     }
 }
 
-/// function_ty.parameter_variable(db) matches Some
+/// function_ty.parameter_rune(db) matches Some
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
     function_ty: DeclarativeTermCurry,
@@ -282,14 +282,14 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     }
 }
 
-/// function_ty.parameter_variable(db) is None
+/// function_ty.parameter_rune(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &::salsa::Db,
     function_ty: DeclarativeTermCurry,
     argument_ty: RawType,
     shift: u8,
 ) -> EtherealTermResult<DeclarativeTerm> {
-    debug_assert!(function_ty.parameter_variable(db).is_none());
+    debug_assert!(function_ty.parameter_rune(db).is_none());
     match shift {
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {

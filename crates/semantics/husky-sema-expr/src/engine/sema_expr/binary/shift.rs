@@ -73,7 +73,7 @@ impl<'a> SemaExprEngine<'a> {
             | FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

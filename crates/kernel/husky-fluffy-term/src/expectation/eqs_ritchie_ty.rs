@@ -53,20 +53,49 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => self.resolve_curry(
-                db,
-                terms,
-                meta,
-                curry_kind,
-                variance,
-                parameter_variable,
-                parameter_ty,
-                return_ty,
-            ),
+            } => {
+                if let Some(parameter_rune) = parameter_rune {
+                    match parameter_rune.base_ty_data_inner(db, terms) {
+                        FluffyBaseTypeData::TypeOntology {
+                            ty_path,
+                            refined_ty_path,
+                            ty_arguments,
+                            ty_ethereal_term,
+                        } => todo!(),
+                        FluffyBaseTypeData::Curry {
+                            curry_kind,
+                            variance,
+                            parameter_rune,
+                            parameter_ty,
+                            return_ty,
+                            ty_ethereal_term,
+                        } => todo!(),
+                        FluffyBaseTypeData::Hole(_, _) => todo!(),
+                        FluffyBaseTypeData::Category(_) => todo!(),
+                        FluffyBaseTypeData::Ritchie {
+                            ritchie_kind,
+                            parameter_contracted_tys,
+                            return_ty,
+                        } => todo!(),
+                        FluffyBaseTypeData::Symbol { symbol } => todo!(),
+                        FluffyBaseTypeData::Rune { rune } => (),
+                    }
+                }
+                self.resolve_curry(
+                    db,
+                    terms,
+                    meta,
+                    curry_kind,
+                    variance,
+                    parameter_rune,
+                    parameter_ty,
+                    return_ty,
+                )
+            }
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
@@ -84,7 +113,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 smallvec![],
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -121,7 +150,7 @@ impl ExpectEqsRitchieType {
         meta: &mut ExpectationState,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     ) -> AltOption<FluffyTermEffect> {
@@ -131,7 +160,7 @@ impl ExpectEqsRitchieType {
             meta,
             curry_kind,
             variance,
-            parameter_variable,
+            parameter_rune,
             parameter_ty,
             return_ty,
             smallvec![],
@@ -157,7 +186,7 @@ impl ExpectEqsRitchieType {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune: parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -167,7 +196,7 @@ impl ExpectEqsRitchieType {
                 state,
                 curry_kind,
                 variance,
-                parameter_variable,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 template_parameter_substitutions,
@@ -188,7 +217,7 @@ impl ExpectEqsRitchieType {
                 Default::default(),
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Rune { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -200,23 +229,50 @@ impl ExpectEqsRitchieType {
         meta: &mut ExpectationState,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         mut template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     ) -> AltOption<FluffyTermEffect> {
+        if let Some(parameter_rune) = parameter_rune {
+            match parameter_rune.base_ty_data_inner(db, terms) {
+                FluffyBaseTypeData::TypeOntology {
+                    ty_path,
+                    refined_ty_path,
+                    ty_arguments,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyBaseTypeData::Curry {
+                    curry_kind,
+                    variance,
+                    parameter_rune,
+                    parameter_ty,
+                    return_ty,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyBaseTypeData::Hole(_, _) => todo!(),
+                FluffyBaseTypeData::Category(_) => todo!(),
+                FluffyBaseTypeData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                } => todo!(),
+                FluffyBaseTypeData::Symbol { symbol } => todo!(),
+                FluffyBaseTypeData::Rune { rune } => (),
+            }
+        }
         match curry_kind {
             CurryKind::Explicit => todo!(),
             // comes from implicit parameters, or generics in other languages
-            CurryKind::Implicit => match parameter_variable {
-                Some(parameter_variable) => {
-                    let implicit_symbol = terms.new_hole_from_parameter_symbol(
+            CurryKind::Implicit => match parameter_rune {
+                Some(parameter_rune) => {
+                    let implicit_symbol = terms.new_hole_from_parameter_rune(
                         db,
                         HoleSource::Expectation(meta.idx()),
-                        parameter_variable,
+                        parameter_rune,
                     );
                     template_parameter_substitutions.push(ImplicitParameterSubstitution::new(
-                        parameter_variable,
+                        parameter_rune,
                         implicit_symbol,
                     ));
                     let expectee = return_ty.rewrite_inner(

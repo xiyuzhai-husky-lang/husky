@@ -31,3 +31,13 @@ impl EtherealTermRune {
         ctx.fmt_variable(db, self, f)
     }
 }
+
+impl EtherealTerm {
+    #[track_caller]
+    pub fn rune(self) -> EtherealTermRune {
+        match self {
+            EtherealTerm::Rune(slf) => slf,
+            _ => unreachable!(),
+        }
+    }
+}

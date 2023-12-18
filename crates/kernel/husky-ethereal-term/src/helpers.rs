@@ -96,8 +96,8 @@ pub(crate) fn ethereal_term_curry_toolchain(
     term: EtherealTermCurry,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
-    if let Some(parameter_variable) = term.parameter_variable(db) {
-        merger.accept(parameter_variable.toolchain(db))
+    if let Some(parameter_rune) = term.parameter_rune(db) {
+        merger.accept(parameter_rune.toolchain(db))
     }
     merger.accept(term.parameter_ty(db).toolchain(db));
     merger.accept(term.return_ty(db).toolchain(db));

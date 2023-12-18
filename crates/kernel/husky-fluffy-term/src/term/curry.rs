@@ -6,22 +6,19 @@ impl FluffyTerm {
         terms: &mut FluffyTerms,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_variable: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     ) -> Self {
         let mut merger = FluffyTermDataKindMerger::new(terms);
-        merger.accept(parameter_variable);
+        merger.accept(parameter_rune.map(|rune| *rune));
         merger.accept([parameter_ty, return_ty]);
         match merger.data_kind() {
             FluffyTermDataKind::Ethereal => EtherealTermCurry::new(
                 db,
                 curry_kind,
                 variance,
-                parameter_variable.map(|v| match v.resolve_as_ethereal(terms) {
-                    Some(EtherealTerm::Variable(v)) => v,
-                    _ => unreachable!("guaranteed by merger"),
-                }),
+                parameter_rune.map(|v| v.resolve_as_ethereal(terms).unwrap().rune()),
                 parameter_ty
                     .resolve_as_ethereal(terms)
                     .expect("guaranteed by merger"),
@@ -36,7 +33,7 @@ impl FluffyTerm {
                 .alloc_new(HollowTermData::Curry {
                     curry_kind,
                     variance,
-                    parameter_variable,
+                    parameter_rune,
                     parameter_ty,
                     return_ty,
                 })

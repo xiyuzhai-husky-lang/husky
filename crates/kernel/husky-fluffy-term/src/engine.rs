@@ -38,7 +38,7 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn synthesize_function_application_expr_ty(
         &mut self,
         variance: Variance,
-        parameter_symbol: Option<FluffyTerm>,
+        parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_ty: FluffyTerm,
@@ -51,7 +51,7 @@ pub trait FluffyTermEngine<'a>: Sized {
         debug_assert_eq!(parameter_ty.place(), None);
         debug_assert_eq!(return_ty.place(), None);
         match (
-            parameter_symbol.map(|symbol| symbol.base_resolved(self)),
+            parameter_rune.map(|rune| rune.base_resolved(self)),
             parameter_ty.base_resolved(self),
             return_ty.base_resolved(self),
             argument_ty.base_resolved(self),
@@ -75,14 +75,14 @@ pub trait FluffyTermEngine<'a>: Sized {
             }
             _ => (),
         }
-        if parameter_symbol.is_some() {
+        if parameter_rune.is_some() {
             todo!()
         }
         match argument_ty.data(self) {
             FluffyTermData::Curry {
                 curry_kind: argument_curry_kind,
                 variance: argument_variance,
-                parameter_variable: argument_parameter_variable,
+                parameter_rune: argument_parameter_variable,
                 parameter_ty: argument_parameter_ty,
                 return_ty: argument_return_ty,
                 ..
@@ -92,7 +92,7 @@ pub trait FluffyTermEngine<'a>: Sized {
                 }
                 let expr_ty = self.synthesize_function_application_expr_ty(
                     variance,
-                    parameter_symbol,
+                    parameter_rune,
                     parameter_ty,
                     return_ty,
                     argument_return_ty,
