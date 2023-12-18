@@ -4,8 +4,6 @@ use husky_sema_opr::suffix::SemaSuffixOpr;
 pub enum HirSuffixOpr {
     Incr,
     Decr,
-    Unveil,
-    Unwrap,
 }
 
 impl HirSuffixOpr {
@@ -13,9 +11,7 @@ impl HirSuffixOpr {
         match opr {
             SemaSuffixOpr::Incr => HirSuffixOpr::Incr,
             SemaSuffixOpr::Decr => HirSuffixOpr::Decr,
-            SemaSuffixOpr::Unveil => HirSuffixOpr::Unveil,
             SemaSuffixOpr::ComposeWithOption => unreachable!(),
-            SemaSuffixOpr::Unwrap => HirSuffixOpr::Unwrap,
             SemaSuffixOpr::ComposeWithNot => unreachable!(),
         }
     }

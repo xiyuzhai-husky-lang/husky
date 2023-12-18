@@ -8,6 +8,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPath(ItemPathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPathData {
     pub parent_ty_path: TypePath,

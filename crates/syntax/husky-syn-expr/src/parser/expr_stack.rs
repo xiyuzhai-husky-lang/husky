@@ -163,7 +163,7 @@ impl SynExprData {
                     } => todo!(),
                     SynExprData::TemplateInstantiation {
                         template,
-                        generic_arguments,
+                        template_arguments: generic_arguments,
                     } => todo!(),
                     SynExprData::ExplicitApplication {
                         function_expr_idx,

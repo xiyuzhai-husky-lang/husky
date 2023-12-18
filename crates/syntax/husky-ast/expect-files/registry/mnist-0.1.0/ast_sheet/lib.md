@@ -9,20 +9,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 378,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Zero`,
                             },
                         ),
                     },
@@ -53,20 +41,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 307,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `One`,
                             },
                         ),
                     },
@@ -97,20 +73,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 364,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Two`,
                             },
                         ),
                     },
@@ -141,20 +105,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 354,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Three`,
                             },
                         ),
                     },
@@ -185,20 +137,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 286,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Four`,
                             },
                         ),
                     },
@@ -229,20 +169,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 277,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Five`,
                             },
                         ),
                     },
@@ -273,20 +201,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 338,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Six`,
                             },
                         ),
                     },
@@ -317,20 +233,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 331,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Seven`,
                             },
                         ),
                     },
@@ -361,20 +265,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 266,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Eight`,
                             },
                         ),
                     },
@@ -405,20 +297,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 230,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 302,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                ident: `Nine`,
                             },
                         ),
                     },

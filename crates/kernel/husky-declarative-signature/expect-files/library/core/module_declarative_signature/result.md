@@ -167,8 +167,8 @@
                                             disambiguator: 0,
                                         },
                                     },
-                                    ident: `branch`,
-                                    item_kind: MethodFn,
+                                    ident: `unveil`,
+                                    item_kind: AssociatedFunctionFn,
                                 },
                             ),
                         ),
@@ -179,15 +179,11 @@
         Ok(
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(
+                        TraitForTypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`core::result::Result t s`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: Pure,
-                                ty: DeclarativeTerm(`core::result::Result t s`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [

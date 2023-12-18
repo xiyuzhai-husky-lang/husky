@@ -363,6 +363,8 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 )];
                 (opn, arguments)
             }
+            HirLazyExprData::Unveil { opd_hir_expr_idx } => todo!(),
+            HirLazyExprData::Unwrap { opd_hir_expr_idx } => todo!(),
             HirLazyExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,

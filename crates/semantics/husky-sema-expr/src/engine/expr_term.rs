@@ -277,6 +277,8 @@ impl<'a> SemaExprEngine<'a> {
                 opr,
                 opr_regional_token_idx,
             } => todo!(),
+            SemaExprData::Unveil { .. } => todo!(),
+            SemaExprData::Unwrap { .. } => todo!(),
             SemaExprData::FunctionApplication {
                 function_sema_expr_idx,
                 argument_sema_expr_idx,

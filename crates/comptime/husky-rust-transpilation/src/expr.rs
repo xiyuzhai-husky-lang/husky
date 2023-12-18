@@ -107,10 +107,9 @@ impl HirEagerExprSite {
             | HirEagerExprData::AssociatedFunctionFnCall { .. }
             | HirEagerExprData::MemoizedField { .. }
             | HirEagerExprData::MethodFnCall { .. }
-            | HirEagerExprData::Suffix {
-                opr: HirSuffixOpr::Unveil | HirSuffixOpr::Unwrap,
-                ..
-            } => match entry.ty_place {
+            | HirEagerExprData::Suffix { .. }
+            | HirEagerExprData::Unveil { .. }
+            | HirEagerExprData::Unwrap { .. } => match entry.ty_place {
                 HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
                 ty_place => match ty_place.location() {
                     Some(location) => match self.location_contract(location) {
@@ -239,17 +238,25 @@ impl HirEagerExprSite {
                 opd_hir_expr_idx,
                 opr,
             } => match opr {
-                HirSuffixOpr::Incr | HirSuffixOpr::Decr | HirSuffixOpr::Unwrap => {
+                HirSuffixOpr::Incr | HirSuffixOpr::Decr => {
                     (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
                     opr.transpile_to_rust(builder)
                 }
-                HirSuffixOpr::Unveil => {
-                    builder.macro_name(RustMacroName::Unveil);
-                    builder.bracketed(RustBracket::Par, |builder| {
-                        (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
-                    })
-                }
             },
+            HirEagerExprData::Unveil {
+                opd_hir_expr_idx,
+                unveil_associated_fn_path,
+                ref instantiation,
+            } => {
+                builder.macro_name(RustMacroName::Unveil);
+                builder.bracketed(RustBracket::Par, |builder| {
+                    (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
+                })
+            }
+            HirEagerExprData::Unwrap { opd_hir_expr_idx } => {
+                (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
+                builder.call_unwrap()
+            }
             HirEagerExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,

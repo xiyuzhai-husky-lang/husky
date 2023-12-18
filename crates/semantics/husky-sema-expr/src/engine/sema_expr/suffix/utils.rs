@@ -5,12 +5,13 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_ambiguous_suffix_expr_ty<F1, F2, F3>(
         &mut self,
         opd: SynExprIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
         final_destination: FinalDestination,
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
         application_composition_f_given_opd_ty: F3,
     ) -> (
-        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+        SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     )
     where
@@ -24,8 +25,9 @@ impl<'a> SemaExprEngine<'a> {
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
+            RegionalTokenIdx,
         ) -> (
-            SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+            SemaExprDataResult<SemaExprData>,
             SemaExprTypeResult<FluffyTerm>,
         ),
         F3: FnOnce(
@@ -35,14 +37,6 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprDataResult<SemaSuffixOpr>,
             SemaExprTypeResult<FluffyTerm>,
         ),
-        // F3: FnOnce(
-        //     &mut Self,
-        //     SynExprIdx,
-        //     FinalDestination,
-        // ) -> (
-        //     SemaExprDataResult<SemaExprData>,
-        //     SemaExprTypeResult<FluffyTerm>,
-        // ),
     {
         match final_destination {
             FinalDestination::Sort => {
@@ -55,7 +49,11 @@ impl<'a> SemaExprEngine<'a> {
                             let (sema_opr_result, ty_result) =
                                 naive_suffix_f_given_opd_ty(self, opd_ty);
                             (
-                                sema_opr_result.map(|sema_opr| (opd_sema_expr_idx, sema_opr)),
+                                sema_opr_result.map(|opr| SemaExprData::Suffix {
+                                    opd_sema_expr_idx,
+                                    opr,
+                                    opr_regional_token_idx,
+                                }),
                                 ty_result,
                             )
                         }
@@ -77,7 +75,7 @@ impl<'a> SemaExprEngine<'a> {
                     ),
                 }
             }
-            _ => naive_suffix_f(self, opd),
+            _ => naive_suffix_f(self, opd, opr_regional_token_idx),
         }
     }
 }

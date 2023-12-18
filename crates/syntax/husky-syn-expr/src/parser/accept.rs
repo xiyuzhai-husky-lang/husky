@@ -175,7 +175,7 @@ where
                         IncompleteCommaListOpr::NewLambdaHead => todo!(),
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
-                            let generic_arguments: Option<SynTemplateArgumentList> = None;
+                            let generic_arguments: Option<SynTemplateArguments> = None;
                             SynExprData::FunctionApplicationOrCall {
                                 function,
                                 template_arguments: generic_arguments,
@@ -204,7 +204,7 @@ where
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
                             SynExprData::TemplateInstantiation {
                                 template,
-                                generic_arguments: SynTemplateArgumentList::new(
+                                template_arguments: SynTemplateArguments::new(
                                     bra_regional_token_idx,
                                     items,
                                     ket_regional_token_idx,

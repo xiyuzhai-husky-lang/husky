@@ -14,8 +14,9 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_unwrap_expr_ty(
         &mut self,
         opd: SynExprIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+        SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let (opd_sema_expr_idx, opd_ty) = self.build_sema_expr_with_ty(opd, ExpectAnyOriginal);
@@ -36,7 +37,12 @@ impl<'a> SemaExprEngine<'a> {
                 ty_ethereal_term,
             } => match refined_ty_path {
                 Left(PreludeTypePath::Option | PreludeTypePath::Result) => (
-                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unwrap)),
+                    Ok(SemaExprData::Unwrap {
+                        opd_sema_expr_idx,
+                        opr_regional_token_idx,
+                        unwrap_method_path: todo!(),
+                        instantiation: todo!(),
+                    }),
                     Ok(ty_arguments[0]),
                 ),
                 _ => return (todo!(), Err(OriginalSemaExprTypeError::CannotUnwrap.into())),

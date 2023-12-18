@@ -60,7 +60,7 @@ pub struct EtherealSignatureJar(
     crate::helpers::trai_for_ty::ty_side_impl_block_signature_templates_map,
     crate::helpers::trai_for_ty::trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_map,
     crate::helpers::trai_for_ty::trai_side_derive_any_ethereal_signature_templates,
-    trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template,
+    trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder,
     trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template,
     // attr
     signature::ty_path_derive_attr_ethereal_signature_templates_map,

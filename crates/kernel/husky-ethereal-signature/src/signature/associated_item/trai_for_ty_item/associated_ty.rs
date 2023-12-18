@@ -61,18 +61,30 @@ fn trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signa
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
     Some(TraitForTypeAssociatedTypeEtherealSignature {
+        path: template.path(db),
         ty_term: template.associated_ty(db).instantiate(db, &instantiation),
+        instantiation,
     })
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TraitForTypeAssociatedTypeEtherealSignature {
+    path: TraitForTypeItemPath,
+    instantiation: EtherealInstantiation,
     ty_term: EtherealTerm,
 }
 
 impl TraitForTypeAssociatedTypeEtherealSignature {
+    pub fn path(&self) -> TraitForTypeItemPath {
+        self.path
+    }
+
     pub fn ty_term(&self) -> EtherealTerm {
         self.ty_term
+    }
+
+    pub fn instantiation(&self) -> &EtherealInstantiation {
+        &self.instantiation
     }
 }

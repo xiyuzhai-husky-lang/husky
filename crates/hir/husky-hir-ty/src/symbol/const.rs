@@ -18,3 +18,16 @@ pub enum HirConstSymbolIndex {
         disambiguator: u8,
     },
 }
+
+impl HirConstSymbolIndex {
+    pub fn attrs(self) -> HirTemplateSymbolAttrs {
+        match self {
+            HirConstSymbolIndex::PathLeading { attrs, .. }
+            | HirConstSymbolIndex::Other { attrs, .. } => attrs,
+        }
+    }
+
+    pub fn class(self) -> HirTemplateSymbolClass {
+        self.attrs().class
+    }
+}

@@ -38,6 +38,7 @@ pub struct CowordMenu {
     module_ident: Ident,
     crate_ident: Ident,
     camel_case_output_ident: Ident,
+    snake_case_unveil_ident: Ident,
 }
 
 impl CowordMenu {
@@ -77,6 +78,7 @@ impl CowordMenu {
             lifetime_ty_ident: Ident::from_ref(db, "Lifetime").unwrap(),
             place_ty_ident: Ident::from_ref(db, "Place").unwrap(),
             camel_case_output_ident: Ident::from_ref(db, "Output").unwrap(),
+            snake_case_unveil_ident: Ident::from_ref(db, "unveil").unwrap(),
         }
     }
 
@@ -214,6 +216,10 @@ impl CowordMenu {
 
     pub fn camel_case_output_ident(&self) -> Ident {
         self.camel_case_output_ident
+    }
+
+    pub fn snake_case_unveil_ident(&self) -> Ident {
+        self.snake_case_unveil_ident
     }
 }
 

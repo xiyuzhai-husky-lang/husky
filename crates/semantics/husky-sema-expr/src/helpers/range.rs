@@ -352,8 +352,18 @@ impl<'a> SemaExprRangeCalculator<'a> {
             } => RegionalTokenIdxRange::new(*opr_regional_token_idx, self[opd_sema_expr_idx].end()),
             SemaExprData::Suffix {
                 opd_sema_expr_idx,
-                opr,
                 opr_regional_token_idx,
+                ..
+            }
+            | SemaExprData::Unveil {
+                opd_sema_expr_idx,
+                opr_regional_token_idx,
+                ..
+            }
+            | SemaExprData::Unwrap {
+                opd_sema_expr_idx,
+                opr_regional_token_idx,
+                ..
             } => self[opd_sema_expr_idx]
                 .to(RegionalTokenIdxRangeEnd::new_after(*opr_regional_token_idx)),
             SemaExprData::FunctionApplication {

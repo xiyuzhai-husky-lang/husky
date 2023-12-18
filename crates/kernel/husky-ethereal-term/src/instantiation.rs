@@ -27,6 +27,22 @@ impl EtherealInstantiation {
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }
+
+    pub fn symbol_map_splitted(
+        &self,
+    ) -> (
+        &[(EtherealTermSymbol, EtherealTerm)],
+        Option<&[(EtherealTermSymbol, EtherealTerm)]>,
+    ) {
+        let symbol_map: &[_] = self.symbol_map.as_ref();
+        match self.separator {
+            Some(separator) => {
+                let separator = separator as usize;
+                (&symbol_map[0..separator], Some(&symbol_map[separator..]))
+            }
+            None => (symbol_map, None),
+        }
+    }
 }
 
 pub trait EtherealInstantiate: Copy {

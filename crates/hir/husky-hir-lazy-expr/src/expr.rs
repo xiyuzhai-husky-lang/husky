@@ -15,7 +15,7 @@ use husky_hir_ty::{
     HirTemplateArguments, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
-use husky_sema_opr::binary::SemaBinaryOpr;
+use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_term_prelude::TermLiteral;
 use idx_arena::ArenaRef;
 
@@ -123,6 +123,12 @@ pub enum HirLazyExprData {
         // ad hoc, needs more
         path: AssociatedItemPath,
     },
+    Unveil {
+        opd_hir_expr_idx: ArenaIdx<HirLazyExprData>,
+    },
+    Unwrap {
+        opd_hir_expr_idx: ArenaIdx<HirLazyExprData>,
+    },
 }
 
 impl ToHirLazy for SemaExprIdx {
@@ -204,8 +210,20 @@ impl ToHirLazy for SemaExprIdx {
                 opd_sema_expr_idx,
                 opr,
                 ..
-            } => HirLazyExprData::Suffix {
-                opr: HirSuffixOpr::from_sema(opr),
+            } => match opr {
+                _ => HirLazyExprData::Suffix {
+                    opr: HirSuffixOpr::from_sema(opr),
+                    opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+                },
+            },
+            SemaExprData::Unveil {
+                opd_sema_expr_idx, ..
+            } => HirLazyExprData::Unveil {
+                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+            },
+            SemaExprData::Unwrap {
+                opd_sema_expr_idx, ..
+            } => HirLazyExprData::Unwrap {
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::FunctionApplication {

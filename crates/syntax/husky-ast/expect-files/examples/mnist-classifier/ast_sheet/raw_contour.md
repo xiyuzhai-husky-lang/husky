@@ -441,20 +441,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 200,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 480,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                ident: `Up`,
                             },
                         ),
                     },
@@ -485,20 +473,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 200,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 481,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                ident: `Left`,
                             },
                         ),
                     },
@@ -529,20 +505,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 200,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 482,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                ident: `Down`,
                             },
                         ),
                     },
@@ -573,20 +537,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 200,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 483,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                ident: `Right`,
                             },
                         ),
                     },

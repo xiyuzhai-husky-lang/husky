@@ -9,20 +9,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 79,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 126,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                ident: `Ok`,
                             },
                         ),
                     },
@@ -53,20 +41,8 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 79,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 127,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                ident: `Err`,
                             },
                         ),
                     },
@@ -88,12 +64,6 @@ AstSheet {
                     ),
                     drained: false,
                 },
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    8,
-                ),
-                body: None,
             },
             Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
@@ -147,30 +117,24 @@ AstSheet {
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
-                        MethodFn,
+                        AssociatedFunctionFn,
                     ),
                 },
                 ident_token: IdentToken {
-                    ident: `branch`,
+                    ident: `unveil`,
                     token_idx: TokenIdx(
-                        56,
+                        57,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        57,
+                        58,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::AssociatedItem {
-                    body: Some(
-                        FugitiveBody {
-                            ast_idx_range: ArenaIdxRange(
-                                3..4,
-                            ),
-                        },
-                    ),
+                    body: None,
                 },
             },
             Ast::Use {
@@ -264,7 +228,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                4..6,
+                                3..5,
                             ),
                         },
                     ),
@@ -273,7 +237,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        6..10,
+        5..9,
     ),
     siblings: [
         ArenaIdxRange(
@@ -283,13 +247,10 @@ AstSheet {
             3..3,
         ),
         ArenaIdxRange(
-            3..4,
+            3..5,
         ),
         ArenaIdxRange(
-            4..6,
-        ),
-        ArenaIdxRange(
-            6..10,
+            5..9,
         ),
     ],
 }

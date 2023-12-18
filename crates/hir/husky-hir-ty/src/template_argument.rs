@@ -38,7 +38,6 @@ impl From<HirTemplateSymbol> for HirTemplateArgument {
 
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
-// .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
 impl HirTemplateArgument {
     pub(crate) fn from_ethereal(argument: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
@@ -56,7 +55,11 @@ impl HirTemplateArgument {
                     )
                 }
                 TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(_) => todo!(),
+                TermEntityPath::TypeVariant(path) => {
+                    use salsa::DebugWithDb;
+                    husky_print_utils::p!(path.debug(db));
+                    todo!()
+                }
             },
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

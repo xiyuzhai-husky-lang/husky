@@ -67,6 +67,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::Be { .. } => (),
                 HirEagerExprData::Prefix { .. } => (),
                 HirEagerExprData::Suffix { .. } => (),
+                HirEagerExprData::Unveil { .. } => todo!(),
+                HirEagerExprData::Unwrap { .. } => todo!(),
                 HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
@@ -122,6 +124,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::Be { .. } => (),
                 HirLazyExprData::Prefix { .. } => (),
                 HirLazyExprData::Suffix { .. } => (),
+                HirLazyExprData::Unveil { opd_hir_expr_idx } => todo!(),
+                HirLazyExprData::Unwrap { opd_hir_expr_idx } => todo!(),
                 HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
