@@ -516,7 +516,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             }
             SynExprData::FunctionApplicationOrCall {
                 function,
-                template_arguments: ref generic_arguments,
+                ref template_arguments,
                 ref items,
                 ..
             } => {
@@ -525,8 +525,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                         DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication.into()
                     );
                 };
-                let generic_arguments = match generic_arguments {
-                    Some(generic_arguments) => generic_arguments
+                let template_arguments = match template_arguments {
+                    Some(template_arguments) => template_arguments
                         .arguments()
                         .into_iter()
                         .map(|_| todo!())
@@ -542,11 +542,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DeclarativeTermResult2<_>>()?;
                 Ok(DeclarativeTermExplicitApplicationOrRitchieCall::new(
-                    self.db,
                     function,
-                    generic_arguments,
+                    template_arguments,
                     items,
                     extra_comma,
+                    self.db,
                 )
                 .into())
             }

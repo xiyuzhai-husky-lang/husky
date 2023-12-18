@@ -94,9 +94,9 @@ pub enum SemaExprData {
     },
     Unwrap {
         opd_sema_expr_idx: SemaExprIdx,
-        unwrap_method_path: TraitForTypeItemPath,
-        instantiation: FluffyInstantiation,
         opr_regional_token_idx: RegionalTokenIdx,
+        // unwrap_method_path: TraitForTypeItemPath,
+        // instantiation: FluffyInstantiation,
     },
     FunctionApplication {
         function_sema_expr_idx: SemaExprIdx,
@@ -261,6 +261,7 @@ pub struct SemaExprEntry {
 
 impl SemaExprEntry {
     /// use this when there is no error guaranteed
+    #[track_caller]
     pub fn data(&self) -> &SemaExprData {
         self.data_result
             .as_ref()
@@ -366,6 +367,7 @@ impl SemaExprIdx {
     /// panic if there is any error
     ///
     /// use it outside this crate
+    #[track_caller]
     pub fn data<'a>(self, arena_ref: SemaExprArenaRef<'a>) -> &'a SemaExprData {
         arena_ref.0.index(self.0).data()
     }

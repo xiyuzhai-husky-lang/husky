@@ -383,8 +383,30 @@
                 ),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(
+                        TraitForTypeAssociatedFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`malamute::Class t`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Pure,
+                                            ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::ops::ControlFlow malamute::Class t(`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -506,8 +528,30 @@
                 ),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(
+                        TraitForTypeAssociatedFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Pure,
+                                            ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::ops::ControlFlow malamute::OneVsAll t a(`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
 ]

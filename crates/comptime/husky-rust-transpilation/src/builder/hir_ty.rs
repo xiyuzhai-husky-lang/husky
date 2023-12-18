@@ -115,6 +115,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
             HirConstant::R128(_) => todo!(),
             HirConstant::RSize(_) => todo!(),
             HirConstant::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
+            HirConstant::TypeVariant(_) => todo!(),
         }
     }
 }

@@ -33,8 +33,8 @@ impl<'a> SemaExprEngine<'a> {
             return;
         }
         // ad hoc
-        match sema_expr_idx.data(self.sema_expr_arena.arena_ref()) {
-            SemaExprData::Literal(_, _) => (),
+        match sema_expr_idx.data_result(&self.sema_expr_arena) {
+            Ok(SemaExprData::Literal(_, _)) => (),
             _ => return,
         }
         let term_result = self.calc_expr_term(sema_expr_idx);
@@ -53,9 +53,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     fn calc_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> SemaExprTermResult<FluffyTerm> {
-        let Ok(data) = sema_expr_idx.data_result(&self.sema_expr_arena) else {
-            return todo!();
-        };
+        let data = sema_expr_idx.data_result(&self.sema_expr_arena)?;
         match data {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(

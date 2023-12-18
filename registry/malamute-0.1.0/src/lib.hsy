@@ -15,10 +15,10 @@ impl<#phantom Label, #phantom const label: Label> Default for OneVsAll Label lab
 impl<Label, #runtime const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
-    static fn unveil(one_vs_all: OneVsAll Label label) -> ControlFlow Self ():
+    static fn unveil(one_vs_all: OneVsAll Label label) -> core::ops::ControlFlow Self ():
         match one_vs_all with
-        | OneVsAll::Yes => ControlFlow::Break(Class::Known(label))
-        | OneVsAll::No => ControlFlow::Continue(())
+        | OneVsAll::Yes => core::ops::ControlFlow::Break(Class::Known(label))
+        | OneVsAll::No => core::ops::ControlFlow::Continue(())
 
 #derive(Debug, Clone, Copy)
 pub enum OneVsAllResult<#phantom Label, #phantom const label: Label>
@@ -29,11 +29,11 @@ pub enum OneVsAllResult<#phantom Label, #phantom const label: Label>
 impl<#phantom Label, #phantom const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
     type Output = ()
 
-    static fn unveil(one_vs_all_result: OneVsAllResult Label label) -> ControlFlow Self ():
+    static fn unveil(one_vs_all_result: OneVsAllResult Label label) -> core::ops::ControlFlow Self ():
         match one_vs_all with
-        | OneVsAllResult::ConfidentYes => ControlFlow::Break(OneVsAll::Yes)
-        | OneVsAllResult::ConfidentNo => ControlFlow::Break(OneVsAll::No)
-        | OneVsAllResult::Unconfident => ControlFlow::Continue(())
+        | OneVsAllResult::ConfidentYes => core::ops::ControlFlow::Break(OneVsAll::Yes)
+        | OneVsAllResult::ConfidentNo => core::ops::ControlFlow::Break(OneVsAll::No)
+        | OneVsAllResult::Unconfident => core::ops::ControlFlow::Continue(())
 
 pub gn narrow_down<Label, #phantom const label: Label>(
     ...[] f: f32,

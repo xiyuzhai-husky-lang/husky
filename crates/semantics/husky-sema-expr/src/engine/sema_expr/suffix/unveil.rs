@@ -38,7 +38,7 @@ impl<'a> SemaExprEngine<'a> {
                         opd_sema_expr_idx,
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
-                        unveil_associated_fn_path: todo!(),
+                        unveil_associated_fn_path,
                     }),
                     Ok(unveil_output_ty.into()),
                 )

@@ -186,7 +186,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_all(mut self) {
         for (expr_idx, expr) in self.sema_expr_region_data.sema_expr_arena().indexed_iter() {
-            self.visit_expr(expr_idx, expr.data())
+            if let Ok(sema_expr_data) = expr.data_result() {
+                self.visit_expr(expr_idx, sema_expr_data)
+            }
         }
         for (item_path_expr_idx, item_path_expr) in self
             .syn_expr_region_data

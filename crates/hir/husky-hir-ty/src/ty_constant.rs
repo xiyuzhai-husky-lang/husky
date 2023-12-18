@@ -29,6 +29,14 @@ pub enum HirConstant {
     // todo: should we add more types here?
     // Rust only allows for these things
     Symbol(HirConstSymbol),
+    // todo: instantiation and fields
+    TypeVariant(TypeVariantPath),
+}
+
+impl From<TypeVariantPath> for HirConstant {
+    fn from(path: TypeVariantPath) -> Self {
+        HirConstant::TypeVariant(path)
+    }
 }
 
 impl HirConstant {

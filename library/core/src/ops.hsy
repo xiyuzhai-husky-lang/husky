@@ -88,6 +88,6 @@ pub trait Unveil<T> extends Sized:
 
     static fn unveil(t: T) -> ControlFlow Self Self::Output;
 
-pub enum ControlFlow<R, C>
-| Return(R)
+pub enum ControlFlow<B, C>
 | Continue(C)
+| Break(B)

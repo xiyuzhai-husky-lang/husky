@@ -27,6 +27,12 @@ impl From<&SemaExprTypeError> for SemaExprTermError {
     }
 }
 
+impl From<&SemaExprDataError> for SemaExprTermError {
+    fn from(value: &SemaExprDataError) -> Self {
+        DerivedExprTermError::ExprError.into()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb, jar = SemaExprJar)]
 pub enum OriginalExprTermError {

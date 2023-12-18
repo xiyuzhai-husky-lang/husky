@@ -642,7 +642,7 @@ impl<'a> SemaExprEngine<'a> {
                 Ok(SemaExprData::Unreachable { regional_token_idx }),
                 Ok(self.term_menu.never().into()),
             ),
-            SynExprData::Err(_) => (
+            SynExprData::Err(ref e) => (
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),
             ),
