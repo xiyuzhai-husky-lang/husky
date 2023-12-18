@@ -73,7 +73,7 @@ mnist-developer:
 
 save:
 	git add -A
-	git commit -m "save"
+	git commit -m "Michael Jordan is goat!"
 	git push
 
 syn-tree-build-timings:

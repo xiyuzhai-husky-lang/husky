@@ -383,7 +383,10 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             DeclarativeTerm::Symbol(_) => todo!(),
             DeclarativeTerm::Rune(_) => todo!(),
             DeclarativeTerm::EntityPath(_) => todo!(),
-            DeclarativeTerm::Category(_) => todo!(),
+            DeclarativeTerm::Category(_) => {
+                p!(declarative_term.debug(db), function.debug(db));
+                todo!()
+            }
             DeclarativeTerm::Universe(_) => todo!(),
             DeclarativeTerm::Curry(_) => {
                 let items = declarative_term.items(db);

@@ -1018,7 +1018,7 @@ AstSheet {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                ident: `Return`,
+                                ident: `Continue`,
                             },
                         ),
                     },
@@ -1029,7 +1029,7 @@ AstSheet {
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Return`,
+                    ident: `Continue`,
                     token_idx: TokenIdx(
                         453,
                     ),
@@ -1050,7 +1050,7 @@ AstSheet {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                ident: `Continue`,
+                                ident: `Break`,
                             },
                         ),
                     },
@@ -1061,7 +1061,7 @@ AstSheet {
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Continue`,
+                    ident: `Break`,
                     token_idx: TokenIdx(
                         458,
                     ),

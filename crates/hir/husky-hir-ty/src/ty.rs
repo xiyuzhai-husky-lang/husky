@@ -68,6 +68,7 @@ impl HirType {
         db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> Option<Self> {
+        // todo: consider place
         match term.base_resolved_inner(fluffy_terms) {
             FluffyTermBase::Ethereal(term) => HirType::from_ethereal(term, db),
             FluffyTermBase::Solid(_) => todo!(),

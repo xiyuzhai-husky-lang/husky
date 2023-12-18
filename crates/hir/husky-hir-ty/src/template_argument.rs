@@ -55,11 +55,7 @@ impl HirTemplateArgument {
                     )
                 }
                 TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(path) => {
-                    use salsa::DebugWithDb;
-                    husky_print_utils::p!(path.debug(db));
-                    todo!()
-                }
+                TermEntityPath::TypeVariant(path) => HirTemplateArgument::Constant(path.into()),
             },
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
