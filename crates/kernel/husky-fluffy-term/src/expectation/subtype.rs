@@ -117,7 +117,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::Literal(_) => todo!(),
                 FluffyTermData::TypeOntology {
@@ -148,7 +148,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                 } => todo!(),
                 FluffyTermData::Symbol { term, ty } => todo!(),
-                FluffyTermData::Rune { ty } => todo!(),
+                FluffyTermData::Rune { .. } => todo!(),
                 FluffyTermData::TypeVariant { path } => todo!(),
             },
         }

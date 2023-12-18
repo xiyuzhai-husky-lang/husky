@@ -57,7 +57,7 @@ impl FluffyTerm {
                         ..
                     } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::Rune { ty } => todo!(),
+                    FluffyTermData::Rune { .. } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())

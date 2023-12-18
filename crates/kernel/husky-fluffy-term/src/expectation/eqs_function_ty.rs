@@ -119,7 +119,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 smallvec![],
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
@@ -292,7 +292,7 @@ impl ExpectEqsFunctionType {
                 smallvec![],
             ),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

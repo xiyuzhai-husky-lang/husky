@@ -79,7 +79,7 @@ fn list_like_index_signature(
             ..
         } => todo!(),
         FluffyTermData::Symbol { .. } => todo!(),
-        FluffyTermData::Rune { ty } => todo!(),
+        FluffyTermData::Rune { .. } => todo!(),
         FluffyTermData::TypeVariant { path } => todo!(),
     }
 }

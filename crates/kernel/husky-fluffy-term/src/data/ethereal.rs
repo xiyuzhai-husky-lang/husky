@@ -12,6 +12,7 @@ pub(super) fn ethereal_term_data<'a>(
         },
         EtherealTerm::Rune(term) => FluffyTermData::Rune {
             ty: term.ty(db).into(),
+            idx: term.idx(db),
         },
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),

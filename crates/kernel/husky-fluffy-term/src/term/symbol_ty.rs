@@ -323,7 +323,7 @@ impl FluffyLifetime {
                 return_ty,
             } => todo!(),
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Rune { ty } => todo!(),
+            FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }

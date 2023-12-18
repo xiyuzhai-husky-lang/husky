@@ -521,7 +521,7 @@ impl<'a> SemaExprEngine<'a> {
                                     ..
                                 } => todo!(),
                                 FluffyTermData::Symbol { .. } => todo!(),
-                                FluffyTermData::Rune { ty } => todo!(),
+                                FluffyTermData::Rune { .. } => todo!(),
                                 FluffyTermData::TypeVariant { path } => todo!(),
                             },
                             None => self.new_hole(syn_expr_idx, HoleKind::Any).into(),

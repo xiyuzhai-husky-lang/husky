@@ -10,6 +10,8 @@ pub use self::ty_instance_constructor::*;
 
 use crate::*;
 
+use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_vfs::ModulePath;
 #[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;
@@ -206,11 +208,6 @@ fn item_path_declarative_ty_works() {
         ),
         Ok(trai_ty)
     );
-    // assert_eq_with_db!(
-    //     db,
-    //     item_path_declarative_ty(db, item_path_menu.ref_declarative_ty_path().into()),
-    //     Ok(covariant_lifetime_to_covariant_ty0_to_ty0)
-    // );
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
@@ -238,16 +235,20 @@ pub fn ty_ontology_path_declarative_ty(
 
 #[test]
 fn ty_ontology_path_declarative_ty_works() {
-    let db = DB::default();
-    let db = &*db;
-    let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = item_path_menu(db, toolchain);
-    let _array_ty_ontology_path_declarative_ty =
-        ty_ontology_path_declarative_ty(db, item_path_menu.array_ty_path());
-    // use husky_print_utils::*;
-    // use salsa::DebugWithDb;
-    // p!(array_ty_ontology_path_declarative_ty.debug(&db));
-    // todo!()
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path: ModulePath| {
+            module_item_paths(db, module_path)
+                .iter()
+                .filter_map(|&module_item_path| match module_item_path {
+                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => {
+                        Some((ty_path, ty_ontology_path_declarative_ty(db, ty_path)))
+                    }
+                    _ => None,
+                })
+                .collect::<Vec<_>>()
+        },
+        &AstTestConfig::new("ty_ontology_path_declarative_ty"),
+    );
 }
 
 // todo: this should return a template
