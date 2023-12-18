@@ -10,7 +10,7 @@ pub use self::ty_instance_constructor::*;
 
 use crate::*;
 
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_syn_tree::{helpers::paths::module_item_paths, HasTypeVariantPaths};
 use husky_vfs::ModulePath;
 #[cfg(test)]
 use salsa::assert_eq_with_db;
@@ -303,6 +303,39 @@ pub fn ty_variant_path_declarative_ty(
             )
         }
     }
+}
+
+#[test]
+fn ty_variant_path_declarative_ty_works() {
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path: ModulePath| {
+            module_item_paths(db, module_path)
+                .iter()
+                .filter_map(|&module_item_path| match module_item_path {
+                    // ad hoc, because module_item_path doesn't include type variant path
+                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((
+                        ty_path,
+                        ty_path
+                            .ty_variant_paths(db)
+                            .iter()
+                            .map(|&(_, ty_variant_path)| {
+                                (
+                                    ty_variant_path,
+                                    ty_variant_path_declarative_ty(db, ty_variant_path),
+                                )
+                            })
+                            .collect::<Vec<_>>(),
+                    )),
+                    ItemPath::TypeVariant(_, path) => {
+                        todo!()
+                        // Some((path, ty_variant_path_declarative_ty(db, path)))
+                    }
+                    _ => None,
+                })
+                .collect::<Vec<_>>()
+        },
+        &AstTestConfig::new("ty_variant_path_declarative_ty"),
+    );
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]

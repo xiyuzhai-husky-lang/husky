@@ -3,6 +3,7 @@ use husky_vfs::Toolchain;
 
 use super::*;
 
+#[deprecated(note = "change to Result<Option<_>, _>")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
@@ -18,7 +19,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
     };
     match signature {
         TypeDeclarativeSignatureTemplate::Enum(_) => {
-            Err(OriginalDeclarativeTypeError::EnumTypeHasNoConstructor)?
+            Err(OriginalDeclarativeTypeError::EnumTypeNoConstructor)?
         }
         TypeDeclarativeSignatureTemplate::PropsStruct(signature) => {
             Ok(props_struct_ty_instance_constructor_path_declarative_ty(
@@ -35,9 +36,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         }
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Extern(_) => {
-            use salsa::DebugWithDb;
-            p!(path.debug(db));
-            todo!()
+            Err(OriginalDeclarativeTypeError::ExternTypeHasNoConstructor)?
         }
         TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
     }
@@ -95,4 +94,23 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         template_parameters,
         constructor_ty,
     )
+}
+
+#[test]
+fn ty_instance_constructor_path_declarative_ty_works() {
+    DB::default().ast_expect_test_debug_with_db(
+        |db, module_path: ModulePath| {
+            module_item_paths(db, module_path)
+                .iter()
+                .filter_map(|&module_item_path| match module_item_path {
+                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((
+                        ty_path,
+                        ty_instance_constructor_path_declarative_ty(db, ty_path),
+                    )),
+                    _ => None,
+                })
+                .collect::<Vec<_>>()
+        },
+        &AstTestConfig::new("ty_instance_constructor_path_declarative_ty"),
+    );
 }

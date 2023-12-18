@@ -109,23 +109,23 @@ impl<'a> FluffyTermData<'a> {
             } => match ritchie_kind {
                 RitchieKind::Type(ritchi_ty_kind) => match ritchi_ty_kind {
                     RitchieTypeKind::Fn => {
-                        for param in parameter_contracted_tys.iter() {
-                            match param {
-                                FluffyRitchieParameter::Regular(param) => {
-                                    p!(param.ty().show(db, terms))
-                                }
-                                FluffyRitchieParameter::Variadic(_) => todo!(),
-                                FluffyRitchieParameter::Keyed(_) => todo!(),
-                            }
-                        }
+                        // for param in parameter_contracted_tys.iter() {
+                        //     match param {
+                        //         FluffyRitchieParameter::Regular(param) => {
+                        //             p!(param.ty().show(db, terms))
+                        //         }
+                        //         FluffyRitchieParameter::Variadic(_) => (),
+                        //         FluffyRitchieParameter::Keyed(_) => todo!(),
+                        //     }
+                        // }
                         format!("fn(...) -> {}", return_ty.show(db, terms))
                     }
                     RitchieTypeKind::Gn => todo!(),
                 },
                 RitchieKind::Trait(_) => todo!(),
             },
-            FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::Rune { ty, idx } => format!("v({idx}, {})", ty.show(db, terms)),
+            FluffyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
+            FluffyTermData::Rune { ty, idx } => format!("rune({idx}, {})", ty.show(db, terms)),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
