@@ -321,6 +321,36 @@ impl<'a> SemaExprEngine<'a> {
     pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentSynSymbolIdx, symbol_ty: SymbolType) {
         self.symbol_tys.insert_new(symbol_idx, symbol_ty)
     }
+
+    // todo: move this under mod `crate::expr`
+    fn new_unit_expr(
+        &mut self,
+        lpar_regional_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        parameter_ty: FluffyTerm,
+    ) -> SemaExprIdx {
+        let ty_result = match parameter_ty.base_resolved(self) {
+            FluffyTermBase::Ethereal(term) => {
+                if term == self.eth_term_menu().unit_ty_ontology()
+                    || term == self.eth_term_menu().ty0().into()
+                {
+                    Ok(term.into())
+                } else {
+                    Err(todo!())
+                }
+            }
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
+        };
+        self.sema_expr_arena.alloc_one(
+            Ok(SemaExprData::Unit {
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
+            }),
+            ty_result,
+        )
+    }
 }
 
 fn calc_self_value_ty(

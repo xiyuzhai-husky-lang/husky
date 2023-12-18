@@ -388,10 +388,13 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
                 todo!()
             }
             DeclarativeTerm::Universe(_) => todo!(),
-            DeclarativeTerm::Curry(_) => {
+            DeclarativeTerm::Curry(curry) => {
                 let items = declarative_term.items(db);
                 let argument = match items.len() {
-                    0 => unreachable!(),
+                    0 => db
+                        .declarative_term_menu(curry.toolchain(db))
+                        .unwrap()
+                        .unit(),
                     1 => items[0],
                     _ => todo!(),
                 };
