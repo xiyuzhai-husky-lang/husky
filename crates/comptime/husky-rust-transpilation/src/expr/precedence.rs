@@ -111,8 +111,10 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::PropsStructField { .. }
         | HirEagerExprData::MemoizedField { .. }
         | HirEagerExprData::MethodFnCall { .. }
-        | HirEagerExprData::Index { .. } => RustPrecedence::Suffix,
+        | HirEagerExprData::Index { .. }
+        | HirEagerExprData::Unwrap { .. } => RustPrecedence::Suffix,
         HirEagerExprData::Block { .. } => RustPrecedence::None,
         HirEagerExprData::As { .. } => RustPrecedence::As,
+        HirEagerExprData::Unveil { .. } => RustPrecedence::None, // this is because we use macro to do unveil
     }
 }

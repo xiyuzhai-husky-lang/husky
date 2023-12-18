@@ -181,4 +181,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             .data(db);
         write!(self.result, "#[{}::value_conversion]\n", task_dep).unwrap()
     }
+
+    pub(crate) fn call_unwrap(&mut self) {
+        self.result += ".unwrap()"
+    }
 }

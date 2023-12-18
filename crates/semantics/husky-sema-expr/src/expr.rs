@@ -9,7 +9,11 @@ pub use self::template_argument::*;
 use crate::*;
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_fluffy_term::dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch;
+use husky_ethereal_signature::TraitForTypeAssociatedTypeEtherealSignature;
+use husky_fluffy_term::{
+    dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch,
+    instantiation::FluffyInstantiation,
+};
 use husky_regional_token::{
     ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken, RegionalTokenIdx,
@@ -82,7 +86,18 @@ pub enum SemaExprData {
         opr: SemaSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
     },
-    // todo: implicit arguments
+    Unveil {
+        opd_sema_expr_idx: SemaExprIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
+        unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature,
+        unveil_associated_fn_path: TraitForTypeItemPath,
+    },
+    Unwrap {
+        opd_sema_expr_idx: SemaExprIdx,
+        unwrap_method_path: TraitForTypeItemPath,
+        instantiation: FluffyInstantiation,
+        opr_regional_token_idx: RegionalTokenIdx,
+    },
     FunctionApplication {
         function_sema_expr_idx: SemaExprIdx,
         argument_sema_expr_idx: SemaExprIdx,

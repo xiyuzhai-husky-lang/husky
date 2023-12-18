@@ -1,5 +1,6 @@
 use super::*;
 use crate::place::HirPlace;
+use husky_ethereal_term::instantiation::EtherealInstantiation;
 use husky_fluffy_term::{
     instantiation::{FluffyInstantiation, FluffyTermSymbolResolution},
     FluffyTerms,
@@ -80,6 +81,33 @@ impl HirInstantiation {
                         HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
                     }
                 },
+            )),
+            None => None,
+        };
+        let mut symbol_map: SmallVecMap<(HirTemplateSymbol, HirTermSymbolResolution), 4> =
+            symbol_map0.iter().filter_map(t).collect();
+        let mut separator: Option<u8> = None;
+        match symbol_map1 {
+            Some(symbol_map1) => {
+                separator = Some(symbol_map.len().try_into().unwrap());
+                symbol_map.extend(symbol_map1.iter().filter_map(t)).unwrap()
+            }
+            None => (),
+        }
+        Self {
+            symbol_map,
+            separator,
+        }
+    }
+
+    pub fn from_ethereal(ethereal_instantiation: &EtherealInstantiation, db: &::salsa::Db) -> Self {
+        let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
+        let t = |&(symbol, term)| match HirTemplateSymbol::from_ethereal(symbol, db) {
+            Some(symbol) => Some((
+                symbol,
+                HirTermSymbolResolution::Explicit(
+                    HirTemplateArgument::from_ethereal(term, db).expect("some"),
+                ),
             )),
             None => None,
         };

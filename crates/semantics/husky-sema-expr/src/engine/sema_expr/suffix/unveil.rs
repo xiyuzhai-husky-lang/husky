@@ -1,32 +1,45 @@
 use super::*;
+use husky_coword::coword_menu;
 use husky_ethereal_signature::{
     helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
-    EtherealSignatureResult, TraitForTypeImplBlockEtherealSignature,
-    TraitForTypeImplBlockEtherealSignatureBuilder, TraitForTypeImplBlockEtherealSignatureTemplate,
+    EtherealSignatureResult, TraitForTypeAssociatedTypeEtherealSignature,
+    TraitForTypeImplBlockEtherealSignature, TraitForTypeImplBlockEtherealSignatureBuilder,
+    TraitForTypeImplBlockEtherealSignatureTemplate,
 };
 use maybe_result::*;
+use vec_like::VecMapGetEntry;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd_syn_expr_idx: SynExprIdx,
+        opr_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
+        SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        self.unveiler.initialize_if_not(self.return_ty, self.db);
+        let db = self.db;
+        self.unveiler.initialize_if_not(self.return_ty, db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
                 opd_ty,
                 unveil_output_ty,
+                ref unveil_output_ty_signature,
+                unveil_associated_fn_path,
                 ..
             } => {
+                let unveil_output_ty_signature = unveil_output_ty_signature.clone();
                 let opd_sema_expr_idx = self.build_sema_expr(
                     opd_syn_expr_idx,
                     ExpectCoersion::new(TermContract::Move, opd_ty.into()),
                 );
                 (
-                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unveil)),
+                    Ok(SemaExprData::Unveil {
+                        opd_sema_expr_idx,
+                        opr_regional_token_idx,
+                        unveil_output_ty_signature,
+                        unveil_associated_fn_path: todo!(),
+                    }),
                     Ok(unveil_output_ty.into()),
                 )
             }
@@ -34,8 +47,8 @@ impl<'a> SemaExprEngine<'a> {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
-                    p!(self.syn_expr_region_data.path().debug(self.db));
-                    p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(self.db));
+                    p!(self.syn_expr_region_data.path().debug(db));
+                    p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));
                     todo!()
                 };
                 let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {
@@ -76,14 +89,23 @@ impl<'a> SemaExprEngine<'a> {
                                             Err(e.into()),
                                         ),
                                     };
-                                let Some(output_ty_template) =
+                                let Some(unveil_output_ty_signature) =
                                     associated_output_template.try_into_signature(self.db)
                                 else {
                                     todo!()
                                 };
+                                let ty_term = unveil_output_ty_signature.ty_term().into();
                                 (
-                                    Ok((opd_sema_expr_idx, SemaSuffixOpr::Unveil)),
-                                    Ok(output_ty_template.ty_term().into()),
+                                    Ok(SemaExprData::Unveil {
+                                        opd_sema_expr_idx,
+                                        opr_regional_token_idx,
+                                        unveil_associated_fn_path: unveil_associated_fn_path(
+                                            &unveil_output_ty_signature,
+                                            db,
+                                        ),
+                                        unveil_output_ty_signature,
+                                    }),
+                                    Ok(ty_term),
                                 )
                             }
                             JustErr(_) => todo!(),
@@ -125,6 +147,8 @@ pub(crate) enum Unveiler {
         opd_ty: EtherealTerm,
         unveil_output_ty: EtherealTerm,
         unveil_output_ty_final_destination: FinalDestination,
+        unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature,
+        unveil_associated_fn_path: TraitForTypeItemPath,
     },
     UniquePartiallyInstanted {
         template: TraitForTypeImplBlockEtherealSignatureBuilder,
@@ -158,11 +182,11 @@ impl Unveiler {
             1 => {
                 let template = templates[0];
                 if let Some(impl_block_signature) = template.try_into_signature(db) {
-                    let associated_output_signature = template
+                    let unveil_output_ty_signature = template
                         .associated_output_template(db)?
                         .try_into_signature(db)
                         .expect("no generic parameters for Unveil::Output");
-                    let unveil_output_ty = associated_output_signature.ty_term();
+                    let unveil_output_ty = unveil_output_ty_signature.ty_term();
                     JustOk(Unveiler::UniqueFullyInstantiated {
                         opd_ty: impl_block_signature
                             .trai()
@@ -170,6 +194,11 @@ impl Unveiler {
                             .arguments(db)[0],
                         unveil_output_ty,
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
+                        unveil_associated_fn_path: unveil_associated_fn_path(
+                            &unveil_output_ty_signature,
+                            db,
+                        ),
+                        unveil_output_ty_signature,
                     })
                 } else {
                     JustOk(Unveiler::UniquePartiallyInstanted { template })
@@ -178,6 +207,20 @@ impl Unveiler {
             _ => todo!(),
         }
     }
+}
+
+fn unveil_associated_fn_path(
+    unveil_output_ty_signature: &TraitForTypeAssociatedTypeEtherealSignature,
+    db: &::salsa::Db,
+) -> TraitForTypeItemPath {
+    let snake_case_unveil_ident = coword_menu(db).snake_case_unveil_ident();
+    unveil_output_ty_signature
+        .path()
+        .impl_block(db)
+        .associated_item_paths(db)
+        .get_entry(snake_case_unveil_ident)
+        .expect("unveil associated fn should exist!")
+        .1
 }
 
 fn unveil_impl_block_signature_templates(

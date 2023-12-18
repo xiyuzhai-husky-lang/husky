@@ -8,7 +8,7 @@ impl<'a> SemaExprEngine<'a> {
         self_argument: SynExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        template_arguments: Option<&SynTemplateArgumentList>,
+        template_arguments: Option<&SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
         list_items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,

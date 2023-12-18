@@ -84,7 +84,7 @@ pub enum SynExprData {
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
     FunctionApplicationOrCall {
         function: SynExprIdx,
-        template_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
@@ -103,7 +103,7 @@ pub enum SynExprData {
     },
     FunctionCall {
         function: SynExprIdx,
-        template_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCallListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
@@ -117,14 +117,14 @@ pub enum SynExprData {
         self_argument: SynExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        template_arguments: Option<SynTemplateArgumentList>,
+        template_arguments: Option<SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {
         template: SynExprIdx,
-        generic_arguments: SynTemplateArgumentList,
+        template_arguments: SynTemplateArguments,
     },
     // todo: implicit arguments
     ExplicitApplication {
@@ -229,34 +229,34 @@ pub type SynExprIdxRange = ArenaIdxRange<SynExprData>;
 pub type SynExprMap<V> = ArenaMap<SynExprData, V>;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SynTemplateArgumentList {
-    langle: RegionalTokenIdx,
+pub struct SynTemplateArguments {
+    langle_regional_token_idx: RegionalTokenIdx,
     arguments: SmallVec<[SynCommaListItem; 4]>,
-    rangle: RegionalTokenIdx,
+    rangle_regional_token_idx: RegionalTokenIdx,
 }
 
-impl SynTemplateArgumentList {
+impl SynTemplateArguments {
     pub(crate) fn new(
-        langle: RegionalTokenIdx,
+        langle_regional_token_idx: RegionalTokenIdx,
         arguments: SmallVec<[SynCommaListItem; 4]>,
-        rangle: RegionalTokenIdx,
+        rangle_regional_token_idx: RegionalTokenIdx,
     ) -> Self {
         Self {
-            langle,
+            langle_regional_token_idx,
             arguments,
-            rangle,
+            rangle_regional_token_idx,
         }
     }
 
-    pub fn langle(&self) -> RegionalTokenIdx {
-        self.langle
+    pub fn langle_regional_token_idx(&self) -> RegionalTokenIdx {
+        self.langle_regional_token_idx
     }
 
     pub fn arguments(&self) -> &[SynCommaListItem] {
         &self.arguments
     }
 
-    pub fn rangle(&self) -> RegionalTokenIdx {
-        self.rangle
+    pub fn rangle_regional_token_idx(&self) -> RegionalTokenIdx {
+        self.rangle_regional_token_idx
     }
 }

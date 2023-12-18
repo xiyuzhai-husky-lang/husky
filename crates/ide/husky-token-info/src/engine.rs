@@ -297,6 +297,8 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::AssociatedItem { .. }
             | SemaExprData::Binary { .. }
             | SemaExprData::Suffix { .. }
+            | SemaExprData::Unveil { .. }
+            | SemaExprData::Unwrap { .. }
             | SemaExprData::TemplateInstantiation { .. }
             | SemaExprData::NewTuple { .. }
             | SemaExprData::NewList { .. }

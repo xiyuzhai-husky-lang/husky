@@ -492,7 +492,28 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExprData::Suffix { .. } => todo!(),
             SynExprData::Field { .. } => todo!(),
             SynExprData::MethodApplicationOrCall { .. } => todo!(),
-            SynExprData::TemplateInstantiation { .. } => todo!(),
+            SynExprData::TemplateInstantiation {
+                template,
+                ref template_arguments,
+            } => {
+                let db = self.db;
+                p!(
+                    template_arguments.langle_regional_token_idx(),
+                    self.syn_expr_region_data.path().debug(db),
+                    template_arguments.rangle_regional_token_idx()
+                );
+                todo!();
+                let mut template_term = self.infer_new_expr_term(template)?;
+                for arg in template_arguments.arguments() {
+                    template_term = DeclarativeTermExplicitApplication::new(
+                        self.db,
+                        template_term,
+                        self.infer_new_expr_term(arg.syn_expr_idx())?,
+                    )
+                    .into()
+                }
+                Ok(template_term)
+            }
             SynExprData::FunctionApplicationOrCall {
                 function,
                 template_arguments: ref generic_arguments,

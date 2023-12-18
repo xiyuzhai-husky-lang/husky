@@ -2,8 +2,6 @@
 pub enum SemaSuffixOpr {
     Incr,
     Decr,
-    Unveil,
     ComposeWithOption,
-    Unwrap,
     ComposeWithNot,
 }

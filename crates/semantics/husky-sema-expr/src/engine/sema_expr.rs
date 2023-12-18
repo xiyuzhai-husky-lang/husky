@@ -310,23 +310,14 @@ impl<'a> SemaExprEngine<'a> {
                 opr,
                 opr_regional_token_idx,
             } => {
-                let (opd_sema_expr_idx_and_opr_result, ty_result) = self.calc_suffix_expr_ty(
+                let (data_result, ty_result) = self.calc_suffix_expr_ty(
                     syn_expr_idx,
                     opd,
                     opr,
+                    opr_regional_token_idx,
                     expr_ty_expectation.final_destination(self),
                 );
-                match opd_sema_expr_idx_and_opr_result {
-                    Ok((opd_sema_expr_idx, opr)) => (
-                        Ok(SemaExprData::Suffix {
-                            opd_sema_expr_idx,
-                            opr,
-                            opr_regional_token_idx,
-                        }),
-                        ty_result,
-                    ),
-                    Err(_) => todo!(),
-                }
+                (data_result, ty_result)
             }
             SynExprData::FunctionApplicationOrCall {
                 function,
@@ -383,7 +374,7 @@ impl<'a> SemaExprEngine<'a> {
             ),
             SynExprData::TemplateInstantiation {
                 template,
-                ref generic_arguments,
+                template_arguments: ref generic_arguments,
             } => todo!(),
             SynExprData::ExplicitApplication {
                 function_expr_idx,

@@ -45,6 +45,10 @@ impl FluffyInstantiation {
         self.symbol_map.as_ref()
     }
 
+    pub fn separator(&self) -> Option<u8> {
+        self.separator
+    }
+
     pub fn symbol_map_splitted(
         &self,
     ) -> (
@@ -59,10 +63,6 @@ impl FluffyInstantiation {
             }
             None => (symbol_map, None),
         }
-    }
-
-    pub fn separator(&self) -> Option<u8> {
-        self.separator
     }
 }
 

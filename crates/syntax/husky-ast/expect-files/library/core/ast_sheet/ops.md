@@ -989,19 +989,19 @@ AstSheet {
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitItem(
-                        MethodFn,
+                        AssociatedFunctionFn,
                     ),
                 },
                 ident_token: IdentToken {
-                    ident: `branch`,
+                    ident: `unveil`,
                     token_idx: TokenIdx(
-                        430,
+                        431,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        431,
+                        432,
                     ),
                     drained: false,
                 },
@@ -1017,38 +1017,26 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 72,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 113,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                ident: `Return`,
                             },
                         ),
                     },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        454,
+                        452,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Return`,
                     token_idx: TokenIdx(
-                        455,
+                        453,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        456,
+                        454,
                     ),
                     drained: false,
                 },
@@ -1061,38 +1049,26 @@ AstSheet {
                     ItemPathId {
                         data: ItemPathData::TypeVariant(
                             TypeVariantPathData {
-                                parent_ty_path: TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 72,
-                                        },
-                                    ),
-                                ),
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 114,
-                                        },
-                                    ),
-                                ),
+                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                ident: `Continue`,
                             },
                         ),
                     },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        459,
+                        457,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Continue`,
                     token_idx: TokenIdx(
-                        460,
+                        458,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        461,
+                        459,
                     ),
                     drained: false,
                 },
@@ -1911,7 +1887,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                446,
+                                444,
                             ),
                         },
                     },
@@ -1925,13 +1901,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `ControlFlow`,
                     token_idx: TokenIdx(
-                        448,
+                        446,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        449,
+                        447,
                     ),
                     drained: false,
                 },

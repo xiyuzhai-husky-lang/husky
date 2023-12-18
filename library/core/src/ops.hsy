@@ -86,7 +86,7 @@ pub trait Sub<Rhs>:
 pub trait Unveil<T> extends Sized:
     type Output;
 
-    fn branch(t: T) -> ControlFlow<Self, Self::Output>;
+    static fn unveil(t: T) -> ControlFlow Self Self::Output;
 
 pub enum ControlFlow<R, C>
 | Return(R)

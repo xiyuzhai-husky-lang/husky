@@ -250,8 +250,6 @@ impl<E> TranspileToRustWith<E> for HirSuffixOpr {
         let s = match self {
             HirSuffixOpr::Incr => " += 1",
             HirSuffixOpr::Decr => " -= 1",
-            HirSuffixOpr::Unveil => "?",
-            HirSuffixOpr::Unwrap => ".unwrap()",
         };
         builder.write_str(s)
     }

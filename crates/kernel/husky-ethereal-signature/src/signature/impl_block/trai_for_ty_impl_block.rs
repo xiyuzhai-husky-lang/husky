@@ -208,7 +208,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
         self,
         db: &::salsa::Db,
     ) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
-        trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template(
+        trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
             db, self,
         )
     }
@@ -225,7 +225,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
-fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template(
+fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: TraitForTypeImplBlockEtherealSignatureBuilder,
 ) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
