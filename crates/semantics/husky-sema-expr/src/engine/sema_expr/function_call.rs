@@ -61,15 +61,16 @@ impl<'a> SemaExprEngine<'a> {
             }
             ExpectEqsFunctionTypeOutcomeData::Curry {
                 variance,
-                parameter_rune: parameter_symbol,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => {
                 let argument_sema_expr_idx = match items.len() {
-                    0 => self.new_unit_expr(
+                    0 => self.build_unit_sema_expr(
+                        syn_expr_idx,
                         lpar_regional_token_idx,
                         rpar_regional_token_idx,
-                        parameter_ty,
+                        ExpectSubtype::new(parameter_ty),
                     ),
                     1 => self.build_sema_expr(
                         items.first().expect("len is 1").syn_expr_idx(),

@@ -114,7 +114,7 @@ pub trait FluffyTermEngine<'a>: Sized {
         src: ExpectationSource,
         expectee: FluffyTerm,
         expectation: impl Into<Expectation>,
-    ) -> Option<FluffyTermExpectationIdx> {
+    ) -> (FluffyTermExpectationIdx, FluffyTerm) {
         let db = self.db();
         self.fluffy_term_region_mut()
             .add_expectation(src, expectee, expectation, db)

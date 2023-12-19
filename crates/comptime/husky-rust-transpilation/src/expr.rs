@@ -161,7 +161,7 @@ impl HirEagerExprSite {
                     PrincipalEntityPath::MajorItem(_) => (),
                 }
             }
-            HirEagerExprData::ConstSymbol { .. } => todo!(),
+            HirEagerExprData::ConstSymbol { ident, .. } => ident.transpile_to_rust(builder),
             HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
                 hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
             }
