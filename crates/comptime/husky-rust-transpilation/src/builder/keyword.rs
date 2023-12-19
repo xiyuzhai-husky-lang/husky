@@ -23,6 +23,7 @@ pub enum RustKeyword {
     Mut,
     Ref,
     As,
+    Where,
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
@@ -50,6 +51,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustKeyword::Mut => "mut ",
             RustKeyword::Ref => "ref ",
             RustKeyword::As => " as ",
+            RustKeyword::Where => "\nwhere ",
         };
         self.write_str(s)
     }
