@@ -18,7 +18,7 @@ use std::{
 };
 
 impl<Task: IsTask> DevRuntime<Task> {
-    pub fn eval_val(
+    pub fn eval_val_repr(
         &self,
         val_repr: ValRepr,
         pedestal: TaskDevPedestal<Task>,
@@ -154,6 +154,6 @@ fn val_repr_eval_works() {
             continue;
         };
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
-        runtime.eval_val(val_repr, InputId::from_index(0).into());
+        runtime.eval_val_repr(val_repr, InputId::from_index(0).into());
     }
 }

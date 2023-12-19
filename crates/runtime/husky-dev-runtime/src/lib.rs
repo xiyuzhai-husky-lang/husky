@@ -99,31 +99,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         todo!()
     }
 
-    fn eval_eager_val_item_return_ref(
-        &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
-        base_point: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
-        f: impl FnOnce() -> LinkageImplValueResult<TaskLinkageImpl<Task>>,
-    ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
-        todo!()
-    }
-
     fn eval_lazy_val_item(
-        &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
-        base_point: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
-    ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
-        let target_path = self.linktime_target_path().unwrap();
-        let db = self.db();
-        let val_repr: ValRepr = self
-            .comptime
-            .ingredient_val_repr(jar_index, ingredient_index);
-        todo!()
-    }
-
-    fn eval_lazy_val_item_return_ref(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
