@@ -99,6 +99,16 @@ impl<Task: IsTask> DevComptime<Task> {
             .2
             .unwrap()
     }
+
+    pub fn ingredient_val_repr(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+    ) -> ValRepr {
+        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
+            .1
+            .unwrap()
+    }
 }
 
 fn ingredient_vals(
