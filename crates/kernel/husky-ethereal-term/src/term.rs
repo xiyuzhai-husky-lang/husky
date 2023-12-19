@@ -302,9 +302,12 @@ impl EtherealTerm {
                 s.index(db).into(),
             )
             .into(),
-            EtherealTerm::Rune(v) => {
-                DeclarativeTermRune::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db)).into()
-            }
+            EtherealTerm::Rune(v) => DeclarativeTermRune::new(
+                Ok(v.ty(db).into_declarative(db)),
+                v.idx(db).disambiguator(),
+                db,
+            )
+            .into(),
             EtherealTerm::EntityPath(path) => path.into(),
             EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
             EtherealTerm::Universe(_) => todo!(),

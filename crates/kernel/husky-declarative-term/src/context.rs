@@ -46,7 +46,7 @@ impl DeclarativeTermShowContext {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
-        f.write_fmt(format_args!("v{}", variable.idx(db)))
+        f.write_fmt(format_args!("v{}", variable.idx(db).disambiguator()))
     }
 
     pub(crate) fn fmt_with_variable(

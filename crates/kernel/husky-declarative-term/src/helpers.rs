@@ -55,7 +55,7 @@ impl DeclarativeTerm {
         DeclarativeTerm::Category(TermCategory::new(TermUniverse::new(1)));
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeTermFamily {
     Sort,
     TypePath(TypePath),
