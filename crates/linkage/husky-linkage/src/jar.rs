@@ -11,4 +11,5 @@ pub struct LinkageJar(
     crate::version_stamp::linkage_version_stamp,
     crate::version_stamp::linkage_ty_path_leading_version_stamp,
     crate::version_stamp::linkage_ty_ritchie_version_stamp,
+    crate::trai::LinkageTrait,
 );

@@ -2,6 +2,7 @@ use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::HirType;
 use husky_javelin::template_argument::ty::{JavelinType, JavelinTypePathLeading};
+use salsa::DebugWithDb;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
@@ -77,17 +78,21 @@ impl LinkageType {
             )
             .into(),
             HirType::Symbol(symbol) => match linkage_instantiation {
-                Some(linkage_instantiation) => match linkage_instantiation.resolve(symbol.into()) {
-                    LinkageTermSymbolResolution::Explicit(arg) => match arg {
-                        LinkageTemplateArgument::Vacant => todo!(),
-                        LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
-                        LinkageTemplateArgument::Constant(_) => todo!(),
-                        LinkageTemplateArgument::Lifetime => todo!(),
-                        LinkageTemplateArgument::Place(_) => todo!(),
-                    },
-                    LinkageTermSymbolResolution::SelfLifetime => todo!(),
-                    LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
-                },
+                Some(linkage_instantiation) => {
+                    use husky_print_utils::p;
+                    p!(linkage_instantiation.debug(db), symbol.debug(db));
+                    match linkage_instantiation.resolve(symbol.into()) {
+                        LinkageTermSymbolResolution::Explicit(arg) => match arg {
+                            LinkageTemplateArgument::Vacant => todo!(),
+                            LinkageTemplateArgument::Type(linkage_ty) => linkage_ty,
+                            LinkageTemplateArgument::Constant(_) => todo!(),
+                            LinkageTemplateArgument::Lifetime => todo!(),
+                            LinkageTemplateArgument::Place(_) => todo!(),
+                        },
+                        LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                        LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                    }
+                }
                 None => todo!(),
             },
             HirType::TypeAssociatedType(_) => unreachable!(),
