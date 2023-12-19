@@ -19,20 +19,33 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
         }
         builder.rustfmt_skip();
         hir_decl.transpile_to_rust(builder);
+        let runtime_const_symbols: SmallVec<[HirConstSymbol; 4]> = hir_decl
+            .template_parameters(db)
+            .iter()
+            .filter_map(|param| match param.symbol() {
+                HirTemplateSymbol::Const(symbol) => {
+                    (symbol.index(db).class() == HirTemplateSymbolClass::Runtime).then_some(symbol)
+                }
+                _ => None,
+            })
+            .collect();
+        match refined_trai_path {
+            Left(PreludeTraitPath::UNVEIL) => {
+                builder.with_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db), |builder| {
+                    builder.keyword(RustKeyword::Where);
+                    for symbol in &runtime_const_symbols {
+                        symbol.ty(db).transpile_to_rust(builder);
+                        builder.punctuation(RustPunctuation::Colon);
+                        builder.copy_trait()
+                    }
+                })
+            }
+            _ => assert!(runtime_const_symbols.is_empty()),
+        }
         builder.curly_block(|builder| {
             match refined_trai_path {
                 Left(PreludeTraitPath::UNVEIL) => builder.on_fresh_semicolon_line(|builder| {
                     builder.type_runtime_const_symbols_is();
-                    let runtime_const_symbols: SmallVec<[HirConstSymbol; 4]> = hir_decl
-                        .template_parameters(db)
-                        .iter()
-                        .filter_map(|param| match param.symbol() {
-                            HirTemplateSymbol::Const(symbol) => (symbol.index(db).class()
-                                == HirTemplateSymbolClass::Runtime)
-                                .then_some(symbol),
-                            _ => None,
-                        })
-                        .collect();
                     builder.with_hir_eager_expr_region(
                         hir_decl.hir_eager_expr_region(db),
                         |builder| {

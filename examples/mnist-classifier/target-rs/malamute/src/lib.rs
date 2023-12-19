@@ -37,7 +37,8 @@ impl Default for crate::OneVsAll {
 }
 
 #[rustfmt::skip]
-impl <Label, >Unveil<crate::OneVsAll> for crate::Class<Label> {
+impl <Label, >Unveil<crate::OneVsAll> for crate::Class<Label>
+where Label: Copy {
     type RuntimeConstSymbols = (Label);
 
     
@@ -56,7 +57,8 @@ impl <Label, >Unveil<crate::OneVsAll> for crate::Class<Label> {
 }
 
 #[rustfmt::skip]
-impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
+impl Unveil<crate::OneVsAllResult> for crate::OneVsAll
+where {
     type RuntimeConstSymbols = ();
 
     

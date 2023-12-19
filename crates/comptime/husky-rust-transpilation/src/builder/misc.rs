@@ -189,4 +189,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn type_runtime_const_symbols_is(&mut self) {
         self.result += "type RuntimeConstSymbols = "
     }
+
+    pub(crate) fn copy_trait(&mut self) {
+        self.result += "Copy"
+    }
 }
