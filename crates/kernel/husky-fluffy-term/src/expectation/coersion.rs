@@ -248,14 +248,7 @@ impl ExpectCoersion {
                 }
                 _ => AltNone,
             },
-            FluffyBaseTypeData::Curry {
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
+            FluffyBaseTypeData::Curry { .. } => AltNone,
             FluffyBaseTypeData::Hole(_, _) => AltNone,
             FluffyBaseTypeData::Category(_) => todo!(),
             FluffyBaseTypeData::Ritchie {

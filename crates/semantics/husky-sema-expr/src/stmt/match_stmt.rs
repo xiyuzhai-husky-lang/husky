@@ -28,6 +28,9 @@ impl<'a> SemaExprEngine<'a> {
         let (match_target_sema_expr_idx, match_target_ty) =
             self.build_sema_expr_with_ty(match_target_syn_expr_idx, ExpectAnyOriginal);
         let Some(match_target_ty) = match_target_ty else {
+            use husky_print_utils::p;
+            p!(self.syn_expr_region_data()[match_target_syn_expr_idx].debug(self.db()));
+            p!(self.sema_expr_arena()[match_target_sema_expr_idx].debug(self.db()));
             todo!()
         };
         let mut merger = BranchTypeMerger::new(expr_expectation);
