@@ -98,7 +98,7 @@ impl<'a> SemaExprEngine<'a> {
         let (data_result, ty_result) =
             self.build_sema_expr_data_and_ty_result(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
-            Ok(ty) => self.fluffy_term_region.add_expectation(
+            Ok(ty) => self.add_expectation(
                 ExpectationSource::new_expr(expr_idx),
                 ty,
                 expr_ty_expectation,

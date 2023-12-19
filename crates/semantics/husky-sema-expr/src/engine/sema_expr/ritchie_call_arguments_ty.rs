@@ -158,14 +158,14 @@ mod matcher {
                         .ritchie_call_items
                         .next_if(|item| matches!(item, SynCallListItem::RegularOrVariadic(_)))
                     {
-                        let (argument_sema_expr_idx, coersion) =
+                        let (argument_sema_expr_idx, coersion_outcome) =
                             self.engine.build_sema_expr_with_outcome(
                                 item.argument_expr_idx(),
                                 ExpectCoersion::new(param.contract(), param.ty()),
                             );
                         items.push(SemaVariadicCallListItem::new(
                             argument_sema_expr_idx,
-                            coersion,
+                            coersion_outcome,
                             item.separator(),
                         ));
                         match item.separator() {

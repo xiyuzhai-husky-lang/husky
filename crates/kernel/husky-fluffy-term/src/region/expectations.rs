@@ -22,7 +22,7 @@ impl Expectations {
     ) -> impl Iterator<Item = &mut FluffyTermExpectationEntry> {
         self.arena
             .iter_mut_with_start(self.first_unresolved_expectation)
-            .filter(|entry| match entry.meta.resolve_progress() {
+            .filter(|entry| match entry.state.resolve_progress() {
                 ExpectationProgress::Intact | ExpectationProgress::Holed => true,
                 ExpectationProgress::Resolved(_) => false,
             })
@@ -78,7 +78,7 @@ impl ExpectationSource {
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyTermExpectationEntry {
     expectation: Expectation,
-    meta: ExpectationState,
+    state: ExpectationState,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -87,6 +87,7 @@ pub struct ExpectationState {
     idx: FluffyTermExpectationIdx,
     src: ExpectationSource,
     expectee: FluffyTerm,
+    implicit_parameter_substitutions: ImplicitParameterSubstitutions,
     resolve_progress: ExpectationProgress,
 }
 
@@ -96,22 +97,22 @@ impl FluffyTermExpectationEntry {
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
     ) -> AltOption<FluffyTermEffect> {
-        self.expectation.resolve(db, terms, &mut self.meta)
+        self.expectation.resolve(db, terms, &mut self.state)
     }
 
     #[inline]
     pub fn resolve_progress(&self) -> &ExpectationProgress {
-        &self.meta.resolve_progress
+        &self.state.resolve_progress
     }
 
     #[inline]
     pub fn src(&self) -> ExpectationSource {
-        self.meta.src
+        self.state.src
     }
 
     #[inline]
     pub fn original_error(&self) -> Option<&OriginalFluffyTermExpectationError> {
-        match self.meta.resolve_progress {
+        match self.state.resolve_progress {
             ExpectationProgress::Resolved(Err(FluffyTermExpectationError::Original(ref e))) => {
                 Some(e)
             }
@@ -218,16 +219,31 @@ impl FluffyTermRegion {
         src: ExpectationSource,
         expectee: FluffyTerm,
         expectation: impl Into<Expectation>,
+        db: &::salsa::Db,
     ) -> Option<FluffyTermExpectationIdx> {
         let idx = unsafe { self.expectations.arena.next_idx() };
+        let (expectee, implicit_parameter_substitutions) =
+            ImplicitParameterSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
+        match expectee.base_ty_data_inner(db, &self.terms) {
+            FluffyBaseTypeData::Curry {
+                curry_kind: CurryKind::Implicit,
+                variance,
+                parameter_rune,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            _ => (),
+        }
         Some(
             self.expectations
                 .alloc_expectation(FluffyTermExpectationEntry {
                     expectation: expectation.into(),
-                    meta: ExpectationState {
+                    state: ExpectationState {
                         idx,
                         src,
-                        expectee: expectee.into(),
+                        expectee,
+                        implicit_parameter_substitutions,
                         resolve_progress: ExpectationProgress::Intact,
                     },
                 }),

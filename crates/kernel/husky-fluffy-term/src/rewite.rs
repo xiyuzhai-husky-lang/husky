@@ -7,11 +7,62 @@ pub struct ImplicitParameterSubstitution {
     substitute: FluffyTerm,
 }
 
+pub type ImplicitParameterSubstitutions = SmallVec<[ImplicitParameterSubstitution; 2]>;
+
 impl ImplicitParameterSubstitution {
-    pub(crate) fn new(rune: FluffyTermRune, substitute: impl Into<FluffyTerm>) -> Self {
+    fn new(rune: FluffyTermRune, substitute: impl Into<FluffyTerm>) -> Self {
         Self {
             rune,
             substitute: substitute.into(),
+        }
+    }
+
+    /// this will collect implicit parameters and give rules that replace them with holes
+    pub(crate) fn from_expectee(
+        expectee: FluffyTerm,
+        db: &::salsa::Db,
+        terms: &mut FluffyTerms,
+        idx: FluffyTermExpectationIdx,
+    ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
+        Self::from_expectee_aux(expectee, db, terms, idx, smallvec![])
+    }
+
+    fn from_expectee_aux(
+        expectee: FluffyTerm,
+        db: &::salsa::Db,
+        terms: &mut FluffyTerms,
+        idx: FluffyTermExpectationIdx,
+        mut template_parameter_substitutions: ImplicitParameterSubstitutions,
+    ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
+        match expectee.base_ty_data_inner(db, terms) {
+            FluffyBaseTypeData::Curry {
+                curry_kind: CurryKind::Implicit,
+                variance,
+                parameter_rune,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => {
+                let parameter_rune = parameter_rune
+                    .expect("curry type with implicit parameter should be dependent type");
+                let implicit_symbol = terms.new_hole_from_parameter_rune(
+                    db,
+                    HoleSource::Expectation(idx),
+                    parameter_rune,
+                );
+                template_parameter_substitutions.push(ImplicitParameterSubstitution::new(
+                    parameter_rune,
+                    implicit_symbol,
+                ));
+                let expectee = return_ty.rewrite_inner(
+                    db,
+                    terms,
+                    HoleSource::Expectation(idx),
+                    &template_parameter_substitutions,
+                );
+                Self::from_expectee_aux(expectee, db, terms, idx, template_parameter_substitutions)
+            }
+            _ => (expectee, template_parameter_substitutions),
         }
     }
 }

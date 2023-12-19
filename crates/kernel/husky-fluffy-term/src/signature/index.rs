@@ -60,7 +60,7 @@ fn list_like_index_signature(
             HoleKind::UnspecifiedIntegerType => {
                 let expectation =
                     ExpectCoersion::new_pure(engine, engine.term_menu().usize_ty_ontology().into());
-                engine.fluffy_term_region_mut().add_expectation(
+                engine.add_expectation(
                     ExpectationSource::new_expr(expr_idx),
                     index_ty,
                     expectation,

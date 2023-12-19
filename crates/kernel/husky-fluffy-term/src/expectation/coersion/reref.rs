@@ -7,7 +7,7 @@ impl ExpectCoersion {
     pub(super) fn resolve_reref(
         &self,
         db: &::salsa::Db,
-        terms: &FluffyTerms,
+        terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
         FluffyPlace::Transient.bind(self.contract);

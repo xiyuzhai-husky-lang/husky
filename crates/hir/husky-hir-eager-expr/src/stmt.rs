@@ -82,19 +82,27 @@ impl ToHirEager for SemaStmtIdx {
                 ref let_pattern_sema_obelisk,
                 contract,
                 initial_value_sema_expr_idx,
-                coersion,
+                ref coersion_outcome,
                 ..
             } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
                 contract: HirEagerContract::from_term(contract),
                 initial_value: initial_value_sema_expr_idx.to_hir_eager(builder),
-                coersion: coersion.map(|coersion| coersion.to_hir_eager(builder)),
+                coersion: coersion_outcome
+                    .as_ref()
+                    .map(|coersion_outcome| coersion_outcome.coersion().to_hir_eager(builder)),
             },
             SemaStmtData::Return {
-                result, coersion, ..
+                result,
+                ref coersion_outcome,
+                ..
             } => HirEagerStmtData::Return {
                 result: result.to_hir_eager(builder),
-                coersion: coersion.unwrap().to_hir_eager(builder),
+                coersion: coersion_outcome
+                    .as_ref()
+                    .unwrap()
+                    .coersion()
+                    .to_hir_eager(builder),
             },
             SemaStmtData::Require { condition, .. } => HirEagerStmtData::Require {
                 condition: condition.to_hir_eager(builder),
@@ -111,8 +119,8 @@ impl ToHirEager for SemaStmtIdx {
                 expr_idx: sema_expr_idx.to_hir_eager(builder),
                 discarded: eol_semicolon.as_ref().expect("no error").is_some(),
                 coersion: match outcome {
-                    Some(ExpectationOutcome::Coersion(coersion)) => {
-                        Some(coersion.to_hir_eager(builder))
+                    Some(ExpectationOutcome::Coersion(coersion_outcome)) => {
+                        Some(coersion_outcome.coersion().to_hir_eager(builder))
                     }
                     _ => None,
                 },

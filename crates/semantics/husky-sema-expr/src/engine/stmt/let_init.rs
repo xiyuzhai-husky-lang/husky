@@ -41,25 +41,30 @@ impl<'a> SemaExprEngine<'a> {
                 .syn_pattern_root()
                 .syn_pattern_expr_idx(),
         );
-        let ((initial_value_sema_expr_idx, pattern_ty), coersion) = match annotated_pattern_ty {
-            Some(pattern_ty) => {
-                let (initial_value_sema_expr_idx, coersion) = self.build_sema_expr_with_outcome(
-                    initial_value,
-                    ExpectCoersion::new(contract, pattern_ty),
-                );
-                ((initial_value_sema_expr_idx, Some(pattern_ty)), coersion)
-            }
-            None => {
-                (
-                    self.build_sema_expr_with_ty(
-                        initial_value,
-                        // ad hoc
-                        ExpectAnyOriginal,
-                    ),
-                    None,
-                )
-            }
-        };
+        let ((initial_value_sema_expr_idx, pattern_ty), coersion_outcome) =
+            match annotated_pattern_ty {
+                Some(pattern_ty) => {
+                    let (initial_value_sema_expr_idx, coersion_outcome) = self
+                        .build_sema_expr_with_outcome(
+                            initial_value,
+                            ExpectCoersion::new(contract, pattern_ty),
+                        );
+                    (
+                        (initial_value_sema_expr_idx, Some(pattern_ty)),
+                        coersion_outcome,
+                    )
+                }
+                None => {
+                    (
+                        self.build_sema_expr_with_ty(
+                            initial_value,
+                            // ad hoc
+                            ExpectAnyOriginal,
+                        ),
+                        None,
+                    )
+                }
+            };
         let ty_result = match pattern_ty {
             Some(ty) if ty == self.term_menu.never().into() => Ok(self.term_menu.never().into()),
             Some(ty) => {
@@ -86,7 +91,7 @@ impl<'a> SemaExprEngine<'a> {
                 contract,
                 eq_token,
                 initial_value_sema_expr_idx,
-                coersion,
+                coersion_outcome,
             }),
             ty_result,
         )

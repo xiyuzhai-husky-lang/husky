@@ -12,7 +12,12 @@ impl ExpectCoersion {
             FluffyBaseTypeData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
-            } => state.set_ok(FluffyCoersion::Never, smallvec![]),
+            } => state.set_ok(
+                ExpectCoersionOutcome {
+                    coersion: FluffyCoersion::Never,
+                },
+                smallvec![],
+            ),
             _ => AltNone,
         }
     }

@@ -38,7 +38,8 @@ impl<'a> HirLazyExprBuilder<'a> {
             SemaRitchieParameterArgumentMatch::Keyed(param, item) => {
                 HirLazyCallListItemGroup::Keyed(
                     param.key(),
-                    item.map(|item| item.argument_expr_idx().to_hir_lazy(self)),
+                    item.as_ref()
+                        .map(|item| item.argument_expr_idx().to_hir_lazy(self)),
                 )
             }
         }
