@@ -8,7 +8,7 @@ use husky_entity_path::{
 };
 use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
 use husky_hir_decl::HasHirDecl;
-use husky_hir_ty::HirType;
+use husky_hir_ty::{trai::HirTrait, HirType};
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
 use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
@@ -17,6 +17,7 @@ use husky_linkage::{
         ty::{LinkageType, LinkageTypeRitchie},
         LinkageTemplateArgument,
     },
+    trai::LinkageTrait,
 };
 use husky_linkage::{
     linkage::{package_linkages, Linkage, LinkageData},
@@ -88,19 +89,6 @@ impl TranspileToRustWith<()> for Linkage {
                 path,
                 ref instantiation,
             } => path.transpile_to_rust(builder),
-        }
-    }
-}
-
-impl TranspileToRustWith<()> for JavelinPath {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
-        match self {
-            JavelinPath::Fugitive(slf) => slf.transpile_to_rust(builder),
-            JavelinPath::TypeItem(slf) => slf.transpile_to_rust(builder),
-            JavelinPath::TraitItem(slf) => slf.transpile_to_rust(builder),
-            JavelinPath::TraitForTypeItem(slf) => slf.transpile_to_rust(builder),
-            JavelinPath::TypeConstructor(slf) => slf.transpile_to_rust(builder),
-            JavelinPath::TypeVariantConstructor(slf) => slf.transpile_to_rust(builder),
         }
     }
 }
@@ -191,6 +179,12 @@ impl<E> TranspileToRustWith<E> for LinkageType {
     }
 }
 
+impl<E> TranspileToRustWith<E> for LinkageTrait {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        todo!()
+    }
+}
+
 impl<E> TranspileToRustWith<E> for LinkageTypePathLeading {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
@@ -235,18 +229,22 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinkageInstantiation)
         let (path, linkage_instantiation) = self;
         let db = builder.db;
         builder.bracketed(RustBracket::Angle, |builder| {
+            let trait_for_type_impl_block_ethereal_signature_template =
+                path.impl_block(db).ethereal_signature_template(db).unwrap();
             let self_ty = HirType::from_ethereal(
-                path.impl_block(db)
-                    .ethereal_signature_template(db)
-                    .unwrap()
-                    .self_ty(db),
+                trait_for_type_impl_block_ethereal_signature_template.self_ty(db),
                 db,
             )
             .unwrap()
             .linkage_instantiate(linkage_instantiation, db);
             self_ty.transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
-            path.impl_block(db).trai_path(db).transpile_to_rust(builder)
+            let trai = HirTrait::from_ethereal(
+                trait_for_type_impl_block_ethereal_signature_template.trai(db),
+                db,
+            );
+            trai.linkage_instantiate(linkage_instantiation, db)
+                .transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);
         path.ident(db).transpile_to_rust(builder)
