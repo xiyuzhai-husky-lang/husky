@@ -150,6 +150,16 @@ pub struct HirTemplateParameterStats {
     pub places: u8,
 }
 
+impl std::ops::AddAssign<Self> for HirTemplateParameterStats {
+    fn add_assign(&mut self, rhs: Self) {
+        self.tys += rhs.tys;
+        self.constants += rhs.constants;
+        self.lifetimes += rhs.lifetimes;
+        self.places += rhs.places;
+    }
+}
+
+/// for associated items, the parent's template parameters count
 #[salsa::tracked(jar = HirDeclJar)]
 pub fn item_hir_template_parameter_stats(
     db: &::salsa::Db,
@@ -173,6 +183,24 @@ pub fn item_hir_template_parameter_stats(
             HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
             HirTemplateParameterData::Place { .. } => stats.places += 1,
         }
+    }
+    match item_path {
+        ItemPath::AssociatedItem(associated_item_path) => match associated_item_path {
+            AssociatedItemPath::TypeItem(ty_item_path) => {
+                stats +=
+                    item_hir_template_parameter_stats(db, *ty_item_path.impl_block(db)).unwrap()
+            }
+            AssociatedItemPath::TraitItem(trai_item_path) => {
+                stats +=
+                    item_hir_template_parameter_stats(db, *trai_item_path.trai_path(db)).unwrap()
+            }
+            AssociatedItemPath::TraitForTypeItem(trai_for_ty_item_path) => {
+                stats +=
+                    item_hir_template_parameter_stats(db, *trai_for_ty_item_path.impl_block(db))
+                        .unwrap()
+            }
+        },
+        _ => (),
     }
     Some(stats)
 }

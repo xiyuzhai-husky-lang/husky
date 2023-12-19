@@ -240,9 +240,9 @@ impl ToHirEager for SemaExprIdx {
                 },
             },
             SemaExprData::Unveil {
-                opd_sema_expr_idx,
                 ref unveil_output_ty_signature,
                 unveil_associated_fn_path,
+                opd_sema_expr_idx,
                 ..
             } => HirEagerExprData::Unveil {
                 unveil_associated_fn_path,

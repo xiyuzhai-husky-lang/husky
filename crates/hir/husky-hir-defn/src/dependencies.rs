@@ -67,8 +67,11 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::Be { .. } => (),
                 HirEagerExprData::Prefix { .. } => (),
                 HirEagerExprData::Suffix { .. } => (),
-                HirEagerExprData::Unveil { .. } => todo!(),
-                HirEagerExprData::Unwrap { .. } => todo!(),
+                HirEagerExprData::Unveil {
+                    unveil_associated_fn_path,
+                    ..
+                } => self.add_item_path(unveil_associated_fn_path),
+                HirEagerExprData::Unwrap { .. } => (),
                 HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
@@ -124,8 +127,11 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::Be { .. } => (),
                 HirLazyExprData::Prefix { .. } => (),
                 HirLazyExprData::Suffix { .. } => (),
-                HirLazyExprData::Unveil { opd_hir_expr_idx } => todo!(),
-                HirLazyExprData::Unwrap { opd_hir_expr_idx } => todo!(),
+                HirLazyExprData::Unveil {
+                    unveil_associated_fn_path,
+                    ..
+                } => self.add_item_path(unveil_associated_fn_path),
+                HirLazyExprData::Unwrap { .. } => (),
                 HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
@@ -211,6 +217,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
+    // todo: consider instantiation also,
+    // which might contain trait implementations
     pub(crate) fn add_item_path(&mut self, item_path: impl Into<ItemPath>) {
         let item_path: ItemPath = item_path.into();
         if item_path == self.item_path {
