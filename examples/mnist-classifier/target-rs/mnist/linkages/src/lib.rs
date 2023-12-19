@@ -7,6 +7,6 @@ linkage_impls![
     mnist::BinaryImage28,
     mnist::BinaryGrid28,
     mnist::input,
-    mnist::BinaryImage28::new_zeros,
-    mnist::BinaryGrid28::new_zeros,
+    <mnist::BinaryImage28>::new_zeros,
+    <mnist::BinaryGrid28>::new_zeros,
 ];

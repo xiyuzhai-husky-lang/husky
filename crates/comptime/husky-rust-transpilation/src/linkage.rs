@@ -184,9 +184,6 @@ impl<E> TranspileToRustWith<E> for LinkageTrait {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         self.trai_path(db).transpile_to_rust(builder);
-        if self.trai_path(db).ident(db).data(db) == "Unveil" {
-            todo!()
-        }
         let template_arguments = self.template_arguments(db);
         if !template_arguments.is_empty() {
             builder.bracketed_comma_list(RustBracket::Angle, template_arguments)

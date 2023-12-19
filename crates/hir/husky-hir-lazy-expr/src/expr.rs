@@ -6,7 +6,8 @@ pub use self::html::*;
 
 use crate::*;
 use husky_entity_path::{
-    AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TypePath, TypeVariantPath,
+    AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
+    TypePath, TypeVariantPath,
 };
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
@@ -124,10 +125,12 @@ pub enum HirLazyExprData {
         path: AssociatedItemPath,
     },
     Unveil {
-        opd_hir_expr_idx: ArenaIdx<HirLazyExprData>,
+        unveil_associated_fn_path: TraitForTypeItemPath,
+        instantiation: HirInstantiation,
+        opd_hir_expr_idx: HirLazyExprIdx,
     },
     Unwrap {
-        opd_hir_expr_idx: ArenaIdx<HirLazyExprData>,
+        opd_hir_expr_idx: HirLazyExprIdx,
     },
 }
 
@@ -217,8 +220,16 @@ impl ToHirLazy for SemaExprIdx {
                 },
             },
             SemaExprData::Unveil {
-                opd_sema_expr_idx, ..
+                ref unveil_output_ty_signature,
+                unveil_associated_fn_path,
+                opd_sema_expr_idx,
+                ..
             } => HirLazyExprData::Unveil {
+                unveil_associated_fn_path,
+                instantiation: HirInstantiation::from_ethereal(
+                    unveil_output_ty_signature.instantiation(),
+                    builder.db(),
+                ),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Unwrap {
