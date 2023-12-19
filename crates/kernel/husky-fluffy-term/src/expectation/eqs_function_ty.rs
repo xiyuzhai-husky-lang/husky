@@ -36,11 +36,10 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     fn resolve(
         &self,
         db: &::salsa::Db,
-        fluffy_terms: &mut FluffyTerms,
+        terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        // todo: move these to aux
-        match state.expectee().data_inner(db, fluffy_terms) {
+        match state.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
@@ -58,45 +57,18 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => {
-                if let Some(parameter_rune) = parameter_rune {
-                    match parameter_rune.base_ty_data_inner(db, fluffy_terms) {
-                        FluffyBaseTypeData::TypeOntology {
-                            ty_path,
-                            refined_ty_path,
-                            ty_arguments,
-                            ty_ethereal_term,
-                        } => todo!(),
-                        FluffyBaseTypeData::Curry {
-                            curry_kind,
-                            variance,
-                            parameter_rune,
-                            parameter_ty,
-                            return_ty,
-                            ty_ethereal_term,
-                        } => todo!(),
-                        FluffyBaseTypeData::Hole(_, _) => todo!(),
-                        FluffyBaseTypeData::Category(_) => todo!(),
-                        FluffyBaseTypeData::Ritchie {
-                            ritchie_kind,
-                            parameter_contracted_tys,
-                            return_ty,
-                        } => todo!(),
-                        FluffyBaseTypeData::Symbol { symbol } => todo!(),
-                        FluffyBaseTypeData::Rune { rune } => (),
-                    }
-                }
-                self.resolve_curry(
-                    db,
-                    state,
-                    fluffy_terms,
-                    curry_kind,
-                    variance,
-                    parameter_rune,
-                    parameter_ty,
+            } => state.set_ok(
+                ExpectEqsFunctionTypeOutcome {
                     return_ty,
-                )
-            }
+                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
+                        variance,
+                        parameter_rune,
+                        parameter_ty,
+                        return_ty,
+                    },
+                },
+                smallvec![],
+            ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
@@ -109,7 +81,6 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 ..
             } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
-                    template_parameter_substitutions: smallvec![],
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
                         ritchie_kind,
@@ -128,7 +99,6 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectEqsFunctionTypeOutcome {
-    pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: FluffyTerm,
     pub(crate) variant: ExpectEqsFunctionTypeOutcomeData,
 }
@@ -156,144 +126,4 @@ pub enum ExpectEqsFunctionTypeOutcomeData {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },
-}
-
-impl ExpectEqsFunctionType {
-    fn resolve_curry(
-        &self,
-        db: &::salsa::Db,
-        state: &mut ExpectationState,
-        terms: &mut FluffyTerms,
-        curry_kind: CurryKind,
-        variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
-    ) -> AltOption<FluffyTermEffect> {
-        if let Some(parameter_rune) = parameter_rune {
-            match parameter_rune.base_ty_data_inner(db, terms) {
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path,
-                    refined_ty_path,
-                    ty_arguments,
-                    ty_ethereal_term,
-                } => todo!(),
-                FluffyBaseTypeData::Curry {
-                    curry_kind,
-                    variance,
-                    parameter_rune,
-                    parameter_ty,
-                    return_ty,
-                    ty_ethereal_term,
-                } => todo!(),
-                FluffyBaseTypeData::Hole(_, _) => todo!(),
-                FluffyBaseTypeData::Category(_) => todo!(),
-                FluffyBaseTypeData::Ritchie {
-                    ritchie_kind,
-                    parameter_contracted_tys,
-                    return_ty,
-                } => todo!(),
-                FluffyBaseTypeData::Symbol { symbol } => todo!(),
-                FluffyBaseTypeData::Rune { rune } => (),
-            }
-        }
-        match curry_kind {
-            CurryKind::Explicit => state.set_ok(
-                ExpectEqsFunctionTypeOutcome {
-                    template_parameter_substitutions: smallvec![],
-                    return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
-                        variance,
-                        parameter_rune,
-                        parameter_ty,
-                        return_ty,
-                    },
-                },
-                smallvec![],
-            ),
-            CurryKind::Implicit => match parameter_rune {
-                Some(parameter_rune) => {
-                    let implicit_symbol = terms.new_hole_from_parameter_rune(
-                        db,
-                        HoleSource::Expectation(state.idx()),
-                        parameter_rune,
-                    );
-                    let mut template_parameter_substitutions =
-                        smallvec![ImplicitParameterSubstitution::new(
-                            parameter_rune,
-                            implicit_symbol,
-                        )];
-                    let expectee = return_ty;
-                    let expectee = expectee.rewrite_inner(
-                        db,
-                        terms,
-                        HoleSource::Expectation(state.idx()),
-                        &template_parameter_substitutions,
-                    );
-                    self.resolve_aux(db, state, terms, expectee, template_parameter_substitutions)
-                }
-                None => self.resolve_aux(db, state, terms, return_ty, smallvec![]), // ad hoc
-            },
-        }
-    }
-
-    fn resolve_aux(
-        &self,
-        db: &::salsa::Db,
-        state: &mut ExpectationState,
-        terms: &mut FluffyTerms,
-        expectee: FluffyTerm,
-        mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    ) -> AltOption<FluffyTermEffect> {
-        match expectee.data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ..
-            } => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedFunctionType,
-                smallvec![],
-            ),
-            FluffyTermData::Curry {
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => self.resolve_curry(
-                db,
-                state,
-                terms,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-            ),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-            } => state.set_ok(
-                ExpectEqsFunctionTypeOutcome {
-                    // todo: is this really correct?
-                    template_parameter_substitutions: substitution_rules,
-                    return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys: parameter_contracted_tys.to_vec(),
-                    },
-                },
-                smallvec![],
-            ),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
-        }
-    }
 }

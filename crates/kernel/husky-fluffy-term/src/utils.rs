@@ -46,8 +46,14 @@ impl FluffyTerm {
 
     /// the count is always positive but returns i8 for convenience in computing difference
     /// -> i8 {v: v> 0}
+    ///
+    /// todo: include ritchie??
     pub fn curry_parameter_count(self, engine: &impl FluffyTermEngine) -> i8 {
-        match self.data(engine) {
+        self.curry_parameter_count_inner(engine.db(), engine.fluffy_terms())
+    }
+
+    pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fluffy_terms: &FluffyTerms) -> i8 {
+        match self.data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
@@ -58,21 +64,21 @@ impl FluffyTerm {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune: parameter_rune,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
             } => match ty_ethereal_term {
-                Some(ty_ethereal_term) => ty_ethereal_term.curry_parameter_count(engine.db()),
+                Some(ty_ethereal_term) => ty_ethereal_term.curry_parameter_count(db),
                 None => todo!(),
             },
-            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Hole(hole_kind, _) => 0,
             FluffyTermData::Category(_) => 0,
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
+            } => 0,
             FluffyTermData::Symbol { .. } | FluffyTermData::Rune { .. } => 0,
             FluffyTermData::TypeVariant { path } => todo!(),
         }

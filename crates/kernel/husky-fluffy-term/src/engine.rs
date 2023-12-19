@@ -108,6 +108,17 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn path(&self) -> String {
         format!("{:?}", self.expr_region_data().path().debug(self.db()))
     }
+
+    fn add_expectation(
+        &mut self,
+        src: ExpectationSource,
+        expectee: FluffyTerm,
+        expectation: impl Into<Expectation>,
+    ) -> Option<FluffyTermExpectationIdx> {
+        let db = self.db();
+        self.fluffy_term_region_mut()
+            .add_expectation(src, expectee, expectation, db)
+    }
 }
 
 pub trait FluffyTermEngineMut<'a>: FluffyTermEngine<'a> {}

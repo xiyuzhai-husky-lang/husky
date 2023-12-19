@@ -435,6 +435,8 @@ impl ToHirEager for SemaExprIdx {
             .place()
             .map(|place| HirPlace::from_fluffy(place))
             .unwrap_or(HirPlace::Transient);
+        use salsa::DebugWithDb;
+        p!(ty.debug(builder.db()));
         let entry = HirEagerExprEntry {
             data,
             ty_place,

@@ -168,7 +168,53 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::Symbol {
+                ty: expected_ty, ..
+            } => match state.expectee().base_ty_data_inner(db, terms) {
+                FluffyBaseTypeData::TypeOntology {
+                    ty_path,
+                    refined_ty_path,
+                    ty_arguments,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyBaseTypeData::Curry {
+                    curry_kind,
+                    variance,
+                    parameter_rune,
+                    parameter_ty,
+                    return_ty,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyBaseTypeData::Hole(hole_kind, hole) => match hole_kind {
+                    HoleKind::UnspecifiedIntegerType => todo!(),
+                    HoleKind::UnspecifiedFloatType => todo!(),
+                    HoleKind::ImplicitType => match expected_ty.base_resolved_inner(terms) {
+                        FluffyTermBase::Ethereal(EtherealTerm::Category(_)) => state.set_ok(
+                            ExpectSubtypeOutcome {},
+                            smallvec![FluffyTermResolveAction::FillHole {
+                                hole,
+                                term: self.expected
+                            }],
+                        ),
+                        _ => todo!(),
+                    },
+                    HoleKind::Any => state.set_ok(
+                        ExpectSubtypeOutcome {},
+                        smallvec![FluffyTermResolveAction::FillHole {
+                            hole,
+                            term: self.expected
+                        }],
+                    ),
+                },
+                FluffyBaseTypeData::Category(_) => todo!(),
+                FluffyBaseTypeData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                } => todo!(),
+                FluffyBaseTypeData::Symbol { symbol } => todo!(),
+                FluffyBaseTypeData::Rune { rune } => todo!(),
+            },
             FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::Literal(_) => todo!(),

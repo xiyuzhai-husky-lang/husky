@@ -37,22 +37,22 @@ impl<'a> SemaExprEngine<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaRegularCallListItem {
     pub argument_expr_idx: SemaExprIdx,
-    pub coersion: Option<FluffyCoersion>,
+    pub coersion_outcome: Option<ExpectCoersionOutcome>,
     separator: CallListSeparator,
 }
 
 impl SemaRegularCallListItem {
     pub(crate) fn new(
         argument_expr_idx: SemaExprIdx,
-        coersion: Option<FluffyCoersion>,
+        coersion_outcome: Option<ExpectCoersionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
         Self {
             argument_expr_idx,
-            coersion,
+            coersion_outcome,
             separator,
         }
     }
@@ -66,22 +66,22 @@ impl SemaRegularCallListItem {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaVariadicCallListItem {
     argument_sema_expr_idx: SemaExprIdx,
-    coersion: Option<FluffyCoersion>,
+    coersion_outcome: Option<ExpectCoersionOutcome>,
     separator: CallListSeparator,
 }
 
 impl SemaVariadicCallListItem {
     pub(crate) fn new(
         argument_sema_expr_idx: SemaExprIdx,
-        coersion: Option<FluffyCoersion>,
+        coersion_outcome: Option<ExpectCoersionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
         Self {
             argument_sema_expr_idx,
-            coersion,
+            coersion_outcome,
             separator,
         }
     }
@@ -95,12 +95,12 @@ impl SemaVariadicCallListItem {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
     key: Ident,
     argument_sema_expr_idx: SemaExprIdx,
-    coersion: Option<FluffyCoersion>,
+    coersion_outcome: Option<ExpectCoersionOutcome>,
     separator: CallListSeparator,
 }
 
@@ -109,14 +109,14 @@ impl SemaKeyedCallListItem {
         key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
         argument_sema_expr_idx: SemaExprIdx,
-        coersion: Option<FluffyCoersion>,
+        coersion_outcome: Option<ExpectCoersionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
         Self {
             key_regional_token_idx,
             key,
             argument_sema_expr_idx,
-            coersion,
+            coersion_outcome,
             separator,
         }
     }
@@ -144,7 +144,7 @@ impl<'a> SemaExprEngine<'a> {
         item: SynKeyedCallListItem,
         param: FluffyRitchieKeyedParameter,
     ) -> SemaKeyedCallListItem {
-        let (argument_sema_expr_idx, coersion) = self.build_sema_expr_with_outcome(
+        let (argument_sema_expr_idx, coersion_outcome) = self.build_sema_expr_with_outcome(
             item.argument_syn_expr_idx(),
             ExpectCoersion::new(param.contract(), param.ty()),
         );
@@ -152,7 +152,7 @@ impl<'a> SemaExprEngine<'a> {
             key_regional_token_idx: item.key_regional_token_idx(),
             key: item.key(),
             argument_sema_expr_idx,
-            coersion,
+            coersion_outcome,
             separator: item.separator(),
         }
     }

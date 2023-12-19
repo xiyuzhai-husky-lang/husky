@@ -27,12 +27,12 @@ pub enum SemaStmtData {
         contract: TermContract,
         eq_token: EqRegionalToken,
         initial_value_sema_expr_idx: SemaExprIdx,
-        coersion: Option<FluffyCoersion>,
+        coersion_outcome: Option<ExpectCoersionOutcome>,
     },
     Return {
         return_token: ReturnRegionalToken,
         result: SemaExprIdx,
-        coersion: Option<FluffyCoersion>,
+        coersion_outcome: Option<ExpectCoersionOutcome>,
     },
     Require {
         require_token: RequireRegionalToken,

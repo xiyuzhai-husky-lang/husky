@@ -33,7 +33,11 @@ impl<'a> HirEagerExprBuilder<'a> {
                 HirEagerRitchieParameterArgumentMatch::Regular(
                     HirRitchieRegularParameter::from_fluffy(param, self.db(), self.fluffy_terms()),
                     item.argument_sema_expr_idx().to_hir_eager(self),
-                    item.coersion.unwrap().to_hir_eager(self),
+                    item.coersion_outcome
+                        .as_ref()
+                        .unwrap()
+                        .coersion()
+                        .to_hir_eager(self),
                 )
             }
             SemaRitchieParameterArgumentMatch::Variadic(_, _) => todo!(),

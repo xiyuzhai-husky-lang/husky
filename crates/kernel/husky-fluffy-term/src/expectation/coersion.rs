@@ -42,6 +42,17 @@ pub struct ExpectCoersion {
     ty_expected: FluffyTerm,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ExpectCoersionOutcome {
+    coersion: FluffyCoersion,
+}
+
+impl ExpectCoersionOutcome {
+    pub fn coersion(&self) -> FluffyCoersion {
+        self.coersion
+    }
+}
+
 impl ExpectCoersion {
     #[inline(always)]
     pub fn new(contract: TermContract, ty_expected: FluffyTerm) -> Self {
@@ -130,7 +141,7 @@ impl ExpectCoersion {
 }
 
 impl ExpectFluffyTerm for ExpectCoersion {
-    type Outcome = FluffyCoersion;
+    type Outcome = ExpectCoersionOutcome;
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
@@ -210,9 +221,9 @@ impl ExpectCoersion {
     ) -> AltOption<FluffyTermEffect> {
         let src_base_ty_data = src.base_ty_data_inner(db, terms);
         let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
-        let coersion = coersion_result.into();
+        let outcome_result = coersion_result.map(|coersion| ExpectCoersionOutcome { coersion });
         if src_base_ty_data == dst_base_ty_data {
-            return state.set_result(coersion, smallvec![]);
+            return state.set_result(outcome_result, smallvec![]);
         }
         match src_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
@@ -244,7 +255,7 @@ impl ExpectCoersion {
                             })
                         }
                     }
-                    state.set_result(coersion, actions)
+                    state.set_result(outcome_result, actions)
                 }
                 _ => AltNone,
             },

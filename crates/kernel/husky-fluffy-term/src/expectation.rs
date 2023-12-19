@@ -55,26 +55,26 @@ impl Expectation {
         &self,
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationState,
+        state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        match meta.resolve_progress() {
+        match state.resolve_progress() {
             ExpectationProgress::Intact | ExpectationProgress::Holed => (),
             ExpectationProgress::Resolved(_) => return AltNone,
         }
         match self {
-            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
-            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
-            Expectation::EqsSort(epn) => epn.resolve(db, terms, meta),
+            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, state),
+            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, state),
+            Expectation::EqsSort(epn) => epn.resolve(db, terms, state),
             Expectation::LoopVariableType => todo!(),
-            Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, meta),
-            Expectation::EqsRitchieType(epn) => epn.resolve(db, terms, meta),
-            Expectation::EqsExactly(epn) => epn.resolve(db, terms, meta),
-            Expectation::AnyOriginal(epn) => epn.resolve(db, terms, meta),
-            Expectation::AnyDerived(epn) => epn.resolve(db, terms, meta),
-            Expectation::IntType(epn) => epn.resolve(db, terms, meta),
-            Expectation::FinalDestination(epn) => epn.resolve(db, terms, meta),
-            Expectation::CurryDestination(epn) => epn.resolve(db, terms, meta),
-            Expectation::ConditionType(epn) => epn.resolve(db, terms, meta),
+            Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, state),
+            Expectation::EqsRitchieType(epn) => epn.resolve(db, terms, state),
+            Expectation::EqsExactly(epn) => epn.resolve(db, terms, state),
+            Expectation::AnyOriginal(epn) => epn.resolve(db, terms, state),
+            Expectation::AnyDerived(epn) => epn.resolve(db, terms, state),
+            Expectation::IntType(epn) => epn.resolve(db, terms, state),
+            Expectation::FinalDestination(epn) => epn.resolve(db, terms, state),
+            Expectation::CurryDestination(epn) => epn.resolve(db, terms, state),
+            Expectation::ConditionType(epn) => epn.resolve(db, terms, state),
         }
     }
 }
@@ -152,7 +152,7 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
-    Coersion(FluffyCoersion),
+    Coersion(ExpectCoersionOutcome),
     EqsSort(TermUniverse),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
