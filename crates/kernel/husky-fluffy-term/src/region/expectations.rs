@@ -214,13 +214,14 @@ impl FluffyTermEffect {
 }
 
 impl FluffyTermRegion {
+    /// returns expectation idx and also the type after replacing implicit parameters with holes
     pub fn add_expectation(
         &mut self,
         src: ExpectationSource,
         expectee: FluffyTerm,
         expectation: impl Into<Expectation>,
         db: &::salsa::Db,
-    ) -> Option<FluffyTermExpectationIdx> {
+    ) -> (FluffyTermExpectationIdx, FluffyTerm) {
         let idx = unsafe { self.expectations.arena.next_idx() };
         let (expectee, implicit_parameter_substitutions) =
             ImplicitParameterSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
@@ -235,7 +236,7 @@ impl FluffyTermRegion {
             } => todo!(),
             _ => (),
         }
-        Some(
+        (
             self.expectations
                 .alloc_expectation(FluffyTermExpectationEntry {
                     expectation: expectation.into(),
@@ -247,6 +248,7 @@ impl FluffyTermRegion {
                         resolve_progress: ExpectationProgress::Intact,
                     },
                 }),
+            expectee,
         )
     }
 }

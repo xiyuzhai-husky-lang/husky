@@ -5,4 +5,6 @@ use malamute::*;
 #[rustfmt::skip]
 linkage_impls![
     <malamute::OneVsAll as Default>::default,
+    <malamute::Class as Unveil>::unveil,
+    <malamute::OneVsAll as Unveil>::unveil,
 ];

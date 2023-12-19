@@ -33,8 +33,9 @@ impl<'a> SemaExprEngine<'a> {
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTerm>) {
-        let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
-        (sema_expr_idx, sema_expr_idx.ok_ty(&self.sema_expr_arena))
+        let (sema_expr_idx, expectation_idx_and_ty) =
+            self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
+        (sema_expr_idx, expectation_idx_and_ty.map(|(_, ty)| ty))
     }
 
     pub(crate) fn build_sema_expr_with_ty_and_outcome<E: ExpectFluffyTerm>(
@@ -42,20 +43,19 @@ impl<'a> SemaExprEngine<'a> {
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemaExprIdx, Option<FluffyTerm>, Option<ExpectationOutcome>) {
-        let (sema_expr_idx, expectation_idx) =
+        let (sema_expr_idx, expectation_idx_and_ty) =
             self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
-        let outcome = match expectation_idx {
-            Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
-                .resolve_progress()
-                .outcome::<E>()
-                .cloned(),
-            None => None,
+        let (ty, outcome) = match expectation_idx_and_ty {
+            Some((expectation_idx, ty)) => (
+                Some(ty),
+                self.fluffy_term_region[expectation_idx]
+                    .resolve_progress()
+                    .outcome::<E>()
+                    .cloned(),
+            ),
+            None => (None, None),
         };
-        (
-            sema_expr_idx,
-            sema_expr_idx.ok_ty(&self.sema_expr_arena),
-            outcome.map(Into::into),
-        )
+        (sema_expr_idx, ty, outcome.map(Into::into))
     }
 
     /// infer the type of a new expression but don't need the result for now
@@ -80,7 +80,7 @@ impl<'a> SemaExprEngine<'a> {
         let (sema_expr_idx, expectation_idx) =
             self.build_sema_expr_aux(syn_expr_idx, expr_ty_expectation);
         let outcome = match expectation_idx {
-            Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
+            Some((expectation_idx, _)) => self.fluffy_term_region[expectation_idx]
                 .resolve_progress()
                 .outcome::<E>()
                 .cloned(),
@@ -94,21 +94,57 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
-    ) -> (SemaExprIdx, Option<FluffyTermExpectationIdx>) {
-        let (data_result, ty_result) =
+    ) -> (SemaExprIdx, Option<(FluffyTermExpectationIdx, FluffyTerm)>) {
+        let (data_result, immediate_ty_result) =
             self.build_sema_expr_data_and_ty_result(expr_idx, &expr_ty_expectation);
-        let expectation_idx = match ty_result {
-            Ok(ty) => self.add_expectation(
+        let expectation_idx_and_ty = match immediate_ty_result {
+            Ok(ty) => Some(self.add_expectation(
                 ExpectationSource::new_expr(expr_idx),
                 ty,
                 expr_ty_expectation,
-            ),
+            )),
             _ => None,
         };
-        let sema_expr_idx = self.sema_expr_arena.alloc_one(data_result, ty_result);
+        let sema_expr_idx = self.sema_expr_arena.alloc_one(
+            data_result,
+            immediate_ty_result,
+            expectation_idx_and_ty,
+        );
         self.fluffy_term_region
             .resolve_as_much_as_possible(self.db());
-        (sema_expr_idx, expectation_idx)
+        (sema_expr_idx, expectation_idx_and_ty)
+    }
+
+    pub(crate) fn build_unit_sema_expr<E: ExpectFluffyTerm>(
+        &mut self,
+        expr_idx: SynExprIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        expr_ty_expectation: E,
+    ) -> SemaExprIdx {
+        let ty = match expr_ty_expectation.final_destination(self) {
+            FinalDestination::Sort => self.eth_term_menu().ty0().into(),
+            FinalDestination::TypeOntology => self.eth_term_menu().unit_ty_ontology(),
+            FinalDestination::AnyOriginal => todo!(),
+            FinalDestination::AnyDerived => todo!(),
+            FinalDestination::Ritchie(_) => todo!(),
+        };
+        let expectation_idx_and_ty = self.add_expectation(
+            ExpectationSource::new_expr(expr_idx),
+            ty.into(),
+            expr_ty_expectation,
+        );
+        let sema_expr_idx = self.sema_expr_arena.alloc_one(
+            Ok(SemaExprData::Unit {
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
+            }),
+            Ok(ty.into()),
+            Some(expectation_idx_and_ty),
+        );
+        self.fluffy_term_region
+            .resolve_as_much_as_possible(self.db());
+        sema_expr_idx
     }
 
     fn build_sema_expr_data_and_ty_result(

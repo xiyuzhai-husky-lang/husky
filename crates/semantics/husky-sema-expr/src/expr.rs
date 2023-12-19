@@ -256,7 +256,8 @@ pub enum SemaExprData {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprEntry {
     data_result: SemaExprDataResult<SemaExprData>,
-    ty_result: SemaExprTypeResult<FluffyTerm>,
+    immediate_ty_result: SemaExprTypeResult<FluffyTerm>,
+    expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
 }
 
 impl SemaExprEntry {
@@ -276,12 +277,8 @@ impl SemaExprEntry {
         self.data_result.as_ref()
     }
 
-    pub fn ty_result(&self) -> SemaExprTypeResultRef<FluffyTerm> {
-        self.ty_result.as_ref().copied()
-    }
-
-    fn ok_ty(&self) -> Option<FluffyTerm> {
-        self.ty_result.as_ref().ok().copied()
+    fn ty(&self) -> Option<FluffyTerm> {
+        self.expectation_idx_and_ty.map(|(_, ty)| ty)
     }
 
     pub fn original_data_error(&self) -> Option<&OriginalSemaExprDataError> {
@@ -292,7 +289,7 @@ impl SemaExprEntry {
     }
 
     pub fn original_ty_error(&self) -> Option<&OriginalSemaExprTypeError> {
-        match self.ty_result {
+        match self.immediate_ty_result {
             Err(SemaExprTypeError::Original(ref e)) => Some(e),
             _ => None,
         }
@@ -306,11 +303,13 @@ impl SemaExprArena {
     pub(crate) fn alloc_one(
         &mut self,
         data_result: SemaExprDataResult<SemaExprData>,
-        ty_result: SemaExprTypeResult<FluffyTerm>,
+        immediate_ty_result: SemaExprTypeResult<FluffyTerm>,
+        expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
     ) -> SemaExprIdx {
         SemaExprIdx(self.0.alloc_one(SemaExprEntry {
             data_result,
-            ty_result,
+            immediate_ty_result,
+            expectation_idx_and_ty,
         }))
     }
 
@@ -381,11 +380,11 @@ impl SemaExprIdx {
     }
 
     pub fn ty<'a>(self, arena: &'a SemaExprArena) -> FluffyTerm {
-        arena[self].ok_ty().unwrap()
+        arena[self].ty().unwrap()
     }
 
     pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FluffyTerm> {
-        arena[self].ok_ty()
+        arena[self].ty()
     }
 
     pub(crate) fn index(self) -> usize {
