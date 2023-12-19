@@ -6,6 +6,7 @@ pub mod linkage;
 pub mod template_argument;
 #[cfg(test)]
 mod tests;
+pub mod trai;
 pub mod version_stamp;
 
 use self::instantiation::*;
