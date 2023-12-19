@@ -17,10 +17,14 @@ use husky_hir_eager_expr::{
     HirEagerRitchieParameterArgumentMatch, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{place::HirPlace, ritchie::HirEagerContract, HirType};
+use husky_hir_ty::{
+    instantiation::HirTermSymbolResolution, place::HirPlace, ritchie::HirEagerContract,
+    HirTemplateSymbol, HirTemplateSymbolClass, HirType,
+};
 use husky_opr::BinaryClosedOpr;
 use husky_print_utils::p;
 use husky_stack_location::StackLocationIdx;
+use smallvec::SmallVec;
 use vec_like::SmallVecMap;
 
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
@@ -245,12 +249,27 @@ impl HirEagerExprSite {
             },
             HirEagerExprData::Unveil {
                 opd_hir_expr_idx,
+                return_ty,
                 unveil_associated_fn_path,
                 ref instantiation,
             } => {
                 builder.macro_name(RustMacroName::Unveil);
                 builder.bracketed(RustBracket::Par, |builder| {
-                    (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder)
+                    return_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    let resolutions: SmallVec<[HirTermSymbolResolution; 2]> = instantiation
+                        .symbol_map()
+                        .iter()
+                        .filter_map(|&(symbol, resolution)| match symbol {
+                            HirTemplateSymbol::Const(symbol) => (symbol.index(db).class()
+                                == HirTemplateSymbolClass::Runtime)
+                                .then_some(resolution),
+                            _ => None,
+                        })
+                        .collect();
+                    builder.bracketed_comma_list(RustBracket::Par, resolutions)
                 })
             }
             HirEagerExprData::Unwrap { opd_hir_expr_idx } => {

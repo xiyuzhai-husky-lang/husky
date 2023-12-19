@@ -29,7 +29,10 @@ macro_rules! require {
 
 #[macro_export]
 macro_rules! unveil {
-    ($result: expr) => {
-        todo!("unveil")
+    ($return_ty: ty, $result: expr, $runtime_const_symbols: expr) => {
+        match <$return_ty as Unveil<_>>::unveil($result, &$runtime_const_symbols) {
+            std::ops::ControlFlow::Break(b) => return b,
+            std::ops::ControlFlow::Continue(c) => c,
+        }
     };
 }

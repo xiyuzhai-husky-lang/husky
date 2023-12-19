@@ -64,6 +64,7 @@ pub enum HirEagerExprData {
     Unveil {
         unveil_associated_fn_path: TraitForTypeItemPath,
         instantiation: HirInstantiation,
+        return_ty: HirType,
         opd_hir_expr_idx: HirEagerExprIdx,
     },
     Unwrap {
@@ -240,18 +241,23 @@ impl ToHirEager for SemaExprIdx {
                 },
             },
             SemaExprData::Unveil {
+                return_ty,
                 ref unveil_output_ty_signature,
                 unveil_associated_fn_path,
                 opd_sema_expr_idx,
                 ..
-            } => HirEagerExprData::Unveil {
-                unveil_associated_fn_path,
-                instantiation: HirInstantiation::from_ethereal(
-                    unveil_output_ty_signature.instantiation(),
-                    builder.db(),
-                ),
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
-            },
+            } => {
+                let db = builder.db();
+                HirEagerExprData::Unveil {
+                    unveil_associated_fn_path,
+                    instantiation: HirInstantiation::from_ethereal(
+                        unveil_output_ty_signature.instantiation(),
+                        db,
+                    ),
+                    opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
+                    return_ty: HirType::from_ethereal(return_ty, db).unwrap(),
+                }
+            }
             SemaExprData::Unwrap {
                 opd_sema_expr_idx, ..
             } => HirEagerExprData::Unwrap {

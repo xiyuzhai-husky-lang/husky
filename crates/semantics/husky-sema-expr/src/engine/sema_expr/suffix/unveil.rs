@@ -39,6 +39,7 @@ impl<'a> SemaExprEngine<'a> {
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
                         unveil_associated_fn_path,
+                        return_ty: self.return_ty.unwrap(),
                     }),
                     Ok(unveil_output_ty.into()),
                 )
@@ -104,6 +105,7 @@ impl<'a> SemaExprEngine<'a> {
                                             db,
                                         ),
                                         unveil_output_ty_signature,
+                                        return_ty: self.return_ty.unwrap(),
                                     }),
                                     Ok(ty_term),
                                 )
