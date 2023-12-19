@@ -22,17 +22,51 @@ macro_rules! init_crate {
                 .expect("`__TASK_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eval_val_item<T>(
+        pub(crate) fn __eager_eval_val_item_return_ref<T>(
             ingredient_index: usize,
             f: impl FnOnce() -> __Value + 'static,
         ) -> T
         where
             T: 'static,
         {
-            __dev_eval_context().eval_val_item(
+            __dev_eval_context().eval_eager_val_item(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
                 f,
+            )
+        }
+
+        pub(crate) fn __eager_eval_val_item<T>(
+            ingredient_index: usize,
+            f: impl FnOnce() -> __Value + 'static,
+        ) -> T
+        where
+            T: 'static,
+        {
+            __dev_eval_context().eval_eager_val_item(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
+                f,
+            )
+        }
+
+        pub(crate) fn __lazy_eval_val_item_return_ref<T>(ingredient_index: usize) -> T
+        where
+            T: 'static,
+        {
+            __dev_eval_context().eval_lazy_val_item(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
+            )
+        }
+
+        pub(crate) fn __lazy_eval_val_item<T>(ingredient_index: usize) -> T
+        where
+            T: 'static,
+        {
+            __dev_eval_context().eval_lazy_val_item(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
             )
         }
     };
@@ -93,7 +127,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         }
     }
 
-    pub fn eval_val_item<T>(
+    pub fn eval_eager_val_item<T>(
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -102,7 +136,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     where
         T: 'static,
     {
-        self.runtime.eval_val_item_dyn(
+        self.runtime.eval_eager_val_item_dyn(
             jar_index,
             ingredient_index,
             self.base_point,
@@ -114,7 +148,38 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         todo!()
     }
 
-    pub fn eval_val_item_return_ref<T>(self, f: impl FnOnce() -> T) -> &'static T {
+    pub fn eval_eager_val_item_return_ref<T>(
+        self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        f: impl FnOnce() -> LinkageImpl::Value + 'static,
+    ) -> &'static T {
+        todo!()
+    }
+
+    pub fn eval_lazy_val_item<T>(
+        self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+    ) -> T
+    where
+        T: 'static,
+    {
+        self.runtime
+            .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.base_point);
+        todo!()
+    }
+
+    pub fn eval_lazy_val_item_return_ref<T>(
+        self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+    ) -> &'static T {
+        self.runtime.eval_lazy_val_item_return_ref_dyn(
+            jar_index,
+            ingredient_index,
+            self.base_point,
+        );
         todo!()
     }
 
@@ -132,22 +197,66 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
 
-    fn eval_val_item(
+    fn eval_eager_val_item(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImpl::Value;
+
+    fn eval_eager_val_item_return_ref(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+    ) -> LinkageImpl::Value;
+
+    fn eval_lazy_val_item(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImpl::Value;
+
+    fn eval_lazy_val_item_return_ref(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImpl::Value;
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
-    fn eval_val_item_dyn(
+    fn eval_eager_val_item_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+    ) -> LinkageImpl::Value;
+
+    fn eval_eager_val_item_return_ref_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
+        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+    ) -> LinkageImpl::Value;
+
+    fn eval_lazy_val_item_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImpl::Value;
+
+    fn eval_lazy_val_item_return_ref_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: LinkageImpl::Pedestal,
     ) -> LinkageImpl::Value;
 }
 
@@ -155,14 +264,42 @@ impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runti
 where
     Runtime: IsDevRuntime<LinkageImpl>,
 {
-    fn eval_val_item_dyn(
+    fn eval_eager_val_item_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value {
-        self.eval_val_item(jar_index, ingredient_index, base_point, f)
+        self.eval_eager_val_item(jar_index, ingredient_index, base_point, f)
+    }
+
+    fn eval_eager_val_item_return_ref_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: <LinkageImpl as IsLinkageImpl>::Pedestal,
+        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+        self.eval_eager_val_item_return_ref(jar_index, ingredient_index, base_point, f)
+    }
+
+    fn eval_lazy_val_item_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: <LinkageImpl as IsLinkageImpl>::Pedestal,
+    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+        self.eval_lazy_val_item(jar_index, ingredient_index, base_point)
+    }
+
+    fn eval_lazy_val_item_return_ref_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        base_point: <LinkageImpl as IsLinkageImpl>::Pedestal,
+    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+        self.eval_lazy_val_item_return_ref(jar_index, ingredient_index, base_point)
     }
 }
 
