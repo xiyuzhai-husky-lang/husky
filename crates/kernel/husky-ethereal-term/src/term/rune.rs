@@ -5,10 +5,8 @@ pub struct EtherealTermRune {
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
-    pub idx: u8,
+    pub idx: RuneIndex,
 }
-
-pub enum RuneIndex {}
 
 impl EtherealTermRune {
     #[inline(always)]

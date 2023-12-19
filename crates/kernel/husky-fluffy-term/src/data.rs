@@ -2,6 +2,7 @@ mod ethereal;
 mod hollow;
 mod solid;
 
+use husky_declarative_term::RuneIndex;
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 
 pub(crate) use self::ethereal::*;
@@ -41,7 +42,7 @@ pub enum FluffyTermData<'a> {
     },
     Rune {
         ty: FluffyTerm,
-        idx: u8,
+        idx: RuneIndex,
     },
     TypeVariant {
         path: TypeVariantPath,

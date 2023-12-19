@@ -31,7 +31,7 @@ impl DeclarativeTerm {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = DeclarativeTermRune::new(db, symbol.ty(db), idx);
+        let variable = DeclarativeTermRune::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -57,31 +57,32 @@ impl DeclarativeTerm {
         symbol: DeclarativeTermSymbol,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> Option<u8> {
-        self.contains_symbol(db, symbol)
-            .then(|| self.new_variable_idx_if_symbol_is_present(db, symbol, symbol_ty_family))
+        self.contains_symbol(db, symbol).then(|| {
+            self.new_variable_disambiguator_if_symbol_is_present(db, symbol, symbol_ty_family)
+        })
     }
 
     // todo: needs thorough testing
-    fn new_variable_idx_if_symbol_is_present(
+    fn new_variable_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> u8 {
-        let mut idx = match self {
+        let mut disambiguator = match self {
             DeclarativeTerm::Curry(curry)
                 if let Some(rune) = curry.parameter_rune(db)
                     && curry.return_ty(db).contains_symbol(db, symbol) =>
             {
-                rune.idx(db) + 1
+                rune.idx(db).disambiguator() + 1
             }
             _ => 0,
         };
         let mut t = |term: DeclarativeTerm| {
             if let Some(subidx) = term.new_variable_idx_with_ty_family(db, symbol, symbol_ty_family)
             {
-                if subidx > idx {
-                    idx = subidx
+                if subidx > disambiguator {
+                    disambiguator = subidx
                 }
             }
         };
@@ -107,9 +108,9 @@ impl DeclarativeTerm {
                 let m = term.m(db);
                 t(m);
                 if x.ty_family(db) == symbol_ty_family && m.contains_symbol(db, symbol) {
-                    let x_idx = x.idx(db);
-                    if x_idx > idx {
-                        idx = x_idx
+                    let x_disambiguator = x.idx(db).disambiguator;
+                    if x_disambiguator > disambiguator {
+                        disambiguator = x_disambiguator
                     }
                 }
             }
@@ -125,7 +126,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::List(_) => todo!(),
             _ => (),
         }
-        idx
+        disambiguator
     }
 
     // todo: needs thorough testing
@@ -190,48 +191,41 @@ impl DeclarativeTerm {
         }
     }
 }
+// }
 
-fn variable_registry(
-    _db: &::salsa::Db,
-    _declarative_term: DeclarativeTerm,
-    _symbol: DeclarativeTermSymbol,
-) -> VariableRegistry {
-    todo!()
-}
+// #[derive(Debug, Default, PartialEq, Eq, Clone)]
+// pub struct VariableRegistry {
+//     next: u8,
+// }
 
-#[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub struct VariableRegistry {
-    next: u8,
-}
+// impl VariableRegistry {
+//     fn new(
+//         db: &::salsa::Db,
+//         variables: Option<DeclarativeTermRunes>,
+//         ty_family: DeclarativeTermFamily,
+//     ) -> Self {
+//         let Some(variables) = variables else {
+//             return Default::default();
+//         };
+//         let mut next = 0;
+//         for variable in variables.unaccounted_variables(db).iter().copied() {
+//             // only need to disambiguous those with the same type family
+//             if variable.ty_family(db) == ty_family {
+//                 // make sure that new variable won't conflict with this one
+//                 let disambiguator = variable.idx(db).disambiguator();
+//                 if next <= disambiguator {
+//                     next = disambiguator + 1
+//                 }
+//             }
+//         }
+//         Self { next }
+//     }
 
-impl VariableRegistry {
-    fn new(
-        db: &::salsa::Db,
-        variables: Option<DeclarativeTermRunes>,
-        ty_family: DeclarativeTermFamily,
-    ) -> Self {
-        let Some(variables) = variables else {
-            return Default::default();
-        };
-        let mut next = 0;
-        for variable in variables.unaccounted_variables(db).iter().copied() {
-            // only need to disambiguous those with the same type family
-            if variable.ty_family(db) == ty_family {
-                // make sure that new variable won't conflict with this one
-                let idx = variable.idx(db);
-                if next <= idx {
-                    next = idx + 1
-                }
-            }
-        }
-        Self { next }
-    }
+//     pub(super) fn issue_variable_idx(self) -> u8 {
+//         self.next
+//     }
 
-    pub(super) fn issue_variable_idx(self) -> u8 {
-        self.next
-    }
-
-    fn merge(&mut self, _other: Self) {
-        todo!()
-    }
-}
+//     fn merge(&mut self, _other: Self) {
+//         todo!()
+//     }
+// }
