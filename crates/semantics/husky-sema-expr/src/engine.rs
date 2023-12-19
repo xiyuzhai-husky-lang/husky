@@ -351,6 +351,10 @@ impl<'a> SemaExprEngine<'a> {
             ty_result,
         )
     }
+
+    pub(crate) fn sema_expr_arena(&self) -> &SemaExprArena {
+        &self.sema_expr_arena
+    }
 }
 
 fn calc_self_value_ty(
