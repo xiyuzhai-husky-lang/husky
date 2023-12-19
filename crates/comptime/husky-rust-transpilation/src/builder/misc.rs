@@ -185,4 +185,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn call_unwrap(&mut self) {
         self.result += ".unwrap()"
     }
+
+    pub(crate) fn type_runtime_const_symbols_is(&mut self) {
+        self.result += "type RuntimeConstSymbols = "
+    }
 }

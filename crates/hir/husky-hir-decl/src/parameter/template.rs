@@ -101,6 +101,10 @@ impl HirTemplateParameter {
         Some(Self { data, symbol })
     }
 
+    pub fn symbol(&self) -> HirTemplateSymbol {
+        self.symbol
+    }
+
     pub fn data(&self) -> &HirTemplateParameterData {
         &self.data
     }
