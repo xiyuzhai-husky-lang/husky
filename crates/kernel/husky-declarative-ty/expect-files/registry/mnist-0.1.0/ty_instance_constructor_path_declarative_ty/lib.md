@@ -3,7 +3,7 @@
         TypePath(`mnist::MnistLabel`, `Enum`),
         Err(
             DeclarativeTypeError::Original(
-                OriginalDeclarativeTypeError::EnumTypeHasNoConstructor,
+                OriginalDeclarativeTypeError::EnumTypeNoConstructor,
             ),
         ),
     ),

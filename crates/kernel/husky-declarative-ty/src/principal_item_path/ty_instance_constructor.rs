@@ -14,7 +14,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) = ty_template_parameter_variances(db, path) else {
+    let Ok(variances) = ty_path_variances(db, path) else {
         todo!()
     };
     match signature {

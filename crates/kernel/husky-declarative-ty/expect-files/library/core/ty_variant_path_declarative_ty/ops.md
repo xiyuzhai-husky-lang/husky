@@ -14,7 +14,7 @@
                     },
                 ),
                 Ok(
-                    DeclarativeTerm(`(independent v0: Type) -> (independent v0: Type) -> fn((v0) -> core::ops::ControlFlow v0 v0`),
+                    DeclarativeTerm(`(independent v1: Type) -> (independent v0: Type) -> fn((v0) -> core::ops::ControlFlow v1 v0`),
                 ),
             ),
             (
@@ -29,7 +29,7 @@
                     },
                 ),
                 Ok(
-                    DeclarativeTerm(`(independent v0: Type) -> (independent v0: Type) -> fn((v0) -> core::ops::ControlFlow v0 v0`),
+                    DeclarativeTerm(`(independent v1: Type) -> (independent v0: Type) -> fn((v1) -> core::ops::ControlFlow v1 v0`),
                 ),
             ),
         ],

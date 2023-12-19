@@ -9,7 +9,7 @@
         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
         Err(
             DeclarativeTypeError::Original(
-                OriginalDeclarativeTypeError::EnumTypeHasNoConstructor,
+                OriginalDeclarativeTypeError::EnumTypeNoConstructor,
             ),
         ),
     ),

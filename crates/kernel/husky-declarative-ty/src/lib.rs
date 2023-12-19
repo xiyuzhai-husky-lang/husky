@@ -4,11 +4,11 @@ pub mod db;
 mod error;
 mod field;
 mod method;
-mod principal_item_path;
+pub mod principal_item_path;
 mod term;
 #[cfg(test)]
 mod tests;
-mod variance;
+pub mod variance;
 
 pub use self::db::*;
 pub use self::error::*;

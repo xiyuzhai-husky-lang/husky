@@ -1,3 +1,4 @@
+#![feature(if_let_guard)]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod context;

@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> (independent v0: v0) -> fn((core::num::f32, core::num::i32) -> malamute::OneVsAllResult v0 v0`),
+            DeclarativeTerm(`(independent v1: Type) -> (independent v0: v1) -> fn((core::num::f32, core::num::i32) -> malamute::OneVsAllResult v1 v0`),
         ),
     ),
 ]

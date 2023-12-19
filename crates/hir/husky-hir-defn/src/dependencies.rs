@@ -61,7 +61,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                         self.add_item_path(path.parent_ty_path(db))
                     }
                 },
-                HirEagerExprData::ConstSymbol(_) => (),
+                HirEagerExprData::ConstSymbol { .. } => (),
                 HirEagerExprData::Variable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
                 HirEagerExprData::Be { .. } => (),

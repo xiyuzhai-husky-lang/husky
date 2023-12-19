@@ -76,7 +76,6 @@ impl FluffyTerm {
                 return_ty,
                 ty_ethereal_term,
             } => {
-                p!(substitution_rules, parameter_rune);
                 let parameter_rune =
                     parameter_rune.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
                 let parameter_ty = parameter_ty.rewrite_inner(db, terms, src, substitution_rules);

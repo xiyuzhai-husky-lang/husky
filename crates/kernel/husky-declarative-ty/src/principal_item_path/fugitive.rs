@@ -12,7 +12,7 @@ pub fn fugitive_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) = form_item_variances(db, path) else {
+    let Ok(variances) = fugitive_path_variances(db, path) else {
         todo!()
     };
     // ad hoc
