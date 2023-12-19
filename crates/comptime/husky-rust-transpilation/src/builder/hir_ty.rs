@@ -1,6 +1,9 @@
 use either::*;
 use husky_entity_path::{PreludeContainerTypePath, PreludeIndirectionTypePath, PreludeIntTypePath};
-use husky_hir_ty::ritchie::{HirRitchieParameter, HirRitchieType};
+use husky_hir_ty::{
+    ritchie::{HirRitchieParameter, HirRitchieType},
+    HirConstSymbol,
+};
 use husky_term_prelude::RitchieTypeKind;
 
 use super::*;
@@ -46,7 +49,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                 }
             }
-            HirType::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
+            HirType::Symbol(symbol) => builder.hir_template_symbol(symbol),
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
@@ -114,8 +117,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
             HirConstant::R64(_) => todo!(),
             HirConstant::R128(_) => todo!(),
             HirConstant::RSize(_) => todo!(),
-            HirConstant::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
+            HirConstant::Symbol(symbol) => builder.hir_template_symbol(symbol),
             HirConstant::TypeVariant(_) => todo!(),
         }
+    }
+}
+
+impl TranspileToRustWith<HirEagerExprRegion> for HirConstSymbol {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        builder.hir_template_symbol(self)
     }
 }

@@ -245,6 +245,18 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         item.transpile_to_rust(self)
     }
 
+    pub(crate) fn heterogeneous_comma_list_item_with(&mut self, f: impl FnOnce(&mut Self)) {
+        let Some(ref mut is_list_start) = self.is_list_start else {
+            unreachable!()
+        };
+        if *is_list_start {
+            *is_list_start = false
+        } else {
+            self.write_str(", ")
+        }
+        f(self)
+    }
+
     pub(crate) fn bracketed_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
         bracket: RustBracket,
@@ -352,7 +364,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         self.extension.stmt_arena(self.db)
     }
 
-    fn hir_comptime_symbol(&mut self, symbol: impl Into<HirTemplateSymbol>) {
+    fn hir_template_symbol(&mut self, symbol: impl Into<HirTemplateSymbol>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
