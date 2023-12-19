@@ -17,8 +17,8 @@ pub struct DeclarativeTermCurry {
 }
 
 impl DeclarativeTermCurry {
-    /// create a new term curry through converting a symbol to variable
-    /// this is the only to crate a new term curry
+    /// create a new term curry by converting a symbol to variable
+    /// this is the only way to create a new term curry
     /// so that cache hit is maximized
     pub fn new_dependent(
         db: &::salsa::Db,
@@ -30,7 +30,7 @@ impl DeclarativeTermCurry {
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,
     ) -> Self {
-        let (return_ty, parameter_rune) = return_ty.r#abstract(db, parameter_symbol);
+        let (return_ty, parameter_rune) = return_ty.create_rune(db, parameter_symbol);
         DeclarativeTermCurry::new_inner(
             db,
             toolchain,

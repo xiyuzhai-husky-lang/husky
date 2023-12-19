@@ -49,9 +49,7 @@ pub(crate) fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResult
     match path {
         ItemPath::Submodule(_, _) => Ok(&[]),
         ItemPath::MajorItem(path) => match path {
-            MajorItemPath::Type(path) => ty_template_parameter_variances(db, path)
-                .as_ref()
-                .map(Vec::as_ref),
+            MajorItemPath::Type(path) => ty_path_variances(db, path).as_ref().map(Vec::as_ref),
             MajorItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
             MajorItemPath::Fugitive(path) => {
                 todo!()
@@ -66,11 +64,8 @@ pub(crate) fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResult
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_template_parameter_variances(
-    db: &::salsa::Db,
-    path: TypePath,
-) -> VarianceResult<Vec<Variance>> {
-    calc_item_variances(db, path)
+pub(crate) fn ty_path_variances(db: &::salsa::Db, path: TypePath) -> VarianceResult<Vec<Variance>> {
+    calc_item_path_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
@@ -78,30 +73,40 @@ pub(crate) fn trai_item_variances(
     db: &::salsa::Db,
     path: TraitPath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_item_variances(db, path)
+    calc_item_path_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn form_item_variances(
+pub(crate) fn fugitive_path_variances(
     db: &::salsa::Db,
     path: FugitivePath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_item_variances(db, path)
+    calc_item_path_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_item_item_variances(
+pub fn ty_item_path_variances(
     db: &::salsa::Db,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_item_variances(db, path)
+    calc_item_path_variances(db, path)
 }
 
-fn calc_item_variances(
+fn calc_item_path_variances(
     db: &::salsa::Db,
     path: impl Into<ItemPath>,
 ) -> VarianceResult<Vec<Variance>> {
     let mut graph = VarianceGraph::new(db, path.into())?;
     graph.propagate(1000).unwrap();
     Ok(graph.finish())
+}
+
+pub trait HasVariances: Copy {
+    fn variances<'a>(self, db: &'a ::salsa::Db) -> VarianceResultRef<'a, &'a [Variance]>;
+}
+
+impl HasVariances for TypePath {
+    fn variances<'a>(self, db: &'a salsa::Db) -> VarianceResultRef<'a, &'a [Variance]> {
+        ty_path_variances(db, self).as_ref().map(|v| v as &[_])
+    }
 }

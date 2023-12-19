@@ -135,12 +135,6 @@ impl<'a> SemaExprEngine<'a> {
                         expr_ty_expectation,
                         ty_path_disambiguation,
                     );
-                    match ty_result {
-                        Ok(ty_result) => {
-                            p!(ty_result.show(self.db, self.fluffy_term_region.terms()))
-                        }
-                        Err(_) => (),
-                    }
                     (
                         Ok(SemaExprData::PrincipalEntityPath {
                             path_expr_idx,

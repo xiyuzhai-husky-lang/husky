@@ -24,6 +24,7 @@ husky-regional-token.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
 husky-declarative-term.workspace = true
+husky-declarative-ty.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
@@ -39,8 +40,6 @@ husky-entity-syn-tree.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
-# kernel
-husky-declarative-ty.workspace = true
 # infer
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true

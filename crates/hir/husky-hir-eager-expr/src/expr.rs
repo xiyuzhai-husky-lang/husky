@@ -15,7 +15,7 @@ use husky_hir_ty::{
 use husky_print_utils::p;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::InheritedSynSymbolKind;
+use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
 use vec_like::VecMap;
 
 pub type HirEagerExprArena = Arena<HirEagerExprEntry>;
@@ -39,7 +39,10 @@ pub enum HirEagerExprData {
     AssociatedFn {
         associated_item_path: AssociatedItemPath,
     },
-    ConstSymbol(HirConstSymbol),
+    ConstSymbol {
+        ident: Ident,
+    },
+    // (HirConstSymbol),
     Variable(HirEagerRuntimeSymbolIdx),
     Binary {
         lopd: HirEagerExprIdx,
@@ -160,7 +163,16 @@ impl ToHirEager for SemaExprIdx {
                 inherited_syn_symbol_kind,
                 ..
             } => match inherited_syn_symbol_kind {
-                InheritedSynSymbolKind::TemplateParameter(_) => todo!(),
+                InheritedSynSymbolKind::TemplateParameter(symbol) => match symbol {
+                    InheritedTemplateParameterSynSymbol::Lifetime { label } => {
+                        todo!()
+                    }
+                    InheritedTemplateParameterSynSymbol::Place { label } => todo!(),
+                    InheritedTemplateParameterSynSymbol::Type { ident } => todo!(),
+                    InheritedTemplateParameterSynSymbol::Constant { ident } => {
+                        HirEagerExprData::ConstSymbol { ident }
+                    }
+                },
                 InheritedSynSymbolKind::ParenateParameter { .. }
                 | InheritedSynSymbolKind::FieldVariable { .. } => HirEagerExprData::Variable(
                     builder
@@ -361,7 +373,7 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::TemplateInstantiation { .. } => todo!(),
             SemaExprData::At { .. } => todo!(),
-            SemaExprData::Unit { .. } => todo!(),
+            SemaExprData::Unit { .. } => HirEagerExprData::Literal(TermLiteral::Unit),
             SemaExprData::Bracketed { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {

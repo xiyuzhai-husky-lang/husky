@@ -1,4 +1,5 @@
 use super::*;
+use husky_declarative_ty::variance::HasVariances;
 
 /// expect term to be equal to `Type` i.e. `Sort 1`
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -48,24 +49,75 @@ impl ExpectFluffyTerm for ExpectSubtype {
         match self.expected.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path: expected_path,
-                ty_arguments: arguments,
+                ty_path: expected_ty_path,
+                ty_arguments: expected_ty_arguments,
                 ..
             } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::TypeOntology {
-                    ty_path: expectee_path,
-                    ty_arguments: arguments,
+                    ty_path: expectee_ty_path,
+                    ty_arguments: expectee_ty_arguments,
                     ..
                 } => {
-                    if expected_path == expectee_path {
-                        todo!()
+                    if expected_ty_path == expectee_ty_path {
+                        let ty_path = expected_ty_path;
+                        assert_eq!(expected_ty_arguments.len(), expected_ty_arguments.len());
+                        let variances = match ty_path.variances(db) {
+                            Ok(variances) => variances,
+                            Err(_) => todo!(),
+                        };
+                        state.set_ok(
+                            ExpectSubtypeOutcome {},
+                            std::iter::zip(
+                                variances,
+                                std::iter::zip(expectee_ty_arguments, expected_ty_arguments),
+                            )
+                            .map(
+                                |(&variance, (&expectee_ty_argument, &expected_ty_argument))| {
+                                    match variance {
+                                        // ad hoc
+                                        Variance::Independent => {
+                                            FluffyTermResolveAction::AddExpectation {
+                                                src: state.child_src(),
+                                                expectee: expectee_ty_argument,
+                                                expectation: ExpectSubtype {
+                                                    expected: expected_ty_argument,
+                                                }
+                                                .into(),
+                                            }
+                                        }
+                                        Variance::Covariant => {
+                                            FluffyTermResolveAction::AddExpectation {
+                                                src: state.child_src(),
+                                                expectee: expectee_ty_argument,
+                                                expectation: ExpectSubtype {
+                                                    expected: expected_ty_argument,
+                                                }
+                                                .into(),
+                                            }
+                                        }
+                                        Variance::Contravariant => {
+                                            FluffyTermResolveAction::AddExpectation {
+                                                src: state.child_src(),
+                                                expectee: expected_ty_argument,
+                                                expectation: ExpectSubtype {
+                                                    expected: expectee_ty_argument,
+                                                }
+                                                .into(),
+                                            }
+                                        }
+                                        Variance::Invariant => todo!(),
+                                    }
+                                },
+                            )
+                            .collect(),
+                        )
                     } else {
                         state.set_err(
                             OriginalFluffyTermExpectationError::TypePathMismatchForSubtyping {
                                 expected: self.expected,
                                 expectee: state.expectee(),
-                                expected_path,
-                                expectee_path,
+                                expected_path: expected_ty_path,
+                                expectee_path: expectee_ty_path,
                             },
                             smallvec![],
                         )

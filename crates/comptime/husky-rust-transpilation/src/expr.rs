@@ -102,7 +102,7 @@ impl HirEagerExprSite {
                 HirPlace::RefMut { .. } => true,
                 _ => false,
             },
-            HirEagerExprData::ConstSymbol(_)
+            HirEagerExprData::ConstSymbol { .. }
             | HirEagerExprData::FunctionFnCall { .. }
             | HirEagerExprData::AssociatedFunctionFnCall { .. }
             | HirEagerExprData::MemoizedField { .. }
@@ -161,7 +161,7 @@ impl HirEagerExprSite {
                     PrincipalEntityPath::MajorItem(_) => (),
                 }
             }
-            HirEagerExprData::ConstSymbol(_) => todo!(),
+            HirEagerExprData::ConstSymbol { .. } => todo!(),
             HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
                 hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
             }

@@ -3,14 +3,27 @@ use crate::helpers::DeclarativeTermFamily;
 use super::*;
 
 impl DeclarativeTerm {
-    // deprecated
-    // variable now should only be created in curry or abstraction
+    // variable should only be created in curry or abstraction
     /// the only way to create new variable
+    ///
     /// this is not cached because
     /// - it's not called frequently
     /// - it's not computationally
-    #[deprecated]
-    pub(in crate::term) fn r#abstract(
+    ///
+    /// `<v0: Type> -> A v0 s0` w.r.t `s0` gives `<v1: _> -> <v0: Type> -> A v0 v1`
+    /// `<v0: Type> -> A s0` w.r.t `s0` gives `<v1: _> -> <v0: Type> -> A v1`
+    ///
+    /// In the above two cases, it's necessary to name `s0` as `v1` otherwise there would be ambiguity.
+    ///
+    /// `A s0 -> <v0: A s0> -> B v0` w.r.t `s0` gives `<v0: _> -> A v0 -> <v0: A v0> -> B v0`
+    ///
+    /// In the above case, it's okay to name `s0` as `v0` because the inner dependent type rune declaration overrides the previous one.
+    ///
+    /// Consider
+    /// A s0 -> B (<v12: Type> -> ... -> C s0) (<v1: Type> -> ... -> C s0)
+    ///
+    /// todo: need thorough testing
+    pub(in crate::term) fn create_rune(
         self,
         db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
@@ -33,12 +46,12 @@ impl DeclarativeTerm {
     /// returns None if symbol is not present
     #[inline(always)]
     fn new_variable_idx(self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) -> Option<u8> {
-        self.new_variable_idx_aux(db, symbol, symbol.ty_family(db))
+        self.new_variable_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
     /// with symbol_ty_family already fetched from db
     #[inline(always)]
-    fn new_variable_idx_aux(
+    fn new_variable_idx_with_ty_family(
         self,
         db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
@@ -55,9 +68,18 @@ impl DeclarativeTerm {
         symbol: DeclarativeTermSymbol,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> u8 {
-        let mut idx = 0;
+        let mut idx = match self {
+            DeclarativeTerm::Curry(curry)
+                if let Some(rune) = curry.parameter_rune(db)
+                    && curry.return_ty(db).contains_symbol(db, symbol) =>
+            {
+                rune.idx(db) + 1
+            }
+            _ => 0,
+        };
         let mut t = |term: DeclarativeTerm| {
-            if let Some(subidx) = term.new_variable_idx_aux(db, symbol, symbol_ty_family) {
+            if let Some(subidx) = term.new_variable_idx_with_ty_family(db, symbol, symbol_ty_family)
+            {
                 if subidx > idx {
                     idx = subidx
                 }
