@@ -1,6 +1,7 @@
 use either::*;
 use husky_entity_path::{PreludeContainerTypePath, PreludeIndirectionTypePath, PreludeIntTypePath};
 use husky_hir_ty::{
+    instantiation::HirTermSymbolResolution,
     ritchie::{HirRitchieParameter, HirRitchieType},
     HirConstSymbol,
 };
@@ -93,6 +94,16 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
     }
 }
 
+impl TranspileToRustWith<HirEagerExprRegion> for HirTermSymbolResolution {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        match self {
+            HirTermSymbolResolution::Explicit(arg) => arg.transpile_to_rust(builder),
+            HirTermSymbolResolution::SelfLifetime => todo!(),
+            HirTermSymbolResolution::SelfPlace(_) => todo!(),
+        }
+    }
+}
+
 impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
@@ -118,7 +129,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
             HirConstant::R128(_) => todo!(),
             HirConstant::RSize(_) => todo!(),
             HirConstant::Symbol(symbol) => builder.hir_template_symbol(symbol),
-            HirConstant::TypeVariant(_) => todo!(),
+            HirConstant::TypeVariant(path) => path.transpile_to_rust(builder),
         }
     }
 }

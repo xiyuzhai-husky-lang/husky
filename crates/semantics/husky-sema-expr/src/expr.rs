@@ -91,6 +91,7 @@ pub enum SemaExprData {
         opr_regional_token_idx: RegionalTokenIdx,
         unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature,
         unveil_associated_fn_path: TraitForTypeItemPath,
+        return_ty: EtherealTerm,
     },
     Unwrap {
         opd_sema_expr_idx: SemaExprIdx,
