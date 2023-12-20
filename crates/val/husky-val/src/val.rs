@@ -57,6 +57,8 @@ pub enum ValOpn {
     Branches,
     TypeVariant(husky_entity_path::TypeVariantPath),
     Be,
+    Unveil {},
+    Unwrap {},
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

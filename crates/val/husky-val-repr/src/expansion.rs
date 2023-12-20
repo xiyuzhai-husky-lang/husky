@@ -367,8 +367,20 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 opd_hir_expr_idx,
                 unveil_associated_fn_path,
                 ref instantiation,
-            } => todo!(),
-            HirLazyExprData::Unwrap { opd_hir_expr_idx } => todo!(),
+            } => {
+                let opn = ValOpn::Unveil {};
+                let arguments = smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
+                )];
+                (opn, arguments)
+            }
+            HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
+                let opn = ValOpn::Unwrap {};
+                let arguments = smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
+                )];
+                (opn, arguments)
+            }
             HirLazyExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,
