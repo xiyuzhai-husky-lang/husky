@@ -5,6 +5,7 @@ mod eval;
 
 pub use self::config::*;
 
+use eval::ValControlFlow;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::{
@@ -103,13 +104,18 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
     ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
         let target_path = self.linktime_target_path().unwrap();
         let db = self.db();
         let val_repr: ValRepr = self
             .comptime
             .ingredient_val_repr(jar_index, ingredient_index);
-        todo!()
+        match self.eval_val_repr(val_repr, pedestal) {
+            ValControlFlow::Continue(value) => value,
+            ValControlFlow::LoopContinue => todo!(),
+            ValControlFlow::LoopBreak(_) => todo!(),
+            ValControlFlow::Return(_) => todo!(),
+        }
     }
 }

@@ -24,11 +24,14 @@ impl<Task: IsTask> DevRuntime<Task> {
         pedestal: TaskDevPedestal<Task>,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
         with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
-            self.eval_val_aux(val_repr)
+            self.eval_val_repr_aux(val_repr)
         })
     }
 
-    fn eval_val_aux(&self, val_repr: ValRepr) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    fn eval_val_repr_aux(
+        &self,
+        val_repr: ValRepr,
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
         let db = self.db();
         let arguments: SmallVec<[TaskValue<Task>; 4]> = val_repr
             .arguments(db)
