@@ -33,17 +33,15 @@ impl<Task: IsTask> DevRuntime<Task> {
         val_repr: ValRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
         let db = self.db();
-        let arguments: SmallVec<[TaskValue<Task>; 4]> = val_repr
-            .arguments(db)
-            .iter()
-            .map(|val_argument_repr| self.eval_val_argument(val_argument_repr))
-            .collect::<ValControlFlow<TaskValue<Task>, SmallVec<[TaskValue<Task>; 4]>>>()?;
         match val_repr.opn(db) {
             ValOpn::Return => todo!(),
             ValOpn::Require => todo!(),
             ValOpn::Assert => todo!(),
             ValOpn::Literal(_) => todo!(),
-            ValOpn::ValItemLazilyDefined(_) => todo!(),
+            ValOpn::ValItemLazilyDefined(_) => {
+                let expansion = val_repr.expansion(db).unwrap();
+                self.eval_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
+            }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
                 linkage_impl.eval_fn(dev_eval_context::<Task::DevAscension>(), Default::default());
@@ -58,18 +56,53 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Branches => todo!(),
             ValOpn::TypeVariant(_) => todo!(),
             ValOpn::Be => todo!(),
+            ValOpn::Unveil {} => {
+                let result = self.eval_val_argument(&val_repr.arguments(db)[0]);
+                todo!()
+            }
+            ValOpn::Unwrap {} => todo!(),
         }
+    }
+
+    fn eval_val_arguments(
+        &self,
+        val_repr: ValRepr,
+        db: &salsa::Db,
+    ) -> ValControlFlow<TaskValue<Task>, SmallVec<[TaskValue<Task>; 4]>> {
+        val_repr
+            .arguments(db)
+            .iter()
+            .map(|val_argument_repr| self.eval_val_argument(val_argument_repr))
+            .collect::<ValControlFlow<TaskValue<Task>, SmallVec<[TaskValue<Task>; 4]>>>()
+    }
+
+    fn eval_stmts(
+        &self,
+        stmt_val_reprs: &[ValRepr],
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+        for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
+            match self.eval_val_repr_aux(stmt_val_repr) {
+                ValControlFlow::Continue(_) => todo!(),
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+            }
+        }
+        self.eval_val_repr_aux(*stmt_val_reprs.last().unwrap())
     }
 
     fn eval_val_argument(
         &self,
         val_argument_repr: &ValArgumentRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
-        match val_argument_repr {
-            ValArgumentRepr::Ordinary(_) => todo!(),
+        match *val_argument_repr {
+            ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr_aux(val_repr),
             ValArgumentRepr::Keyed(_, _) => todo!(),
             ValArgumentRepr::Variadic(_) => todo!(),
-            ValArgumentRepr::Branch { condition, stmts } => todo!(),
+            ValArgumentRepr::Branch {
+                condition,
+                ref stmts,
+            } => todo!(),
         }
     }
 }
