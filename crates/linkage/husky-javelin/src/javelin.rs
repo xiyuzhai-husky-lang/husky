@@ -1,12 +1,11 @@
-use husky_entity_path::{AssociatedItemPath, ItemPath};
-use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
-use husky_hir_ty::instantiation::HirInstantiation;
-use husky_vfs::PackagePath;
-
 use crate::{
     amazon::package_amazon_javelins, instantiation::JavelinInstantiation, path::JavelinPath,
     valkyrie::package_valkyrie_javelins, *,
 };
+use husky_entity_path::{AssociatedItemPath, ItemPath};
+use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
+use husky_hir_ty::instantiation::HirInstantiation;
+use husky_vfs::PackagePath;
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = pub(crate) new)]
 pub struct Javelin {

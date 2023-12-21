@@ -63,6 +63,10 @@ impl TranspileToRustWith<()> for Linkage {
                 path,
                 ref instantiation,
             } => path.transpile_to_rust(builder),
+            LinkageData::FunctionGnItem {
+                path,
+                ref instantiation,
+            } => path.transpile_to_rust(builder),
             LinkageData::ValItem {
                 path,
                 ref instantiation,

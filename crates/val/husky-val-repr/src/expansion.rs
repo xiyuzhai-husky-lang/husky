@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{FugitivePath, MajorItemPath, PrincipalEntityPath};
 
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
@@ -445,7 +445,29 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
             }
-            HirLazyExprData::FunctionGnItemCall { .. } => todo!(),
+            HirLazyExprData::FunctionGnItemCall {
+                path,
+                ref instantiation,
+                ref item_groups,
+                ..
+            } => {
+                let db = self.db;
+                let Some(FugitiveHirDefn::FunctionGn(hir_defn)) = path.hir_defn(db) else {
+                    unreachable!()
+                };
+                let opn = match hir_defn.lazy_body_with_hir_lazy_expr_region(db) {
+                    Some((body, _)) => todo!(),
+                    None => ValOpn::Linkage(Linkage::new_function_gn_item(
+                        path,
+                        instantiation,
+                        &self.linkage_instantiation,
+                        self.db,
+                    )),
+                };
+                let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
+                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                (opn, arguments)
+            }
             HirLazyExprData::PropsStructField {
                 owner,
                 owner_base_ty,
