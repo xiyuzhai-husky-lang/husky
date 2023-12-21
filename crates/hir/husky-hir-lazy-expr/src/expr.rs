@@ -5,6 +5,7 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::*;
+use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
@@ -262,16 +263,32 @@ impl ToHirLazy for SemaExprIdx {
                                 item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
-                            MajorItemPath::Fugitive(path) => HirLazyExprData::FunctionFnItemCall {
-                                path,
-                                // ad hoc
-                                instantiation: HirInstantiation::new_empty(),
-                                // HirInstantiation::from_fluffy(
-                                //     instantiation,
-                                //     builder.db(),
-                                //     builder.fluffy_terms(),
-                                // ),
-                                item_groups,
+                            MajorItemPath::Fugitive(path) => match path.fugitive_kind(builder.db())
+                            {
+                                FugitiveKind::FunctionFn => HirLazyExprData::FunctionFnItemCall {
+                                    path,
+                                    // ad hoc
+                                    instantiation: HirInstantiation::new_empty(),
+                                    // HirInstantiation::from_fluffy(
+                                    //     instantiation,
+                                    //     builder.db(),
+                                    //     builder.fluffy_terms(),
+                                    // ),
+                                    item_groups,
+                                },
+                                FugitiveKind::FunctionGn => HirLazyExprData::FunctionGnItemCall {
+                                    path,
+                                    // ad hoc
+                                    instantiation: HirInstantiation::new_empty(),
+                                    // HirInstantiation::from_fluffy(
+                                    //     instantiation,
+                                    //     builder.db(),
+                                    //     builder.fluffy_terms(),
+                                    // ),
+                                    item_groups,
+                                },
+                                FugitiveKind::AliasType => todo!(),
+                                FugitiveKind::Val => todo!(),
                             },
                         },
                         PrincipalEntityPath::TypeVariant(path) => {

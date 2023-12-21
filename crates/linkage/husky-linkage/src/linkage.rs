@@ -60,6 +60,10 @@ pub enum LinkageData {
         ident: Ident,
     },
     Index,
+    FunctionGnItem {
+        path: FugitivePath,
+        instantiation: LinkageInstantiation,
+    },
 }
 
 impl Linkage {
@@ -181,9 +185,30 @@ impl Linkage {
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
+        debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionFn);
         Self::new(
             db,
             LinkageData::FunctionFnItem {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
+    }
+
+    pub fn new_function_gn_item(
+        path: FugitivePath,
+        hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        debug_assert_eq!(path.fugitive_kind(db), FugitiveKind::FunctionGn);
+        Self::new(
+            db,
+            LinkageData::FunctionGnItem {
                 path,
                 instantiation: LinkageInstantiation::from_hir(
                     hir_instantiation,

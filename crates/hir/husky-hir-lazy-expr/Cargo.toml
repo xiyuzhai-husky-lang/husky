@@ -18,6 +18,7 @@ husky-hir-ty.workspace = true
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # kernel
 husky-term-prelude.workspace = true
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-ethereal-term.workspace = true

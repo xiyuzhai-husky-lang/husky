@@ -20,8 +20,9 @@ use smallvec::ToSmallVec;
 use vec_like::VecSet;
 
 /// a Valkyrie javelin is one with non empty instantiation
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValkyrieJavelin(Javelin);
 
 impl ValkyrieJavelin {
