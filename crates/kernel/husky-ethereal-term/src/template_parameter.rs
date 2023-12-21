@@ -3,11 +3,11 @@ use crate::{instantiation::*, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermTemplateParameters {
+pub struct EtherealTemplateParameters {
     data: SmallVec<[EtherealTemplateParameter; 2]>,
 }
 
-impl<'a> IntoIterator for &'a EtherealTermTemplateParameters {
+impl<'a> IntoIterator for &'a EtherealTemplateParameters {
     type Item = &'a EtherealTemplateParameter;
 
     type IntoIter = impl Iterator<Item = &'a EtherealTemplateParameter> + 'a;
@@ -17,12 +17,12 @@ impl<'a> IntoIterator for &'a EtherealTermTemplateParameters {
     }
 }
 
-impl EtherealTermTemplateParameters {
+impl EtherealTemplateParameters {
     pub fn from_declarative(
         db: &::salsa::Db,
         template_parameters: &[DeclarativeTemplateParameter],
-    ) -> EtherealTermResult<EtherealTermTemplateParameters> {
-        Ok(EtherealTermTemplateParameters {
+    ) -> EtherealTermResult<EtherealTemplateParameters> {
+        Ok(EtherealTemplateParameters {
             data: template_parameters
                 .iter()
                 .map(|template_parameter| {
@@ -43,7 +43,7 @@ impl EtherealTermTemplateParameters {
     }
 }
 
-impl std::ops::Deref for EtherealTermTemplateParameters {
+impl std::ops::Deref for EtherealTemplateParameters {
     type Target = [EtherealTemplateParameter];
 
     fn deref(&self) -> &Self::Target {

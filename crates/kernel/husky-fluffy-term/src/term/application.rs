@@ -98,7 +98,7 @@ impl FluffyTerm {
         Self::new_application(engine, function, ty)
     }
 
-    pub(crate) fn new_ty_ontology(
+    pub fn new_ty_ontology(
         db: &::salsa::Db,
         fluffy_terms: &mut FluffyTerms,
         path: TypePath,

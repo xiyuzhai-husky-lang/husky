@@ -289,8 +289,7 @@ impl ToHirEager for SemaExprIdx {
                                 MajorItemPath::Trait(_) => unreachable!(),
                                 MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
                                     path,
-                                    // ad hoc
-                                    instantiation: HirInstantiation::new_empty(),
+                                    instantiation: todo!(),
                                     item_groups,
                                 },
                             },

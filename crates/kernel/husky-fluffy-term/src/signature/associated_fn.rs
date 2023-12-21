@@ -47,8 +47,6 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         template.template_parameters(db),
         db,
     );
-    // FluffyInstantiation::new(FluffyInstantiationEnvironment::AssociatedFn);
-    // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db),
         ty_template_arguments.iter().copied(),

@@ -4,7 +4,7 @@ use super::*;
 pub struct FunctionFnEtherealSignatureTemplate {
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
 }
 
 impl FunctionFnEtherealSignatureTemplate {
@@ -13,7 +13,7 @@ impl FunctionFnEtherealSignatureTemplate {
         path: FugitivePath,
         declarative_signature_template: FnFugitiveDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;

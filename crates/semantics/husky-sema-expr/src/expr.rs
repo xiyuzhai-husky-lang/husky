@@ -36,6 +36,7 @@ pub enum SemaExprData {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
+        instantiation: Option<FluffyInstantiation>,
     },
     AssociatedItem {
         parent_expr_idx: SynPrincipalEntityPathExprIdx,

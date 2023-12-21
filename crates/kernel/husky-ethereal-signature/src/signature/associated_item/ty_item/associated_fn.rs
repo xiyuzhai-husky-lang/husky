@@ -8,9 +8,9 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
     // todo: is this necessary?
     pub self_ty: EtherealTerm,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: EtherealTermParenateParameters,
+    pub parenate_parameters: EtherealParenateParameters,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,
 }
@@ -22,11 +22,11 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
         declarative_signature: TypeAssociatedFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
             declarative_signature.template_parameters(db),
         )?;
-        let parenate_parameters = EtherealTermParenateParameters::from_declarative(
+        let parenate_parameters = EtherealParenateParameters::from_declarative(
             db,
             declarative_signature.parenate_parameters(db),
         )?;
