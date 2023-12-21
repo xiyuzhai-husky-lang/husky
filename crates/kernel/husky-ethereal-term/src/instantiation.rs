@@ -183,7 +183,7 @@ impl EtherealInstantiationBuilder {
 
     pub fn merge_with_item_template_parameters(
         &self,
-        template_parameters: &EtherealTermTemplateParameters,
+        template_parameters: &EtherealTemplateParameters,
     ) -> Self {
         let mut symbol_map = self.symbol_map.clone();
         let len = symbol_map.len().try_into().unwrap();

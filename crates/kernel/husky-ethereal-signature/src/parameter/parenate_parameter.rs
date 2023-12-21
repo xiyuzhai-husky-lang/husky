@@ -3,16 +3,16 @@ use husky_declarative_signature::DeclarativeParenateParameters;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct EtherealTermParenateParameters {
+pub struct EtherealParenateParameters {
     data: SmallVec<[EtherealRitchieParameter; 4]>,
 }
 
-impl EtherealTermParenateParameters {
+impl EtherealParenateParameters {
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
         params: &DeclarativeParenateParameters,
     ) -> EtherealSignatureResult<Self> {
-        Ok(EtherealTermParenateParameters {
+        Ok(EtherealParenateParameters {
             data: params
                 .iter()
                 .copied()
@@ -26,7 +26,7 @@ impl EtherealTermParenateParameters {
     }
 }
 
-impl std::ops::Deref for EtherealTermParenateParameters {
+impl std::ops::Deref for EtherealParenateParameters {
     type Target = [EtherealRitchieParameter];
 
     fn deref(&self) -> &Self::Target {

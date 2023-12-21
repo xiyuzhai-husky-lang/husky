@@ -8,7 +8,7 @@ use vec_like::VecMapGetEntry;
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub trai: EtherealTerm,
     pub self_ty_refined: EtherealSelfTypeInTraitImpl,
 }
@@ -105,7 +105,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         path: TraitForTypeImplBlockPath,
         declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;

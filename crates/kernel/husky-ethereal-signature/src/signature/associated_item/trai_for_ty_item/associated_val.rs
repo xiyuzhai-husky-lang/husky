@@ -4,5 +4,5 @@ use super::*;
 pub struct TraitForTypeAssociatedValEtherealSignatureTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
 }

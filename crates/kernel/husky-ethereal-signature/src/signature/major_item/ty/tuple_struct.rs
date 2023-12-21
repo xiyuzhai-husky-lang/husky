@@ -7,7 +7,7 @@ use husky_declarative_signature::{
 pub struct TupleStructTypeEtherealSignatureTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[TupleFieldEtherealSignatureTemplate; 2]>,
 }
@@ -18,7 +18,7 @@ impl TupleStructTypeEtherealSignatureTemplate {
         path: TypePath,
         declarative_signature_template: TupleStructTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;
@@ -56,7 +56,7 @@ impl TupleFieldEtherealSignatureTemplate {
     // todo: move this to trait
     fn instantiate(
         self,
-        template_parameters: &EtherealTermTemplateParameters,
+        template_parameters: &EtherealTemplateParameters,
         arguments: &[EtherealTerm],
     ) -> TupleStructFieldEtherealSignature {
         if template_parameters.data().len() != arguments.len() {

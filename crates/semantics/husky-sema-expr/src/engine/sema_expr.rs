@@ -166,16 +166,20 @@ impl<'a> SemaExprEngine<'a> {
             } => match opt_path {
                 Some(path) => {
                     let ty_path_disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
-                    let ty_result = self.calc_principal_item_path_expr_ty(
+                    let (instantiation_result, ty_result) = self.calc_principal_item_path_expr_ty(
+                        syn_expr_idx,
                         path,
                         expr_ty_expectation,
                         ty_path_disambiguation,
                     );
                     (
-                        Ok(SemaExprData::PrincipalEntityPath {
-                            path_expr_idx,
-                            path,
-                            ty_path_disambiguation,
+                        instantiation_result.map(|instantiation| {
+                            SemaExprData::PrincipalEntityPath {
+                                path_expr_idx,
+                                path,
+                                ty_path_disambiguation,
+                                instantiation,
+                            }
                         }),
                         ty_result,
                     )

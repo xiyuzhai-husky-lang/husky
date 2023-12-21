@@ -29,6 +29,42 @@ impl FluffyTerms {
         }
     }
 
+    pub(crate) fn new_hole_from_template_parameter_symbol(
+        &mut self,
+        hole_source: HoleSource,
+        template_parameter_symbol: EtherealTermSymbol,
+        db: &::salsa::Db,
+    ) -> HollowTerm {
+        let hole_kind = match template_parameter_symbol.ty(db) {
+            EtherealTerm::Literal(_) => todo!(),
+            EtherealTerm::Symbol(_) => HoleKind::Any,
+            EtherealTerm::Rune(_) => todo!(),
+            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::Category(cat) => {
+                if cat.universe().raw() != 1 {
+                    // maybe we need to consider universe
+                    todo!()
+                }
+                HoleKind::ImplicitType
+            }
+            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Abstraction(_) => todo!(),
+            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TraitConstraint(_) => todo!(),
+        };
+        self.hollow_terms.alloc_new(HollowTermData::Hole {
+            hole_source,
+            hole_kind,
+            fill: None,
+            constraints: smallvec![],
+        })
+    }
+
+    #[deprecated(note = "create holes from template parameters directly instead")]
     pub(crate) fn new_hole_from_parameter_rune(
         &mut self,
         db: &::salsa::Db,
@@ -46,7 +82,7 @@ impl FluffyTerms {
                 FluffyTermData::Curry {
                     curry_kind,
                     variance,
-                    parameter_rune: parameter_rune,
+                    parameter_rune,
                     parameter_ty,
                     return_ty,
                     ty_ethereal_term,

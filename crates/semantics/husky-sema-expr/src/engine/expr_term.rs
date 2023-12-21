@@ -2,7 +2,9 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_fluffy_term::signature::binary_opr::SemaBinaryOprFluffySignature;
+use husky_fluffy_term::{
+    instantiation::FluffyInstantiation, signature::binary_opr::SemaBinaryOprFluffySignature,
+};
 use husky_term_prelude::float::TermF32Literal;
 use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
@@ -208,7 +210,12 @@ impl<'a> SemaExprEngine<'a> {
                 path_expr_idx,
                 path,
                 ty_path_disambiguation,
-            } => Ok(self.calc_item_path_term(*path, *ty_path_disambiguation)),
+                ref instantiation,
+            } => Ok(self.calc_item_path_term(
+                *path,
+                *ty_path_disambiguation,
+                instantiation.as_ref(),
+            )),
             SemaExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
@@ -415,11 +422,12 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     fn calc_item_path_term(
-        &mut self,
+        &self,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
+        instantiation: Option<&FluffyInstantiation>,
     ) -> FluffyTerm {
-        match path {
+        let mut term = match path {
             PrincipalEntityPath::Module(_) => todo!(),
             PrincipalEntityPath::MajorItem(path) => match path {
                 MajorItemPath::Type(path) => match ty_path_disambiguation {
@@ -440,6 +448,10 @@ impl<'a> SemaExprEngine<'a> {
             PrincipalEntityPath::TypeVariant(ty_variant_path) => {
                 TermEntityPath::TypeVariant(ty_variant_path).into()
             }
+        };
+        if let Some(instantiation) = instantiation {
+            todo!()
         }
+        term
     }
 }

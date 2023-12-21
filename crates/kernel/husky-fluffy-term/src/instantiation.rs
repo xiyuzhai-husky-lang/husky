@@ -20,12 +20,44 @@ pub enum FluffyTermSymbolResolution {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FluffyInstantiationEnvironment {
+    TypeOntologyConstructor,
     AssociatedFn,
     MethodFn { self_place: FluffyPlace },
     MemoizedField,
 }
 
 impl FluffyInstantiation {
+    pub fn from_template_parameters(
+        env: FluffyInstantiationEnvironment,
+        syn_expr_idx: SynExprIdx,
+        template_parameters: &[EtherealTemplateParameter],
+        terms: &mut FluffyTerms,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self {
+            env,
+            symbol_map: template_parameters
+                .iter()
+                .map(|param| {
+                    let symbol = param.symbol();
+                    (
+                        symbol,
+                        FluffyTermSymbolResolution::Explicit(
+                            terms
+                                .new_hole_from_template_parameter_symbol(
+                                    syn_expr_idx.into(),
+                                    symbol,
+                                    db,
+                                )
+                                .into(),
+                        ),
+                    )
+                })
+                .collect(),
+            separator: None,
+        }
+    }
+
     pub(crate) fn from_ethereal(
         env: FluffyInstantiationEnvironment,
         instantiation: &EtherealInstantiation,
@@ -66,7 +98,7 @@ impl FluffyInstantiation {
     }
 }
 
-pub(crate) trait FluffyInstantiate: Copy {
+pub trait FluffyInstantiate: Copy {
     type Target;
 
     fn instantiate(
@@ -148,6 +180,7 @@ impl FluffyInstantiationBuilder {
                                     FluffyTermSymbolResolution::SelfPlace(self_place)
                                 }
                                 FluffyInstantiationEnvironment::MemoizedField => todo!(),
+                                FluffyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
                             }),
                             _ => None,
                         },
@@ -280,6 +313,7 @@ impl FluffyInstantiate for EtherealTerm {
                             self_place.into()
                         }
                         FluffyInstantiationEnvironment::MemoizedField => todo!(),
+                        FluffyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
                     },
                 },
             },

@@ -252,8 +252,8 @@ impl ToHirLazy for SemaExprIdx {
                 let function_hir_lazy_expr_idx = function_sema_expr_idx.to_hir_lazy(builder);
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
-                match builder.hir_lazy_expr_arena()[function_hir_lazy_expr_idx] {
-                    HirLazyExprData::PrincipalEntityPath(path) => match path {
+                match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
+                    SemaExprData::PrincipalEntityPath { path, .. } => match path {
                         PrincipalEntityPath::Module(_) => unreachable!(),
                         PrincipalEntityPath::MajorItem(path) => match path {
                             MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorFnCall {
@@ -279,7 +279,7 @@ impl ToHirLazy for SemaExprIdx {
                                 FugitiveKind::FunctionGn => HirLazyExprData::FunctionGnItemCall {
                                     path,
                                     // ad hoc
-                                    instantiation: HirInstantiation::new_empty(),
+                                    instantiation: todo!(),
                                     // HirInstantiation::from_fluffy(
                                     //     instantiation,
                                     //     builder.db(),
@@ -299,7 +299,10 @@ impl ToHirLazy for SemaExprIdx {
                             }
                         }
                     },
-                    HirLazyExprData::AssociatedFn { .. } => todo!(),
+                    SemaExprData::AssociatedItem {
+                        ref static_dispatch,
+                        ..
+                    } => todo!(),
                     _ => todo!(),
                 }
             }

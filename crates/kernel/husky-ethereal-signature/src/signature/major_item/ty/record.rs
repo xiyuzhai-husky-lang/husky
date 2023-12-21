@@ -5,7 +5,7 @@ use husky_declarative_signature::RecordTypeDeclarativeSignatureTemplate;
 pub struct RecordTypeEtherealSignatureTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTermTemplateParameters,
+    pub template_parameters: EtherealTemplateParameters,
 }
 
 impl RecordTypeEtherealSignatureTemplate {
@@ -14,7 +14,7 @@ impl RecordTypeEtherealSignatureTemplate {
         path: TypePath,
         declarative_signature_template: RecordTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTermTemplateParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;
