@@ -1,50 +1,70 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialEq`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Eq`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialOrd`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Ord`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

@@ -10,8 +10,8 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 /// `HirInstantiation` maps each hir symbol to its hir resolution.
 ///
 /// hir resolution might still contain hir symbols.
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirInstantiation {
     symbol_map: SmallVecPairMap<HirTemplateSymbol, HirTermSymbolResolution, 4>,
     separator: Option<u8>,

@@ -1,38 +1,79 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::clone::Clone`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::clone`,
+                        trai_path: TraitPath(`core::clone::Clone`),
+                        ty_sketch: TypeSketch::DeriveAny,
+                        disambiguator: 0,
+                    },
+                },
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::clone`,
+                                            trai_path: TraitPath(`core::clone::Clone`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `clone`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

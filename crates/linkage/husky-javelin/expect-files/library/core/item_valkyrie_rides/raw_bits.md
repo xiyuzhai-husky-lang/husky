@@ -1,86 +1,133 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::raw_bits::r32`, `Extern`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

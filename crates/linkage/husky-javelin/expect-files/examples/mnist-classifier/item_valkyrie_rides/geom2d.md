@@ -1,434 +1,674 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

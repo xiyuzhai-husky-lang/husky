@@ -1,26 +1,36 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::str::str`, `Extern`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::str::StringLiteral`, `Extern`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

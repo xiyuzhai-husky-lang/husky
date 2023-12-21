@@ -38,6 +38,7 @@ impl ValkyrieJavelin {
 }
 
 /// can be instantiated to a path leading javelin given JavelinInstantiation
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRide {
     javelin_item_path: JavelinPath,
@@ -267,7 +268,7 @@ fn item_valkyrie_rides_works() {
         |db, module_path| -> Vec<_> {
             module_item_paths(db, module_path)
                 .iter()
-                .map(|&item_path| item_valkyrie_rides(db, *item_path))
+                .map(|&item_path| (item_path, item_valkyrie_rides(db, *item_path)))
                 .collect()
         },
         &AstTestConfig::new("item_valkyrie_rides"),

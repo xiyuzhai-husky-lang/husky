@@ -1,97 +1,140 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [
                     ValkyrieRide {
-                        javelin_item_path: TraitForTypeItem(
+                        javelin_item_path: JavelinPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 136,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `clone`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        SelfType,
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::SelfType,
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 38,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -103,20 +146,14 @@
                         },
                     },
                     ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 238,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -124,23 +161,23 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
                                             ),
                                         ),
                                     ),
                                 ),
                                 (
-                                    Type(
-                                        SelfLifetime,
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::SelfLifetime,
                                     ),
-                                    SelfLifetime,
+                                    HirTermSymbolResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -150,72 +187,133 @@
                     },
                 ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist_classifier::connected_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::connected_component`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::connected_component`,
+                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
                 ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [
                     ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 242,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -223,14 +321,14 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -242,20 +340,14 @@
                         },
                     },
                     ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 244,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -263,23 +355,33 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: true,
+                                                },
                                             ),
                                         ),
                                     ),
                                 ),
                                 (
-                                    Type(
-                                        SelfLifetime,
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::SelfLifetime,
                                     ),
-                                    SelfLifetime,
+                                    HirTermSymbolResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -288,20 +390,14 @@
                         },
                     },
                     ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 238,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -309,112 +405,43 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 36,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::PathLeading(
+                                                                                HirTypePathLeading {
+                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                    template_arguments: [],
+                                                                                    always_copyable: false,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: true,
+                                                },
                                             ),
                                         ),
                                     ),
                                 ),
                                 (
-                                    Type(
-                                        SelfLifetime,
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::SelfLifetime,
                                     ),
-                                    SelfLifetime,
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                ],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 237,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    Type(
-                                        Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 237,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    Type(
-                                        Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 44,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    HirTermSymbolResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -424,70 +451,187 @@
                     },
                 ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
             },
-        },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
+            },
+        ),
     ),
 ]
