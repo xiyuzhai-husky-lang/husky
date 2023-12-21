@@ -1,60 +1,79 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [],
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: None,
-            rides: VecSet {
-                data: [
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [
                     ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 237,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -62,14 +81,14 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            PathLeading(
-                                                HirTypePathLeading(
-                                                    Id {
-                                                        value: 48,
-                                                    },
-                                                ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
                                             ),
                                         ),
                                     ),
@@ -82,30 +101,40 @@
                     },
                 ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

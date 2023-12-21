@@ -1,178 +1,249 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                    ],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::result::Result`, `Enum`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 107,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 1,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 128,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 129,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 2,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 130,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 3,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 131,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                    ],
-                ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::result`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::result::Result`, `Enum`),
+                        ),
+                        disambiguator: 0,
+                    },
+                },
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 128,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 1,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 129,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 2,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 130,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 3,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 131,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::result`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::result::Result`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `Continue`,
+                                    item_kind: AssociatedType,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::result`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::result::Result`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `unveil`,
+                                    item_kind: AssociatedFunctionFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]

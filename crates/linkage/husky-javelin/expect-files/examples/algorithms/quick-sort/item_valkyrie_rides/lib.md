@@ -1,56 +1,55 @@
 [
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
-                                traits: [
-                                    HirTrait(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ],
-                            },
-                        },
-                    ],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 227,
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
                                     },
                                 ),
-                            ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 107,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [
+                                        HirTrait(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ],
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                rides: [
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -58,10 +57,10 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            Symbol(
-                                                Type {
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                HirTypeSymbol::Type {
                                                     attrs: HirTemplateSymbolAttrs {
                                                         class: Comptime,
                                                     },
@@ -80,100 +79,104 @@
                     },
                 ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
-                                traits: [
-                                    HirTrait(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ],
-                            },
-                        },
-                    ],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 107,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [
+                                        HirTrait(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ],
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirTemplateSymbolAttrs {
-                                        class: Comptime,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
-                                traits: [
-                                    HirTrait(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ],
-                            },
-                        },
-                    ],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`quick_sort::partition`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [
-                    ValkyrieRide {
-                        javelin_item_path: TypeItem(
-                            TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 228,
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
                                     },
                                 ),
-                            ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 107,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [
+                                        HirTrait(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ],
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                rides: [
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::TypeItem(
+                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    Type(
-                                        Type {
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -181,10 +184,10 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    Explicit(
-                                        Type(
-                                            Symbol(
-                                                Type {
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                HirTypeSymbol::Type {
                                                     attrs: HirTemplateSymbolAttrs {
                                                         class: Comptime,
                                                     },
@@ -196,10 +199,10 @@
                                     ),
                                 ),
                                 (
-                                    Type(
-                                        SelfLifetime,
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::SelfLifetime,
                                     ),
-                                    SelfLifetime,
+                                    HirTermSymbolResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -209,30 +212,40 @@
                     },
                 ],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
             ),
-            rides: VecSet {
-                data: [],
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
             },
-        },
+        ),
     ),
 ]
