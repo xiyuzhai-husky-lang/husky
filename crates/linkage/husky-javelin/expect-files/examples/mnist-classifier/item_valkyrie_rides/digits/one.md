@@ -23,6 +23,38 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide {
+                        javelin_item_path: JavelinPath::Fugitive(
+                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                    ValkyrieRide {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),

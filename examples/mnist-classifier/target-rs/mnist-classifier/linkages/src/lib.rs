@@ -192,5 +192,6 @@ linkage_impls![
     <Vec<Option<Leash<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>>>::push,
     <Vec<Leash<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>>::ilen,
     <Vec<mnist_classifier::connected_component::ConnectedComponent>>::ilen,
+    malamute::narrow_down,
     <Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>::ilen,
 ];

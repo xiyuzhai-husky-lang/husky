@@ -77,6 +77,40 @@
                             ),
                         },
                     },
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::Fugitive(
+                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
                 ],
             },
         ),
@@ -122,7 +156,76 @@
                         ],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::Fugitive(
+                            FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                    ValkyrieRide {
+                        javelin_item_path: JavelinPath::Fugitive(
+                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                ],
             },
         ),
     ),
