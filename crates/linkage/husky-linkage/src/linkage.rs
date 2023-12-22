@@ -4,7 +4,7 @@ use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssociatedItemPath, FugitivePath, TypeItemPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{
     instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments, HirType,
@@ -260,7 +260,26 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )
                     })
                     .collect(),
-                FugitiveKind::FunctionGn => smallvec![],
+                FugitiveKind::FunctionGn => {
+                    let Some(FugitiveHirDefn::FunctionGn(hir_defn)) = path.hir_defn(db) else {
+                        unreachable!()
+                    };
+                    match hir_defn.hir_lazy_expr_region(db) {
+                        Some(_) => smallvec![],
+                        None => LinkageInstantiation::from_javelin(instantiation, db)
+                            .into_iter()
+                            .map(|instantiation| {
+                                Linkage::new(
+                                    db,
+                                    LinkageData::FunctionGnItem {
+                                        path,
+                                        instantiation,
+                                    },
+                                )
+                            })
+                            .collect(),
+                    }
+                }
                 FugitiveKind::AliasType => smallvec![],
                 FugitiveKind::Val => {
                     smallvec![Linkage::new(

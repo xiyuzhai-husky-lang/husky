@@ -213,7 +213,9 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_ride(path.into(), instantiation),
+                } => {
+                    self.try_add_ride(path.into(), instantiation);
+                }
                 HirLazyExprData::AssociatedFunctionFnCall {
                     path,
                     ref instantiation,
