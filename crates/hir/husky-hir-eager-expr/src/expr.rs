@@ -264,17 +264,22 @@ impl ToHirEager for SemaExprIdx {
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::FunctionApplication { .. } => unreachable!(),
-            SemaExprData::FunctionFnCall {
+            SemaExprData::FunctionRitchieCall {
                 function_sema_expr_idx,
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
+                let db = builder.db();
                 let template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
                 match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
-                    SemaExprData::PrincipalEntityPath { path, .. } => {
+                    SemaExprData::PrincipalEntityPath {
+                        path,
+                        ref instantiation,
+                        ..
+                    } => {
                         match path {
                             PrincipalEntityPath::Module(_) => unreachable!(),
                             PrincipalEntityPath::MajorItem(path) => match path {
@@ -289,7 +294,11 @@ impl ToHirEager for SemaExprIdx {
                                 MajorItemPath::Trait(_) => unreachable!(),
                                 MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
                                     path,
-                                    instantiation: todo!(),
+                                    instantiation: HirInstantiation::from_fluffy(
+                                        instantiation.as_ref().unwrap(),
+                                        db,
+                                        builder.fluffy_terms(),
+                                    ),
                                     item_groups,
                                 },
                             },
@@ -322,7 +331,6 @@ impl ToHirEager for SemaExprIdx {
                     _ => todo!(),
                 }
             }
-            SemaExprData::FunctionGnCall { .. } => unreachable!(),
             SemaExprData::Ritchie { .. } => todo!(),
             SemaExprData::Field {
                 owner_sema_expr_idx,

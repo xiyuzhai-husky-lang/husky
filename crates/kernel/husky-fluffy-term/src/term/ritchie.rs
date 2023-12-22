@@ -16,26 +16,45 @@ impl FluffyTerm {
         params: Vec<FluffyRitchieParameter>,
         return_ty: FluffyTerm,
     ) -> FluffyTermResult<Self> {
-        let mut merger = FluffyTermDataKindMerger::new(engine.fluffy_term_region());
+        Self::new_ritchie_inner(
+            ritchie_kind,
+            params,
+            return_ty,
+            engine.db(),
+            engine.fluffy_terms_mut(),
+        )
+    }
+
+    pub fn new_ritchie_inner(
+        ritchie_kind: RitchieKind,
+        params: Vec<FluffyRitchieParameter>,
+        return_ty: FluffyTerm,
+        db: &::salsa::Db,
+        terms: &mut FluffyTerms,
+    ) -> FluffyTermResult<Self> {
+        let mut merger = FluffyTermDataKindMerger::new(terms);
         merger.accept(params.iter().map(|param| param.ty()));
         merger.accept_one(return_ty);
         match merger.data_kind() {
             FluffyTermDataKind::Err => todo!(),
             FluffyTermDataKind::Ethereal => Ok(EtherealTermRitchie::new(
-                engine.db(),
+                db,
                 ritchie_kind,
-                params.into_iter().map(|param| {
-                    param
-                        .resolve_as_ethereal(engine.fluffy_term_region())
-                        .expect("todo")
-                }),
-                return_ty
-                    .resolve_as_ethereal(engine.fluffy_term_region())
-                    .expect("todo"),
+                params
+                    .into_iter()
+                    .map(|param| param.resolve_as_ethereal(terms).expect("todo")),
+                return_ty.resolve_as_ethereal(terms).expect("todo"),
             )?
             .into()),
             FluffyTermDataKind::Solid => todo!(),
-            FluffyTermDataKind::Hollow => todo!(),
+            FluffyTermDataKind::Hollow => Ok(terms
+                .hollow_terms_mut()
+                .alloc_new(HollowTermData::Ritchie {
+                    ritchie_kind,
+                    params,
+                    return_ty,
+                })
+                .into()),
         }
     }
 }
@@ -83,14 +102,18 @@ impl FluffyInstantiate for EtherealRitchieParameter {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target {
         match self {
             EtherealRitchieParameter::Regular(param) => {
-                param.instantiate(engine, expr_idx, builder).into()
+                param.instantiate(engine, expr_idx, instantiation).into()
             }
-            EtherealRitchieParameter::Variadic(_) => todo!(),
-            EtherealRitchieParameter::Keyed(_) => todo!(),
+            EtherealRitchieParameter::Variadic(param) => {
+                param.instantiate(engine, expr_idx, instantiation).into()
+            }
+            EtherealRitchieParameter::Keyed(param) => {
+                param.instantiate(engine, expr_idx, instantiation).into()
+            }
         }
     }
 }
@@ -109,47 +132,6 @@ impl FluffyRitchieParameter {
             FluffyRitchieParameter::Regular(param) => param.ty_mut(),
             FluffyRitchieParameter::Variadic(param) => param.ty_mut(),
             FluffyRitchieParameter::Keyed(param) => param.ty_mut(),
-        }
-    }
-}
-
-impl FluffyTerm {
-    pub(crate) fn new_richie(
-        db: &::salsa::Db,
-        terms: &mut FluffyTerms,
-        ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyRitchieParameter>,
-        return_ty: FluffyTerm,
-    ) -> Self {
-        let mut solid_flag = false;
-        let mut hollow_flag = false;
-        for parameter_contracted_ty in &parameter_contracted_tys {
-            match parameter_contracted_ty.ty().base_resolved_inner(terms) {
-                FluffyTermBase::Ethereal(_) => (),
-                FluffyTermBase::Solid(_) => solid_flag = true,
-                FluffyTermBase::Hollow(_) => hollow_flag = true,
-                FluffyTermBase::Place => todo!(),
-            }
-        }
-        match return_ty.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(_) => (),
-            FluffyTermBase::Solid(_) => solid_flag = true,
-            FluffyTermBase::Hollow(_) => hollow_flag = true,
-            FluffyTermBase::Place => todo!(),
-        }
-        if hollow_flag {
-            terms
-                .hollow_terms_mut()
-                .alloc_new(HollowTermData::Ritchie {
-                    ritchie_kind,
-                    params: parameter_contracted_tys,
-                    return_ty,
-                })
-                .into()
-        } else if solid_flag {
-            todo!()
-        } else {
-            todo!()
         }
     }
 }

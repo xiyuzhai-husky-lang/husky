@@ -127,7 +127,7 @@ impl EagerExprTraceData {
                 ref item_groups,
                 ..
             } => {
-                let SemaExprData::FunctionFnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
@@ -160,7 +160,7 @@ impl EagerExprTraceData {
                 ref item_groups,
                 ..
             } => {
-                let SemaExprData::FunctionFnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())

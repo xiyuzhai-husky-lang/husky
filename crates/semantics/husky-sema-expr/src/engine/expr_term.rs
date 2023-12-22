@@ -294,8 +294,7 @@ impl<'a> SemaExprEngine<'a> {
                     *argument_sema_expr_idx,
                 )
             }
-            SemaExprData::FunctionFnCall { .. } => todo!(),
-            SemaExprData::FunctionGnCall { .. } => todo!(),
+            SemaExprData::FunctionRitchieCall { .. } => todo!(),
             SemaExprData::Field { .. } => todo!(),
             SemaExprData::MethodApplication { .. } => todo!(),
             SemaExprData::MethodFnCall { .. } => todo!(),
@@ -449,7 +448,10 @@ impl<'a> SemaExprEngine<'a> {
                 TermEntityPath::TypeVariant(ty_variant_path).into()
             }
         };
-        if let Some(instantiation) = instantiation {
+        if let Some(instantiation) = instantiation
+            && !instantiation.is_empty()
+        {
+            p!(path.debug(self.db));
             todo!()
         }
         term

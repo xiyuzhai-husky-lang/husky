@@ -370,14 +370,13 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 function_sema_expr_idx,
                 argument_sema_expr_idx,
             } => self[function_sema_expr_idx].join(self[argument_sema_expr_idx]),
-            SemaExprData::FunctionFnCall {
+            SemaExprData::FunctionRitchieCall {
                 function_sema_expr_idx,
                 rpar_regional_token_idx,
                 ..
             } => self[function_sema_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
                 *rpar_regional_token_idx,
             )),
-            SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::MethodApplication {
                 self_argument: first_expr,
                 rpar_regional_token_idx,

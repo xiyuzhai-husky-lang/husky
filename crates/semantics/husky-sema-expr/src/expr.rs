@@ -104,15 +104,8 @@ pub enum SemaExprData {
         function_sema_expr_idx: SemaExprIdx,
         argument_sema_expr_idx: SemaExprIdx,
     },
-    FunctionFnCall {
+    FunctionRitchieCall {
         function_sema_expr_idx: SemaExprIdx,
-        template_arguments: Option<SemaTemplateArgumentList>,
-        lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
-        rpar_regional_token_idx: RegionalTokenIdx,
-    },
-    FunctionGnCall {
-        function: SemaExprIdx,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,

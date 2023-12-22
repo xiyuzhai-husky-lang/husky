@@ -115,7 +115,7 @@ impl LazyExprTraceData {
         let hir_lazy_expr_source_map_data = self.hir_lazy_expr_source_map.data(db);
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
             HirLazyExprData::FunctionFnItemCall { path, .. } => {
-                let SemaExprData::FunctionFnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
@@ -141,7 +141,7 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::AssociatedFunctionFnCall { path, .. } => {
-                let SemaExprData::FunctionFnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
@@ -167,7 +167,7 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::MethodFnCall { path, .. } => {
-                let SemaExprData::FunctionFnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
@@ -194,7 +194,7 @@ impl LazyExprTraceData {
             }
             HirLazyExprData::Block { .. } => unreachable!(),
             HirLazyExprData::FunctionGnItemCall { path, .. } => {
-                let SemaExprData::FunctionGnCall {
+                let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())

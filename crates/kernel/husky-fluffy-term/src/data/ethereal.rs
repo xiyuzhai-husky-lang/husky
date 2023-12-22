@@ -159,7 +159,7 @@ impl TermApplicationFluffyData {
     }
 }
 
-pub(super) fn ethereal_term_data2<'a>(
+pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
     db: &'a ::salsa::Db,
     term: EtherealTerm,
 ) -> FluffyBaseTypeData<'a> {

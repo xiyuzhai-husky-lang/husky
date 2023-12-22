@@ -266,7 +266,10 @@ impl ExpectCoersion {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
+            } => {
+                p!(src_base_ty_data.debug(db), dst_base_ty_data.debug(db));
+                todo!()
+            }
             FluffyBaseTypeData::Symbol { symbol: term } => AltNone,
             FluffyBaseTypeData::Rune { rune } => todo!(),
         }

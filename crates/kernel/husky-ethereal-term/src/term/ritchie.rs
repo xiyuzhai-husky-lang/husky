@@ -132,7 +132,7 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
             .params(db)
             .iter()
             .map(|&param| -> EtherealTermResult<_> {
-                EtherealRitchieParameter::from_declarative(db, param)
+                EtherealRitchieParameter::from_declarative(param, db)
             }),
         EtherealTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
     )
@@ -140,8 +140,8 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
 
 impl EtherealRitchieParameter {
     pub fn from_declarative(
-        db: &::salsa::Db,
         param: DeclarativeRitchieParameter,
+        db: &::salsa::Db,
     ) -> EtherealTermResult<Self> {
         Ok(match param {
             DeclarativeRitchieParameter::Regular(param) => {

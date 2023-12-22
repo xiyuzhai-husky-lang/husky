@@ -74,14 +74,18 @@ impl HirTemplateArgument {
     }
 
     pub(crate) fn from_fluffy(
-        fluffy_term: FluffyTerm,
+        term: FluffyTerm,
         db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
+        terms: &FluffyTerms,
     ) -> Option<Self> {
-        match fluffy_term.base_resolved_inner(fluffy_terms) {
+        match term.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(ethereal_term) => Self::from_ethereal(ethereal_term, db),
             FluffyTermBase::Solid(_) => todo!(),
-            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Hollow(t) => {
+                use husky_print_utils::p;
+                p!(term.show(db, terms));
+                todo!()
+            }
             FluffyTermBase::Place => todo!(),
         }
     }

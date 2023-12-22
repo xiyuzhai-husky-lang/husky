@@ -59,19 +59,18 @@ impl HirInstantiation {
     }
 
     pub fn from_fluffy(
-        fluffy_instantiation: &FluffyInstantiation,
+        instantiation: &FluffyInstantiation,
         db: &::salsa::Db,
-        fluffy_terms: &FluffyTerms,
+        terms: &FluffyTerms,
     ) -> Self {
-        let (symbol_map0, symbol_map1) = &fluffy_instantiation.symbol_map_splitted();
+        let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
         let t = |&(symbol, resolution)| match HirTemplateSymbol::from_ethereal(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 match resolution {
-                    FluffyTermSymbolResolution::Explicit(fluffy_term) => {
+                    FluffyTermSymbolResolution::Explicit(term) => {
                         HirTermSymbolResolution::Explicit(
-                            HirTemplateArgument::from_fluffy(fluffy_term, db, fluffy_terms)
-                                .expect("some"),
+                            HirTemplateArgument::from_fluffy(term, db, terms).expect("some"),
                         )
                     }
                     FluffyTermSymbolResolution::SelfLifetime => {

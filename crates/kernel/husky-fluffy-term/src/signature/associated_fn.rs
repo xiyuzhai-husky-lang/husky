@@ -59,19 +59,20 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     .try_for_each(|(src, &dst)| {
         instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
     })?;
+    let instantiation = instantiation_builder.finish(db);
     JustOk(AssociatedFnFluffySignature {
         path: template.path(db).into(),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation_builder))
+            .map(|param| param.instantiate(engine, expr_idx, &instantiation))
             .collect(),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, expr_idx, &mut instantiation_builder),
+            .instantiate(engine, expr_idx, &instantiation),
         ty: template
             .ty(db)
-            .instantiate(engine, expr_idx, &mut instantiation_builder),
-        instantiation: instantiation_builder.finish(db),
+            .instantiate(engine, expr_idx, &instantiation),
+        instantiation,
     })
 }

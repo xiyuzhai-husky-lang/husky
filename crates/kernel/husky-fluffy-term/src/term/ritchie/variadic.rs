@@ -15,6 +15,22 @@ impl From<EtherealRitchieVariadicParameter> for FluffyRitchieVariadicParameter {
     }
 }
 
+impl FluffyInstantiate for EtherealRitchieVariadicParameter {
+    type Target = FluffyRitchieVariadicParameter;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: SynExprIdx,
+        instantiation: &FluffyInstantiation,
+    ) -> Self::Target {
+        FluffyRitchieVariadicParameter {
+            contract: self.contract(),
+            ty: self.ty().instantiate(engine, expr_idx, instantiation),
+        }
+    }
+}
+
 impl FluffyRitchieVariadicParameter {
     pub fn new(contract: TermContract, ty: FluffyTerm) -> Self {
         Self { contract, ty }

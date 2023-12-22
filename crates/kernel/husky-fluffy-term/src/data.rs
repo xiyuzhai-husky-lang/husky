@@ -121,13 +121,15 @@ impl<'a> FluffyTermData<'a> {
                         // }
                         format!("fn(...) -> {}", return_ty.show(db, terms))
                     }
-                    RitchieTypeKind::Gn => todo!(),
+                    RitchieTypeKind::Gn => {
+                        format!("fn(...) -> {}", return_ty.show(db, terms))
+                    }
                 },
                 RitchieKind::Trait(_) => todo!(),
             },
             FluffyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
             FluffyTermData::Rune { ty, idx } => format!("rune({idx}, {})", ty.show(db, terms)),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FluffyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
         }
     }
 }
@@ -197,7 +199,7 @@ impl FluffyTerm {
         terms: &'a FluffyTerms,
     ) -> FluffyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
-            FluffyTermBase::Ethereal(term) => ethereal_term_data2(db, term),
+            FluffyTermBase::Ethereal(term) => ethereal_term_fluffy_base_ty_data(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             FluffyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
             FluffyTermBase::Place => todo!(),
