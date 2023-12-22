@@ -57,9 +57,12 @@ impl MajorItemSynNodePath {
         }
     }
 
-    pub fn ident(self, _db: &::salsa::Db) -> Ident {
-        todo!("")
-        // self.path(db).ident(db)
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        match self {
+            MajorItemSynNodePath::Trait(slf) => slf.ident(db),
+            MajorItemSynNodePath::Type(slf) => slf.ident(db),
+            MajorItemSynNodePath::Fugitive(slf) => slf.ident(db),
+        }
     }
 
     pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {

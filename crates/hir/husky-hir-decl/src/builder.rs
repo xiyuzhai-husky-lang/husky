@@ -65,9 +65,6 @@ impl<'a> HirDeclBuilder<'a> {
         let sema_expr_idx = self
             .sema_expr_region_data
             .syn_root_to_sema_expr_idx(syn_expr_idx);
-        use husky_print_utils::p;
-        use salsa::DebugWithDb;
-        p!(self.sema_expr_region_data.sema_expr_arena()[sema_expr_idx].debug(self.db));
         match self
             .sema_expr_region_data
             .sema_expr_term(sema_expr_idx)

@@ -4,7 +4,7 @@ use thiserror::Error;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct SymbolType(FluffyTerm);
 
 impl SymbolType {
@@ -126,7 +126,7 @@ impl SymbolType {
 
 /// maybe this is comparable with viewtype or viewt@ype in ATS?
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct PlaceTypeData {
     place: FluffyPlace,
     ty: EtherealTerm,

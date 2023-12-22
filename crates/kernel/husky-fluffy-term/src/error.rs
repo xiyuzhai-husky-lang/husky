@@ -4,8 +4,8 @@ use husky_entity_syn_tree::EntitySynTreeError;
 use husky_ethereal_signature::EtherealSignatureError;
 use thiserror::Error;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum FluffyTermError {
     #[error("ethereal signature")]
     EtherealSignature(EtherealSignatureError),

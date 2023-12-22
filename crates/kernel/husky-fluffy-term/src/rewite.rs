@@ -1,7 +1,8 @@
 use crate::*;
 
+#[deprecated(note = "use instantiation instead")]
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ImplicitParameterSubstitution {
     rune: FluffyTermRune,
     substitute: FluffyTerm,

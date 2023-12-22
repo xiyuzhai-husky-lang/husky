@@ -2,6 +2,7 @@ use super::*;
 use husky_declarative_ty::variance::HasVariances;
 
 /// expect term to be equal to `Type` i.e. `Sort 1`
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectSubtype {
     pub(crate) expected: FluffyTerm,
@@ -47,6 +48,17 @@ impl ExpectFluffyTerm for ExpectSubtype {
         if expectee_data == self.expected.data_inner(db, terms) {
             return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }
+        // todo: handle the case that expectee is a hole first, like
+        // ```
+        // match state.expectee().data_inner(db, terms) {
+        //     FluffyTermData::Hole(_, hole) => {
+        //         state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
+        //             target: self.expected,
+        //         })
+        //     }
+        //     _ => (),
+        // }
+        // ```
         match self.expected.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -125,13 +137,9 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     }
                 }
                 FluffyTermData::Hole(_, hole) => {
-                    if Into::<FluffyTerm>::into(hole) != state.expectee() {
-                        state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
-                            target: state.expectee(),
-                        })
-                    } else {
-                        state.set_ok(ExpectSubtypeOutcome {}, smallvec![])
-                    }
+                    state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
+                        target: self.expected,
+                    })
                 }
                 expectee_data => {
                     p!(self.expected.show(db, terms), expectee_data.debug(db));
@@ -150,6 +158,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, hole) => {
+                p!(hole);
                 state.set_ok(
                     ExpectSubtypeOutcome {},
                     smallvec![FluffyTermResolveAction::FillHole {

@@ -8,7 +8,7 @@ use crate::*;
 
 // `Default` is not implemented because we might need to initialize `terms` from the parent
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct FluffyTermRegion {
     pub(crate) terms: FluffyTerms,
     pub(crate) expectations: Expectations,
