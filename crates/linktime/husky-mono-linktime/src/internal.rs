@@ -23,7 +23,7 @@ where
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         let Ok(linkage_storage) = MonoLinkageLibraries::generate(target_path, db) else {
-            todo!()
+            todo!("error in generating libraries")
         };
         let linkage_impls = generate_linkage_impls(target_path, &linkage_storage, db);
         Self {

@@ -7,6 +7,7 @@ pub struct TupleStructTypeDeclarativeSignatureTemplate {
     pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub instance_constructor_ritchie_ty: DeclarativeTermRitchie,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -32,7 +33,7 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
             declarative_term_menu,
         );
         let self_ty = construct_self_ty(db, path, &template_parameters);
-        let fields = decl
+        let fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]> = decl
             .fields(db)
             .iter()
             .enumerate()
@@ -49,7 +50,21 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
-        Ok(Self::new(db, template_parameters, self_ty, fields))
+        let instance_constructor_ritchie_ty =
+            DeclarativeTermRitchie::new(db, RitchieKind::RITCHIE_TYPE_FN, fields
+                .iter()
+                .copied()
+                .map(
+                    TupleStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
+                )
+                .collect(), self_ty);
+        Ok(Self::new(
+            db,
+            template_parameters,
+            self_ty,
+            fields,
+            instance_constructor_ritchie_ty,
+        ))
     }
 }
 

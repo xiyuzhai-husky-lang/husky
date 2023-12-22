@@ -3,7 +3,8 @@ use husky_vfs::Toolchain;
 
 use super::*;
 
-#[deprecated(note = "change to Result<Option<_>, _>")]
+#[deprecated(note = "use template instead")]
+// #[deprecated(note = "change to Result<Option<_>, _>")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
@@ -46,11 +47,11 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     variances: &[Variance],
-    signature: PropsStructTypeDeclarativeSignatureTemplate,
+    tmpl: PropsStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let template_parameters = &signature.template_parameters(db);
-    let self_ty = signature.self_ty(db);
-    let parameter_tys = signature
+    let template_parameters = &tmpl.template_parameters(db);
+    let self_ty = tmpl.self_ty(db);
+    let parameter_tys = tmpl
         .fields(db)
         .iter()
         .copied()

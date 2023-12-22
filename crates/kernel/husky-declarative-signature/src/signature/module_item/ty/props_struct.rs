@@ -7,6 +7,7 @@ pub struct PropsStructTypeDeclarativeSignatureTemplate {
     pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub fields: SmallVec<[PropsStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub instance_constructor_ritchie_ty: DeclarativeTermRitchie,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -53,7 +54,21 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
-        Ok(Self::new(db, template_parameters, self_ty, fields))
+        let instance_constructor_ritchie_ty =
+            DeclarativeTermRitchie::new(db, RitchieKind::RITCHIE_TYPE_FN, fields
+                .iter()
+                .copied()
+                .filter_map(
+                    PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
+                )
+                .collect(), self_ty);
+        Ok(Self::new(
+            db,
+            template_parameters,
+            self_ty,
+            fields,
+            instance_constructor_ritchie_ty,
+        ))
     }
 }
 

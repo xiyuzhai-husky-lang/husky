@@ -93,7 +93,7 @@ impl EtherealTermRitchie {
     }
 
     #[inline(always)]
-    pub(crate) fn from_declarative(
+    pub fn from_declarative(
         db: &::salsa::Db,
         declarative_term_ritchie: DeclarativeTermRitchie,
     ) -> EtherealTermResult<Self> {

@@ -53,6 +53,9 @@ pub enum RitchieKind {
 }
 
 impl RitchieKind {
+    pub const RITCHIE_TYPE_FN: Self = RitchieKind::Type(RitchieTypeKind::Fn);
+    pub const RITCHIE_TYPE_GN: Self = RitchieKind::Type(RitchieTypeKind::Gn);
+
     pub fn code(self) -> &'static str {
         match self {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {

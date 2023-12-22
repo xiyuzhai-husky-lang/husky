@@ -61,6 +61,8 @@ pub enum OriginalSemaExprTypeError {
     CannotUnveil,
     #[error("cannot unwrap")]
     CannotUnwrap,
+    #[error("no constructor")]
+    NoConstructor,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {
