@@ -96,6 +96,7 @@ impl<'a> SemaExprEngine<'a> {
                                     syn_expr_idx,
                                     &instantiation,
                                 )
+                                .with_place(FluffyPlace::Leashed)
                             }
                         };
                         (Ok(Some(instantiation)), Ok(ty))
