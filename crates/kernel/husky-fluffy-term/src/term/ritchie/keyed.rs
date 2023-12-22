@@ -21,6 +21,24 @@ impl From<EtherealRitchieKeyedParameter> for FluffyRitchieKeyedParameter {
     }
 }
 
+impl FluffyInstantiate for EtherealRitchieKeyedParameter {
+    type Target = FluffyRitchieKeyedParameter;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: SynExprIdx,
+        instantiation: &FluffyInstantiation,
+    ) -> Self::Target {
+        FluffyRitchieKeyedParameter {
+            contract: self.contract(),
+            ty: self.ty().instantiate(engine, expr_idx, instantiation),
+            key: self.key(),
+            has_default: self.has_default(),
+        }
+    }
+}
+
 impl FluffyRitchieKeyedParameter {
     #[inline(always)]
     pub fn key(&self) -> Ident {

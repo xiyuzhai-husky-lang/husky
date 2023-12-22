@@ -16,7 +16,7 @@ impl EtherealParenateParameters {
             data: params
                 .iter()
                 .copied()
-                .map(|param| EtherealRitchieParameter::from_declarative(db, param))
+                .map(|param| EtherealRitchieParameter::from_declarative(param, db))
                 .collect::<EtherealTermResult<_>>()?,
         })
     }

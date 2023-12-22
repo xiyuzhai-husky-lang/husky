@@ -225,17 +225,6 @@ impl FluffyTermRegion {
         let idx = unsafe { self.expectations.arena.next_idx() };
         let (expectee, implicit_parameter_substitutions) =
             ImplicitParameterSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
-        match expectee.base_ty_data_inner(db, &self.terms) {
-            FluffyBaseTypeData::Curry {
-                curry_kind: CurryKind::Implicit,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            _ => (),
-        }
         (
             self.expectations
                 .alloc_expectation(FluffyTermExpectationEntry {

@@ -358,7 +358,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             }
-            &SemaExprData::FunctionFnCall {
+            &SemaExprData::FunctionRitchieCall {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
                 ..
@@ -374,7 +374,6 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::CallPar,
                 );
             }
-            SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::Ritchie { .. } => (),
             SemaExprData::Sorry {
                 regional_token_idx: _,

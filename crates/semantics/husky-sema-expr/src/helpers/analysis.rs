@@ -15,7 +15,6 @@ pub fn sema_expr_region_contains_gn(db: &::salsa::Db, sema_expr_region: SemaExpr
                 static_dispatch: StaticDispatch::AssociatedGn,
                 ..
             }
-            | SemaExprData::FunctionGnCall { .. }
             | SemaExprData::MethodGnCall { .. } => return true,
             _ => (),
         }

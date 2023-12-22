@@ -34,11 +34,11 @@ impl FluffyInstantiate for EtherealRitchieRegularParameter {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target {
         FluffyRitchieRegularParameter {
             contract: self.contract(),
-            ty: self.ty().instantiate(engine, expr_idx, builder),
+            ty: self.ty().instantiate(engine, expr_idx, instantiation),
         }
     }
 }

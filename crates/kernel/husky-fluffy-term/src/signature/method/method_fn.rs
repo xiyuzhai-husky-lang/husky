@@ -191,22 +191,23 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if let Some(_) = method_template_argument_iter.next() {
         todo!()
     }
+    let instantiation = instantiation_builder.finish(db);
     JustOk(MethodFnFluffySignature {
         path: template.path(db).into(),
         self_value_parameter: template.self_value_parameter(db).instantiate(
             engine,
             expr_idx,
-            &mut instantiation_builder,
+            &instantiation,
         ),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation_builder))
+            .map(|param| param.instantiate(engine, expr_idx, &instantiation))
             .collect(),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, expr_idx, &mut instantiation_builder),
-        instantiation: instantiation_builder.finish(db),
+            .instantiate(engine, expr_idx, &instantiation),
+        instantiation,
     })
 }
 

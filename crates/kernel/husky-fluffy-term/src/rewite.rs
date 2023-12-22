@@ -34,8 +34,8 @@ impl ImplicitParameterSubstitution {
         idx: FluffyTermExpectationIdx,
         mut template_parameter_substitutions: ImplicitParameterSubstitutions,
     ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
-        match expectee.base_ty_data_inner(db, terms) {
-            FluffyBaseTypeData::Curry {
+        match expectee.data_inner(db, terms) {
+            FluffyTermData::Curry {
                 curry_kind: CurryKind::Implicit,
                 variance,
                 parameter_rune,
@@ -158,7 +158,14 @@ impl FluffyTerm {
                     );
                 }
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
-                FluffyTerm::new_richie(db, terms, ritchie_kind, parameter_contracted_tys, return_ty)
+                FluffyTerm::new_ritchie_inner(
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                    db,
+                    terms,
+                )
+                .unwrap()
             }
             FluffyTermData::Symbol { .. } => todo!(),
             // todo: this is wrong

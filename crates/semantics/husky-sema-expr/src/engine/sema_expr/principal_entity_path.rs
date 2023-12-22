@@ -43,6 +43,7 @@ impl<'a> SemaExprEngine<'a> {
                                     FluffyInstantiationEnvironment::TypeOntologyConstructor,
                                     syn_expr_idx,
                                     tmpl.template_parameters(db),
+                                    None,
                                     self.fluffy_terms_mut(),
                                     db,
                                 );
@@ -74,18 +75,33 @@ impl<'a> SemaExprEngine<'a> {
                             FluffyInstantiationEnvironment::TypeOntologyConstructor,
                             syn_expr_idx,
                             tmpl.template_parameters(db),
+                            None,
                             self.fluffy_terms_mut(),
                             db,
                         );
                         let ty = match tmpl {
-                            FugitiveEtherealSignatureTemplate::FunctionFn(_) => todo!(),
-                            FugitiveEtherealSignatureTemplate::FunctionGn(_) => todo!(),
+                            FugitiveEtherealSignatureTemplate::FunctionFn(tmpl) => {
+                                FluffyInstantiate::instantiate(
+                                    tmpl.ritchie_ty(db),
+                                    self,
+                                    syn_expr_idx,
+                                    &instantiation,
+                                )
+                            }
+                            FugitiveEtherealSignatureTemplate::FunctionGn(tmpl) => {
+                                FluffyInstantiate::instantiate(
+                                    tmpl.ritchie_ty(db),
+                                    self,
+                                    syn_expr_idx,
+                                    &instantiation,
+                                )
+                            }
                             FugitiveEtherealSignatureTemplate::TypeAlias(_) => todo!(),
                             FugitiveEtherealSignatureTemplate::Val(tmpl) => {
                                 FluffyInstantiate::instantiate(
                                     tmpl.return_ty(db),
                                     self,
-                                    todo!(),
+                                    syn_expr_idx,
                                     &instantiation,
                                 )
                             }
@@ -95,7 +111,47 @@ impl<'a> SemaExprEngine<'a> {
                     Err(_) => todo!(),
                 },
             },
-            PrincipalEntityPath::TypeVariant(_) => todo!(),
+            PrincipalEntityPath::TypeVariant(path) => {
+                let parent_ty_path = path.parent_ty_path(db);
+                let parent_ty_tmpl = match parent_ty_path.ethereal_signature_template(db) {
+                    Ok(tmpl) => tmpl,
+                    Err(_) => todo!(),
+                };
+                let tmpl = match path.ethereal_signature_template(db) {
+                    Ok(tmpl) => tmpl,
+                    Err(_) => todo!(),
+                };
+                let instantiation = FluffyInstantiation::from_template_parameters(
+                    FluffyInstantiationEnvironment::TypeOntologyConstructor,
+                    syn_expr_idx,
+                    parent_ty_tmpl.template_parameters(db),
+                    None, // tmpl.template_parameters(db),
+                    self.fluffy_terms_mut(),
+                    db,
+                );
+                match tmpl {
+                    TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
+                    TypeVariantEtherealSignatureTemplate::Unit(_) => {
+                        let ty = FluffyTerm::new_ty_ontology(
+                            db,
+                            self.fluffy_terms_mut(),
+                            parent_ty_path,
+                            parent_ty_path.refine(db),
+                            instantiation
+                                .symbol_map()
+                                .iter()
+                                .map(|&(_, res)| match res {
+                                    FluffyTermSymbolResolution::Explicit(term) => term,
+                                    FluffyTermSymbolResolution::SelfLifetime => todo!(),
+                                    FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
+                                })
+                                .collect(),
+                        );
+                        (Ok(Some(instantiation)), Ok(ty))
+                    }
+                    TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
+                }
+            }
         }
     }
 

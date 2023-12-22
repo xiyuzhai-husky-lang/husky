@@ -43,7 +43,8 @@ impl ExpectFluffyTerm for ExpectSubtype {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        if state.expectee() == self.expected {
+        let expectee_data = state.expectee().data_inner(db, terms);
+        if expectee_data == self.expected.data_inner(db, terms) {
             return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }
         match self.expected.data_inner(db, terms) {
@@ -132,10 +133,13 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         state.set_ok(ExpectSubtypeOutcome {}, smallvec![])
                     }
                 }
-                _ => todo!(), // Some(FluffyTermExpectationEffect {
-                              //     result: Err(todo!()),
-                              //     actions: smallvec![],
-                              // }),
+                expectee_data => {
+                    p!(self.expected.show(db, terms), expectee_data.debug(db));
+                    todo!()
+                } // Some(FluffyTermExpectationEffect {
+                  //     result: Err(todo!()),
+                  //     actions: smallvec![],
+                  // }),
             },
             FluffyTermData::Curry {
                 curry_kind,

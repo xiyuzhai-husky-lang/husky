@@ -10,6 +10,14 @@ pub struct FluffyInstantiation {
     separator: Option<u8>,
 }
 
+impl std::ops::Index<EtherealTermSymbol> for FluffyInstantiation {
+    type Output = FluffyTermSymbolResolution;
+
+    fn index(&self, index: EtherealTermSymbol) -> &Self::Output {
+        &self.symbol_map[index].1
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FluffyTermSymbolResolution {
     Explicit(FluffyTerm),
@@ -30,14 +38,19 @@ impl FluffyInstantiation {
     pub fn from_template_parameters(
         env: FluffyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
-        template_parameters: &[EtherealTemplateParameter],
+        template_parameters1: &[EtherealTemplateParameter],
+        template_parameters2: Option<&[EtherealTemplateParameter]>,
         terms: &mut FluffyTerms,
         db: &::salsa::Db,
     ) -> Self {
+        let separator = template_parameters2
+            .is_some()
+            .then_some(template_parameters1.len().try_into().unwrap());
         Self {
             env,
-            symbol_map: template_parameters
+            symbol_map: template_parameters1
                 .iter()
+                .chain(template_parameters2.unwrap_or_default().iter())
                 .map(|param| {
                     let symbol = param.symbol();
                     (
@@ -54,7 +67,7 @@ impl FluffyInstantiation {
                     )
                 })
                 .collect(),
-            separator: None,
+            separator,
         }
     }
 
@@ -96,6 +109,10 @@ impl FluffyInstantiation {
             None => (symbol_map, None),
         }
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.symbol_map.is_empty()
+    }
 }
 
 pub trait FluffyInstantiate: Copy {
@@ -105,7 +122,7 @@ pub trait FluffyInstantiate: Copy {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target;
 
     // set flag to true if target is different
@@ -113,14 +130,14 @@ pub trait FluffyInstantiate: Copy {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
         flag: &mut bool,
     ) -> Self::Target
     where
         Self: Into<Self::Target>,
         Self::Target: Eq,
     {
-        let target = self.instantiate(engine, expr_idx, builder);
+        let target = self.instantiate(engine, expr_idx, instantiation);
         let this: Self::Target = self.into();
         if target != this {
             *flag = true
@@ -260,61 +277,18 @@ impl FluffyInstantiate for EtherealTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target {
-        if builder.symbol_map.len() == 0 {
+        if instantiation.symbol_map.len() == 0 {
             return self.into();
         }
         match self {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => match builder[symbol] {
-                Some(resolution) => match resolution {
+            EtherealTerm::Symbol(symbol) => match instantiation[symbol] {
+                resolution => match resolution {
                     FluffyTermSymbolResolution::Explicit(term) => term,
                     FluffyTermSymbolResolution::SelfLifetime => todo!(),
                     FluffyTermSymbolResolution::SelfPlace(place) => place.into(),
-                },
-                None => match symbol.index(engine.db()).inner() {
-                    EtherealTermSymbolIndexInner::ExplicitLifetime {
-                        attrs,
-                        variance,
-                        disambiguator,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::ExplicitPlace {
-                        attrs,
-                        variance,
-                        disambiguator,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::Type {
-                        attrs,
-                        variance,
-                        disambiguator,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::Prop { disambiguator } => todo!(),
-                    EtherealTermSymbolIndexInner::ConstPathLeading {
-                        attrs,
-                        disambiguator,
-                        ty_path,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::ConstOther {
-                        attrs,
-                        disambiguator,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::EphemPathLeading {
-                        disambiguator,
-                        ty_path,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::EphemOther { disambiguator } => todo!(),
-                    EtherealTermSymbolIndexInner::SelfType => todo!(),
-                    EtherealTermSymbolIndexInner::SelfValue => todo!(),
-                    EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
-                    EtherealTermSymbolIndexInner::SelfPlace => match builder.env {
-                        FluffyInstantiationEnvironment::AssociatedFn => todo!(),
-                        FluffyInstantiationEnvironment::MethodFn { self_place } => {
-                            self_place.into()
-                        }
-                        FluffyInstantiationEnvironment::MemoizedField => todo!(),
-                        FluffyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
-                    },
                 },
             },
             EtherealTerm::Rune(_) => todo!(),
@@ -322,9 +296,9 @@ impl FluffyInstantiate for EtherealTerm {
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(term) => term.instantiate(engine, expr_idx, builder),
+            EtherealTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, builder),
+            EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
@@ -339,7 +313,7 @@ impl FluffyInstantiate for EtherealTermApplication {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target {
         let mut flag = false;
         let db = engine.db();
@@ -349,14 +323,14 @@ impl FluffyInstantiate for EtherealTermApplication {
             TermFunctionReduced::TypeOntology(path) => match path.refine(db) {
                 Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::At)) => {
                     debug_assert_eq!(arguments.len(), 2);
-                    let the_place = arguments[0].instantiate(engine, expr_idx, builder);
+                    let the_place = arguments[0].instantiate(engine, expr_idx, instantiation);
                     let the_place = match the_place.base() {
                         FluffyTermBase::Ethereal(_) => todo!(),
                         FluffyTermBase::Solid(_) => todo!(),
                         FluffyTermBase::Hollow(_) => todo!(),
                         FluffyTermBase::Place => the_place.place().unwrap(),
                     };
-                    let base = arguments[1].instantiate(engine, expr_idx, builder);
+                    let base = arguments[1].instantiate(engine, expr_idx, instantiation);
                     match base.place() {
                         Some(_) => todo!(),
                         None => base.with_place(the_place),
@@ -366,7 +340,12 @@ impl FluffyInstantiate for EtherealTermApplication {
                     let arguments = arguments
                         .iter()
                         .map(|argument| {
-                            argument.instantiate_with_flag(engine, expr_idx, builder, &mut flag)
+                            argument.instantiate_with_flag(
+                                engine,
+                                expr_idx,
+                                instantiation,
+                                &mut flag,
+                            )
                         })
                         .collect();
                     if flag {
@@ -395,23 +374,21 @@ impl FluffyInstantiate for EtherealTermRitchie {
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        builder: &mut FluffyInstantiationBuilder,
+        instantiation: &FluffyInstantiation,
     ) -> Self::Target {
         let mut flag = false;
-        let params: Vec<_> = self
-            .parameter_contracted_tys(engine.db())
-            .iter()
-            .map(|param| param.instantiate_with_flag(engine, expr_idx, builder, &mut flag))
-            .collect();
         let db = engine.db();
+        let params: Vec<_> = self
+            .parameter_contracted_tys(db)
+            .iter()
+            .map(|param| param.instantiate_with_flag(engine, expr_idx, instantiation, &mut flag))
+            .collect();
+        let return_ty =
+            self.return_ty(db)
+                .instantiate_with_flag(engine, expr_idx, instantiation, &mut flag);
         match flag {
-            true => FluffyTerm::new_ritchie(
-                engine,
-                self.ritchie_kind(db),
-                params,
-                self.return_ty(db).into(),
-            )
-            .expect("should be okay"),
+            true => FluffyTerm::new_ritchie(engine, self.ritchie_kind(db), params, return_ty)
+                .expect("should be okay"),
             false => self.into(),
         }
     }

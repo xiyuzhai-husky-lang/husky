@@ -128,7 +128,9 @@ impl HollowTerm {
     ) -> FluffyBaseTypeData<'a> {
         match self.resolve_progress(fluffy_terms) {
             TermResolveProgress::UnresolvedHollow => self.fluffy_base_ty_data_aux(db, fluffy_terms),
-            TermResolveProgress::ResolvedEthereal(term) => ethereal_term_data2(db, term),
+            TermResolveProgress::ResolvedEthereal(term) => {
+                ethereal_term_fluffy_base_ty_data(db, term)
+            }
             TermResolveProgress::ResolvedSolid(term) => {
                 term.data_inner(fluffy_terms.solid_terms()).into()
             }
