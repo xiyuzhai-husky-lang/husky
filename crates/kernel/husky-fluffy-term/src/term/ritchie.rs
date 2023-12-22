@@ -60,7 +60,7 @@ impl FluffyTerm {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FluffyRitchieParameter {
     Regular(FluffyRitchieRegularParameter),

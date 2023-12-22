@@ -1,5 +1,6 @@
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HollowTermData {
     TypeOntology {

@@ -83,7 +83,7 @@ impl HirTemplateArgument {
             FluffyTermBase::Solid(_) => todo!(),
             FluffyTermBase::Hollow(t) => {
                 use husky_print_utils::p;
-                p!(term.show(db, terms));
+                p!(t, term.show(db, terms));
                 todo!()
             }
             FluffyTermBase::Place => todo!(),

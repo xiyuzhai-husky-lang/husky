@@ -2,13 +2,14 @@ use super::*;
 use vec_like::VecSet;
 
 // `Default` is derived because we never inherited hollow terms
+#[salsa::debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct HollowTerms {
     entries: Vec<HollowTermEntry>,
     first_unresolved_term_idx: usize,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HoleConstraint {
     CoercibleFrom { target: FluffyTerm },
@@ -227,8 +228,18 @@ impl HollowTerms {
                             FluffyRitchieParameter::Regular(param) => {
                                 EtherealRitchieRegularParameter::new(param.contract(), ty).into()
                             }
-                            FluffyRitchieParameter::Variadic(_) => todo!(),
-                            FluffyRitchieParameter::Keyed(_) => todo!(),
+                            FluffyRitchieParameter::Variadic(param) => {
+                                EtherealRitchieVariadicParameter::new(param.contract(), ty).into()
+                            }
+                            FluffyRitchieParameter::Keyed(param) => {
+                                EtherealRitchieKeyedParameter::new(
+                                    param.key(),
+                                    param.contract(),
+                                    ty,
+                                    param.has_default(),
+                                )
+                                .into()
+                            }
                         }
                     });
                     let return_ty = match return_ty.resolve_progress(self) {
@@ -354,8 +365,8 @@ impl FluffyTerm {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct HollowTermEntry {
     data: HollowTermData,
     resolve_progress: HollowTermResolveProgressBuf,
@@ -382,8 +393,8 @@ impl HollowTermEntry {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum TermResolveProgress {
     UnresolvedHollow,
     ResolvedEthereal(EtherealTerm),
@@ -406,8 +417,8 @@ impl HollowTermResolveProgressBuf {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum HollowTermResolveProgressBuf {
     Unresolved,
     ResolvedEthereal(EtherealTerm),
@@ -416,7 +427,7 @@ pub enum HollowTermResolveProgressBuf {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct HollowTerm(u32);
 
 impl HollowTerm {

@@ -41,6 +41,10 @@ impl TraitSynNodePath {
         }
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db).maybe_ambiguous_path.path.ident(db)
+    }
+
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {
         let module_path = self.module_path(db);
         let item_sheet = module_path.item_tree_sheet(db);

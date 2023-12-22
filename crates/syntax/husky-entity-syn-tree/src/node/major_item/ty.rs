@@ -36,6 +36,10 @@ impl TypeSynNodePath {
         }
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db).maybe_ambiguous_path.path.ident(db)
+    }
+
     pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<TypePath> {
         self.data(db).path()
     }

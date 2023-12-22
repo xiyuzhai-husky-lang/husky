@@ -264,11 +264,6 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     pub(crate) fn finish(mut self) -> SemaExprRegion {
-        // ad hoc, todo: enforce this
-        // for expr_idx in self.expr_region_data.expr_arena().index_iter() {
-        //     print_debug_expr!(self, expr_idx);
-        //     assert!(self.expr_ty_infos.has(expr_idx))
-        // }
         self.fluffy_term_region
             .finalize_unresolved_term_table(self.db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();

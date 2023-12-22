@@ -36,7 +36,7 @@ impl FluffyCoersion {
 
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct ExpectCoersion {
     contract: TermContract,
     ty_expected: FluffyTerm,

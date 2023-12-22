@@ -2,8 +2,8 @@ use super::*;
 use husky_ethereal_term::instantiation::EtherealInstantiation;
 use vec_like::SmallVecPairMap;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-// #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EtherealTermSymbol, FluffyTermSymbolResolution, 4>,

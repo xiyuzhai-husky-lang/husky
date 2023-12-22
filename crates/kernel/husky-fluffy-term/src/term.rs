@@ -16,8 +16,8 @@ pub use self::symbol_ty::*;
 
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyTerm {
     place: Option<FluffyPlace>,
     base: FluffyTermBase,
@@ -39,8 +39,8 @@ impl FluffyTerm {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum FluffyTermBase {
     Ethereal(EtherealTerm),

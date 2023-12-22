@@ -42,6 +42,7 @@ husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-syn-opr.workspace = true
 # utils
+husky-io-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]

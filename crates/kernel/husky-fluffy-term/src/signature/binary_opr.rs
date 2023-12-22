@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum SemaBinaryOprFluffySignature {
     Builtin,
 }

@@ -58,6 +58,10 @@ impl FugitiveSynNodePath {
         }
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db).maybe_ambiguous_path.path.ident(db)
+    }
+
     pub fn fugitive_kind(self, db: &::salsa::Db) -> FugitiveKind {
         self.data(db).maybe_ambiguous_path.path.fugitive_kind(db)
     }

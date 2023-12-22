@@ -29,9 +29,9 @@ use husky_print_utils::p;
 use idx_arena::{Arena, ArenaIdx};
 use thiserror::Error;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum Expectation {
     ExplicitlyConvertible(ExpectCasting),
@@ -148,7 +148,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
 pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
@@ -185,7 +185,7 @@ impl ExpectationOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum ExpectationProgress {
     Intact,
     Holed,
@@ -203,7 +203,7 @@ impl ExpectationProgress {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum FluffyTermExpectationError {
     #[error("original {0}")]
     Original(#[from] OriginalFluffyTermExpectationError),
@@ -220,7 +220,7 @@ impl From<FluffyPlaceError> for FluffyTermExpectationError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum OriginalFluffyTermExpectationError {
     #[error("type path mismatch for subtyping")]
     TypePathMismatchForSubtyping {
@@ -256,7 +256,7 @@ pub enum OriginalFluffyTermExpectationError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum DerivedFluffyTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError {

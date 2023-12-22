@@ -11,8 +11,8 @@ pub(crate) use self::solid::*;
 
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum FluffyTermData<'a> {
     Literal(TermLiteral),
     TypeOntology {
@@ -135,7 +135,7 @@ impl<'a> FluffyTermData<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub enum FluffyBaseTypeData<'a> {
     TypeOntology {
         ty_path: TypePath,

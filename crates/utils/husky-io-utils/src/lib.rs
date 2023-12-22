@@ -13,7 +13,9 @@ use std::{
 };
 
 // first read and compare, and then write if necessary
-pub fn diff_write(path: &Path, content: &str, verbose: bool) {
+pub fn diff_write(path: impl AsRef<Path>, content: impl AsRef<str>, verbose: bool) {
+    let path = path.as_ref();
+    let content = content.as_ref();
     let necessary = match fs::read_to_string(path) {
         Ok(content_on_disk) => content != content_on_disk,
         Err(_) => true,

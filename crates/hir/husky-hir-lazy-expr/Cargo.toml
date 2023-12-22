@@ -30,6 +30,8 @@ husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
+# utils
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-hir-lazy-expr = { path = ".", features = ["test_utils"] }

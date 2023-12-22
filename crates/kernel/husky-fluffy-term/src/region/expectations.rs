@@ -1,8 +1,8 @@
 use super::*;
 use idx_arena::{Arena, ArenaIdx};
 
+#[salsa::debug_with_db]
 #[derive(Default, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct Expectations {
     arena: Arena<FluffyTermExpectationEntry>,
     first_unresolved_expectation: usize,
@@ -74,15 +74,15 @@ impl ExpectationSource {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyTermExpectationEntry {
     expectation: Expectation,
     state: ExpectationState,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectationState {
     idx: FluffyTermExpectationIdx,
     src: ExpectationSource,

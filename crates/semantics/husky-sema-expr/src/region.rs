@@ -155,7 +155,7 @@ pub(crate) fn sema_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion)
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db]
 pub struct PatternExprTypeInfo {
     ty: PatternSemaExprResult<FluffyTerm>,
 }
