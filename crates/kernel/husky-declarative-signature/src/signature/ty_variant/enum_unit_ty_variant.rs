@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct EnumUnitTypeVariantDeclarativeSignatureTemplate {
     pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
-    pub ty: DeclarativeTerm,
+    pub self_ty: DeclarativeTerm,
 }
 
 impl EnumUnitTypeVariantDeclarativeSignatureTemplate {

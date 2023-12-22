@@ -25,7 +25,7 @@ impl<'a> SemaExprEngine<'a> {
     ) {
         let db = self.db;
         match path {
-            PrincipalEntityPath::Module(_) => todo!(),
+            PrincipalEntityPath::Module(_) => unreachable!(),
             PrincipalEntityPath::MajorItem(path) => match path {
                 MajorItemPath::Type(path) => match ty_path_disambiguation {
                     // for ontology constructor, we don't need to fill in template parameters
@@ -47,28 +47,20 @@ impl<'a> SemaExprEngine<'a> {
                                     self.fluffy_terms_mut(),
                                     db,
                                 );
-                                let self_ty = FluffyTerm::new_ty_ontology(
-                                    db,
-                                    self.fluffy_terms_mut(),
-                                    path,
-                                    path.refine(db),
-                                    instantiation
-                                        .symbol_map()
-                                        .iter()
-                                        .map(|&(_, res)| match res {
-                                            FluffyTermSymbolResolution::Explicit(term) => term,
-                                            FluffyTermSymbolResolution::SelfLifetime => todo!(),
-                                            FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
-                                        })
-                                        .collect(),
-                                );
-                                (Ok(Some(instantiation)), Ok(self_ty))
+                                (
+                                    Ok(Some(instantiation)),
+                                    tmpl.instance_constructor_ty(db)
+                                        .ok_or(OriginalSemaExprTypeError::NoConstructor.into())
+                                        .map(Into::into),
+                                )
                             }
                             Err(_) => todo!(),
                         }
                     }
                 },
-                MajorItemPath::Trait(_) => todo!(),
+                MajorItemPath::Trait(path) => {
+                    (Ok(None), path.ty(db).map(Into::into).map_err(Into::into))
+                }
                 MajorItemPath::Fugitive(path) => match path.ethereal_signature_template(db) {
                     Ok(tmpl) => {
                         let instantiation = FluffyInstantiation::from_template_parameters(
@@ -129,28 +121,13 @@ impl<'a> SemaExprEngine<'a> {
                     self.fluffy_terms_mut(),
                     db,
                 );
-                match tmpl {
-                    TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
-                    TypeVariantEtherealSignatureTemplate::Unit(_) => {
-                        let ty = FluffyTerm::new_ty_ontology(
-                            db,
-                            self.fluffy_terms_mut(),
-                            parent_ty_path,
-                            parent_ty_path.refine(db),
-                            instantiation
-                                .symbol_map()
-                                .iter()
-                                .map(|&(_, res)| match res {
-                                    FluffyTermSymbolResolution::Explicit(term) => term,
-                                    FluffyTermSymbolResolution::SelfLifetime => todo!(),
-                                    FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
-                                })
-                                .collect(),
-                        );
-                        (Ok(Some(instantiation)), Ok(ty))
-                    }
-                    TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
-                }
+                let ty = FluffyInstantiate::instantiate(
+                    tmpl.instance_constructor_ty(db),
+                    self,
+                    syn_expr_idx,
+                    &instantiation,
+                );
+                (Ok(Some(instantiation)), Ok(ty))
             }
         }
     }

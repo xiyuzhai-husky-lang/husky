@@ -41,7 +41,7 @@ pub enum TypeEtherealSignatureTemplate {
 }
 
 impl TypeEtherealSignatureTemplate {
-    pub fn template_parameters(self, db: &::salsa::Db,) -> &[EtherealTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[EtherealTemplateParameter] {
         match self {
             TypeEtherealSignatureTemplate::Enum(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::PropsStruct(template) => {
@@ -56,6 +56,26 @@ impl TypeEtherealSignatureTemplate {
             TypeEtherealSignatureTemplate::Structure(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::Extern(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::Union(template) => template.template_parameters(db),
+        }
+    }
+
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
+        match self {
+            TypeEtherealSignatureTemplate::Enum(_) => None,
+            TypeEtherealSignatureTemplate::PropsStruct(slf) => {
+                Some(slf.instance_constructor_ty(db).into())
+            }
+            TypeEtherealSignatureTemplate::UnitStruct(slf) => {
+                Some(slf.instance_constructor_ty(db).into())
+            }
+            TypeEtherealSignatureTemplate::TupleStruct(slf) => {
+                Some(slf.instance_constructor_ty(db).into())
+            }
+            TypeEtherealSignatureTemplate::Record(_) => todo!(),
+            TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
+            TypeEtherealSignatureTemplate::Structure(_) => todo!(),
+            TypeEtherealSignatureTemplate::Extern(_) => todo!(),
+            TypeEtherealSignatureTemplate::Union(_) => todo!(),
         }
     }
 }

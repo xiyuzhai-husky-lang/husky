@@ -26,6 +26,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            },
                         },
                     ),
                 ),
@@ -59,6 +79,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativePoint2d`),
+                            },
                         },
                     ),
                 ),
@@ -92,6 +132,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
                         },
                     ),
                 ),
@@ -125,6 +185,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                            },
                         },
                     ),
                 ),
@@ -158,6 +238,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            },
                         },
                     ),
                 ),
@@ -191,6 +291,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                            },
                         },
                     ),
                 ),

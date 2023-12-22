@@ -26,6 +26,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                            },
                         },
                     ),
                 ),

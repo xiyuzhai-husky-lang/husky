@@ -10,6 +10,7 @@ pub struct PropsStructTypeEtherealSignatureTemplate {
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldEtherealSignatureTemplate; 4]>,
+    pub instance_constructor_ritchie_ty: EtherealTermRitchie,
 }
 
 impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
@@ -36,13 +37,11 @@ impl PropsStructTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: PropsStructTypeDeclarativeSignatureTemplate,
+        tmpl: PropsStructTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
-        let fields = declarative_signature_template
+        let template_parameters =
+            EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
+        let fields = tmpl
             .fields(db)
             .iter()
             .copied()
@@ -53,7 +52,19 @@ impl PropsStructTypeEtherealSignatureTemplate {
                 )
             })
             .collect::<EtherealSignatureResult<_>>()?;
-        Ok(Self::new(db, path, template_parameters, fields))
+        let instance_constructor_ritchie_ty =
+            EtherealTermRitchie::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
+        Ok(Self::new(
+            db,
+            path,
+            template_parameters,
+            fields,
+            instance_constructor_ritchie_ty,
+        ))
+    }
+
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+        self.instance_constructor_ritchie_ty(db).into()
     }
 }
 

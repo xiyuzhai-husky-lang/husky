@@ -107,6 +107,20 @@
                                     has_initialization: true,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::geom2d::Point2d`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                            },
                         },
                     ),
                 ),
@@ -140,6 +154,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                            },
                         },
                     ),
                 ),

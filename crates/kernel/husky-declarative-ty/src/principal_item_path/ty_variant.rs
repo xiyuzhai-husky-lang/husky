@@ -30,7 +30,7 @@ pub fn ty_variant_path_declarative_ty(
                 signature_template
                     .parent_ty_template(db)
                     .template_parameters(db),
-                signature_template.ty(db),
+                signature_template.self_ty(db),
             )
         }
         TypeVariantDeclarativeSignatureTemplate::Tuple(signature_template) => {

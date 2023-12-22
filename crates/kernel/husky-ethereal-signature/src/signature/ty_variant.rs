@@ -25,6 +25,14 @@ impl TypeVariantEtherealSignatureTemplate {
             TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
         }
     }
+
+    pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EtherealTerm {
+        match self {
+            TypeVariantEtherealSignatureTemplate::Props(slf) => slf.instance_constructor_ty(db),
+            TypeVariantEtherealSignatureTemplate::Unit(slf) => slf.instance_constructor_ty(db),
+            TypeVariantEtherealSignatureTemplate::Tuple(slf) => slf.instance_constructor_ty(db),
+        }
+    }
 }
 
 impl HasEtherealSignatureTemplate for TypeVariantPath {

@@ -40,6 +40,20 @@
                                     ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                            },
                         },
                     ),
                 ),
@@ -66,6 +80,20 @@
                                     ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            },
                         },
                     ),
                 ),

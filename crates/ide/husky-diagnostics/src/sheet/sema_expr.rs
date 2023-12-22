@@ -196,6 +196,7 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
             }
+            OriginalSemaExprTypeError::NoConstructor => todo!(),
         }
     }
 

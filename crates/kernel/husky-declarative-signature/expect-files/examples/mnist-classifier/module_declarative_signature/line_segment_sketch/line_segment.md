@@ -26,6 +26,26 @@
                                     has_initialization: false,
                                 },
                             ],
+                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                                ritchie_kind: Type(
+                                    Fn,
+                                ),
+                                params: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                        },
+                                    ),
+                                ],
+                                return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            },
                         },
                     ),
                 ),
