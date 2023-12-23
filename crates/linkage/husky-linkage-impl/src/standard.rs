@@ -1,5 +1,5 @@
 use super::*;
-use husky_task_prelude::{all_ritchies, DevEvalContext};
+use husky_task_prelude::{all_ritchies, DevEvalContext, LinkageImplValueResult};
 use smallvec::SmallVec;
 
 pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value};
@@ -14,7 +14,7 @@ where
     Pedestal: Copy + 'static,
 {
     RitchieFn {
-        fn_wrapper: fn(DevEvalContext<Self>, FnArguments) -> Value,
+        fn_wrapper: fn(DevEvalContext<Self>, &[ValArgumentReprInterface]) -> Value,
         fn_pointer: fn(),
     },
     RitchieGn,
@@ -27,18 +27,18 @@ where
     type Pedestal = Pedestal;
     type Value = Value;
     type Error = ();
-    type FnArguments = FnArguments;
-    type GnArguments = GnArguments;
 
-    fn eval_fn(self, ctx: DevEvalContext<Self>, arguments: FnArguments) -> Self::Value {
+    fn eval(
+        self,
+        ctx: DevEvalContext<Self>,
+        arguments: &[ValArgumentReprInterface],
+    ) -> LinkageImplValueResult<Self> {
         match self {
-            LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, arguments),
+            LinkageImpl::RitchieFn { fn_wrapper, .. } => {
+                LinkageImplValueResult::<Self>::Ok(fn_wrapper(ctx, arguments))
+            }
             LinkageImpl::RitchieGn => todo!(),
         }
-    }
-
-    fn eval_gn(self) -> Self::Value {
-        todo!()
     }
 }
 

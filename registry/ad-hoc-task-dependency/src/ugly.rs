@@ -15,3 +15,4 @@ use husky_task_prelude::DevEvalContext;
 pub type __DevEvalContext = DevEvalContext<__LinkageImpl>;
 pub type __LinkageImpl = LinkageImpl<MlPedestal>;
 pub type __BasePoint = InputId;
+pub use husky_task_prelude::val_repr::ValArgumentReprInterface as __ValArgumentReprInterface;

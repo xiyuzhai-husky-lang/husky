@@ -5,7 +5,6 @@ mod eval;
 
 pub use self::config::*;
 
-use eval::ValControlFlow;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::{
@@ -20,7 +19,8 @@ use husky_task::{
     IsTask,
 };
 use husky_task_prelude::{
-    IsDevRuntime, IsDevRuntimeDyn, LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
+    val_control_flow::ValControlFlow, val_repr::ValReprInterface, IsDevRuntime, IsDevRuntimeDyn,
+    LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
@@ -84,7 +84,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &*(unsafe { self as *const _ })
     }
 
-    fn eval_eager_val_item(
+    fn eval_ingredient_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -100,7 +100,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         todo!()
     }
 
-    fn eval_lazy_val_item(
+    fn eval_ingredient(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -116,6 +116,15 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
+            ValControlFlow::Err(_) => todo!(),
         }
+    }
+
+    fn eval_val_repr(
+        &self,
+        val_repr_interface: ValReprInterface,
+        base_point: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+    ) -> LinkageImplValueResult<TaskLinkageImpl<Task>> {
+        todo!()
     }
 }

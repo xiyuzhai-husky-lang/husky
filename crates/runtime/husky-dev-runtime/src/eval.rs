@@ -4,10 +4,10 @@ use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point},
-    helpers::TaskValue,
+    helpers::{TaskError, TaskValue},
     IsTask,
 };
-use husky_task_prelude::IsLinkageImpl;
+use husky_task_prelude::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
@@ -22,7 +22,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         &self,
         val_repr: ValRepr,
         pedestal: TaskDevPedestal<Task>,
-    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
             self.eval_val_repr_aux(val_repr)
         })
@@ -31,7 +31,7 @@ impl<Task: IsTask> DevRuntime<Task> {
     fn eval_val_repr_aux(
         &self,
         val_repr: ValRepr,
-    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         let db = self.db();
         match val_repr.opn(db) {
             ValOpn::Return => todo!(),
@@ -44,8 +44,9 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                todo!();
-                linkage_impl.eval_fn(dev_eval_context::<Task::DevAscension>(), Default::default());
+                linkage_impl.eval(dev_eval_context::<Task::DevAscension>(), unsafe {
+                    std::mem::transmute(val_repr.arguments(db) as &[ValArgumentRepr])
+                });
                 todo!()
             }
             ValOpn::FunctionGn(_) => todo!(),
@@ -65,28 +66,17 @@ impl<Task: IsTask> DevRuntime<Task> {
         }
     }
 
-    fn eval_val_arguments(
-        &self,
-        val_repr: ValRepr,
-        db: &salsa::Db,
-    ) -> ValControlFlow<TaskValue<Task>, SmallVec<[TaskValue<Task>; 4]>> {
-        val_repr
-            .arguments(db)
-            .iter()
-            .map(|val_argument_repr| self.eval_val_argument(val_argument_repr))
-            .collect::<ValControlFlow<TaskValue<Task>, SmallVec<[TaskValue<Task>; 4]>>>()
-    }
-
     fn eval_stmts(
         &self,
         stmt_val_reprs: &[ValRepr],
-    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
             match self.eval_val_repr_aux(stmt_val_repr) {
                 ValControlFlow::Continue(_) => todo!(),
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),
                 ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Err(_) => todo!(),
             }
         }
         self.eval_val_repr_aux(*stmt_val_reprs.last().unwrap())
@@ -95,7 +85,7 @@ impl<Task: IsTask> DevRuntime<Task> {
     fn eval_val_argument(
         &self,
         val_argument_repr: &ValArgumentRepr,
-    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>> {
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         match *val_argument_repr {
             ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr_aux(val_repr),
             ValArgumentRepr::Keyed(_, _) => todo!(),
@@ -104,64 +94,6 @@ impl<Task: IsTask> DevRuntime<Task> {
                 condition,
                 ref stmts,
             } => todo!(),
-        }
-    }
-}
-
-pub enum ValControlFlow<B, C> {
-    Continue(C),
-    LoopContinue,
-    LoopBreak(B),
-    Return(B),
-}
-
-impl<B, C> std::ops::Residual<C> for ValControlFlow<B, Infallible> {
-    type TryType = ValControlFlow<B, C>;
-}
-
-impl<C, B> std::ops::Try for ValControlFlow<B, C> {
-    type Output = C;
-
-    type Residual = ValControlFlow<B, Infallible>;
-
-    fn from_output(output: Self::Output) -> Self {
-        todo!()
-    }
-
-    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        match self {
-            ValControlFlow::Continue(c) => std::ops::ControlFlow::Continue(c),
-            ValControlFlow::LoopContinue => {
-                std::ops::ControlFlow::Break(ValControlFlow::LoopContinue)
-            }
-            ValControlFlow::LoopBreak(b) => {
-                std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b))
-            }
-            ValControlFlow::Return(b) => std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b)),
-        }
-    }
-}
-
-impl<B, C> std::ops::FromResidual<ValControlFlow<B, Infallible>> for ValControlFlow<B, C> {
-    fn from_residual(residual: ValControlFlow<B, Infallible>) -> Self {
-        todo!()
-    }
-}
-
-impl<B, C1, C2: FromIterator<C1>> std::iter::FromIterator<ValControlFlow<B, C1>>
-    for ValControlFlow<B, C2>
-{
-    fn from_iter<T: IntoIterator<Item = ValControlFlow<B, C1>>>(iter: T) -> Self {
-        match iter
-            .into_iter()
-            .map(|item| match item.branch() {
-                std::ops::ControlFlow::Continue(c1) => Ok(c1),
-                std::ops::ControlFlow::Break(residual) => Err(residual),
-            })
-            .collect::<Result<C2, ValControlFlow<B, Infallible>>>()
-        {
-            Ok(c2) => ValControlFlow::Continue(c2),
-            Err(residual) => ValControlFlow::from_residual(residual),
         }
     }
 }
