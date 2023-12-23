@@ -77,14 +77,14 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
-                    __lazy_eval_val_item(#ingredient_index)
+                    __eval_lazy_val_item(#ingredient_index)
                 }
             }
             .into()
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    __lazy_eval_val_item(#ingredient_index)
+                    __eval_lazy_val_item(#ingredient_index)
                 }
             }
             .into()
@@ -93,7 +93,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
-                    __eager_eval_val_item(
+                    __eval_eager_val_item(
                         #ingredient_index,
                         || {
                             #aux_ident();
@@ -108,7 +108,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    __eager_eval_val_item(
+                    __eval_eager_val_item(
                         #ingredient_index,
                         || {
                             #aux_ident();
