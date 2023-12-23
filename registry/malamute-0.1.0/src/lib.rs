@@ -80,4 +80,19 @@ impl<Label> __IsGnItem for narrow_down<Label> {
     fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
         __Pedestal::Generic
     }
+
+    type ValueAtGenericPedestal = ();
+
+    fn train(
+        val_argument_reprs: &[__ValArgumentReprInterface],
+    ) -> Result<Self::ValueAtGenericPedestal, ()> {
+        todo!()
+    }
+
+    fn eval(
+        val_argument_reprs: &[__ValArgumentReprInterface],
+        value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
+    ) -> __ValueResult {
+        todo!()
+    }
 }
