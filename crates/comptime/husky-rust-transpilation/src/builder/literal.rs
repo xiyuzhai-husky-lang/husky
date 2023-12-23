@@ -24,7 +24,7 @@ impl<E> TranspileToRustWith<E> for TermLiteral {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
-            TermLiteral::Unit => builder.write_str("()"),
+            TermLiteral::Unit(()) => builder.write_str("()"),
             TermLiteral::Bool(value) => builder.write_display_copyable(value),
             TermLiteral::I8(value) => builder.write_display_copyable(value),
             TermLiteral::I16(value) => builder.write_display_copyable(value),

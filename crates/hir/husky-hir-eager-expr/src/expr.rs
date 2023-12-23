@@ -386,7 +386,7 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::TemplateInstantiation { .. } => todo!(),
             SemaExprData::At { .. } => todo!(),
-            SemaExprData::Unit { .. } => HirEagerExprData::Literal(TermLiteral::Unit),
+            SemaExprData::Unit { .. } => HirEagerExprData::Literal(TermLiteral::Unit(())),
             SemaExprData::Bracketed { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {

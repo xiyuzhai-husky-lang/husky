@@ -1,21 +1,24 @@
 use crate::*;
 use dashmap::DashMap;
 
+use husky_linkage_impl::standard::ValControlFlow;
 use husky_standard_value::Value;
 use husky_task::dev_ascension::IsRuntimeStorage;
 use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
-pub type ValueResult = Result<Value, ()>;
-
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
     gn_values:
-        DashMap<MlDevRuntimeGnStorageKey, Arc<Mutex<Option<(ValVersionStamp, ValueResult)>>>>,
-    val_item_values:
-        DashMap<MlDevRuntimeValItemStorageKey, Arc<Mutex<Option<(ValVersionStamp, ValueResult)>>>>,
-    memoized_field_values:
-        DashMap<MlDevRuntimeValItemStorageKey, Arc<Mutex<Option<(ValVersionStamp, ValueResult)>>>>,
+        DashMap<MlDevRuntimeGnStorageKey, Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>>,
+    val_item_values: DashMap<
+        MlDevRuntimeValItemStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>,
+    >,
+    memoized_field_values: DashMap<
+        MlDevRuntimeValItemStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>,
+    >,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
@@ -39,15 +42,16 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         &self,
         val: Val,
         pedestal: MlPedestal,
-        f: impl FnOnce() -> ValueResult,
+        f: impl FnOnce() -> ValControlFlow,
         db: &::salsa::Db,
-    ) -> ValueResult {
+    ) -> ValControlFlow {
         let key = MlDevRuntimeValItemStorageKey { val, pedestal };
-        fn share(result: &ValueResult) -> ValueResult {
-            match result {
-                Ok(ref value) => Ok(value.share()),
-                Err(_) => todo!(),
-            }
+        fn share(result: &ValControlFlow) -> ValControlFlow {
+            todo!()
+            // match result {
+            //     Ok(ref value) => Ok(value.share()),
+            //     Err(_) => todo!(),
+            // }
         }
 
         let mu = self.val_item_values.entry(key).or_default().clone();
@@ -64,9 +68,9 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
 
     fn get_or_try_init_memoized_field_value(
         &self,
-        f: impl FnOnce() -> ValueResult,
+        f: impl FnOnce() -> ValControlFlow,
         db: &salsa::Db,
-    ) -> ValueResult {
+    ) -> ValControlFlow {
         todo!()
     }
 }

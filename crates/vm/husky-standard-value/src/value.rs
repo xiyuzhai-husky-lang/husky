@@ -1,5 +1,5 @@
 use crate::{r#static::StaticDyn, *};
-use husky_task_prelude::{all_ritchies, value::IsTaskValue};
+use husky_task_prelude::{all_ritchies, value::IsValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -77,7 +77,7 @@ fn regular_value_size_works() {
     )
 }
 
-impl IsTaskValue for Value {
+impl IsValue for Value {
     fn from_ref<'a, T>(t: &'a T) -> Self {
         todo!()
     }

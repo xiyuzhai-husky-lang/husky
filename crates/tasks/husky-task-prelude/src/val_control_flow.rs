@@ -3,11 +3,13 @@ use std::{
     ops::{FromResidual, Try},
 };
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum ValControlFlow<C, B, E> {
     Continue(C),
     LoopContinue,
     LoopBreak(B),
     Return(B),
+    Undefined,
     Err(E),
 }
 
@@ -34,6 +36,7 @@ impl<C, B, E> std::ops::Try for ValControlFlow<C, B, E> {
                 std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b))
             }
             ValControlFlow::Return(b) => std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b)),
+            ValControlFlow::Undefined => std::ops::ControlFlow::Break(ValControlFlow::Undefined),
             ValControlFlow::Err(e) => std::ops::ControlFlow::Break(ValControlFlow::Err(e)),
         }
     }

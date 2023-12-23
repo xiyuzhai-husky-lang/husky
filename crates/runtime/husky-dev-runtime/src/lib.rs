@@ -20,7 +20,7 @@ use husky_task::{
 };
 use husky_task_prelude::{
     val_control_flow::ValControlFlow, val_repr::ValReprInterface, IsDevRuntime, IsDevRuntimeDyn,
-    LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
+    LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
@@ -116,24 +116,25 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
+            ValControlFlow::Undefined => todo!(),
             ValControlFlow::Err(_) => todo!(),
         }
     }
 
-    fn eval_val_repr(
+    fn eval_val_repr_interface_at_pedestal(
         &self,
         val_repr_interface: ValReprInterface,
-        base_point: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
-    ) -> LinkageImplValueResult<TaskLinkageImpl<Task>> {
-        todo!()
+        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
+        self.eval_val_repr_at_pedestal(unsafe { std::mem::transmute(val_repr_interface) }, pedestal)
     }
 
     fn eval_val_repr_with(
         &self,
         val_repr: ValReprInterface,
         pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
-        f: impl FnOnce() -> LinkageImplValueResult<TaskLinkageImpl<Task>>,
-    ) -> LinkageImplValueResult<TaskLinkageImpl<Task>> {
+        f: impl FnOnce() -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
+    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         f();
         todo!()
     }

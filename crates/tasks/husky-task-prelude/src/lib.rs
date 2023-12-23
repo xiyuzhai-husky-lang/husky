@@ -48,11 +48,13 @@ macro_rules! init_crate {
             ))
         }
 
-        pub(crate) fn __eval_val_repr<T>(val_repr: __ValReprInterface) -> Result<T>
+        pub(crate) fn __eval_val_repr<T>(val_repr: __ValReprInterface) -> __ValControlFlow<T>
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value(__dev_eval_context().eval_val_repr(val_repr))
+            __ValControlFlow::Continue(<T as __FromValue>::from_value(
+                __dev_eval_context().eval_val_repr(val_repr)?,
+            ))
         }
     };
 }
@@ -157,9 +159,9 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult<LinkageImpl>,
+        ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValueResult<LinkageImpl> {
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.runtime.eval_value_at_generic_pedestal_dyn(
             val_repr,
             generic_pedestal(self.pedestal),
@@ -168,8 +170,11 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         )
     }
 
-    pub fn eval_val_repr(self, val_repr: ValReprInterface) -> LinkageImplValueResult<LinkageImpl> {
-        todo!()
+    pub fn eval_val_repr(
+        self,
+        val_repr: ValReprInterface,
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        self.runtime.eval_val_repr_dyn(val_repr, self.pedestal)
     }
 }
 
@@ -185,7 +190,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value;
 
     /// the computation is done by the runtime
@@ -198,21 +203,21 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
     ) -> LinkageImpl::Value;
 
     /// the computation is done by the runtime
-    /// returns `LinkageImplValueResult<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_val_repr(
+    /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
+    fn eval_val_repr_interface_at_pedestal(
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValueResult<LinkageImpl>;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     /// the computation is done by `f`
-    /// returns `LinkageImplValueResult<LinkageImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
     fn eval_val_repr_with(
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
-    ) -> LinkageImplValueResult<LinkageImpl>;
+        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
@@ -221,7 +226,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+        f: Box<dyn FnOnce() -> LinkageImplValControlFlow<LinkageImpl>>,
     ) -> LinkageImpl::Value;
 
     fn eval_lazy_val_item_dyn(
@@ -235,7 +240,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValueResult<LinkageImpl>;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     fn eval_value_at_generic_pedestal_dyn(
         &self,
@@ -244,9 +249,9 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult<LinkageImpl>,
+        ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValueResult<LinkageImpl>;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 
 impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
@@ -258,7 +263,7 @@ where
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
+        f: Box<dyn FnOnce() -> LinkageImplValControlFlow<LinkageImpl>>,
     ) -> LinkageImpl::Value {
         self.eval_ingredient_with(jar_index, ingredient_index, pedestal, f)
     }
@@ -276,8 +281,8 @@ where
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValueResult<LinkageImpl> {
-        self.eval_val_repr(val_repr, pedestal)
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        self.eval_val_repr_interface_at_pedestal(val_repr, pedestal)
     }
 
     fn eval_value_at_generic_pedestal_dyn(
@@ -287,9 +292,9 @@ where
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult<LinkageImpl>,
+        ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValueResult<LinkageImpl> {
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.eval_val_repr_with(val_repr, generic_pedestal, || {
             gn_generic_wrapper(
                 DevEvalContext {

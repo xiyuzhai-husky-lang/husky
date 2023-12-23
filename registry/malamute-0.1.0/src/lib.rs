@@ -75,7 +75,7 @@ impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
 pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
 
 impl<Label> __IsGnItem for narrow_down<Label> {
-    type Pedestal = __Pedestal;
+    type LinkageImpl = __LinkageImpl;
 
     fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
         __Pedestal::Generic
@@ -85,25 +85,28 @@ impl<Label> __IsGnItem for narrow_down<Label> {
 
     fn train(
         val_argument_reprs: &[__ValArgumentReprInterface],
-    ) -> Result<Self::ValueAtGenericPedestal, ()> {
+    ) -> __ValControlFlow<Self::ValueAtGenericPedestal> {
         let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
             unreachable!()
         };
         let __ValArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
             unreachable!()
         };
-        let skip = match skip {
-            Some(skip) => __eval_val_repr(skip),
-            None => todo!(),
+        let skip: i32 = match skip {
+            Some(skip) => __eval_val_repr(skip)?,
+            None => 5,
         };
-        println!("val_argument_reprs.len() = {}", val_argument_reprs.len());
+        println!(
+            "val_argument_reprs.len() = {}, skip = {skip}",
+            val_argument_reprs.len()
+        );
         todo!()
     }
 
     fn eval(
         val_argument_reprs: &[__ValArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
-    ) -> __ValueResult {
+    ) -> __ValControlFlow {
         todo!()
     }
 }

@@ -1,9 +1,9 @@
-use crate::{val_control_flow::ValControlFlow, val_repr::ValReprInterface};
+use crate::{val_control_flow::ValControlFlow, val_repr::ValReprInterface, value::IsValue};
 use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Pedestal: Copy + 'static;
-    type Value: 'static;
+    type Value: IsValue;
     type Error;
 
     /// assumed that pedestal has already been
@@ -12,11 +12,9 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
         val_repr_interface: ValReprInterface,
         ctx: DevEvalContext<Self>,
         arguments: &[ValArgumentReprInterface],
-    ) -> LinkageImplValueResult<Self>;
+    ) -> LinkageImplValControlFlow<Self>;
 }
 
-pub type LinkageImplValueResult<LinkageImpl: IsLinkageImpl> =
-    Result<LinkageImpl::Value, LinkageImpl::Error>;
 pub type LinkageImplValControlFlow<
     LinkageImpl: IsLinkageImpl,
     C = <LinkageImpl as IsLinkageImpl>::Value,

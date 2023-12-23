@@ -42,7 +42,7 @@ impl From<TypeVariantPath> for HirConstant {
 impl HirConstant {
     pub fn from_term(term_lit: TermLiteral, db: &::salsa::Db) -> Self {
         match term_lit {
-            TermLiteral::Unit => todo!(),
+            TermLiteral::Unit(()) => todo!(),
             TermLiteral::Bool(_) => todo!(),
             TermLiteral::I8(_) => todo!(),
             TermLiteral::I16(_) => todo!(),
