@@ -146,16 +146,16 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn eval_value_at_generic_pedestal(
         &self,
         val_repr: ValReprInterface,
-        generic_pedestal: LinkageImpl::Pedestal,
+        generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
-            LinkageImpl::Pedestal,
+            DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValueResult<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValueResult<LinkageImpl> {
         self.runtime.eval_value_at_generic_pedestal_dyn(
             val_repr,
-            generic_pedestal,
+            generic_pedestal(self.pedestal),
             gn_generic_wrapper,
             val_argument_reprs,
         )
@@ -231,7 +231,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         val_repr: ValReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
-            LinkageImpl::Pedestal,
+            DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValueResult<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
@@ -274,13 +274,23 @@ where
         val_repr: ValReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
-            LinkageImpl::Pedestal,
+            DevEvalContext<LinkageImpl>,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValueResult<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValueResult<LinkageImpl> {
         self.eval_val_repr_with(val_repr, generic_pedestal, || {
-            gn_generic_wrapper(generic_pedestal, val_argument_reprs)
+            gn_generic_wrapper(
+                DevEvalContext {
+                    runtime: unsafe {
+                        std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
+                            self as &dyn IsDevRuntimeDyn<LinkageImpl>,
+                        )
+                    },
+                    pedestal: generic_pedestal,
+                },
+                val_argument_reprs,
+            )
         })
     }
 }

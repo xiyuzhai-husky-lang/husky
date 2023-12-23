@@ -86,6 +86,7 @@ impl<Label> __IsGnItem for narrow_down<Label> {
     fn train(
         val_argument_reprs: &[__ValArgumentReprInterface],
     ) -> Result<Self::ValueAtGenericPedestal, ()> {
+        println!("val_argument_reprs.len() = {}", val_argument_reprs.len());
         todo!()
     }
 

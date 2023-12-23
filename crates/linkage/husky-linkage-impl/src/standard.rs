@@ -12,6 +12,7 @@ where
     Pedestal: Copy + 'static,
 {
     RitchieFn {
+        /// it's the wrapper's responsibility to properly set ctx
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
@@ -20,12 +21,13 @@ where
     },
     RitchieGn {
         generic_pedestal: fn(Pedestal) -> Pedestal,
-        gn_generic_wrapper: fn(Pedestal, &[ValArgumentReprInterface]) -> LinkageImplValueResult,
-        gn_specific_wrapper: fn(
+        /// it's the wrapper's responsibility to properly set ctx to that with generic pedestal
+        gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
-            Value,
         ) -> LinkageImplValueResult,
+        /// no need to set ctx
+        gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> LinkageImplValueResult,
     },
 }
 
@@ -52,7 +54,7 @@ where
             } => {
                 let value_at_generic_pedestal = ctx.eval_value_at_generic_pedestal(
                     val_repr,
-                    generic_pedestal(ctx.pedestal()),
+                    generic_pedestal,
                     gn_generic_wrapper,
                     val_argument_reprs,
                 );
@@ -67,12 +69,13 @@ pub struct FnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedesta
 all_ritchies! {impl_is_fn_linkage_impl_source}
 
 pub trait IsGnItem {
-    type Pedestal;
+    type Pedestal: Copy + 'static;
 
     type ValueAtGenericPedestal;
 
     fn generic_pedestal(specific_pedestal: Self::Pedestal) -> Self::Pedestal;
 
+    /// compute `generic_pedestal` here for efficiency
     fn train(
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> Result<Self::ValueAtGenericPedestal, ()>;
@@ -90,13 +93,15 @@ macro_rules! gn_linkage_impl {
         ///
         /// it's the counterpart of generic point in algebraic geometry
         fn gn_generic_wrapper(
-            generic_pedestal: __Pedestal,
+            ctx: __DevEvalContext,
             val_argument_reprs: &[__ValArgumentReprInterface],
         ) -> __ValueResult {
-            todo!("gn_generic_wrapper");
+            __with_dev_eval_context(ctx, || {
+                <$gn_item as __IsGnItem>::train(val_argument_reprs);
+                todo!("gn_generic_wrapper");
+            })
         }
         fn gn_specific_wrapper(
-            ctx: __DevEvalContext,
             val_argument_reprs: &[__ValArgumentReprInterface],
             value_at_generic_pedestal: __Value,
         ) -> __ValueResult {
