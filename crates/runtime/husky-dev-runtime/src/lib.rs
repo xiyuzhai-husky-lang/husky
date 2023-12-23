@@ -111,7 +111,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         let val_repr: ValRepr = self
             .comptime
             .ingredient_val_repr(jar_index, ingredient_index);
-        match self.eval_val_repr(val_repr, pedestal) {
+        match self.eval_val_repr_at_pedestal(val_repr, pedestal) {
             ValControlFlow::Continue(value) => value,
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),

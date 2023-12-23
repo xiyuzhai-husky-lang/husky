@@ -18,17 +18,17 @@ use std::{
 };
 
 impl<Task: IsTask> DevRuntime<Task> {
-    pub fn eval_val_repr(
+    pub fn eval_val_repr_at_pedestal(
         &self,
         val_repr: ValRepr,
         pedestal: TaskDevPedestal<Task>,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
-            self.eval_val_repr_aux(val_repr)
+            self.eval_val_repr(val_repr)
         })
     }
 
-    fn eval_val_repr_aux(
+    fn eval_val_repr(
         &self,
         val_repr: ValRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
@@ -73,7 +73,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         stmt_val_reprs: &[ValRepr],
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
-            match self.eval_val_repr_aux(stmt_val_repr) {
+            match self.eval_val_repr(stmt_val_repr) {
                 ValControlFlow::Continue(_) => todo!(),
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),
@@ -81,7 +81,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 ValControlFlow::Err(_) => todo!(),
             }
         }
-        self.eval_val_repr_aux(*stmt_val_reprs.last().unwrap())
+        self.eval_val_repr(*stmt_val_reprs.last().unwrap())
     }
 
     fn eval_val_argument(
@@ -89,7 +89,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         val_argument_repr: &ValArgumentRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         match *val_argument_repr {
-            ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr_aux(val_repr),
+            ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr(val_repr),
             ValArgumentRepr::Keyed(_, _) => todo!(),
             ValArgumentRepr::Variadic(_) => todo!(),
             ValArgumentRepr::Branch {
@@ -125,6 +125,6 @@ fn val_repr_eval_works() {
             continue;
         };
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
-        runtime.eval_val_repr(val_repr, InputId::from_index(0).into());
+        runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
 }

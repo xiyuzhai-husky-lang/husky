@@ -6,6 +6,7 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     type Value: 'static;
     type Error;
 
+    /// assumed that pedestal has already been
     fn eval(
         self,
         val_repr_interface: ValReprInterface,
