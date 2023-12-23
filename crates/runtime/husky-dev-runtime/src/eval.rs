@@ -8,6 +8,7 @@ use husky_task::{
     IsTask,
 };
 use husky_task_prelude::{val_control_flow::ValControlFlow, IsLinkageImpl};
+use husky_term_prelude::TermLiteral;
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
@@ -32,12 +33,43 @@ impl<Task: IsTask> DevRuntime<Task> {
         &self,
         val_repr: ValRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
+        // todo: consider domain
         let db = self.db();
         match val_repr.opn(db) {
             ValOpn::Return => todo!(),
             ValOpn::Require => todo!(),
             ValOpn::Assert => todo!(),
-            ValOpn::Literal(_) => todo!(),
+            ValOpn::Literal(lit) => {
+                // ad hoc
+                let value = match lit {
+                    TermLiteral::Unit(_) => todo!(),
+                    TermLiteral::Bool(_) => todo!(),
+                    TermLiteral::I8(_) => todo!(),
+                    TermLiteral::I16(_) => todo!(),
+                    TermLiteral::I32(i) => i.into(),
+                    TermLiteral::I64(_) => todo!(),
+                    TermLiteral::I128(_) => todo!(),
+                    TermLiteral::ISize(_) => todo!(),
+                    TermLiteral::U8(_) => todo!(),
+                    TermLiteral::U16(_) => todo!(),
+                    TermLiteral::U32(_) => todo!(),
+                    TermLiteral::U64(_) => todo!(),
+                    TermLiteral::U128(_) => todo!(),
+                    TermLiteral::USize(_) => todo!(),
+                    TermLiteral::R8(_) => todo!(),
+                    TermLiteral::R16(_) => todo!(),
+                    TermLiteral::R32(_) => todo!(),
+                    TermLiteral::R64(_) => todo!(),
+                    TermLiteral::R128(_) => todo!(),
+                    TermLiteral::RSize(_) => todo!(),
+                    TermLiteral::Nat(_) => todo!(),
+                    TermLiteral::F32(lit) => lit.value(self.db()).into_inner().into(),
+                    TermLiteral::F64(_) => todo!(),
+                    TermLiteral::String(_) => todo!(),
+                    TermLiteral::StaticLifetime => todo!(),
+                };
+                ValControlFlow::Continue(value)
+            }
             ValOpn::ValItemLazilyDefined(_) => {
                 let expansion = val_repr.expansion(db).unwrap();
                 self.eval_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
@@ -78,6 +110,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),
                 ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => unreachable!(),
                 ValControlFlow::Err(_) => todo!(),
             }
         }

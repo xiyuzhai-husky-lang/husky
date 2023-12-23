@@ -15,7 +15,9 @@ use husky_task_prelude::DevEvalContext;
 pub type __DevEvalContext = DevEvalContext<__LinkageImpl>;
 pub type __LinkageImpl = LinkageImpl<MlPedestal>;
 pub type __ClosedPoint = InputId;
-pub use husky_linkage_impl::standard::IsGnItem as __IsGnItem;
+pub use husky_linkage_impl::standard::{
+    IsGnItem as __IsGnItem, ValControlFlow as __ValControlFlow,
+};
 pub use husky_ml_task_prelude::MlPedestal as __Pedestal;
 pub use husky_task_prelude::val_repr::{
     ValArgumentReprInterface as __ValArgumentReprInterface, ValReprInterface as __ValReprInterface,

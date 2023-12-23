@@ -1,6 +1,7 @@
 pub mod float;
 
 use crate::{float::*, *};
+use husky_task_prelude::value::IsValue;
 use ordered_float::{NotNan, OrderedFloat};
 use salsa::Db;
 
@@ -8,7 +9,7 @@ use salsa::Db;
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
 pub enum TermLiteral {
     /// unit literal
-    Unit,
+    Unit(()),
     /// boolean literal
     Bool(bool),
     /// 8-bit integer literal
@@ -81,8 +82,8 @@ impl TermLiteral {
 
     pub fn ty(self) -> PreludeTypePath {
         match self {
-            TermLiteral::Unit => PreludeBasicTypePath::Unit.into(),
-            TermLiteral::Unit => PreludeBasicTypePath::Never.into(),
+            TermLiteral::Unit(()) => PreludeBasicTypePath::Unit.into(),
+            TermLiteral::Unit(()) => PreludeBasicTypePath::Never.into(),
             TermLiteral::Bool(_) => PreludeBasicTypePath::Bool.into(),
             TermLiteral::I8(_) => PreludeIntTypePath::I8.into(),
             TermLiteral::I16(_) => PreludeIntTypePath::I16.into(),
@@ -118,7 +119,7 @@ impl TermLiteral {
     ) -> std::fmt::Result {
         use std::fmt::Display;
         match self {
-            TermLiteral::Unit => f.write_str("unit"),
+            TermLiteral::Unit(()) => f.write_str("unit"),
             TermLiteral::I32(val) => f.write_fmt(format_args!("{}", val)),
             TermLiteral::I64(_) => todo!(),
             TermLiteral::Nat(_) => todo!(),

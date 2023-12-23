@@ -4,7 +4,8 @@ use smallvec::SmallVec;
 
 pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value};
 
-pub type LinkageImplValueResult = Result<Value, /* ad hoc */ ()>;
+pub type ValControlFlow<C = Value> =
+    husky_task_prelude::val_control_flow::ValControlFlow<C, Value, ()>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>
@@ -16,7 +17,7 @@ where
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult,
+        ) -> ValControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
@@ -25,9 +26,9 @@ where
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult,
+        ) -> ValControlFlow,
         /// no need to set ctx
-        gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> LinkageImplValueResult,
+        gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> ValControlFlow,
     },
 }
 
@@ -44,7 +45,7 @@ where
         val_repr: ValReprInterface,
         ctx: DevEvalContext<Self>,
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValueResult {
+    ) -> ValControlFlow {
         match self {
             LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
             LinkageImpl::RitchieGn {
@@ -69,21 +70,23 @@ pub struct FnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedesta
 all_ritchies! {impl_is_fn_linkage_impl_source}
 
 pub trait IsGnItem {
-    type Pedestal: Copy + 'static;
+    type LinkageImpl: IsLinkageImpl;
 
     type ValueAtGenericPedestal;
 
-    fn generic_pedestal(specific_pedestal: Self::Pedestal) -> Self::Pedestal;
+    fn generic_pedestal(
+        specific_pedestal: <Self::LinkageImpl as IsLinkageImpl>::Pedestal,
+    ) -> <Self::LinkageImpl as IsLinkageImpl>::Pedestal;
 
     /// compute `generic_pedestal` here for efficiency
     fn train(
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> Result<Self::ValueAtGenericPedestal, ()>;
+    ) -> LinkageImplValControlFlow<Self::LinkageImpl, Self::ValueAtGenericPedestal>;
 
     fn eval(
         val_argument_reprs: &[ValArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
-    ) -> LinkageImplValueResult;
+    ) -> ValControlFlow;
 }
 
 #[macro_export]
@@ -95,7 +98,7 @@ macro_rules! gn_linkage_impl {
         fn gn_generic_wrapper(
             ctx: __DevEvalContext,
             val_argument_reprs: &[__ValArgumentReprInterface],
-        ) -> __ValueResult {
+        ) -> __ValControlFlow {
             __with_dev_eval_context(ctx, || {
                 <$gn_item as __IsGnItem>::train(val_argument_reprs);
                 todo!("gn_generic_wrapper");
@@ -104,7 +107,7 @@ macro_rules! gn_linkage_impl {
         fn gn_specific_wrapper(
             val_argument_reprs: &[__ValArgumentReprInterface],
             value_at_generic_pedestal: __Value,
-        ) -> __ValueResult {
+        ) -> __ValControlFlow {
             todo!("gn_specific_wrapper");
         }
         __LinkageImpl::RitchieGn {

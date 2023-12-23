@@ -60,7 +60,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(
                     EtherealTerm::Literal(match *lit {
-                        LiteralData::Unit => TermLiteral::Unit,
+                        LiteralData::Unit => TermLiteral::Unit(()),
                         LiteralData::Char(_) => todo!(),
                         LiteralData::String(val) => TermLiteral::String(val),
                         LiteralData::Integer(ilit) => match ilit {

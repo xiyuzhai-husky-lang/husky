@@ -5,9 +5,7 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_prelude::{
-    val_control_flow::ValControlFlow, LinkageImplValControlFlow, LinkageImplValueResult,
-};
+use husky_task_prelude::{val_control_flow::ValControlFlow, LinkageImplValControlFlow};
 use husky_task_prelude::{
     val_repr::{ValArgumentReprInterface, ValReprInterface},
     DevEvalContext, IsLinkageImpl,
@@ -21,7 +19,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             arguments: &[ValArgumentReprInterface],
-        ) -> LinkageImplValueResult<LinkageImpl>,
+        ) -> LinkageImplValControlFlow<LinkageImpl>,
         fn_pointer: FnPointer,
     ) -> LinkageImpl;
 
@@ -53,7 +51,7 @@ macro_rules! fn_linkage_impl {
         fn fn_wrapper(
             ctx: __DevEvalContext,
             arguments: &[__ValArgumentReprInterface],
-        ) -> __ValueResult {
+        ) -> __ValControlFlow {
             __with_dev_eval_context(ctx, || {
                 FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
                     .fn_wrapper_aux(ctx, arguments);
@@ -89,7 +87,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[ValArgumentReprInterface],
-                ) -> LinkageImplValueResult,
+                ) -> ValControlFlow,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
@@ -104,7 +102,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 self,
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
                 arguments: &[ValArgumentReprInterface],
-            ) -> LinkageImplValControlFlow<LinkageImpl<Pedestal>, Self::FnOutput> {
+            ) -> ValControlFlow<Self::FnOutput> {
                 let mut arguments = arguments.iter();
                 ValControlFlow::Continue(self.1(
                     $(<$input as FromValue>::from_value(

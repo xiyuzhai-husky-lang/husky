@@ -1,4 +1,4 @@
-pub trait IsTaskValue:
+pub trait IsValue:
     Sized
     + std::ops::Add<Self, Output = Self>
     + std::ops::AddAssign<Self>

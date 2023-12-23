@@ -66,7 +66,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
             SynPatternExpr::Literal { literal, .. } => {
                 HirEagerPatternExpr::Literal(match literal {
-                    LiteralData::Unit => TermLiteral::Unit,
+                    LiteralData::Unit => TermLiteral::Unit(()),
                     LiteralData::Char(_) => todo!(),
                     LiteralData::String(_) => todo!(),
                     LiteralData::Integer(literal) => match literal {

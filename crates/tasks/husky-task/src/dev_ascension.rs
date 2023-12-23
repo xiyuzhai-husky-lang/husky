@@ -1,6 +1,6 @@
 use crate::*;
 use husky_task_prelude::{
-    value::IsTaskValue, IsLinkageImpl, LinkageImplValueResult, TaskIngredientIndex, TaskJarIndex,
+    value::IsValue, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_task_prelude::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
 use husky_trace_protocol::protocol::IsTraceProtocol;
@@ -24,15 +24,15 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         &self,
         val: Val,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
         db: &::salsa::Db,
-    ) -> LinkageImplValueResult<LinkageImpl>;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     fn get_or_try_init_memoized_field_value(
         &self,
-        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
+        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
         db: &::salsa::Db,
-    ) -> LinkageImplValueResult<LinkageImpl>;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 
 pub type LocalDevEvalContext<LinkageImpl> =

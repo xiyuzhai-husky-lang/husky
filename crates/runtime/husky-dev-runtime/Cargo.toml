@@ -23,6 +23,8 @@ husky-entity-path.workspace = true
 husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-fluffy-term.workspace = true
+# ad hoc
+husky-term-prelude.workspace = true
 # lex
 husky-text-protocol.workspace = true
 husky-token.workspace = true
