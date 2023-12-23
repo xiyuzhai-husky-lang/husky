@@ -8,7 +8,7 @@ use husky_entity_path::FugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_linkage::linkage::Linkage;
-use husky_task_prelude::val_repr::ValArgumentReprInterface;
+use husky_task_prelude::val_repr::{ValArgumentReprInterface, ValReprInterface};
 use husky_val::{Val, ValArgument, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
@@ -19,6 +19,20 @@ pub struct ValRepr {
     #[return_ref]
     pub arguments: SmallVec<[ValArgumentRepr; 4]>,
     pub caching_class: ValCachingClass,
+}
+
+impl Into<ValReprInterface> for ValRepr {
+    fn into(self) -> ValReprInterface {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+
+#[test]
+fn val_repr_size_works() {
+    assert_eq!(
+        std::mem::size_of::<ValRepr>(),
+        std::mem::size_of::<ValReprInterface>()
+    )
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

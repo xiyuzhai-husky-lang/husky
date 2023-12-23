@@ -27,10 +27,7 @@ macro_rules! init_crate {
                 .expect("`__TASK_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eager_eval_val_item<T>(
-            ingredient_index: usize,
-            f: impl FnOnce() -> __Value + 'static,
-        ) -> T
+        pub(crate) fn __eager_eval_val_item<T>(ingredient_index: usize, f: fn() -> __Value) -> T
         where
             T: __FromValue + 'static,
         {
@@ -83,14 +80,14 @@ pub type TaskJarIndexOnceCell = OnceCell<TaskJarIndex>;
 
 pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-    base_point: LinkageImpl::Pedestal,
+    pedestal: LinkageImpl::Pedestal,
 }
 
 impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
     fn clone(&self) -> Self {
         Self {
             runtime: self.runtime,
-            base_point: self.base_point,
+            pedestal: self.pedestal,
         }
     }
 }
@@ -100,28 +97,25 @@ impl<LinkageImpl: IsLinkageImpl> Copy for DevEvalContext<LinkageImpl> {}
 impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn new(
         runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
     ) -> Self {
-        Self {
-            runtime,
-            base_point,
-        }
+        Self { runtime, pedestal }
     }
 
-    pub fn pedestal(&self) -> &LinkageImpl::Pedestal {
-        &self.base_point
+    pub fn pedestal(&self) -> LinkageImpl::Pedestal {
+        self.pedestal
     }
 
     pub fn eval_eager_val_item(
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        f: impl FnOnce() -> LinkageImpl::Value + 'static,
+        f: fn() -> LinkageImpl::Value,
     ) -> LinkageImpl::Value {
         self.runtime.eval_eager_val_item_dyn(
             jar_index,
             ingredient_index,
-            self.base_point,
+            self.pedestal,
             Box::new(move || {
                 f();
                 todo!()
@@ -135,7 +129,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         ingredient_index: TaskIngredientIndex,
     ) -> LinkageImpl::Value {
         self.runtime
-            .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.base_point)
+            .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
     }
 
     fn memoized_field(self) -> LinkageImpl::Value {
@@ -147,6 +141,24 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         val_repr: &ValArgumentReprInterface,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
         todo!()
+    }
+
+    pub fn eval_value_at_generic_pedestal(
+        &self,
+        val_repr: ValReprInterface,
+        generic_pedestal: LinkageImpl::Pedestal,
+        gn_generic_wrapper: fn(
+            LinkageImpl::Pedestal,
+            &[ValArgumentReprInterface],
+        ) -> LinkageImplValueResult<LinkageImpl>,
+        val_argument_reprs: &[ValArgumentReprInterface],
+    ) -> LinkageImplValueResult<LinkageImpl> {
+        self.runtime.eval_value_at_generic_pedestal_dyn(
+            val_repr,
+            generic_pedestal,
+            gn_generic_wrapper,
+            val_argument_reprs,
+        )
     }
 }
 
@@ -161,7 +173,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImpl::Value;
 
@@ -171,15 +183,24 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImpl::Value;
 
     /// the computation is done by the runtime
     /// returns `LinkageImplValueResult<LinkageImpl>` because there is not guaranteed to be no control flow
     fn eval_val_repr(
         &self,
-        val_repr_id: ValReprInterface,
-        base_point: LinkageImpl::Pedestal,
+        val_repr: ValReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+    ) -> LinkageImplValueResult<LinkageImpl>;
+
+    /// the computation is done by `f`
+    /// returns `LinkageImplValueResult<LinkageImpl>` because there is not guaranteed to be no control flow
+    fn eval_val_repr_with(
+        &self,
+        val_repr: ValReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+        f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImplValueResult<LinkageImpl>;
 }
 
@@ -188,7 +209,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value;
 
@@ -196,13 +217,24 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImpl::Value;
 
     fn eval_val_repr_dyn(
         &self,
-        val_repr_id: ValReprInterface,
-        base_point: LinkageImpl::Pedestal,
+        val_repr: ValReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+    ) -> LinkageImplValueResult<LinkageImpl>;
+
+    fn eval_value_at_generic_pedestal_dyn(
+        &self,
+        val_repr: ValReprInterface,
+        generic_pedestal: LinkageImpl::Pedestal,
+        gn_generic_wrapper: fn(
+            LinkageImpl::Pedestal,
+            &[ValArgumentReprInterface],
+        ) -> LinkageImplValueResult<LinkageImpl>,
+        val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValueResult<LinkageImpl>;
 }
 
@@ -214,27 +246,42 @@ where
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: LinkageImpl::Pedestal,
+        pedestal: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value {
-        self.eval_ingredient_with(jar_index, ingredient_index, base_point, f)
+        self.eval_ingredient_with(jar_index, ingredient_index, pedestal, f)
     }
 
     fn eval_lazy_val_item_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: <LinkageImpl as IsLinkageImpl>::Pedestal,
+        pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> <LinkageImpl as IsLinkageImpl>::Value {
-        self.eval_ingredient(jar_index, ingredient_index, base_point)
+        self.eval_ingredient(jar_index, ingredient_index, pedestal)
     }
 
     fn eval_val_repr_dyn(
         &self,
-        val_repr_id: ValReprInterface,
-        base_point: LinkageImpl::Pedestal,
+        val_repr: ValReprInterface,
+        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValueResult<LinkageImpl> {
-        self.eval_val_repr(val_repr_id, base_point)
+        self.eval_val_repr(val_repr, pedestal)
+    }
+
+    fn eval_value_at_generic_pedestal_dyn(
+        &self,
+        val_repr: ValReprInterface,
+        generic_pedestal: LinkageImpl::Pedestal,
+        gn_generic_wrapper: fn(
+            LinkageImpl::Pedestal,
+            &[ValArgumentReprInterface],
+        ) -> LinkageImplValueResult<LinkageImpl>,
+        val_argument_reprs: &[ValArgumentReprInterface],
+    ) -> LinkageImplValueResult<LinkageImpl> {
+        self.eval_val_repr_with(val_repr, generic_pedestal, || {
+            gn_generic_wrapper(generic_pedestal, val_argument_reprs)
+        })
     }
 }
 

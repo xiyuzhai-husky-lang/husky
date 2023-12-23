@@ -127,4 +127,14 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     ) -> LinkageImplValueResult<TaskLinkageImpl<Task>> {
         todo!()
     }
+
+    fn eval_val_repr_with(
+        &self,
+        val_repr: ValReprInterface,
+        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+        f: impl FnOnce() -> LinkageImplValueResult<TaskLinkageImpl<Task>>,
+    ) -> LinkageImplValueResult<TaskLinkageImpl<Task>> {
+        f();
+        todo!()
+    }
 }

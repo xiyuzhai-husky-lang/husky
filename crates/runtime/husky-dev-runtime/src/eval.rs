@@ -44,9 +44,11 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                linkage_impl.eval(dev_eval_context::<Task::DevAscension>(), unsafe {
-                    std::mem::transmute(val_repr.arguments(db) as &[ValArgumentRepr])
-                });
+                linkage_impl.eval(
+                    val_repr.into(),
+                    dev_eval_context::<Task::DevAscension>(),
+                    unsafe { std::mem::transmute(val_repr.arguments(db) as &[ValArgumentRepr]) },
+                );
                 todo!()
             }
             ValOpn::FunctionGn(_) => todo!(),
