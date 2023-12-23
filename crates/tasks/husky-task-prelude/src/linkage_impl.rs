@@ -1,4 +1,4 @@
-use crate::val_control_flow::ValControlFlow;
+use crate::{val_control_flow::ValControlFlow, val_repr::ValReprInterface};
 use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
@@ -8,6 +8,7 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
 
     fn eval(
         self,
+        val_repr_interface: ValReprInterface,
         ctx: DevEvalContext<Self>,
         arguments: &[ValArgumentReprInterface],
     ) -> LinkageImplValueResult<Self>;

@@ -72,4 +72,12 @@ impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
     }
 }
 
-pub struct narrow_down;
+pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
+
+impl<Label> __IsGnItem for narrow_down<Label> {
+    type Pedestal = __Pedestal;
+
+    fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
+        __Pedestal::Generic
+    }
+}

@@ -5,7 +5,9 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_prelude::{val_control_flow::ValControlFlow, LinkageImplValControlFlow};
+use husky_task_prelude::{
+    val_control_flow::ValControlFlow, LinkageImplValControlFlow, LinkageImplValueResult,
+};
 use husky_task_prelude::{
     val_repr::{ValArgumentReprInterface, ValReprInterface},
     DevEvalContext, IsLinkageImpl,
@@ -19,7 +21,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             arguments: &[ValArgumentReprInterface],
-        ) -> <LinkageImpl as IsLinkageImpl>::Value,
+        ) -> LinkageImplValueResult<LinkageImpl>,
         fn_pointer: FnPointer,
     ) -> LinkageImpl;
 
@@ -48,7 +50,10 @@ macro_rules! linkage_impls {
 #[macro_export]
 macro_rules! fn_linkage_impl {
     ($fn_item: expr) => {{
-        fn fn_wrapper(ctx: __DevEvalContext, arguments: &[__ValArgumentReprInterface]) -> Value {
+        fn fn_wrapper(
+            ctx: __DevEvalContext,
+            arguments: &[__ValArgumentReprInterface],
+        ) -> __ValueResult {
             __with_dev_eval_context(ctx, || {
                 FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
                     .fn_wrapper_aux(ctx, arguments);
@@ -84,7 +89,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[ValArgumentReprInterface],
-                ) -> <LinkageImpl<Pedestal> as IsLinkageImpl>::Value,
+                ) -> LinkageImplValueResult,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
