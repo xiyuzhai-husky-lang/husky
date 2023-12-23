@@ -69,7 +69,18 @@ all_ritchies! {impl_is_fn_linkage_impl_source}
 pub trait IsGnItem {
     type Pedestal;
 
+    type ValueAtGenericPedestal;
+
     fn generic_pedestal(specific_pedestal: Self::Pedestal) -> Self::Pedestal;
+
+    fn train(
+        val_argument_reprs: &[ValArgumentReprInterface],
+    ) -> Result<Self::ValueAtGenericPedestal, ()>;
+
+    fn eval(
+        val_argument_reprs: &[ValArgumentReprInterface],
+        value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
+    ) -> LinkageImplValueResult;
 }
 
 #[macro_export]
