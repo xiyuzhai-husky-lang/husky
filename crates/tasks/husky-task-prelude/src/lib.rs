@@ -27,18 +27,18 @@ macro_rules! init_crate {
                 .expect("`__TASK_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eager_eval_val_item<T>(ingredient_index: usize, f: fn() -> __Value) -> T
+        pub(crate) fn __eval_eager_val_item<T>(ingredient_index: usize, f: fn() -> __Value) -> T
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value(__dev_eval_context().eval_eager_val_item(
+            <T as __FromValue>::from_value(__dev_eval_context().eval_eager_val_item_with(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
                 f,
             ))
         }
 
-        pub(crate) fn __lazy_eval_val_item<T>(ingredient_index: usize) -> T
+        pub(crate) fn __eval_lazy_val_item<T>(ingredient_index: usize) -> T
         where
             T: __FromValue + 'static,
         {
@@ -46,6 +46,13 @@ macro_rules! init_crate {
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
             ))
+        }
+
+        pub(crate) fn __eval_val_repr<T>(val_repr: __ValReprInterface) -> Result<T>
+        where
+            T: __FromValue + 'static,
+        {
+            <T as __FromValue>::from_value(__dev_eval_context().eval_val_repr(val_repr))
         }
     };
 }
@@ -106,7 +113,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.pedestal
     }
 
-    pub fn eval_eager_val_item(
+    pub fn eval_eager_val_item_with(
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -143,7 +150,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         todo!()
     }
 
-    pub fn eval_value_at_generic_pedestal(
+    pub fn eval_val_repr_at_generic_pedestal_with(
         &self,
         val_repr: ValReprInterface,
         generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
@@ -159,6 +166,10 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             gn_generic_wrapper,
             val_argument_reprs,
         )
+    }
+
+    pub fn eval_val_repr(self, val_repr: ValReprInterface) -> LinkageImplValueResult<LinkageImpl> {
+        todo!()
     }
 }
 

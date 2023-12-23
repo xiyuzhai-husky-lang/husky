@@ -86,6 +86,16 @@ impl<Label> __IsGnItem for narrow_down<Label> {
     fn train(
         val_argument_reprs: &[__ValArgumentReprInterface],
     ) -> Result<Self::ValueAtGenericPedestal, ()> {
+        let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+            unreachable!()
+        };
+        let __ValArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
+            unreachable!()
+        };
+        let skip = match skip {
+            Some(skip) => __eval_val_repr(skip),
+            None => todo!(),
+        };
         println!("val_argument_reprs.len() = {}", val_argument_reprs.len());
         todo!()
     }

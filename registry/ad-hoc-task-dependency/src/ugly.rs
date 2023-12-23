@@ -17,6 +17,8 @@ pub type __LinkageImpl = LinkageImpl<MlPedestal>;
 pub type __ClosedPoint = InputId;
 pub use husky_linkage_impl::standard::IsGnItem as __IsGnItem;
 pub use husky_ml_task_prelude::MlPedestal as __Pedestal;
-pub use husky_task_prelude::val_repr::ValArgumentReprInterface as __ValArgumentReprInterface;
+pub use husky_task_prelude::val_repr::{
+    ValArgumentReprInterface as __ValArgumentReprInterface, ValReprInterface as __ValReprInterface,
+};
 // ad hoc
 pub type __ValueResult = Result<__Value, ()>;

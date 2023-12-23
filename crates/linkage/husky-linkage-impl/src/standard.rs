@@ -52,7 +52,7 @@ where
                 gn_generic_wrapper,
                 gn_specific_wrapper,
             } => {
-                let value_at_generic_pedestal = ctx.eval_value_at_generic_pedestal(
+                let value_at_generic_pedestal = ctx.eval_val_repr_at_generic_pedestal_with(
                     val_repr,
                     generic_pedestal,
                     gn_generic_wrapper,
