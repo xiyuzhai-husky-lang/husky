@@ -17,6 +17,7 @@ where
         fn_wrapper: fn(DevEvalContext<Self>, FnArguments) -> Value,
         fn_pointer: fn(),
     },
+    RitchieGn,
 }
 
 impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
@@ -32,6 +33,7 @@ where
     fn eval_fn(self, ctx: DevEvalContext<Self>, arguments: FnArguments) -> Self::Value {
         match self {
             LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, arguments),
+            LinkageImpl::RitchieGn => todo!(),
         }
     }
 
@@ -40,6 +42,16 @@ where
     }
 }
 
-pub struct LinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
+pub struct FnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
 
-all_ritchies! {impl_into_linkage_impl}
+all_ritchies! {impl_is_fn_linkage_impl_source}
+
+#[macro_export]
+macro_rules! gn_linkage_impl {
+    ($gn_item: expr) => {{
+        fn gn_wrapper(arguments: GnArguments) -> Value {
+            todo!();
+        }
+        LinkageImpl::RitchieGn
+    }};
+}

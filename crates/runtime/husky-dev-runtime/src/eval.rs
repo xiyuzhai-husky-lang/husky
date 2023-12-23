@@ -44,6 +44,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
+                todo!();
                 linkage_impl.eval_fn(dev_eval_context::<Task::DevAscension>(), Default::default());
                 todo!()
             }
