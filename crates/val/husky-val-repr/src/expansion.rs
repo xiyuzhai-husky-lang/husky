@@ -573,7 +573,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     ValArgumentRepr::Ordinary(self.build_expr(val_domain_repr_guard, item)),
                 ),
                 HirLazyCallListItemGroup::Variadic(ref items) => {
-                    let items: Vec<_> = items
+                    let items: SmallVec<_> = items
                         .iter()
                         .map(|&item| self.build_expr(val_domain_repr_guard, item))
                         .collect();

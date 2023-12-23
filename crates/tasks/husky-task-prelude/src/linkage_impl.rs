@@ -1,15 +1,21 @@
-use crate::DevEvalContext;
+use crate::val_control_flow::ValControlFlow;
+use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Pedestal: Copy + 'static;
     type Value: 'static;
     type Error;
-    type FnArguments: Default;
-    type GnArguments;
 
-    fn eval_fn(self, ctx: DevEvalContext<Self>, arguments: Self::FnArguments) -> Self::Value;
-    fn eval_gn(self) -> Self::Value;
+    fn eval(
+        self,
+        ctx: DevEvalContext<Self>,
+        arguments: &[ValArgumentReprInterface],
+    ) -> LinkageImplValueResult<Self>;
 }
 
 pub type LinkageImplValueResult<LinkageImpl: IsLinkageImpl> =
     Result<LinkageImpl::Value, LinkageImpl::Error>;
+pub type LinkageImplValControlFlow<
+    LinkageImpl: IsLinkageImpl,
+    C = <LinkageImpl as IsLinkageImpl>::Value,
+> = ValControlFlow<C, LinkageImpl::Value, LinkageImpl::Error>;

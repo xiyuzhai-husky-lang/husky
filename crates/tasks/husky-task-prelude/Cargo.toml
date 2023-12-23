@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 once_cell.workspace = true
+smallvec.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 # tasks

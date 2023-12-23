@@ -1,4 +1,8 @@
+#![feature(try_trait_v2)]
+#![feature(try_trait_v2_residual)]
 pub mod linkage_impl;
+pub mod val_control_flow;
+pub mod val_repr;
 pub mod value;
 
 pub use self::linkage_impl::*;
@@ -6,6 +10,7 @@ pub use husky_task_prelude_macros::*;
 
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
+use val_repr::{ValArgumentReprInterface, ValReprInterface};
 
 #[macro_export]
 macro_rules! init_crate {
@@ -103,6 +108,10 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         }
     }
 
+    pub fn pedestal(&self) -> &LinkageImpl::Pedestal {
+        &self.base_point
+    }
+
     pub fn eval_eager_val_item(
         self,
         jar_index: TaskJarIndex,
@@ -133,8 +142,11 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         todo!()
     }
 
-    pub fn pedestal(&self) -> &LinkageImpl::Pedestal {
-        &self.base_point
+    pub fn eval_val_repr_argument(
+        self,
+        val_repr: &ValArgumentReprInterface,
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        todo!()
     }
 }
 
@@ -143,7 +155,9 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
 
-    fn eval_eager_val_item(
+    /// the computation is done by $f$,
+    /// returns `Value` because there is guaranteed to be no control flow
+    fn eval_ingredient_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -151,12 +165,22 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         f: impl FnOnce() -> LinkageImplValueResult<LinkageImpl>,
     ) -> LinkageImpl::Value;
 
-    fn eval_lazy_val_item(
+    /// the computation is done by the runtime
+    /// returns `Value` because there is guaranteed to be no control flow
+    fn eval_ingredient(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::Pedestal,
     ) -> LinkageImpl::Value;
+
+    /// the computation is done by the runtime
+    /// returns `LinkageImplValueResult<LinkageImpl>` because there is not guaranteed to be no control flow
+    fn eval_val_repr(
+        &self,
+        val_repr_id: ValReprInterface,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImplValueResult<LinkageImpl>;
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
@@ -174,6 +198,12 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         ingredient_index: TaskIngredientIndex,
         base_point: LinkageImpl::Pedestal,
     ) -> LinkageImpl::Value;
+
+    fn eval_val_repr_dyn(
+        &self,
+        val_repr_id: ValReprInterface,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImplValueResult<LinkageImpl>;
 }
 
 impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
@@ -187,7 +217,7 @@ where
         base_point: LinkageImpl::Pedestal,
         f: Box<dyn FnOnce() -> LinkageImplValueResult<LinkageImpl>>,
     ) -> LinkageImpl::Value {
-        self.eval_eager_val_item(jar_index, ingredient_index, base_point, f)
+        self.eval_ingredient_with(jar_index, ingredient_index, base_point, f)
     }
 
     fn eval_lazy_val_item_dyn(
@@ -196,7 +226,15 @@ where
         ingredient_index: TaskIngredientIndex,
         base_point: <LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> <LinkageImpl as IsLinkageImpl>::Value {
-        self.eval_lazy_val_item(jar_index, ingredient_index, base_point)
+        self.eval_ingredient(jar_index, ingredient_index, base_point)
+    }
+
+    fn eval_val_repr_dyn(
+        &self,
+        val_repr_id: ValReprInterface,
+        base_point: LinkageImpl::Pedestal,
+    ) -> LinkageImplValueResult<LinkageImpl> {
+        self.eval_val_repr(val_repr_id, base_point)
     }
 }
 
