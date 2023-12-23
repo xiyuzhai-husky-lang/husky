@@ -29,40 +29,48 @@ pub trait IsLinkageImplSource<LinkageImpl: IsLinkageImpl, Marker> {
 
 #[macro_export]
 macro_rules! linkage_impls {
-    ($($linkage_impl_src: expr),*,) => {
+    ($($linkage_impl: expr),*,) => {
         #[no_mangle]
         pub extern "C" fn linkage_impls(jar_index: __TaskJarIndex) -> AnyLinkageImpls {
             __set_jar_index(jar_index);
             let linkages: Vec<__LinkageImpl> =
                 vec![
-                    $({
-                        fn fn_wrapper(ctx: __DevEvalContext, arguments: FnArguments) -> Value {
-                            __with_dev_eval_context(
-                                ctx,
-                                || {
-                                    LinkageImplSource(
-                                        std::marker::PhantomData::<__LinkageImpl>,
-                                        $linkage_impl_src,
-                                    ).fn_wrapper_aux(arguments);
-                                    todo!();
-                                }
-                            )
-                        }
-                        fn gn_wrapper(arguments: GnArguments) -> Value {
-                            todo!();
-                        }
-                        // pass `linkage_impl_src` two times
-                        // - one time is to determine the parameter types and return type
-                        // - the other time is to actually give the fn pointer with implicit coersion
-                        LinkageImplSource(
-                            std::marker::PhantomData::<__LinkageImpl>,
-                            $linkage_impl_src,
-                        )
-                            .into_linkage_impl(fn_wrapper, gn_wrapper, $linkage_impl_src)}),*
+                    $($linkage_impl),*
                 ];
             AnyLinkageImpls::new(linkages)
         }
     }
+}
+
+#[macro_export]
+macro_rules! fn_linkage_impl {
+    ($fn_item: expr) => {{
+        fn fn_wrapper(ctx: __DevEvalContext, arguments: FnArguments) -> Value {
+            __with_dev_eval_context(ctx, || {
+                LinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
+                    .fn_wrapper_aux(arguments);
+                todo!();
+            })
+        }
+        fn gn_wrapper(arguments: GnArguments) -> Value {
+            todo!();
+        }
+        // pass `$fn_item` two times
+        // - one time is to determine the parameter types and return type
+        // - the other time is to actually give the fn pointer with implicit coersion
+        LinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
+            .into_linkage_impl(fn_wrapper, gn_wrapper, $fn_item)
+    }};
+}
+
+#[macro_export]
+macro_rules! gn_linkage_impl {
+    ($gn_item: expr) => {{
+        fn gn_wrapper(arguments: GnArguments) -> Value {
+            todo!();
+        }
+        todo!()
+    }};
 }
 
 /// meant to be used in `LinkageImpl` definition
