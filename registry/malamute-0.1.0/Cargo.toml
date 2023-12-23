@@ -1,0 +1,10 @@
+[package]
+name = "malamute"
+edition = "2021"
+version = "0.1.0"
+
+[workspace]
+
+[dependencies]
+husky-core = { path = "../../library/core" }
+ad-hoc-task-dependency = { path = "../../registry/ad-hoc-task-dependency" }

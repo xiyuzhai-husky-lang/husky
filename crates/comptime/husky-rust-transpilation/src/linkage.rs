@@ -1,6 +1,7 @@
 use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
+use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
     PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
@@ -62,37 +63,53 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::FunctionFnItem {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
             LinkageData::FunctionGnItem {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::GnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
             LinkageData::ValItem {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                path.transpile_to_rust(builder)
+            }),
             LinkageData::MethodFn {
                 path,
                 ref instantiation,
-            } => (path, instantiation).transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
             LinkageData::TypeConstructor {
                 path,
                 ref instantiation,
-            } => builder.ty_constructor_linkage(path),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                builder.ty_constructor_linkage(path)
+            }),
             LinkageData::AssociatedFunctionFn {
                 path,
                 ref instantiation,
-            } => (path, instantiation).transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
             LinkageData::MemoizedField {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                path.transpile_to_rust(builder)
+            }),
             LinkageData::PropsStructField { .. } => todo!(),
             LinkageData::Index => todo!(),
             LinkageData::TypeVariantConstructor {
                 path,
                 ref instantiation,
-            } => path.transpile_to_rust(builder),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
         }
     }
 }
@@ -106,6 +123,34 @@ impl<E> TranspileToRustWith<E> for (AssociatedItemPath, &LinkageInstantiation) {
             AssociatedItemPath::TraitForTypeItem(slf) => {
                 (slf, instantiation).transpile_to_rust(builder)
             }
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (FugitivePath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, instantiation) = self;
+        path.transpile_to_rust(builder);
+        if !instantiation.is_empty() {
+            builder.bracketed_comma_list(
+                RustBracket::TurboFish,
+                instantiation.iter().map(|&(_, res)| match res {
+                    LinkageTermSymbolResolution::Explicit(arg) => arg,
+                    LinkageTermSymbolResolution::SelfLifetime => unreachable!(),
+                    LinkageTermSymbolResolution::SelfPlace(_) => unreachable!(),
+                }),
+            )
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for (TypeVariantPath, &LinkageInstantiation) {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        let (path, instantiation) = self;
+        if instantiation.is_empty() {
+            path.transpile_to_rust(builder)
+        } else {
+            todo!()
         }
     }
 }

@@ -11,6 +11,9 @@ pub enum RustMacroName {
     Matches,
     Unveil,
     LinkageImpls,
+    FnLinkageImpl,
+    UnveilFnLinkageImpl,
+    GnLinkageImpl,
 }
 
 impl RustMacroName {
@@ -26,6 +29,9 @@ impl RustMacroName {
             RustMacroName::Matches => "matches!",
             RustMacroName::Unveil => "unveil!",
             RustMacroName::LinkageImpls => "linkage_impls!",
+            RustMacroName::FnLinkageImpl => "fn_linkage_impl!",
+            RustMacroName::UnveilFnLinkageImpl => "unveil_fn_linkage_impl!",
+            RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
         }
     }
 }
@@ -36,5 +42,10 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             self.write_str(" ")
         }
         self.write_str(macro_name.code())
+    }
+
+    pub(crate) fn macro_call(&mut self, macro_name: RustMacroName, f: impl FnOnce(&mut Self)) {
+        self.macro_name(macro_name);
+        self.bracketed(RustBracket::Par, f)
     }
 }
