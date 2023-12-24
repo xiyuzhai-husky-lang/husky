@@ -43,17 +43,17 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
 #[rustfmt::skip]
 impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_task_dependency::memoized_field(15)]
-pub fn norm(&'static self) -> f32 {
+    pub fn norm(&'static self) -> f32 {
         self.hausdorff_norm()
     }
 
     #[ad_hoc_task_dependency::memoized_field(16)]
-pub fn rel_norm(&'static self) -> f32 {
+    pub fn rel_norm(&'static self) -> f32 {
         self.norm() / self.displacement().norm()
     }
 
     #[ad_hoc_task_dependency::memoized_field(17)]
-pub fn hausdorff_norm(&'static self) -> f32 {
+    pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
         let curve_start = &self.strokes.first().unwrap().start;
         let curve_ls = self.line_segment();
@@ -69,7 +69,7 @@ pub fn hausdorff_norm(&'static self) -> f32 {
     }
 
     #[ad_hoc_task_dependency::memoized_field(18)]
-pub fn angle_change(&'static self) -> f32 {
+    pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
         let mut dp0 = self.strokes[self.strokes.start() as usize].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
@@ -81,7 +81,7 @@ pub fn angle_change(&'static self) -> f32 {
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(19)]
-pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
+    pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.strokes.first().unwrap().start;
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
@@ -98,7 +98,7 @@ pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(20)]
-pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
+    pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         self.line_segment_sketch.bounding_box().relative_bounding_box(&self.bounding_box())
     }
 

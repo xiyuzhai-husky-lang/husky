@@ -221,12 +221,12 @@ impl crate::line_segment_sketch::LineSegmentStroke {
 #[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentSketch {
     #[ad_hoc_task_dependency::memoized_field_return_ref(13)]
-pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
+    pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
         crate::line_segment_sketch::concave_component::find_concave_components(&self)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(14)]
-pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
+    pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.strokes[0 as usize].start;
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
