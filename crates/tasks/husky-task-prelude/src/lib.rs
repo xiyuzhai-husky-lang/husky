@@ -140,7 +140,15 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self,
         val_repr: &ValArgumentReprInterface,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        todo!()
+        match *val_repr {
+            ValArgumentReprInterface::Ordinary(val_repr) => self.eval_val_repr(val_repr),
+            ValArgumentReprInterface::Keyed(_) => todo!(),
+            ValArgumentReprInterface::Variadic(_) => todo!(),
+            ValArgumentReprInterface::Branch {
+                condition,
+                ref stmts,
+            } => todo!(),
+        }
     }
 
     pub fn eval_val_repr_at_generic_pedestal_with(

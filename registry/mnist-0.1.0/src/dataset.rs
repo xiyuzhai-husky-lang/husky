@@ -37,7 +37,13 @@ impl MnistDataset {
 fn load_mnist_images_and_labels() -> (Vec<BinaryImage28>, Vec<MnistLabel>) {
     let mut images: Vec<BinaryImage28> = vec![];
     let mut labels: Vec<MnistLabel> = vec![];
-    let file_content: Vec<u8> = std::fs::read("data/mnist-binary-images").unwrap();
+    let file_content: Vec<u8> = match std::fs::read("../../../data/mnist-binary-images") {
+        Ok(file_content) => file_content,
+        Err(e) => {
+            println!("current dir = {:?}", (std::env::current_dir()));
+            todo!()
+        }
+    };
     assert_eq!(file_content.len(), 60000 * (1 + 28 * 4));
     for sample_idx in 0..60000 {
         let base = sample_idx * (1 + 28 * 4);

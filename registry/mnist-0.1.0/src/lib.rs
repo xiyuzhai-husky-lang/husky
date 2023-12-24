@@ -21,7 +21,7 @@ pub enum MnistLabel {
 
 impl From<u8> for MnistLabel {
     fn from(value: u8) -> Self {
-        todo!()
+        unsafe { std::mem::transmute(value) }
     }
 }
 
