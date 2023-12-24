@@ -3,7 +3,7 @@ pub use crate::{
     TaskJarIndexOnceCell as __TaskJarIndexOnceCell, Value as __Value,
 };
 pub use husky_linkage_impl::standard::{
-    IsGnItem as __IsGnItem, ValControlFlow as __ValControlFlow,
+    IsGnItem as __IsGnItem, ValControlFlow as __ValControlFlow, ValueLeashTest as __ValueLeashTest,
 };
 pub use husky_ml_task_prelude::{
     dev_eval_context as __dev_eval_context, eval_val_repr as __eval_val_repr,

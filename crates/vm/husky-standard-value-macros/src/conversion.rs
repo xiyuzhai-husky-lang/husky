@@ -62,7 +62,6 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
         quote::quote! {
             #item
 
-            // todo: value generics
             impl #generics __FromValue for #ident #generics_without_bounds {
                 fn from_value(value: __Value) -> Self {
                     let __Value::EnumU8(index_raw) = value else {
@@ -74,7 +73,6 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                 }
             }
 
-            // todo: value generics
             impl #generics __IntoValue for #ident #generics_without_bounds {
                 fn into_value(self) -> __Value {
                     __Value::EnumU8(unsafe {

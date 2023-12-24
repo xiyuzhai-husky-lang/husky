@@ -1,8 +1,8 @@
+mod dataset;
+
 use dataset::MNIST_DATASET;
 use husky_ml_task_prelude::input_id;
 use husky_standard_value::{FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value};
-
-mod dataset;
 
 #[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

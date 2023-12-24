@@ -1,4 +1,7 @@
-use crate::{r#static::StaticDyn, *};
+use crate::{
+    r#static::{Static, StaticDyn},
+    *,
+};
 use husky_task_prelude::{all_ritchies, value::IsValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
@@ -79,11 +82,22 @@ fn regular_value_size_works() {
 }
 
 impl IsValue for Value {
+    fn from_owned<T>(t: T) -> Self
+    where
+        T: Static,
+    {
+        Value::Box(Box::new(t))
+    }
+
+    fn into_owned<T>(self) -> T {
+        todo!()
+    }
+
     fn from_ref<'a, T>(t: &'a T) -> Self {
         todo!()
     }
 
-    fn into_ref<'a, T>(t: &'a mut T) -> Self {
+    fn into_ref<'a, T>(self) -> &'a T {
         todo!()
     }
 
@@ -91,11 +105,11 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn into_leash<T>(t: &'static mut T) -> Self {
+    fn into_leash<T>(self) -> &'static T {
         todo!()
     }
 
-    fn from_mut<'a, T>(self) -> &'a mut T {
+    fn from_mut<'a, T>(t: &'a mut T) -> Self {
         todo!()
     }
 
@@ -107,7 +121,15 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn into_option_ref<'a, T>(t: Option<&'a mut T>) -> Self {
+    fn into_option_ref<'a, T>(self) -> Option<&'a T> {
+        todo!()
+    }
+
+    fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self {
+        todo!()
+    }
+
+    fn into_option_mut<'a, T>(self) -> Option<&'a mut T> {
         todo!()
     }
 
