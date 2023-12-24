@@ -1,4 +1,8 @@
 #![allow(warnings, non_snake_case)]
+mod narrow_down_;
+
+pub use self::narrow_down_::*;
+
 use ad_hoc_task_dependency::{ugly::*, *};
 use husky_core::*;
 
@@ -69,44 +73,5 @@ impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
             crate::OneVsAllResult::ConfidentNo => husky_core::ops::ControlFlow::Break(OneVsAll::No),
             crate::OneVsAllResult::Unconfident => husky_core::ops::ControlFlow::Continue(()),
         }
-    }
-}
-
-pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
-
-impl<Label> __IsGnItem for narrow_down<Label> {
-    type LinkageImpl = __LinkageImpl;
-
-    fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
-        __Pedestal::Generic
-    }
-
-    type ValueAtGenericPedestal = ();
-
-    fn train(
-        val_argument_reprs: &[__ValArgumentReprInterface],
-    ) -> __ValControlFlow<Self::ValueAtGenericPedestal> {
-        let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
-            unreachable!()
-        };
-        let __ValArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
-            unreachable!()
-        };
-        let skip: i32 = match skip {
-            Some(skip) => __eval_val_repr(skip)?,
-            None => 5,
-        };
-        println!(
-            "val_argument_reprs.len() = {}, skip = {skip}",
-            val_argument_reprs.len()
-        );
-        todo!()
-    }
-
-    fn eval(
-        val_argument_reprs: &[__ValArgumentReprInterface],
-        value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
-    ) -> __ValControlFlow {
-        todo!()
     }
 }
