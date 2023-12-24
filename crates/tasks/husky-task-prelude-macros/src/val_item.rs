@@ -97,7 +97,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                         #ingredient_index,
                         || {
                             #aux_ident();
-                            todo!()
+                            todo!("return ref in val item")
                         }
                     )
                 }
@@ -112,7 +112,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                         #ingredient_index,
                         || {
                             #aux_ident();
-                            todo!()
+                            todo!("return in val item")
                         }
                     )
                 }

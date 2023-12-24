@@ -86,7 +86,9 @@ pub fn eval_val_repr_at_input<T>(val_repr: ValReprInterface, input_id: InputId) 
 where
     T: FromValue + 'static,
 {
-    ValControlFlow::Continue(<T as FromValue>::from_value(
-        dev_eval_context().eval_val_repr(val_repr)?,
-    ))
+    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
+        ValControlFlow::Continue(<T as FromValue>::from_value(
+            dev_eval_context().eval_val_repr(val_repr)?,
+        ))
+    })
 }
