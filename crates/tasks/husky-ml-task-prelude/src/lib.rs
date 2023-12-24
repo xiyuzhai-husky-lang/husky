@@ -27,7 +27,7 @@ pub fn input_id() -> InputId {
         .unwrap()
         .pedestal()
         .input_id()
-        .unwrap()
+        .expect("pedestal is generic, no input id")
 }
 
 #[test]
