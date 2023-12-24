@@ -1,4 +1,4 @@
-use ad_hoc_task_dependency::val_control_flow::ValControlFlow;
+use ad_hoc_task_dependency::{ugly::__InputId, val_control_flow::ValControlFlow};
 
 use super::*;
 
@@ -13,7 +13,7 @@ where
     Label: PartialEq + Eq + Copy,
 {
     pub fn from_features(arguments: &[__ValReprInterface], label0: Label) -> Result<Self, ()> {
-        let _: f32 = match __eval_val_repr(arguments[0]) {
+        let _: f32 = match __eval_val_repr_at_input(arguments[0], __InputId::from_index(0)) {
             ValControlFlow::Continue(c) => c,
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),

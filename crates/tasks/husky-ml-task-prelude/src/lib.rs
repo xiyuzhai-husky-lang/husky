@@ -81,3 +81,12 @@ where
         dev_eval_context().eval_val_repr(val_repr)?,
     ))
 }
+
+pub fn eval_val_repr_at_input<T>(val_repr: ValReprInterface, input_id: InputId) -> ValControlFlow<T>
+where
+    T: FromValue + 'static,
+{
+    ValControlFlow::Continue(<T as FromValue>::from_value(
+        dev_eval_context().eval_val_repr(val_repr)?,
+    ))
+}
