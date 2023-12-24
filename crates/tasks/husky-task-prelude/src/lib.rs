@@ -175,6 +175,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.runtime.eval_val_repr_dyn(val_repr, self.pedestal)
     }
+
+    /// builder pattern, returns a new context with the given pedestal
+    pub fn with_pedestal(&self, pedestal: LinkageImpl::Pedestal) -> Self {
+        Self {
+            runtime: self.runtime,
+            pedestal,
+        }
+    }
 }
 
 pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {

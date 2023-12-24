@@ -19,7 +19,7 @@ impl __U32X for u32 {
 
     /// count trailing zeros
     fn ctz(self) -> i32 {
-        todo!()
+        self.trailing_zeros().try_into().unwrap()
     }
 
     /// count ones
