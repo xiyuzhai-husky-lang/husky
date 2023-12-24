@@ -2,7 +2,10 @@ use crate::{
     r#static::{Static, StaticDyn},
     *,
 };
-use husky_task_prelude::{all_ritchies, value::IsValue};
+use husky_task_prelude::{
+    all_ritchies,
+    value::{IsStatic, IsValue},
+};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -81,59 +84,59 @@ fn regular_value_size_works() {
     )
 }
 
-impl IsValue for Value {
-    fn from_owned<T>(t: T) -> Self
+impl Value {
+    pub fn from_owned<T>(t: T) -> Self
     where
         T: Static,
     {
         Value::Box(Box::new(t))
     }
 
-    fn into_owned<T>(self) -> T {
+    pub fn into_owned<T>(self) -> T {
         todo!()
     }
 
-    fn from_ref<'a, T>(t: &'a T) -> Self {
+    pub fn from_ref<'a, T>(t: &'a T) -> Self {
         todo!()
     }
 
-    fn into_ref<'a, T>(self) -> &'a T {
+    pub fn into_ref<'a, T>(self) -> &'a T {
         todo!()
     }
 
-    fn from_leash<T>(t: &'static T) -> Self {
+    pub fn from_leash<T>(t: &'static T) -> Self {
         todo!()
     }
 
-    fn into_leash<T>(self) -> &'static T {
+    pub fn into_leash<T>(self) -> &'static T {
         todo!()
     }
 
-    fn from_mut<'a, T>(t: &'a mut T) -> Self {
+    pub fn from_mut<'a, T>(t: &'a mut T) -> Self {
         todo!()
     }
 
-    fn into_mut<'a, T>(self) -> &'a mut T {
+    pub fn into_mut<'a, T>(self) -> &'a mut T {
         todo!()
     }
 
-    fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self {
+    pub fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self {
         todo!()
     }
 
-    fn into_option_ref<'a, T>(self) -> Option<&'a T> {
+    pub fn into_option_ref<'a, T>(self) -> Option<&'a T> {
         todo!()
     }
 
-    fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self {
+    pub fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self {
         todo!()
     }
 
-    fn into_option_mut<'a, T>(self) -> Option<&'a mut T> {
+    pub fn into_option_mut<'a, T>(self) -> Option<&'a mut T> {
         todo!()
     }
 
-    fn from_enum_u8(index_raw: u8) -> Self {
+    pub fn from_enum_u8(index_raw: u8) -> Self {
         Value::EnumU8(index_raw)
     }
 }

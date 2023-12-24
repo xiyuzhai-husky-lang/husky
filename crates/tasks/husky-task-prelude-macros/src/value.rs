@@ -120,7 +120,7 @@ pub(crate) fn value(
             }
         }
 
-        impl #generics_with_t IntoValue for Vec<__T> {
+        impl #generics_with_t IntoValue for Vec<__T> where __T: Static {
             fn into_value(self) -> #value_ty {
                 #value_ty::from_owned(self)
             }
