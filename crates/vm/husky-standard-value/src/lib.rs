@@ -31,21 +31,22 @@
 
 #[cfg(feature = "constant")]
 mod constant;
+mod frozen;
 #[cfg(feature = "helpers")]
 mod helpers;
 mod regular;
-mod snapshot;
 mod r#static;
-mod static_info;
+pub mod ugly;
 mod value;
+mod weak_static;
 
 use std::num::NonZeroU32;
 
 #[cfg(feature = "constant")]
 pub use self::constant::*;
 pub use self::regular::*;
-pub use self::static_info::*;
 pub use self::value::*;
+pub use self::weak_static::*;
 pub use husky_standard_value_macros::*;
 
 #[cfg(feature = "constant")]

@@ -2,10 +2,8 @@ use crate::{
     r#static::{Static, StaticDyn},
     *,
 };
-use husky_task_prelude::{
-    all_ritchies,
-    value::{IsStatic, IsValue},
-};
+use husky_decl_macro_utils::for_all_ritchie_tys;
+use husky_task_prelude::value::IsValue;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -137,6 +135,12 @@ impl Value {
     }
 
     pub fn from_enum_u8(index_raw: u8) -> Self {
+        Value::EnumU8(index_raw)
+    }
+}
+
+impl IsValue for Value {
+    fn from_enum_u8(index_raw: u8) -> Self {
         Value::EnumU8(index_raw)
     }
 }

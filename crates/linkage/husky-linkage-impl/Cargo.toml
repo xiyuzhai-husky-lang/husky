@@ -12,6 +12,8 @@ smallvec.workspace = true
 husky-standard-value.workspace = true
 # tasks
 husky-task-prelude.workspace = true
+# utils
+husky-decl-macro-utils.workspace = true
 
 [features]
 default = ["standard"]

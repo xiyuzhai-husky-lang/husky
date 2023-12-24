@@ -1,12 +1,56 @@
 use crate::*;
 
-#[husky_standard_value::value_conversion]
+// #[husky_standard_value::value_conversion]
 #[derive(Debug, PartialEq, Eq)]
 pub struct CyclicSliceLeashed<T>
 where
     T: 'static,
 {
     slice: &'static [T],
+}
+impl<T> __Static for CyclicSliceLeashed<T>
+where
+    T: __Static,
+{
+    type Frozen = Self;
+    unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+}
+impl<T> __Frozen for CyclicSliceLeashed<T>
+where
+    T: __Static,
+{
+    type Static = Self;
+    type Stand = ();
+    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+        todo!()
+    }
+}
+impl<T> __WeakStatic for CyclicSliceLeashed<T>
+where
+    T: __Static,
+{
+    type Static = Self;
+    unsafe fn into_static(self) -> Self::Static {
+        self
+    }
+}
+impl<T> __FromValue for CyclicSliceLeashed<T>
+where
+    T: __Static,
+{
+    fn from_value(value: __Value) -> Self {
+        todo!()
+    }
+}
+impl<T> __IntoValue for CyclicSliceLeashed<T>
+where
+    T: __Static,
+{
+    fn into_value(self) -> __Value {
+        todo!()
+    }
 }
 
 impl<T> Clone for CyclicSliceLeashed<T> {

@@ -11,3 +11,5 @@ smallvec.workspace = true
 shifted-unsigned-int.workspace = true
 # tasks
 husky-task-prelude-macros.workspace = true
+# utils
+husky-decl-macro-utils.workspace = true

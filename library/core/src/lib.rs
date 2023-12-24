@@ -9,7 +9,7 @@ pub use self::slice::*;
 pub use self::vec::*;
 pub use ordered_float::NotNan;
 
-use husky_standard_value::{FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value};
+use husky_standard_value::ugly::*;
 
 pub type Leash<T> = &'static T;
 

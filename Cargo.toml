@@ -175,6 +175,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
+husky-decl-macro-utils = { path = "crates/utils/husky-decl-macro-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }

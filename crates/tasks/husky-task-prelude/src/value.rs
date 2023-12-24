@@ -61,7 +61,5 @@ pub trait IsValue:
     // fn into_option_ref<'a, T>(self) -> Option<&'a T>;
     // fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
-    // fn from_enum_u8(index_raw: u8) -> Self;
+    fn from_enum_u8(index_raw: u8) -> Self;
 }
-
-pub trait IsStatic<T> {}
