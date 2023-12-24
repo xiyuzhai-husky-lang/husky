@@ -1,6 +1,6 @@
+//! useful things for creating procedural macros
 use quote::quote;
 
-/// add `DebugWithDb` to each type generic
 pub fn generics_with_debug_with_db(generics: &syn::Generics) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
         quote! {}

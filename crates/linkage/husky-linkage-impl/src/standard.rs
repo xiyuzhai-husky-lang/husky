@@ -1,8 +1,11 @@
-use super::*;
-use husky_task_prelude::{all_ritchies, DevEvalContext};
-use smallvec::SmallVec;
+pub mod ugly;
 
 pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value, ValueLeashTest};
+
+use super::*;
+use husky_decl_macro_utils::for_all_ritchie_tys;
+use husky_task_prelude::DevEvalContext;
+use smallvec::SmallVec;
 
 pub type ValControlFlow<C = Value> =
     husky_task_prelude::val_control_flow::ValControlFlow<C, Value, ()>;
@@ -67,7 +70,7 @@ where
 
 pub struct FnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
 
-all_ritchies! {impl_is_fn_linkage_impl_source}
+for_all_ritchie_tys! {impl_is_fn_linkage_impl_source}
 
 pub trait IsGnItem {
     type LinkageImpl: IsLinkageImpl;

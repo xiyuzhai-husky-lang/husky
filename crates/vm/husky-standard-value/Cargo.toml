@@ -12,6 +12,7 @@ husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
 # tasks
 husky-task-prelude.workspace = true
 # utils
+husky-decl-macro-utils.workspace = true
 wild-utils = { path = "../../utils/husky-wild-utils" }
 # vm
 husky-standard-value-macros.workspace = true
