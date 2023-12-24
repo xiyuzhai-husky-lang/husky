@@ -54,30 +54,62 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
         ref variants,
     } = item;
     let generics_without_bounds = generics_without_bounds(generics);
-    quote::quote! {
-        #item
+    let is_trivial = variants.iter().all(|variant| match variant.fields {
+        syn::Fields::Unit => true,
+        syn::Fields::Named(_) | syn::Fields::Unnamed(_) => false,
+    });
+    if is_trivial {
+        quote::quote! {
+            #item
 
-        // todo: value generics
-        impl #generics __FromValue for #ident #generics_without_bounds {
-            fn from_value(value: __Value) -> Self {
-                // ad hoc
-                // let __Value::EnumU8(index_raw) = value else {
-                //     unreachable!()
-                // };
-                // unsafe {
-                //     std::mem::transmute(index_raw)
-                // }
-                todo!()
+            // todo: value generics
+            impl #generics __FromValue for #ident #generics_without_bounds {
+                fn from_value(value: __Value) -> Self {
+                    let __Value::EnumU8(index_raw) = value else {
+                        unreachable!()
+                    };
+                    unsafe {
+                        std::mem::transmute(index_raw)
+                    }
+                }
+            }
+
+            // todo: value generics
+            impl #generics __IntoValue for #ident #generics_without_bounds {
+                fn into_value(self) -> __Value {
+                    __Value::EnumU8(unsafe {
+                        std::mem::transmute(self)
+                    })
+                }
             }
         }
+        .into()
+    } else {
+        quote::quote! {
+            #item
 
-        // todo: value generics
-        impl #generics __IntoValue for #ident #generics_without_bounds {
-            fn into_value(self) -> __Value {
-                // ad hoc
-                todo!("enum into value")
+            // todo: value generics
+            impl #generics __FromValue for #ident #generics_without_bounds {
+                fn from_value(value: __Value) -> Self {
+                    // ad hoc
+                    // let __Value::EnumU8(index_raw) = value else {
+                    //     unreachable!()
+                    // };
+                    // unsafe {
+                    //     std::mem::transmute(index_raw)
+                    // }
+                    todo!()
+                }
+            }
+
+            // todo: value generics
+            impl #generics __IntoValue for #ident #generics_without_bounds {
+                fn into_value(self) -> __Value {
+                    // ad hoc
+                    todo!("enum into value")
+                }
             }
         }
+        .into()
     }
-    .into()
 }
