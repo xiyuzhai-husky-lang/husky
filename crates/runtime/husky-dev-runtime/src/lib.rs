@@ -84,7 +84,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &*(unsafe { self as *const _ })
     }
 
-    fn eval_ingredient_with(
+    fn eval_ingredient_at_pedestal_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -99,7 +99,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         )
     }
 
-    fn eval_ingredient(
+    fn eval_ingredient_at_pedestal(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -112,7 +112,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         )
     }
 
-    fn eval_val_repr_interface_at_pedestal(
+    fn eval_val_repr_at_pedestal(
         &self,
         val_repr_interface: ValReprInterface,
         pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
@@ -126,7 +126,19 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
         f: impl FnOnce() -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
-        f();
+        let db = self.db();
+        let val_repr: ValRepr = unsafe { std::mem::transmute(val_repr) };
+        self.storage
+            .get_or_try_init_val_value(val_repr.val(db), pedestal, f, db)
+    }
+
+    fn eval_memoized_field_with(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        slf: &'static std::ffi::c_void,
+        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
+    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         todo!()
     }
 }

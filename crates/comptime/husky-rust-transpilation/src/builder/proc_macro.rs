@@ -38,22 +38,14 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
             .rust_transpilation_setup_data
             .task_dependency_ident
             .data(db);
-        if is_return_ty_always_copyable {
-            write!(
-                self.result,
-                "#[{}::memoized_field({})]\n    ",
-                task_dependency_ident,
-                path.ingredient_index(db).unwrap().index()
-            )
-            .unwrap()
-        } else {
-            write!(
-                self.result,
-                "#[{}::memoized_field_return_ref({})]\n    ",
-                task_dependency_ident,
-                path.ingredient_index(db).unwrap().index()
-            )
-            .unwrap()
-        }
+        let return_ref = !is_return_ty_always_copyable;
+        write!(
+            self.result,
+            "#[{}::memoized_field(ingredient_index = {}{})]\n    ",
+            task_dependency_ident,
+            path.ingredient_index(db).unwrap().index(),
+            return_ref.then_some(", return_ref").unwrap_or_default(),
+        )
+        .unwrap()
     }
 }
