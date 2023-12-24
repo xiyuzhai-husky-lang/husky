@@ -17,9 +17,8 @@ pub trait IsDevAscension {
     ) -> &'static LocalDevEvalContext<<Self::Linktime as IsLinktime>::LinkageImpl>;
 }
 
-// jar_index: JarIndex,
-// ingredient_index: IngredientIndex,
 pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
+    // todo: consider caching policy
     fn get_or_try_init_val_value(
         &self,
         val: Val,

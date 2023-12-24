@@ -120,12 +120,12 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
 
 #[rustfmt::skip]
 impl crate::connected_component::ConnectedComponent {
-    #[ad_hoc_task_dependency::memoized_field_return_ref(1)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 1, return_ref)]
     pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
         crate::raw_contour::find_raw_contours(&self)
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref(2)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 2, return_ref)]
     pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
         let mut raw_contours = self.raw_contours().collect_leashes();
         let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
@@ -135,7 +135,7 @@ impl crate::connected_component::ConnectedComponent {
         return crate::connected_component::EffHoles::__constructor(matches);
     }
 
-    #[ad_hoc_task_dependency::memoized_field(3)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 3)]
     pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
         let raw_contours = &self.raw_contours();
@@ -148,7 +148,7 @@ impl crate::connected_component::ConnectedComponent {
         return max_hole_ilen as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(4)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 4)]
     pub fn max_row_span(&'static self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
@@ -157,7 +157,7 @@ impl crate::connected_component::ConnectedComponent {
         return max_row as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(5)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 5)]
     pub fn row_span_sum(&'static self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
@@ -166,7 +166,7 @@ impl crate::connected_component::ConnectedComponent {
         return row_span_sum as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref(6)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 6, return_ref)]
     pub fn distribution(&'static self) -> crate::connected_component::ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
@@ -199,12 +199,12 @@ impl crate::connected_component::ConnectedComponent {
         return crate::connected_component::ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
-    #[ad_hoc_task_dependency::memoized_field(7)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 7)]
     pub fn upper_mass(&'static self) -> f32 {
         self.distribution().upper_mass as f32
     }
 
-    #[ad_hoc_task_dependency::memoized_field(8)]
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 8)]
     pub fn lower_mass(&'static self) -> f32 {
         self.distribution().lower_mass as f32
     }

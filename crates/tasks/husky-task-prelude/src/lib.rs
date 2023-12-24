@@ -27,7 +27,7 @@ macro_rules! init_crate {
                 .expect("`__TASK_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eval_eager_val_item<T>(
+        pub(crate) fn __eval_eager_val_item_with<T>(
             ingredient_index: usize,
             f: fn() -> __ValControlFlow,
         ) -> T
@@ -48,6 +48,39 @@ macro_rules! init_crate {
             <T as __FromValue>::from_value(__dev_eval_context().eval_lazy_val_item(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
+            ))
+        }
+
+        pub(crate) fn __eval_memoized_field_with<Slf, T>(
+            slf: &'static Slf,
+            ingredient_index: usize,
+            f: fn(&'static Slf) -> __ValControlFlow,
+        ) -> T
+        where
+            T: __FromValue + 'static,
+        {
+            <T as __FromValue>::from_value(__dev_eval_context().eval_memoized_field_with(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
+                slf,
+                f,
+            ))
+        }
+
+        pub(crate) fn __eval_memoized_field_return_ref_with<Slf, T>(
+            slf: &'static Slf,
+            ingredient_index: usize,
+            f: fn(&'static Slf) -> __ValControlFlow,
+        ) -> &'static T
+        where
+            T: 'static,
+            &'static T: __FromValue,
+        {
+            <&'static T as __FromValue>::from_value(__dev_eval_context().eval_memoized_field_with(
+                __jar_index(),
+                __TaskIngredientIndex::from_index(ingredient_index),
+                slf,
+                f,
             ))
         }
     };
@@ -105,6 +138,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         Self { runtime, pedestal }
     }
 
+    /// builder pattern, returns a new context with the given pedestal
+    pub fn with_pedestal(&self, pedestal: LinkageImpl::Pedestal) -> Self {
+        Self {
+            runtime: self.runtime,
+            pedestal,
+        }
+    }
+
     pub fn pedestal(&self) -> LinkageImpl::Pedestal {
         self.pedestal
     }
@@ -128,10 +169,6 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.runtime
             .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
             .unwrap()
-    }
-
-    fn memoized_field(self) -> LinkageImpl::Value {
-        todo!()
     }
 
     pub fn eval_val_repr_argument(
@@ -174,12 +211,19 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.runtime.eval_val_repr_dyn(val_repr, self.pedestal)
     }
 
-    /// builder pattern, returns a new context with the given pedestal
-    pub fn with_pedestal(&self, pedestal: LinkageImpl::Pedestal) -> Self {
-        Self {
-            runtime: self.runtime,
-            pedestal,
-        }
+    pub fn eval_memoized_field_with<Slf>(
+        self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        slf: &'static Slf,
+        f: fn(&'static Slf) -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImpl::Value {
+        let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(slf) };
+        let f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl> =
+            unsafe { std::mem::transmute(slf) };
+        self.runtime
+            .eval_memoized_field_with_dyn(jar_index, ingredient_index, slf, f)
+            .unwrap()
     }
 }
 
@@ -190,7 +234,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     /// the computation is done by $f$,
     /// returns `Value` because there is guaranteed to be no control flow
-    fn eval_ingredient_with(
+    fn eval_ingredient_at_pedestal_with(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -200,7 +244,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     /// the computation is done by the runtime
     /// returns `Value` because there is guaranteed to be no control flow
-    fn eval_ingredient(
+    fn eval_ingredient_at_pedestal(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -209,7 +253,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     /// the computation is done by the runtime
     /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_val_repr_interface_at_pedestal(
+    fn eval_val_repr_at_pedestal(
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
@@ -222,6 +266,14 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_memoized_field_with(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        slf: &'static std::ffi::c_void,
+        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 
@@ -257,6 +309,14 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_memoized_field_with_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        slf: &'static std::ffi::c_void,
+        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 
 impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
@@ -270,7 +330,7 @@ where
         pedestal: LinkageImpl::Pedestal,
         f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_ingredient_with(jar_index, ingredient_index, pedestal, f)
+        self.eval_ingredient_at_pedestal_with(jar_index, ingredient_index, pedestal, f)
     }
 
     fn eval_lazy_val_item_dyn(
@@ -279,7 +339,7 @@ where
         ingredient_index: TaskIngredientIndex,
         pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_ingredient(jar_index, ingredient_index, pedestal)
+        self.eval_ingredient_at_pedestal(jar_index, ingredient_index, pedestal)
     }
 
     fn eval_val_repr_dyn(
@@ -287,7 +347,7 @@ where
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_interface_at_pedestal(val_repr, pedestal)
+        self.eval_val_repr_at_pedestal(val_repr, pedestal)
     }
 
     fn eval_value_at_generic_pedestal_dyn(
@@ -313,5 +373,15 @@ where
                 val_argument_reprs,
             )
         })
+    }
+
+    fn eval_memoized_field_with_dyn(
+        &self,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        slf: &'static std::ffi::c_void,
+        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        self.eval_memoized_field_with(jar_index, ingredient_index, slf, f)
     }
 }

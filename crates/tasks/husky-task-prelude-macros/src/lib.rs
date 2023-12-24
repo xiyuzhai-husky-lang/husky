@@ -1,7 +1,9 @@
 mod memoized_field;
+mod utils;
 mod val_item;
 mod value;
 
+use self::utils::*;
 use proc_macro::TokenStream;
 
 #[proc_macro_attribute]
@@ -16,10 +18,5 @@ pub fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn memoized_field(args: TokenStream, input: TokenStream) -> TokenStream {
-    memoized_field::memoized_field_aux(input, false)
-}
-
-#[proc_macro_attribute]
-pub fn memoized_field_return_ref(args: TokenStream, input: TokenStream) -> TokenStream {
-    memoized_field::memoized_field_aux(input, true)
+    memoized_field::memoized_field(args, input)
 }
