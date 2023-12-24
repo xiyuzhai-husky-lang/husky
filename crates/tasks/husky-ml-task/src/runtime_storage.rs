@@ -46,24 +46,24 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         db: &::salsa::Db,
     ) -> ValControlFlow {
         let key = MlDevRuntimeValItemStorageKey { val, pedestal };
-        fn share(result: &ValControlFlow) -> ValControlFlow {
-            todo!()
-            // match result {
-            //     Ok(ref value) => Ok(value.share()),
-            //     Err(_) => todo!(),
-            // }
-        }
-
         let mu = self.val_item_values.entry(key).or_default().clone();
-        let mut opt_stored_value = mu.lock().expect("todo");
+        let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
         let new_version_stamp = key.val.version_stamp(db);
-        match *opt_stored_value {
-            Some((old_version_stamp, ref result)) if old_version_stamp == new_version_stamp => {
-                return share(result)
-            }
-            _ => *opt_stored_value = Some((new_version_stamp, f())),
-        };
-        share(&opt_stored_value.as_ref().expect("should be some").1)
+        unsafe {
+            match *opt_stored_val_control_flow_store_guard {
+                Some((old_version_stamp, ref val_control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    return val_control_flow.share_unchecked()
+                }
+                _ => *opt_stored_val_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            opt_stored_val_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .share_unchecked()
+        }
     }
 
     fn get_or_try_init_memoized_field_value(

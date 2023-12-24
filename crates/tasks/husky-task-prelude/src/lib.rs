@@ -27,7 +27,10 @@ macro_rules! init_crate {
                 .expect("`__TASK_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eval_eager_val_item<T>(ingredient_index: usize, f: fn() -> __Value) -> T
+        pub(crate) fn __eval_eager_val_item<T>(
+            ingredient_index: usize,
+            f: fn() -> __ValControlFlow,
+        ) -> T
         where
             T: __FromValue + 'static,
         {
@@ -110,17 +113,11 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        f: fn() -> LinkageImpl::Value,
+        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
-        self.runtime.eval_eager_val_item_dyn(
-            jar_index,
-            ingredient_index,
-            self.pedestal,
-            Box::new(move || {
-                f();
-                todo!()
-            }),
-        )
+        self.runtime
+            .eval_eager_val_item_dyn(jar_index, ingredient_index, self.pedestal, f)
+            .unwrap()
     }
 
     pub fn eval_lazy_val_item(
@@ -130,6 +127,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     ) -> LinkageImpl::Value {
         self.runtime
             .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
+            .unwrap()
     }
 
     fn memoized_field(self) -> LinkageImpl::Value {
@@ -198,7 +196,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImpl::Value;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
     /// returns `Value` because there is guaranteed to be no control flow
@@ -207,7 +205,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImpl::Value;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
     /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
@@ -233,15 +231,15 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: Box<dyn FnOnce() -> LinkageImplValControlFlow<LinkageImpl>>,
-    ) -> LinkageImpl::Value;
+        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     fn eval_lazy_val_item_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImpl::Value;
+    ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     fn eval_val_repr_dyn(
         &self,
@@ -270,8 +268,8 @@ where
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: Box<dyn FnOnce() -> LinkageImplValControlFlow<LinkageImpl>>,
-    ) -> LinkageImpl::Value {
+        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.eval_ingredient_with(jar_index, ingredient_index, pedestal, f)
     }
 
@@ -280,7 +278,7 @@ where
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
-    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+    ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.eval_ingredient(jar_index, ingredient_index, pedestal)
     }
 

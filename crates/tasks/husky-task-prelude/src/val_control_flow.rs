@@ -3,6 +3,8 @@ use std::{
     ops::{FromResidual, Try},
 };
 
+use crate::value::IsValue;
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum ValControlFlow<C, B, E> {
     Continue(C),
@@ -62,6 +64,35 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<ValControlFlow<C1, 
         {
             Ok(c2) => ValControlFlow::Continue(c2),
             Err(residual) => ValControlFlow::from_residual(residual),
+        }
+    }
+}
+
+impl<Value, E> ValControlFlow<Value, Value, E>
+where
+    Value: IsValue,
+    E: 'static,
+{
+    pub unsafe fn share_unchecked(&self) -> Self {
+        let slf: &'static Self = std::mem::transmute(self);
+        slf.share()
+    }
+
+    fn share(&'static self) -> Self {
+        match self {
+            ValControlFlow::Continue(value) => ValControlFlow::Continue(value.share()),
+            ValControlFlow::LoopContinue => todo!(),
+            ValControlFlow::LoopBreak(_) => todo!(),
+            ValControlFlow::Return(_) => todo!(),
+            ValControlFlow::Undefined => todo!(),
+            ValControlFlow::Err(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn unwrap(self) -> Value {
+        match self.branch() {
+            std::ops::ControlFlow::Continue(value) => value,
+            std::ops::ControlFlow::Break(_) => panic!(),
         }
     }
 }

@@ -84,7 +84,6 @@ impl Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::Intrinsic(_) => todo!(),
         }
     }
 }

@@ -73,8 +73,7 @@ pub(crate) fn value(
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp __T where __T: WeakStatic {
             fn from_value(value: #self_ty) -> Self {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp __T")
+                value.into_ref()
             }
         }
 
