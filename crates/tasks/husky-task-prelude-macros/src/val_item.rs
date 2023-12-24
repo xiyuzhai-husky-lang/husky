@@ -95,10 +95,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> &'static #return_ty {
                     __eval_eager_val_item(
                         #ingredient_index,
-                        || {
-                            #aux_ident();
-                            todo!("return ref in val item")
-                        }
+                        || __ValueLeashTest(#aux_ident()).into_value()
                     )
                 }
 
@@ -110,10 +107,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_item(
                         #ingredient_index,
-                        || {
-                            #aux_ident();
-                            todo!("return in val item")
-                        }
+                        || __ValueLeashTest(#aux_ident()).into_value()
                     )
                 }
 

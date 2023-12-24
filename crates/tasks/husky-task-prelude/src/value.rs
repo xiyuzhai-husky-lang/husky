@@ -47,13 +47,17 @@ pub trait IsValue:
     + Into<f64>
     + 'static
 {
+    fn from_owned<T>(t: T) -> Self;
+    fn into_owned<T>(self) -> T;
     fn from_ref<'a, T>(t: &'a T) -> Self;
-    fn into_ref<'a, T>(t: &'a mut T) -> Self;
+    fn into_ref<'a, T>(self) -> &'a T;
     fn from_leash<T>(t: &'static T) -> Self;
-    fn into_leash<T>(t: &'static mut T) -> Self;
-    fn from_mut<'a, T>(self) -> &'a mut T;
+    fn into_leash<T>(self) -> &'static T;
+    fn from_mut<'a, T>(t: &'a mut T) -> Self;
     fn into_mut<'a, T>(self) -> &'a mut T;
     fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self;
-    fn into_option_ref<'a, T>(t: Option<&'a mut T>) -> Self;
+    fn into_option_ref<'a, T>(self) -> Option<&'a T>;
+    fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
+    fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
     fn from_enum_u8(index_raw: u8) -> Self;
 }

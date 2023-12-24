@@ -2,7 +2,7 @@ use super::*;
 use husky_task_prelude::{all_ritchies, DevEvalContext};
 use smallvec::SmallVec;
 
-pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value};
+pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value, ValueLeashTest};
 
 pub type ValControlFlow<C = Value> =
     husky_task_prelude::val_control_flow::ValControlFlow<C, Value, ()>;
