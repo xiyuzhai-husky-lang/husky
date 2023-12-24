@@ -16,7 +16,7 @@ use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::debug_with_db]
 pub enum HirTemplateSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),

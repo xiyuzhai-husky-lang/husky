@@ -1,15 +1,17 @@
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol, HirType,
+    HirTemplateSymbol, HirTemplateSymbolClass, HirType,
 };
 use husky_javelin::{
     instantiation::{JavelinInstantiation, JavelinTermSymbolResolution},
     template_argument::JavelinTemplateArgument,
 };
+use salsa::DebugWithDb;
 use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
+    constant::LinkageConstant,
     place::LinkagePlace,
     ty::{LinkageType, LinkageTypePathLeading},
     LinkageTemplateArgument,
@@ -50,14 +52,27 @@ impl LinkageInstantiation {
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> LinkageInstantiation {
-        let symbol_resolutions = SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().map(
-            |&(symbol, resolution)| {
-                (
-                    symbol,
-                    LinkageTermSymbolResolution::from_hir(resolution, linkage_instantiation, db),
-                )
-            },
-        ));
+        let symbol_resolutions =
+            SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
+                |&(symbol, resolution)| {
+                    match symbol {
+                        HirTemplateSymbol::Const(symbol)
+                            if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+                        {
+                            return None
+                        }
+                        _ => (),
+                    }
+                    Some((
+                        symbol,
+                        LinkageTermSymbolResolution::from_hir(
+                            resolution,
+                            linkage_instantiation,
+                            db,
+                        ),
+                    ))
+                },
+            ));
         let separator = hir_instantiation.separator();
         if let Some(separator) = separator {
             debug_assert!((separator as usize) <= symbol_resolutions.len());
@@ -154,7 +169,11 @@ impl LinkageTermSymbolResolution {
                         ))
                     )]
                 }
-                JavelinTemplateArgument::Constant(_) => todo!(),
+                JavelinTemplateArgument::Constant(constant) => {
+                    smallvec![LinkageTermSymbolResolution::Explicit(
+                        LinkageTemplateArgument::Constant(LinkageConstant(constant))
+                    )]
+                }
                 JavelinTemplateArgument::Lifetime => todo!(),
                 JavelinTemplateArgument::Place => todo!(),
             },

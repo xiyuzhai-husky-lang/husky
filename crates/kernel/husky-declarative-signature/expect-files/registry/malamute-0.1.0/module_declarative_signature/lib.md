@@ -298,7 +298,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 18,
+                                            value: 16,
                                         },
                                     ),
                                     annotated_traits: [],

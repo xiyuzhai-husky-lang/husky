@@ -49,6 +49,7 @@ pub enum Value {
     OptionSizedMut(Option<*mut dyn StaticDyn>),
     /// T where T is not in above cases
     Intrinsic(Box<dyn StaticDyn>),
+    EnumU8(u8),
 }
 
 unsafe impl Send for Value {}
@@ -108,6 +109,10 @@ impl IsValue for Value {
 
     fn into_option_ref<'a, T>(t: Option<&'a mut T>) -> Self {
         todo!()
+    }
+
+    fn from_enum_u8(index_raw: u8) -> Self {
+        Value::EnumU8(index_raw)
     }
 }
 

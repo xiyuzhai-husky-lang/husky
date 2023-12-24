@@ -35,7 +35,7 @@ fn hir_ty_from_ethereal_term_ritchie(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::debug_with_db]
 pub struct HirRitchieParameters {
     data: SmallVec<[HirRitchieParameter; 4]>,
 }
@@ -62,7 +62,7 @@ impl std::ops::Deref for HirRitchieParameters {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::debug_with_db]
 pub enum HirRitchieParameter {
     Regular(HirRitchieRegularParameter),
     Variadic(HirRitchieVariadicParameter),

@@ -1019,6 +1019,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                 ident: `Continue`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -1051,6 +1054,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                 ident: `Break`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },

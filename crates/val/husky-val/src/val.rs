@@ -1,6 +1,6 @@
 use crate::*;
 use husky_coword::Ident;
-use husky_entity_path::FugitivePath;
+use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
 use husky_term_prelude::TermLiteral;
@@ -17,7 +17,7 @@ pub struct Val {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum ValArgument {
     Ordinary(Val),
-    Keyed(Ident, Option<Val>),
+    Keyed(Option<Val>),
     Variadic(Vec<Val>),
     Branch {
         condition: Option<Val>,
@@ -55,7 +55,7 @@ pub enum ValOpn {
     Literal(TermLiteral),
     NewList,
     Branches,
-    TypeVariant(husky_entity_path::TypeVariantPath),
+    TypeVariant(TypeVariantPath),
     Be,
     Unveil {},
     Unwrap {},

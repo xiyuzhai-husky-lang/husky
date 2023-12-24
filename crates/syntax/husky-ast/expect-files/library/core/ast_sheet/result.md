@@ -11,6 +11,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::result::Result`, `Enum`),
                                 ident: `Ok`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -43,6 +46,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`core::result::Result`, `Enum`),
                                 ident: `Err`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },

@@ -256,7 +256,7 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
         match self {
             LinkageTemplateArgument::Vacant => todo!(),
             LinkageTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
-            LinkageTemplateArgument::Constant(_) => todo!(),
+            LinkageTemplateArgument::Constant(constant) => todo!(),
             LinkageTemplateArgument::Lifetime => todo!(),
             LinkageTemplateArgument::Place(_) => todo!(),
         }

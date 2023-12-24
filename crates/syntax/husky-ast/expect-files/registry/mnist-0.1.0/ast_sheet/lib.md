@@ -11,6 +11,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Zero`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -43,6 +46,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `One`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },
@@ -75,6 +81,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Two`,
+                                index: U8(
+                                    2,
+                                ),
                             },
                         ),
                     },
@@ -107,6 +116,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Three`,
+                                index: U8(
+                                    3,
+                                ),
                             },
                         ),
                     },
@@ -139,6 +151,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Four`,
+                                index: U8(
+                                    4,
+                                ),
                             },
                         ),
                     },
@@ -171,6 +186,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Five`,
+                                index: U8(
+                                    5,
+                                ),
                             },
                         ),
                     },
@@ -203,6 +221,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Six`,
+                                index: U8(
+                                    6,
+                                ),
                             },
                         ),
                     },
@@ -235,6 +256,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Seven`,
+                                index: U8(
+                                    7,
+                                ),
                             },
                         ),
                     },
@@ -267,6 +291,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Eight`,
+                                index: U8(
+                                    8,
+                                ),
                             },
                         ),
                     },
@@ -299,6 +326,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 ident: `Nine`,
+                                index: U8(
+                                    9,
+                                ),
                             },
                         ),
                     },

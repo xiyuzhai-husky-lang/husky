@@ -22,7 +22,7 @@ husky-fluffy-term.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # hir
 husky-hir-ty.workspace = true
-husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+husky-hir-opr.workspace = true
 # lex
 husky-token-data.workspace = true
 # semantics

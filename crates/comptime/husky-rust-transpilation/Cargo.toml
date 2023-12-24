@@ -24,7 +24,7 @@ husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
-husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+husky-hir-opr.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-entity-kind.workspace = true

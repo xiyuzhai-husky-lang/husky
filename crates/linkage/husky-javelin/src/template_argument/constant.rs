@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::TypeVariantPath;
 use husky_hir_ty::HirConstant;
 
 #[salsa::debug_with_db]

@@ -12,6 +12,10 @@ use husky_hir_lazy_expr::{
     HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 
+use husky_hir_ty::{
+    instantiation::{HirInstantiation, HirTermSymbolResolution},
+    HirConstant, HirTemplateArgument, HirTemplateSymbol, HirTemplateSymbolClass,
+};
 use husky_linkage::{instantiation::LinkageInstantiation, linkage::Linkage};
 
 use husky_val::ValOpn;
@@ -394,7 +398,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::TypeVariantConstructorFnCall {
@@ -410,7 +419,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::FunctionFnItemCall {
@@ -426,7 +440,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::AssociatedFunctionFnCall {
@@ -442,7 +461,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::FunctionGnItemCall {
@@ -465,7 +489,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     )),
                 };
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::PropsStructField {
@@ -512,7 +541,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let mut arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, self_argument)
                 )];
-                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                self.build_item_groups(
+                    instantiation,
+                    item_groups,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                );
                 (
                     ValOpn::Linkage(Linkage::new_method(
                         path,
@@ -561,12 +595,15 @@ impl<'a> ValReprExpansionBuilder<'a> {
         )
     }
 
+    // instantiation is needed for runtime constants
     fn build_item_groups(
         &mut self,
+        instantiation: &HirInstantiation,
         item_groups: &[HirLazyCallListItemGroup],
         val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
         arguments: &mut SmallVec<[ValArgumentRepr; 4]>,
     ) {
+        let db = self.db;
         for item_group in item_groups {
             match *item_group {
                 HirLazyCallListItemGroup::Regular(item) => arguments.push(
@@ -579,12 +616,63 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         .collect();
                     arguments.push(ValArgumentRepr::Variadic(items))
                 }
-                HirLazyCallListItemGroup::Keyed(key, item) => {
-                    arguments.push(ValArgumentRepr::Keyed(
-                        key,
-                        item.map(|item| self.build_expr(val_domain_repr_guard, item)),
-                    ))
+                HirLazyCallListItemGroup::Keyed(_, item) => arguments.push(ValArgumentRepr::Keyed(
+                    item.map(|item| self.build_expr(val_domain_repr_guard, item)),
+                )),
+            }
+        }
+        for &(symbol, res) in instantiation.iter() {
+            match symbol {
+                HirTemplateSymbol::Const(symbol)
+                    if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+                {
+                    let runtime_constant_val_repr = match res {
+                        HirTermSymbolResolution::Explicit(arg) => match arg {
+                            HirTemplateArgument::Vacant => todo!(),
+                            HirTemplateArgument::Type(_) => todo!(),
+                            HirTemplateArgument::Constant(constant) => match constant {
+                                HirConstant::Unit(_) => todo!(),
+                                HirConstant::Bool(_) => todo!(),
+                                HirConstant::Char(_) => todo!(),
+                                HirConstant::I8(_) => todo!(),
+                                HirConstant::I16(_) => todo!(),
+                                HirConstant::I32(_) => todo!(),
+                                HirConstant::I64(_) => todo!(),
+                                HirConstant::I128(_) => todo!(),
+                                HirConstant::ISize(_) => todo!(),
+                                HirConstant::U8(_) => todo!(),
+                                HirConstant::U16(_) => todo!(),
+                                HirConstant::U32(_) => todo!(),
+                                HirConstant::U64(_) => todo!(),
+                                HirConstant::U128(_) => todo!(),
+                                HirConstant::USize(_) => todo!(),
+                                HirConstant::R8(_) => todo!(),
+                                HirConstant::R16(_) => todo!(),
+                                HirConstant::R32(_) => todo!(),
+                                HirConstant::R64(_) => todo!(),
+                                HirConstant::R128(_) => todo!(),
+                                HirConstant::RSize(_) => todo!(),
+                                HirConstant::Symbol(_) => todo!(),
+                                HirConstant::TypeVariant(path) => val_domain_repr_guard
+                                    .new_expr_val_repr(
+                                        ValOpn::TypeVariant(path),
+                                        smallvec![],
+                                        HasControlFlow::False,
+                                    ),
+                            },
+                            HirTemplateArgument::Lifetime(_) => todo!(),
+                            HirTemplateArgument::Place(_) => todo!(),
+                        },
+                        HirTermSymbolResolution::SelfLifetime => {
+                            todo!()
+                        }
+                        HirTermSymbolResolution::SelfPlace(_) => {
+                            todo!()
+                        }
+                    };
+                    arguments.push(ValArgumentRepr::Ordinary(runtime_constant_val_repr))
                 }
+                _ => (),
             }
         }
     }

@@ -9,6 +9,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::Class`, `Enum`),
                                 ident: `Known`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -24,6 +27,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::Class`, `Enum`),
                                 ident: `Unknown`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },
@@ -44,6 +50,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 ident: `Yes`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -59,6 +68,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 ident: `No`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },
@@ -79,6 +91,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 ident: `ConfidentYes`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -94,6 +109,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 ident: `ConfidentNo`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },
@@ -109,6 +127,9 @@
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 ident: `Unconfident`,
+                                index: U8(
+                                    2,
+                                ),
                             },
                         ),
                     },

@@ -55,4 +55,5 @@ pub trait IsValue:
     fn into_mut<'a, T>(self) -> &'a mut T;
     fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self;
     fn into_option_ref<'a, T>(t: Option<&'a mut T>) -> Self;
+    fn from_enum_u8(index_raw: u8) -> Self;
 }
