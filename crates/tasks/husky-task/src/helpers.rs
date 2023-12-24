@@ -17,3 +17,6 @@ pub type TaskValue<Task> = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value;
 pub type TaskError<Task> = <TaskLinkageImpl<Task> as IsLinkageImpl>::Error;
 pub type TaskTraceProtocol<Task> = <TaskDevAscension<Task> as IsDevAscension>::TraceProtocol;
 pub type TaskValueResult<Task> = LinkageImplValControlFlow<TaskLinkageImpl<Task>>;
+
+pub type TaskValControlFlow<Task, C = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value> =
+    LinkageImplValControlFlow<TaskLinkageImpl<Task>, C>;

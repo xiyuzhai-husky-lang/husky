@@ -19,7 +19,9 @@ where
     }
 }
 
-pub trait StaticDyn: std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe {
+pub trait StaticDyn:
+    std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
+{
     unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn>;
 }
 

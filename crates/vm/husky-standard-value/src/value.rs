@@ -51,18 +51,10 @@ pub enum Value {
     OptionLeash(Option<&'static dyn StaticDyn>),
     OptionSizedRef(Option<*const dyn StaticDyn>),
     OptionSizedMut(Option<*mut dyn StaticDyn>),
-    /// T where T is not in above cases
-    Intrinsic(Box<dyn StaticDyn>),
     EnumU8(u8),
 }
 
 unsafe impl Send for Value {}
-
-impl Value {
-    pub fn share(&self) -> Value {
-        todo!()
-    }
-}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct StringLiteralId(NonZeroU32);
@@ -98,8 +90,53 @@ impl Value {
         todo!()
     }
 
-    pub fn into_ref<'a, T>(self) -> &'a T {
-        todo!()
+    pub fn into_ref<'a, T>(self) -> &'a T
+    where
+        T: WeakStatic,
+    {
+        match self {
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Box(_) => todo!(),
+            Value::Leash(slf) => {
+                let slf: &<T as WeakStatic>::Static = ((slf as &dyn StaticDyn)
+                    as &dyn std::any::Any)
+                    .downcast_ref()
+                    .expect("type id is correct");
+                unsafe { std::mem::transmute(slf) }
+            }
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumU8(_) => todo!(),
+        }
     }
 
     pub fn from_leash<T>(t: &'static T) -> Self {
@@ -142,6 +179,46 @@ impl Value {
 impl IsValue for Value {
     fn from_enum_u8(index_raw: u8) -> Self {
         Value::EnumU8(index_raw)
+    }
+
+    fn share(&'static self) -> Self {
+        match *self {
+            Value::Invalid => Value::Invalid,
+            Value::Moved => Value::Moved,
+            Value::Unit(slf) => Value::Unit(slf),
+            Value::Bool(slf) => Value::Bool(slf),
+            Value::Char(slf) => Value::Char(slf),
+            Value::I8(slf) => Value::I8(slf),
+            Value::I16(slf) => Value::I16(slf),
+            Value::I32(slf) => Value::I32(slf),
+            Value::I64(slf) => Value::I64(slf),
+            Value::I128(slf) => Value::I128(slf),
+            Value::ISize(slf) => Value::ISize(slf),
+            Value::U8(slf) => Value::U8(slf),
+            Value::U16(slf) => Value::U16(slf),
+            Value::U32(slf) => Value::U32(slf),
+            Value::U64(slf) => Value::U64(slf),
+            Value::U128(slf) => Value::U128(slf),
+            Value::USize(slf) => Value::USize(slf),
+            Value::R8(slf) => Value::R8(slf),
+            Value::R16(slf) => Value::R16(slf),
+            Value::R32(slf) => Value::R32(slf),
+            Value::R64(slf) => Value::R64(slf),
+            Value::R128(slf) => Value::R128(slf),
+            Value::RSize(slf) => Value::RSize(slf),
+            Value::F32(slf) => Value::F32(slf),
+            Value::F64(slf) => Value::F64(slf),
+            Value::StringLiteral(slf) => Value::StringLiteral(slf),
+            Value::Box(ref slf) => Value::Leash(&**slf), // Clone the boxed value
+            Value::Leash(slf) => Value::Leash(slf),
+            Value::Ref(slf) => unreachable!(),
+            Value::Mut(slf) => unreachable!(),
+            Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
+            Value::OptionLeash(slf) => Value::OptionLeash(slf),
+            Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
+            Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
+            Value::EnumU8(slf) => Value::EnumU8(slf),
+        }
     }
 }
 

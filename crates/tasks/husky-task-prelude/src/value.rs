@@ -62,4 +62,5 @@ pub trait IsValue:
     // fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
     fn from_enum_u8(index_raw: u8) -> Self;
+    fn share(&'static self) -> Self;
 }

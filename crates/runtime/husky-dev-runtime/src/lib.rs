@@ -12,7 +12,7 @@ use husky_entity_syn_tree::helpers::{
 };
 use husky_task::{
     dev_ascension::{with_dev_eval_context, IsRuntimeStorage},
-    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValue, TaskValueResult},
+    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValControlFlow, TaskValue, TaskValueResult},
 };
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevLinkTime, TaskDevPedestal},
@@ -90,14 +90,13 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         ingredient_index: TaskIngredientIndex,
         base_point: TaskDevPedestal<Task>,
         f: impl FnOnce() -> TaskValueResult<Task>,
-    ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
-        let target_path = self.linktime_target_path().unwrap();
-        let db = self.db();
-        let val: Val = self.comptime.ingredient_val(jar_index, ingredient_index);
-        &self
-            .storage
-            .get_or_try_init_val_value(val, base_point, f, db);
-        todo!()
+    ) -> TaskValControlFlow<Task> {
+        self.storage.get_or_try_init_val_value(
+            self.comptime.ingredient_val(jar_index, ingredient_index),
+            base_point,
+            f,
+            self.db(),
+        )
     }
 
     fn eval_ingredient(
@@ -105,20 +104,12 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
-    ) -> <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Value {
-        let target_path = self.linktime_target_path().unwrap();
-        let db = self.db();
-        let val_repr: ValRepr = self
-            .comptime
-            .ingredient_val_repr(jar_index, ingredient_index);
-        match self.eval_val_repr_at_pedestal(val_repr, pedestal) {
-            ValControlFlow::Continue(value) => value,
-            ValControlFlow::LoopContinue => todo!(),
-            ValControlFlow::LoopBreak(_) => todo!(),
-            ValControlFlow::Return(_) => todo!(),
-            ValControlFlow::Undefined => todo!(),
-            ValControlFlow::Err(_) => todo!(),
-        }
+    ) -> TaskValControlFlow<Task> {
+        self.eval_val_repr_at_pedestal(
+            self.comptime
+                .ingredient_val_repr(jar_index, ingredient_index),
+            pedestal,
+        )
     }
 
     fn eval_val_repr_interface_at_pedestal(
