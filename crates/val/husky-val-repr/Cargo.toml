@@ -18,7 +18,8 @@ salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir
-husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+husky-hir-opr.workspace = true
+husky-hir-ty.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-defn.workspace = true
@@ -42,7 +43,6 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 # hir
-husky-hir-ty.workspace = true
 husky-hir-eager-expr.workspace = true
 husky-hir-decl.workspace = true
 # kernel

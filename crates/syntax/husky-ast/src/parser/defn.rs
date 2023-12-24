@@ -114,6 +114,7 @@ impl<'a> AstParser<'a> {
     #[inline(always)]
     pub(crate) fn parse_ty_variants(&mut self, path: TypePath) -> AstIdxRange {
         let mut ty_variants = vec![];
+        let registry = &mut TypeVariantRegistry::new_u8();
         loop {
             let state = self.token_groups.state();
             let Some((token_group_idx, _)) = self.token_groups.next() else {
@@ -137,7 +138,12 @@ impl<'a> AstParser<'a> {
                 ) {
                     Ok(ident_token) => Ast::TypeVariant {
                         token_group_idx,
-                        variant_path: TypeVariantPath::new(path, ident_token.ident(), self.db),
+                        variant_path: TypeVariantPath::new(
+                            path,
+                            ident_token.ident(),
+                            self.db,
+                            registry,
+                        ),
                         vertical_token,
                         ident_token,
                         saved_stream_state: aux_parser.save_state(),

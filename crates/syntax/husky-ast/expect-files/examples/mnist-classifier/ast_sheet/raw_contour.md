@@ -443,6 +443,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ident: `Up`,
+                                index: U8(
+                                    0,
+                                ),
                             },
                         ),
                     },
@@ -475,6 +478,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ident: `Left`,
+                                index: U8(
+                                    1,
+                                ),
                             },
                         ),
                     },
@@ -507,6 +513,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ident: `Down`,
+                                index: U8(
+                                    2,
+                                ),
                             },
                         ),
                     },
@@ -539,6 +548,9 @@ AstSheet {
                             TypeVariantPathData {
                                 parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ident: `Right`,
+                                index: U8(
+                                    3,
+                                ),
                             },
                         ),
                     },

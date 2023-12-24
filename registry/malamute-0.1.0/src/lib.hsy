@@ -35,7 +35,7 @@ impl<#phantom Label, #phantom const label: Label> core::ops::Unveil OneVsAllResu
         | OneVsAllResult::ConfidentNo => core::ops::ControlFlow::Break(OneVsAll::No)
         | OneVsAllResult::Unconfident => core::ops::ControlFlow::Continue(())
 
-pub gn narrow_down<Label, #phantom const label: Label>(
+pub gn narrow_down<Label, #runtime const label: Label>(
     ...[] f: f32,
     skip: i32 = 5,
 ) -> OneVsAllResult Label label;

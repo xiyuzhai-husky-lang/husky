@@ -134,11 +134,11 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
                     EtherealTermSymbolIndexInner::ExplicitLifetime { attrs, .. }
                     | EtherealTermSymbolIndexInner::ExplicitPlace { attrs, .. }
                     | EtherealTermSymbolIndexInner::Type { attrs, .. }
-                    | EtherealTermSymbolIndexInner::ConstOther { attrs, .. } => !attrs.phantom(),
-                    EtherealTermSymbolIndexInner::Prop { .. } => false,
-                    EtherealTermSymbolIndexInner::ConstPathLeading { attrs, .. } => {
+                    | EtherealTermSymbolIndexInner::ConstOther { attrs, .. }
+                    | EtherealTermSymbolIndexInner::ConstPathLeading { attrs, .. } => {
                         !attrs.phantom()
                     }
+                    EtherealTermSymbolIndexInner::Prop { .. } => false,
                     EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                     | EtherealTermSymbolIndexInner::EphemOther { .. }
                     | EtherealTermSymbolIndexInner::SelfType

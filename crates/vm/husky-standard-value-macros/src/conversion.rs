@@ -60,7 +60,13 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
         // todo: value generics
         impl #generics __FromValue for #ident #generics_without_bounds {
             fn from_value(value: __Value) -> Self {
-                // Value::from_owned(self)
+                // ad hoc
+                // let __Value::EnumU8(index_raw) = value else {
+                //     unreachable!()
+                // };
+                // unsafe {
+                //     std::mem::transmute(index_raw)
+                // }
                 todo!()
             }
         }
@@ -68,8 +74,8 @@ fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
         // todo: value generics
         impl #generics __IntoValue for #ident #generics_without_bounds {
             fn into_value(self) -> __Value {
-                // Value::from_owned(self)
-                todo!()
+                // ad hoc
+                todo!("enum into value")
             }
         }
     }

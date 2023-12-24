@@ -53,7 +53,7 @@ husky-print-utils.workspace = true
 [dev-dependencies]
 # hir
 husky-hir-ty.workspace = true
-husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+husky-hir-opr.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-term-prelude.workspace = true

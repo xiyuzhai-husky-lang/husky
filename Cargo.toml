@@ -107,6 +107,7 @@ husky-manifest ={path = "crates/fs/husky-manifest"}
 husky-toolchain-config ={path = "crates/fs/husky-toolchain-config"}
 husky-vfs = { path = "crates/fs/husky-vfs" }
 # hir
+husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "crates/hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "crates/hir/husky-hir-lazy-expr" }

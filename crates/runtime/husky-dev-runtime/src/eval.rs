@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::{ItemPath, MajorItemPath};
+use husky_entity_path::{ItemPath, MajorItemPath, TypeVariantIndex};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
 use husky_task::{
@@ -7,6 +7,7 @@ use husky_task::{
     helpers::{TaskError, TaskValue},
     IsTask,
 };
+use husky_task_prelude::value::IsValue;
 use husky_task_prelude::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_term_prelude::TermLiteral;
 use husky_val::ValOpn;
@@ -90,7 +91,11 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::EvalDiscarded => todo!(),
             ValOpn::NewList => todo!(),
             ValOpn::Branches => todo!(),
-            ValOpn::TypeVariant(_) => todo!(),
+            ValOpn::TypeVariant(path) => match path.index(db) {
+                TypeVariantIndex::U8(index_raw) => {
+                    ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw))
+                }
+            },
             ValOpn::Be => todo!(),
             ValOpn::Unveil {} => {
                 let result = self.eval_val_argument(&val_repr.arguments(db)[0]);
@@ -123,7 +128,7 @@ impl<Task: IsTask> DevRuntime<Task> {
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         match *val_argument_repr {
             ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr(val_repr),
-            ValArgumentRepr::Keyed(_, _) => todo!(),
+            ValArgumentRepr::Keyed(_) => todo!(),
             ValArgumentRepr::Variadic(_) => todo!(),
             ValArgumentRepr::Branch {
                 condition,

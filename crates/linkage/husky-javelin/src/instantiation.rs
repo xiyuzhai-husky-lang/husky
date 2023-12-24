@@ -1,7 +1,7 @@
 use crate::{template_argument::JavelinTemplateArgument, *};
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol,
+    HirTemplateSymbol, HirTemplateSymbolClass,
 };
 use vec_like::SmallVecPairMap;
 
@@ -30,15 +30,23 @@ impl JavelinInstantiation {
             symbol_resolutions: hir_instantiation
                 .symbol_map()
                 .iter()
-                .map(|&(symbol, resolution)| {
-                    (
+                .filter_map(|&(symbol, resolution)| {
+                    match symbol {
+                        HirTemplateSymbol::Const(symbol)
+                            if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+                        {
+                            return None
+                        }
+                        _ => (),
+                    }
+                    Some((
                         symbol,
                         JavelinTermSymbolResolution::from_hir(
                             resolution,
                             javelin_instantiation,
                             db,
                         ),
-                    )
+                    ))
                 })
                 .collect(),
             separator: hir_instantiation.separator(),

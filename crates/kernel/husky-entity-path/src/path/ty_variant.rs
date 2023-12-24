@@ -13,15 +13,47 @@ pub struct TypeVariantPath(ItemPathId);
 pub struct TypeVariantPathData {
     pub parent_ty_path: TypePath,
     pub ident: Ident,
+    pub index: TypeVariantIndex,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TypeVariantIndex {
+    U8(u8),
+}
+
+pub struct TypeVariantRegistry {
+    next_index: TypeVariantIndex,
+}
+
+impl TypeVariantRegistry {
+    pub fn new_u8() -> Self {
+        Self {
+            next_index: TypeVariantIndex::U8(0),
+        }
+    }
+
+    fn issue_next(&mut self) -> TypeVariantIndex {
+        match self.next_index {
+            TypeVariantIndex::U8(ref mut next_raw) => {
+                TypeVariantIndex::U8(std::mem::replace(next_raw, *next_raw + 1))
+            }
+        }
+    }
 }
 
 impl TypeVariantPath {
-    pub fn new(parent_ty_path: TypePath, ident: Ident, db: &::salsa::Db) -> Self {
+    pub fn new(
+        parent_ty_path: TypePath,
+        ident: Ident,
+        db: &::salsa::Db,
+        registry: &mut TypeVariantRegistry,
+    ) -> Self {
         Self(ItemPathId::new(
             db,
             ItemPathData::TypeVariant(TypeVariantPathData {
                 parent_ty_path,
                 ident,
+                index: registry.issue_next(),
             }),
         ))
     }
@@ -39,6 +71,10 @@ impl TypeVariantPath {
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.data(db).ident
+    }
+
+    pub fn index(self, db: &::salsa::Db) -> TypeVariantIndex {
+        self.data(db).index
     }
 
     #[inline(never)]

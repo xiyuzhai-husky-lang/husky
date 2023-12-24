@@ -15,7 +15,7 @@ idx-arena.workspace = true
 vec-like.workspace = true
 # hir
 husky-hir-ty.workspace = true
-husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+husky-hir-opr.workspace = true
 # kernel
 husky-term-prelude.workspace = true
 husky-entity-kind.workspace = true

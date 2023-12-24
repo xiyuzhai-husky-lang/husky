@@ -38,7 +38,7 @@ fn val_repr_size_works() {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum ValArgumentRepr {
     Ordinary(ValRepr),
-    Keyed(Ident, Option<ValRepr>),
+    Keyed(Option<ValRepr>),
     Variadic(SmallVec<[ValRepr; 4]>),
     Branch {
         condition: Option<ValRepr>,
@@ -133,8 +133,8 @@ impl ValArgumentRepr {
     fn val_argument(&self, db: &::salsa::Db) -> ValArgument {
         match *self {
             ValArgumentRepr::Ordinary(val_repr) => ValArgument::Ordinary(val_repr.val(db)),
-            ValArgumentRepr::Keyed(ident, val_repr) => {
-                ValArgument::Keyed(ident, val_repr.map(|val_repr| val_repr.val(db)))
+            ValArgumentRepr::Keyed(val_repr) => {
+                ValArgument::Keyed(val_repr.map(|val_repr| val_repr.val(db)))
             }
             ValArgumentRepr::Variadic(ref val_reprs) => {
                 ValArgument::Variadic(val_reprs.iter().map(|val_repr| val_repr.val(db)).collect())

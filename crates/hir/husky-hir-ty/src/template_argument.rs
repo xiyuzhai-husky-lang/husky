@@ -4,9 +4,9 @@ use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirTemplateArgument {
     /// `Vacant` is used to repr abstract types
     ///
