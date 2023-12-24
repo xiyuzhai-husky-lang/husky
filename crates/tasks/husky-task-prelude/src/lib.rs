@@ -47,15 +47,6 @@ macro_rules! init_crate {
                 __TaskIngredientIndex::from_index(ingredient_index),
             ))
         }
-
-        pub(crate) fn __eval_val_repr<T>(val_repr: __ValReprInterface) -> __ValControlFlow<T>
-        where
-            T: __FromValue + 'static,
-        {
-            __ValControlFlow::Continue(<T as __FromValue>::from_value(
-                __dev_eval_context().eval_val_repr(val_repr)?,
-            ))
-        }
     };
 }
 

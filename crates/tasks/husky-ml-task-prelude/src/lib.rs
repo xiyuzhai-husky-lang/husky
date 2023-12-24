@@ -1,6 +1,8 @@
+use husky_linkage_impl::standard::ValControlFlow;
 pub use husky_ml_task_prelude_macros::*;
 
-use husky_standard_value::Value;
+use husky_standard_value::{FromValue, Value};
+use husky_task_prelude::val_repr::ValReprInterface;
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, thread::LocalKey};
 
@@ -69,4 +71,13 @@ pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R
     let r = f();
     DEV_EVAL_CONTEXT.set(old);
     r
+}
+
+pub fn eval_val_repr<T>(val_repr: ValReprInterface) -> ValControlFlow<T>
+where
+    T: FromValue + 'static,
+{
+    ValControlFlow::Continue(<T as FromValue>::from_value(
+        dev_eval_context().eval_val_repr(val_repr)?,
+    ))
 }

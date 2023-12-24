@@ -1,3 +1,5 @@
+use ad_hoc_task_dependency::val_control_flow::ValControlFlow;
+
 use super::*;
 
 pub struct FlagVectorField<Label> {
@@ -11,6 +13,14 @@ where
     Label: PartialEq + Eq + Copy,
 {
     pub fn from_features(arguments: &[__ValReprInterface], label0: Label) -> Result<Self, ()> {
+        let _: f32 = match __eval_val_repr(arguments[0]) {
+            ValControlFlow::Continue(c) => c,
+            ValControlFlow::LoopContinue => todo!(),
+            ValControlFlow::LoopBreak(_) => todo!(),
+            ValControlFlow::Return(_) => todo!(),
+            ValControlFlow::Undefined => todo!(),
+            ValControlFlow::Err(_) => todo!(),
+        };
         todo!()
         // Ok(Self {
         //     valuess: arguments
