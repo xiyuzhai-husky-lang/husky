@@ -57,3 +57,14 @@ where
         Arc::new(self.snapshot())
     }
 }
+
+impl<T> Static for Vec<T>
+where
+    T: Static,
+{
+    type Snapshot = Vec<T::Snapshot>;
+
+    unsafe fn snapshot(&self) -> Self::Snapshot {
+        todo!()
+    }
+}
