@@ -41,7 +41,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         if is_return_ty_always_copyable {
             write!(
                 self.result,
-                "#[{}::memoized_field({})]\n",
+                "#[{}::memoized_field({})]\n    ",
                 task_dependency_ident,
                 path.ingredient_index(db).unwrap().index()
             )
@@ -49,7 +49,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         } else {
             write!(
                 self.result,
-                "#[{}::memoized_field_return_ref({})]\n",
+                "#[{}::memoized_field_return_ref({})]\n    ",
                 task_dependency_ident,
                 path.ingredient_index(db).unwrap().index()
             )

@@ -31,7 +31,7 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
 #[rustfmt::skip]
 impl crate::fermi::FermiMatchResult {
     #[ad_hoc_task_dependency::memoized_field(21)]
-pub fn norm(&'static self) -> f32 {
+    pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].norm())
@@ -40,7 +40,7 @@ pub fn norm(&'static self) -> f32 {
     }
 
     #[ad_hoc_task_dependency::memoized_field(22)]
-pub fn rel_norm(&'static self) -> f32 {
+    pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].rel_norm())
@@ -49,7 +49,7 @@ pub fn rel_norm(&'static self) -> f32 {
     }
 
     #[ad_hoc_task_dependency::memoized_field(23)]
-pub fn angle_change_norm(&'static self) -> f32 {
+    pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].angle_change().abs())

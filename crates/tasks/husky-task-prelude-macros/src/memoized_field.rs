@@ -29,7 +29,7 @@ pub(crate) fn memoized_field_aux(input: TokenStream, return_ref: bool) -> TokenS
     if return_ref {
         quote! {
             #vis fn #ident(&'static self) -> &'static #return_ty {
-                todo!()
+                todo!("memoized_field return_ref")
             }
 
             #vis fn #aux_ident(&'static self) -> #return_ty #block
@@ -38,7 +38,7 @@ pub(crate) fn memoized_field_aux(input: TokenStream, return_ref: bool) -> TokenS
     } else {
         quote! {
             #vis fn #ident(&'static self) -> #return_ty {
-                todo!()
+                todo!("memoized_field return")
             }
 
             #vis fn #aux_ident(&'static self) -> #return_ty #block

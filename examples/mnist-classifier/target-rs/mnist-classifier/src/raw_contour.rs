@@ -323,12 +323,12 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
 #[rustfmt::skip]
 impl crate::raw_contour::RawContour {
     #[ad_hoc_task_dependency::memoized_field_return_ref(9)]
-pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
+    pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
         crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32)
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(10)]
-pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
+    pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.points[0 as usize];
         let mut xmin = start_point.x.into_inner();
         let mut xmax = start_point.x.into_inner();
@@ -345,12 +345,12 @@ pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
     }
 
     #[ad_hoc_task_dependency::memoized_field_return_ref(11)]
-pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
+    pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
     #[ad_hoc_task_dependency::memoized_field(12)]
-pub fn contour_len(&'static self) -> f32 {
+    pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..self.points.ilen() {
             let a = &self.points[(i - 1) as usize];
