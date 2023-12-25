@@ -1,6 +1,9 @@
 pub trait __U32X: Copy {
     fn span(self) -> i32;
 
+    /// count leading zeros
+    fn clz(self) -> i32;
+
     /// count trailing zeros
     fn ctz(self) -> i32;
 
@@ -14,12 +17,19 @@ pub trait __U32X: Copy {
 
 impl __U32X for u32 {
     fn span(self) -> i32 {
-        todo!()
+        if self == 0 {
+            return 0;
+        }
+        32 - (self.clz() + self.ctz())
+    }
+
+    fn clz(self) -> i32 {
+        self.leading_zeros() as i32
     }
 
     /// count trailing zeros
     fn ctz(self) -> i32 {
-        self.trailing_zeros().try_into().unwrap()
+        self.trailing_zeros() as i32
     }
 
     /// count ones

@@ -86,7 +86,7 @@ macro_rules! init_crate {
     };
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TaskJarIndex(ShiftedU32);
 
 impl TaskJarIndex {
@@ -99,7 +99,7 @@ impl TaskJarIndex {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
 pub struct TaskIngredientIndex(ShiftedU32);
 
 impl TaskIngredientIndex {
@@ -220,9 +220,9 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     ) -> LinkageImpl::Value {
         let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(slf) };
         let f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl> =
-            unsafe { std::mem::transmute(slf) };
+            unsafe { std::mem::transmute(f) };
         self.runtime
-            .eval_memoized_field_with_dyn(jar_index, ingredient_index, slf, f)
+            .eval_memoized_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
             .unwrap()
     }
 }
@@ -272,6 +272,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
+        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
@@ -314,6 +315,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
+        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
@@ -379,9 +381,10 @@ where
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
+        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_memoized_field_with(jar_index, ingredient_index, slf, f)
+        self.eval_memoized_field_with(jar_index, ingredient_index, pedestal, slf, f)
     }
 }

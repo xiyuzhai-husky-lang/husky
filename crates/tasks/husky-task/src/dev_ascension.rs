@@ -29,8 +29,11 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
 
     fn get_or_try_init_memoized_field_value(
         &self,
-        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
-        db: &::salsa::Db,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        pedestal: LinkageImpl::Pedestal,
+        slf: &'static std::ffi::c_void,
+        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 }
 

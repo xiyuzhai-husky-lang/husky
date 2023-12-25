@@ -176,10 +176,9 @@ pub(crate) fn value(
         pub struct ValueLeashTest<T>(pub T);
 
         /// distinguish `&'static T` from other types
-        impl<T> ValueLeashTest<&'static T> {
+        impl<T> ValueLeashTest<&'static T> where T: Static {
             pub fn into_value(self)  -> #self_ty {
-                todo!();
-                // #self_ty::from_leash(self.0)
+                #self_ty::from_leash(self.0)
             }
         }
 
