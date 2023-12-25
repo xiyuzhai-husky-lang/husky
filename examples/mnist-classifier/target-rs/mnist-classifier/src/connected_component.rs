@@ -87,7 +87,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                     {
                         let old_row = mask[(i + 1) as usize];
                         let new_row = old_row | crate::connected_component::horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
-                        if (new_row != 0) {
+                        if (new_row == 0) {
                             break;
                         }
                         if old_row != new_row {
@@ -180,7 +180,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut row_end = row_start + 1;
         while row_end < 29 {
             {
-                if (self.mask[row_end as usize] != 0) {
+                if (self.mask[row_end as usize] == 0) {
                     break;
                 }
             }
