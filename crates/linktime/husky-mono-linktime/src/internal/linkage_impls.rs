@@ -20,6 +20,9 @@ pub(super) fn generate_linkage_impls<LinkageImpl: IsLinkageImpl>(
     for &(package_path, ref cdylib) in libraries.cdylibs.iter() {
         let package_linkages = package_linkages(db, package_path);
         let package_linkage_impls: Vec<LinkageImpl> = cdylib.linkage_impls();
+        if package_path.name_str(db) == "malamute" {
+            p!(package_linkages.debug(db));
+        }
         debug_assert_eq!(package_linkage_impls.len(), package_linkages.len());
         linkage_impls.extend(
             zip(package_linkages, package_linkage_impls).map(|(&linkage, linkage_impl)| {
