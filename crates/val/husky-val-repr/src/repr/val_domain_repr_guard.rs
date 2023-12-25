@@ -20,7 +20,7 @@ impl<'a> ValDomainReprGuard<'a> {
         &mut self,
         opn: ValOpn,
         arguments: SmallVec<[ValArgumentRepr; 4]>,
-        _has_control_flow: HasControlFlow,
+        has_control_flow: HasControlFlow,
     ) -> ValRepr {
         let val_repr = ValRepr::new(
             self.db,
@@ -29,7 +29,9 @@ impl<'a> ValDomainReprGuard<'a> {
             arguments,
             ValCachingClass::Stmt,
         );
-        self.val_domain_repr = ValDomainRepr::StmtNotReturned(val_repr);
+        if has_control_flow.to_bool() {
+            self.val_domain_repr = ValDomainRepr::ExprNotReturned(val_repr)
+        }
         val_repr
     }
 

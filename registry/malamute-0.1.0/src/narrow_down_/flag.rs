@@ -1,51 +1,80 @@
-use ad_hoc_task_dependency::{ugly::__InputId, val_control_flow::ValControlFlow};
-
 use super::*;
+use ad_hoc_task_dependency::IsLabel;
+use ad_hoc_task_dependency::{ugly::__InputId, val_control_flow::ValControlFlow};
+use smallvec::*;
 
 pub struct FlagVectorField<Label> {
-    valuess: Vec<Vec<NotNan<f32>>>,
-    flags: Vec<bool>,
+    // valuess: Vec<Vec<NotNan<f32>>>,
+    // flags: Vec<bool>,
+    stalks: Vec<Stalk>,
     label0: Label,
+}
+
+pub struct Stalk {
+    features: SmallVec<[f32; 4]>,
+    // indicates whether the label is equal to label0
+    flag: bool,
 }
 
 impl<Label> FlagVectorField<Label>
 where
-    Label: PartialEq + Eq + Copy,
+    Label: IsLabel,
 {
-    pub fn from_features(arguments: &[__ValReprInterface], label0: Label) -> Result<Self, ()> {
-        let _: f32 = match __eval_val_repr_at_input(arguments[0], __InputId::from_index(0)) {
-            ValControlFlow::Continue(c) => c,
+    pub fn from_features(
+        val_domain_repr: __ValDomainReprInterface,
+        arguments: &[__ValReprInterface],
+        label0: Label,
+    ) -> Result<Self, ()> {
+        let mut stalks: Vec<Stalk> = vec![];
+        for i in 0..50000 {
+            let input_id = __InputId::from_index(i);
+            if let Some(stalk) =
+                Self::from_features_aux(val_domain_repr, input_id, arguments, label0)?
+            {
+                stalks.push(stalk)
+            }
+        }
+        Ok(Self { stalks, label0 })
+    }
+
+    fn from_features_aux(
+        val_domain_repr: __ValDomainReprInterface,
+        input_id: __InputId,
+        arguments: &[__ValReprInterface],
+        label0: Label,
+    ) -> Result<Option<Stalk>, ()> {
+        match __eval_val_domain_repr_at_input(val_domain_repr, input_id) {
+            ValControlFlow::Continue(_) => (),
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
             ValControlFlow::Undefined => todo!(),
             ValControlFlow::Err(_) => todo!(),
         };
-        todo!()
-        // Ok(Self {
-        //     valuess: arguments
-        //         .iter()
-        //         .map(|value| {
-        //             value
-        //                 .values()
-        //                 .iter()
-        //                 .map(|r| {
-        //                     let val = r.downcast_f32();
-        //                     NotNan::new(val).expect("todo")
-        //                 })
-        //                 .collect()
-        //         })
-        //         .collect(),
-        //     flags: labels.iter().map(|label| *label == label0).collect(),
-        //     label0,
-        // })
+        let mut features: SmallVec<[f32; 4]> = smallvec![];
+        for &argument in arguments {
+            let feature = match __eval_val_repr_at_input(argument, input_id) {
+                ValControlFlow::Continue(feature) => feature,
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => todo!(),
+                ValControlFlow::Err(_) => todo!(),
+            };
+            features.push(feature)
+        }
+        Ok(Some(Stalk {
+            features,
+            flag: Label::label_at_input(input_id) == label0,
+        }))
     }
 
     fn raw_flag_ranges(&self) -> Option<Vec<FlagRange>> {
-        self.valuess
-            .iter()
-            .map(|values| FlagRange::from_values(values.iter().copied(), &self.flags))
-            .collect()
+        todo!()
+        // self.valuess
+        //     .iter()
+        //     .map(|values| FlagRange::from_values(values.iter().copied(), &self.flags))
+        //     .collect()
     }
 
     pub fn flag_ranges(&self, ntrim: i32, border_expand_rate: f32) -> Option<Vec<FlagRange>> {
@@ -92,9 +121,10 @@ where
     }
 
     fn true_values(&self, idx: usize) -> Vec<NotNan<f32>> {
-        std::iter::zip(self.valuess[idx].iter(), self.flags.iter())
-            .filter_map(|(value, flag)| if *flag { Some(*value) } else { None })
-            .collect()
+        todo!()
+        // std::iter::zip(self.valuess[idx].iter(), self.flags.iter())
+        //     .filter_map(|(value, flag)| if *flag { Some(*value) } else { None })
+        //     .collect()
     }
 
     fn true_values_sorted(&self, idx: usize) -> Vec<NotNan<f32>> {

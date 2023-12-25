@@ -1,7 +1,7 @@
 mod dataset;
 
 use dataset::MNIST_DATASET;
-use husky_ml_task_prelude::input_id;
+use husky_ml_task_prelude::{input_id, label::IsLabel, InputId};
 use husky_standard_value::ugly::*;
 
 #[husky_standard_value::value_conversion]
@@ -17,6 +17,16 @@ pub enum MnistLabel {
     Seven,
     Eight,
     Nine,
+}
+
+impl IsLabel for MnistLabel {
+    fn label() -> Self {
+        MNIST_DATASET.label(input_id())
+    }
+
+    fn label_at_input(input_id: InputId) -> Self {
+        MNIST_DATASET.label(input_id)
+    }
 }
 
 impl From<u8> for MnistLabel {

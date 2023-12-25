@@ -452,7 +452,10 @@ impl Into<()> for Value {
     fn into(self) -> () {
         match self {
             Value::Unit(()) => (),
-            _ => unreachable!(),
+            _ => {
+                println!("self = {:?}", self);
+                unreachable!()
+            }
         }
     }
 }

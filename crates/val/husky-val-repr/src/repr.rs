@@ -8,7 +8,9 @@ use husky_entity_path::FugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_linkage::linkage::Linkage;
-use husky_task_prelude::val_repr::{ValArgumentReprInterface, ValReprInterface};
+use husky_task_prelude::val_repr::{
+    ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface,
+};
 use husky_val::{Val, ValArgument, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
@@ -99,6 +101,27 @@ pub enum ValDomainRepr {
     ConditionNotSatisfied(ValRepr),
     /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
     StmtNotReturned(ValRepr),
+    ExprNotReturned(ValRepr),
+}
+
+#[test]
+fn val_domain_repr_size_works() {
+    assert_eq!(
+        std::mem::size_of::<ValDomainRepr>(),
+        std::mem::size_of::<ValDomainReprInterface>(),
+    )
+}
+
+impl Into<ValDomainReprInterface> for ValDomainRepr {
+    fn into(self) -> ValDomainReprInterface {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+
+impl From<ValDomainReprInterface> for ValDomainRepr {
+    fn from(val_domain_repr: ValDomainReprInterface) -> Self {
+        unsafe { std::mem::transmute(val_domain_repr) }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -163,6 +186,7 @@ impl ValDomainRepr {
             ValDomainRepr::StmtNotReturned(val_repr) => {
                 ValDomain::StmtNotReturned(val_repr.val(db))
             }
+            ValDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 }

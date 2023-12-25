@@ -40,7 +40,7 @@ pub enum HasControlFlow {
 }
 
 impl HasControlFlow {
-    fn to_bool(self) -> bool {
+    pub fn to_bool(self) -> bool {
         self == HasControlFlow::True
     }
 }
