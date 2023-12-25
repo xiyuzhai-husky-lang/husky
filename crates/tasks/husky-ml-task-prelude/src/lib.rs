@@ -1,10 +1,13 @@
+pub mod label;
+pub mod ugly;
+
 use husky_linkage_impl::standard::ValControlFlow;
 pub use husky_ml_task_prelude_macros::*;
 
 use husky_standard_value::{FromValue, Value};
-use husky_task_prelude::val_repr::ValReprInterface;
+use husky_task_prelude::val_repr::{ValDomainReprInterface, ValReprInterface};
 use shifted_unsigned_int::ShiftedU32;
-use std::{cell::Cell, thread::LocalKey};
+use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct InputId(ShiftedU32);
@@ -91,4 +94,25 @@ where
             dev_eval_context().eval_val_repr(val_repr)?,
         ))
     })
+}
+
+pub fn eval_val_domain_repr_at_input(
+    val_domain_repr: ValDomainReprInterface,
+    input_id: InputId,
+) -> ValControlFlow<(), Infallible> {
+    match val_domain_repr {
+        ValDomainReprInterface::Omni => ValControlFlow::Continue(()),
+        ValDomainReprInterface::ConditionSatisfied(_) => todo!(),
+        ValDomainReprInterface::ConditionNotSatisfied(_) => todo!(),
+        ValDomainReprInterface::StmtNotReturned(stmt_val_repr) => {
+            match eval_val_repr_at_input::<()>(stmt_val_repr, input_id) {
+                ValControlFlow::Continue(_) => todo!(),
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => todo!(),
+                ValControlFlow::Err(_) => todo!(),
+            }
+        }
+    }
 }

@@ -19,8 +19,10 @@ use husky_task::{
     IsTask,
 };
 use husky_task_prelude::{
-    val_control_flow::ValControlFlow, val_repr::ValReprInterface, IsDevRuntime, IsDevRuntimeDyn,
-    IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
+    val_control_flow::ValControlFlow,
+    val_repr::{ValDomainReprInterface, ValReprInterface},
+    IsDevRuntime, IsDevRuntimeDyn, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex,
+    TaskJarIndex,
 };
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
@@ -124,12 +126,18 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         val_repr: ValReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-        f: impl FnOnce() -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
+        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         let db = self.db();
         let val_repr: ValRepr = unsafe { std::mem::transmute(val_repr) };
-        self.storage
-            .get_or_try_init_val_value(val_repr.val(db), pedestal, f, db)
+        let val_domain_repr: ValDomainReprInterface =
+            unsafe { std::mem::transmute(val_repr.val_domain_repr(db)) };
+        self.storage.get_or_try_init_val_value(
+            val_repr.val(db),
+            pedestal,
+            || f(val_domain_repr),
+            db,
+        )
     }
 
     fn eval_memoized_field_with(

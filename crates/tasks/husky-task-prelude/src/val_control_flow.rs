@@ -44,9 +44,25 @@ impl<C, B, E> std::ops::Try for ValControlFlow<C, B, E> {
     }
 }
 
-impl<C, B, E> std::ops::FromResidual<ValControlFlow<Infallible, B, E>> for ValControlFlow<C, B, E> {
+impl<C, B, E> FromResidual<ValControlFlow<Infallible, B, E>> for ValControlFlow<C, B, E> {
     fn from_residual(residual: ValControlFlow<Infallible, B, E>) -> Self {
-        todo!()
+        match residual {
+            ValControlFlow::Continue(_) => unreachable!(),
+            ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
+            ValControlFlow::LoopBreak(b) => ValControlFlow::LoopBreak(b),
+            ValControlFlow::Return(b) => ValControlFlow::Return(b),
+            ValControlFlow::Undefined => ValControlFlow::Undefined,
+            ValControlFlow::Err(e) => ValControlFlow::Err(e),
+        }
+    }
+}
+
+impl<C, B, E> FromResidual<Result<Infallible, E>> for ValControlFlow<C, B, E> {
+    fn from_residual(residual: Result<Infallible, E>) -> Self {
+        match residual {
+            Ok(_) => unreachable!(),
+            Err(e) => ValControlFlow::Err(e),
+        }
     }
 }
 

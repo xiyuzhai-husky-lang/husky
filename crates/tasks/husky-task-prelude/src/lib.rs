@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 #![feature(try_trait_v2_residual)]
 pub mod linkage_impl;
+pub mod ugly;
 pub mod val_control_flow;
 pub mod val_repr;
 pub mod value;
@@ -10,7 +11,7 @@ pub use husky_task_prelude_macros::*;
 
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
-use val_repr::{ValArgumentReprInterface, ValReprInterface};
+use val_repr::{ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface};
 
 #[macro_export]
 macro_rules! init_crate {
@@ -192,6 +193,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
+            ValDomainReprInterface,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
@@ -265,7 +267,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
+        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
     fn eval_memoized_field_with(
@@ -306,6 +308,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
+            ValDomainReprInterface,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
@@ -358,23 +361,29 @@ where
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
+            ValDomainReprInterface,
             &[ValArgumentReprInterface],
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_with(val_repr, generic_pedestal, || {
-            gn_generic_wrapper(
-                DevEvalContext {
-                    runtime: unsafe {
-                        std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
-                            self as &dyn IsDevRuntimeDyn<LinkageImpl>,
-                        )
+        self.eval_val_repr_with(
+            val_repr,
+            generic_pedestal,
+            |val_domain_repr: ValDomainReprInterface| {
+                gn_generic_wrapper(
+                    DevEvalContext {
+                        runtime: unsafe {
+                            std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
+                                self as &dyn IsDevRuntimeDyn<LinkageImpl>,
+                            )
+                        },
+                        pedestal: generic_pedestal,
                     },
-                    pedestal: generic_pedestal,
-                },
-                val_argument_reprs,
-            )
-        })
+                    val_domain_repr,
+                    val_argument_reprs,
+                )
+            },
+        )
     }
 
     fn eval_memoized_field_with_dyn(

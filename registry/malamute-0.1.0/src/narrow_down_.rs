@@ -7,14 +7,15 @@ use crate::*;
 pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct NarrowDownInternal {
-    label0: i32,
+#[value_conversion]
+pub struct NarrowDownInternal<Label> {
+    label0: Label,
     opt_flag_ranges: Option<Vec<FlagRange>>,
 }
 
 impl<Label> __IsGnItem for narrow_down<Label>
 where
-    Label: __FromValue + PartialEq + Eq + Copy + 'static,
+    Label: IsLabel,
 {
     type LinkageImpl = __LinkageImpl;
 
@@ -22,9 +23,10 @@ where
         __Pedestal::Generic
     }
 
-    type ValueAtGenericPedestal = ();
+    type ValueAtGenericPedestal = NarrowDownInternal<Label>;
 
     fn train(
+        val_domain_repr: __ValDomainReprInterface,
         val_argument_reprs: &[__ValArgumentReprInterface],
     ) -> __ValControlFlow<Self::ValueAtGenericPedestal> {
         debug_assert_eq!(val_argument_reprs.len(), 3);
@@ -42,14 +44,13 @@ where
             unreachable!()
         };
         let label: Label = __eval_val_repr(label)?;
-        FlagVectorField::from_features(features, label);
+        let fvf = FlagVectorField::from_features(val_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();
-        // Ok(NarrowDownInternal {
-        //     label0: fvf.label0(),
-        //     opt_flag_ranges: fvf.flag_ranges(ntrim, 0.1),
-        // })
-        todo!()
+        __ValControlFlow::Continue(NarrowDownInternal {
+            label0: fvf.label0(),
+            opt_flag_ranges: fvf.flag_ranges(skip, 0.1),
+        })
     }
 
     fn eval(

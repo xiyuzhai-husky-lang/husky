@@ -13,6 +13,7 @@ use husky_term_prelude::TermLiteral;
 use husky_val::ValOpn;
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
+use salsa::DebugWithDb;
 use smallvec::*;
 use std::{
     convert::Infallible,
@@ -71,7 +72,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 };
                 ValControlFlow::Continue(value)
             }
-            ValOpn::ValItemLazilyDefined(_) => {
+            ValOpn::ValItemLazilyDefined(path) => {
                 let expansion = val_repr.expansion(db).unwrap();
                 self.eval_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
             }
