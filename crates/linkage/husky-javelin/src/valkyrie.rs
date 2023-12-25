@@ -180,7 +180,15 @@ impl ValkyrieRides {
                     ref instantiation,
                     opd_hir_expr_idx,
                     ..
-                } => (),
+                } => {
+                    if let Some(javelin_path) =
+                        JavelinPath::try_from_item_path(unveil_associated_fn_path.into(), db)
+                    {
+                        self.try_add_ride(javelin_path, instantiation)
+                    } else {
+                        todo!()
+                    }
+                }
                 HirEagerExprData::Literal(_)
                 | HirEagerExprData::ConstSymbol { .. }
                 | HirEagerExprData::Variable(_)
