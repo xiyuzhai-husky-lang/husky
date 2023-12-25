@@ -381,7 +381,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let mut arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
                 )];
-                todo!("add runtime constants");
+                add_runtime_constant_symbols(
+                    instantiation,
+                    val_domain_repr_guard,
+                    &mut arguments,
+                    self.db,
+                );
                 (opn, arguments)
             }
             HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
@@ -627,60 +632,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 )),
             }
         }
-        for &(symbol, res) in instantiation.iter() {
-            match symbol {
-                HirTemplateSymbol::Const(symbol)
-                    if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
-                {
-                    let runtime_constant_val_repr = match res {
-                        HirTermSymbolResolution::Explicit(arg) => match arg {
-                            HirTemplateArgument::Vacant => todo!(),
-                            HirTemplateArgument::Type(_) => todo!(),
-                            HirTemplateArgument::Constant(constant) => match constant {
-                                HirConstant::Unit(_) => todo!(),
-                                HirConstant::Bool(_) => todo!(),
-                                HirConstant::Char(_) => todo!(),
-                                HirConstant::I8(_) => todo!(),
-                                HirConstant::I16(_) => todo!(),
-                                HirConstant::I32(_) => todo!(),
-                                HirConstant::I64(_) => todo!(),
-                                HirConstant::I128(_) => todo!(),
-                                HirConstant::ISize(_) => todo!(),
-                                HirConstant::U8(_) => todo!(),
-                                HirConstant::U16(_) => todo!(),
-                                HirConstant::U32(_) => todo!(),
-                                HirConstant::U64(_) => todo!(),
-                                HirConstant::U128(_) => todo!(),
-                                HirConstant::USize(_) => todo!(),
-                                HirConstant::R8(_) => todo!(),
-                                HirConstant::R16(_) => todo!(),
-                                HirConstant::R32(_) => todo!(),
-                                HirConstant::R64(_) => todo!(),
-                                HirConstant::R128(_) => todo!(),
-                                HirConstant::RSize(_) => todo!(),
-                                HirConstant::Symbol(_) => todo!(),
-                                HirConstant::TypeVariant(path) => val_domain_repr_guard
-                                    .new_expr_val_repr(
-                                        ValOpn::TypeVariant(path),
-                                        smallvec![],
-                                        HasControlFlow::False,
-                                    ),
-                            },
-                            HirTemplateArgument::Lifetime(_) => todo!(),
-                            HirTemplateArgument::Place(_) => todo!(),
-                        },
-                        HirTermSymbolResolution::SelfLifetime => {
-                            todo!()
-                        }
-                        HirTermSymbolResolution::SelfPlace(_) => {
-                            todo!()
-                        }
-                    };
-                    arguments.push(ValArgumentRepr::Ordinary(runtime_constant_val_repr))
-                }
-                _ => (),
-            }
-        }
+        add_runtime_constant_symbols(instantiation, val_domain_repr_guard, arguments, db);
     }
 
     fn finish(self) -> ValReprExpansion {
@@ -691,6 +643,68 @@ impl<'a> ValReprExpansionBuilder<'a> {
             self.hir_lazy_stmt_val_repr_map,
             self.root_hir_lazy_stmt_val_reprs,
         )
+    }
+}
+
+fn add_runtime_constant_symbols(
+    instantiation: &HirInstantiation,
+    val_domain_repr_guard: &mut ValDomainReprGuard<'_>,
+    arguments: &mut SmallVec<[ValArgumentRepr; 4]>,
+    db: &salsa::Db,
+) {
+    for &(symbol, res) in instantiation.iter() {
+        match symbol {
+            HirTemplateSymbol::Const(symbol)
+                if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+            {
+                let runtime_constant_val_repr = match res {
+                    HirTermSymbolResolution::Explicit(arg) => match arg {
+                        HirTemplateArgument::Vacant => todo!(),
+                        HirTemplateArgument::Type(_) => todo!(),
+                        HirTemplateArgument::Constant(constant) => match constant {
+                            HirConstant::Unit(_) => todo!(),
+                            HirConstant::Bool(_) => todo!(),
+                            HirConstant::Char(_) => todo!(),
+                            HirConstant::I8(_) => todo!(),
+                            HirConstant::I16(_) => todo!(),
+                            HirConstant::I32(_) => todo!(),
+                            HirConstant::I64(_) => todo!(),
+                            HirConstant::I128(_) => todo!(),
+                            HirConstant::ISize(_) => todo!(),
+                            HirConstant::U8(_) => todo!(),
+                            HirConstant::U16(_) => todo!(),
+                            HirConstant::U32(_) => todo!(),
+                            HirConstant::U64(_) => todo!(),
+                            HirConstant::U128(_) => todo!(),
+                            HirConstant::USize(_) => todo!(),
+                            HirConstant::R8(_) => todo!(),
+                            HirConstant::R16(_) => todo!(),
+                            HirConstant::R32(_) => todo!(),
+                            HirConstant::R64(_) => todo!(),
+                            HirConstant::R128(_) => todo!(),
+                            HirConstant::RSize(_) => todo!(),
+                            HirConstant::Symbol(_) => todo!(),
+                            HirConstant::TypeVariant(path) => val_domain_repr_guard
+                                .new_expr_val_repr(
+                                    ValOpn::TypeVariant(path),
+                                    smallvec![],
+                                    HasControlFlow::False,
+                                ),
+                        },
+                        HirTemplateArgument::Lifetime(_) => todo!(),
+                        HirTemplateArgument::Place(_) => todo!(),
+                    },
+                    HirTermSymbolResolution::SelfLifetime => {
+                        todo!()
+                    }
+                    HirTermSymbolResolution::SelfPlace(_) => {
+                        todo!()
+                    }
+                };
+                arguments.push(ValArgumentRepr::Ordinary(runtime_constant_val_repr))
+            }
+            _ => (),
+        }
     }
 }
 
