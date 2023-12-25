@@ -58,7 +58,7 @@ fn val_repr_expansion(db: &::salsa::Db, val_repr: ValRepr) -> Option<ValReprExpa
                 body,
                 hir_lazy_expr_region,
                 &[],
-                LinkageInstantiation::new_empty(),
+                LinkageInstantiation::new_empty(false),
                 db,
             ))
         }

@@ -263,7 +263,7 @@ impl ToHirLazy for SemaExprIdx {
                             MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorFnCall {
                                 path,
                                 // ad hoc
-                                instantiation: HirInstantiation::new_empty(),
+                                instantiation: HirInstantiation::new_empty(false),
                                 item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
@@ -336,17 +336,20 @@ impl ToHirLazy for SemaExprIdx {
                     ty,
                     path,
                     ref instantiation,
-                } => HirLazyExprData::MemoizedField {
-                    owner: owner_sema_expr_idx.to_hir_lazy(builder),
-                    ident: ident_token.ident(),
-                    path,
-                    indirections: HirIndirections::from_fluffy(dispatch.indirections()),
-                    instantiation: HirInstantiation::from_fluffy(
-                        instantiation,
-                        builder.db(),
-                        builder.fluffy_terms(),
-                    ),
-                },
+                } => {
+                    debug_assert!(instantiation.separator().is_some());
+                    HirLazyExprData::MemoizedField {
+                        owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                        ident: ident_token.ident(),
+                        path,
+                        indirections: HirIndirections::from_fluffy(dispatch.indirections()),
+                        instantiation: HirInstantiation::from_fluffy(
+                            instantiation,
+                            builder.db(),
+                            builder.fluffy_terms(),
+                        ),
+                    }
+                }
             },
             SemaExprData::MethodApplication {
                 self_argument: _,

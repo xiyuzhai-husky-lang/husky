@@ -40,10 +40,10 @@ pub enum LinkageTermSymbolResolution {
 }
 
 impl LinkageInstantiation {
-    pub fn new_empty() -> Self {
+    pub fn new_empty(is_associated: bool) -> Self {
         LinkageInstantiation {
             symbol_resolutions: Default::default(),
-            separator: None,
+            separator: is_associated.then_some(0),
         }
     }
 
@@ -103,6 +103,14 @@ impl LinkageInstantiation {
                 LinkageTermSymbolResolution::SelfPlace(_) => Some((symbol, resolution)),
             })
             .collect()
+    }
+
+    pub fn symbol_resolutions(&self) -> &[(HirTemplateSymbol, LinkageTermSymbolResolution)] {
+        self.symbol_resolutions.as_ref()
+    }
+
+    pub fn separator(&self) -> Option<u8> {
+        self.separator
     }
 }
 

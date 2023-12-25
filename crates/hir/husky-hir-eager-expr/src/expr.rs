@@ -287,7 +287,7 @@ impl ToHirEager for SemaExprIdx {
                                     HirEagerExprData::TypeConstructorFnCall {
                                         path,
                                         // ad hoc
-                                        instantiation: HirInstantiation::new_empty(),
+                                        instantiation: HirInstantiation::new_empty(false),
                                         item_groups,
                                     }
                                 }
@@ -306,7 +306,7 @@ impl ToHirEager for SemaExprIdx {
                                 HirEagerExprData::TypeVariantConstructorCall {
                                     path,
                                     // ad hoc
-                                    instantiation: HirInstantiation::new_empty(),
+                                    instantiation: HirInstantiation::new_empty(false),
                                     item_groups,
                                 }
                             }
@@ -321,7 +321,7 @@ impl ToHirEager for SemaExprIdx {
                                 HirEagerExprData::AssociatedFunctionFnCall {
                                     path: signature.path(),
                                     // ad hoc
-                                    instantiation: HirInstantiation::new_empty(),
+                                    instantiation: HirInstantiation::new_empty(true),
                                     item_groups,
                                 }
                             }
@@ -348,11 +348,14 @@ impl ToHirEager for SemaExprIdx {
                     ty,
                     path,
                     ref instantiation,
-                } => HirEagerExprData::MemoizedField {
-                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
-                    ident: ident_token.ident(),
-                    path,
-                },
+                } => {
+                    debug_assert!(instantiation.separator().is_some());
+                    HirEagerExprData::MemoizedField {
+                        owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                        ident: ident_token.ident(),
+                        path,
+                    }
+                }
             },
             SemaExprData::MethodApplication { .. } => todo!(),
             SemaExprData::MethodFnCall {

@@ -211,7 +211,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 let mut arguments = arguments.iter();
                 match self.1(
                     $(<$input as FromValue>::from_value(
-                        ctx.eval_val_repr_argument(arguments.next().unwrap())?
+                        ctx.eval_val_repr_argument(arguments.next().expect("missing argument"))?
                     ),)*
                 ) {
                     std::ops::ControlFlow::Continue(c) => ValControlFlow::Continue(c),
