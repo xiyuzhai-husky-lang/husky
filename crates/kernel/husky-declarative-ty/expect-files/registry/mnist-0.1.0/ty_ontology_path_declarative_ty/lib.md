@@ -6,13 +6,13 @@
         ),
     ),
     (
-        TypePath(`mnist::BinaryImage28`, `Struct`),
+        TypePath(`mnist::BinaryImage28`, `Extern`),
         Ok(
             DeclarativeTerm(`Type`),
         ),
     ),
     (
-        TypePath(`mnist::BinaryGrid28`, `Struct`),
+        TypePath(`mnist::BinaryGrid28`, `Extern`),
         Ok(
             DeclarativeTerm(`Type`),
         ),

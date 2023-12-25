@@ -1,7 +1,10 @@
 use crate::{template_argument::ty::LinkageType, *};
+use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssociatedItemPath, FugitivePath, TypeItemPath, TypeVariantPath};
+use husky_entity_path::{
+    AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeItemPath, TypeVariantPath,
+};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
@@ -45,6 +48,10 @@ pub enum LinkageData {
     },
     AssociatedFunctionFn {
         path: AssociatedItemPath,
+        instantiation: LinkageInstantiation,
+    },
+    UnveilAssociatedFunctionFn {
+        path: TraitForTypeItemPath,
         instantiation: LinkageInstantiation,
     },
     TypeConstructor {
@@ -237,6 +244,25 @@ impl Linkage {
             },
         )
     }
+
+    pub fn new_unveil_associated_fn(
+        path: TraitForTypeItemPath,
+        hir_instantiation: &HirInstantiation,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkageData::UnveilAssociatedFunctionFn {
+                path,
+                instantiation: LinkageInstantiation::from_hir(
+                    hir_instantiation,
+                    linkage_instantiation,
+                    db,
+                ),
+            },
+        )
+    }
 }
 
 #[deprecated(note = "ad hoc implementation")]
@@ -352,18 +378,44 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 TraitItemKind::AssociatedType => smallvec![],
                 TraitItemKind::AssociatedVal => todo!(),
                 TraitItemKind::AssociatedFunctionFn => {
-                    LinkageInstantiation::from_javelin(instantiation, db)
-                        .into_iter()
-                        .map(|instantiation| {
-                            Linkage::new(
-                                db,
-                                LinkageData::AssociatedFunctionFn {
-                                    path: path.into(),
-                                    instantiation,
-                                },
-                            )
-                        })
-                        .collect()
+                    match path.impl_block(db).trai_path(db).refine(db) {
+                        Left(PreludeTraitPath::UNVEIL) => {
+                            LinkageInstantiation::from_javelin(instantiation, db)
+                                .into_iter()
+                                .map(|instantiation| {
+                                    [
+                                        Linkage::new(
+                                            db,
+                                            LinkageData::AssociatedFunctionFn {
+                                                path: path.into(),
+                                                instantiation: instantiation.clone(),
+                                            },
+                                        ),
+                                        Linkage::new(
+                                            db,
+                                            LinkageData::UnveilAssociatedFunctionFn {
+                                                path: path.into(),
+                                                instantiation,
+                                            },
+                                        ),
+                                    ]
+                                })
+                                .flatten()
+                                .collect()
+                        }
+                        _ => LinkageInstantiation::from_javelin(instantiation, db)
+                            .into_iter()
+                            .map(|instantiation| {
+                                Linkage::new(
+                                    db,
+                                    LinkageData::AssociatedFunctionFn {
+                                        path: path.into(),
+                                        instantiation,
+                                    },
+                                )
+                            })
+                            .collect(),
+                    }
                 }
             },
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {

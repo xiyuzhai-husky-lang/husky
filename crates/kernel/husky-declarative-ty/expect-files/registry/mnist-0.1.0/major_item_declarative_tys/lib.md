@@ -12,7 +12,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Struct`),
+                TypePath(`mnist::BinaryImage28`, `Extern`),
             ),
         ),
         Ok(
@@ -22,7 +22,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                TypePath(`mnist::BinaryGrid28`, `Extern`),
             ),
         ),
         Ok(

@@ -11,7 +11,7 @@ pub enum MnistLabel
 | Nine
 
 #derive(Debug, Clone)
-pub struct BinaryImage28([30]r32)
+pub extern BinaryImage28;
 
 impl Visualize for BinaryImage28:
     fn visualize() -> Html;
@@ -22,7 +22,7 @@ impl BinaryImage28:
 impl core::ops::IntIndex for BinaryImage28:
     type Output = r32
 
-pub struct BinaryGrid28([31]r32)
+pub extern BinaryGrid28;
 
 impl Visualize for BinaryGrid28:
     fn visualize() -> Html;

@@ -96,6 +96,12 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
+            LinkageData::UnveilAssociatedFunctionFn {
+                path,
+                ref instantiation,
+            } => builder.macro_call(RustMacroName::UnveilFnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
             LinkageData::MemoizedField {
                 path,
                 ref instantiation,

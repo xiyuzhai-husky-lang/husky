@@ -1,5 +1,14 @@
 [
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::main`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             instantiation: LinkageInstantiation {
@@ -47,6 +56,94 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+            ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -159,6 +256,50 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+            ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -591,6 +732,28 @@
         },
     },
     Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::AssociatedFunctionFn {
             path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
@@ -613,6 +776,72 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+            ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -753,8 +982,77 @@
         },
     },
     Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MemoizedField {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -789,6 +1087,33 @@
         },
     },
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
             instantiation: LinkageInstantiation {
@@ -800,6 +1125,24 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -834,8 +1177,44 @@
         },
     },
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -861,8 +1240,35 @@
         },
     },
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -888,8 +1294,62 @@
         },
     },
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -908,6 +1368,15 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -935,6 +1404,78 @@
     Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -1035,6 +1576,126 @@
     Linkage {
         data: LinkageData::MethodFn {
             path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
@@ -1071,6 +1732,42 @@
     Linkage {
         data: LinkageData::MethodFn {
             path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
@@ -1090,7 +1787,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1134,7 +1831,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1178,7 +1875,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1220,7 +1917,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1262,7 +1959,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 4,
+                                            value: 3,
                                         },
                                     ),
                                 ),
@@ -1304,7 +2001,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1353,7 +2050,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1389,7 +2086,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1425,7 +2122,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1461,7 +2158,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1505,7 +2202,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1549,7 +2246,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1585,7 +2282,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1627,7 +2324,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1663,7 +2360,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1705,7 +2402,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1749,7 +2446,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1793,7 +2490,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1829,7 +2526,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1865,7 +2562,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -1907,7 +2604,79 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1943,7 +2712,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1979,7 +2748,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2051,7 +2820,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2093,7 +2862,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 8,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2105,6 +2874,146 @@
                             SelfLifetime,
                         ),
                         SelfLifetime,
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::FunctionGnItem {
+            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodFn {
+            path: AssociatedItemPath::TypeItem(
+                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ],
                 separator: Some(

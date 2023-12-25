@@ -373,13 +373,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `visualize`,
                     token_idx: TokenIdx(
-                        46,
+                        41,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        47,
+                        42,
                     ),
                     drained: false,
                 },
@@ -396,7 +396,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                55,
+                                50,
                             ),
                         },
                     },
@@ -409,13 +409,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `new_zeros`,
                     token_idx: TokenIdx(
-                        58,
+                        53,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        59,
+                        54,
                     ),
                     drained: false,
                 },
@@ -445,13 +445,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        74,
+                        69,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        75,
+                        70,
                     ),
                     drained: false,
                 },
@@ -481,13 +481,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `visualize`,
                     token_idx: TokenIdx(
-                        92,
+                        82,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        93,
+                        83,
                     ),
                     drained: false,
                 },
@@ -504,7 +504,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                101,
+                                91,
                             ),
                         },
                     },
@@ -517,13 +517,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `new_zeros`,
                     token_idx: TokenIdx(
-                        104,
+                        94,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        105,
+                        95,
                     ),
                     drained: false,
                 },
@@ -553,13 +553,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        120,
+                        110,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        121,
+                        111,
                     ),
                     drained: false,
                 },
@@ -633,7 +633,7 @@ AstSheet {
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
-                        Struct,
+                        Extern,
                     ),
                     connection: Connected,
                 },
@@ -651,7 +651,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
                     variants: None,
                 },
             },
@@ -706,32 +706,32 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                77,
+                                72,
                             ),
                         },
                     },
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
-                        Struct,
+                        Extern,
                     ),
                     connection: Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BinaryGrid28`,
                     token_idx: TokenIdx(
-                        79,
+                        74,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        80,
+                        75,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                     variants: None,
                 },
             },
@@ -786,7 +786,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                123,
+                                113,
                             ),
                         },
                     },
@@ -800,13 +800,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `input`,
                     token_idx: TokenIdx(
-                        125,
+                        115,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        126,
+                        116,
                     ),
                     drained: false,
                 },

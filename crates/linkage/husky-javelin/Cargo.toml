@@ -19,6 +19,7 @@ husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 # kernel
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-hir-ty.workspace = true
 husky-hir-decl.workspace = true

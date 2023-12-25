@@ -23,36 +23,16 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Struct`),
+                TypePath(`mnist::BinaryImage28`, `Extern`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::TupleStruct(
-                        TupleStructTypeDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
-                            },
-                            self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
-                            fields: [
-                                TupleStructFieldDeclarativeSignatureTemplate {
-                                    ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
-                                },
-                            ],
-                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
-                                ritchie_kind: Type(
-                                    Fn,
-                                ),
-                                params: [
-                                    DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
-                                            contract: Move,
-                                            ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
-                                        },
-                                    ),
-                                ],
-                                return_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             },
                         },
                     ),
@@ -63,36 +43,16 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                TypePath(`mnist::BinaryGrid28`, `Extern`),
             ),
         ),
         Ok(
             SignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::TupleStruct(
-                        TupleStructTypeDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
-                            },
-                            self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
-                            fields: [
-                                TupleStructFieldDeclarativeSignatureTemplate {
-                                    ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
-                                },
-                            ],
-                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
-                                ritchie_kind: Type(
-                                    Fn,
-                                ),
-                                params: [
-                                    DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
-                                            contract: Move,
-                                            ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
-                                        },
-                                    ),
-                                ],
-                                return_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             },
                         },
                     ),
@@ -126,7 +86,7 @@
                         module_path: `mnist`,
                         trai_path: TraitPath(`core::visual::Visualize`),
                         ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                            TypePath(`mnist::BinaryImage28`, `Extern`),
                         ),
                         disambiguator: 0,
                     },
@@ -162,7 +122,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -208,7 +168,7 @@
                             ImplBlockPathData::TypeImplBlock(
                                 TypeImplBlockPathData {
                                     module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                     disambiguator: 0,
                                 },
                             ),
@@ -264,7 +224,7 @@
                         module_path: `mnist`,
                         trai_path: TraitPath(`core::ops::IntIndex`),
                         ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                            TypePath(`mnist::BinaryImage28`, `Extern`),
                         ),
                         disambiguator: 0,
                     },
@@ -300,7 +260,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -337,7 +297,7 @@
                         module_path: `mnist`,
                         trai_path: TraitPath(`core::visual::Visualize`),
                         ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                         ),
                         disambiguator: 0,
                     },
@@ -373,7 +333,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -419,7 +379,7 @@
                             ImplBlockPathData::TypeImplBlock(
                                 TypeImplBlockPathData {
                                     module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     disambiguator: 0,
                                 },
                             ),
@@ -475,7 +435,7 @@
                         module_path: `mnist`,
                         trai_path: TraitPath(`core::ops::IntIndex`),
                         ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                         ),
                         disambiguator: 0,
                     },
@@ -511,7 +471,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },

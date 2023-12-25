@@ -89,6 +89,14 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
+        LinkageData::UnveilAssociatedFunctionFn {
+            path,
+            instantiation,
+        } => {
+            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
+            builder.add(hir_defn);
+            builder.add_instantiation(instantiation)
+        }
         LinkageData::TypeConstructor {
             path,
             instantiation,

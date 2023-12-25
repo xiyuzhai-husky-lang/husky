@@ -13,7 +13,7 @@ where
     LinkageImpl: IsLinkageImpl,
 {
     target_path: LinktimeTargetPath,
-    linkage_storage: MonoLinkageLibraries,
+    libraries: MonoLinkageLibraries,
     linkage_impls: LinkageImplMap<LinkageImpl>,
 }
 
@@ -22,13 +22,13 @@ where
     LinkageImpl: IsLinkageImpl,
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        let Ok(linkage_storage) = MonoLinkageLibraries::generate(target_path, db) else {
+        let Ok(libraries) = MonoLinkageLibraries::generate(target_path, db) else {
             todo!("error in generating libraries")
         };
-        let linkage_impls = generate_linkage_impls(target_path, &linkage_storage, db);
+        let linkage_impls = generate_linkage_impls(target_path, &libraries, db);
         Self {
             target_path,
-            linkage_storage,
+            libraries,
             linkage_impls,
         }
     }
@@ -42,7 +42,6 @@ where
             use husky_print_utils::p;
             use salsa::DebugWithDb;
             let linkages: Vec<Linkage> = self.linkage_impls.clone().into_keys().collect();
-            p!(linkages.debug_with(db));
             p!(linkage.debug(db));
             unreachable!()
         };
@@ -72,7 +71,7 @@ where
     }
 
     fn reload(&mut self, db: &::salsa::Db) {
-        self.linkage_storage = MonoLinkageLibraries::generate(self.target_path, db).unwrap();
-        self.linkage_impls = generate_linkage_impls(self.target_path, &self.linkage_storage, db)
+        self.libraries = MonoLinkageLibraries::generate(self.target_path, db).unwrap();
+        self.linkage_impls = generate_linkage_impls(self.target_path, &self.libraries, db)
     }
 }

@@ -27,7 +27,8 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let members = rust_transpilation_packages
         .iter()
         .filter_map(|package| {
-            (!package.package_path.is_virtual(db))
+            (!(package.package_path.is_virtual(db)
+                && package.kind == RustTranspilationPackageKind::Source))
                 .then(|| package.path_in_workspace(&rust_workspace_abs_dir, db))
         })
         .collect();

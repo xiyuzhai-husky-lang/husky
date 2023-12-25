@@ -57,7 +57,6 @@ pub enum ValOpn {
     Branches,
     TypeVariant(TypeVariantPath),
     Be,
-    Unveil {},
     Unwrap {},
 }
 

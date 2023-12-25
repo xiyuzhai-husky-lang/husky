@@ -14,6 +14,9 @@ pub(super) fn generate_linkage_impls<LinkageImpl: IsLinkageImpl>(
     db: &::salsa::Db,
 ) -> LinkageImplMap<LinkageImpl> {
     let mut linkage_impls = LinkageImplMap::default();
+    use husky_print_utils::p;
+    use salsa::DebugWithDb;
+    p!(libraries.cdylibs.debug(db));
     for &(package_path, ref cdylib) in libraries.cdylibs.iter() {
         let package_linkages = package_linkages(db, package_path);
         let package_linkage_impls: Vec<LinkageImpl> = cdylib.linkage_impls();
