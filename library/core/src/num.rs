@@ -41,8 +41,9 @@ impl __U32X for u32 {
         todo!()
     }
 
+    // make except the last `k` bits
     fn last_bits(self, k: i32) -> u32 {
-        todo!()
+        self & !(u32::MAX << k)
     }
 }
 
