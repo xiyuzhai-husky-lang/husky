@@ -130,6 +130,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 condition,
                 ref stmts,
             } => todo!(),
+            ValArgumentRepr::RuntimeConstants(_) => todo!(),
         }
     }
 }
