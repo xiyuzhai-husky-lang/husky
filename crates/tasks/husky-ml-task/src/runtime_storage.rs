@@ -1,9 +1,10 @@
 use crate::*;
 use dashmap::DashMap;
-
 use husky_linkage_impl::standard::ValControlFlow;
 use husky_standard_value::Value;
 use husky_task::dev_ascension::IsRuntimeStorage;
+use husky_task_prelude::TaskJarIndex;
+use husky_task_prelude::{LinkageImplValControlFlow, TaskIngredientIndex};
 use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
@@ -15,10 +16,8 @@ pub struct MlDevRuntimeStorage {
         MlDevRuntimeValItemStorageKey,
         Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>,
     >,
-    memoized_field_values: DashMap<
-        MlDevRuntimeValItemStorageKey,
-        Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>,
-    >,
+    memoized_field_values:
+        DashMap<MlDevRuntimeMemoizedFieldStorageKey, Arc<Mutex<Option<ValControlFlow>>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
@@ -34,8 +33,16 @@ pub struct MlDevRuntimeValItemStorageKey {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct MlDevRuntimeMemoizedFieldStorageKey {
-    val: Val,
+    jar_index: TaskJarIndex,
+    ingredient_index: TaskIngredientIndex,
+    pedestal: MlPedestal,
+    slf: AnyPointer,
 }
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub struct AnyPointer(*const std::ffi::c_void);
+
+unsafe impl Send for AnyPointer {}
 
 impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
     fn get_or_try_init_val_value(
@@ -68,9 +75,32 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
 
     fn get_or_try_init_memoized_field_value(
         &self,
-        f: impl FnOnce() -> ValControlFlow,
-        db: &salsa::Db,
+        jar_index: TaskJarIndex,
+        ingredient_index: TaskIngredientIndex,
+        pedestal: MlPedestal,
+        slf: &'static std::ffi::c_void,
+        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> ValControlFlow {
-        todo!()
+        // todo: maybe add version stamp?
+        let key = MlDevRuntimeMemoizedFieldStorageKey {
+            jar_index,
+            ingredient_index,
+            pedestal,
+            slf: AnyPointer(slf as _),
+        };
+        let mu = self.memoized_field_values.entry(key).or_default().clone();
+        let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
+        unsafe {
+            match *opt_stored_val_control_flow_store_guard {
+                Some(ref val_control_flow) => val_control_flow.share_unchecked(),
+                None => {
+                    *opt_stored_val_control_flow_store_guard = Some(f(slf));
+                    opt_stored_val_control_flow_store_guard
+                        .as_ref()
+                        .expect("should be some")
+                        .share_unchecked()
+                }
+            }
+        }
     }
 }

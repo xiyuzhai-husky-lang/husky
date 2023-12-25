@@ -139,8 +139,11 @@ impl Value {
         }
     }
 
-    pub fn from_leash<T>(t: &'static T) -> Self {
-        todo!()
+    pub fn from_leash<T>(t: &'static T) -> Self
+    where
+        T: Static,
+    {
+        Value::Leash(t)
     }
 
     pub fn into_leash<T>(self) -> &'static T {

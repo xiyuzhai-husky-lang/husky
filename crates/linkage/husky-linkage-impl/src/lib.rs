@@ -53,9 +53,14 @@ macro_rules! fn_linkage_impl {
             arguments: &[__ValArgumentReprInterface],
         ) -> __ValControlFlow {
             __with_dev_eval_context(ctx, || {
-                FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-                    .fn_wrapper_aux(ctx, arguments);
-                todo!();
+                // todo: catch unwind
+                __ValControlFlow::Continue(
+                    __ValueLeashTest(
+                        FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
+                            .fn_wrapper_aux(ctx, arguments),
+                    )
+                    .into_value(),
+                )
             })
         }
         // pass `$fn_item` two times

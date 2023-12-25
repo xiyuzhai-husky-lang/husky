@@ -20,7 +20,7 @@ use husky_task::{
 };
 use husky_task_prelude::{
     val_control_flow::ValControlFlow, val_repr::ValReprInterface, IsDevRuntime, IsDevRuntimeDyn,
-    LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
+    IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
@@ -103,7 +103,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
     ) -> TaskValControlFlow<Task> {
         self.eval_val_repr_at_pedestal(
             self.comptime
@@ -115,7 +115,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     fn eval_val_repr_at_pedestal(
         &self,
         val_repr_interface: ValReprInterface,
-        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         self.eval_val_repr_at_pedestal(unsafe { std::mem::transmute(val_repr_interface) }, pedestal)
     }
@@ -123,7 +123,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     fn eval_val_repr_with(
         &self,
         val_repr: ValReprInterface,
-        pedestal: <TaskLinkageImpl<Task> as husky_task_prelude::IsLinkageImpl>::Pedestal,
+        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
         f: impl FnOnce() -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         let db = self.db();
@@ -136,9 +136,16 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
+        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
-        todo!()
+        self.storage.get_or_try_init_memoized_field_value(
+            jar_index,
+            ingredient_index,
+            pedestal,
+            slf,
+            f,
+        )
     }
 }
