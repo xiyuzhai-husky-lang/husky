@@ -29,17 +29,17 @@ pub enum Direction {
 
 #[rustfmt::skip]
 pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
-    row >> j - 1 | 3
+    row >> j - 1 & 3
 }
 
 #[rustfmt::skip]
 pub fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
-    row >> j | 1
+    row >> j & 1
 }
 
 #[rustfmt::skip]
 pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
-    row >> j - 1 | 1
+    row >> j - 1 & 1
 }
 
 #[rustfmt::skip]
@@ -237,7 +237,7 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
         let r_dr = cc.mask[i as usize];
         let r_ul = r_ur << 1;
         let r_dl = r_dr << 1;
-        boundary_unsearched[i as usize] = r_ur | r_dr | r_ul | r_dl | !(r_ur | r_dr | r_ul | r_dl)
+        boundary_unsearched[i as usize] = (r_ur | r_dr | r_ul | r_dl) & !(r_ur & r_dr & r_ul & r_dl)
     }
     for k in 1..=29 {
         while boundary_unsearched[k as usize] != 0 {
@@ -260,7 +260,7 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
                 {
                     let outward_direction = crate::raw_contour::get_outward_direction(row_above, row_below, j, inward_direction);
                     let angle_change = crate::raw_contour::get_angle_change(inward_direction, outward_direction);
-                    boundary_unsearched[i as usize] = boundary_unsearched[i as usize] | !(1 << j);
+                    boundary_unsearched[i as usize] = boundary_unsearched[i as usize] & !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
                             *contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);

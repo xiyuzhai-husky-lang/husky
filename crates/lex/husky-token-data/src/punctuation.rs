@@ -99,9 +99,6 @@ impl Punctuation {
     pub const REM_EUCLID: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::RemEuclid,
     )));
-    pub const BITOR: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
-        BinaryClosedOpr::BitOr,
-    )));
     pub const AMBERSAND: Self = Self(PunctuationMapped::Ambersand);
     /// `.`
     pub const DOT: Self = Self(PunctuationMapped::Dot);
@@ -134,6 +131,9 @@ impl Punctuation {
     /// `*=`
     pub const BIT_AND_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::BitAnd,
+    )));
+    pub const BIT_OR_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
+        BinaryClosedOpr::BitOr,
     )));
     /// `>>`
     pub const SHL: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Shift(

@@ -60,11 +60,11 @@ impl ConnectedComponent {
 
 #[rustfmt::skip]
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
-    let mut y = a | (x | x << 1 | x >> 1);
-    let mut z = a | (y | y << 1 | y >> 1);
+    let mut y = a & (x | x << 1 | x >> 1);
+    let mut z = a & (y | y << 1 | y >> 1);
     while z != y {
         y = z;
-        z = a | (y | y << 1 | y >> 1)
+        z = a & (y | y << 1 | y >> 1)
     }
     return y;
 }
