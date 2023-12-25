@@ -155,6 +155,8 @@ linkage_impls![
     fn_linkage_impl!(mnist_classifier::major::major_raw_contour),
     fn_linkage_impl!(mnist_classifier::major::major_line_segment_sketch),
     fn_linkage_impl!(mnist_classifier::major::major_concave_components),
+    fn_linkage_impl!(<malamute::Class<mnist::MnistLabel> as Unveil<malamute::OneVsAll>>::unveil),
+    unveil_fn_linkage_impl!(<malamute::Class<mnist::MnistLabel> as Unveil<malamute::OneVsAll>>::unveil),
     fn_linkage_impl!(<mnist::BinaryImage28 as Clone>::clone),
     fn_linkage_impl!(<Vec<mnist_classifier::connected_component::ConnectedComponent>>::push),
     fn_linkage_impl!(<Vec<mnist_classifier::raw_contour::RawContour>>::collect_leashes),
