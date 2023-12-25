@@ -81,8 +81,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     val_repr.into(),
                     dev_eval_context::<Task::DevAscension>(),
                     unsafe { std::mem::transmute(val_repr.arguments(db) as &[ValArgumentRepr]) },
-                );
-                todo!()
+                )
             }
             ValOpn::FunctionGn(_) => todo!(),
             ValOpn::Prefix(_) => todo!(),

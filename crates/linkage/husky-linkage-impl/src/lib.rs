@@ -57,7 +57,7 @@ macro_rules! fn_linkage_impl {
                 __ValControlFlow::Continue(
                     __ValueLeashTest(
                         FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-                            .fn_wrapper_aux(ctx, arguments),
+                            .fn_wrapper_aux(ctx, arguments)?,
                     )
                     .into_value(),
                 )

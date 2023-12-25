@@ -34,12 +34,12 @@ pub(crate) fn value(
     };
     let self_ty = self_ty(ident, generics);
     let primitive_ty_value_conversions = [
-        "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64", "i128",
-        "isize", "f32", "f64",
+        "()", "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
+        "i128", "isize", "f32", "f64",
     ]
     .into_iter()
     .map(|ty_str| {
-        let ty = syn::Ident::new(ty_str, Span::call_site());
+        let ty: proc_macro2::TokenStream = ty_str.parse().unwrap();
         quote! {
             impl FromValue for #ty {
                 fn from_value(value: #self_ty) -> Self {
