@@ -1,28 +1,60 @@
+mod r#enum;
+mod r#struct;
+
 use husky_macro_utils::{generics_without_bounds, self_ty};
 use proc_macro::TokenStream;
 use quote::quote;
+use syn::Ident;
 
 pub fn value_conversion(args: TokenStream, input: TokenStream) -> TokenStream {
     let item = syn::parse_macro_input!(input as syn::Item);
     match item {
-        syn::Item::Enum(item) => enum_value_conversion(item),
-        syn::Item::Struct(item) => struct_value_conversion(item),
+        syn::Item::Enum(item) => r#enum::enum_value_conversion(item),
+        syn::Item::Struct(item) => r#struct::struct_value_conversion(item),
         _ => todo!(),
     }
 }
 
-fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
-    let syn::ItemStruct {
-        ref attrs,
-        ref vis,
-        struct_token,
-        ref ident,
-        ref generics,
-        ref fields,
-        semi_token,
-    } = item;
-    let self_ty = self_ty(ident, generics);
-    let impl_static_generic_constraints = generics
+fn impl_weak_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                #param: __WeakStatic<Static = #param> + __Static
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
+}
+
+fn impl_weak_static_associated_ty_static(
+    ident: &Ident,
+    generics: &syn::Generics,
+) -> proc_macro2::TokenStream {
+    if generics.params.is_empty() {
+        quote! { #ident }
+    } else {
+        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            generics.params.iter().filter_map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { <#ident as __WeakStatic>::Static })
+                }
+                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Const(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { #ident })
+                }
+            }),
+        );
+        quote! { #ident<#arguments> }
+    }
+}
+
+fn impl_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
         .params
         .iter()
         .map(|param| match param {
@@ -34,19 +66,35 @@ fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
             },
             syn::GenericParam::Const(_) => quote! {},
         })
-        .collect::<proc_macro2::TokenStream>();
-    let impl_weak_static_generic_constraints = generics
-        .params
-        .iter()
-        .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
-            syn::GenericParam::Type(param) => quote! {
-                #param: __WeakStatic
-            },
-            syn::GenericParam::Const(_) => quote! {},
-        })
-        .collect::<proc_macro2::TokenStream>();
-    let impl_frozen_generic_constraints = generics
+        .collect::<proc_macro2::TokenStream>()
+}
+
+fn impl_static_associated_ty_frozen(
+    ident: &Ident,
+    generics: &syn::Generics,
+) -> proc_macro2::TokenStream {
+    if generics.params.is_empty() {
+        quote! { #ident }
+    } else {
+        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            generics.params.iter().filter_map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { <#ident as __Static>::Frozen })
+                }
+                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Const(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { #ident })
+                }
+            }),
+        );
+        quote! { #ident<#arguments> }
+    }
+}
+
+fn impl_frozen_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
         .params
         .iter()
         .map(|param| match param {
@@ -58,143 +106,59 @@ fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
             },
             syn::GenericParam::Const(_) => quote! {},
         })
-        .collect::<proc_macro2::TokenStream>();
-    let impl_from_value_generic_constraints = generics
-        .params
-        .iter()
-        .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
-            syn::GenericParam::Type(param) => quote! {
-                #param: __WeakStatic
-            },
-            syn::GenericParam::Const(_) => quote! {},
-        })
-        .collect::<proc_macro2::TokenStream>();
-    let impl_into_value_generic_constraints = generics
-        .params
-        .iter()
-        .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
-            syn::GenericParam::Type(param) => quote! {
-                #param: __WeakStatic
-            },
-            syn::GenericParam::Const(_) => quote! {},
-        })
-        .collect::<proc_macro2::TokenStream>();
-    quote::quote! {
-        #item
-
-        impl #generics __Static for #self_ty where #impl_static_generic_constraints {
-            type Frozen = Self;
-
-            unsafe fn freeze(&self) -> Self::Frozen {
-                // MutFrozen::new(*self)
-                todo!()
-            }
-        }
-
-        impl #generics __Frozen for #self_ty where #impl_frozen_generic_constraints {
-            type Static = Self;
-
-            type Stand = ();
-
-            fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-                todo!()
-            }
-        }
-
-        impl #generics __WeakStatic for #self_ty where #impl_weak_static_generic_constraints {
-            type Static = Self;
-
-            unsafe fn into_static(self) -> Self::Static {
-                self
-            }
-        }
-
-        // todo: value generics
-        impl #generics __FromValue for #self_ty where #impl_from_value_generic_constraints {
-            fn from_value(value: __Value) -> Self {
-                // Value::from_owned(self)
-                todo!()
-            }
-        }
-
-        // todo: value generics
-        impl #generics __IntoValue for #self_ty where #impl_into_value_generic_constraints {
-            fn into_value(self) -> __Value {
-                // Value::from_owned(self)
-                todo!()
-            }
-        }
-    }
-    .into()
+        .collect::<proc_macro2::TokenStream>()
 }
 
-fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
-    let syn::ItemEnum {
-        ref attrs,
-        ref vis,
-        enum_token,
-        ref ident,
-        ref generics,
-        brace_token,
-        ref variants,
-    } = item;
-    let generics_without_bounds = generics_without_bounds(generics);
-    let is_trivial = variants.iter().all(|variant| match variant.fields {
-        syn::Fields::Unit => true,
-        syn::Fields::Named(_) | syn::Fields::Unnamed(_) => false,
-    });
-    if is_trivial {
-        quote::quote! {
-            #item
-
-            impl #generics __FromValue for #ident #generics_without_bounds {
-                fn from_value(value: __Value) -> Self {
-                    let __Value::EnumU8(index_raw) = value else {
-                        unreachable!()
-                    };
-                    unsafe {
-                        std::mem::transmute(index_raw)
-                    }
-                }
-            }
-
-            impl #generics __IntoValue for #ident #generics_without_bounds {
-                fn into_value(self) -> __Value {
-                    __Value::EnumU8(unsafe {
-                        std::mem::transmute(self)
-                    })
-                }
-            }
-        }
-        .into()
+fn impl_frozen_associated_ty_static(
+    ident: &Ident,
+    generics: &syn::Generics,
+) -> proc_macro2::TokenStream {
+    if generics.params.is_empty() {
+        quote! { #ident }
     } else {
-        quote::quote! {
-            #item
-
-            // todo: value generics
-            impl #generics __FromValue for #ident #generics_without_bounds {
-                fn from_value(value: __Value) -> Self {
-                    // ad hoc
-                    // let __Value::EnumU8(index_raw) = value else {
-                    //     unreachable!()
-                    // };
-                    // unsafe {
-                    //     std::mem::transmute(index_raw)
-                    // }
-                    todo!()
+        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            generics.params.iter().filter_map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { <#ident as __Frozen>::Static })
                 }
-            }
-
-            // todo: value generics
-            impl #generics __IntoValue for #ident #generics_without_bounds {
-                fn into_value(self) -> __Value {
-                    // ad hoc
-                    todo!("enum into value")
+                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Const(param) => {
+                    let ident = &param.ident;
+                    Some(quote! { #ident })
                 }
-            }
-        }
-        .into()
+            }),
+        );
+        quote! { #ident<#arguments> }
     }
+}
+
+fn impl_from_value_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                // ad hoc
+                #param: __WeakStatic<Static = #param> + __Static
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
+}
+
+fn impl_into_value_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                // ad hoc
+                #param: __WeakStatic<Static = #param> + __Static
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
 }

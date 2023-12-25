@@ -4,14 +4,13 @@ use ad_hoc_task_dependency::{ugly::__InputId, val_control_flow::ValControlFlow};
 use smallvec::*;
 
 pub struct FlagVectorField<Label> {
-    // valuess: Vec<Vec<NotNan<f32>>>,
     // flags: Vec<bool>,
     stalks: Vec<Stalk>,
     label0: Label,
 }
 
 pub struct Stalk {
-    features: SmallVec<[f32; 4]>,
+    features: SmallVec<[NotNan<f32>; 4]>,
     // indicates whether the label is equal to label0
     flag: bool,
 }
@@ -51,7 +50,7 @@ where
             ValControlFlow::Undefined => todo!(),
             ValControlFlow::Err(_) => todo!(),
         };
-        let mut features: SmallVec<[f32; 4]> = smallvec![];
+        let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
             let feature = match __eval_val_repr_at_input(argument, input_id) {
                 ValControlFlow::Continue(feature) => feature,
@@ -61,6 +60,10 @@ where
                 ValControlFlow::Undefined => todo!(),
                 ValControlFlow::Err(_) => todo!(),
             };
+            let feature = match NotNan::new(feature) {
+                Ok(feature) => feature,
+                Err(_) => todo!(),
+            };
             features.push(feature)
         }
         Ok(Some(Stalk {
@@ -69,30 +72,37 @@ where
         }))
     }
 
-    fn raw_flag_ranges(&self) -> Option<Vec<FlagRange>> {
-        todo!()
-        // self.valuess
-        //     .iter()
-        //     .map(|values| FlagRange::from_values(values.iter().copied(), &self.flags))
-        //     .collect()
+    fn raw_flag_ranges(&self) -> SmallVec<[FlagRange; 4]> {
+        if self.stalks.is_empty() {
+            return smallvec![];
+        }
+        let num_of_features = self.stalks[0].features.len();
+        (0..num_of_features)
+            .into_iter()
+            .filter_map(|i| {
+                FlagRange::from_value_flag_pairs(
+                    self.stalks
+                        .iter()
+                        .map(|stalk| (stalk.features[i], stalk.flag)),
+                )
+            })
+            .collect()
     }
 
-    pub fn flag_ranges(&self, ntrim: i32, border_expand_rate: f32) -> Option<Vec<FlagRange>> {
-        let raw_flag_ranges = self.raw_flag_ranges()?;
-        Some(
-            raw_flag_ranges
-                .iter()
-                .enumerate()
-                .map(|(idx, raw_flag_range)| {
-                    self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
-                })
-                .collect(),
-        )
+    pub fn flag_ranges(&self, ntrim: i32, border_expand_rate: f32) -> SmallVec<[FlagRange; 4]> {
+        let raw_flag_ranges = self.raw_flag_ranges();
+        raw_flag_ranges
+            .iter()
+            .enumerate()
+            .map(|(idx, raw_flag_range)| {
+                self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
+            })
+            .collect()
     }
 
     fn flag_range(
         &self,
-        ntrim: i32,
+        skip: i32,
         border_expand_rate: f32,
         idx: usize,
         raw: &FlagRange,
@@ -100,17 +110,17 @@ where
         let true_values_sorted = self.true_values_sorted(idx);
         assert!(border_expand_rate < 0.4);
         assert!(border_expand_rate > 0.0);
-        assert!(ntrim >= 0);
-        let ntrim = ntrim as usize;
+        assert!(skip >= 0);
+        let skip = skip as usize;
         let interval_width = raw.true_range.end - raw.true_range.start;
         let epsilon = interval_width * border_expand_rate;
         let start = if raw.ambiguous_start() {
-            true_values_sorted[ntrim] - epsilon
+            true_values_sorted[skip] - epsilon
         } else {
             raw.true_range.start
         };
         let end = if raw.ambiguous_end() {
-            true_values_sorted[true_values_sorted.len() - 1 - ntrim] + epsilon
+            true_values_sorted[true_values_sorted.len() - 1 - skip] + epsilon
         } else {
             raw.true_range.end
         };
@@ -121,10 +131,11 @@ where
     }
 
     fn true_values(&self, idx: usize) -> Vec<NotNan<f32>> {
-        todo!()
-        // std::iter::zip(self.valuess[idx].iter(), self.flags.iter())
-        //     .filter_map(|(value, flag)| if *flag { Some(*value) } else { None })
-        //     .collect()
+        self.stalks
+            .iter()
+            .map(|stalk| (stalk.features[idx], stalk.flag))
+            .filter_map(|(value, flag)| if flag { Some(value) } else { None })
+            .collect()
     }
 
     fn true_values_sorted(&self, idx: usize) -> Vec<NotNan<f32>> {
@@ -152,30 +163,26 @@ impl FlagRange {
         }
     }
 
-    pub fn from_values(
-        values: impl Iterator<Item = NotNan<f32>> + Clone,
-        flags: &[bool],
+    pub fn from_value_flag_pairs(
+        value_flag_pairs: impl Iterator<Item = (NotNan<f32>, bool)> + Clone,
     ) -> Option<Self> {
-        let values = values.into_iter();
         Some(Self {
-            true_range: ClosedRange::from_values(
-                std::iter::zip(values.clone(), flags.iter()).filter_map(|(value, &flag)| {
+            true_range: ClosedRange::from_values(value_flag_pairs.clone().filter_map(
+                |(value, flag)| {
                     if flag {
                         Some(value)
                     } else {
                         None
                     }
-                }),
-            )?,
-            false_range: ClosedRange::from_values(std::iter::zip(values, flags.iter()).filter_map(
-                |(value, &flag)| {
-                    if !flag {
-                        Some(value)
-                    } else {
-                        None
-                    }
                 },
-            ))
+            ))?,
+            false_range: ClosedRange::from_values(value_flag_pairs.filter_map(|(value, flag)| {
+                if !flag {
+                    Some(value)
+                } else {
+                    None
+                }
+            }))
             .unwrap(),
         })
     }
