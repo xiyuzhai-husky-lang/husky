@@ -140,7 +140,9 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         target_ty_arguments: &[EtherealTerm],
         target_ty_term: EtherealTerm,
     ) -> EtherealSignatureMaybeResult<TraitForTypeImplBlockEtherealSignatureBuilder> {
-        let mut instantiation = self.template_parameters(db).empty_instantiation_builder();
+        let mut instantiation = self
+            .template_parameters(db)
+            .empty_instantiation_builder(true);
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(

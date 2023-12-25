@@ -67,10 +67,15 @@ pub struct EtherealInstantiationBuilder {
 
 impl EtherealInstantiationBuilder {
     /// symbols must be unique
-    pub(crate) fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
+    pub(crate) fn new(
+        symbols: impl Iterator<Item = EtherealTermSymbol>,
+        is_associated: bool,
+    ) -> Self {
+        let symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4> =
+            symbols.map(|symbol| (symbol, None)).collect();
         Self {
-            symbol_map: symbols.map(|symbol| (symbol, None)).collect(),
-            separator: None,
+            separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
+            symbol_map,
         }
     }
 

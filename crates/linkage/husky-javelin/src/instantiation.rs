@@ -1,4 +1,5 @@
 use crate::{template_argument::JavelinTemplateArgument, *};
+use husky_entity_path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
     HirTemplateSymbol, HirTemplateSymbolClass,
@@ -53,10 +54,17 @@ impl JavelinInstantiation {
         }
     }
 
-    pub(crate) fn new_empty(/* places */) -> Self {
+    pub(crate) fn new_amazon(item_path: ItemPath) -> Self {
         Self {
             symbol_resolutions: Default::default(),
-            separator: None,
+            separator: match item_path {
+                ItemPath::Submodule(_, _) => todo!(),
+                ItemPath::MajorItem(_) => None,
+                ItemPath::AssociatedItem(_) => Some(0),
+                ItemPath::TypeVariant(_, _) => None,
+                ItemPath::ImplBlock(_) => todo!(),
+                ItemPath::Attr(_, _) => todo!(),
+            },
         }
     }
 

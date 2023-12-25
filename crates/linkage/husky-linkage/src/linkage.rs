@@ -21,7 +21,7 @@ use husky_vfs::PackagePath;
 use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
+#[salsa::interned(jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
     #[return_ref]
     pub data: LinkageData,
@@ -86,7 +86,7 @@ impl Linkage {
                 LinkageData::ValItem {
                     path,
                     // ad hoc
-                    instantiation: LinkageInstantiation::new_empty(),
+                    instantiation: LinkageInstantiation::new_empty(false),
                 },
             )),
         }
@@ -312,7 +312,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         db,
                         LinkageData::ValItem {
                             path,
-                            instantiation: LinkageInstantiation::new_empty(),
+                            instantiation: LinkageInstantiation::new_empty(false),
                         }
                     )]
                 }

@@ -51,10 +51,10 @@ impl HirTermSymbolResolution {
 
 impl HirInstantiation {
     #[deprecated]
-    pub fn new_empty() -> Self {
+    pub fn new_empty(is_associated: bool) -> Self {
         Self {
             symbol_map: Default::default(),
-            separator: None,
+            separator: is_associated.then_some(0),
         }
     }
 
