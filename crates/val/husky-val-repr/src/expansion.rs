@@ -381,12 +381,17 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let mut arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
                 )];
+                let db = self.db;
                 add_runtime_constant_symbols(
                     instantiation,
                     val_domain_repr_guard,
                     &mut arguments,
-                    self.db,
+                    db,
                 );
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+                p!(unveil_associated_fn_path.debug(db), instantiation.debug(db));
+                todo!();
                 (opn, arguments)
             }
             HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
