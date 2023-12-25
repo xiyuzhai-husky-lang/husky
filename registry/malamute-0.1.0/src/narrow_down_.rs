@@ -2,6 +2,7 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
+use smallvec::SmallVec;
 
 #[allow(warnings, non_snake_case)]
 pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
@@ -10,7 +11,7 @@ pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
 #[value_conversion]
 pub struct NarrowDownInternal<Label> {
     label0: Label,
-    opt_flag_ranges: Option<Vec<FlagRange>>,
+    opt_flag_ranges: SmallVec<[FlagRange; 4]>,
 }
 
 impl<Label> __IsGnItem for narrow_down<Label>

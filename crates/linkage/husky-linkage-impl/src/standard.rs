@@ -62,8 +62,8 @@ where
                     generic_pedestal,
                     gn_generic_wrapper,
                     val_argument_reprs,
-                );
-                todo!()
+                )?;
+                gn_specific_wrapper(val_argument_reprs, value_at_generic_pedestal)
             }
         }
     }
