@@ -261,7 +261,7 @@ where
                     SynPrefixOpr::Ref,
                     DisambiguatedTokenData::SynBinaryOpr(
                         regional_token_idx,
-                        SynBinaryOpr::Closed(BinaryClosedOpr::BitOr),
+                        SynBinaryOpr::Closed(BinaryClosedOpr::BitAnd),
                     ),
                 ),
                 PunctuationMapped::DotDot => todo!(),
