@@ -2,7 +2,7 @@ use std::panic::RefUnwindSafe;
 
 #[salsa::db(
     // comptime
-    husky_val_repr::db::ValReprJar,
+    husky_val_repr::jar::ValReprJar,
     husky_rust_transpilation::db::RustTranspilationJar,
     // devtime
     husky_trace::db::TraceJar,

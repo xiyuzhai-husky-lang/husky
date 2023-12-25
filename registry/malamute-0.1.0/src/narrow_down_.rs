@@ -42,10 +42,11 @@ where
             Some(skip) => __eval_val_repr(skip)?,
             None => 5,
         };
-        let __ValArgumentReprInterface::Ordinary(label) = val_argument_reprs[2] else {
+        let __ValArgumentReprInterface::RuntimeConstants(runtime_constants) = val_argument_reprs[2]
+        else {
             unreachable!()
         };
-        let label: Label = __eval_val_repr(label)?;
+        let label: Label = *__eval_val_runtime_constants(runtime_constants);
         let fvf = FlagVectorField::from_features(val_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();

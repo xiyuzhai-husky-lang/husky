@@ -63,7 +63,7 @@ use husky_vfs::VfsJar;
     husky_linkage::jar::LinkageJar,
     // val
     husky_val::jar::ValJar,
-    crate::db::ValReprJar,
+    crate::jar::ValReprJar,
 )]
 #[derive(Default)]
 pub struct DB;

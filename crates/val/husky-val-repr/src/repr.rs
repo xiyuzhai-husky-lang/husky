@@ -11,7 +11,7 @@ use husky_linkage::linkage::Linkage;
 use husky_task_prelude::val_repr::{
     ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface,
 };
-use husky_val::{Val, ValArgument, ValDomain, ValOpn};
+use husky_val::{Val, ValArgument, ValDomain, ValOpn, ValRuntimeConstants};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
@@ -46,6 +46,8 @@ pub enum ValArgumentRepr {
         condition: Option<ValRepr>,
         stmts: SmallVec<[ValRepr; 4]>,
     },
+    // `None` means no runtime constants
+    RuntimeConstants(Option<ValRuntimeConstants>),
 }
 
 #[test]
@@ -130,6 +132,7 @@ pub enum ValCachingClass {
     Variable,
     Expr,
     Stmt,
+    RuntimeConstant,
 }
 
 impl ValRepr {
@@ -169,6 +172,7 @@ impl ValArgumentRepr {
                 condition: condition.map(|condition| condition.val(db)),
                 stmts: stmts.iter().map(|&stmt| stmt.val(db)).collect(),
             },
+            ValArgumentRepr::RuntimeConstants(ref val_reprs) => todo!(),
         }
     }
 }

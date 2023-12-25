@@ -184,6 +184,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
                 condition,
                 ref stmts,
             } => todo!(),
+            ValArgumentReprInterface::RuntimeConstants(_) => todo!(),
         }
     }
 
@@ -226,6 +227,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.runtime
             .eval_memoized_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
             .unwrap()
+    }
+
+    pub fn eval_val_runtime_constants(
+        &self,
+        val_runtime_constants: val_repr::ValRuntimeConstantsInterface,
+    ) -> LinkageImpl::Value {
+        // LinkageImpl::Value
+        todo!()
     }
 }
 

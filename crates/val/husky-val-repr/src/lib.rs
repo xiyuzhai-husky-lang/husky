@@ -1,12 +1,12 @@
 #![feature(trait_upcasting)]
-pub mod db;
 pub mod expansion;
+pub mod jar;
 pub mod repr;
 #[cfg(test)]
 mod tests;
 
-use self::db::*;
 use self::expansion::*;
+use self::jar::*;
 use self::repr::*;
 #[cfg(test)]
 use self::tests::*;
