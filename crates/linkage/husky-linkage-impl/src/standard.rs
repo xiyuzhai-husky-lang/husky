@@ -76,11 +76,11 @@ for_all_ritchie_tys! {impl_is_fn_linkage_impl_source}
 pub trait IsGnItem {
     type LinkageImpl: IsLinkageImpl;
 
-    type ValueAtGenericPedestal;
-
     fn generic_pedestal(
         specific_pedestal: <Self::LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> <Self::LinkageImpl as IsLinkageImpl>::Pedestal;
+
+    type ValueAtGenericPedestal;
 
     /// compute `generic_pedestal` here for efficiency
     fn train(
@@ -88,10 +88,12 @@ pub trait IsGnItem {
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<Self::LinkageImpl, Self::ValueAtGenericPedestal>;
 
+    type EvalOutput;
+
     fn eval(
         val_argument_reprs: &[ValArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
-    ) -> ValControlFlow;
+    ) -> Self::EvalOutput;
 }
 
 #[macro_export]
@@ -123,7 +125,14 @@ macro_rules! gn_linkage_impl {
                 <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value(
                     value_at_generic_pedestal,
                 );
-            <$gn_item as __IsGnItem>::eval(val_argument_reprs, value_at_generic_pedestal)
+            // todo: catch unwind
+            __ValControlFlow::Continue(
+                __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
+                    val_argument_reprs,
+                    value_at_generic_pedestal,
+                ))
+                .into_value(),
+            )
         }
         __LinkageImpl::RitchieGn {
             // ad hoc
