@@ -378,9 +378,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     &self.linkage_instantiation,
                     self.db,
                 ));
-                let arguments = smallvec![ValArgumentRepr::Ordinary(
+                let mut arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
                 )];
+                todo!("add runtime constants");
                 (opn, arguments)
             }
             HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
