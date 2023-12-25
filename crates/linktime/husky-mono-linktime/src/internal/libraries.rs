@@ -15,6 +15,7 @@ pub struct MonoLinkageLibraries {
     pub cdylibs: VecPairMap<PackagePath, Cdylib>,
 }
 
+#[salsa::debug_with_db]
 pub struct Cdylib(TaskJarIndex, Library);
 
 impl Cdylib {
@@ -68,6 +69,7 @@ impl MonoLinkageLibraries {
                 )
             },
         )?;
+        assert_eq!(cdylibs.len(), all_packages.len());
         Ok(Self { cdylibs })
     }
 }

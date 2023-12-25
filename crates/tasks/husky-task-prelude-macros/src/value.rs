@@ -32,7 +32,7 @@ pub(crate) fn value(
             <'__temp, #generics_params, __T>
         }
     };
-    let self_ty = self_ty(ident, generics);
+    let value_ty = self_ty(ident, generics);
     let primitive_ty_value_conversions = [
         "()", "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
         "i128", "isize", "f32", "f64",
@@ -42,13 +42,13 @@ pub(crate) fn value(
         let ty: proc_macro2::TokenStream = ty_str.parse().unwrap();
         quote! {
             impl FromValue for #ty {
-                fn from_value(value: #self_ty) -> Self {
+                fn from_value(value: #value_ty) -> Self {
                     value.into()
                 }
             }
 
             impl IntoValue for #ty {
-                fn into_value(self) -> #self_ty {
+                fn into_value(self) -> #value_ty {
                     self.into()
                 }
             }
@@ -59,11 +59,11 @@ pub(crate) fn value(
         #item
 
         pub trait FromValue #generics {
-            fn from_value(value: #self_ty) -> Self;
+            fn from_value(value: #value_ty) -> Self;
         }
 
         pub trait IntoValue #generics {
-            fn into_value(self) -> #self_ty;
+            fn into_value(self) -> #value_ty;
         }
 
         #primitive_ty_value_conversions
@@ -72,97 +72,103 @@ pub(crate) fn value(
 
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp __T where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 value.into_ref()
             }
         }
 
         impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp __T where __T: WeakStatic {
-            fn into_value(self) -> #self_ty {
+            fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp __T")
             }
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T")
             }
         }
 
         impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp mut __T where __T: WeakStatic {
-            fn into_value(self) -> #self_ty {
+            fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp mut __T")
             }
         }
 
         impl #generics_with_t FromValue for Option<__T> where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Option<__T>")
             }
         }
 
         impl #generics_with_t IntoValue for Option<__T> where __T: WeakStatic {
-            fn into_value(self) -> #self_ty {
+            fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t IntoValue for Option<__T>")
             }
         }
 
         impl #generics_with_t FromValue for Vec<__T> where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Vec<__T>")
             }
         }
 
         impl #generics_with_t IntoValue for Vec<__T> where __T: Static {
-            fn into_value(self) -> #self_ty {
-                #self_ty::from_owned(self)
+            fn into_value(self) -> #value_ty {
+                #value_ty::from_owned(self)
             }
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T] where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T]")
             }
         }
 
         impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp [__T] where __T: WeakStatic {
-            fn into_value(self) -> #self_ty {
+            fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp [__T]")
             }
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T] where __T: WeakStatic {
-            fn from_value(value: #self_ty) -> Self {
+            fn from_value(value: #value_ty) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T]")
             }
         }
 
         impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp mut [__T] where __T: WeakStatic {
-            fn into_value(self) -> #self_ty {
+            fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t IntoValue for &'__temp mut [__T]")
+            }
+        }
+
+        impl<C, B> IntoValue for std::ops::ControlFlow<B, C> {
+            fn into_value(self) -> #value_ty {
+                todo!("impl<C, B> IntoValue for std::ops::ControlFlow<B, C>")
             }
         }
 
         macro_rules! impl_ritchie_fn_version_conversion {
             ([$($input: ident),*], $output: ident) => {
                 impl<$($input,)* $output> FromValue for fn($($input,)*) -> $output {
-                    fn from_value(value: #self_ty) -> Self {
+                    fn from_value(value: #value_ty) -> Self {
                         todo!("impl_ritchie_fn_version_conversion FromValue")
                     }
                 }
 
                 impl<$($input,)* $output> IntoValue for fn($($input,)*) -> $output {
-                    fn into_value(self) -> #self_ty {
+                    fn into_value(self) -> #value_ty {
                         todo!("impl_ritchie_fn_version_conversion IntoValue")
                     }
                 }
@@ -177,14 +183,14 @@ pub(crate) fn value(
 
         /// distinguish `&'static T` from other types
         impl<T> ValueLeashTest<&'static T> where T: Static {
-            pub fn into_value(self)  -> #self_ty {
-                #self_ty::from_leash(self.0)
+            pub fn into_value(self)  -> #value_ty {
+                #value_ty::from_leash(self.0)
             }
         }
 
         impl<T> IntoValue for ValueLeashTest<T> where T: IntoValue {
             /// fallback to use <T as IntoValue>::into_value
-            fn into_value(self)  -> #self_ty {
+            fn into_value(self)  -> #value_ty {
                 // can't use `self.0.into_value()`,
                 // because rustc will interpret this as calling <&T as IntoValue>::into_value
                 <T as IntoValue>::into_value(self.0)

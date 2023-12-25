@@ -185,11 +185,11 @@
         ],
     ),
     (
-        TypePath(`mnist::BinaryImage28`, `Struct`),
+        TypePath(`mnist::BinaryImage28`, `Extern`),
         [],
     ),
     (
-        TypePath(`mnist::BinaryGrid28`, `Struct`),
+        TypePath(`mnist::BinaryGrid28`, `Extern`),
         [],
     ),
 ]

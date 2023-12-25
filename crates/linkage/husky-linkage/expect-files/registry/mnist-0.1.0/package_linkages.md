@@ -18,6 +18,15 @@
         },
     },
     Linkage {
+        data: LinkageData::ValItem {
+            path: FugitivePath(`mnist::input`, `Val`),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::AssociatedFunctionFn {
             path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),

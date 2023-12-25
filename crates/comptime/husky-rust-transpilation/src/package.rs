@@ -48,24 +48,24 @@ impl RustTranspilationPackage {
         db: &::salsa::Db,
     ) -> String {
         use salsa::DebugWithDb;
-        if self.package_path.is_virtual(db) {
-            diff_paths(
-                self.package_path.dir(db).unwrap().abs_path(db).unwrap(),
-                rust_workspace_abs_dir,
-            )
-            .unwrap()
-            .as_os_str()
-            .to_str()
-            .unwrap()
-            .to_string()
-        } else {
-            match self.kind {
-                RustTranspilationPackageKind::Source => {
+        match self.kind {
+            RustTranspilationPackageKind::Source => {
+                if self.package_path.is_virtual(db) {
+                    diff_paths(
+                        self.package_path.dir(db).unwrap().abs_path(db).unwrap(),
+                        rust_workspace_abs_dir,
+                    )
+                    .unwrap()
+                    .as_os_str()
+                    .to_str()
+                    .unwrap()
+                    .to_string()
+                } else {
                     self.package_path.name(db).data(db).to_string()
                 }
-                RustTranspilationPackageKind::Linkages => {
-                    format!("{}/linkages", self.package_path.name(db).data(db))
-                }
+            }
+            RustTranspilationPackageKind::Linkages => {
+                format!("{}/linkages", self.package_path.name(db).data(db))
             }
         }
     }

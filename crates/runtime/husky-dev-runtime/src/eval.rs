@@ -97,10 +97,6 @@ impl<Task: IsTask> DevRuntime<Task> {
                 }
             },
             ValOpn::Be => todo!(),
-            ValOpn::Unveil {} => {
-                let result = self.eval_val_argument(&val_repr.arguments(db)[0]);
-                todo!()
-            }
             ValOpn::Unwrap {} => todo!(),
         }
     }

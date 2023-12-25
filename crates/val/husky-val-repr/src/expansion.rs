@@ -372,7 +372,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 unveil_associated_fn_path,
                 ref instantiation,
             } => {
-                let opn = ValOpn::Unveil {};
+                let opn = ValOpn::Linkage(Linkage::new_unveil_associated_fn(
+                    unveil_associated_fn_path,
+                    instantiation,
+                    &self.linkage_instantiation,
+                    self.db,
+                ));
                 let arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, opd_hir_expr_idx)
                 )];

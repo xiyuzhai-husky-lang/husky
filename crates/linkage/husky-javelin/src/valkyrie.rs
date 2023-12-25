@@ -175,7 +175,24 @@ impl ValkyrieRides {
                     ref items,
                 } => (),
                 HirEagerExprData::NewList { ref items } => (),
-                _ => (),
+                HirEagerExprData::Unveil {
+                    unveil_associated_fn_path,
+                    ref instantiation,
+                    opd_hir_expr_idx,
+                    ..
+                } => (),
+                HirEagerExprData::Literal(_)
+                | HirEagerExprData::ConstSymbol { .. }
+                | HirEagerExprData::Variable(_)
+                | HirEagerExprData::Binary { .. }
+                | HirEagerExprData::Prefix { .. }
+                | HirEagerExprData::Suffix { .. }
+                | HirEagerExprData::As { .. }
+                | HirEagerExprData::Block { .. }
+                | HirEagerExprData::EmptyHtmlTag { .. }
+                | HirEagerExprData::Todo
+                | HirEagerExprData::Unreachable
+                | HirEagerExprData::Unwrap { .. } => (),
             }
         }
     }
@@ -249,7 +266,23 @@ impl ValkyrieRides {
                 HirLazyExprData::NewTuple { ref items } => (),
                 HirLazyExprData::Index { owner, ref items } => (),
                 HirLazyExprData::NewList { ref items } => (),
-                _ => (),
+                HirLazyExprData::Unveil {
+                    unveil_associated_fn_path,
+                    ref instantiation,
+                    opd_hir_expr_idx,
+                } => (),
+                HirLazyExprData::Literal(_)
+                | HirLazyExprData::ConstSymbol(_)
+                | HirLazyExprData::Variable(_)
+                | HirLazyExprData::Binary { .. }
+                | HirLazyExprData::Prefix { .. }
+                | HirLazyExprData::Suffix { .. }
+                | HirLazyExprData::As { .. }
+                | HirLazyExprData::Block { .. }
+                | HirLazyExprData::EmptyHtmlTag { .. }
+                | HirLazyExprData::Todo
+                | HirLazyExprData::Unreachable
+                | HirLazyExprData::Unwrap { .. } => (),
             }
         }
     }

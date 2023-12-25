@@ -1,5 +1,6 @@
 use crate::*;
 use either::*;
+use husky_entity_kind::TypeKind;
 use husky_entity_path::*;
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::HirDefn;
@@ -43,7 +44,13 @@ impl JavelinPath {
         match item_path {
             ItemPath::Submodule(_, _) => None,
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Type(path) => Some(path.into()),
+                MajorItemPath::Type(path) => match path.ty_kind(db) {
+                    TypeKind::Struct | TypeKind::Enum => Some(path.into()),
+                    TypeKind::Inductive
+                    | TypeKind::Record
+                    | TypeKind::Structure
+                    | TypeKind::Extern => None,
+                },
                 MajorItemPath::Trait(_) => None,
                 MajorItemPath::Fugitive(path) => Some(path.into()),
             },

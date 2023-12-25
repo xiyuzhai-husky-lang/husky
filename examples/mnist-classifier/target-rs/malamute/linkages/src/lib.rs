@@ -6,4 +6,5 @@ use malamute::*;
 linkage_impls![
     fn_linkage_impl!(<malamute::OneVsAll as Default>::default),
     fn_linkage_impl!(<malamute::OneVsAll as Unveil<malamute::OneVsAllResult>>::unveil),
+    unveil_fn_linkage_impl!(<malamute::OneVsAll as Unveil<malamute::OneVsAllResult>>::unveil),
 ];
