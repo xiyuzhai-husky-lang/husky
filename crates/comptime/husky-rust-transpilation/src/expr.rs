@@ -229,7 +229,7 @@ impl HirEagerExprSite {
                             self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::EqComparison)),
                         )
                             .transpile_to_rust(builder);
-                        builder.ne_zero()
+                        builder.eq_zero()
                     }),
                     _ => {
                         // todo: check some details
