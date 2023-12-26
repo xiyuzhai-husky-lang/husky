@@ -125,14 +125,15 @@ impl Value {
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
             Value::Box(boxed_value) => {
-                println!(
-                    r#"
-                    boxed_value.type_name_dyn() = {};
-                    std::any::type_name::<T>() = {}"#,
-                    boxed_value.type_name_dyn(),
-                    std::any::type_name::<T>()
-                );
-                todo!()
+                let Some(t): Option<&<T as WeakStatic>::Static> =
+                    ((&*boxed_value as &dyn StaticDyn) as &dyn std::any::Any).downcast_ref()
+                else {
+                    unreachable!()
+                };
+                // todo: make the whole function unsafe
+                let t: &'a T = unsafe { std::mem::transmute(t) };
+                value_stands.unwrap().push(ValueStand::Box(boxed_value));
+                t
             }
             Value::Leash(slf) => {
                 let slf: &<T as WeakStatic>::Static = ((slf as &dyn StaticDyn)
@@ -241,14 +242,14 @@ impl IsValue for Value {
             Value::Invalid => todo!(),
             Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
-            Value::Bool(_) => todo!(),
+            Value::Bool(b) => b,
             Value::Char(_) => todo!(),
             Value::I8(_) => todo!(),
             Value::I16(_) => todo!(),
             Value::I32(_) => todo!(),
             Value::I64(_) => todo!(),
             Value::I128(_) => todo!(),
-            Value::ISize(_) => todo!(),
+            Value::ISize(i) => i != 0,
             Value::U8(_) => todo!(),
             Value::U16(_) => todo!(),
             Value::U32(_) => todo!(),

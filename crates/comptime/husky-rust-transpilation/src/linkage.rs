@@ -9,13 +9,13 @@ use husky_entity_path::{
 };
 use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
 use husky_hir_decl::HasHirDecl;
-use husky_hir_ty::{trai::HirTrait, HirType};
+use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
 use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
     template_argument::{
         place,
-        ty::{LinkageRitchieType, LinkageType},
+        ty::{LinkageRitchieParameter, LinkageRitchieType, LinkageType},
         LinkageTemplateArgument,
     },
     trai::LinkageTrait,
@@ -281,7 +281,28 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
 
 impl<E> TranspileToRustWith<E> for LinkageRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        builder.ad_hoc_fn()
+        let db = builder.db();
+        builder.keyword(RustKeyword::Fn);
+        builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
+        builder.punctuation(RustPunctuation::LightArrow);
+        self.return_ty(db).transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageRitchieParameter {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        match self.contract() {
+            // ad hoc
+            HirEagerContract::Pure => (),
+            // builder.punctuation(RustPunctuation::Ambersand),
+            HirEagerContract::Move => (),
+            HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+            HirEagerContract::BorrowMut => todo!(),
+            HirEagerContract::Const => todo!(),
+            HirEagerContract::Leash => todo!(),
+            HirEagerContract::At => todo!(),
+        }
+        self.parameter_ty().transpile_to_rust(builder)
     }
 }
 

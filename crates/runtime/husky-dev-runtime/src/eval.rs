@@ -133,8 +133,9 @@ impl<Task: IsTask> DevRuntime<Task> {
                         unreachable!()
                     };
                     if let Some(condition) = condition {
-                        self.eval_val_repr(condition)?.to_bool();
-                        todo!()
+                        if !self.eval_val_repr(condition)?.to_bool() {
+                            continue;
+                        }
                     }
                     return self.eval_stmts(stmts);
                 }
