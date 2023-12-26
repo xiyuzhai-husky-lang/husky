@@ -7,6 +7,8 @@ where
     T: 'static,
 {
     slice: &'static [T],
+    start: i32,
+    end: i32,
 }
 
 impl<T> __Static for CyclicSliceLeashed<T>
@@ -56,27 +58,51 @@ where
 
 impl<T> Clone for CyclicSliceLeashed<T> {
     fn clone(&self) -> Self {
-        Self { slice: self.slice }
+        Self {
+            slice: self.slice,
+            start: self.start,
+            end: self.end,
+        }
     }
 }
 
 impl<T> Copy for CyclicSliceLeashed<T> {}
 
 impl<T> CyclicSliceLeashed<T> {
+    pub fn new(slice: &'static [T], start: i32, end: i32) -> Self {
+        Self { start, end, slice }
+    }
+
     pub fn first(self) -> Option<&'static T> {
-        todo!()
+        if self.slice.len() == 0 {
+            None
+        } else if self.start >= self.end {
+            None
+        } else {
+            Some(self.index(self.start as usize))
+        }
     }
 
     pub fn last(self) -> Option<&'static T> {
-        todo!()
+        if self.slice.len() == 0 {
+            None
+        } else if self.start >= self.end {
+            None
+        } else {
+            Some(self.index((self.end - 1) as usize))
+        }
     }
 
     pub fn start(self) -> i32 {
-        todo!()
+        self.start
     }
 
     pub fn end(self) -> i32 {
-        todo!()
+        self.end
+    }
+
+    pub fn index(&self, index: usize) -> &'static T {
+        &self.slice[index.rem_euclid(self.slice.len())]
     }
 }
 
@@ -84,6 +110,6 @@ impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T> {
     type Output = T;
 
     fn index(&self, index: usize) -> &Self::Output {
-        todo!()
+        self.index(index)
     }
 }

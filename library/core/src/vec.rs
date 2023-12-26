@@ -39,6 +39,6 @@ impl<T> __VecX for Vec<T> {
         start: i32,
         end: i32,
     ) -> CyclicSliceLeashed<Self::Element> {
-        todo!()
+        CyclicSliceLeashed::<T>::new(self, start, end)
     }
 }
