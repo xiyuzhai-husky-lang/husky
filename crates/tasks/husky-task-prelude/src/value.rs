@@ -1,5 +1,7 @@
 pub trait IsValue:
     Sized
+    + PartialEq
+    + PartialOrd
     + std::ops::Add<Self, Output = Self>
     + std::ops::AddAssign<Self>
     + std::ops::BitOr<Self, Output = Self>
@@ -63,4 +65,5 @@ pub trait IsValue:
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
     fn from_enum_u8(index_raw: u8) -> Self;
     fn share(&'static self) -> Self;
+    fn to_bool(self) -> bool;
 }

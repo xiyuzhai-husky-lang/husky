@@ -8,6 +8,7 @@ where
 {
     slice: &'static [T],
 }
+
 impl<T> __Static for CyclicSliceLeashed<T>
 where
     T: __Static,

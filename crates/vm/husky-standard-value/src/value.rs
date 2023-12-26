@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 use crate::{
     r#static::{Static, StaticDyn},
     *,
@@ -221,6 +223,123 @@ impl IsValue for Value {
             Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
             Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
             Value::EnumU8(slf) => Value::EnumU8(slf),
+        }
+    }
+
+    fn to_bool(self) -> bool {
+        match self {
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Box(_) => todo!(),
+            Value::Leash(_) => todo!(),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumU8(_) => todo!(),
+        }
+    }
+}
+
+impl PartialEq for Value {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Unit(l0), Self::Unit(r0)) => l0 == r0,
+            (Self::Bool(l0), Self::Bool(r0)) => l0 == r0,
+            (Self::Char(l0), Self::Char(r0)) => l0 == r0,
+            (Self::I8(l0), Self::I8(r0)) => l0 == r0,
+            (Self::I16(l0), Self::I16(r0)) => l0 == r0,
+            (Self::I32(l0), Self::I32(r0)) => l0 == r0,
+            (Self::I64(l0), Self::I64(r0)) => l0 == r0,
+            (Self::I128(l0), Self::I128(r0)) => l0 == r0,
+            (Self::ISize(l0), Self::ISize(r0)) => l0 == r0,
+            (Self::U8(l0), Self::U8(r0)) => l0 == r0,
+            (Self::U16(l0), Self::U16(r0)) => l0 == r0,
+            (Self::U32(l0), Self::U32(r0)) => l0 == r0,
+            (Self::U64(l0), Self::U64(r0)) => l0 == r0,
+            (Self::U128(l0), Self::U128(r0)) => l0 == r0,
+            (Self::USize(l0), Self::USize(r0)) => l0 == r0,
+            (Self::R8(l0), Self::R8(r0)) => l0 == r0,
+            (Self::R16(l0), Self::R16(r0)) => l0 == r0,
+            (Self::R32(l0), Self::R32(r0)) => l0 == r0,
+            (Self::R64(l0), Self::R64(r0)) => l0 == r0,
+            (Self::R128(l0), Self::R128(r0)) => l0 == r0,
+            (Self::RSize(l0), Self::RSize(r0)) => l0 == r0,
+            (Self::F32(l0), Self::F32(r0)) => l0 == r0,
+            (Self::F64(l0), Self::F64(r0)) => l0 == r0,
+            (Self::StringLiteral(l0), Self::StringLiteral(r0)) => todo!(),
+            (Self::Box(l0), Self::Box(r0)) => todo!(),
+            (Self::Leash(l0), Self::Leash(r0)) => todo!(),
+            (Self::Ref(l0), Self::Ref(r0)) => todo!(),
+            (Self::Mut(l0), Self::Mut(r0)) => todo!(),
+            (Self::OptionBox(l0), Self::OptionBox(r0)) => todo!(),
+            (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
+            (Self::OptionSizedRef(l0), Self::OptionSizedRef(r0)) => todo!(),
+            (Self::OptionSizedMut(l0), Self::OptionSizedMut(r0)) => todo!(),
+            (Self::EnumU8(l0), Self::EnumU8(r0)) => l0 == r0,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl PartialOrd for Value {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        use Value::*;
+        match (self, other) {
+            (Unit(_), Unit(_)) => Some(Ordering::Equal),
+            (Bool(b1), Bool(b2)) => b1.partial_cmp(b2),
+            (Char(c1), Char(c2)) => c1.partial_cmp(c2),
+            (I8(i1), I8(i2)) => i1.partial_cmp(i2),
+            (I16(i1), I16(i2)) => i1.partial_cmp(i2),
+            (I32(i1), I32(i2)) => i1.partial_cmp(i2),
+            (I64(i1), I64(i2)) => i1.partial_cmp(i2),
+            (I128(i1), I128(i2)) => i1.partial_cmp(i2),
+            (ISize(i1), ISize(i2)) => i1.partial_cmp(i2),
+            (U8(u1), U8(u2)) => u1.partial_cmp(u2),
+            (U16(u1), U16(u2)) => u1.partial_cmp(u2),
+            (U32(u1), U32(u2)) => u1.partial_cmp(u2),
+            (U64(u1), U64(u2)) => u1.partial_cmp(u2),
+            (U128(u1), U128(u2)) => u1.partial_cmp(u2),
+            (USize(u1), USize(u2)) => u1.partial_cmp(u2),
+            (F32(f1), F32(f2)) => f1.partial_cmp(f2),
+            (F64(f1), F64(f2)) => f1.partial_cmp(f2),
+            (StringLiteral(l0), StringLiteral(r0)) => todo!(),
+            (Box(l0), Box(r0)) => todo!(),
+            (Leash(l0), Leash(r0)) => todo!(),
+            (Ref(l0), Ref(r0)) => todo!(),
+            (Mut(l0), Mut(r0)) => todo!(),
+            (OptionBox(l0), OptionBox(r0)) => todo!(),
+            (OptionLeash(l0), OptionLeash(r0)) => todo!(),
+            (OptionSizedRef(l0), OptionSizedRef(r0)) => todo!(),
+            (OptionSizedMut(l0), OptionSizedMut(r0)) => todo!(),
+            (EnumU8(l0), EnumU8(r0)) => todo!(),
+            _ => unreachable!(),
         }
     }
 }

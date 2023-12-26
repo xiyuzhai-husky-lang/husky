@@ -16,6 +16,8 @@ husky-dev-comptime.workspace = true
 husky-instruction = { path = "../../comptime/husky-instruction" }
 # fs
 husky-vfs.workspace = true
+# hir
+husky-hir-opr.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
@@ -30,6 +32,8 @@ husky-text-protocol.workspace = true
 husky-token.workspace = true
 # linkage
 husky-linkage-impl.workspace = true
+# kernel
+husky-opr.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 # syntax

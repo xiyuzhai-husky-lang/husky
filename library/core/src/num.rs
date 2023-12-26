@@ -53,6 +53,12 @@ pub trait __F32X: Copy {
 
 impl __F32X for f32 {
     fn sgnx(self) -> i32 {
-        todo!()
+        if self > 0.0 {
+            1
+        } else if self < 0.0 {
+            -1
+        } else {
+            0
+        }
     }
 }

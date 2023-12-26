@@ -2,6 +2,8 @@ use crate::*;
 use husky_entity_path::{ItemPath, MajorItemPath, TypeVariantIndex};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
+use husky_hir_opr::binary::HirBinaryOpr;
+use husky_opr::BinaryComparisonOpr;
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point},
     helpers::{TaskError, TaskValue},
@@ -87,10 +89,58 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::FunctionGn(_) => todo!(),
             ValOpn::Prefix(_) => todo!(),
             ValOpn::Suffix(_) => todo!(),
-            ValOpn::Binary(_) => todo!(),
+            ValOpn::Binary(opr) => {
+                let arguments: &[_] = val_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 2);
+                let ValArgumentRepr::Ordinary(lopd) = arguments[0] else {
+                    unreachable!()
+                };
+                let ValArgumentRepr::Ordinary(ropd) = arguments[1] else {
+                    unreachable!()
+                };
+                match opr {
+                    HirBinaryOpr::Closed(_) => todo!(),
+                    HirBinaryOpr::Shift(_) => todo!(),
+                    HirBinaryOpr::Assign => todo!(),
+                    HirBinaryOpr::AssignClosed(_) => todo!(),
+                    HirBinaryOpr::AssignShift(_) => todo!(),
+                    HirBinaryOpr::Comparison(opr) => {
+                        let lopd = self.eval_val_repr(lopd)?;
+                        let ropd = self.eval_val_repr(ropd)?;
+                        ValControlFlow::Continue(
+                            match opr {
+                                BinaryComparisonOpr::Eq => lopd == ropd,
+                                BinaryComparisonOpr::Neq => lopd != ropd,
+                                BinaryComparisonOpr::Geq => lopd >= ropd,
+                                BinaryComparisonOpr::Greater => lopd > ropd,
+                                BinaryComparisonOpr::Leq => lopd <= ropd,
+                                BinaryComparisonOpr::Less => lopd < ropd,
+                            }
+                            .into(),
+                        )
+                    }
+                    HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
+                }
+            }
             ValOpn::EvalDiscarded => todo!(),
             ValOpn::NewList => todo!(),
-            ValOpn::Branches => todo!(),
+            ValOpn::Branches => {
+                for val_argument_repr in val_repr.arguments(db) {
+                    let ValArgumentRepr::Branch {
+                        condition,
+                        ref stmts,
+                    } = *val_argument_repr
+                    else {
+                        unreachable!()
+                    };
+                    if let Some(condition) = condition {
+                        self.eval_val_repr(condition)?.to_bool();
+                        todo!()
+                    }
+                    return self.eval_stmts(stmts);
+                }
+                unreachable!("one of the branches should return")
+            }
             ValOpn::TypeVariant(path) => match path.index(db) {
                 TypeVariantIndex::U8(index_raw) => {
                     ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw))
