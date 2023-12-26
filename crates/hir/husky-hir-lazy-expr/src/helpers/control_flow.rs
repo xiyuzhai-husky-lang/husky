@@ -132,7 +132,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(lopd)?;
                 self.expr_has_control_flow(ropd)?
             }
-            HirLazyExprData::Be { src, target: _ } => self.expr_has_control_flow(src)?,
+            HirLazyExprData::Be { src, pattern: _ } => self.expr_has_control_flow(src)?,
             HirLazyExprData::Prefix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,

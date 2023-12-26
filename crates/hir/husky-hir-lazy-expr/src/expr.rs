@@ -41,7 +41,7 @@ pub enum HirLazyExprData {
     },
     Be {
         src: HirLazyExprIdx,
-        target: HirLazyBeVariablesPattern,
+        pattern: HirLazyBeVariablesPattern,
     },
     Prefix {
         opr: HirPrefixOpr,
@@ -197,7 +197,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref target,
             } => HirLazyExprData::Be {
                 src: src.to_hir_lazy(builder),
-                target: target.to_hir_lazy(builder),
+                pattern: target.to_hir_lazy(builder),
             },
             SemaExprData::Prefix {
                 opr,

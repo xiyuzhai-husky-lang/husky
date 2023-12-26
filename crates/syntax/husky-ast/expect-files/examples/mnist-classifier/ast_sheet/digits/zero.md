@@ -21,6 +21,12 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
+                    8,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
                     9,
                 ),
                 body: None,
@@ -57,13 +63,7 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
-                    15,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    8,
+                    7,
                 ),
                 body: Some(
                     FugitiveBody {
@@ -73,18 +73,18 @@ AstSheet {
                     },
                 ),
             },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    7,
-                ),
-                body: None,
-            },
             Ast::IfElseStmts {
                 if_branch: 11,
                 elif_branches: ArenaIdxRange(
                     12..12,
                 ),
                 else_branch: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    15,
+                ),
+                body: None,
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
@@ -149,12 +149,6 @@ AstSheet {
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
                     26,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    27,
                 ),
                 body: None,
             },
@@ -323,7 +317,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                12..26,
+                                12..25,
                             ),
                         },
                     ),
@@ -332,7 +326,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        26..30,
+        25..29,
     ),
     siblings: [
         ArenaIdxRange(
@@ -349,9 +343,6 @@ AstSheet {
         ),
         ArenaIdxRange(
             2..4,
-        ),
-        ArenaIdxRange(
-            4..4,
         ),
         ArenaIdxRange(
             4..4,
@@ -414,10 +405,10 @@ AstSheet {
             12..12,
         ),
         ArenaIdxRange(
-            12..26,
+            12..25,
         ),
         ArenaIdxRange(
-            26..30,
+            25..29,
         ),
     ],
 }

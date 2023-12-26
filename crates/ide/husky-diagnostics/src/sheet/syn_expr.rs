@@ -187,7 +187,7 @@ impl Diagnose for OriginalSynExprError {
             }
             OriginalSynExprError::ExpectedIdent(_) => format!("Syntax Error: expected identifier"),
             OriginalSynExprError::ExpectedColon(_) => format!("Syntax Error: expected `:`"),
-            OriginalSynExprError::ExpectedRightParenthesis(_) => {
+            OriginalSynExprError::ExpectedRpar(_) => {
                 format!("Syntax Error: expected `)`")
             }
             OriginalSynExprError::NoMatchingBra { .. } => {

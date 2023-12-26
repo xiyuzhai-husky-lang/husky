@@ -4,11 +4,6 @@ val upper_mouth_match: FermiMatchResult =
     fermi_match(major_concave_components, [big_mouth])
 
 pub(super) val is_eight: OneVsAll MnistLabel MnistLabel::Eight  =
-    require is_one be none
-    require is_six be none
-    require is_zero be none
-    require is_seven be none
-
     // require major_connected_component.max_hole_ilen >= 1.
  
     let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
@@ -18,8 +13,8 @@ pub(super) val is_eight: OneVsAll MnistLabel MnistLabel::Eight  =
     // if major_connected_component.max_hole_ilen == 2.0:
     //     MnistLabel::Eight
 
-    if major_connected_component.eff_holes.matches[1] be none:
-        if major_connected_component.eff_holes.matches[0] be none:
+    if major_connected_component.eff_holes.matches[1] be None:
+        if major_connected_component.eff_holes.matches[0] be None:
             require false
         require false
     OneVsAll::Yes

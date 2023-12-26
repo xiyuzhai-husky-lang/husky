@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub struct SynExprRangeRegion {
     item_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
@@ -178,12 +178,12 @@ impl<'a> SynExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &SynPatternExpr) -> RegionalTokenIdxRange {
+    fn calc_pattern_expr_range(&self, expr: &SynPatternExprData) -> RegionalTokenIdxRange {
         match expr {
-            SynPatternExpr::Literal {
+            SynPatternExprData::Literal {
                 regional_token_idx, ..
             } => RegionalTokenIdxRange::new_single(*regional_token_idx),
-            SynPatternExpr::Ident {
+            SynPatternExprData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
             } => match symbol_modifier_tokens {
@@ -209,20 +209,22 @@ impl<'a> SynExprRangeCalculator<'a> {
                 Some(_) => todo!(),
                 None => RegionalTokenIdxRange::new_single(ident_token.regional_token_idx()),
             },
-            SynPatternExpr::TypeVariantUnit { path_expr_idx, .. } => {
+            SynPatternExprData::UnitTypeVariant { path_expr_idx, .. } => {
                 self.principal_entity_path_expr_ranges[path_expr_idx.index()]
             }
-            SynPatternExpr::Tuple { .. } => todo!(),
-            SynPatternExpr::Props { .. } => todo!(),
-            SynPatternExpr::OneOf { options } => {
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::Props { .. } => todo!(),
+            SynPatternExprData::OneOf { options } => {
                 let fst = options.elements().first().unwrap().syn_pattern_expr_idx();
                 let lst = options.elements().last().unwrap().syn_pattern_expr_idx();
                 let fst_range = self.pattern_expr_ranges[fst.index()];
                 let lst_range = self.pattern_expr_ranges[lst.index()];
                 fst_range.join(lst_range)
             }
-            SynPatternExpr::Binding { .. } => todo!(),
-            SynPatternExpr::Range { .. } => todo!(),
+            SynPatternExprData::Binding { .. } => todo!(),
+            SynPatternExprData::Range { .. } => todo!(),
         }
     }
 

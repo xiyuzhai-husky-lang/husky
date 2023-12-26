@@ -250,7 +250,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn syn_pattern_expr_ty(
         &self,
-        syn_pattern_expr_idx: ArenaIdx<husky_syn_expr::SynPatternExpr>,
+        syn_pattern_expr_idx: ArenaIdx<husky_syn_expr::SynPatternExprData>,
     ) -> EtherealTerm {
         self.sema_expr_region_data
             .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)

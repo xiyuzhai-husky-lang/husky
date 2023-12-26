@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternExprRoot};
+use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -40,6 +40,7 @@ pub enum HirEagerPatternExpr {
         start: HirEagerPatternExprIdx,
         end: HirEagerPatternExprIdx,
     },
+    Some,
 }
 
 pub type HirEagerPatternExprArena = Arena<HirEagerPatternExpr>;
@@ -64,7 +65,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> HirEagerPatternExpr {
         let db = self.db();
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
-            SynPatternExpr::Literal { literal, .. } => {
+            SynPatternExprData::Literal { literal, .. } => {
                 HirEagerPatternExpr::Literal(match literal {
                     LiteralData::Unit => TermLiteral::Unit(()),
                     LiteralData::Char(_) => todo!(),
@@ -135,17 +136,30 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralData::Bool(_) => todo!(),
                 })
             }
-            SynPatternExpr::Ident {
+            SynPatternExprData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
             } => HirEagerPatternExpr::Ident {
                 ident: ident_token.ident(),
                 symbol_modifier: symbol_modifier_tokens.map(Into::into),
             },
-            SynPatternExpr::TypeVariantUnit { path, .. } => HirEagerPatternExpr::Unit(path.into()),
-            SynPatternExpr::Tuple { name: _, fields: _ } => todo!(),
-            SynPatternExpr::Props { name: _, fields: _ } => todo!(),
-            SynPatternExpr::OneOf { ref options } => {
+            SynPatternExprData::UnitTypeVariant { path, .. } => {
+                HirEagerPatternExpr::Unit(path.into())
+            }
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { path, .. } => {
+                // ad hoc
+                if path.ident(db).data(db) == "Some" {
+                    HirEagerPatternExpr::Some
+                } else {
+                    todo!()
+                }
+            }
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
+            SynPatternExprData::OneOf { ref options } => {
                 let hir_eager_options = options
                     .elements()
                     .iter()
@@ -161,12 +175,12 @@ impl<'a> HirEagerExprBuilder<'a> {
                     ),
                 }
             }
-            SynPatternExpr::Binding {
+            SynPatternExprData::Binding {
                 ident_token: _,
                 asperand_token: _,
                 src: _,
             } => todo!(),
-            SynPatternExpr::Range {
+            SynPatternExprData::Range {
                 start: _,
                 dot_dot_token: _,
                 end: _,

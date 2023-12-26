@@ -19,9 +19,9 @@ pub(super) val is_three: OneVsAll MnistLabel MnistLabel::Three =
     let downarc = three_fermi_match.matches[0]
     let uparc = three_fermi_match.matches[1]
     let back = three_fermi_match.matches[2]
-    require downarc be some    
+    require downarc be Some(_)    
     require downarc!.norm > 3.0
-    require uparc be some
+    require uparc be Some(_)
 
     let de = downarc!.end_tangent().angle(true)
     require de > 0.0 or de < -100.0

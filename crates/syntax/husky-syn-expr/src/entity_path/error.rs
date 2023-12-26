@@ -2,7 +2,7 @@ use super::*;
 use original_error::OriginalError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum SynExprError {
     #[error("original `{0}`")]
     Original(OriginalSynExprError),
@@ -29,7 +29,7 @@ impl From<DerivedPrincipalEntityPathExprError> for SynExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum OriginalSynExprError {
     #[error("item tree")]
     EntityTree {
@@ -51,7 +51,7 @@ impl From<OriginalSynExprError> for OriginalSynExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum DerivedPrincipalEntityPathExprError {
     #[error("derived from expr error {0}")]
     AbortFromExprError(#[from] OriginalSynExprError),

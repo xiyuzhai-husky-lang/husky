@@ -63,6 +63,42 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
+                    26,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    27,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    28,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    29,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    30,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
+                    31,
+                ),
+                body: None,
+            },
+            Ast::BasicStmtOrBranch {
+                token_group_idx: TokenGroupIdx(
                     32,
                 ),
                 body: None,
@@ -111,9 +147,15 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
-                    40,
+                    25,
                 ),
-                body: None,
+                body: Some(
+                    FugitiveBody {
+                        ast_idx_range: ArenaIdxRange(
+                            11..25,
+                        ),
+                    },
+                ),
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
@@ -147,49 +189,7 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
-                    31,
-                ),
-                body: Some(
-                    FugitiveBody {
-                        ast_idx_range: ArenaIdxRange(
-                            11..25,
-                        ),
-                    },
-                ),
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    47,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    48,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    49,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    50,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    51,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    46,
+                    40,
                 ),
                 body: Some(
                     FugitiveBody {
@@ -253,42 +253,6 @@ AstSheet {
                 ),
                 body: None,
             },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    25,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    26,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    27,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    28,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    29,
-                ),
-                body: None,
-            },
-            Ast::BasicStmtOrBranch {
-                token_group_idx: TokenGroupIdx(
-                    30,
-                ),
-                body: None,
-            },
             Ast::IfElseStmts {
                 if_branch: 25,
                 elif_branches: ArenaIdxRange(
@@ -305,7 +269,7 @@ AstSheet {
             },
             Ast::BasicStmtOrBranch {
                 token_group_idx: TokenGroupIdx(
-                    52,
+                    46,
                 ),
                 body: None,
             },
@@ -562,7 +526,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                32..50,
+                                32..44,
                             ),
                         },
                     ),
@@ -571,7 +535,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        50..56,
+        44..50,
     ),
     siblings: [
         ArenaIdxRange(
@@ -686,24 +650,6 @@ AstSheet {
             11..11,
         ),
         ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
-            11..11,
-        ),
-        ArenaIdxRange(
             11..25,
         ),
         ArenaIdxRange(
@@ -728,10 +674,10 @@ AstSheet {
             32..32,
         ),
         ArenaIdxRange(
-            32..50,
+            32..44,
         ),
         ArenaIdxRange(
-            50..56,
+            44..50,
         ),
     ],
 }

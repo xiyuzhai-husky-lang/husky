@@ -84,7 +84,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                 }),
             );
             if let Some(eq_token) = ctx.try_parse_option::<EqRegionalToken>()? {
-                let SynPatternExpr::Ident {
+                let SynPatternExprData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
                 } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_expr_idx()]

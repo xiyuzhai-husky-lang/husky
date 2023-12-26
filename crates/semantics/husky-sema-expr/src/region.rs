@@ -132,7 +132,7 @@ impl SemaExprRegionData {
 
     pub fn syn_pattern_expr_ty(
         &self,
-        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExpr>,
+        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExprData>,
         db: &::salsa::Db,
     ) -> EtherealTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {

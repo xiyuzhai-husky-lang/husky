@@ -489,13 +489,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `displacement_downwards`,
                     token_idx: TokenIdx(
-                        255,
+                        270,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        256,
+                        271,
                     ),
                     drained: false,
                 },
@@ -533,13 +533,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `cc_box_heights`,
                     token_idx: TokenIdx(
-                        284,
+                        299,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        285,
+                        300,
                     ),
                     drained: false,
                 },

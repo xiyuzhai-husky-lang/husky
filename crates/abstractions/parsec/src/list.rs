@@ -64,6 +64,10 @@ where
     pub fn separators(&self) -> &[Separator] {
         &self.separators
     }
+
+    pub fn len(&self) -> usize {
+        self.elements.len()
+    }
 }
 
 impl<

@@ -67,4 +67,8 @@ pub trait IsValue:
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
     fn r#move(&mut self) -> Self;
+    /// should unreachable if not an option
+    fn is_none(self) -> bool;
+    /// should unreachable if not an option
+    fn is_some(self) -> bool;
 }

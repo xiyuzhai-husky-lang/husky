@@ -537,13 +537,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `upmost`,
                     token_idx: TokenIdx(
-                        524,
+                        530,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        525,
+                        531,
                     ),
                     drained: false,
                 },
@@ -581,13 +581,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `downmost`,
                     token_idx: TokenIdx(
-                        553,
+                        559,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        554,
+                        560,
                     ),
                     drained: false,
                 },
@@ -625,13 +625,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `hat`,
                     token_idx: TokenIdx(
-                        587,
+                        593,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        588,
+                        594,
                     ),
                     drained: false,
                 },

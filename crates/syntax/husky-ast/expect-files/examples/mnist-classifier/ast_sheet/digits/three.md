@@ -313,13 +313,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `uparc`,
                     token_idx: TokenIdx(
-                        165,
+                        171,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        166,
+                        172,
                     ),
                     drained: false,
                 },
@@ -357,13 +357,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `downarc`,
                     token_idx: TokenIdx(
-                        202,
+                        208,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        203,
+                        209,
                     ),
                     drained: false,
                 },
@@ -401,13 +401,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `back`,
                     token_idx: TokenIdx(
-                        239,
+                        245,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        240,
+                        246,
                     ),
                     drained: false,
                 },

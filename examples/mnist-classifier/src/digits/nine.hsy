@@ -7,27 +7,25 @@ val nine_match_refine: FermiMatchResult =
     fermi_match(major_concave_components, [big_cc])
 
 pub(super) val is_nine: OneVsAll MnistLabel MnistLabel::Nine =
-    require is_zero be none
-    require is_six be none 
     let eff_holes = major_connected_component.eff_holes
 
-    require eff_holes.matches[1] be none
+    require eff_holes.matches[1] be None
 
     let down_match=nine_match.matches[0]
-    require down_match be some
+    require down_match be Some(_)
     let down_match_dp_y = down_match!.displacement().y
     
     let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
 
-    if eff_holes.matches[0] be none:
+    if eff_holes.matches[0] be None:
         require major_concave_components.ilen()>=2
         let nine_match_refine_result=nine_match_refine.matches[0]
-        require nine_match_refine_result be some
+        require nine_match_refine_result be Some(_)
         require nine_match_refine.norm <1.0
         let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         let upper_arc = nine_match_refine.matches[0]
-        require upper_arc be some
+        require upper_arc be Some(_)
         require upper_arc!.displacement().y > 0.0
         require upper_arc!.angle_change < -110.0
         require nine_match_refine.norm < 9.0

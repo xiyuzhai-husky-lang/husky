@@ -59,8 +59,8 @@ impl Val {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = ValDb, jar = ValJar)]
+#[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum ValOpn {
     Return,
     Require,
@@ -75,8 +75,22 @@ pub enum ValOpn {
     Literal(TermLiteral),
     Branches,
     TypeVariant(TypeVariantPath),
-    Be,
+    /// use pattern_data instead of pattern for efficiency
+    Be {
+        pattern_data: ValPatternData,
+    },
     Unwrap {},
+}
+
+#[salsa::interned(jar = ValJar)]
+pub struct ValPattern {
+    data: ValPatternData,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub enum ValPatternData {
+    None,
+    Some,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

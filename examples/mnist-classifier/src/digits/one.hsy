@@ -24,7 +24,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
         let downmost = one_fermi_match.matches[0]
         let upmost = one_fermi_match.matches[1]
         let hat = one_fermi_match.matches[2]
-        if downmost be none:
+        if downmost be None:
             require simp_one_match.norm < 4.2
             narrow_down(
                 simp_one_match.angle_change_norm.abs(),
@@ -46,7 +46,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
             one_fermi_match.matches[0]!.angle_change.abs(),
             skip = 2,
         )?
-        if upmost be some:
+        if upmost be Some(_):
             // ad hoc; improve syntax
             require upmost!.strokes.end() - upmost!.strokes.start() == 2
             let long_vertical = upmost!.strokes[upmost!.strokes.start() + 1]
@@ -63,7 +63,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
                 long_vertical_dp.x / long_vertical_dp.y,
                 skip = 2,
             )?
-        if hat be some:
+        if hat be Some(_):
             narrow_down(
                 one_fermi_match.matches[2]!.norm,
                 one_fermi_match.matches[2]!.rel_norm,

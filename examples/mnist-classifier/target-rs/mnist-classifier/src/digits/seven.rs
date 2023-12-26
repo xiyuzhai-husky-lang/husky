@@ -40,12 +40,10 @@ pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_componen
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 40)]
 pub fn is_seven() -> malamute::OneVsAll {
-    require!(let none = is_six());
-    require!(let none = is_zero());
     require!(major_connected_component().max_hole_ilen() == 0.0f32);
     let simple_match_norm = simple_seven_match().norm();
     if simple_match_norm < 1.0f32 {
-        require!(let some = simple_seven_match().matches[0 as usize]);
+        require!(let Some(_) = simple_seven_match().matches[0 as usize]);
         let upper_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
         if upper_excess < 10.0f32 {
             let end_tangent = simple_seven_match().matches[0 as usize].unwrap().end_tangent();
@@ -59,7 +57,7 @@ pub fn is_seven() -> malamute::OneVsAll {
         require!(upper_excess > 10.0f32);
         return OneVsAll::Yes;
     }
-    require!(let some = special_seven_match().matches[0 as usize]);
+    require!(let Some(_) = special_seven_match().matches[0 as usize]);
     let others = &special_seven_match().others;
     require!(false);
     OneVsAll::Yes
