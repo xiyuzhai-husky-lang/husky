@@ -52,7 +52,7 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
 
         // todo: value generics
         impl #generics __FromValue for #self_ty where #impl_from_value_generic_constraints {
-            fn from_value(value: __Value) -> Self {
+            fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
                 value.into_owned()
             }
         }

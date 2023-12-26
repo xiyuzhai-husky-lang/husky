@@ -25,6 +25,8 @@ pub trait StaticDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
 {
     unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn>;
+
+    fn type_name_dyn(&self) -> &'static str;
 }
 
 impl<T> StaticDyn for T
@@ -33,6 +35,10 @@ where
 {
     unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn> {
         Arc::new(self.freeze())
+    }
+
+    fn type_name_dyn(&self) -> &'static str {
+        std::any::type_name::<T>()
     }
 }
 

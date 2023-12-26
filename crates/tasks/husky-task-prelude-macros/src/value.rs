@@ -42,7 +42,7 @@ pub(crate) fn value(
         let ty: proc_macro2::TokenStream = ty_str.parse().unwrap();
         quote! {
             impl FromValue for #ty {
-                fn from_value(value: #value_ty) -> Self {
+                fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                     value.into()
                 }
             }
@@ -58,11 +58,37 @@ pub(crate) fn value(
     quote! {
         #item
 
-        pub trait FromValue #generics {
-            fn from_value(value: #value_ty) -> Self;
+        pub trait FromValue: Sized {
+            /// `value_stands` is needed for keeping memory valid when coersing owned ty into ref or ref mut
+            fn from_value_aux(value: #value_ty, value_stands: Option<&mut ValueStands>) -> Self;
+
+            /// final
+            fn from_value_static(value: #value_ty) -> Self {
+                Self::from_value_aux(value, None)
+            }
+
+            /// final
+            fn from_value_temp(value: #value_ty, value_stands: &mut ValueStands) -> Self {
+                Self::from_value_aux(value, Some(value_stands))
+            }
+
+            /// this is useful for keyed argument,
+            /// only implement this for Option
+            fn from_optional_value(value: Option<#value_ty>) -> Self {
+                panic!("can't be constructed from optional value")
+            }
+
+            /// this is useful for variadic argument,
+            // only implement this for Vec, SmallVec
+            fn from_variadic_values<E>(
+                values: impl Iterator<Item = ValControlFlow<Value, Value, E>>,
+                value_stands: Option<&mut ValueStands>,
+            ) -> ValControlFlow<Self, Value, E> {
+                panic!("can't be constructed from value iter")
+            }
         }
 
-        pub trait IntoValue #generics {
+        pub trait IntoValue: Sized {
             fn into_value(self) -> #value_ty;
         }
 
@@ -72,8 +98,8 @@ pub(crate) fn value(
 
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp __T where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
-                value.into_ref()
+            fn from_value_aux(value: #value_ty, value_stands: Option<&mut ValueStands>) -> Self {
+                value.into_ref(value_stands)
             }
         }
 
@@ -85,7 +111,7 @@ pub(crate) fn value(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T")
             }
@@ -99,9 +125,15 @@ pub(crate) fn value(
         }
 
         impl #generics_with_t FromValue for Option<__T> where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Option<__T>")
+            }
+
+            /// this is useful for keyed argument,
+            /// only implement this for Option
+            fn from_optional_value(value: Option<#value_ty>) -> Self {
+                todo!("Option from_optional_value")
             }
         }
 
@@ -112,10 +144,30 @@ pub(crate) fn value(
             }
         }
 
-        impl #generics_with_t FromValue for Vec<__T> where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
+        impl #generics_with_t FromValue for Vec<__T> where __T: FromValue {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Vec<__T>")
+            }
+
+            /// this is useful for variadic argument,
+            // only implement this for Vec, SmallVec
+            fn from_variadic_values<E>(
+                values: impl Iterator<Item = ValControlFlow<Value, Value, E>>,
+                value_stands: Option<&mut ValueStands>,
+            ) -> ValControlFlow<Self, Value, E> {
+                match value_stands {
+                    Some(value_stands) => values.map(
+                        |val_control_flow| val_control_flow.map(
+                            |v|__T::from_value_temp(v, value_stands)
+                        )
+                    ).collect(),
+                    None => values.map(
+                        |val_control_flow| val_control_flow.map(
+                            |v|__T::from_value_static(v)
+                        )
+                    ).collect(),
+                }
             }
         }
 
@@ -126,7 +178,7 @@ pub(crate) fn value(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T] where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T]")
             }
@@ -140,7 +192,7 @@ pub(crate) fn value(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T] where __T: WeakStatic {
-            fn from_value(value: #value_ty) -> Self {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T]")
             }
@@ -162,7 +214,7 @@ pub(crate) fn value(
         macro_rules! impl_ritchie_fn_value_conversion {
             ([$($input: ident),*], $output: ident) => {
                 impl<$($input,)* $output> FromValue for fn($($input,)*) -> $output {
-                    fn from_value(value: #value_ty) -> Self {
+                    fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                         todo!("impl_ritchie_fn_value_conversion FromValue")
                     }
                 }
@@ -180,7 +232,7 @@ pub(crate) fn value(
         macro_rules! impl_non_unit_tuple_value_conversion {
             ($($field: ident),*) => {
                 impl<$($field,)*> FromValue for ($($field,)*) {
-                    fn from_value(value: #value_ty) -> Self {
+                    fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
                         todo!("impl_ritchie_fn_value_conversion FromValue")
                     }
                 }

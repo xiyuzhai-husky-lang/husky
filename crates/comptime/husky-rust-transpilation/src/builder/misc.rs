@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_path::{SubmoduleItemPath, TraitPath};
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
+use husky_linkage::template_argument::ty::LinkageType;
 use husky_manifest::PackageDependency;
 use husky_vfs::SubmodulePath;
 
@@ -192,5 +193,16 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn copy_trait(&mut self) {
         self.result += "Copy"
+    }
+
+    pub(crate) fn v(&mut self) {
+        self.result += "v"
+    }
+
+    pub(crate) fn vec_ty(&mut self, element_ty: LinkageType) {
+        self.result += "Vec";
+        self.bracketed(RustBracket::Angle, |builder| {
+            element_ty.transpile_to_rust(builder)
+        })
     }
 }

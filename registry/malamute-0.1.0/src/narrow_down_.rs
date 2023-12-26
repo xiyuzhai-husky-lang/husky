@@ -39,7 +39,7 @@ where
             unreachable!()
         };
         let skip: i32 = match skip {
-            Some(skip) => __eval_val_repr(skip)?,
+            Some(skip) => __eval_val_repr(skip, None)?,
             None => 5,
         };
         let __ValArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
@@ -70,7 +70,7 @@ where
         for (&feature, flag_range) in
             std::iter::zip(features, &value_at_generic_pedestal.flag_ranges)
         {
-            let v: f32 = match __eval_val_repr(feature) {
+            let v: f32 = match __eval_val_repr(feature, None) {
                 ValControlFlow::Continue(v) => v,
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),

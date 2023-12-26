@@ -4,7 +4,7 @@ pub mod ugly;
 use husky_linkage_impl::standard::ValControlFlow;
 pub use husky_ml_task_prelude_macros::*;
 
-use husky_standard_value::{FromValue, Value};
+use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
 use husky_task_prelude::val_repr::{
     ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
@@ -78,36 +78,41 @@ pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R
     r
 }
 
-pub fn eval_val_repr<T>(val_repr: ValReprInterface) -> ValControlFlow<T>
+pub fn eval_val_repr<T>(
+    val_repr: ValReprInterface,
+    value_stands: Option<&mut __ValueStands>,
+) -> ValControlFlow<T>
 where
     T: FromValue + 'static,
 {
-    ValControlFlow::Continue(<T as FromValue>::from_value(
-        dev_eval_context().eval_val_repr(val_repr)?,
-    ))
+    let mut value = dev_eval_context().eval_val_repr(val_repr)?;
+    ValControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
 }
 
-pub fn eval_val_repr_at_input<T>(val_repr: ValReprInterface, input_id: InputId) -> ValControlFlow<T>
+pub fn eval_val_repr_at_input<T>(
+    val_repr: ValReprInterface,
+    input_id: InputId,
+    value_stands: Option<&mut __ValueStands>,
+) -> ValControlFlow<T>
 where
     T: FromValue + 'static,
 {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        ValControlFlow::Continue(<T as FromValue>::from_value(
-            dev_eval_context().eval_val_repr(val_repr)?,
-        ))
+        eval_val_repr(val_repr, value_stands)
     })
 }
 
 pub fn eval_val_domain_repr_at_input(
     val_domain_repr: ValDomainReprInterface,
     input_id: InputId,
+    value_stands: Option<&mut __ValueStands>,
 ) -> ValControlFlow<(), Infallible> {
     match val_domain_repr {
         ValDomainReprInterface::Omni => ValControlFlow::Continue(()),
         ValDomainReprInterface::ConditionSatisfied(_) => todo!(),
         ValDomainReprInterface::ConditionNotSatisfied(_) => todo!(),
         ValDomainReprInterface::StmtNotReturned(stmt_val_repr) => {
-            match eval_val_repr_at_input::<()>(stmt_val_repr, input_id) {
+            match eval_val_repr_at_input::<()>(stmt_val_repr, input_id, value_stands) {
                 ValControlFlow::Continue(_) => todo!(),
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),
@@ -123,5 +128,6 @@ pub fn eval_val_runtime_constant<T>(val_runtime_constant: ValRuntimeConstantInte
 where
     T: FromValue,
 {
-    T::from_value(dev_eval_context().eval_val_runtime_constant(val_runtime_constant))
+    // no need to return a stand, because runtime constant are always solid
+    T::from_value_static(dev_eval_context().eval_val_runtime_constant(val_runtime_constant))
 }

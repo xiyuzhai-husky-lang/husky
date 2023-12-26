@@ -37,7 +37,7 @@ macro_rules! init_crate {
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value(__dev_eval_context().eval_eager_val_item_with(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_item_with(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
                 f,
@@ -48,7 +48,7 @@ macro_rules! init_crate {
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value(__dev_eval_context().eval_lazy_val_item(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val_item(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
             ))
@@ -62,7 +62,7 @@ macro_rules! init_crate {
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value(__dev_eval_context().eval_memoized_field_with(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_memoized_field_with(
                 __jar_index(),
                 __TaskIngredientIndex::from_index(ingredient_index),
                 slf,
@@ -79,12 +79,14 @@ macro_rules! init_crate {
             T: 'static,
             &'static T: __FromValue,
         {
-            <&'static T as __FromValue>::from_value(__dev_eval_context().eval_memoized_field_with(
-                __jar_index(),
-                __TaskIngredientIndex::from_index(ingredient_index),
-                slf,
-                f,
-            ))
+            <&'static T as __FromValue>::from_value_static(
+                __dev_eval_context().eval_memoized_field_with(
+                    __jar_index(),
+                    __TaskIngredientIndex::from_index(ingredient_index),
+                    slf,
+                    f,
+                ),
+            )
         }
     };
 }
@@ -172,22 +174,6 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.runtime
             .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
             .unwrap()
-    }
-
-    pub fn eval_val_repr_argument(
-        self,
-        val_repr: &ValArgumentReprInterface,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
-        match *val_repr {
-            ValArgumentReprInterface::Ordinary(val_repr) => self.eval_val_repr(val_repr),
-            ValArgumentReprInterface::Keyed(_) => todo!(),
-            ValArgumentReprInterface::Variadic(_) => todo!(),
-            ValArgumentReprInterface::Branch {
-                condition,
-                ref stmts,
-            } => todo!(),
-            ValArgumentReprInterface::RuntimeConstants(_) => todo!(),
-        }
     }
 
     pub fn eval_val_repr_at_generic_pedestal_with(

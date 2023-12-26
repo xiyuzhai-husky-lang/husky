@@ -1,6 +1,8 @@
 pub mod ugly;
 
-pub use husky_standard_value::{value_conversion, FromValue, IntoValue, Value, ValueLeashTest};
+pub use husky_standard_value::{
+    frozen::ValueStands, value_conversion, FromValue, IntoValue, Value, ValueLeashTest,
+};
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
@@ -134,9 +136,11 @@ macro_rules! gn_linkage_impl {
             val_argument_reprs: &[__ValArgumentReprInterface],
             value_at_generic_pedestal: __Value,
         ) -> __ValControlFlow {
+            let value_stands = &mut Default::default();
             let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
-                <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value(
+                <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
                     value_at_generic_pedestal,
+                    value_stands,
                 );
             // todo: catch unwind
             __ValControlFlow::Continue(

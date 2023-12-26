@@ -109,10 +109,29 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 arguments: &[ValArgumentReprInterface],
             ) -> ValControlFlow<Self::FnOutput> {
                 let mut arguments = arguments.iter();
+                let value_stands = &mut ValueStands::default();
                 ValControlFlow::Continue(self.1(
-                    $(<$input as FromValue>::from_value(
-                        ctx.eval_val_repr_argument(arguments.next().unwrap())?
-                    ),)*
+                    $({
+                        let argument = arguments.next().unwrap();
+                        match *argument {
+                            ValArgumentReprInterface::Ordinary(val_repr) => {
+                                <$input as FromValue>::from_value_temp(
+                                    ctx.eval_val_repr(val_repr)?,
+                                    (value_stands)
+                                )
+                            },
+                            ValArgumentReprInterface::Keyed(argument) => todo!("ValArgumentReprInterface::Keyed(argument)"),
+                            ValArgumentReprInterface::Variadic(ref val_reprs) => {
+                                <$input as FromValue>::from_variadic_values(
+                                    val_reprs.iter().map(
+                                        |&val_repr| ctx.eval_val_repr(val_repr)
+                                    ),
+                                    Some(value_stands)
+                                )?
+                            },
+                            ValArgumentReprInterface::Branch { .. } => unreachable!(),
+                            ValArgumentReprInterface::RuntimeConstants(ref argument) => todo!(),
+                        }},)*
                 ))
             }
         }
@@ -219,15 +238,18 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 ) = arguments[1] else {
                     unreachable!()
                 };
+                let value_stands = &mut ValueStands::default();
                 let mut runtime_constants = runtime_constants.iter();
                 match self.1(
-                    <Target as FromValue>::from_value(
-                        ctx.eval_val_repr(target)?
+                    <Target as FromValue>::from_value_temp(
+                        ctx.eval_val_repr(target)?,
+                        value_stands
                     ),
-                    ($(<$runtime_constant as FromValue>::from_value(
+                    ($(<$runtime_constant as FromValue>::from_value_temp(
                         ctx.eval_val_runtime_constant(
                             *runtime_constants.next().expect("missing runtime constant")
-                        )
+                        ),
+                        value_stands
                     ),)*)
                 ) {
                     std::ops::ControlFlow::Continue(c) => ValControlFlow::Continue(c),

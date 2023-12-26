@@ -254,7 +254,7 @@ where
         V: Default,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
+            Some(entry) => unsafe { wild_utils::arb_lifetime_mut(&mut entry.1) },
             None => {
                 self.entries.push((key, V::default()));
                 &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1
@@ -268,7 +268,7 @@ where
         K: Copy + PartialEq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
+            Some(entry) => unsafe { wild_utils::arb_lifetime_mut(&mut entry.1) },
             None => {
                 self.entries.push((key, f()));
                 &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1

@@ -1,6 +1,6 @@
 use crate::{
     amazon::package_amazon_javelins, instantiation::JavelinInstantiation, path::JavelinPath,
-    valkyrie::package_valkyrie_javelins, *,
+    template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins, *,
 };
 use husky_entity_path::{AssociatedItemPath, ItemPath};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
@@ -19,6 +19,9 @@ pub enum JavelinData {
     PathLeading {
         path: JavelinPath,
         instantiation: JavelinInstantiation,
+    },
+    VecConstructor {
+        element_ty: JavelinType,
     },
 }
 

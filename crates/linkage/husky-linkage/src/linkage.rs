@@ -71,6 +71,9 @@ pub enum LinkageData {
         path: FugitivePath,
         instantiation: LinkageInstantiation,
     },
+    VecConstructor {
+        element_ty: LinkageType,
+    },
 }
 
 impl Linkage {
@@ -182,6 +185,19 @@ impl Linkage {
                     linkage_instantiation,
                     db,
                 ),
+            },
+        )
+    }
+
+    pub fn new_vec_constructor(
+        element_ty: HirType,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkageData::VecConstructor {
+                element_ty: LinkageType::from_hir(element_ty, Some(linkage_instantiation), db),
             },
         )
     }
@@ -442,6 +458,17 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             },
             JavelinPath::TypeVariantConstructor(_) => todo!(),
         },
+        JavelinData::VecConstructor { element_ty } => smallvec![Linkage::new(
+            db,
+            LinkageData::VecConstructor {
+                element_ty: LinkageType::from_javelin(
+                    element_ty,
+                    // ad hoc
+                    &LinkageInstantiation::new_empty(false),
+                    db
+                )
+            },
+        )],
     }
 }
 

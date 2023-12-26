@@ -1,11 +1,12 @@
 use std::cmp::Ordering;
 
 use crate::{
+    frozen::{ValueStand, ValueStands},
     r#static::{Static, StaticDyn},
     *,
 };
 use husky_decl_macro_utils::*;
-use husky_task_prelude::value::IsValue;
+use husky_task_prelude::{val_control_flow::ValControlFlow, value::IsValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -92,7 +93,7 @@ impl Value {
         todo!()
     }
 
-    pub fn into_ref<'a, T>(self) -> &'a T
+    pub fn into_ref<'a, T>(self, value_stands: Option<&mut ValueStands>) -> &'a T
     where
         T: WeakStatic,
     {
@@ -123,7 +124,16 @@ impl Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Box(_) => todo!(),
+            Value::Box(boxed_value) => {
+                println!(
+                    r#"
+                    boxed_value.type_name_dyn() = {};
+                    std::any::type_name::<T>() = {}"#,
+                    boxed_value.type_name_dyn(),
+                    std::any::type_name::<T>()
+                );
+                todo!()
+            }
             Value::Leash(slf) => {
                 let slf: &<T as WeakStatic>::Static = ((slf as &dyn StaticDyn)
                     as &dyn std::any::Any)
@@ -265,6 +275,10 @@ impl IsValue for Value {
             Value::EnumU8(_) => todo!(),
         }
     }
+
+    fn r#move(&mut self) -> Self {
+        std::mem::replace(self, Value::Moved)
+    }
 }
 
 impl PartialEq for Value {
@@ -330,7 +344,7 @@ impl PartialOrd for Value {
             (F32(f1), F32(f2)) => f1.partial_cmp(f2),
             (F64(f1), F64(f2)) => f1.partial_cmp(f2),
             (StringLiteral(l0), StringLiteral(r0)) => todo!(),
-            (Box(l0), Box(r0)) => todo!(),
+            (Value::Box(l0), Value::Box(r0)) => todo!(),
             (Leash(l0), Leash(r0)) => todo!(),
             (Ref(l0), Ref(r0)) => todo!(),
             (Mut(l0), Mut(r0)) => todo!(),

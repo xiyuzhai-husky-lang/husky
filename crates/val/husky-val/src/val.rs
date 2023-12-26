@@ -73,7 +73,6 @@ pub enum ValOpn {
     Linkage(Linkage),
     EvalDiscarded,
     Literal(TermLiteral),
-    NewList,
     Branches,
     TypeVariant(TypeVariantPath),
     Be,

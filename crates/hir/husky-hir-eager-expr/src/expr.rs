@@ -122,6 +122,8 @@ pub enum HirEagerExprData {
     },
     NewList {
         items: SmallVec<[HirEagerExprIdx; 4]>,
+        element_ty: HirType,
+        // todo: disambiguate Vec, SmallVec, Array, etc.
     },
     Block {
         stmts: HirEagerStmtIdxRange,
@@ -408,14 +410,16 @@ impl ToHirEager for SemaExprIdx {
                 todo!()
             }
             SemaExprData::NewList {
-                lbox_regional_token_idx: _,
                 ref items,
-                rbox_regional_token_idx: _,
+                element_ty,
+                ..
             } => HirEagerExprData::NewList {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),
+                element_ty: HirType::from_fluffy(element_ty, builder.db(), builder.fluffy_terms())
+                    .unwrap(),
             },
             SemaExprData::BoxColonList {
                 lbox_regional_token_idx: _,

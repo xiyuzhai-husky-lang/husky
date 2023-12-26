@@ -579,14 +579,22 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 }
                 (ValOpn::Linkage(Linkage::new_index(self.db)), arguments)
             }
-            HirLazyExprData::NewList { ref items } => (
-                ValOpn::NewList,
-                items
-                    .iter()
-                    .map(|&item| {
-                        ValArgumentRepr::Ordinary(self.build_expr(val_domain_repr_guard, item))
-                    })
-                    .collect(),
+            HirLazyExprData::ConstructList {
+                ref items,
+                element_ty,
+            } => (
+                // todo: disambiguate between Vec, SmallVec, Array
+                ValOpn::Linkage(Linkage::new_vec_constructor(
+                    element_ty,
+                    &self.linkage_instantiation,
+                    self.db,
+                )),
+                smallvec![ValArgumentRepr::Variadic(
+                    items
+                        .iter()
+                        .map(|&item| { self.build_expr(val_domain_repr_guard, item) })
+                        .collect()
+                )],
             ),
             HirLazyExprData::Block { stmts: _ } => todo!(),
             HirLazyExprData::EmptyHtmlTag {

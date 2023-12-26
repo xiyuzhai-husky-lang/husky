@@ -177,7 +177,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(owner)?;
                 self.infer_new_exprs(items)?
             }
-            HirLazyExprData::NewList { ref items } => self.infer_new_exprs(items)?,
+            HirLazyExprData::ConstructList { ref items, .. } => self.infer_new_exprs(items)?,
             HirLazyExprData::Block { stmts } => {
                 for stmt in stmts {
                     self.infer_new_stmt(stmt)?
