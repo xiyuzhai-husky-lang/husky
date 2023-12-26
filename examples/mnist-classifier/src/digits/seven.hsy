@@ -27,13 +27,11 @@ fn leftdowncc_pattern(cc: ~ConcaveComponent) -> ?f32:
     require ang < 30.0
     ang
 
-pub(super) val is_seven: OneVsAll MnistLabel MnistLabel::Seven = 
-    require is_six be none
-    require is_zero be none
+pub(super) val is_seven: OneVsAll MnistLabel MnistLabel::Seven =
     require major_connected_component.max_hole_ilen == 0.
     let simple_match_norm = simple_seven_match.norm
     if simple_match_norm < 1.0:
-        require simple_seven_match.matches[0] be some
+        require simple_seven_match.matches[0] be Some(_)
         let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         if upper_excess < 10.:
             let end_tangent = simple_seven_match.matches[0]!.end_tangent()
@@ -44,7 +42,7 @@ pub(super) val is_seven: OneVsAll MnistLabel MnistLabel::Seven =
         let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         require upper_excess > 10.
         return OneVsAll::Yes
-    require special_seven_match.matches[0] be some
+    require special_seven_match.matches[0] be Some(_)
     let others = special_seven_match.others
     require false
     OneVsAll::Yes

@@ -11,7 +11,7 @@ pub struct SynExprRegion {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
     path: SynNodeRegionPath,
@@ -206,7 +206,7 @@ impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
     }
 }
 impl std::ops::Index<SynPatternExprIdx> for SynExprRegionData {
-    type Output = SynPatternExpr;
+    type Output = SynPatternExprData;
 
     fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
         &self.pattern_expr_region[index]

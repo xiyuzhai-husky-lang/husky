@@ -24,22 +24,30 @@ impl<'a> SemaExprEngine<'a> {
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
-            SynPatternExpr::Literal { .. } => (), // there is no subpattern to infer
-            SynPatternExpr::Ident { .. } => (),   // there is no subpattern to infer
-            SynPatternExpr::TypeVariantUnit { .. } => (), // there is no subpattern to infer
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { ref options } => {
+            SynPatternExprData::Literal { .. } => (), // there is no subpattern to infer
+            SynPatternExprData::Ident { .. } => (),   // there is no subpattern to infer
+            SynPatternExprData::UnitTypeVariant { .. } => (), // there is no subpattern to infer
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } =>
+            /* ad hoc */
+            {
+                ()
+            }
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::Props { name, ref fields } => todo!(),
+            SynPatternExprData::OneOf { ref options } => {
                 for option in options.elements() {
                     self.infer_pattern_ty(option.syn_pattern_expr_idx(), ty)
                 }
             }
-            SynPatternExpr::Binding {
+            SynPatternExprData::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            SynPatternExpr::Range {
+            SynPatternExprData::Range {
                 start,
                 dot_dot_token,
                 end,

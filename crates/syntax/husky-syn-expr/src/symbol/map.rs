@@ -2,7 +2,7 @@ use super::*;
 use idx_arena::ArenaIdx;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub struct SymbolMap<V> {
     inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
     current_syn_symbol_map: CurrentSynSymbolMap<V>,

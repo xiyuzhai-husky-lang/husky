@@ -4,7 +4,7 @@ use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum SynExprError {
     #[error("original {0}")]
     Original(#[from] OriginalSynExprError),
@@ -19,7 +19,7 @@ impl From<TokenDataError> for SynExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
@@ -33,7 +33,7 @@ pub enum OriginalSynExprError {
     #[error("expected `:`")]
     ExpectedColon(RegionalTokenStreamState),
     #[error("expected `)`")]
-    ExpectedRightParenthesis(RegionalTokenStreamState),
+    ExpectedRpar(RegionalTokenStreamState),
     #[error("no matching bracket")]
     NoMatchingBra {
         ket: SynBracket,
@@ -187,7 +187,7 @@ impl OriginalSynExprError {
             | OriginalSynExprError::ExpectedRightCurlyBrace(token_stream_state)
             | OriginalSynExprError::ExpectedIdent(token_stream_state)
             | OriginalSynExprError::ExpectedColon(token_stream_state)
-            | OriginalSynExprError::ExpectedRightParenthesis(token_stream_state)
+            | OriginalSynExprError::ExpectedRpar(token_stream_state)
             | OriginalSynExprError::ExpectedEolColon(token_stream_state)
             | OriginalSynExprError::ExpectedIdentAfterModifier(token_stream_state, _)
             | OriginalSynExprError::ExpectedFieldType(token_stream_state)
@@ -278,7 +278,7 @@ impl OriginalError for OriginalSynExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum DerivedSynExprError {
     #[error("token error {0}")]
     TokenData(#[from] TokenDataError),

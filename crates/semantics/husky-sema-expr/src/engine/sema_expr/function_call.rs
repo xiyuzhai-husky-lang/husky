@@ -22,6 +22,7 @@ impl<'a> SemaExprEngine<'a> {
             for item in items {
                 self.build_sema_expr(item.syn_expr_idx(), ExpectAnyDerived);
             }
+            p!(self.path());
             p!(self.syn_expr_region_data[function_syn_expr_idx].debug(self.db));
             todo!();
             return (

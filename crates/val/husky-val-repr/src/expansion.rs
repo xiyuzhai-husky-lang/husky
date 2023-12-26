@@ -7,9 +7,9 @@ use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
     variable::HirLazyVariableMap,
-    HirLazyCallListItemGroup, HirLazyCondition, HirLazyExprData, HirLazyExprIdx, HirLazyExprMap,
-    HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr, HirLazyStmt, HirLazyStmtIdx,
-    HirLazyStmtIdxRange, HirLazyStmtMap,
+    HirLazyBeVariablesPattern, HirLazyCallListItemGroup, HirLazyCondition, HirLazyExprData,
+    HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr,
+    HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 
 use husky_hir_ty::{
@@ -18,7 +18,7 @@ use husky_hir_ty::{
 };
 use husky_linkage::{instantiation::LinkageInstantiation, linkage::Linkage};
 
-use husky_val::{ValOpn, ValRuntimeConstant, ValRuntimeConstantData};
+use husky_val::{ValOpn, ValPatternData, ValRuntimeConstant, ValRuntimeConstantData};
 use husky_vfs::ModulePath;
 use smallvec::{smallvec, SmallVec};
 
@@ -280,8 +280,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
         condition: &HirLazyCondition,
     ) -> ValRepr {
         match *condition {
-            HirLazyCondition::Be { src, ref target } => {
-                let opn = ValOpn::Be;
+            HirLazyCondition::Be { src, ref pattern } => {
+                let opn = ValOpn::Be {
+                    pattern_data: self.build_pattern(pattern),
+                };
                 let arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, src)
                 )];
@@ -341,8 +343,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ];
                 (opn, arguments)
             }
-            HirLazyExprData::Be { src, target: _ } => (
-                ValOpn::Be,
+            HirLazyExprData::Be { src, pattern: _ } => (
+                ValOpn::Be {
+                    pattern_data: todo!(),
+                },
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, src)
                 )],
@@ -643,6 +647,14 @@ impl<'a> ValReprExpansionBuilder<'a> {
             instantiation,
             db,
         )));
+    }
+
+    fn build_pattern(&mut self, pattern: &HirLazyBeVariablesPattern) -> ValPatternData {
+        match pattern {
+            HirLazyBeVariablesPattern::Literal => todo!(),
+            HirLazyBeVariablesPattern::None => ValPatternData::None,
+            HirLazyBeVariablesPattern::Some => ValPatternData::Some,
+        }
     }
 
     fn finish(self) -> ValReprExpansion {

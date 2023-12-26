@@ -236,7 +236,10 @@ impl ValkyrieRides {
             match *data {
                 HirLazyExprData::AssociatedFn { path } => (),
                 HirLazyExprData::PrincipalEntityPath(_) => (),
-                HirLazyExprData::Be { src, ref target } =>
+                HirLazyExprData::Be {
+                    src,
+                    pattern: ref target,
+                } =>
                 /* ad hoc */
                 {
                     ()

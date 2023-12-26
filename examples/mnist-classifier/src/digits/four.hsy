@@ -17,8 +17,8 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
 
     // Type I four, the horizontal line is long
     // Take two left components and decide which one is the upper and lower.
-    require left_components.matches[0] be some 
-    require left_components.matches[1] be some
+    require left_components.matches[0] be Some(_) 
+    require left_components.matches[1] be Some(_)
 
     // left_component_upper = left_components.matches[1]
     // left_component_lower = left_components.matches[0]
@@ -50,7 +50,7 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
 
     let eff_holes = major_connected_component.eff_holes
 
-    require eff_holes.matches[1] be none    // hole.mass
+    require eff_holes.matches[1] be None    // hole.mass
 
 
 
@@ -62,20 +62,20 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
 
 
     let down_match = components_max_downwards.matches[0]
-    require down_match be some
+    require down_match be Some(_)
     let down_match_dp_y = down_match!.displacement().y
     
     let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
 
-    if eff_holes.matches[0] be none:
+    if eff_holes.matches[0] be None:
         require major_concave_components.ilen()>=2
         let four_match_refine_result = components_max_heights.matches[0]
-        require four_match_refine_result be some
+        require four_match_refine_result be Some(_)
         require components_max_heights.norm <1.0
         let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         let upper_arc = components_max_heights.matches[0]
-        require upper_arc be some
+        require upper_arc be Some(_)
         require upper_arc!.displacement().y > 0.0
         require upper_arc!.angle_change < -110.0
         require components_max_heights.norm < 9.0

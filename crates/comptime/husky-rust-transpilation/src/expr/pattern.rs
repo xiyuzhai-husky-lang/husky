@@ -52,6 +52,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
             }
             HirEagerPatternExpr::Binding { ident: _, src: _ } => todo!(),
             HirEagerPatternExpr::Range { start: _, end: _ } => todo!(),
+            HirEagerPatternExpr::Some => builder.some_pattern(),
         }
     }
 }

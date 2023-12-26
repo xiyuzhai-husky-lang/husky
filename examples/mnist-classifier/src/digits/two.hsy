@@ -21,17 +21,10 @@ fn down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp.x
 
 pub(super) val is_two: OneVsAll MnistLabel MnistLabel::Two =
-    require is_zero be none
-    require is_three be none
-    require is_seven be none
-    require is_one be none 
-    require is_nine be none
-    require is_six be none
-
     let cc_num = major_concave_components.ilen()
     let eff_holes = major_connected_component.eff_holes
     
-    require eff_holes.matches[1] be none
+    require eff_holes.matches[1] be None
     let left_cc = two_match.matches[0]
     let right_cc = two_match.matches[1]
     let down_cc = two_match.matches[2]
@@ -43,8 +36,8 @@ pub(super) val is_two: OneVsAll MnistLabel MnistLabel::Two =
     require lower_excess > 10.0
 
     if cc_num == 2:
-        require left_cc be some
-        require right_cc be some
+        require left_cc be Some(_)
+        require right_cc be Some(_)
         let a = right_cc!.angle_change
         require a>-180.0
         // get the end line of the cc
@@ -63,11 +56,11 @@ pub(super) val is_two: OneVsAll MnistLabel MnistLabel::Two =
         require left_mid_y >= right_mid_y
 
     // if cc_num == 2:
-    //     require major_connected_component.eff_holes.matches[0] be none
+    //     require major_connected_component.eff_holes.matches[0] be None
     if cc_num==3:
-        require left_cc be some
-        require right_cc be some
-        require down_cc be some
+        require left_cc be Some(_)
+        require right_cc be Some(_)
+        require down_cc be Some(_)
         require down_cc!.relative_bounding_box.ymin() <0.4
         let a = down_cc!.angle_change
     OneVsAll::Yes

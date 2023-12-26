@@ -497,7 +497,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => match self.syn_expr_region_data[pattern_symbol] {
                 SynPatternSymbol::Atom(pattern_expr_idx) => {
                     match self.syn_expr_region_data[pattern_expr_idx] {
-                        SynPatternExpr::Ident {
+                        SynPatternExprData::Ident {
                             ident_token,
                             symbol_modifier_tokens: _,
                         } => self.override_add(

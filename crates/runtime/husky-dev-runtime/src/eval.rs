@@ -12,7 +12,7 @@ use husky_task::{
 use husky_task_prelude::value::IsValue;
 use husky_task_prelude::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_term_prelude::TermLiteral;
-use husky_val::ValOpn;
+use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
 use husky_vfs::PackagePath;
 use salsa::DebugWithDb;
@@ -166,7 +166,21 @@ impl<Task: IsTask> DevRuntime<Task> {
                     ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw))
                 }
             },
-            ValOpn::Be => todo!(),
+            ValOpn::Be { pattern_data } => {
+                let arguments: &[_] = val_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 1);
+                let ValArgumentRepr::Ordinary(src) = arguments[0] else {
+                    unreachable!()
+                };
+                let src = self.eval_val_repr(src)?;
+                ValControlFlow::Continue(
+                    match pattern_data {
+                        ValPatternData::None => src.is_none(),
+                        ValPatternData::Some => src.is_some(),
+                    }
+                    .into(),
+                )
+            }
             ValOpn::Unwrap {} => todo!(),
         }
     }

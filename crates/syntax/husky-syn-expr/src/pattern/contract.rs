@@ -1,25 +1,28 @@
 use super::*;
 
-impl SynPatternExpr {
+impl SynPatternExprData {
     pub(super) fn contract(&self) -> TermContract {
         match self {
-            SynPatternExpr::Literal { .. } => TermContract::Pure,
-            SynPatternExpr::Ident {
+            SynPatternExprData::Literal { .. } => TermContract::Pure,
+            SynPatternExprData::Ident {
                 symbol_modifier_tokens,
                 ..
             } => TermContract::new(*symbol_modifier_tokens),
             // ad hoc
-            SynPatternExpr::TypeVariantUnit { .. } => TermContract::Pure,
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExprData::UnitTypeVariant { .. } => TermContract::Pure,
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
             // ad hoc
-            SynPatternExpr::OneOf { options } => TermContract::Pure,
-            SynPatternExpr::Binding {
+            SynPatternExprData::TupleTypeVariant { .. } => TermContract::Pure,
+            SynPatternExprData::Props { name, ref fields } => todo!(),
+            // ad hoc
+            SynPatternExprData::OneOf { options } => TermContract::Pure,
+            SynPatternExprData::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            SynPatternExpr::Range {
+            SynPatternExprData::Range {
                 start,
                 dot_dot_token,
                 end,

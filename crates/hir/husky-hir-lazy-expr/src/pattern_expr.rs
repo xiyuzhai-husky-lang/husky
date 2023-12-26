@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::PatternPath;
-use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternExprRoot};
+use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::TermLiteral;
 use idx_arena::ArenaRef;
 
@@ -64,24 +64,28 @@ impl<'a> HirLazyExprBuilder<'a> {
         syn_pattern_expr_idx: SynPatternExprIdx,
     ) -> HirLazyPatternExpr {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
-            SynPatternExpr::Literal { .. } => todo!(),
-            SynPatternExpr::Ident {
+            SynPatternExprData::Literal { .. } => todo!(),
+            SynPatternExprData::Ident {
                 symbol_modifier_tokens: _symbol_modifier_keyword_group,
                 ident_token,
             } => HirLazyPatternExpr::Ident {
                 // symbol_modifier: (),
                 ident: ident_token.ident(),
             },
-            SynPatternExpr::TypeVariantUnit { .. } => todo!(),
-            SynPatternExpr::Tuple { name: _, fields: _ } => todo!(),
-            SynPatternExpr::Props { name: _, fields: _ } => todo!(),
-            SynPatternExpr::OneOf { options: _ } => todo!(),
-            SynPatternExpr::Binding {
+            SynPatternExprData::UnitTypeVariant { .. } => todo!(),
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
+            SynPatternExprData::OneOf { options: _ } => todo!(),
+            SynPatternExprData::Binding {
                 ident_token: _,
                 asperand_token: _,
                 src: _,
             } => todo!(),
-            SynPatternExpr::Range {
+            SynPatternExprData::Range {
                 start: _,
                 dot_dot_token: _,
                 end: _,

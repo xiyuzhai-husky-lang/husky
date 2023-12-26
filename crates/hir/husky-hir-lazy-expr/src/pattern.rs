@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
 use husky_sema_expr::LetPatternSemaSyndicate;
-use husky_syn_expr::BePatternSynSyndicate;
+use husky_syn_expr::{BePatternSynSyndicate, SynPatternExprData};
 
 use crate::*;
 
@@ -44,12 +44,62 @@ impl<'a> HirLazyExprBuilder<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirLazyBeVariablesPattern {}
+pub enum HirLazyBeVariablesPattern {
+    Literal,
+    None,
+    Some,
+}
 
 impl ToHirLazy for BePatternSynSyndicate {
     type Output = HirLazyBeVariablesPattern;
 
-    fn to_hir_lazy(&self, _builder: &mut HirLazyExprBuilder) -> Self::Output {
-        HirLazyBeVariablesPattern {}
+    fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
+        let db = builder.db();
+        let pattern_expr_arena = builder.syn_expr_region_data().pattern_expr_arena();
+        match pattern_expr_arena[self.syn_pattern_root().syn_pattern_expr_idx()] {
+            SynPatternExprData::Literal {
+                regional_token_idx,
+                literal,
+            } => todo!(),
+            SynPatternExprData::Ident {
+                symbol_modifier_tokens,
+                ident_token,
+            } => todo!(),
+            SynPatternExprData::UnitTypeVariant {
+                path_expr_idx,
+                path,
+            } => {
+                // ad hoc
+                if path.ident(db).data(db) == "None" {
+                    HirLazyBeVariablesPattern::None
+                } else {
+                    todo!()
+                }
+            }
+            SynPatternExprData::Tuple { .. } => todo!(),
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { path, .. } => {
+                // ad hoc
+                if path.ident(db).data(db) == "Some" {
+                    HirLazyBeVariablesPattern::Some
+                } else {
+                    todo!()
+                }
+            }
+            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::Props { name, ref fields } => todo!(),
+            SynPatternExprData::OneOf { ref options } => todo!(),
+            SynPatternExprData::Binding {
+                ident_token,
+                asperand_token,
+                src,
+            } => todo!(),
+            SynPatternExprData::Range {
+                start,
+                dot_dot_token,
+                end,
+            } => todo!(),
+        }
     }
 }

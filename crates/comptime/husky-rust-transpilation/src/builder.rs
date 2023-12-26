@@ -358,6 +358,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.fresh_line();
         self.write_str(bracket.ket_code());
     }
+
+    // ad hoc
+    pub(crate) fn some_pattern(&mut self) {
+        self.write_str("Some(_)")
+    }
 }
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {

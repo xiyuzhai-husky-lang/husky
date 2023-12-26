@@ -130,7 +130,7 @@ impl ToHirLazy for SemaStmtIdxRange {
 pub enum HirLazyCondition {
     Be {
         src: HirLazyExprIdx,
-        target: HirLazyBeVariablesPattern,
+        pattern: HirLazyBeVariablesPattern,
     },
     Other {
         hir_lazy_expr_idx: HirLazyExprIdx,
@@ -150,7 +150,7 @@ impl ToHirLazy for SemaCondition {
                 target,
             } => HirLazyCondition::Be {
                 src: src.to_hir_lazy(builder),
-                target: target.to_hir_lazy(builder),
+                pattern: target.to_hir_lazy(builder),
             },
             SemaCondition::Other {
                 sema_expr_idx,

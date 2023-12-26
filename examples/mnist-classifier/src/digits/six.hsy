@@ -7,12 +7,11 @@ val six_match_refined1: FermiMatchResult =
     fermi_match(major_concave_components, [upmost, bottom1])
 
 pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
-    require is_one be none
     let upmost_match = six_match.matches[0]
-    require upmost_match be some
+    require upmost_match be Some(_)
     let eff_holes = major_connected_component.eff_holes
     let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
-    if eff_holes.matches[0] be none:
+    if eff_holes.matches[0] be None:
         narrow_down(
             six_match.norm,
             six_match_refined1.rel_norm,
@@ -24,7 +23,7 @@ pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
         let upmost_match_dp_y = upmost_match!.displacement().y
         let others = six_match_refined1.others
         require six_match_refined1.norm < 1.8
-        if bottom1_match be some:
+        if bottom1_match be Some(_):
             require bottom1_match_dp_y > -2.5
             // ad hoc
             require ignored_connected_components_row_span_sum_sum < 30.0
@@ -54,7 +53,7 @@ pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
     if six_match.norm > 1.8:
         require six_match.norm < 1.8
     require eff_holes.matches[0]!.relative_bounding_box.ymax() < 0.75
-    if eff_holes.matches[1] be some:
+    if eff_holes.matches[1] be Some(_):
         require eff_holes.matches[1]!.relative_bounding_box.ymax() < 0.75
     require lower_excess > 15.0
     OneVsAll::Yes

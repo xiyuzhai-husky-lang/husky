@@ -3,7 +3,7 @@ use idx_arena::ordered_map::ArenaOrderedMap;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db]
 pub enum SynPatternSymbol {
     Atom(SynPatternExprIdx),
 }
@@ -15,7 +15,7 @@ impl SynPatternSymbol {
     ) -> SymbolModifier {
         match self {
             SynPatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
-                SynPatternExpr::Ident {
+                SynPatternExprData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
                 } => SymbolModifier::new(symbol_modifier_keyword_group),

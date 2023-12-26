@@ -280,6 +280,26 @@ impl IsValue for Value {
     fn r#move(&mut self) -> Self {
         std::mem::replace(self, Value::Moved)
     }
+
+    fn is_none(self) -> bool {
+        match self {
+            Value::OptionBox(opt) => opt.is_none(),
+            Value::OptionLeash(opt) => opt.is_none(),
+            Value::OptionSizedRef(opt) => opt.is_none(),
+            Value::OptionSizedMut(opt) => opt.is_none(),
+            _ => unreachable!(),
+        }
+    }
+
+    fn is_some(self) -> bool {
+        match self {
+            Value::OptionBox(opt) => opt.is_some(),
+            Value::OptionLeash(opt) => opt.is_some(),
+            Value::OptionSizedRef(opt) => opt.is_some(),
+            Value::OptionSizedMut(opt) => opt.is_some(),
+            _ => unreachable!(),
+        }
+    }
 }
 
 impl PartialEq for Value {
