@@ -191,7 +191,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
             HirType::Ritchie(hir_ty) => {
                 for param in hir_ty.parameters(db).iter() {
                     match param {
-                        HirRitchieParameter::Regular(param) => self.add_hir_ty(param.ty()),
+                        HirRitchieParameter::Ordinary(param) => self.add_hir_ty(param.ty()),
                         HirRitchieParameter::Variadic(_) => todo!(),
                         HirRitchieParameter::Keyed(_) => todo!(),
                     }

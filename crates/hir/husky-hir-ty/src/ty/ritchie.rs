@@ -64,7 +64,7 @@ impl std::ops::Deref for HirRitchieParameters {
 #[enum_class::from_variants]
 #[salsa::debug_with_db]
 pub enum HirRitchieParameter {
-    Regular(HirRitchieRegularParameter),
+    Ordinary(HirRitchieRegularParameter),
     Variadic(HirRitchieVariadicParameter),
     Keyed(HirRitchieKeyedParameter),
 }
