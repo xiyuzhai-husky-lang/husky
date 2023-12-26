@@ -6,7 +6,7 @@ pub use husky_ml_task_prelude_macros::*;
 
 use husky_standard_value::{FromValue, Value};
 use husky_task_prelude::val_repr::{
-    ValDomainReprInterface, ValReprInterface, ValRuntimeConstantsInterface,
+    ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible, thread::LocalKey};
@@ -119,16 +119,9 @@ pub fn eval_val_domain_repr_at_input(
     }
 }
 
-pub fn eval_val_runtime_constants<T>(
-    val_runtime_constants: Option<ValRuntimeConstantsInterface>,
-) -> &'static T {
-    match val_runtime_constants {
-        Some(val_runtime_constants) => dev_eval_context()
-            .eval_val_runtime_constants(val_runtime_constants)
-            .into_leash(),
-        None => {
-            debug_assert_eq!(std::any::TypeId::of::<()>(), std::any::TypeId::of::<T>());
-            unsafe { std::mem::transmute(&()) }
-        }
-    }
+pub fn eval_val_runtime_constant<T>(val_runtime_constant: ValRuntimeConstantInterface) -> T
+where
+    T: FromValue,
+{
+    T::from_value(dev_eval_context().eval_val_runtime_constant(val_runtime_constant))
 }

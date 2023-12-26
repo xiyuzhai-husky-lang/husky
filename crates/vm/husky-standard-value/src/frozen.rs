@@ -1,7 +1,9 @@
 pub mod mut_frozen;
 pub mod value;
 
-use husky_decl_macro_utils::{for_all_primitive_tys, for_all_ritchie_tys};
+use husky_decl_macro_utils::{
+    for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
+};
 
 use super::*;
 use crate::r#static::{Static, StaticDyn};
@@ -135,3 +137,23 @@ macro_rules! impl_frozen_for_ritchie_ty {
 }
 
 for_all_ritchie_tys!(impl_frozen_for_ritchie_ty);
+
+macro_rules! impl_frozen_for_tuple_ty {
+    (
+        $($field:ident),*
+    ) => {
+        impl<$($field,)*> Frozen for ($($field,)*)
+        where
+            $($field: Frozen,)*
+        {
+            type Static = ($(<$field as Frozen>::Static,)*);
+            type Stand = ($(<$field as Frozen>::Stand,)*);
+
+            fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+                todo!()
+            }
+        }
+    };
+}
+
+for_all_non_unit_tuple_tys!(impl_frozen_for_tuple_ty);

@@ -42,11 +42,13 @@ where
             Some(skip) => __eval_val_repr(skip)?,
             None => 5,
         };
-        let __ValArgumentReprInterface::RuntimeConstants(runtime_constants) = val_argument_reprs[2]
+        let __ValArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
+            val_argument_reprs[2]
         else {
             unreachable!()
         };
-        let label: Label = *__eval_val_runtime_constants(runtime_constants);
+        debug_assert_eq!(runtime_constants.len(), 1);
+        let label: Label = __eval_val_runtime_constant(runtime_constants[0]);
         let fvf = FlagVectorField::from_features(val_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();

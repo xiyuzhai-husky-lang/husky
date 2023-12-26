@@ -6,7 +6,7 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_entity_path::{ItemPath, MajorItemPath};
+use husky_entity_path::{ItemPath, MajorItemPath, TypeVariantIndex};
 use husky_entity_syn_tree::helpers::{
     ingredient::HasIngredientPaths, jar::package_path_from_jar_index,
 };
@@ -20,11 +20,11 @@ use husky_task::{
 };
 use husky_task_prelude::{
     val_control_flow::ValControlFlow,
-    val_repr::{ValDomainReprInterface, ValReprInterface},
+    val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
     IsDevRuntime, IsDevRuntimeDyn, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex,
     TaskJarIndex,
 };
-use husky_val::Val;
+use husky_val::{Val, ValRuntimeConstant, ValRuntimeConstantData};
 use husky_val_repr::repr::ValRepr;
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
 
@@ -155,5 +155,22 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
             slf,
             f,
         )
+    }
+
+    fn eval_val_runtime_constant(
+        &self,
+        val_runtime_constant: ValRuntimeConstantInterface,
+    ) -> <TaskLinkageImpl<Task> as IsLinkageImpl>::Value {
+        use husky_task_prelude::value::IsValue;
+        let db = self.db();
+        let val_runtime_constant: ValRuntimeConstant =
+            unsafe { std::mem::transmute(val_runtime_constant) };
+        match val_runtime_constant.data(db) {
+            ValRuntimeConstantData::TypeVariantPath(path) => match path.index(db) {
+                TypeVariantIndex::U8(raw) => {
+                    <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_u8(raw)
+                }
+            },
+        }
     }
 }

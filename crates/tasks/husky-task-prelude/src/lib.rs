@@ -11,7 +11,9 @@ pub use husky_task_prelude_macros::*;
 
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
-use val_repr::{ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface};
+use val_repr::{
+    ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
+};
 
 #[macro_export]
 macro_rules! init_crate {
@@ -229,12 +231,12 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .unwrap()
     }
 
-    pub fn eval_val_runtime_constants(
+    pub fn eval_val_runtime_constant(
         &self,
-        val_runtime_constants: val_repr::ValRuntimeConstantsInterface,
+        val_runtime_constant: ValRuntimeConstantInterface,
     ) -> LinkageImpl::Value {
-        // LinkageImpl::Value
-        todo!()
+        self.runtime
+            .eval_val_runtime_constant_dyn(val_runtime_constant)
     }
 }
 
@@ -287,6 +289,11 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_val_runtime_constant(
+        &self,
+        val_runtime_constant: ValRuntimeConstantInterface,
+    ) -> LinkageImpl::Value;
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
@@ -331,6 +338,11 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_val_runtime_constant_dyn(
+        &self,
+        val_runtime_constant: ValRuntimeConstantInterface,
+    ) -> LinkageImpl::Value;
 }
 
 impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
@@ -404,5 +416,12 @@ where
         f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.eval_memoized_field_with(jar_index, ingredient_index, pedestal, slf, f)
+    }
+
+    fn eval_val_runtime_constant_dyn(
+        &self,
+        val_runtime_constant: ValRuntimeConstantInterface,
+    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+        self.eval_val_runtime_constant(val_runtime_constant)
     }
 }

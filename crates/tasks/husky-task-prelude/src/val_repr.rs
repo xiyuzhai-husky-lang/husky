@@ -17,7 +17,7 @@ pub enum ValDomainReprInterface {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ValRuntimeConstantsInterface(ShiftedU32);
+pub struct ValRuntimeConstantInterface(ShiftedU32);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ValArgumentReprInterface {
@@ -28,5 +28,5 @@ pub enum ValArgumentReprInterface {
         condition: Option<ValReprInterface>,
         stmts: SmallVec<[ValReprInterface; 4]>,
     },
-    RuntimeConstants(Option<ValRuntimeConstantsInterface>),
+    RuntimeConstants(SmallVec<[ValRuntimeConstantInterface; 4]>),
 }

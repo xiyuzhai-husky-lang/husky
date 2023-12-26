@@ -25,6 +25,7 @@ impl TranspileToRustWith for TraitForTypeItemHirDefn {
 
 impl TranspileToRustWith for TraitForTypeAssociatedFnHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
+        todo!();
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
         else {
@@ -58,16 +59,19 @@ impl TranspileToRustWith for TraitForTypeAssociatedFnHirDefn {
                             builder.with_hir_eager_expr_region(
                                 hir_decl.hir_eager_expr_region(db),
                                 |builder| {
-                                    builder.bracketed_comma_list(
+                                    builder.bracketed_comma_list_with_last_comma(
                                         RustBracket::Par,
                                         runtime_const_symbols.iter().copied(),
                                     );
                                     builder.punctuation(RustPunctuation::Colon);
                                     builder.punctuation(RustPunctuation::Ambersand);
-                                    builder.bracketed_comma_list(
+                                    builder.bracketed_comma_list_with_last_comma(
                                         RustBracket::Par,
                                         runtime_const_symbols.iter().map(|symbol| symbol.ty(db)),
-                                    )
+                                    );
+                                    use husky_print_utils::p;
+                                    p!(builder.result());
+                                    todo!();
                                 },
                             )
                         })

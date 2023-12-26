@@ -259,7 +259,7 @@ impl HirEagerExprSite {
                     builder.punctuation(RustPunctuation::CommaSpaced);
                     (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
-                    let resolutions: SmallVec<[HirTermSymbolResolution; 2]> = instantiation
+                    let runtime_constants: SmallVec<[HirTermSymbolResolution; 2]> = instantiation
                         .symbol_map()
                         .iter()
                         .filter_map(|&(symbol, resolution)| match symbol {
@@ -269,7 +269,8 @@ impl HirEagerExprSite {
                             _ => None,
                         })
                         .collect();
-                    builder.bracketed_comma_list(RustBracket::Par, resolutions)
+                    builder
+                        .bracketed_comma_list_with_last_comma(RustBracket::Par, runtime_constants)
                 })
             }
             HirEagerExprData::Unwrap { opd_hir_expr_idx } => {
