@@ -581,7 +581,8 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         self.build_expr(val_domain_repr_guard, item),
                     ))
                 }
-                (ValOpn::Linkage(Linkage::new_index(self.db)), arguments)
+                // (ValOpn::Linkage(Linkage::new_index(self.db)), arguments)
+                (ValOpn::Index, arguments)
             }
             HirLazyExprData::ConstructList {
                 ref items,
