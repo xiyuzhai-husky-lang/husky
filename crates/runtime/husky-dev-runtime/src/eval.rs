@@ -182,6 +182,20 @@ impl<Task: IsTask> DevRuntime<Task> {
                 )
             }
             ValOpn::Unwrap {} => todo!(),
+            ValOpn::Index => {
+                // ad hoc
+                let arguments: &[_] = val_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 2);
+                let ValArgumentRepr::Ordinary(owner) = arguments[0] else {
+                    unreachable!()
+                };
+                let owner = self.eval_val_repr(owner)?;
+                let ValArgumentRepr::Ordinary(index) = arguments[1] else {
+                    unreachable!()
+                };
+                let index = self.eval_val_repr(index)?;
+                todo!()
+            }
         }
     }
 

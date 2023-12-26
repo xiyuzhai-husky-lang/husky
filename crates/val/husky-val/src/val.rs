@@ -80,6 +80,8 @@ pub enum ValOpn {
         pattern_data: ValPatternData,
     },
     Unwrap {},
+    // ad hoc
+    Index,
 }
 
 #[salsa::interned(jar = ValJar)]
