@@ -6,6 +6,7 @@ use super::*;
 
 impl TranspileToRustWith for AssociatedItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
+        todo!();
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.transpile_to_rust(builder),
             AssociatedItemHirDefn::TraitItem(hir_defn) => hir_defn.transpile_to_rust(builder),

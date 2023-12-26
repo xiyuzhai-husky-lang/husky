@@ -267,6 +267,16 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(bracket.ket_code());
     }
 
+    pub(crate) fn bracketed_comma_list_with_last_comma<A: TranspileToRustWith<E>>(
+        &mut self,
+        bracket: RustBracket,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.write_str(bracket.bra_code());
+        self.punctuated_list_with_last_comma(items, RustPunctuation::CommaSpaced);
+        self.write_str(bracket.ket_code());
+    }
+
     pub(crate) fn punctuated_list<A: TranspileToRustWith<E>>(
         &mut self,
         items: impl IntoIterator<Item = A>,
@@ -280,6 +290,17 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
                 self.punctuation(punctuation)
             }
             item.transpile_to_rust(self)
+        }
+    }
+
+    pub(crate) fn punctuated_list_with_last_comma<A: TranspileToRustWith<E>>(
+        &mut self,
+        items: impl IntoIterator<Item = A>,
+        punctuation: RustPunctuation,
+    ) {
+        for item in items {
+            item.transpile_to_rust(self);
+            self.punctuation(punctuation)
         }
     }
 

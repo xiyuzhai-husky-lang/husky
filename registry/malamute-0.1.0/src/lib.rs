@@ -40,18 +40,16 @@ impl<Label> Unveil<crate::OneVsAll> for crate::Class<Label>
 where
     Label: Copy,
 {
-    type RuntimeConstSymbols = (Label);
+    type RuntimeConstSymbols = (Label,);
 
     type Output = ();
 
     fn unveil(
         one_vs_all: crate::OneVsAll,
-        (label): &(Label),
+        (label,): (Label,),
     ) -> husky_core::ops::ControlFlow<crate::Class<Label>, ()> {
         match one_vs_all {
-            crate::OneVsAll::Yes => {
-                husky_core::ops::ControlFlow::Break(crate::Class::Known(*label))
-            }
+            crate::OneVsAll::Yes => husky_core::ops::ControlFlow::Break(crate::Class::Known(label)),
             crate::OneVsAll::No => husky_core::ops::ControlFlow::Continue(()),
         }
     }
@@ -64,7 +62,7 @@ impl Unveil<crate::OneVsAllResult> for crate::OneVsAll {
 
     fn unveil(
         one_vs_all_result: crate::OneVsAllResult,
-        (): &(),
+        (): (),
     ) -> husky_core::ops::ControlFlow<crate::OneVsAll, ()> {
         match one_vs_all_result {
             crate::OneVsAllResult::ConfidentYes => {

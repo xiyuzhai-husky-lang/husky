@@ -1,6 +1,8 @@
 use super::*;
 use crate::frozen::{mut_frozen::MutFrozen, Frozen, SnapshotDyn};
-use husky_decl_macro_utils::{for_all_primitive_tys, for_all_ritchie_tys};
+use husky_decl_macro_utils::{
+    for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
+};
 
 /// Stand is the static version of a type
 pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
@@ -99,3 +101,22 @@ macro_rules! impl_static_for_ritchie_ty {
 }
 
 for_all_ritchie_tys!(impl_static_for_ritchie_ty);
+
+macro_rules! impl_static_for_non_unit_tuple_ty {
+    (
+        $($field:ident),*
+    ) => {
+        impl<$($field,)*> Static for ($($field,)*)
+        where
+            $($field: Static,)*
+        {
+            type Frozen = ($(<$field as Static>::Frozen,)*);
+
+            unsafe fn freeze(&self) -> Self::Frozen {
+                todo!()
+            }
+        }
+    };
+}
+
+for_all_non_unit_tuple_tys!(impl_static_for_non_unit_tuple_ty);

@@ -159,23 +159,41 @@ pub(crate) fn value(
             }
         }
 
-        macro_rules! impl_ritchie_fn_version_conversion {
+        macro_rules! impl_ritchie_fn_value_conversion {
             ([$($input: ident),*], $output: ident) => {
                 impl<$($input,)* $output> FromValue for fn($($input,)*) -> $output {
                     fn from_value(value: #value_ty) -> Self {
-                        todo!("impl_ritchie_fn_version_conversion FromValue")
+                        todo!("impl_ritchie_fn_value_conversion FromValue")
                     }
                 }
 
                 impl<$($input,)* $output> IntoValue for fn($($input,)*) -> $output {
                     fn into_value(self) -> #value_ty {
-                        todo!("impl_ritchie_fn_version_conversion IntoValue")
+                        todo!("impl_ritchie_fn_value_conversion IntoValue")
                     }
                 }
             };
         }
 
-        for_all_ritchie_tys! { impl_ritchie_fn_version_conversion }
+        for_all_ritchie_tys! { impl_ritchie_fn_value_conversion }
+
+        macro_rules! impl_non_unit_tuple_value_conversion {
+            ($($field: ident),*) => {
+                impl<$($field,)*> FromValue for ($($field,)*) {
+                    fn from_value(value: #value_ty) -> Self {
+                        todo!("impl_ritchie_fn_value_conversion FromValue")
+                    }
+                }
+
+                impl<$($field,)*> IntoValue for ($($field,)*) {
+                    fn into_value(self) -> #value_ty {
+                        todo!("impl_ritchie_fn_value_conversion IntoValue")
+                    }
+                }
+            };
+        }
+
+        for_all_non_unit_tuple_tys! { impl_non_unit_tuple_value_conversion }
 
         /// conversion into Value must go through this builder,
         /// so that we can distinguish `&'static T` from other types

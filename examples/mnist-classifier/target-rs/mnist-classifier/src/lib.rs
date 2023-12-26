@@ -26,14 +26,14 @@ use mnist::*;
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 0)]
 pub fn main() -> malamute::Class<mnist::MnistLabel> {
-    unveil!(malamute::Class<mnist::MnistLabel>, is_one(), (mnist::MnistLabel::One));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_six(), (mnist::MnistLabel::Six));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_zero(), (mnist::MnistLabel::Zero));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_seven(), (mnist::MnistLabel::Seven));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_eight(), (mnist::MnistLabel::Eight));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_three(), (mnist::MnistLabel::Three));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_nine(), (mnist::MnistLabel::Nine));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_five(), (mnist::MnistLabel::Five));
-    unveil!(malamute::Class<mnist::MnistLabel>, is_two(), (mnist::MnistLabel::Two));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_one(), (mnist::MnistLabel::One, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_six(), (mnist::MnistLabel::Six, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_zero(), (mnist::MnistLabel::Zero, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_seven(), (mnist::MnistLabel::Seven, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_eight(), (mnist::MnistLabel::Eight, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_three(), (mnist::MnistLabel::Three, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_nine(), (mnist::MnistLabel::Nine, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_five(), (mnist::MnistLabel::Five, ));
+    unveil!(malamute::Class<mnist::MnistLabel>, is_two(), (mnist::MnistLabel::Two, ));
     Class::Unknown
 }

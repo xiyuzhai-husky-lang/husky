@@ -7,6 +7,6 @@ pub trait Unveil<T>: Sized {
 
     fn unveil(
         t: T,
-        runtime_const_symbols: &Self::RuntimeConstSymbols,
+        runtime_const_symbols: Self::RuntimeConstSymbols,
     ) -> std::ops::ControlFlow<Self, Self::Output>;
 }

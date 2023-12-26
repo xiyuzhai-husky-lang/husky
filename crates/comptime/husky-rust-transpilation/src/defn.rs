@@ -126,6 +126,7 @@ fn module_defn_rust_transpilation_works() {
 
 impl TranspileToRustWith for HirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
+        todo!();
         match self {
             HirDefn::Submodule(hir_defn) => hir_defn.transpile_to_rust(builder),
             HirDefn::MajorItem(hir_defn) => hir_defn.transpile_to_rust(builder),

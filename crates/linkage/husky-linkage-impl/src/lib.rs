@@ -119,7 +119,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
     };
 }
 
-pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
+pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPointer> {
     type FnOutput;
 
     fn into_unveil_fn_linkage_impl(
@@ -162,8 +162,8 @@ macro_rules! unveil_fn_linkage_impl {
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coersion
-        FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-            .into_fn_linkage_impl(fn_wrapper, $fn_item)
+        UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
+            .into_unveil_fn_linkage_impl(fn_wrapper, $fn_item)
     }};
 }
 
@@ -171,18 +171,20 @@ macro_rules! unveil_fn_linkage_impl {
 #[macro_export]
 macro_rules! impl_is_unveil_fn_linkage_impl_source {
     (
-        [$($input:ident),*], $output:ident
+        [$($runtime_constant: ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<Pedestal, F, B, $($input,)* $output> IsUnveilFnLinkageImplSource<
+        impl<Pedestal, F, B, Target, $($runtime_constant,)* $output> IsUnveilFnLinkageImplSource<
             LinkageImpl<Pedestal>,
-            fn($($input,)*) -> std::ops::ControlFlow<B, $output>
+            Target,
+            fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>
         > for UnveilFnLinkageImplSource<LinkageImpl<Pedestal>, F>
         where
             Pedestal: Copy + 'static,
-            F: Fn($($input,)*) -> std::ops::ControlFlow<B, $output>,
+            F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             B: IntoValue, // no need to use ValueLeashTest because B is definitely not leashed
-            $($input: Send + FromValue, )*
+            Target: Send + FromValue,
+            $($runtime_constant: Send + FromValue,)*
             $output: Send,
         {
             type FnOutput = $output;
@@ -193,7 +195,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[ValArgumentReprInterface],
                 ) -> ValControlFlow,
-                fn_pointer: fn($($input,)*) -> std::ops::ControlFlow<B, $output>,
+                fn_pointer: fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieUnveilFn {
                     fn_wrapper,
@@ -208,11 +210,25 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
                 arguments: &[ValArgumentReprInterface],
             ) -> ValControlFlow<Self::FnOutput> {
-                let mut arguments = arguments.iter();
+                debug_assert_eq!(arguments.len(), 2);
+                let ValArgumentReprInterface::Ordinary(target) = arguments[0] else {
+                    unreachable!()
+                };
+                let ValArgumentReprInterface::RuntimeConstants(
+                    ref runtime_constants
+                ) = arguments[1] else {
+                    unreachable!()
+                };
+                let mut runtime_constants = runtime_constants.iter();
                 match self.1(
-                    $(<$input as FromValue>::from_value(
-                        ctx.eval_val_repr_argument(arguments.next().expect("missing argument"))?
-                    ),)*
+                    <Target as FromValue>::from_value(
+                        ctx.eval_val_repr(target)?
+                    ),
+                    ($(<$runtime_constant as FromValue>::from_value(
+                        ctx.eval_val_runtime_constant(
+                            *runtime_constants.next().expect("missing runtime constant")
+                        )
+                    ),)*)
                 ) {
                     std::ops::ControlFlow::Continue(c) => ValControlFlow::Continue(c),
                     std::ops::ControlFlow::Break(b) => ValControlFlow::Return(b.into_value()),

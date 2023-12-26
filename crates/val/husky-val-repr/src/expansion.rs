@@ -18,7 +18,7 @@ use husky_hir_ty::{
 };
 use husky_linkage::{instantiation::LinkageInstantiation, linkage::Linkage};
 
-use husky_val::{ValOpn, ValRuntimeConstant, ValRuntimeConstantData, ValRuntimeConstants};
+use husky_val::{ValOpn, ValRuntimeConstant, ValRuntimeConstantData};
 use husky_vfs::ModulePath;
 use smallvec::{smallvec, SmallVec};
 
@@ -651,61 +651,59 @@ impl<'a> ValReprExpansionBuilder<'a> {
 fn runtime_constants(
     instantiation: &HirInstantiation,
     db: &salsa::Db,
-) -> Option<ValRuntimeConstants> {
-    ValRuntimeConstants::new(
-        instantiation
-            .iter()
-            .filter_map(|&(symbol, res)| match symbol {
-                HirTemplateSymbol::Const(symbol)
-                    if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
-                {
-                    Some(match res {
-                        HirTermSymbolResolution::Explicit(arg) => match arg {
-                            HirTemplateArgument::Vacant => todo!(),
-                            HirTemplateArgument::Type(_) => todo!(),
-                            HirTemplateArgument::Constant(constant) => match constant {
-                                HirConstant::Unit(_) => todo!(),
-                                HirConstant::Bool(_) => todo!(),
-                                HirConstant::Char(_) => todo!(),
-                                HirConstant::I8(_) => todo!(),
-                                HirConstant::I16(_) => todo!(),
-                                HirConstant::I32(_) => todo!(),
-                                HirConstant::I64(_) => todo!(),
-                                HirConstant::I128(_) => todo!(),
-                                HirConstant::ISize(_) => todo!(),
-                                HirConstant::U8(_) => todo!(),
-                                HirConstant::U16(_) => todo!(),
-                                HirConstant::U32(_) => todo!(),
-                                HirConstant::U64(_) => todo!(),
-                                HirConstant::U128(_) => todo!(),
-                                HirConstant::USize(_) => todo!(),
-                                HirConstant::R8(_) => todo!(),
-                                HirConstant::R16(_) => todo!(),
-                                HirConstant::R32(_) => todo!(),
-                                HirConstant::R64(_) => todo!(),
-                                HirConstant::R128(_) => todo!(),
-                                HirConstant::RSize(_) => todo!(),
-                                HirConstant::Symbol(_) => todo!(),
-                                HirConstant::TypeVariant(path) => ValRuntimeConstant::new(
-                                    db,
-                                    ValRuntimeConstantData::TypeVariantPath(path),
-                                ),
-                            },
-                            HirTemplateArgument::Lifetime(_) => todo!(),
-                            HirTemplateArgument::Place(_) => todo!(),
+) -> SmallVec<[ValRuntimeConstant; 4]> {
+    instantiation
+        .iter()
+        .filter_map(|&(symbol, res)| match symbol {
+            HirTemplateSymbol::Const(symbol)
+                if symbol.index(db).class() == HirTemplateSymbolClass::Runtime =>
+            {
+                Some(match res {
+                    HirTermSymbolResolution::Explicit(arg) => match arg {
+                        HirTemplateArgument::Vacant => todo!(),
+                        HirTemplateArgument::Type(_) => todo!(),
+                        HirTemplateArgument::Constant(constant) => match constant {
+                            HirConstant::Unit(_) => todo!(),
+                            HirConstant::Bool(_) => todo!(),
+                            HirConstant::Char(_) => todo!(),
+                            HirConstant::I8(_) => todo!(),
+                            HirConstant::I16(_) => todo!(),
+                            HirConstant::I32(_) => todo!(),
+                            HirConstant::I64(_) => todo!(),
+                            HirConstant::I128(_) => todo!(),
+                            HirConstant::ISize(_) => todo!(),
+                            HirConstant::U8(_) => todo!(),
+                            HirConstant::U16(_) => todo!(),
+                            HirConstant::U32(_) => todo!(),
+                            HirConstant::U64(_) => todo!(),
+                            HirConstant::U128(_) => todo!(),
+                            HirConstant::USize(_) => todo!(),
+                            HirConstant::R8(_) => todo!(),
+                            HirConstant::R16(_) => todo!(),
+                            HirConstant::R32(_) => todo!(),
+                            HirConstant::R64(_) => todo!(),
+                            HirConstant::R128(_) => todo!(),
+                            HirConstant::RSize(_) => todo!(),
+                            HirConstant::Symbol(_) => todo!(),
+                            HirConstant::TypeVariant(path) => ValRuntimeConstant::new(
+                                db,
+                                ValRuntimeConstantData::TypeVariantPath(path),
+                            ),
                         },
-                        HirTermSymbolResolution::SelfLifetime => {
-                            todo!()
-                        }
-                        HirTermSymbolResolution::SelfPlace(_) => {
-                            todo!()
-                        }
-                    })
-                }
-                _ => None,
-            }),
-        db,
-    )
+                        HirTemplateArgument::Lifetime(_) => todo!(),
+                        HirTemplateArgument::Place(_) => todo!(),
+                    },
+                    HirTermSymbolResolution::SelfLifetime => {
+                        todo!()
+                    }
+                    HirTermSymbolResolution::SelfPlace(_) => {
+                        todo!()
+                    }
+                })
+            }
+            _ => None,
+        })
+        .collect()
 }
 
 #[cfg(test)]

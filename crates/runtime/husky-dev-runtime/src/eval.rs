@@ -107,7 +107,9 @@ impl<Task: IsTask> DevRuntime<Task> {
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
             match self.eval_val_repr(stmt_val_repr) {
-                ValControlFlow::Continue(_) => todo!(),
+                ValControlFlow::Continue(value) => {
+                    let () = value.into();
+                }
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),
                 ValControlFlow::Return(_) => todo!(),

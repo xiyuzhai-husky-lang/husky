@@ -1,9 +1,4 @@
 use crate::{version_stamp::ValVersionStamp, *};
 
 #[salsa::jar(db = ValDb)]
-pub struct ValJar(
-    Val,
-    ValRuntimeConstant,
-    ValRuntimeConstants,
-    ValVersionStamp,
-);
+pub struct ValJar(Val, ValRuntimeConstant, ValVersionStamp);

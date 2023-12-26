@@ -2,7 +2,7 @@ use crate::{
     r#static::{Static, StaticDyn},
     *,
 };
-use husky_decl_macro_utils::for_all_ritchie_tys;
+use husky_decl_macro_utils::*;
 use husky_task_prelude::value::IsValue;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
