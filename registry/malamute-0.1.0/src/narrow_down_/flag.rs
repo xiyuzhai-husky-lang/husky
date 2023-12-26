@@ -42,7 +42,7 @@ where
         arguments: &[__ValReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
-        match __eval_val_domain_repr_at_input(val_domain_repr, input_id) {
+        match __eval_val_domain_repr_at_input(val_domain_repr, input_id, None) {
             ValControlFlow::Continue(_) => (),
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),
@@ -52,7 +52,7 @@ where
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
-            let feature = match __eval_val_repr_at_input(argument, input_id) {
+            let feature = match __eval_val_repr_at_input(argument, input_id, None) {
                 ValControlFlow::Continue(feature) => feature,
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopBreak(_) => todo!(),

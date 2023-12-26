@@ -547,7 +547,7 @@ impl<'a> SemaExprEngine<'a> {
                                 FluffyTermData::Curry {
                                     curry_kind,
                                     variance,
-                                    parameter_rune: parameter_rune,
+                                    parameter_rune,
                                     parameter_ty,
                                     return_ty,
                                     ty_ethereal_term,
@@ -578,6 +578,7 @@ impl<'a> SemaExprEngine<'a> {
                                         )
                                     })
                                     .collect(),
+                                element_ty,
                                 rbox_regional_token_idx,
                             }),
                             FluffyTerm::new_application(

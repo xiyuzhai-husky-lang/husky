@@ -113,6 +113,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
+        &LinkageData::VecConstructor { element_ty } => builder.add(element_ty),
         &LinkageData::PropsStructField { self_ty, ident } => builder.add(self_ty),
         LinkageData::Index => todo!(),
     }

@@ -123,7 +123,6 @@ impl<Task: IsTask> DevRuntime<Task> {
                 }
             }
             ValOpn::EvalDiscarded => todo!(),
-            ValOpn::NewList => todo!(),
             ValOpn::Branches => {
                 for val_argument_repr in val_repr.arguments(db) {
                     let ValArgumentRepr::Branch {

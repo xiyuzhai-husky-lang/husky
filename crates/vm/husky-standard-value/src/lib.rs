@@ -31,7 +31,7 @@
 
 #[cfg(feature = "constant")]
 mod constant;
-mod frozen;
+pub mod frozen;
 #[cfg(feature = "helpers")]
 mod helpers;
 mod regular;

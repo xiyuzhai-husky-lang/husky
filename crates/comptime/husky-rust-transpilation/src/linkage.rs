@@ -116,6 +116,16 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
+            LinkageData::VecConstructor { element_ty } => {
+                builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                    builder.bracketed(RustBracket::Vertical, |builder| {
+                        builder.v();
+                        builder.punctuation(RustPunctuation::Colon);
+                        builder.vec_ty(element_ty)
+                    });
+                    builder.v()
+                })
+            }
         }
     }
 }

@@ -413,9 +413,7 @@ impl<'a> SemaExprEngine<'a> {
                 _ => todo!(),
             },
             SemaExprData::NewList {
-                lbox_regional_token_idx,
-                items,
-                rbox_regional_token_idx,
+                items, element_ty, ..
             } => todo!(),
         }
     }

@@ -66,4 +66,5 @@ pub trait IsValue:
     fn from_enum_u8(index_raw: u8) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
+    fn r#move(&mut self) -> Self;
 }

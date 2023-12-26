@@ -112,3 +112,16 @@ where
         }
     }
 }
+
+impl<C1, B, E> ValControlFlow<C1, B, E> {
+    pub fn map<C2>(self, f: impl FnOnce(C1) -> C2) -> ValControlFlow<C2, B, E> {
+        match self {
+            ValControlFlow::Continue(c1) => ValControlFlow::Continue(f(c1)),
+            ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
+            ValControlFlow::LoopBreak(b) => ValControlFlow::LoopBreak(b),
+            ValControlFlow::Return(b) => ValControlFlow::Return(b),
+            ValControlFlow::Undefined => ValControlFlow::Undefined,
+            ValControlFlow::Err(e) => ValControlFlow::Err(e),
+        }
+    }
+}

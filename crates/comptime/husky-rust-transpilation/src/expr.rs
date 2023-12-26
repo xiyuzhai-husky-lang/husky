@@ -421,7 +421,7 @@ impl HirEagerExprSite {
                     builder.usize()
                 })
             }
-            HirEagerExprData::NewList { ref items } => {
+            HirEagerExprData::NewList { ref items, .. } => {
                 builder.macro_name(RustMacroName::Vec);
                 builder.bracketed_comma_list(
                     RustBracket::Box,

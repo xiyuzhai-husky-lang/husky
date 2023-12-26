@@ -22,7 +22,7 @@ pub struct JavelinTypePathLeading {
 pub struct JavelinTypeRitchie {}
 
 impl JavelinType {
-    pub(super) fn from_hir(
+    pub(crate) fn from_hir(
         hir_ty: HirType,
         javelin_instantiation: Option<&JavelinInstantiation>,
         db: &::salsa::Db,

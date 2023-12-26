@@ -108,8 +108,10 @@ pub enum HirLazyExprData {
         owner: HirLazyExprIdx,
         items: SmallVec<[HirLazyExprIdx; 4]>,
     },
-    NewList {
+    ConstructList {
         items: SmallVec<[HirLazyExprIdx; 4]>,
+        element_ty: HirType,
+        // todo: disambiguate Vec, SmallVec, Array, etc.
     },
     Block {
         stmts: HirLazyStmtIdxRange,
@@ -425,11 +427,17 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::CompositionWithList { .. } => {
                 todo!()
             }
-            SemaExprData::NewList { ref items, .. } => HirLazyExprData::NewList {
+            SemaExprData::NewList {
+                ref items,
+                element_ty,
+                ..
+            } => HirLazyExprData::ConstructList {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
                     .collect(),
+                element_ty: HirType::from_fluffy(element_ty, builder.db(), builder.fluffy_terms())
+                    .unwrap(),
             },
             SemaExprData::BoxColonList {
                 lbox_regional_token_idx: _,

@@ -56,7 +56,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             }
 
             impl #generics __FromValue for #self_ty {
-                fn from_value(value: __Value) -> Self {
+                fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
                     let __Value::EnumU8(index_raw) = value else {
                         unreachable!()
                     };
@@ -108,7 +108,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
             // todo: value generics
             impl #generics __FromValue for #self_ty {
-                fn from_value(value: __Value) -> Self {
+                fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
                     // ad hoc
                     // let __Value::EnumU8(index_raw) = value else {
                     //     unreachable!()

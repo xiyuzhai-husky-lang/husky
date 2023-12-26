@@ -161,7 +161,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ()
                 }
                 // todo!(),
-                HirLazyExprData::NewList { .. } => (),
+                HirLazyExprData::ConstructList { .. } => (),
                 HirLazyExprData::Block { .. } => (),
                 HirLazyExprData::EmptyHtmlTag { .. } => (),
                 HirLazyExprData::Todo => (),

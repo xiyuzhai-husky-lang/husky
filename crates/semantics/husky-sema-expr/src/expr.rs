@@ -204,6 +204,8 @@ pub enum SemaExprData {
     NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SemaCommaListItem; 4]>,
+        element_ty: FluffyTerm,
+        // todo: disambiguate Vec, SmallList, Array, etc.
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     /// [:] means Slice
