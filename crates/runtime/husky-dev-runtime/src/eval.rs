@@ -41,7 +41,17 @@ impl<Task: IsTask> DevRuntime<Task> {
         let db = self.db();
         match val_repr.opn(db) {
             ValOpn::Return => todo!(),
-            ValOpn::Require => todo!(),
+            ValOpn::Require => {
+                let arguments: &[_] = val_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 1);
+                let ValArgumentRepr::Ordinary(condition) = arguments[0] else {
+                    unreachable!()
+                };
+                if !self.eval_val_repr(condition)?.to_bool() {
+                    todo!()
+                }
+                ValControlFlow::Continue(().into())
+            }
             ValOpn::Assert => todo!(),
             ValOpn::Literal(lit) => {
                 // ad hoc
