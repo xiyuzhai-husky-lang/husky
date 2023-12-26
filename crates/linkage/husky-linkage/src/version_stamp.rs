@@ -1,6 +1,6 @@
 use crate::{
     template_argument::{
-        ty::{LinkageType, LinkageTypePathLeading, LinkageTypeRitchie},
+        ty::{LinkageRitchieType, LinkageType, LinkageTypePathLeading},
         LinkageTemplateArgument, LinkageTemplateArguments,
     },
     *,
@@ -146,7 +146,7 @@ fn linkage_ty_path_leading_version_stamp(
 #[salsa::tracked(jar = LinkageJar)]
 fn linkage_ty_ritchie_version_stamp(
     db: &::salsa::Db,
-    linkage_ty: LinkageTypeRitchie,
+    linkage_ty: LinkageRitchieType,
 ) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(LinkageType::Ritchie(linkage_ty), db);
     builder.finish()

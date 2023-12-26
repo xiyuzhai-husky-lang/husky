@@ -2782,7 +2782,7 @@
                         Explicit(
                             Type(
                                 Ritchie(
-                                    LinkageTypeRitchie(
+                                    LinkageRitchieType(
                                         Id {
                                             value: 1,
                                         },

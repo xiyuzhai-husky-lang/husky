@@ -237,7 +237,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerParenateParameters {
 impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            HirRitchieParameter::Regular(param) => param.transpile_to_rust(builder),
+            HirRitchieParameter::Ordinary(param) => param.transpile_to_rust(builder),
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
         }

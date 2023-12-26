@@ -1,15 +1,21 @@
 use super::*;
 use husky_entity_path::TypePath;
-use husky_hir_ty::HirType;
-use husky_javelin::template_argument::ty::{JavelinType, JavelinTypePathLeading};
+use husky_hir_ty::{
+    ritchie::{HirEagerContract, HirRitchieParameter},
+    HirType,
+};
+use husky_javelin::template_argument::ty::{
+    JavelinRitchieParameter, JavelinType, JavelinTypePathLeading,
+};
 use salsa::DebugWithDb;
+use smallvec::SmallVec;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinkageType {
     PathLeading(LinkageTypePathLeading),
-    Ritchie(LinkageTypeRitchie),
+    Ritchie(LinkageRitchieType),
 }
 
 impl LinkageInstantiate for HirType {
@@ -58,7 +64,47 @@ pub struct LinkageTypePathLeading {
 }
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
-pub struct LinkageTypeRitchie {}
+pub struct LinkageRitchieType {
+    parameters: SmallVec<[LinkageRitchieParameter; 4]>,
+    return_ty: LinkageType,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct LinkageRitchieParameter {
+    contract: HirEagerContract,
+    parameter_ty: LinkageType,
+}
+impl LinkageRitchieParameter {
+    fn from_javelin(
+        param: JavelinRitchieParameter,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &salsa::Db,
+    ) -> Self {
+        Self {
+            contract: param.contract(),
+            parameter_ty: LinkageType::from_javelin(
+                param.parameter_ty(),
+                linkage_instantiation,
+                db,
+            ),
+        }
+    }
+
+    fn from_hir(
+        param: HirRitchieParameter,
+        linkage_instantiation: Option<&LinkageInstantiation>,
+        db: &salsa::Db,
+    ) -> Self {
+        match param {
+            HirRitchieParameter::Ordinary(param) => Self {
+                contract: param.contract(),
+                parameter_ty: LinkageType::from_hir(param.ty(), linkage_instantiation, db),
+            },
+            HirRitchieParameter::Variadic(_) => todo!(),
+            HirRitchieParameter::Keyed(_) => todo!(),
+        }
+    }
+}
 
 impl LinkageType {
     pub(crate) fn from_hir(
@@ -93,7 +139,18 @@ impl LinkageType {
             },
             HirType::TypeAssociatedType(_) => unreachable!(),
             HirType::TraitAssociatedType(_) => unreachable!(),
-            HirType::Ritchie(_) => LinkageTypeRitchie::new(db).into(),
+            HirType::Ritchie(hir_ty) => LinkageRitchieType::new(
+                db,
+                hir_ty
+                    .parameters(db)
+                    .iter()
+                    .map(|&param| {
+                        LinkageRitchieParameter::from_hir(param, linkage_instantiation, db)
+                    })
+                    .collect(),
+                LinkageType::from_hir(hir_ty.return_ty(db), linkage_instantiation, db),
+            )
+            .into(),
         }
     }
 
@@ -106,7 +163,18 @@ impl LinkageType {
             JavelinType::PathLeading(javelin_ty) => {
                 LinkageTypePathLeading::from_javelin(javelin_ty, linkage_instantiation, db).into()
             }
-            JavelinType::Ritchie(javelin_ty) => LinkageTypeRitchie::new(db).into(),
+            JavelinType::Ritchie(javelin_ty) => LinkageRitchieType::new(
+                db,
+                javelin_ty
+                    .parameters(db)
+                    .iter()
+                    .map(|&param| {
+                        LinkageRitchieParameter::from_javelin(param, linkage_instantiation, db)
+                    })
+                    .collect(),
+                LinkageType::from_javelin(javelin_ty.return_ty(db), linkage_instantiation, db),
+            )
+            .into(),
         }
     }
 }

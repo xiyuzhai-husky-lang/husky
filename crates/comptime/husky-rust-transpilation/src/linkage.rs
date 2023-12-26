@@ -15,7 +15,7 @@ use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
     template_argument::{
         place,
-        ty::{LinkageType, LinkageTypeRitchie},
+        ty::{LinkageRitchieType, LinkageType},
         LinkageTemplateArgument,
     },
     trai::LinkageTrait,
@@ -279,7 +279,7 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinkageTypeRitchie {
+impl<E> TranspileToRustWith<E> for LinkageRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         builder.ad_hoc_fn()
     }

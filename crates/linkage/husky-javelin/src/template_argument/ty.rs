@@ -1,13 +1,17 @@
 use super::*;
 use husky_entity_path::TypePath;
-use husky_hir_ty::HirType;
+use husky_hir_ty::{
+    ritchie::{HirEagerContract, HirRitchieParameter},
+    HirType,
+};
+use smallvec::SmallVec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum JavelinType {
     PathLeading(JavelinTypePathLeading),
-    Ritchie(JavelinTypeRitchie),
+    Ritchie(JavelinRitchieType),
 }
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = new)]
@@ -19,7 +23,41 @@ pub struct JavelinTypePathLeading {
 }
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = new)]
-pub struct JavelinTypeRitchie {}
+pub struct JavelinRitchieType {
+    pub parameters: SmallVec<[JavelinRitchieParameter; 4]>,
+    pub return_ty: JavelinType,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct JavelinRitchieParameter {
+    contract: HirEagerContract,
+    parameter_ty: JavelinType,
+}
+
+impl JavelinRitchieParameter {
+    fn from_hir(
+        param: HirRitchieParameter,
+        javelin_instantiation: Option<&JavelinInstantiation>,
+        db: &salsa::Db,
+    ) -> Self {
+        match param {
+            HirRitchieParameter::Ordinary(param) => Self {
+                contract: param.contract(),
+                parameter_ty: JavelinType::from_hir(param.ty, javelin_instantiation, db),
+            },
+            HirRitchieParameter::Variadic(_) => todo!(),
+            HirRitchieParameter::Keyed(_) => todo!(),
+        }
+    }
+
+    pub fn contract(&self) -> HirEagerContract {
+        self.contract
+    }
+
+    pub fn parameter_ty(&self) -> JavelinType {
+        self.parameter_ty
+    }
+}
 
 impl JavelinType {
     pub(crate) fn from_hir(
@@ -41,7 +79,18 @@ impl JavelinType {
             HirType::Symbol(_) => unreachable!(),
             HirType::TypeAssociatedType(_) => unreachable!(),
             HirType::TraitAssociatedType(_) => unreachable!(),
-            HirType::Ritchie(_) => JavelinTypeRitchie::new(db).into(),
+            HirType::Ritchie(hir_ty) => JavelinRitchieType::new(
+                db,
+                hir_ty
+                    .parameters(db)
+                    .iter()
+                    .map(|&param| {
+                        JavelinRitchieParameter::from_hir(param, javelin_instantiation, db)
+                    })
+                    .collect(),
+                JavelinType::from_hir(hir_ty.return_ty(db), javelin_instantiation, db),
+            )
+            .into(),
         }
     }
 }
