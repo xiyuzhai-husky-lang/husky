@@ -65,8 +65,8 @@ pub struct LinkageTypePathLeading {
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
 pub struct LinkageRitchieType {
-    parameters: SmallVec<[LinkageRitchieParameter; 4]>,
-    return_ty: LinkageType,
+    pub parameters: SmallVec<[LinkageRitchieParameter; 4]>,
+    pub return_ty: LinkageType,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -103,6 +103,14 @@ impl LinkageRitchieParameter {
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
         }
+    }
+
+    pub fn contract(&self) -> HirEagerContract {
+        self.contract
+    }
+
+    pub fn parameter_ty(&self) -> LinkageType {
+        self.parameter_ty
     }
 }
 
