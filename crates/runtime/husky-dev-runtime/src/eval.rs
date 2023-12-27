@@ -275,6 +275,6 @@ fn val_repr_eval_works() {
         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
     // ad hoc
-    runtime.storage;
+    runtime.storage.debug_drop();
     runtime.comptime;
 }
