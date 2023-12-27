@@ -106,6 +106,20 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
 
     fn debug_drop(self) {
         use std::mem::forget;
-        // forget(self.gn_values);
+        println!("{}", self.val_item_values.len());
+        self.val_item_values.iter().for_each(|_| todo!());
+        forget(self.val_item_values);
+        forget(self.memoized_field_values);
+        todo!();
+        // for (key, mu) in self.val_item_values {
+        //     todo!();
+        //     let lock = &mu.lock().unwrap();
+        //     let (_, value) = lock.as_ref().unwrap();
+        //     todo!();
+        //     println!("{:?}", value);
+        //     todo!();
+        // }
+        // todo!();
+        // forget(self.memoized_field_values);
     }
 }
