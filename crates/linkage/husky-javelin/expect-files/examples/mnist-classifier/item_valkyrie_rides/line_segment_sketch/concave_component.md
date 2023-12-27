@@ -30,7 +30,16 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::VecConstructor {
+                        element_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                template_arguments: [],
+                                always_copyable: false,
+                            },
+                        ),
+                    },
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
@@ -64,7 +73,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                         ),
@@ -98,7 +107,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
@@ -271,7 +280,7 @@
             ValkyrieRides {
                 hir_template_parameters: None,
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
@@ -305,7 +314,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
@@ -339,7 +348,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
@@ -387,7 +396,7 @@
             ValkyrieRides {
                 hir_template_parameters: None,
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
@@ -421,7 +430,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
@@ -469,7 +478,7 @@
             ValkyrieRides {
                 hir_template_parameters: None,
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
@@ -503,7 +512,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                         ),
@@ -537,7 +546,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                         ),
@@ -602,7 +611,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
@@ -636,7 +645,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
@@ -683,7 +692,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),
@@ -735,7 +744,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
@@ -769,7 +778,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
@@ -834,7 +843,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),
@@ -868,7 +877,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
@@ -950,7 +959,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                         ),
@@ -1002,7 +1011,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                         ),

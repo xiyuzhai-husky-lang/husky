@@ -92,7 +92,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 241,
+                                                value: 240,
                                             },
                                         ),
                                     ),
@@ -205,7 +205,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 265,
+                                                value: 264,
                                             },
                                         ),
                                     ),
@@ -256,7 +256,7 @@
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
-                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                         template_arguments: [],
                                         always_copyable: false,
                                     },
@@ -302,7 +302,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 269,
+                                                value: 268,
                                             },
                                         ),
                                     ),

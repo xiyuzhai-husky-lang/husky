@@ -197,4 +197,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             element_ty.transpile_to_rust(builder)
         })
     }
+
+    pub(crate) fn static_lifetime(&mut self) {
+        self.result += "'static"
+    }
 }

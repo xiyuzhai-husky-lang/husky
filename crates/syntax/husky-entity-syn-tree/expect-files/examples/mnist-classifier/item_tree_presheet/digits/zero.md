@@ -24,7 +24,7 @@ EntitySynTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 27,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `open_one_match`,
                             token_idx: TokenIdx(
@@ -88,7 +88,7 @@ EntitySynTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 28,
+                        ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `almost_closed`,
                             token_idx: TokenIdx(
@@ -152,7 +152,7 @@ EntitySynTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 29,
+                        ast_idx: 28,
                         ident_token: IdentToken {
                             ident: `is_zero`,
                             token_idx: TokenIdx(
@@ -164,7 +164,7 @@ EntitySynTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        12..26,
+                                        12..25,
                                     ),
                                 },
                             ),
@@ -199,7 +199,7 @@ EntitySynTreePresheet {
     use_one_rules: UseOneRules(
         [
             UseOneRule {
-                ast_idx: 26,
+                ast_idx: 25,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::zero`,

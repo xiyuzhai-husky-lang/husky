@@ -742,9 +742,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -757,6 +758,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -775,9 +793,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -791,6 +810,23 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -803,7 +839,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -816,6 +852,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    3,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -850,7 +903,7 @@
                                     },
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -866,6 +919,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    4,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -878,7 +950,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -891,6 +963,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    5,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 10,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -925,7 +1014,7 @@
                                     },
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -941,6 +1030,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    6,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -953,7 +1061,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -970,6 +1078,27 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    7,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -988,9 +1117,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -1003,6 +1133,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    8,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -1037,7 +1184,7 @@
                                     },
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -1053,6 +1200,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    9,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -1065,7 +1231,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -1078,6 +1244,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    10,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 8,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -1112,7 +1295,7 @@
                                     },
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -1128,6 +1311,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    11,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -1140,7 +1342,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -1153,6 +1355,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    12,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -1598,7 +1817,7 @@
                                         final_destination: AnyOriginal,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -1616,11 +1835,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -1639,7 +1858,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Invariant,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -1692,7 +1911,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -1710,6 +1929,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -1719,7 +1939,7 @@
                                         final_destination: AnyOriginal,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
                                         syn_expr_idx: 3,
@@ -1737,11 +1957,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -1756,7 +1976,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -1805,7 +2025,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
                                         syn_expr_idx: 4,
@@ -1825,6 +2045,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -1834,7 +2055,7 @@
                                         final_destination: AnyOriginal,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
                                         syn_expr_idx: 5,
@@ -1852,11 +2073,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -1875,7 +2096,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -1928,7 +2149,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
                                         syn_expr_idx: 6,
@@ -1948,6 +2169,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -1955,7 +2177,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
                                         syn_expr_idx: 7,
@@ -1977,6 +2199,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -1986,7 +2209,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
                                         syn_expr_idx: 8,
@@ -2004,11 +2227,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -2023,7 +2246,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -2072,7 +2295,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
                                         syn_expr_idx: 9,
@@ -2092,6 +2315,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -2101,7 +2325,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 10,
                                     src: ExpectationSource {
                                         syn_expr_idx: 10,
@@ -2119,11 +2343,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -2138,7 +2362,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -2187,7 +2411,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 11,
                                     src: ExpectationSource {
                                         syn_expr_idx: 11,
@@ -2207,6 +2431,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -2218,7 +2443,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 12,
                                     src: ExpectationSource {
                                         syn_expr_idx: 12,
@@ -2236,6 +2461,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -2896,7 +3122,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -2911,6 +3137,25 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -3128,7 +3373,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -3148,6 +3393,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -3201,8 +3447,8 @@
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
-                                                                ident: `branch`,
-                                                                item_kind: MethodFn,
+                                                                ident: `unveil`,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -3642,8 +3888,8 @@
                                                                                 disambiguator: 0,
                                                                             },
                                                                         },
-                                                                        ident: `branch`,
-                                                                        item_kind: MethodFn,
+                                                                        ident: `unveil`,
+                                                                        item_kind: AssociatedFunctionFn,
                                                                     },
                                                                 ),
                                                             ),
@@ -3674,7 +3920,7 @@
                         SynExprData::InheritedSynSymbol {
                             ident: `T2`,
                             regional_token_idx: RegionalTokenIdx(
-                                7,
+                                8,
                             ),
                             inherited_syn_symbol_idx: 2,
                             inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3690,7 +3936,7 @@
                         SynExprData::InheritedSynSymbol {
                             ident: `E2`,
                             regional_token_idx: RegionalTokenIdx(
-                                8,
+                                9,
                             ),
                             inherited_syn_symbol_idx: 4,
                             inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3716,7 +3962,7 @@
                         SynExprData::InheritedSynSymbol {
                             ident: `T1`,
                             regional_token_idx: RegionalTokenIdx(
-                                12,
+                                13,
                             ),
                             inherited_syn_symbol_idx: 1,
                             inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3732,7 +3978,7 @@
                         SynExprData::InheritedSynSymbol {
                             ident: `E1`,
                             regional_token_idx: RegionalTokenIdx(
-                                13,
+                                14,
                             ),
                             inherited_syn_symbol_idx: 3,
                             inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3754,7 +4000,7 @@
                                 IdentRegionalToken {
                                     ident: `result`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        4,
+                                        5,
                                     ),
                                 },
                             ),
@@ -3767,7 +4013,7 @@
                                 IdentRegionalToken {
                                     ident: `Result`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        6,
+                                        7,
                                     ),
                                 },
                             ),
@@ -3782,7 +4028,7 @@
                                 IdentRegionalToken {
                                     ident: `Result`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                             ),
@@ -3800,12 +4046,12 @@
                 pattern_expr_region: SynPatternExprRegion {
                     pattern_expr_arena: Arena {
                         data: [
-                            SynPatternExpr::Ident {
+                            SynPatternExprData::Ident {
                                 symbol_modifier_tokens: None,
                                 ident_token: IdentRegionalToken {
                                     ident: `result`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        4,
+                                        5,
                                     ),
                                 },
                             },
@@ -3891,7 +4137,7 @@
                             CurrentSynSymbol {
                                 modifier: Pure,
                                 access_start: RegionalTokenIdx(
-                                    5,
+                                    6,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -3976,9 +4222,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -3992,6 +4239,23 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4004,7 +4268,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        7,
+                                        8,
                                     ),
                                     inherited_syn_symbol_idx: 2,
                                     inherited_syn_symbol_kind: TemplateParameter(
@@ -4020,7 +4284,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -4036,6 +4300,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4048,7 +4331,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4062,6 +4345,23 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    3,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 8,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4074,7 +4374,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        9,
                                     ),
                                     inherited_syn_symbol_idx: 4,
                                     inherited_syn_symbol_kind: TemplateParameter(
@@ -4090,7 +4390,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -4106,6 +4406,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    4,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4118,7 +4437,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4131,6 +4450,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    5,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -4149,9 +4485,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4165,6 +4502,23 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    6,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4177,7 +4531,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        12,
+                                        13,
                                     ),
                                     inherited_syn_symbol_idx: 1,
                                     inherited_syn_symbol_kind: TemplateParameter(
@@ -4193,7 +4547,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -4209,6 +4563,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    7,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4221,7 +4594,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4235,6 +4608,23 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    8,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Curry(
+                                                EtherealTermCurry(
+                                                    Id {
+                                                        value: 8,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4247,7 +4637,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        13,
+                                        14,
                                     ),
                                     inherited_syn_symbol_idx: 3,
                                     inherited_syn_symbol_kind: TemplateParameter(
@@ -4263,7 +4653,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         Const,
@@ -4279,6 +4669,25 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    9,
+                                    FluffyTerm {
+                                        place: Some(
+                                            Const,
+                                        ),
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4291,7 +4700,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4304,6 +4713,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    10,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -4630,7 +5056,7 @@
                                         StackPure {
                                             location: StackLocationIdx(
                                                 ShiftedU32(
-                                                    2,
+                                                    1,
                                                 ),
                                             ),
                                         },
@@ -4738,7 +5164,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -4756,11 +5182,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -4775,7 +5201,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -4824,7 +5250,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -4844,6 +5270,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -4853,7 +5280,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
                                         syn_expr_idx: 3,
@@ -4871,11 +5298,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -4890,7 +5317,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -4939,7 +5366,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
                                         syn_expr_idx: 4,
@@ -4959,6 +5386,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -4970,7 +5398,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
                                         syn_expr_idx: 5,
@@ -4988,6 +5416,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -5005,7 +5434,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
                                         syn_expr_idx: 6,
@@ -5023,11 +5452,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -5042,7 +5471,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -5091,7 +5520,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
                                         syn_expr_idx: 7,
@@ -5111,6 +5540,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -5120,7 +5550,7 @@
                                         final_destination: Sort,
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
                                         syn_expr_idx: 8,
@@ -5138,11 +5568,11 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
                                                     return_ty: FluffyTerm {
                                                         place: None,
                                                         base: Ethereal(
@@ -5157,7 +5587,7 @@
                                                     },
                                                     variant: Curry {
                                                         variance: Independent,
-                                                        parameter_symbol: None,
+                                                        parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
                                                             base: Ethereal(
@@ -5206,7 +5636,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
                                         syn_expr_idx: 9,
@@ -5226,6 +5656,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -5237,7 +5668,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 10,
                                     src: ExpectationSource {
                                         syn_expr_idx: 10,
@@ -5255,6 +5686,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(

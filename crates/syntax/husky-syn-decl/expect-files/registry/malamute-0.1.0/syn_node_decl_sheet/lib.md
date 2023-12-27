@@ -943,7 +943,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `skip`,
@@ -1016,13 +1016,13 @@ SynNodeDeclSheet {
                                                     data: CurrentSynSymbolData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
-                                                                Phantom(
+                                                                Runtime(
                                                                     PoundRegionalToken(
                                                                         RegionalTokenIdx(
                                                                             7,
                                                                         ),
                                                                     ),
-                                                                    PhantomRegionalToken {
+                                                                    RuntimeRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             8,
                                                                         ),
@@ -3358,6 +3358,832 @@ SynNodeDeclSheet {
             ),
         ),
         (
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `unveil`,
+                                                                item_kind: AssociatedFunctionFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            ItemSynNodeDecl::AssociatedItem(
+                AssociatedItemSynNodeDecl::TraitForTypeItem(
+                    TraitForTypeItemSynNodeDecl::AssociatedFn(
+                        TraitForTypeAssociatedFnSynNodeDecl {
+                            syn_node_path: TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `malamute`,
+                                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`malamute::Class`, `Enum`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `unveil`,
+                                                                        item_kind: AssociatedFunctionFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            template_parameter_decl_list: Ok(
+                                None,
+                            ),
+                            parenate_parameter_decl_list: Ok(
+                                ParenateParameterSyndicateList {
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
+                                        ),
+                                    ),
+                                    self_value_parameter: None,
+                                    comma_after_self_parameter: None,
+                                    parenate_parameters: [
+                                        ParenateSynParameterData::Ordinary {
+                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            ),
+                                            ty: 5,
+                                        },
+                                    ],
+                                    commas: [],
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            10,
+                                        ),
+                                    ),
+                                },
+                            ),
+                            light_arrow_token: Ok(
+                                Some(
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            11,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            return_ty: Ok(
+                                Some(
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 9,
+                                    },
+                                ),
+                            ),
+                            eol_colon: Ok(
+                                EolRegionalToken::Colon(
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            20,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: SynNodeRegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                                syn_expr_arena: Arena {
+                                                    data: [
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                10,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 3,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::ops::Unveil`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 4,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                18,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                19,
+                                                            ),
+                                                            current_syn_symbol_idx: 2,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            8,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 6,
+                                                            argument_expr_idx: 7,
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 5,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::Class`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                22,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            3,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `core`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        12,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::Module(
+                                                                `core`,
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Subitem {
+                                                            parent: 1,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    13,
+                                                                ),
+                                                            ),
+                                                            ident_token: Ok(
+                                                                IdentRegionalToken {
+                                                                    ident: `ops`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        14,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            path: Ok(
+                                                                PrincipalEntityPath::Module(
+                                                                    `core::ops`,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Subitem {
+                                                            parent: 2,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    15,
+                                                                ),
+                                                            ),
+                                                            ident_token: Ok(
+                                                                IdentRegionalToken {
+                                                                    ident: `Unveil`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        16,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            path: Ok(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::ops::Unveil`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `OneVsAll`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        17,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `Class`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        21,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`malamute::Class`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegionData {
+                                                    inherited_syn_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_syn_symbol_arena: Arena {
+                                                        data: [
+                                                            CurrentSynSymbol {
+                                                                modifier: Const,
+                                                                access_start: RegionalTokenIdx(
+                                                                    4,
+                                                                ),
+                                                                access_end: None,
+                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [],
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                                        ident_token: IdentRegionalToken {
+                                                                            ident: `Label`,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                3,
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                            CurrentSynSymbol {
+                                                                modifier: Const,
+                                                                access_start: RegionalTokenIdx(
+                                                                    11,
+                                                                ),
+                                                                access_end: None,
+                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [
+                                                                            Runtime(
+                                                                                PoundRegionalToken(
+                                                                                    RegionalTokenIdx(
+                                                                                        5,
+                                                                                    ),
+                                                                                ),
+                                                                                RuntimeRegionalToken {
+                                                                                    token_idx: RegionalTokenIdx(
+                                                                                        6,
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                        ],
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
+                                                                        ident_token: IdentRegionalToken {
+                                                                            ident: `label`,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                8,
+                                                                            ),
+                                                                        },
+                                                                        ty_expr_idx: 1,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [
+                                                        (
+                                                            TemplateTypeParameter,
+                                                            ArenaIdxRange(
+                                                                1..2,
+                                                            ),
+                                                        ),
+                                                        (
+                                                            TemplateTypeParameter,
+                                                            ArenaIdxRange(
+                                                                2..3,
+                                                            ),
+                                                        ),
+                                                    ],
+                                                },
+                                                syn_pattern_expr_roots: [],
+                                                syn_expr_roots: [
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::ConstantImplicitParameterType,
+                                                        syn_expr_idx: 1,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::Trait,
+                                                        syn_expr_idx: 8,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::SelfType,
+                                                        syn_expr_idx: 11,
+                                                    },
+                                                ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
+                                            },
+                                        },
+                                    ),
+                                    path: SynNodeRegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `malamute`,
+                                                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`malamute::Class`, `Enum`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `unveil`,
+                                                                                            item_kind: AssociatedFunctionFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    syn_expr_arena: Arena {
+                                        data: [
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExprData::InheritedSynSymbol {
+                                                ident: `Label`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    8,
+                                                ),
+                                                inherited_syn_symbol_idx: 1,
+                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                        ident: `Label`,
+                                                    },
+                                                ),
+                                            },
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::InheritedSynSymbol {
+                                                ident: `label`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    9,
+                                                ),
+                                                inherited_syn_symbol_idx: 2,
+                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                        ident: `label`,
+                                                    },
+                                                ),
+                                            },
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 3,
+                                                argument_expr_idx: 4,
+                                            },
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 4,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExprData::SelfType(
+                                                RegionalTokenIdx(
+                                                    17,
+                                                ),
+                                            ),
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 6,
+                                                argument_expr_idx: 7,
+                                            },
+                                            SynExprData::FunctionApplicationOrCall {
+                                                function: 8,
+                                                template_arguments: None,
+                                                lpar_regional_token_idx: RegionalTokenIdx(
+                                                    18,
+                                                ),
+                                                items: [],
+                                                rpar_regional_token_idx: RegionalTokenIdx(
+                                                    19,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            SynPrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
+                                                        ident: `OneVsAll`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
+                                                        ident: `core`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::Module(
+                                                    `core`,
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Subitem {
+                                                parent: 2,
+                                                colon_colon_token: ColonColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        13,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentRegionalToken {
+                                                        ident: `ops`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            14,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::Module(
+                                                        `core::ops`,
+                                                    ),
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Subitem {
+                                                parent: 3,
+                                                colon_colon_token: ColonColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        15,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentRegionalToken {
+                                                        ident: `ControlFlow`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            16,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExprData::Ident {
+                                                    symbol_modifier_tokens: None,
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `one_vs_all`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                Pure,
+                                            ],
+                                        },
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    1,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `one_vs_all`,
+                                                    1,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                Pure,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegionData {
+                                        inherited_syn_symbol_arena: Arena {
+                                            data: [
+                                                InheritedSynSymbol {
+                                                    parent_symbol_idx: Current(
+                                                        1,
+                                                    ),
+                                                    modifier: Const,
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                            ident: `Label`,
+                                                        },
+                                                    ),
+                                                },
+                                                InheritedSynSymbol {
+                                                    parent_symbol_idx: Current(
+                                                        2,
+                                                    ),
+                                                    modifier: Const,
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                            ident: `label`,
+                                                        },
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        current_syn_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: Pure,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                    access_end: None,
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                        ident: `one_vs_all`,
+                                                        pattern_symbol_idx: 1,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                OrdinaryParenateParameter {
+                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 1,
+                                                    },
+                                                    ty_expr_idx: 5,
+                                                },
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    syn_pattern_expr_roots: [
+                                        SynPatternExprRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                    ],
+                                    syn_expr_roots: [
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ExplicitParameterType,
+                                            syn_expr_idx: 5,
+                                        },
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ReturnType,
+                                            syn_expr_idx: 9,
+                                        },
+                                    ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                    ],
+                                },
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+        (
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath(
@@ -4494,6 +5320,866 @@ SynNodeDeclSheet {
                                     has_self_lifetime: false,
                                     has_self_place: false,
                                     syn_pattern_to_current_syn_symbol_map: [],
+                                },
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+        (
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `unveil`,
+                                                                item_kind: AssociatedFunctionFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            ItemSynNodeDecl::AssociatedItem(
+                AssociatedItemSynNodeDecl::TraitForTypeItem(
+                    TraitForTypeItemSynNodeDecl::AssociatedFn(
+                        TraitForTypeAssociatedFnSynNodeDecl {
+                            syn_node_path: TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `malamute`,
+                                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `unveil`,
+                                                                        item_kind: AssociatedFunctionFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            template_parameter_decl_list: Ok(
+                                None,
+                            ),
+                            parenate_parameter_decl_list: Ok(
+                                ParenateParameterSyndicateList {
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            4,
+                                        ),
+                                    ),
+                                    self_value_parameter: None,
+                                    comma_after_self_parameter: None,
+                                    parenate_parameters: [
+                                        ParenateSynParameterData::Ordinary {
+                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            ),
+                                            ty: 5,
+                                        },
+                                    ],
+                                    commas: [],
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            10,
+                                        ),
+                                    ),
+                                },
+                            ),
+                            light_arrow_token: Ok(
+                                Some(
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            11,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            return_ty: Ok(
+                                Some(
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 9,
+                                    },
+                                ),
+                            ),
+                            eol_colon: Ok(
+                                EolRegionalToken::Colon(
+                                    EolColonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            20,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: SynNodeRegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                                syn_expr_arena: Arena {
+                                                    data: [
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                12,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            5,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 3,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::ops::Unveil`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 4,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                20,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            5,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                21,
+                                                            ),
+                                                            current_syn_symbol_idx: 2,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            10,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 6,
+                                                            argument_expr_idx: 7,
+                                                        },
+                                                        SynExprData::PrincipalEntityPath {
+                                                            path_expr_idx: 5,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `Label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                24,
+                                                            ),
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `Label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            5,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
+                                                        },
+                                                        SynExprData::CurrentSynSymbol {
+                                                            ident: `label`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                25,
+                                                            ),
+                                                            current_syn_symbol_idx: 2,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                    ident_token: IdentRegionalToken {
+                                                                        ident: `label`,
+                                                                        regional_token_idx: RegionalTokenIdx(
+                                                                            10,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                        SynExprData::ExplicitApplication {
+                                                            function_expr_idx: 11,
+                                                            argument_expr_idx: 12,
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `core`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        14,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::Module(
+                                                                `core`,
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Subitem {
+                                                            parent: 1,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    15,
+                                                                ),
+                                                            ),
+                                                            ident_token: Ok(
+                                                                IdentRegionalToken {
+                                                                    ident: `ops`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        16,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            path: Ok(
+                                                                PrincipalEntityPath::Module(
+                                                                    `core::ops`,
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Subitem {
+                                                            parent: 2,
+                                                            colon_colon_token: ColonColonRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    17,
+                                                                ),
+                                                            ),
+                                                            ident_token: Ok(
+                                                                IdentRegionalToken {
+                                                                    ident: `Unveil`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        18,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            path: Ok(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::ops::Unveil`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `OneVsAllResult`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        19,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynPrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameRegionalToken::Ident(
+                                                                IdentRegionalToken {
+                                                                    ident: `OneVsAll`,
+                                                                    regional_token_idx: RegionalTokenIdx(
+                                                                        23,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegionData {
+                                                    inherited_syn_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_syn_symbol_arena: Arena {
+                                                        data: [
+                                                            CurrentSynSymbol {
+                                                                modifier: Const,
+                                                                access_start: RegionalTokenIdx(
+                                                                    6,
+                                                                ),
+                                                                access_end: None,
+                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [
+                                                                            Phantom(
+                                                                                PoundRegionalToken(
+                                                                                    RegionalTokenIdx(
+                                                                                        3,
+                                                                                    ),
+                                                                                ),
+                                                                                PhantomRegionalToken {
+                                                                                    token_idx: RegionalTokenIdx(
+                                                                                        4,
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                        ],
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                                        ident_token: IdentRegionalToken {
+                                                                            ident: `Label`,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                5,
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                            CurrentSynSymbol {
+                                                                modifier: Const,
+                                                                access_start: RegionalTokenIdx(
+                                                                    13,
+                                                                ),
+                                                                access_end: None,
+                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [
+                                                                            Phantom(
+                                                                                PoundRegionalToken(
+                                                                                    RegionalTokenIdx(
+                                                                                        7,
+                                                                                    ),
+                                                                                ),
+                                                                                PhantomRegionalToken {
+                                                                                    token_idx: RegionalTokenIdx(
+                                                                                        8,
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                        ],
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
+                                                                        ident_token: IdentRegionalToken {
+                                                                            ident: `label`,
+                                                                            regional_token_idx: RegionalTokenIdx(
+                                                                                10,
+                                                                            ),
+                                                                        },
+                                                                        ty_expr_idx: 1,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [
+                                                        (
+                                                            TemplateTypeParameter,
+                                                            ArenaIdxRange(
+                                                                1..2,
+                                                            ),
+                                                        ),
+                                                        (
+                                                            TemplateTypeParameter,
+                                                            ArenaIdxRange(
+                                                                2..3,
+                                                            ),
+                                                        ),
+                                                    ],
+                                                },
+                                                syn_pattern_expr_roots: [],
+                                                syn_expr_roots: [
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::ConstantImplicitParameterType,
+                                                        syn_expr_idx: 1,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::Trait,
+                                                        syn_expr_idx: 8,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SynExprRootKind::SelfType,
+                                                        syn_expr_idx: 13,
+                                                    },
+                                                ],
+                                                has_self_lifetime: false,
+                                                has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
+                                            },
+                                        },
+                                    ),
+                                    path: SynNodeRegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `malamute`,
+                                                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `unveil`,
+                                                                                            item_kind: AssociatedFunctionFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    syn_expr_arena: Arena {
+                                        data: [
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExprData::InheritedSynSymbol {
+                                                ident: `Label`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    8,
+                                                ),
+                                                inherited_syn_symbol_idx: 1,
+                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                        ident: `Label`,
+                                                    },
+                                                ),
+                                            },
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::InheritedSynSymbol {
+                                                ident: `label`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    9,
+                                                ),
+                                                inherited_syn_symbol_idx: 2,
+                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                        ident: `label`,
+                                                    },
+                                                ),
+                                            },
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 3,
+                                                argument_expr_idx: 4,
+                                            },
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 4,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExprData::SelfType(
+                                                RegionalTokenIdx(
+                                                    17,
+                                                ),
+                                            ),
+                                            SynExprData::ExplicitApplication {
+                                                function_expr_idx: 6,
+                                                argument_expr_idx: 7,
+                                            },
+                                            SynExprData::FunctionApplicationOrCall {
+                                                function: 8,
+                                                template_arguments: None,
+                                                lpar_regional_token_idx: RegionalTokenIdx(
+                                                    18,
+                                                ),
+                                                items: [],
+                                                rpar_regional_token_idx: RegionalTokenIdx(
+                                                    19,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            SynPrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
+                                                        ident: `OneVsAllResult`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            7,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
+                                                        ident: `core`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::Module(
+                                                    `core`,
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Subitem {
+                                                parent: 2,
+                                                colon_colon_token: ColonColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        13,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentRegionalToken {
+                                                        ident: `ops`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            14,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::Module(
+                                                        `core::ops`,
+                                                    ),
+                                                ),
+                                            },
+                                            SynPrincipalEntityPathExpr::Subitem {
+                                                parent: 3,
+                                                colon_colon_token: ColonColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        15,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentRegionalToken {
+                                                        ident: `ControlFlow`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            16,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExprData::Ident {
+                                                    symbol_modifier_tokens: None,
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `one_vs_all_result`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                Pure,
+                                            ],
+                                        },
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    1,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `one_vs_all_result`,
+                                                    1,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                Pure,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegionData {
+                                        inherited_syn_symbol_arena: Arena {
+                                            data: [
+                                                InheritedSynSymbol {
+                                                    parent_symbol_idx: Current(
+                                                        1,
+                                                    ),
+                                                    modifier: Const,
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                            ident: `Label`,
+                                                        },
+                                                    ),
+                                                },
+                                                InheritedSynSymbol {
+                                                    parent_symbol_idx: Current(
+                                                        2,
+                                                    ),
+                                                    modifier: Const,
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                            ident: `label`,
+                                                        },
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        current_syn_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: Pure,
+                                                    access_start: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                    access_end: None,
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                        ident: `one_vs_all_result`,
+                                                        pattern_symbol_idx: 1,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                OrdinaryParenateParameter {
+                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 1,
+                                                    },
+                                                    ty_expr_idx: 5,
+                                                },
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    syn_pattern_expr_roots: [
+                                        SynPatternExprRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                    ],
+                                    syn_expr_roots: [
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ExplicitParameterType,
+                                            syn_expr_idx: 5,
+                                        },
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ReturnType,
+                                            syn_expr_idx: 9,
+                                        },
+                                    ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                    ],
                                 },
                             },
                         },

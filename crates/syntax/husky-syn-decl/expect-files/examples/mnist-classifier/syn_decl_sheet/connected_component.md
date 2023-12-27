@@ -312,7 +312,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 233,
+                                                                    value: 232,
                                                                 },
                                                             ),
                                                         ),
@@ -332,7 +332,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 234,
+                                                                    value: 233,
                                                                 },
                                                             ),
                                                         ),
@@ -352,7 +352,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 235,
+                                                                    value: 234,
                                                                 },
                                                             ),
                                                         ),
@@ -372,7 +372,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 236,
+                                                                    value: 235,
                                                                 },
                                                             ),
                                                         ),
@@ -610,7 +610,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 238,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
@@ -784,7 +784,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -949,7 +949,7 @@ SynDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -969,7 +969,7 @@ SynDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             },
@@ -1025,7 +1025,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 244,
+                                                                    value: 243,
                                                                 },
                                                             ),
                                                         ),
@@ -1224,7 +1224,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `a`,
@@ -1233,7 +1233,7 @@ SynDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `x`,
@@ -1444,7 +1444,7 @@ SynDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -1487,7 +1487,7 @@ SynDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             },
@@ -1514,7 +1514,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `img`,
@@ -4244,7 +4244,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `k`,
@@ -4569,7 +4569,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `k`,

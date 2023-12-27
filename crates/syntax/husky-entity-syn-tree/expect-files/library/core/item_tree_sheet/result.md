@@ -22,7 +22,7 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
+                        ast_idx: 7,
                         ident_token: IdentToken {
                             ident: `Result`,
                             token_idx: TokenIdx(
@@ -85,19 +85,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 79,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 126,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ident: `Ok`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -109,19 +100,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 79,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 126,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ident: `Ok`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -129,7 +111,7 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
+                        ast_idx: 6,
                         use_expr_idx: 3,
                     },
                 ),
@@ -144,19 +126,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 79,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 127,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ident: `Err`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -168,19 +141,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 79,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 127,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ident: `Err`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -188,7 +152,7 @@ EntitySynTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
+                        ast_idx: 6,
                         use_expr_idx: 3,
                     },
                 ),
@@ -219,7 +183,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -250,7 +214,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -281,7 +245,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -312,7 +276,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -343,7 +307,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -374,7 +338,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -405,7 +369,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -436,7 +400,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -467,7 +431,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -498,7 +462,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -529,7 +493,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -560,7 +524,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -591,7 +555,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -622,7 +586,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -653,7 +617,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -684,7 +648,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -715,7 +679,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -746,7 +710,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -777,7 +741,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -828,7 +792,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -879,7 +843,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -930,7 +894,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -981,7 +945,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1032,7 +996,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1083,7 +1047,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1134,7 +1098,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1185,7 +1149,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1236,7 +1200,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1287,7 +1251,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1338,7 +1302,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1389,7 +1353,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1440,7 +1404,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1491,7 +1455,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1542,7 +1506,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1593,7 +1557,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1644,7 +1608,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1695,7 +1659,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1746,7 +1710,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1797,7 +1761,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1848,7 +1812,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1899,7 +1863,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1950,7 +1914,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2001,7 +1965,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2052,7 +2016,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2103,7 +2067,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2154,7 +2118,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2205,7 +2169,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2256,7 +2220,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2307,7 +2271,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2330,19 +2294,10 @@ EntitySynTreeSheet {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -2354,19 +2309,10 @@ EntitySynTreeSheet {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -2383,19 +2329,10 @@ EntitySynTreeSheet {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2412,19 +2349,10 @@ EntitySynTreeSheet {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -2443,19 +2371,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 75,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 116,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -2465,7 +2384,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2488,19 +2407,10 @@ EntitySynTreeSheet {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -2512,19 +2422,10 @@ EntitySynTreeSheet {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -2541,19 +2442,10 @@ EntitySynTreeSheet {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2570,19 +2462,10 @@ EntitySynTreeSheet {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -2601,19 +2484,10 @@ EntitySynTreeSheet {
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 75,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 117,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `None`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -2623,7 +2497,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2674,7 +2548,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2725,7 +2599,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2776,7 +2650,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2827,7 +2701,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2878,7 +2752,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2929,7 +2803,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2980,7 +2854,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3033,7 +2907,7 @@ EntitySynTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 9,
+                    ast_idx: 8,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             28,
@@ -3050,7 +2924,7 @@ EntitySynTreeSheet {
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    4..6,
+                                    3..5,
                                 ),
                             },
                         ),
@@ -3062,7 +2936,7 @@ EntitySynTreeSheet {
     once_use_rules: UseOneRules(
         [
             UseOneRule {
-                ast_idx: 6,
+                ast_idx: 5,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core::result`,
@@ -3089,7 +2963,7 @@ EntitySynTreeSheet {
                 },
             },
             UseOneRule {
-                ast_idx: 7,
+                ast_idx: 6,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
@@ -3117,7 +2991,7 @@ EntitySynTreeSheet {
                 },
             },
             UseOneRule {
-                ast_idx: 7,
+                ast_idx: 6,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::UseAllTypeVariants {
@@ -3141,7 +3015,7 @@ EntitySynTreeSheet {
             UseAllRule {
                 parent_module_path: `core`,
                 is_same_crate: true,
-                ast_idx: 6,
+                ast_idx: 5,
                 use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::result`,

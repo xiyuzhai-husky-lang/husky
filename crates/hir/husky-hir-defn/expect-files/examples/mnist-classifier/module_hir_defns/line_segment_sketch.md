@@ -206,9 +206,8 @@
                                         is_ty_always_copyable: true,
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::Suffix {
+                                        data: HirEagerExprData::Unwrap {
                                             opd_hir_expr_idx: 2,
-                                            opr: Unwrap,
                                         },
                                         ty_place: Transient,
                                         is_ty_always_copyable: true,
@@ -324,9 +323,8 @@
                                         is_ty_always_copyable: true,
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::Suffix {
+                                        data: HirEagerExprData::Unwrap {
                                             opd_hir_expr_idx: 6,
-                                            opr: Unwrap,
                                         },
                                         ty_place: Transient,
                                         is_ty_always_copyable: true,
@@ -595,7 +593,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 373,
+                                                    value: 372,
                                                 },
                                             ),
                                         ),
@@ -605,7 +603,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -1456,6 +1454,16 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 373,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 374,
                                                     },
                                                 ),
@@ -1467,16 +1475,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 375,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 376,
                                                     },
                                                 ),
                                             ),
@@ -1602,7 +1600,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 373,
+                                                    value: 372,
                                                 },
                                             ),
                                         ),
@@ -1612,7 +1610,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -2463,6 +2461,16 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 373,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 374,
                                                     },
                                                 ),
@@ -2474,16 +2482,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 375,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 376,
                                                     },
                                                 ),
                                             ),
@@ -2630,7 +2628,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -2650,7 +2648,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -3330,7 +3328,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3417,7 +3415,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3562,7 +3560,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3663,7 +3661,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3959,7 +3957,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -4046,7 +4044,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -4140,7 +4138,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -4265,7 +4263,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -4888,7 +4886,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -4898,13 +4896,25 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 294,
+                                                        value: 293,
                                                     },
                                                 ),
                                             ),
                                         },
                                         Ident {
                                             symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 379,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4938,9 +4948,7 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -4965,16 +4973,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 385,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 386,
                                                     },
                                                 ),
                                             ),
@@ -5174,7 +5172,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -5184,7 +5182,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 388,
+                                                    value: 387,
                                                 },
                                             ),
                                         ),
@@ -5204,7 +5202,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -5934,7 +5932,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6021,7 +6019,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6482,7 +6480,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6569,7 +6567,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6663,7 +6661,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6788,7 +6786,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -6913,7 +6911,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -7040,7 +7038,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -7130,7 +7128,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -7662,7 +7660,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 389,
+                                                        value: 388,
                                                     },
                                                 ),
                                             ),
@@ -7672,7 +7670,19 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 390,
+                                                        value: 389,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 380,
                                                     },
                                                 ),
                                             ),
@@ -7702,13 +7712,11 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 383,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -7718,7 +7726,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 383,
                                                     },
                                                 ),
                                             ),
@@ -7739,16 +7747,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 385,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 386,
                                                     },
                                                 ),
                                             ),
@@ -7942,7 +7940,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -7952,7 +7950,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -8001,6 +7999,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -8206,7 +8211,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -8332,7 +8337,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -8341,7 +8348,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -8598,9 +8605,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 28,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -8677,7 +8683,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -8791,7 +8797,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -9000,9 +9006,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 47,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -9096,9 +9101,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 51,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -9212,7 +9216,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -9221,7 +9227,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -9418,7 +9424,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -9568,7 +9574,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -9577,7 +9585,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -9793,9 +9801,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 78,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -9965,7 +9972,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
@@ -10035,7 +10042,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -10149,7 +10156,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -10255,7 +10262,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -10380,7 +10387,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -10501,9 +10508,8 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 115,
-                                                opr: Unwrap,
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -10733,7 +10739,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -10742,7 +10750,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -11012,7 +11020,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 54,
+                                                                        value: 56,
                                                                     },
                                                                 ),
                                                             ),
@@ -11275,9 +11283,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 149,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -11441,9 +11448,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 154,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -11664,9 +11670,8 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 164,
-                                                opr: Unwrap,
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -11741,9 +11746,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 167,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -11957,9 +11961,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 176,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -12080,7 +12083,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -12089,7 +12094,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -12485,7 +12490,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 69,
+                                                                value: 70,
                                                             },
                                                         ),
                                                     ),
@@ -12605,7 +12610,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 391,
+                                                        value: 390,
                                                     },
                                                 ),
                                             ),
@@ -12641,7 +12646,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 380,
+                                                        value: 379,
                                                     },
                                                 ),
                                             ),
@@ -12651,7 +12656,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 392,
+                                                        value: 391,
                                                     },
                                                 ),
                                             ),
@@ -12660,6 +12665,16 @@
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 392,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -12683,17 +12698,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 395,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 294,
+                                                        value: 293,
                                                     },
                                                 ),
                                             ),
@@ -12702,6 +12707,16 @@
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 395,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -12725,6 +12740,16 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 378,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 398,
                                                     },
                                                 ),
@@ -12735,7 +12760,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 396,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 293,
                                                     },
                                                 ),
                                             ),
@@ -12755,26 +12790,6 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 397,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 294,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
                                                         value: 400,
                                                     },
                                                 ),
@@ -12785,17 +12800,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 401,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 401,
+                                                        value: 400,
                                                     },
                                                 ),
                                             ),
@@ -13074,7 +13079,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -13489,7 +13494,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -13499,7 +13504,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 365,
+                                                    value: 364,
                                                 },
                                             ),
                                         ),
@@ -13509,7 +13514,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 297,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -13787,7 +13792,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 73,
+                                                                        value: 74,
                                                                     },
                                                                 ),
                                                             ),
@@ -13891,7 +13896,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -14045,7 +14050,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
@@ -14249,7 +14254,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 64,
+                                        value: 65,
                                     },
                                 ),
                             ),
@@ -14686,7 +14691,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 65,
+                                                                        value: 66,
                                                                     },
                                                                 ),
                                                             ),
@@ -15685,7 +15690,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 66,
+                                                                        value: 67,
                                                                     },
                                                                 ),
                                                             ),
@@ -15703,7 +15708,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 66,
+                                                                        value: 67,
                                                                     },
                                                                 ),
                                                             ),
@@ -15836,7 +15841,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -15874,6 +15879,18 @@
                                     data: [
                                         Ident {
                                             symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 282,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -15919,23 +15936,11 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 287,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
                                             symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 288,
+                                                        value: 287,
                                                     },
                                                 ),
                                             ),
@@ -16083,7 +16088,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -16093,7 +16098,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 370,
+                                                    value: 369,
                                                 },
                                             ),
                                         ),
@@ -16198,7 +16203,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -16259,7 +16264,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -16283,7 +16288,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 69,
+                                                                        value: 70,
                                                                     },
                                                                 ),
                                                             ),

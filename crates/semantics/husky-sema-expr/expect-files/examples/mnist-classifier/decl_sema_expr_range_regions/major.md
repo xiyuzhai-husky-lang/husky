@@ -58,8 +58,8 @@
             pattern_expr_ranges: [],
             expr_ranges: [
                 5..6,
-                4..6,
                 7..8,
+                5..8,
                 4..8,
             ],
             stmt_ranges: SemaStmtMap(
@@ -111,8 +111,8 @@
             pattern_expr_ranges: [],
             expr_ranges: [
                 5..6,
-                4..6,
                 7..8,
+                5..8,
                 4..8,
             ],
             stmt_ranges: SemaStmtMap(

@@ -1447,8 +1447,8 @@ SynNodeDeclSheet {
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
-                                                                ident: `branch`,
-                                                                item_kind: MethodFn,
+                                                                ident: `unveil`,
+                                                                item_kind: AssociatedFunctionFn,
                                                             },
                                                         ),
                                                     ),
@@ -1465,8 +1465,8 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::AssociatedItem(
                 AssociatedItemSynNodeDecl::TraitForTypeItem(
-                    TraitForTypeItemSynNodeDecl::MethodFn(
-                        TraitForTypeMethodFnSynNodeDecl {
+                    TraitForTypeItemSynNodeDecl::AssociatedFn(
+                        TraitForTypeAssociatedFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssociatedItem(
@@ -1488,8 +1488,8 @@ SynNodeDeclSheet {
                                                                                 disambiguator: 0,
                                                                             },
                                                                         },
-                                                                        ident: `branch`,
-                                                                        item_kind: MethodFn,
+                                                                        ident: `unveil`,
+                                                                        item_kind: AssociatedFunctionFn,
                                                                     },
                                                                 ),
                                                             ),
@@ -1509,7 +1509,7 @@ SynNodeDeclSheet {
                                 ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
-                                            3,
+                                            4,
                                         ),
                                     ),
                                     self_value_parameter: None,
@@ -1524,7 +1524,7 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    5,
+                                                    6,
                                                 ),
                                             ),
                                             ty: 5,
@@ -1533,7 +1533,7 @@ SynNodeDeclSheet {
                                     commas: [],
                                     rpar: RparRegionalToken(
                                         RegionalTokenIdx(
-                                            9,
+                                            10,
                                         ),
                                     ),
                                 },
@@ -1542,7 +1542,7 @@ SynNodeDeclSheet {
                                 Some(
                                     LightArrowRegionalToken(
                                         RegionalTokenIdx(
-                                            10,
+                                            11,
                                         ),
                                     ),
                                 ),
@@ -1555,10 +1555,10 @@ SynNodeDeclSheet {
                                 ),
                             ),
                             eol_colon: Ok(
-                                EolRegionalToken::Colon(
-                                    EolColonRegionalToken {
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            14,
+                                            15,
                                         ),
                                     },
                                 ),
@@ -1987,8 +1987,8 @@ SynNodeDeclSheet {
                                                                                                     disambiguator: 0,
                                                                                                 },
                                                                                             },
-                                                                                            ident: `branch`,
-                                                                                            item_kind: MethodFn,
+                                                                                            ident: `unveil`,
+                                                                                            item_kind: AssociatedFunctionFn,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2019,7 +2019,7 @@ SynNodeDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `T2`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    7,
+                                                    8,
                                                 ),
                                                 inherited_syn_symbol_idx: 2,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2035,7 +2035,7 @@ SynNodeDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `E2`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    8,
+                                                    9,
                                                 ),
                                                 inherited_syn_symbol_idx: 4,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2061,7 +2061,7 @@ SynNodeDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `T1`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    12,
+                                                    13,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2077,7 +2077,7 @@ SynNodeDeclSheet {
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `E1`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    13,
+                                                    14,
                                                 ),
                                                 inherited_syn_symbol_idx: 3,
                                                 inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2099,7 +2099,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `result`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            4,
+                                                            5,
                                                         ),
                                                     },
                                                 ),
@@ -2112,7 +2112,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `Result`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            6,
+                                                            7,
                                                         ),
                                                     },
                                                 ),
@@ -2127,7 +2127,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `Result`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            11,
+                                                            12,
                                                         ),
                                                     },
                                                 ),
@@ -2145,12 +2145,12 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `result`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            4,
+                                                            5,
                                                         ),
                                                     },
                                                 },
@@ -2236,7 +2236,7 @@ SynNodeDeclSheet {
                                                 CurrentSynSymbol {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
-                                                        5,
+                                                        6,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {

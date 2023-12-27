@@ -2103,12 +2103,15 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
+            Keyword::Static,
+        ),
+        TokenData::Keyword(
             Keyword::Fugitive(
                 Fn,
             ),
         ),
         TokenData::Ident(
-            `branch`,
+            `unveil`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2145,19 +2148,9 @@ TokenSheetData {
         TokenData::Ident(
             `ControlFlow`,
         ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::LaOrLt,
-            ),
-        ),
         TokenData::Keyword(
             Keyword::Pronoun(
                 SelfType,
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Comma,
             ),
         ),
         TokenData::Keyword(
@@ -2174,11 +2167,6 @@ TokenSheetData {
         ),
         TokenData::Ident(
             `Output`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::RaOrGt,
-            ),
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2202,7 +2190,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `R`,
+            `B`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2223,7 +2211,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Return`,
+            `Continue`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2233,7 +2221,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `R`,
+            `C`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2248,7 +2236,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Continue`,
+            `Break`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2258,7 +2246,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `C`,
+            `B`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -2576,17 +2564,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                446,
+                444,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                454,
+                452,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                459,
+                457,
             ),
         ),
     ],

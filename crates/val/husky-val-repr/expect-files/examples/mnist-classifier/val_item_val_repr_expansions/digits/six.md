@@ -13,55 +13,24 @@
             ValReprExpansion {
                 hir_lazy_variable_val_repr_map: ArenaMap {
                     data: [
-                        None,
                         Some(
                             ValRepr(
                                 Id {
-                                    value: 238,
-                                },
-                            ),
-                        ),
-                        None,
-                        Some(
-                            ValRepr(
-                                Id {
-                                    value: 242,
+                                    value: 248,
                                 },
                             ),
                         ),
                         Some(
                             ValRepr(
                                 Id {
-                                    value: 246,
-                                },
-                            ),
-                        ),
-                        None,
-                        Some(
-                            ValRepr(
-                                Id {
-                                    value: 259,
+                                    value: 253,
                                 },
                             ),
                         ),
                         Some(
                             ValRepr(
                                 Id {
-                                    value: 262,
-                                },
-                            ),
-                        ),
-                        Some(
-                            ValRepr(
-                                Id {
-                                    value: 264,
-                                },
-                            ),
-                        ),
-                        Some(
-                            ValRepr(
-                                Id {
-                                    value: 268,
+                                    value: 257,
                                 },
                             ),
                         ),
@@ -72,26 +41,44 @@
                                 },
                             ),
                         ),
-                        None,
                         Some(
                             ValRepr(
                                 Id {
-                                    value: 294,
+                                    value: 273,
                                 },
                             ),
                         ),
-                        None,
+                        Some(
+                            ValRepr(
+                                Id {
+                                    value: 275,
+                                },
+                            ),
+                        ),
+                        Some(
+                            ValRepr(
+                                Id {
+                                    value: 279,
+                                },
+                            ),
+                        ),
+                        Some(
+                            ValRepr(
+                                Id {
+                                    value: 281,
+                                },
+                            ),
+                        ),
+                        Some(
+                            ValRepr(
+                                Id {
+                                    value: 308,
+                                },
+                            ),
+                        ),
                     ],
                 },
                 hir_lazy_expr_val_repr_map: [
-                    ValRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
                     ValRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
@@ -109,351 +96,23 @@
                         caching_class: ValItem,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 234,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinkageTemplateArgument::Type(
-                                                    LinkageType::PathLeading(
-                                                        LinkageTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
-                                        },
-                                    ),
-                                    ident: `matches`,
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 235,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::USize(
-                                TermUSizeLiteral {
-                                    value: 0,
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 236,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 235,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 236,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 236,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 235,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 236,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
                                     },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 241,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 243,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 244,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Binary(
-                            Closed(
-                                Sub,
-                            ),
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 243,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 244,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 245,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `matches`,
                                 },
                             },
                         ),
@@ -469,13 +128,7 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 247,
-                                },
-                            ),
-                        ),
+                        val_domain_repr: Omni,
                         opn: ValOpn::Literal(
                             TermLiteral::USize(
                                 TermUSizeLiteral {
@@ -487,30 +140,20 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 248,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Index,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 247,
+                                        value: 245,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 248,
+                                        value: 246,
                                     },
                                 ),
                             ),
@@ -519,58 +162,31 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: ConditionSatisfied(
-                            ValRepr(
-                                Id {
-                                    value: 250,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
+                        opn: ValOpn::Index,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 230,
+                                        value: 245,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 246,
                                     },
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        caching_class: Variable,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -593,11 +209,13 @@
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
                                 },
                             },
@@ -606,7 +224,107 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 231,
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [],
+                        caching_class: ValItem,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [],
+                        caching_class: ValItem,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -617,13 +335,118 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 252,
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Binary(
+                            Closed(
+                                Sub,
+                            ),
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 254,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 255,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 253,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
                                 },
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::I32(
-                                5,
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 0,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -633,14 +456,35 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 253,
+                                    value: 251,
                                 },
                             ),
                         ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 258,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 259,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -648,56 +492,37 @@
                                 },
                             },
                         ),
-                        arguments: [
-                            Variadic(
-                                [
-                                    ValRepr(
-                                        Id {
-                                            value: 251,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 252,
-                                        },
-                                    ),
-                                ],
-                            ),
-                            Keyed(
-                                Ident(
-                                    Coword(
-                                        Id {
-                                            value: 445,
-                                        },
-                                    ),
-                                ),
-                                Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 253,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
+                        arguments: [],
+                        caching_class: ValItem,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 254,
+                                    value: 261,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Suffix(
-                            Unveil,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
                         ),
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 254,
+                                        value: 242,
                                     },
                                 ),
                             ),
@@ -721,218 +546,7 @@
                         caching_class: ValItem,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 255,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinkageTemplateArgument::Type(
-                                                    LinkageType::PathLeading(
-                                                        LinkageTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
-                                        },
-                                    ),
-                                    ident: `matches`,
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 231,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 256,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::USize(
-                                TermUSizeLiteral {
-                                    value: 1,
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 257,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 256,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 257,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 257,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 256,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 257,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 258,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Suffix(
-                            Unwrap,
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 259,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 260,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: Some(
-                                            0,
-                                        ),
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 260,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 260,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: Some(
-                                            0,
-                                        ),
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 260,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 261,
@@ -941,94 +555,156 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            template_arguments: [],
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 243,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 261,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::I32(
+                                5,
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 261,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::FunctionGnItem {
+                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinkageTypePathLeading(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Variadic(
+                                [
+                                    ValRepr(
+                                        Id {
+                                            value: 262,
                                         },
                                     ),
-                                    ident: `y`,
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 262,
-                                    },
+                                    ValRepr(
+                                        Id {
+                                            value: 263,
+                                        },
+                                    ),
+                                ],
+                            ),
+                            Keyed(
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 264,
+                                        },
+                                    ),
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [
+                                    ValRuntimeConstant(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ],
                             ),
                         ],
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 236,
+                                    value: 261,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 235,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 236,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 263,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Suffix(
-                            Unwrap,
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 238,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 265,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                    path: TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
@@ -1047,6 +723,155 @@
                                     },
                                 ),
                             ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [],
+                        caching_class: ValItem,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 243,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 267,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 268,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 267,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 268,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Unwrap,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 270,
+                                    },
+                                ),
+                            ),
                         ],
                         caching_class: Stmt,
                     },
@@ -1060,14 +885,16 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            template_arguments: [],
-                                        },
+                                data: LinkageData::MethodFn {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                     ),
-                                    ident: `y`,
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -1075,7 +902,201 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 266,
+                                        value: 271,
+                                    },
+                                ),
+                            ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MethodFn {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 271,
+                                    },
+                                ),
+                            ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 265,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 273,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 245,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 246,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Unwrap,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 248,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MethodFn {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 276,
+                                    },
+                                ),
+                            ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 265,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 277,
                                     },
                                 ),
                             ),
@@ -1102,29 +1123,26 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 267,
+                                    value: 266,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinkageTemplateArgument::Type(
-                                                    LinkageType::PathLeading(
-                                                        LinkageTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
-                                        },
-                                    ),
-                                    ident: `others`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 425,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -1132,7 +1150,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 231,
+                                        value: 243,
                                     },
                                 ),
                             ),
@@ -1159,7 +1177,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 269,
+                                    value: 266,
                                 },
                             ),
                         ),
@@ -1171,7 +1189,9 @@
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
                                 },
                             },
@@ -1180,7 +1200,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 231,
+                                        value: 243,
                                     },
                                 ),
                             ),
@@ -1191,7 +1211,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 271,
+                                    value: 266,
                                 },
                             ),
                         ),
@@ -1212,7 +1232,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 272,
+                                    value: 266,
                                 },
                             ),
                         ),
@@ -1225,14 +1245,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 271,
+                                        value: 283,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 272,
+                                        value: 284,
                                     },
                                 ),
                             ),
@@ -1243,27 +1263,23 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 257,
+                                    value: 266,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
+                        opn: ValOpn::Index,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 256,
+                                        value: 267,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 257,
+                                        value: 268,
                                     },
                                 ),
                             ),
@@ -1274,20 +1290,26 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 261,
+                                    value: 266,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `y`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 265,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -1295,7 +1317,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 262,
+                                        value: 273,
                                     },
                                 ),
                             ),
@@ -1306,7 +1328,7 @@
                         val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 275,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -1324,10 +1346,10 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 276,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -1338,7 +1360,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 276,
+                                        value: 289,
                                     },
                                 ),
                             ),
@@ -1346,10 +1368,10 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 277,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -1362,14 +1384,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 264,
+                                        value: 275,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 277,
+                                        value: 290,
                                     },
                                 ),
                             ),
@@ -1396,7 +1418,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 279,
+                                    value: 292,
                                 },
                             ),
                         ),
@@ -1417,7 +1439,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 280,
+                                    value: 292,
                                 },
                             ),
                         ),
@@ -1437,7 +1459,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 280,
+                                        value: 294,
                                     },
                                 ),
                             ),
@@ -1454,14 +1476,20 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `y`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 265,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -1469,7 +1497,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 266,
+                                        value: 277,
                                     },
                                 ),
                             ),
@@ -1480,7 +1508,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 282,
+                                    value: 296,
                                 },
                             ),
                         ),
@@ -1496,16 +1524,39 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 283,
+                                    value: 296,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::FunctionGnItem {
                                     path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinkageTypePathLeading(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
                                         separator: None,
                                     },
                                 },
@@ -1516,26 +1567,28 @@
                                 [
                                     ValRepr(
                                         Id {
-                                            value: 268,
+                                            value: 279,
                                         },
                                     ),
                                 ],
                             ),
                             Keyed(
-                                Ident(
-                                    Coword(
-                                        Id {
-                                            value: 445,
-                                        },
-                                    ),
-                                ),
                                 Some(
                                     ValRepr(
                                         Id {
-                                            value: 283,
+                                            value: 297,
                                         },
                                     ),
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [
+                                    ValRuntimeConstant(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ],
                             ),
                         ],
                         caching_class: Stmt,
@@ -1544,20 +1597,54 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 284,
+                                    value: 296,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Suffix(
-                            Unveil,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                    path: TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
                         ),
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 284,
+                                        value: 298,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -1566,7 +1653,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 285,
+                                    value: 299,
                                 },
                             ),
                         ),
@@ -1575,19 +1662,10 @@
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 324,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -1617,7 +1695,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 288,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1629,7 +1707,9 @@
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
                                 },
                             },
@@ -1638,7 +1718,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 289,
+                                        value: 303,
                                     },
                                 ),
                             ),
@@ -1646,30 +1726,20 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 236,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Index,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 235,
+                                        value: 245,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 236,
+                                        value: 246,
                                     },
                                 ),
                             ),
@@ -1680,18 +1750,16 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 290,
+                                    value: 302,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Suffix(
-                            Unwrap,
-                        ),
+                        opn: ValOpn::Unwrap,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 238,
+                                        value: 248,
                                     },
                                 ),
                             ),
@@ -1702,7 +1770,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 291,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1725,9 +1793,12 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 291,
+                                        value: 305,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -1736,7 +1807,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 292,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1759,16 +1830,19 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 290,
+                                        value: 304,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 292,
+                                        value: 306,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -1783,14 +1857,20 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `y`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 265,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -1798,7 +1878,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 266,
+                                        value: 277,
                                     },
                                 ),
                             ),
@@ -1825,7 +1905,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 244,
+                                    value: 251,
                                 },
                             ),
                         ),
@@ -1838,14 +1918,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 243,
+                                        value: 254,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 244,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1872,7 +1952,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 293,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1888,7 +1968,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 295,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1918,9 +1998,12 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 295,
+                                        value: 309,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -1929,7 +2012,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 296,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -1945,16 +2028,39 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 297,
+                                    value: 302,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::FunctionFnItem {
+                                data: LinkageData::FunctionGnItem {
                                     path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinkageTypePathLeading(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
                                         separator: None,
                                     },
                                 },
@@ -1965,7 +2071,7 @@
                                 [
                                     ValRepr(
                                         Id {
-                                            value: 268,
+                                            value: 279,
                                         },
                                     ),
                                     ValRepr(
@@ -1975,31 +2081,33 @@
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 246,
+                                            value: 257,
                                         },
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 296,
+                                            value: 310,
                                         },
                                     ),
                                 ],
                             ),
                             Keyed(
-                                Ident(
-                                    Coword(
-                                        Id {
-                                            value: 445,
-                                        },
-                                    ),
-                                ),
                                 Some(
                                     ValRepr(
                                         Id {
-                                            value: 297,
+                                            value: 311,
                                         },
                                     ),
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [
+                                    ValRuntimeConstant(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ],
                             ),
                         ],
                         caching_class: Stmt,
@@ -2008,20 +2116,54 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 298,
+                                    value: 302,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Suffix(
-                            Unveil,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                    path: TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
                         ),
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 298,
+                                        value: 312,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -2030,7 +2172,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 292,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -2053,16 +2195,19 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 290,
+                                        value: 304,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 292,
+                                        value: 306,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Variable,
@@ -2071,20 +2216,26 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 299,
+                                    value: 313,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `x`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 264,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -2092,7 +2243,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 294,
+                                        value: 308,
                                     },
                                 ),
                             ),
@@ -2103,7 +2254,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 300,
+                                    value: 313,
                                 },
                             ),
                         ),
@@ -2124,7 +2275,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 301,
+                                    value: 313,
                                 },
                             ),
                         ),
@@ -2134,317 +2285,6 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 300,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 301,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: ConditionSatisfied(
-                            ValRepr(
-                                Id {
-                                    value: 302,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 324,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 305,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 324,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 308,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 309,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::I32(
-                                5,
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 310,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::FunctionFnItem {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Variadic(
-                                [
-                                    ValRepr(
-                                        Id {
-                                            value: 309,
-                                        },
-                                    ),
-                                ],
-                            ),
-                            Keyed(
-                                Ident(
-                                    Coword(
-                                        Id {
-                                            value: 445,
-                                        },
-                                    ),
-                                ),
-                                Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 310,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 311,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Suffix(
-                            Unveil,
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 311,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::ValItem {
-                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [],
-                        caching_class: ValItem,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 312,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 313,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::F32(
-                                TermF32Literal {
-                                    value: OrderedFloat(
-                                        1.8,
-                                    ),
-                                    text: "1.8f32",
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 314,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Binary(
-                            Comparison(
-                                Greater,
-                            ),
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 313,
-                                    },
-                                ),
-                            ),
                             Ordinary(
                                 ValRepr(
                                     Id {
@@ -2452,7 +2292,66 @@
                                     },
                                 ),
                             ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 315,
+                                    },
+                                ),
+                            ),
                         ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 316,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 319,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        arguments: [],
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2472,10 +2371,10 @@
                         caching_class: ValItem,
                     },
                     ValRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 315,
+                                    value: 322,
                                 },
                             ),
                         ),
@@ -2487,124 +2386,10 @@
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 316,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::F32(
-                                TermF32Literal {
-                                    value: OrderedFloat(
-                                        1.8,
-                                    ),
-                                    text: "1.8f32",
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 317,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Binary(
-                            Comparison(
-                                Less,
-                            ),
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 316,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 317,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 320,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `matches`,
                                 },
                             },
                         ),
@@ -2623,15 +2408,13 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 321,
+                                    value: 322,
                                 },
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            TermLiteral::USize(
-                                TermUSizeLiteral {
-                                    value: 0,
-                                },
+                            TermLiteral::I32(
+                                5,
                             ),
                         ),
                         arguments: [],
@@ -2647,77 +2430,65 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 321,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 322,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 323,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Suffix(
-                            Unwrap,
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 323,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 324,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
-                                    ),
+                                data: LinkageData::FunctionGnItem {
+                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinkageTypePathLeading(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
                                         separator: None,
                                     },
                                 },
                             },
                         ),
                         arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 324,
-                                    },
+                            Variadic(
+                                [
+                                    ValRepr(
+                                        Id {
+                                            value: 323,
+                                        },
+                                    ),
+                                ],
+                            ),
+                            Keyed(
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 324,
+                                        },
+                                    ),
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [
+                                    ValRuntimeConstant(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ],
                             ),
                         ],
                         caching_class: Stmt,
@@ -2726,15 +2497,34 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 325,
+                                    value: 322,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                    path: TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
@@ -2753,6 +2543,59 @@
                                     },
                                 ),
                             ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [],
+                        caching_class: ValItem,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 326,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 242,
+                                    },
+                                ),
+                            ),
                         ],
                         caching_class: Stmt,
                     },
@@ -2768,9 +2611,9 @@
                             TermLiteral::F32(
                                 TermF32Literal {
                                     value: OrderedFloat(
-                                        0.75,
+                                        1.8,
                                     ),
-                                    text: "0.75f32",
+                                    text: "1.8f32",
                                 },
                             ),
                         ),
@@ -2781,7 +2624,109 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 327,
+                                    value: 326,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Binary(
+                            Comparison(
+                                Greater,
+                            ),
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 327,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 328,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::ValItem {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [],
+                        caching_class: ValItem,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 329,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 242,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 329,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::F32(
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        1.8,
+                                    ),
+                                    text: "1.8f32",
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 329,
                                 },
                             ),
                         ),
@@ -2794,130 +2739,17 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 326,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 327,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
-                                    path: AssociatedItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Variable,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 329,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `matches`,
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 242,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 330,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Literal(
-                            TermLiteral::USize(
-                                TermUSizeLiteral {
-                                    value: 1,
-                                },
-                            ),
-                        ),
-                        arguments: [],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 331,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
-                            Ordinary(
-                                ValRepr(
-                                    Id {
                                         value: 331,
                                     },
                                 ),
                             ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 332,
+                                    },
+                                ),
+                            ),
                         ],
                         caching_class: Stmt,
                     },
@@ -2925,7 +2757,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 240,
+                                    value: 251,
                                 },
                             ),
                         ),
@@ -2937,7 +2769,9 @@
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
                                 },
                             },
@@ -2954,23 +2788,29 @@
                         caching_class: Variable,
                     },
                     ValRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 333,
+                                    value: 335,
                                 },
                             ),
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::PropsStructField {
-                                    self_ty: LinkageType::PathLeading(
-                                        LinkageTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                    ident: `matches`,
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             },
                         ),
@@ -2978,7 +2818,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 242,
+                                        value: 253,
                                     },
                                 ),
                             ),
@@ -2989,14 +2829,14 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 334,
+                                    value: 335,
                                 },
                             ),
                         ),
                         opn: ValOpn::Literal(
                             TermLiteral::USize(
                                 TermUSizeLiteral {
-                                    value: 1,
+                                    value: 0,
                                 },
                             ),
                         ),
@@ -3011,23 +2851,19 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::Index,
-                            },
-                        ),
+                        opn: ValOpn::Index,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 334,
+                                        value: 337,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 335,
+                                        value: 338,
                                     },
                                 ),
                             ),
@@ -3038,18 +2874,16 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 336,
+                                    value: 335,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Suffix(
-                            Unwrap,
-                        ),
+                        opn: ValOpn::Unwrap,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 336,
+                                        value: 339,
                                     },
                                 ),
                             ),
@@ -3060,7 +2894,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 337,
+                                    value: 335,
                                 },
                             ),
                         ),
@@ -3072,7 +2906,9 @@
                                     ),
                                     instantiation: LinkageInstantiation {
                                         symbol_resolutions: [],
-                                        separator: None,
+                                        separator: Some(
+                                            0,
+                                        ),
                                     },
                                 },
                             },
@@ -3081,7 +2917,7 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 337,
+                                        value: 340,
                                     },
                                 ),
                             ),
@@ -3092,7 +2928,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 338,
+                                    value: 335,
                                 },
                             ),
                         ),
@@ -3115,9 +2951,12 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 338,
+                                        value: 341,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -3126,7 +2965,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 339,
+                                    value: 335,
                                 },
                             ),
                         ),
@@ -3147,7 +2986,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 340,
+                                    value: 335,
                                 },
                             ),
                         ),
@@ -3160,14 +2999,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 339,
+                                        value: 342,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 340,
+                                        value: 343,
                                     },
                                 ),
                             ),
@@ -3178,7 +3017,384 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 244,
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 345,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 253,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 345,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 345,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 347,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Variable,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinkageTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 237,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 253,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 351,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 352,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Unwrap,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 353,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 354,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MethodFn {
+                                    path: AssociatedItemPath::TypeItem(
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 355,
+                                    },
+                                ),
+                            ),
+                            RuntimeConstants(
+                                [],
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Literal(
+                            TermLiteral::F32(
+                                TermF32Literal {
+                                    value: OrderedFloat(
+                                        0.75,
+                                    ),
+                                    text: "0.75f32",
+                                },
+                            ),
+                        ),
+                        arguments: [],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Binary(
+                            Comparison(
+                                Less,
+                            ),
+                        ),
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 356,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 357,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 251,
                                 },
                             ),
                         ),
@@ -3191,14 +3407,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 243,
+                                        value: 254,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 244,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -3209,7 +3425,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 343,
+                                    value: 360,
                                 },
                             ),
                         ),
@@ -3230,7 +3446,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 344,
+                                    value: 360,
                                 },
                             ),
                         ),
@@ -3243,14 +3459,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 246,
+                                        value: 257,
                                     },
                                 ),
                             ),
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 344,
+                                        value: 362,
                                     },
                                 ),
                             ),
@@ -3261,7 +3477,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 346,
+                                    value: 364,
                                 },
                             ),
                         ),
@@ -3270,19 +3486,10 @@
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 324,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -3295,10 +3502,10 @@
                 ],
                 hir_lazy_stmt_val_repr_map: [
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
-                                    value: 278,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -3307,7 +3514,14 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 278,
+                                        value: 291,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 288,
                                     },
                                 ),
                             ),
@@ -3318,7 +3532,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 281,
+                                    value: 292,
                                 },
                             ),
                         ),
@@ -3327,7 +3541,81 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 281,
+                                        value: 295,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 293,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 299,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Return,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 300,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 316,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Return,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 317,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Require,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 285,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 282,
                                     },
                                 ),
                             ),
@@ -3342,263 +3630,25 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Return,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 286,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 303,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Return,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 303,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 273,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 273,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 274,
-                                },
-                            ),
-                        ),
                         opn: ValOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 275,
-                                        },
-                                    ),
-                                ),
-                                stmts: [
-                                    ValRepr(
-                                        Id {
-                                            value: 279,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 282,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 285,
-                                        },
-                                    ),
                                     ValRepr(
                                         Id {
                                             value: 287,
                                         },
                                     ),
-                                ],
-                            },
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 299,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Branches,
-                        arguments: [
-                            Branch {
-                                condition: Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 302,
-                                        },
-                                    ),
                                 ),
                                 stmts: [
                                     ValRepr(
                                         Id {
-                                            value: 304,
-                                        },
-                                    ),
-                                ],
-                            },
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 306,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Return,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 306,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 318,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 318,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 341,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 341,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 233,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 239,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 239,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 245,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Branches,
-                        arguments: [
-                            Branch {
-                                condition: Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 250,
-                                        },
-                                    ),
-                                ),
-                                stmts: [
-                                    ValRepr(
-                                        Id {
-                                            value: 255,
+                                            value: 292,
                                         },
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 274,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 288,
+                                            value: 296,
                                         },
                                     ),
                                     ValRepr(
@@ -3608,12 +3658,7 @@
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 305,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 307,
+                                            value: 301,
                                         },
                                     ),
                                 ],
@@ -3625,7 +3670,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 312,
+                                    value: 313,
                                 },
                             ),
                         ),
@@ -3635,14 +3680,14 @@
                                 condition: Some(
                                     ValRepr(
                                         Id {
-                                            value: 315,
+                                            value: 316,
                                         },
                                     ),
                                 ),
                                 stmts: [
                                     ValRepr(
                                         Id {
-                                            value: 319,
+                                            value: 318,
                                         },
                                     ),
                                 ],
@@ -3654,7 +3699,27 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 328,
+                                    value: 319,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Return,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 320,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 329,
                                 },
                             ),
                         ),
@@ -3663,7 +3728,62 @@
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 328,
+                                        value: 333,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 330,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
+                            ValRepr(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Require,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 358,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 350,
+                                    },
+                                ),
+                            ),
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Require,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 250,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 249,
                                     },
                                 ),
                             ),
@@ -3674,7 +3794,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 329,
+                                    value: 251,
                                 },
                             ),
                         ),
@@ -3684,18 +3804,99 @@
                                 condition: Some(
                                     ValRepr(
                                         Id {
-                                            value: 333,
+                                            value: 261,
                                         },
                                     ),
                                 ),
                                 stmts: [
                                     ValRepr(
                                         Id {
-                                            value: 342,
+                                            value: 266,
+                                        },
+                                    ),
+                                    ValRepr(
+                                        Id {
+                                            value: 286,
+                                        },
+                                    ),
+                                    ValRepr(
+                                        Id {
+                                            value: 302,
+                                        },
+                                    ),
+                                    ValRepr(
+                                        Id {
+                                            value: 313,
+                                        },
+                                    ),
+                                    ValRepr(
+                                        Id {
+                                            value: 319,
+                                        },
+                                    ),
+                                    ValRepr(
+                                        Id {
+                                            value: 321,
                                         },
                                     ),
                                 ],
                             },
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 326,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Branches,
+                        arguments: [
+                            Branch {
+                                condition: Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 329,
+                                        },
+                                    ),
+                                ),
+                                stmts: [
+                                    ValRepr(
+                                        Id {
+                                            value: 334,
+                                        },
+                                    ),
+                                ],
+                            },
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 335,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Require,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 344,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 336,
+                                    },
+                                ),
+                            ),
                         ],
                         caching_class: Stmt,
                     },
@@ -3707,12 +3908,48 @@
                                 },
                             ),
                         ),
+                        opn: ValOpn::Branches,
+                        arguments: [
+                            Branch {
+                                condition: Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 349,
+                                        },
+                                    ),
+                                ),
+                                stmts: [
+                                    ValRepr(
+                                        Id {
+                                            value: 359,
+                                        },
+                                    ),
+                                ],
+                            },
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 360,
+                                },
+                            ),
+                        ),
                         opn: ValOpn::Require,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 345,
+                                        value: 363,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 361,
                                     },
                                 ),
                             ),
@@ -3722,19 +3959,20 @@
                 ],
                 root_hir_lazy_stmt_val_reprs: [
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                        ),
+                        val_domain_repr: Omni,
                         opn: ValOpn::Require,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 233,
+                                        value: 250,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 249,
                                     },
                                 ),
                             ),
@@ -3745,27 +3983,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 239,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Require,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 239,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 245,
+                                    value: 251,
                                 },
                             ),
                         ),
@@ -3775,92 +3993,41 @@
                                 condition: Some(
                                     ValRepr(
                                         Id {
-                                            value: 250,
+                                            value: 261,
                                         },
                                     ),
                                 ),
                                 stmts: [
                                     ValRepr(
                                         Id {
-                                            value: 255,
+                                            value: 266,
                                         },
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 274,
+                                            value: 286,
                                         },
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 288,
+                                            value: 302,
                                         },
                                     ),
                                     ValRepr(
                                         Id {
-                                            value: 299,
+                                            value: 313,
                                         },
                                     ),
-                                    ValRepr(
-                                        Id {
-                                            value: 305,
-                                        },
-                                    ),
-                                    ValRepr(
-                                        Id {
-                                            value: 307,
-                                        },
-                                    ),
-                                ],
-                            },
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 311,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Suffix(
-                            Unveil,
-                        ),
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 311,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 312,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Branches,
-                        arguments: [
-                            Branch {
-                                condition: Some(
-                                    ValRepr(
-                                        Id {
-                                            value: 315,
-                                        },
-                                    ),
-                                ),
-                                stmts: [
                                     ValRepr(
                                         Id {
                                             value: 319,
                                         },
                                     ),
+                                    ValRepr(
+                                        Id {
+                                            value: 321,
+                                        },
+                                    ),
                                 ],
                             },
                         ],
@@ -3870,18 +4037,54 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 328,
+                                    value: 322,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::UnveilAssociatedFunctionFn {
+                                    path: TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    instantiation: LinkageInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 328,
+                                        value: 325,
                                     },
                                 ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         caching_class: Stmt,
@@ -3890,7 +4093,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 329,
+                                    value: 326,
                                 },
                             ),
                         ),
@@ -3900,18 +4103,45 @@
                                 condition: Some(
                                     ValRepr(
                                         Id {
-                                            value: 333,
+                                            value: 329,
                                         },
                                     ),
                                 ),
                                 stmts: [
                                     ValRepr(
                                         Id {
-                                            value: 342,
+                                            value: 334,
                                         },
                                     ),
                                 ],
                             },
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 335,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Require,
+                        arguments: [
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 344,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 336,
+                                    },
+                                ),
+                            ),
                         ],
                         caching_class: Stmt,
                     },
@@ -3923,12 +4153,48 @@
                                 },
                             ),
                         ),
+                        opn: ValOpn::Branches,
+                        arguments: [
+                            Branch {
+                                condition: Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 349,
+                                        },
+                                    ),
+                                ),
+                                stmts: [
+                                    ValRepr(
+                                        Id {
+                                            value: 359,
+                                        },
+                                    ),
+                                ],
+                            },
+                        ],
+                        caching_class: Stmt,
+                    },
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
+                            ValRepr(
+                                Id {
+                                    value: 360,
+                                },
+                            ),
+                        ),
                         opn: ValOpn::Require,
                         arguments: [
                             Ordinary(
                                 ValRepr(
                                     Id {
-                                        value: 345,
+                                        value: 363,
+                                    },
+                                ),
+                            ),
+                            Ordinary(
+                                ValRepr(
+                                    Id {
+                                        value: 361,
                                     },
                                 ),
                             ),
@@ -3939,7 +4205,7 @@
                         val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
-                                    value: 346,
+                                    value: 364,
                                 },
                             ),
                         ),
@@ -3948,19 +4214,10 @@
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 324,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),

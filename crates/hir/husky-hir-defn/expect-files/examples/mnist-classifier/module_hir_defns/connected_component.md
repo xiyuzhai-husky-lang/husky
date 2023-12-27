@@ -281,7 +281,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 241,
+                                                    value: 240,
                                                 },
                                             ),
                                         ),
@@ -518,7 +518,7 @@
                                 ident: `mask`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
-                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                         template_arguments: [],
                                         always_copyable: false,
                                     },
@@ -641,7 +641,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 265,
+                                                    value: 264,
                                                 },
                                             ),
                                         ),
@@ -817,7 +817,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 1,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 10,
                                             },
@@ -954,7 +954,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 12,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 21,
                                             },
@@ -1176,7 +1176,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 30,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 39,
                                             },
@@ -1292,7 +1292,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 266,
+                                                        value: 265,
                                                     },
                                                 ),
                                             ),
@@ -1304,7 +1304,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 267,
+                                                        value: 266,
                                                     },
                                                 ),
                                             ),
@@ -1371,7 +1371,7 @@
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
-                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                             template_arguments: [],
                                             always_copyable: false,
                                         },
@@ -1417,7 +1417,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 269,
+                                                    value: 268,
                                                 },
                                             ),
                                         ),
@@ -1460,6 +1460,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -1514,7 +1521,7 @@
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
-                                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                             template_arguments: [],
                                                                             always_copyable: false,
                                                                         },
@@ -1664,7 +1671,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [],
                                             },
@@ -2921,7 +2930,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 38,
+                                                                        value: 40,
                                                                     },
                                                                 ),
                                                             ),
@@ -2994,7 +3003,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 39,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -3182,7 +3191,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -3198,7 +3207,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -3336,7 +3345,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 40,
+                                                                value: 42,
                                                             },
                                                         ),
                                                     ),
@@ -3366,7 +3375,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 262,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -3427,7 +3436,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 270,
+                                                        value: 269,
                                                     },
                                                 ),
                                             ),
@@ -3447,7 +3456,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 271,
+                                                        value: 270,
                                                     },
                                                 ),
                                             ),
@@ -3459,7 +3468,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 244,
+                                                        value: 243,
                                                     },
                                                 ),
                                             ),
@@ -3468,6 +3477,28 @@
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 272,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 249,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -3477,18 +3508,6 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 250,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
                                             symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
@@ -3503,7 +3522,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 275,
+                                                        value: 273,
                                                     },
                                                 ),
                                             ),
@@ -3514,16 +3533,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 274,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 275,
                                                     },
                                                 ),
                                             ),
@@ -3760,7 +3769,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -3886,7 +3895,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -3917,7 +3926,7 @@
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -4162,7 +4171,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 42,
+                                                                        value: 44,
                                                                     },
                                                                 ),
                                                             ),
@@ -4356,6 +4365,33 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                        template_arguments: [
+                                                                            HirTemplateArgument::Type(
+                                                                                HirType::PathLeading(
+                                                                                    HirTypePathLeading {
+                                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                        template_arguments: [],
+                                                                                        always_copyable: false,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ],
+                                                                        always_copyable: true,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -4645,7 +4681,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 36,
+                                                                        value: 38,
                                                                     },
                                                                 ),
                                                             ),
@@ -4846,7 +4882,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 36,
+                                                                        value: 38,
                                                                     },
                                                                 ),
                                                             ),
@@ -4890,7 +4926,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -4942,7 +4978,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 37,
+                                                                value: 39,
                                                             },
                                                         ),
                                                     ),
@@ -5004,7 +5040,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 246,
+                                                        value: 245,
                                                     },
                                                 ),
                                             ),
@@ -5016,7 +5052,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 238,
+                                                        value: 237,
                                                     },
                                                 ),
                                             ),
@@ -5474,7 +5510,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -5519,7 +5555,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 249,
+                                                        value: 248,
                                                     },
                                                 ),
                                             ),
@@ -5529,7 +5565,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 246,
+                                                        value: 245,
                                                     },
                                                 ),
                                             ),
@@ -5539,7 +5575,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 251,
+                                                        value: 250,
                                                     },
                                                 ),
                                             ),
@@ -5725,7 +5761,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -5902,7 +5938,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -5947,7 +5983,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 254,
+                                                        value: 253,
                                                     },
                                                 ),
                                             ),
@@ -6108,7 +6144,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -6235,7 +6271,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -6280,7 +6316,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 255,
+                                                        value: 254,
                                                     },
                                                 ),
                                             ),
@@ -6419,7 +6455,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -6512,7 +6548,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -6725,7 +6761,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -6878,7 +6914,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -7180,7 +7216,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 233,
+                                                            value: 232,
                                                         },
                                                     ),
                                                 ),
@@ -7205,7 +7241,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 234,
+                                                            value: 233,
                                                         },
                                                     ),
                                                 ),
@@ -7248,7 +7284,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 259,
+                                                            value: 258,
                                                         },
                                                     ),
                                                 ),
@@ -7288,7 +7324,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 260,
+                                                            value: 259,
                                                         },
                                                     ),
                                                 ),
@@ -7333,7 +7369,39 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 232,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 233,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 256,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 257,
                                                     },
                                                 ),
                                             ),
@@ -7351,26 +7419,6 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 257,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 258,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
@@ -7378,18 +7426,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 235,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 236,
                                                     },
                                                 ),
                                             ),
@@ -7814,7 +7850,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -7987,7 +8023,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -8113,7 +8149,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -8283,7 +8319,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -8299,7 +8335,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 262,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -8344,7 +8380,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 261,
+                                                        value: 260,
                                                     },
                                                 ),
                                             ),
@@ -8356,7 +8392,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 250,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),
@@ -8427,7 +8463,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -8600,7 +8636,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -8726,7 +8762,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -8896,7 +8932,7 @@
                                                 forext_loop_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -8912,7 +8948,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 262,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -8957,7 +8993,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 261,
+                                                        value: 260,
                                                     },
                                                 ),
                                             ),
@@ -8969,7 +9005,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 250,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),

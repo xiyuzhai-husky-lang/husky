@@ -27,7 +27,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -59,7 +61,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -89,7 +93,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },

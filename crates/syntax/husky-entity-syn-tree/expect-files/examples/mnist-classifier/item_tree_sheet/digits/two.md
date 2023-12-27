@@ -24,7 +24,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 51,
+                        ast_idx: 45,
                         ident_token: IdentToken {
                             ident: `two_match`,
                             token_idx: TokenIdx(
@@ -88,7 +88,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 52,
+                        ast_idx: 46,
                         ident_token: IdentToken {
                             ident: `left_cc_pattern`,
                             token_idx: TokenIdx(
@@ -152,7 +152,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 53,
+                        ast_idx: 47,
                         ident_token: IdentToken {
                             ident: `right_cc_pattern`,
                             token_idx: TokenIdx(
@@ -216,7 +216,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 54,
+                        ast_idx: 48,
                         ident_token: IdentToken {
                             ident: `down_cc_pattern`,
                             token_idx: TokenIdx(
@@ -280,7 +280,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 55,
+                        ast_idx: 49,
                         ident_token: IdentToken {
                             ident: `is_two`,
                             token_idx: TokenIdx(
@@ -292,7 +292,7 @@ EntitySynTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        32..50,
+                                        32..44,
                                     ),
                                 },
                             ),
@@ -407,7 +407,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -438,7 +438,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -469,7 +469,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -500,7 +500,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -531,7 +531,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -562,7 +562,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -593,7 +593,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -624,7 +624,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -655,7 +655,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -686,7 +686,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -723,7 +723,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -766,7 +766,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -809,7 +809,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -852,7 +852,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -895,7 +895,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -938,7 +938,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -981,7 +981,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1024,7 +1024,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1063,7 +1063,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1116,7 +1116,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1169,7 +1169,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1222,7 +1222,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1275,7 +1275,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1328,7 +1328,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1346,12 +1346,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1363,7 +1363,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1375,13 +1375,13 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1399,12 +1399,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1416,7 +1416,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1428,13 +1428,13 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1487,7 +1487,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1524,7 +1524,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1561,7 +1561,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1598,7 +1598,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1635,7 +1635,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1672,7 +1672,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1709,7 +1709,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1746,7 +1746,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1783,7 +1783,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1836,7 +1836,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1889,7 +1889,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1942,7 +1942,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -1995,7 +1995,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2048,7 +2048,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2101,7 +2101,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2154,7 +2154,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2219,7 +2219,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2272,7 +2272,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2325,7 +2325,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2378,7 +2378,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2431,7 +2431,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2484,7 +2484,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2537,7 +2537,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2602,7 +2602,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2667,7 +2667,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2732,7 +2732,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2785,7 +2785,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2838,7 +2838,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2891,7 +2891,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -2944,7 +2944,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3009,7 +3009,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3074,7 +3074,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3139,7 +3139,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3204,7 +3204,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3269,7 +3269,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3334,7 +3334,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3399,7 +3399,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3464,7 +3464,7 @@ EntitySynTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                     },
                 ),
@@ -3475,7 +3475,7 @@ EntitySynTreeSheet {
     once_use_rules: UseOneRules(
         [
             UseOneRule {
-                ast_idx: 50,
+                ast_idx: 44,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::two`,
@@ -3509,7 +3509,7 @@ EntitySynTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::digits`,
                 is_same_crate: true,
-                ast_idx: 50,
+                ast_idx: 44,
                 use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::two`,

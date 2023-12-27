@@ -220,7 +220,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row`,
@@ -229,7 +229,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `j`,
@@ -476,7 +476,7 @@
                                 SynExprData::Binary {
                                     lopd: 7,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -704,7 +704,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row`,
@@ -713,7 +713,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `j`,
@@ -931,7 +931,7 @@
                                 SynExprData::Binary {
                                     lopd: 4,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -1159,7 +1159,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row`,
@@ -1168,7 +1168,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `j`,
@@ -1415,7 +1415,7 @@
                                 SynExprData::Binary {
                                     lopd: 7,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -1668,7 +1668,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row_above`,
@@ -1677,7 +1677,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row_below`,
@@ -1686,7 +1686,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `j`,
@@ -2033,19 +2033,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2062,19 +2053,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2096,19 +2078,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -2135,19 +2108,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -2164,19 +2128,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2193,19 +2148,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2237,19 +2183,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -2266,19 +2203,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2372,19 +2300,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2429,19 +2348,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2486,19 +2396,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -2543,19 +2444,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -2600,19 +2492,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2657,19 +2540,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2714,19 +2588,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -2771,19 +2636,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -3442,7 +3298,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `pixel_pair_above`,
@@ -3451,7 +3307,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `pixel_pair_below`,
@@ -3460,7 +3316,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             23,
                                         ),
@@ -3470,7 +3326,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             29,
                                         ),
@@ -3480,7 +3336,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             31,
                                         ),
@@ -3490,7 +3346,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -3510,7 +3366,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             37,
                                         ),
@@ -3520,7 +3376,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -3529,7 +3385,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             47,
                                         ),
@@ -3539,7 +3395,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             53,
                                         ),
@@ -3549,7 +3405,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             59,
                                         ),
@@ -3559,7 +3415,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             65,
                                         ),
@@ -3569,7 +3425,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             67,
                                         ),
@@ -3579,7 +3435,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -3599,7 +3455,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             73,
                                         ),
@@ -3609,7 +3465,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -3618,7 +3474,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             83,
                                         ),
@@ -3628,7 +3484,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             89,
                                         ),
@@ -3638,7 +3494,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             91,
                                         ),
@@ -3648,7 +3504,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -3668,7 +3524,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             97,
                                         ),
@@ -3678,7 +3534,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -3687,7 +3543,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -4257,7 +4113,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `inward`,
@@ -4266,7 +4122,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `outward`,
@@ -4878,7 +4734,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `raw_angle_change`,
@@ -4887,7 +4743,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             30,
                                         ),
@@ -4897,7 +4753,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             32,
                                         ),
@@ -4907,7 +4763,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             34,
                                         ),
@@ -4917,7 +4773,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -4945,7 +4801,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             40,
                                         ),
@@ -4955,7 +4811,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -5322,7 +5178,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row_above`,
@@ -5331,7 +5187,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `row_below`,
@@ -5340,7 +5196,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `j`,
@@ -5349,7 +5205,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `inward_direction`,
@@ -5741,19 +5597,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -5770,19 +5617,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -5814,19 +5652,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -5843,19 +5672,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -5882,19 +5702,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -5911,19 +5722,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -5945,19 +5747,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -5989,19 +5782,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -6028,19 +5812,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -6057,19 +5832,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -6106,19 +5872,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -6135,19 +5892,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -6241,19 +5989,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -6298,19 +6037,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -6355,19 +6085,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -6412,19 +6133,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -6469,19 +6181,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -6526,19 +6229,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -6583,19 +6277,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -6640,19 +6325,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -6697,19 +6373,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -6754,19 +6421,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -6811,19 +6469,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -6868,19 +6517,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -6925,19 +6565,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -6982,19 +6613,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -7039,19 +6661,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -7096,19 +6709,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -8156,7 +7760,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `pixel_pair_above`,
@@ -8165,7 +7769,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `pixel_pair_below`,
@@ -8174,7 +7778,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             23,
                                         ),
@@ -8184,7 +7788,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             29,
                                         ),
@@ -8194,7 +7798,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             35,
                                         ),
@@ -8204,7 +7808,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             37,
                                         ),
@@ -8214,7 +7818,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -8234,7 +7838,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8243,7 +7847,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             47,
                                         ),
@@ -8253,7 +7857,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             53,
                                         ),
@@ -8263,7 +7867,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             59,
                                         ),
@@ -8273,7 +7877,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             65,
                                         ),
@@ -8283,57 +7887,39 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 12,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 301,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Down`,
+                                                        index: U8(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 16,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 299,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Up`,
+                                                        index: U8(
+                                                            0,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8342,7 +7928,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             91,
                                         ),
@@ -8352,7 +7938,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8361,7 +7947,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             101,
                                         ),
@@ -8371,7 +7957,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             107,
                                         ),
@@ -8381,7 +7967,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             109,
                                         ),
@@ -8391,7 +7977,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             111,
                                         ),
@@ -8401,7 +7987,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -8429,7 +8015,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             117,
                                         ),
@@ -8439,57 +8025,39 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 24,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 300,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Left`,
+                                                        index: U8(
+                                                            1,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 28,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 302,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Right`,
+                                                        index: U8(
+                                                            3,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8498,7 +8066,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8507,7 +8075,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             147,
                                         ),
@@ -8517,7 +8085,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             153,
                                         ),
@@ -8527,7 +8095,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             155,
                                         ),
@@ -8537,7 +8105,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::OneOf {
+                                    SynPatternExprData::OneOf {
                                         options: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
@@ -8557,7 +8125,7 @@
                                             phantom: PhantomData<husky_syn_expr::error::SynExprError>,
                                         },
                                     },
-                                    SynPatternExpr::Literal {
+                                    SynPatternExprData::Literal {
                                         regional_token_idx: RegionalTokenIdx(
                                             161,
                                         ),
@@ -8567,7 +8135,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -8576,7 +8144,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `_`,
@@ -9344,7 +8912,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `points`,
@@ -9943,7 +9511,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `N`,
@@ -9952,7 +9520,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `p0`,
@@ -9961,7 +9529,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `p2`,
@@ -10282,7 +9850,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `cc`,
@@ -10438,7 +10006,7 @@
                                 SynExprData::AssociatedItem {
                                     parent_expr_idx: 2,
                                     parent_path: MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                     colon_colon_regional_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
@@ -10800,7 +10368,7 @@
                                 SynExprData::Binary {
                                     lopd: 37,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         78,
@@ -10820,7 +10388,7 @@
                                 SynExprData::Binary {
                                     lopd: 39,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         80,
@@ -10840,7 +10408,7 @@
                                 SynExprData::Binary {
                                     lopd: 41,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         82,
@@ -10899,7 +10467,7 @@
                                 SynExprData::Binary {
                                     lopd: 46,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         73,
@@ -11791,7 +11359,7 @@
                                 SynExprData::Binary {
                                     lopd: 127,
                                     opr: Closed(
-                                        BitOr,
+                                        BitAnd,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         253,
@@ -13893,7 +13461,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
-                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -14068,19 +13636,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 299,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Up`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -14125,19 +13684,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 301,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Down`,
+                                                            index: U8(
+                                                                2,
                                                             ),
                                                         },
                                                     ),
@@ -14182,19 +13732,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 300,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Left`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -14239,19 +13780,10 @@
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 242,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 302,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                            ident: `Right`,
+                                                            index: U8(
+                                                                3,
                                                             ),
                                                         },
                                                     ),
@@ -15592,7 +15124,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15609,7 +15141,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15626,7 +15158,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `r_ur`,
@@ -15635,7 +15167,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `r_dr`,
@@ -15644,7 +15176,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `r_ul`,
@@ -15653,7 +15185,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `r_dl`,
@@ -15662,7 +15194,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15679,7 +15211,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15696,7 +15228,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15713,7 +15245,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15730,7 +15262,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15747,7 +15279,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15764,7 +15296,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `i0`,
@@ -15773,7 +15305,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `j0`,
@@ -15782,7 +15314,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `dir0`,
@@ -15791,7 +15323,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15808,7 +15340,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15825,7 +15357,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15842,7 +15374,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15859,7 +15391,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15876,7 +15408,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -15893,7 +15425,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `outward_direction`,
@@ -15902,7 +15434,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `angle_change`,
@@ -15911,100 +15443,64 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 13,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 299,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Up`,
+                                                        index: U8(
+                                                            0,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 15,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 301,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Down`,
+                                                        index: U8(
+                                                            2,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 17,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 300,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Left`,
+                                                        index: U8(
+                                                            1,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
                                     },
-                                    SynPatternExpr::TypeVariantUnit {
+                                    SynPatternExprData::UnitTypeVariant {
                                         path_expr_idx: 19,
                                         path: TypeVariantPath(
                                             ItemPathId {
                                                 data: ItemPathData::TypeVariant(
                                                     TypeVariantPathData {
-                                                        parent_ty_path: TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 242,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 302,
-                                                                },
-                                                            ),
+                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                        ident: `Right`,
+                                                        index: U8(
+                                                            3,
                                                         ),
                                                     },
                                                 ),
@@ -17613,7 +17109,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 252,
+                                                            value: 251,
                                                         },
                                                     ),
                                                 ),
@@ -19359,7 +18855,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `start_point`,
@@ -19368,7 +18864,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -19385,7 +18881,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -19402,7 +18898,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -19419,7 +18915,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -19436,7 +18932,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `point`,
@@ -21396,7 +20892,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -21413,7 +20909,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `a`,
@@ -21422,7 +20918,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `b`,
@@ -21431,7 +20927,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `a`,
@@ -21440,7 +20936,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `b`,
@@ -21969,7 +21465,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `start`,
@@ -21978,7 +21474,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `end`,
@@ -22460,7 +21956,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `N`,
@@ -22469,7 +21965,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `ct_start`,
@@ -22478,7 +21974,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `ct_end`,

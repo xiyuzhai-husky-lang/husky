@@ -29,7 +29,7 @@
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -56,7 +56,7 @@
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -70,7 +70,7 @@
                                 path: AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 511,
+                                            value: 513,
                                         },
                                     ),
                                 ),
@@ -92,7 +92,7 @@
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -138,7 +138,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -171,7 +171,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -205,7 +205,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 506,
+                                                value: 508,
                                             },
                                         ),
                                     ),
@@ -252,7 +252,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -285,7 +285,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -321,7 +321,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -354,7 +354,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -388,7 +388,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 509,
+                                                value: 511,
                                             },
                                         ),
                                     ),
@@ -435,7 +435,7 @@
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -468,7 +468,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },

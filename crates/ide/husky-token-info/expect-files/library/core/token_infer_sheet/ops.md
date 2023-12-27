@@ -1221,8 +1221,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
@@ -1265,7 +1263,7 @@ Ok(
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
-                                    ident: `R`,
+                                    ident: `B`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),

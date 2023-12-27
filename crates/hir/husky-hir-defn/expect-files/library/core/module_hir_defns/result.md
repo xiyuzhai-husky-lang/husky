@@ -568,8 +568,8 @@
     ),
     HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::MethodFn(
-                TraitForTypeMethodFnHirDefn {
+            TraitForTypeItemHirDefn::AssociatedFn(
+                TraitForTypeAssociatedFnHirDefn {
                     path: TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -585,14 +585,14 @@
                                                 disambiguator: 0,
                                             },
                                         },
-                                        ident: `branch`,
-                                        item_kind: MethodFn,
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
                         },
                     ),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
+                    hir_decl: TraitForTypeAssociatedFnHirDecl {
                         path: TraitForTypeItemPath(
                             ItemPathId {
                                 data: ItemPathData::AssociatedItem(
@@ -608,8 +608,8 @@
                                                     disambiguator: 0,
                                                 },
                                             },
-                                            ident: `branch`,
-                                            item_kind: MethodFn,
+                                            ident: `unveil`,
+                                            item_kind: AssociatedFunctionFn,
                                         },
                                     ),
                                 ),
@@ -618,16 +618,6 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: HirEagerSelfValueParameter {
-                            contract: Pure,
-                            self_ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        },
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Ordinary {
@@ -715,8 +705,8 @@
                                                                     disambiguator: 0,
                                                                 },
                                                             },
-                                                            ident: `branch`,
-                                                            item_kind: MethodFn,
+                                                            ident: `unveil`,
+                                                            item_kind: AssociatedFunctionFn,
                                                         },
                                                     ),
                                                 ),
@@ -832,158 +822,7 @@
                             },
                         },
                     },
-                    eager_body_with_hir_eager_expr_region: Some(
-                        (
-                            2,
-                            HirEagerExprRegion {
-                                path: RegionPath::Defn(
-                                    ItemPath::AssociatedItem(
-                                        AssociatedItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::result`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::result::Result`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `branch`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Todo,
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                            },
-                                            ty_place: Transient,
-                                            is_ty_always_copyable: true,
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        Eval {
-                                            expr_idx: 1,
-                                            coersion: Some(
-                                                Never,
-                                            ),
-                                            discarded: false,
-                                        },
-                                    ],
-                                },
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerComptimeSymbolEntry {
-                                                name: HirEagerComptimeSymbolName::Ident(
-                                                    `T1`,
-                                                ),
-                                                data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                    HirTypeSymbol::Type {
-                                                        attrs: HirTemplateSymbolAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            },
-                                            HirEagerComptimeSymbolEntry {
-                                                name: HirEagerComptimeSymbolName::Ident(
-                                                    `T2`,
-                                                ),
-                                                data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                    HirTypeSymbol::Type {
-                                                        attrs: HirTemplateSymbolAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                            },
-                                            HirEagerComptimeSymbolEntry {
-                                                name: HirEagerComptimeSymbolName::Ident(
-                                                    `E1`,
-                                                ),
-                                                data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                    HirTypeSymbol::Type {
-                                                        attrs: HirTemplateSymbolAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 2,
-                                                    },
-                                                ),
-                                            },
-                                            HirEagerComptimeSymbolEntry {
-                                                name: HirEagerComptimeSymbolName::Ident(
-                                                    `E2`,
-                                                ),
-                                                data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSymbol::Type(
-                                                    HirTypeSymbol::Type {
-                                                        attrs: HirTemplateSymbolAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 3,
-                                                    },
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                },
-                                runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeSymbolEntry {
-                                                name: HirEagerRuntimeSymbolName::SelfValue,
-                                                data: HirEagerRuntimeSymbolData::SelfValue,
-                                            },
-                                            HirEagerRuntimeSymbolEntry {
-                                                name: HirEagerRuntimeSymbolName::Ident(
-                                                    `result`,
-                                                ),
-                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
-                                            },
-                                        ],
-                                    },
-                                    self_value_variable: Some(
-                                        1,
-                                    ),
-                                },
-                            },
-                        ),
-                    ),
+                    eager_body_with_hir_eager_expr_region: None,
                 },
             ),
         ),

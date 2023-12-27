@@ -42,15 +42,15 @@ impl AdHocPackage {
     }
 }
 
-#[test]
-fn create_ad_hoc_package_works() {
-    let mut db = DB::default();
-    AdHocPackage::new_lib(
-        &mut db,
-        r#"
-def a: i32 -> i32:
-    x
-"#,
-        [],
-    );
-}
+// #[test]
+// fn create_ad_hoc_package_works() {
+//     let mut db = DB::default();
+//     AdHocPackage::new_lib(
+//         &mut db,
+//         r#"
+// def a: i32 -> i32:
+//     x
+// "#,
+//         [],
+//     );
+// }

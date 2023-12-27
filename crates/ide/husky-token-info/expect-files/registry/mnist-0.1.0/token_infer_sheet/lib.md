@@ -111,7 +111,7 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -123,51 +123,10 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Type(
-                                Struct,
+                                Extern,
                             ),
                             connection: Connected,
                         },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::ArrayFunctorBoxPrefix,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::ArrayFunctorBoxPrefix,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Extern`),
-                            ),
-                        ),
                     ),
                 },
             ),
@@ -199,14 +158,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
@@ -236,7 +195,7 @@ Ok(
                                                                                     module_path: `mnist`,
                                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                     ),
                                                                                     disambiguator: 0,
                                                                                 },
@@ -295,14 +254,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
@@ -415,14 +374,14 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
@@ -452,7 +411,7 @@ Ok(
                                                                                     module_path: `mnist`,
                                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                     ),
                                                                                     disambiguator: 0,
                                                                                 },
@@ -515,7 +474,7 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -527,51 +486,10 @@ Ok(
                         ),
                         MajorItem {
                             module_item_kind: Type(
-                                Struct,
+                                Extern,
                             ),
                             connection: Connected,
                         },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::ArrayFunctorBoxPrefix,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::ArrayFunctorBoxPrefix,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Extern`),
-                            ),
-                        ),
                     ),
                 },
             ),
@@ -603,14 +521,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
@@ -640,7 +558,7 @@ Ok(
                                                                                     module_path: `mnist`,
                                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                     ),
                                                                                     disambiguator: 0,
                                                                                 },
@@ -699,14 +617,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
@@ -819,14 +737,14 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
@@ -856,7 +774,7 @@ Ok(
                                                                                     module_path: `mnist`,
                                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                     ),
                                                                                     disambiguator: 0,
                                                                                 },
@@ -945,14 +863,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),

@@ -60,7 +60,9 @@ impl LinkageTemplateArgument {
             JavelinTemplateArgument::Type(javelin_ty) => LinkageTemplateArgument::Type(
                 LinkageType::from_javelin(javelin_ty, linkage_instantiation, db),
             ),
-            JavelinTemplateArgument::Constant(_) => todo!(),
+            JavelinTemplateArgument::Constant(constant) => {
+                LinkageTemplateArgument::Constant(LinkageConstant(constant))
+            }
             JavelinTemplateArgument::Lifetime => todo!(),
             JavelinTemplateArgument::Place => todo!(),
         }

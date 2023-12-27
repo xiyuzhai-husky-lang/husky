@@ -72,7 +72,7 @@ EntitySynTreeSheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -90,7 +90,7 @@ EntitySynTreeSheet {
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
                             variants: None,
                         },
                     },
@@ -103,7 +103,7 @@ EntitySynTreeSheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -126,7 +126,7 @@ EntitySynTreeSheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -140,11 +140,11 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                79,
+                                74,
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                             variants: None,
                         },
                     },
@@ -157,7 +157,7 @@ EntitySynTreeSheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -194,7 +194,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
-                                125,
+                                115,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -242,7 +242,7 @@ EntitySynTreeSheet {
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     module_item_path: MajorItemPath::Type(
-                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                        TypePath(`mnist::BinaryImage28`, `Extern`),
                     ),
                 },
             },
@@ -251,7 +251,7 @@ EntitySynTreeSheet {
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     module_item_path: MajorItemPath::Type(
-                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                     ),
                 },
             },
@@ -279,7 +279,7 @@ EntitySynTreeSheet {
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -302,7 +302,7 @@ EntitySynTreeSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -315,12 +315,12 @@ EntitySynTreeSheet {
                     ast_idx: 20,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            40,
+                            35,
                         ),
                     },
                     trai_expr: 1,
                     for_token: TokenIdx(
-                        42,
+                        37,
                     ),
                     ty_sketch_expr: Path(
                         2,
@@ -379,7 +379,7 @@ EntitySynTreeSheet {
                     ast_idx: 21,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            52,
+                            47,
                         ),
                     },
                     ty_expr: 3,
@@ -403,7 +403,7 @@ EntitySynTreeSheet {
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -426,7 +426,7 @@ EntitySynTreeSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -439,12 +439,12 @@ EntitySynTreeSheet {
                     ast_idx: 22,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            64,
+                            59,
                         ),
                     },
                     trai_expr: 6,
                     for_token: TokenIdx(
-                        70,
+                        65,
                     ),
                     ty_sketch_expr: Path(
                         7,
@@ -473,7 +473,7 @@ EntitySynTreeSheet {
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -496,7 +496,7 @@ EntitySynTreeSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -509,12 +509,12 @@ EntitySynTreeSheet {
                     ast_idx: 24,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            86,
+                            76,
                         ),
                     },
                     trai_expr: 8,
                     for_token: TokenIdx(
-                        88,
+                        78,
                     ),
                     ty_sketch_expr: Path(
                         9,
@@ -573,7 +573,7 @@ EntitySynTreeSheet {
                     ast_idx: 25,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            98,
+                            88,
                         ),
                     },
                     ty_expr: 10,
@@ -597,7 +597,7 @@ EntitySynTreeSheet {
                                             module_path: `mnist`,
                                             trai_path: TraitPath(`core::ops::IntIndex`),
                                             ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -620,7 +620,7 @@ EntitySynTreeSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -633,12 +633,12 @@ EntitySynTreeSheet {
                     ast_idx: 26,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            110,
+                            100,
                         ),
                     },
                     trai_expr: 13,
                     for_token: TokenIdx(
-                        116,
+                        106,
                     ),
                     ty_sketch_expr: Path(
                         14,

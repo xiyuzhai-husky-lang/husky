@@ -24,7 +24,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 13,
+                                ast_idx: 24,
                                 ident_token: IdentToken {
                                     ident: `Class`,
                                     token_idx: TokenIdx(
@@ -84,7 +84,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 15,
+                                ast_idx: 26,
                                 ident_token: IdentToken {
                                     ident: `OneVsAll`,
                                     token_idx: TokenIdx(
@@ -144,11 +144,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 19,
+                                ast_idx: 30,
                                 ident_token: IdentToken {
                                     ident: `OneVsAllResult`,
                                     token_idx: TokenIdx(
-                                        120,
+                                        179,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -156,7 +156,7 @@ EntitySynTreeCrateBundle {
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
-                                                8..11,
+                                                13..16,
                                             ),
                                         },
                                     ),
@@ -204,11 +204,11 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 21,
+                                ast_idx: 32,
                                 ident_token: IdentToken {
                                     ident: `narrow_down`,
                                     token_idx: TokenIdx(
-                                        172,
+                                        304,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -326,7 +326,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 16,
+                            ast_idx: 27,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     51,
@@ -396,7 +396,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 17,
+                            ast_idx: 28,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     81,
@@ -413,7 +413,7 @@ EntitySynTreeCrateBundle {
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            7..8,
+                                            11..13,
                                         ),
                                     },
                                 ),
@@ -466,15 +466,15 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 20,
+                            ast_idx: 31,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    139,
+                                    198,
                                 ),
                             },
                             trai_expr: 9,
                             for_token: TokenIdx(
-                                160,
+                                219,
                             ),
                             ty_sketch_expr: Path(
                                 10,
@@ -483,7 +483,7 @@ EntitySynTreeCrateBundle {
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            11..12,
+                                            21..23,
                                         ),
                                     },
                                 ),
@@ -600,7 +600,7 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `Unveil`,
                         token_idx: TokenIdx(
-                            156,
+                            215,
                         ),
                     },
                 ),
@@ -615,13 +615,13 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            154,
+                            213,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        155,
+                        214,
                     ),
                 ),
                 subexpr: 7,
@@ -631,13 +631,13 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            152,
+                            211,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        153,
+                        212,
                     ),
                 ),
                 subexpr: 8,
@@ -647,7 +647,7 @@ EntitySynTreeCrateBundle {
                     IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            161,
+                            220,
                         ),
                     },
                 ),

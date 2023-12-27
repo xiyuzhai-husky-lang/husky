@@ -151,6 +151,36 @@
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
+                6..7,
+                11..12,
+                11..14,
+                11..16,
+            ],
+            pattern_expr_ranges: [
+                4..5,
+            ],
+            expr_ranges: [
+                6..7,
+                7..8,
+                6..8,
+                8..9,
+                6..9,
+                11..16,
+                16..17,
+                11..17,
+                17..19,
+                11..19,
+            ],
+            stmt_ranges: SemaStmtMap(
+                ArenaMap {
+                    data: [],
+                },
+            ),
+        },
+    },
+    SemaExprRangeRegion {
+        data: SemaExprRangeRegionData {
+            principal_entity_path_expr_ranges: [
                 13..14,
                 13..16,
                 13..18,
@@ -186,6 +216,36 @@
             pattern_expr_ranges: [],
             expr_ranges: [
                 3..5,
+            ],
+            stmt_ranges: SemaStmtMap(
+                ArenaMap {
+                    data: [],
+                },
+            ),
+        },
+    },
+    SemaExprRangeRegion {
+        data: SemaExprRangeRegionData {
+            principal_entity_path_expr_ranges: [
+                6..7,
+                11..12,
+                11..14,
+                11..16,
+            ],
+            pattern_expr_ranges: [
+                4..5,
+            ],
+            expr_ranges: [
+                6..7,
+                7..8,
+                6..8,
+                8..9,
+                6..9,
+                11..16,
+                16..17,
+                11..17,
+                17..19,
+                11..19,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {

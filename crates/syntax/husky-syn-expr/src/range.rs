@@ -214,7 +214,13 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynPatternExprData::Tuple { .. } => todo!(),
             SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant {
+                path_expr_idx,
+                rpar,
+                ..
+            } => self.principal_entity_path_expr_ranges[path_expr_idx.index()].to(
+                RegionalTokenIdxRangeEnd::new_after(rpar.regional_token_idx()),
+            ),
             SynPatternExprData::Props { .. } => todo!(),
             SynPatternExprData::OneOf { options } => {
                 let fst = options.elements().first().unwrap().syn_pattern_expr_idx();

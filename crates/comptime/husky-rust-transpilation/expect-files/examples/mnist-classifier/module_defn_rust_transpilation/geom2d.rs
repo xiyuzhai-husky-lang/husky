@@ -1,16 +1,15 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Point2d {
-    pub x: NotNan<f32>,
-    pub y: NotNan<f32>,
+    pub x: f32,
+    pub y: f32,
 }
 
 impl Point2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        let x = NotNan::new(x).unwrap();
-        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -19,16 +18,15 @@ impl Point2d {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct RelativePoint2d {
-    pub x: NotNan<f32>,
-    pub y: NotNan<f32>,
+    pub x: f32,
+    pub y: f32,
 }
 
 impl RelativePoint2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        let x = NotNan::new(x).unwrap();
-        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -37,16 +35,15 @@ impl RelativePoint2d {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Vector2d {
-    pub x: NotNan<f32>,
-    pub y: NotNan<f32>,
+    pub x: f32,
+    pub y: f32,
 }
 
 impl Vector2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        let x = NotNan::new(x).unwrap();
-        let y = NotNan::new(y).unwrap();
         Self{
             x,
             y,
@@ -55,16 +52,15 @@ impl Vector2d {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ClosedRange {
-    pub min: NotNan<f32>,
-    pub max: NotNan<f32>,
+    pub min: f32,
+    pub max: f32,
 }
 
 impl ClosedRange {
     pub fn __constructor(min: f32, max: f32) -> Self {
-        let min = NotNan::new(min).unwrap();
-        let max = NotNan::new(max).unwrap();
         Self{
             min,
             max,
@@ -73,7 +69,8 @@ impl ClosedRange {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct BoundingBox {
     pub xrange: crate::geom2d::ClosedRange,
     pub yrange: crate::geom2d::ClosedRange,
@@ -89,7 +86,8 @@ impl BoundingBox {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct RelativeBoundingBox {
     pub xrange: crate::geom2d::ClosedRange,
     pub yrange: crate::geom2d::ClosedRange,
@@ -111,15 +109,15 @@ impl crate::geom2d::Point2d {
     }
 
     pub fn vector(&self) -> crate::geom2d::Vector2d {
-        crate::geom2d::Vector2d::__constructor(self.x.into_inner(), self.y.into_inner())
+        crate::geom2d::Vector2d::__constructor(self.x, self.y)
     }
 
     pub fn to(&self, other: &crate::geom2d::Point2d) -> crate::geom2d::Vector2d {
-        crate::geom2d::Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
+        crate::geom2d::Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
     pub fn norm(&self) -> f32 {
-        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
+        (self.x * self.x + self.y * self.y).sqrt()
     }
 
     pub fn dist(&self, other: &crate::geom2d::Point2d) -> f32 {
@@ -130,27 +128,27 @@ impl crate::geom2d::Point2d {
 #[rustfmt::skip]
 impl crate::geom2d::Vector2d {
     pub fn point(&self) -> crate::geom2d::Point2d {
-        crate::geom2d::Point2d::__constructor(self.x.into_inner(), self.y.into_inner())
+        crate::geom2d::Point2d::__constructor(self.x, self.y)
     }
 
     pub fn to(&self, other: &crate::geom2d::Vector2d) -> crate::geom2d::Vector2d {
-        crate::geom2d::Vector2d::__constructor(other.x.into_inner() - self.x.into_inner(), other.y.into_inner() - self.y.into_inner())
+        crate::geom2d::Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
     pub fn norm(&self) -> f32 {
-        (self.x.into_inner() * self.x.into_inner() + self.y.into_inner() * self.y.into_inner()).sqrt()
+        (self.x * self.x + self.y * self.y).sqrt()
     }
 
     pub fn dot(&self, other: &crate::geom2d::Vector2d) -> f32 {
-        self.x.into_inner() * other.x.into_inner() + self.y.into_inner() * other.y.into_inner()
+        self.x * other.x + self.y * other.y
     }
 
     pub fn cross(&self, other: &crate::geom2d::Vector2d) -> f32 {
-        self.x.into_inner() * other.y.into_inner() - self.y.into_inner() * other.x.into_inner()
+        self.x * other.y - self.y * other.x
     }
 
     pub fn angle(&self, is_branch_cut_positive: bool) -> f32 {
-        let cos_value = (self.x.into_inner() / self.norm()).min(1.0f32);
+        let cos_value = (self.x / self.norm()).min(1.0f32);
         if cos_value + 1.0f32 < 0.001f32 {
             if is_branch_cut_positive {
                 180.0f32
@@ -158,7 +156,7 @@ impl crate::geom2d::Vector2d {
                 -180.0f32
             }
         } else {
-            self.y.into_inner().sgnx() as f32 * cos_value.acos() * 180.0f32 / 3.1415926f32
+            self.y.sgnx() as f32 * cos_value.acos() * 180.0f32 / 3.1415926f32
         }
     }
 
@@ -188,16 +186,16 @@ impl crate::geom2d::Vector2d {
 #[rustfmt::skip]
 impl crate::geom2d::ClosedRange {
     pub fn relative_range(&self, other: &crate::geom2d::ClosedRange) -> crate::geom2d::ClosedRange {
-        assert!(self.max.into_inner() > self.min.into_inner());
-        let span = self.max.into_inner() - self.min.into_inner();
-        let rel_min = (other.min.into_inner() - self.min.into_inner()) / span;
-        let rel_max = (other.max.into_inner() - self.min.into_inner()) / span;
+        assert!(self.max > self.min);
+        let span = self.max - self.min;
+        let rel_min = (other.min - self.min) / span;
+        let rel_max = (other.max - self.min) / span;
         crate::geom2d::ClosedRange::__constructor(rel_min, rel_max)
     }
 
     pub fn relative_point(&self, v: f32) -> f32 {
-        let span = self.max.into_inner() - self.min.into_inner();
-        (v - self.min.into_inner()) / span
+        let span = self.max - self.min;
+        (v - self.min) / span
     }
 }
 
@@ -208,41 +206,41 @@ impl crate::geom2d::BoundingBox {
     }
 
     pub fn relative_point(&self, point: &crate::geom2d::Point2d) -> crate::geom2d::RelativePoint2d {
-        crate::geom2d::RelativePoint2d::__constructor(self.xrange.relative_point(point.x.into_inner()), self.yrange.relative_point(point.x.into_inner()))
+        crate::geom2d::RelativePoint2d::__constructor(self.xrange.relative_point(point.x), self.yrange.relative_point(point.x))
     }
 
     pub fn xmin(&self) -> f32 {
-        self.xrange.min.into_inner()
+        self.xrange.min
     }
 
     pub fn xmax(&self) -> f32 {
-        self.xrange.max.into_inner()
+        self.xrange.max
     }
 
     pub fn ymin(&self) -> f32 {
-        self.yrange.min.into_inner()
+        self.yrange.min
     }
 
     pub fn ymax(&self) -> f32 {
-        self.yrange.max.into_inner()
+        self.yrange.max
     }
 }
 
 #[rustfmt::skip]
 impl crate::geom2d::RelativeBoundingBox {
     pub fn xmin(&self) -> f32 {
-        self.xrange.min.into_inner()
+        self.xrange.min
     }
 
     pub fn xmax(&self) -> f32 {
-        self.xrange.max.into_inner()
+        self.xrange.max
     }
 
     pub fn ymin(&self) -> f32 {
-        self.yrange.min.into_inner()
+        self.yrange.min
     }
 
     pub fn ymax(&self) -> f32 {
-        self.yrange.max.into_inner()
+        self.yrange.max
     }
 }

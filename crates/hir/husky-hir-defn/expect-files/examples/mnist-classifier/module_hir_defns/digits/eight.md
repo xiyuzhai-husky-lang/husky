@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 215,
+                                        value: 214,
                                     },
                                 ),
                             ),
@@ -108,12 +108,12 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                23,
+                                19,
                             ),
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 217,
+                                        value: 216,
                                     },
                                 ),
                             ),
@@ -196,7 +196,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -395,9 +395,8 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 8,
-                                                opr: Unwrap,
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
@@ -523,9 +522,8 @@
                                             is_ty_always_copyable: true,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 14,
-                                                opr: Unwrap,
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,

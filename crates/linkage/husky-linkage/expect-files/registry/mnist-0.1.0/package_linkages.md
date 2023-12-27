@@ -1,23 +1,5 @@
 [
     Linkage {
-        data: LinkageData::TypeConstructor {
-            path: TypePath(`mnist::BinaryImage28`, `Struct`),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::TypeConstructor {
-            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
         data: LinkageData::ValItem {
             path: FugitivePath(`mnist::input`, `Val`),
             instantiation: LinkageInstantiation {
@@ -33,7 +15,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -44,7 +28,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },

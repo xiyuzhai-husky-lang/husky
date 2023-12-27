@@ -1052,7 +1052,7 @@
                                             ritchie_ty_kind: Fn,
                                             parameters: HirRitchieParameters {
                                                 data: [
-                                                    HirRitchieParameter::Regular(
+                                                    HirRitchieParameter::Ordinary(
                                                         HirRitchieRegularParameter {
                                                             contract: Pure,
                                                             ty: HirType::Symbol(

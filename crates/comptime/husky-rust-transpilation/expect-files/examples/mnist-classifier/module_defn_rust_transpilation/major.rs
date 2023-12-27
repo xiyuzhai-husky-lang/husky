@@ -3,7 +3,7 @@ use crate::*;
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::val_item(ingredient_index = 48, return_ref)]
 pub fn connected_components() -> Vec<crate::connected_component::ConnectedComponent> {
-    crate::connected_component::find_connected_components(input())
+    crate::connected_component::find_connected_components(&input())
 }
 
 #[rustfmt::skip]

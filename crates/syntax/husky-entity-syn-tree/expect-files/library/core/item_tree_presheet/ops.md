@@ -1046,7 +1046,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `ControlFlow`,
                             token_idx: TokenIdx(
-                                448,
+                                446,
                             ),
                         },
                         block: DefnBlock::Type {

@@ -15,21 +15,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`mnist::BinaryImage28`, `Struct`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist::input`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -46,7 +33,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -65,7 +54,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -80,7 +69,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -93,7 +84,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -112,7 +105,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -127,7 +120,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },

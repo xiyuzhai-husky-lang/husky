@@ -410,7 +410,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::SemaPrefixTypeOpr,

@@ -72,7 +72,7 @@ EntitySynTreePresheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -90,7 +90,7 @@ EntitySynTreePresheet {
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
                             variants: None,
                         },
                     },
@@ -103,7 +103,7 @@ EntitySynTreePresheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -126,7 +126,7 @@ EntitySynTreePresheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -140,11 +140,11 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                79,
+                                74,
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                             variants: None,
                         },
                     },
@@ -157,7 +157,7 @@ EntitySynTreePresheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -194,7 +194,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
-                                125,
+                                115,
                             ),
                         },
                         block: DefnBlock::Fugitive {

@@ -45,6 +45,7 @@ pub enum SynPatternExprData {
         rpar: RparRegionalToken,
     },
     TupleTypeVariant {
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: TypeVariantPath,
         lpar: LparRegionalToken,
         fields: PunctuatedSmallList<
@@ -164,6 +165,7 @@ where
                                             OriginalSynExprError::ExpectedRpar,
                                         )?;
                                         Some(SynPatternExprData::TupleTypeVariant {
+                                            path_expr_idx,
                                             path,
                                             lpar,
                                             fields,

@@ -22,7 +22,7 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 13,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
@@ -82,7 +82,7 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 15,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
@@ -142,11 +142,11 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 19,
+                        ast_idx: 30,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                120,
+                                179,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -154,7 +154,7 @@ EntitySynTreePresheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        8..11,
+                                        13..16,
                                     ),
                                 },
                             ),
@@ -202,11 +202,11 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 21,
+                        ast_idx: 32,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                172,
+                                304,
                             ),
                         },
                         block: DefnBlock::Fugitive {

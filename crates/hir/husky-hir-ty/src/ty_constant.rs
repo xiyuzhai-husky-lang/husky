@@ -31,6 +31,7 @@ pub enum HirConstant {
     Symbol(HirConstSymbol),
     // todo: instantiation and fields
     TypeVariant(TypeVariantPath),
+    StaticLifetime,
 }
 
 impl From<TypeVariantPath> for HirConstant {
@@ -66,7 +67,7 @@ impl HirConstant {
             TermLiteral::F32(_) => todo!(),
             TermLiteral::F64(_) => todo!(),
             TermLiteral::String(_) => todo!(),
-            TermLiteral::StaticLifetime => todo!(),
+            TermLiteral::StaticLifetime => HirConstant::StaticLifetime,
         }
     }
 }

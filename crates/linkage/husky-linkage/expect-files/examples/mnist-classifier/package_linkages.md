@@ -18,11 +18,96 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 218,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 219,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 220,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 222,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -41,6 +126,23 @@
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 228,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -69,7 +171,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -80,7 +184,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -91,7 +197,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -102,7 +210,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -113,7 +223,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -124,7 +236,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -135,7 +249,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -146,7 +262,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -157,7 +275,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -168,7 +288,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -178,6 +300,40 @@
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 260,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 236,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -245,6 +401,40 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 304,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
             instantiation: LinkageInstantiation {
@@ -269,7 +459,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -280,7 +472,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -291,7 +485,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -302,7 +498,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -313,7 +511,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -327,11 +527,79 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 249,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 250,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 249,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 250,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -345,11 +613,79 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 249,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 250,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 128,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 125,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -363,11 +699,79 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 345,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 346,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 345,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 346,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -378,7 +782,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -389,7 +795,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -400,7 +808,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -411,7 +821,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -422,7 +834,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -433,7 +847,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -444,7 +860,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -455,7 +873,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -466,7 +886,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -477,7 +899,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -488,7 +912,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -499,7 +925,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -510,7 +938,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -521,7 +951,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -532,7 +964,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -543,7 +977,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -554,7 +990,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -565,7 +1003,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -576,7 +1016,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -587,7 +1029,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -598,7 +1042,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -609,7 +1055,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -620,7 +1068,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -631,7 +1081,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -642,7 +1094,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -656,11 +1110,96 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 236,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 178,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 179,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::TypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 354,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -716,7 +1255,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -727,7 +1268,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -738,7 +1281,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -749,7 +1294,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -760,7 +1307,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -770,6 +1319,40 @@
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 197,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 354,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -789,7 +1372,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -800,7 +1385,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -811,7 +1398,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -822,7 +1411,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -833,7 +1424,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -844,7 +1437,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -855,7 +1450,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -866,7 +1463,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -877,7 +1476,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -888,7 +1489,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -899,7 +1502,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -910,7 +1515,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -920,6 +1527,40 @@
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 197,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 379,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -942,13 +1583,49 @@
         },
     },
     Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 178,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 179,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::MethodFn {
             path: AssociatedItemPath::TypeItem(
                 TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodFn`),
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -959,7 +1636,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -969,6 +1648,40 @@
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
                 separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 222,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 414,
+                        },
+                    ),
+                ),
             },
         },
     },
@@ -988,7 +1701,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -999,7 +1714,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -1010,7 +1727,9 @@
             ),
             instantiation: LinkageInstantiation {
                 symbol_resolutions: [],
-                separator: None,
+                separator: Some(
+                    0,
+                ),
             },
         },
     },
@@ -1483,6 +2202,128 @@
         },
     },
     Linkage {
+        data: LinkageData::AssociatedFunctionFn {
+            path: AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::Class`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `unveil`,
+                                    item_kind: AssociatedFunctionFn,
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    2,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::UnveilAssociatedFunctionFn {
+            path: TraitForTypeItemPath(
+                ItemPathId {
+                    data: ItemPathData::AssociatedItem(
+                        AssociatedItemPathData::TraitForTypeItem(
+                            TraitForTypeItemPathData {
+                                impl_block: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::Class`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ident: `unveil`,
+                                item_kind: AssociatedFunctionFn,
+                            },
+                        ),
+                    ),
+                },
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    2,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                    template_arguments: [],
+                },
+            ),
+        },
+    },
+    Linkage {
         data: LinkageData::MethodFn {
             path: AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
@@ -1517,7 +2358,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 1,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -1553,7 +2394,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 2,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1595,7 +2436,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1607,6 +2448,34 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                    template_arguments: [
+                        LinkageTemplateArgument::Type(
+                            LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        LinkageTemplateArgument::Type(
+                                            LinkageType::PathLeading(
+                                                LinkageTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    template_arguments: [],
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            ),
         },
     },
     Linkage {
@@ -1631,7 +2500,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 4,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -1673,7 +2542,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 5,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -1715,7 +2584,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1751,7 +2620,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1763,6 +2632,26 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    template_arguments: [],
+                },
+            ),
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    template_arguments: [],
+                },
+            ),
         },
     },
     Linkage {
@@ -1787,7 +2676,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1831,7 +2720,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1875,7 +2764,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1917,7 +2806,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1959,7 +2848,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -2001,7 +2890,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2050,7 +2939,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2086,7 +2975,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2098,6 +2987,16 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                    template_arguments: [],
+                },
+            ),
         },
     },
     Linkage {
@@ -2122,7 +3021,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2158,7 +3057,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2202,7 +3101,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2246,7 +3145,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2282,7 +3181,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2324,7 +3223,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2360,7 +3259,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2402,7 +3301,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2446,7 +3345,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2490,7 +3389,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2502,6 +3401,16 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    template_arguments: [],
+                },
+            ),
         },
     },
     Linkage {
@@ -2526,7 +3435,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2562,7 +3471,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 8,
+                                            value: 17,
                                         },
                                     ),
                                 ),
@@ -2604,7 +3513,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2640,7 +3549,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2676,7 +3585,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2712,7 +3621,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -2748,7 +3657,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 8,
+                                            value: 17,
                                         },
                                     ),
                                 ),
@@ -2760,6 +3669,34 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                    template_arguments: [
+                        LinkageTemplateArgument::Type(
+                            LinkageType::PathLeading(
+                                LinkageTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        LinkageTemplateArgument::Type(
+                                            LinkageType::PathLeading(
+                                                LinkageTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    template_arguments: [],
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
+                        ),
+                    ],
+                },
+            ),
         },
     },
     Linkage {
@@ -2820,7 +3757,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -2862,7 +3799,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 10,
+                                            value: 26,
                                         },
                                     ),
                                 ),
@@ -2904,7 +3841,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -2916,6 +3853,41 @@
                     1,
                 ),
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::VecConstructor {
+            element_ty: LinkageType::Ritchie(
+                LinkageRitchieType {
+                    parameters: [
+                        LinkageRitchieParameter {
+                            contract: Pure,
+                            parameter_ty: PathLeading(
+                                LinkageTypePathLeading(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                            ),
+                        },
+                    ],
+                    return_ty: LinkageType::PathLeading(
+                        LinkageTypePathLeading {
+                            ty_path: TypePath(`core::option::Option`, `Enum`),
+                            template_arguments: [
+                                LinkageTemplateArgument::Type(
+                                    LinkageType::PathLeading(
+                                        LinkageTypePathLeading {
+                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                },
+            ),
         },
     },
     Linkage {
@@ -2940,7 +3912,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 2,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -2974,7 +3946,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 11,
+                                            value: 21,
                                         },
                                     ),
                                 ),
@@ -2984,6 +3956,16 @@
                 ],
                 separator: None,
             },
+        },
+    },
+    Linkage {
+        data: LinkageData::TypeDefault {
+            ty: LinkageType::PathLeading(
+                LinkageTypePathLeading {
+                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                    template_arguments: [],
+                },
+            ),
         },
     },
     Linkage {
@@ -3008,7 +3990,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 8,
+                                            value: 17,
                                         },
                                     ),
                                 ),

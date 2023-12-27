@@ -728,6 +728,7 @@ fn runtime_constants(
                                 db,
                                 ValRuntimeConstantData::TypeVariantPath(path),
                             ),
+                            HirConstant::StaticLifetime => todo!(),
                         },
                         HirTemplateArgument::Lifetime(_) => todo!(),
                         HirTemplateArgument::Place(_) => todo!(),

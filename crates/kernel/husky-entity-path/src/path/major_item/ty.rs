@@ -151,8 +151,12 @@ pub enum PreludeTypePath {
 impl PreludeTypePath {
     pub const UNIT: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Unit);
     pub const BOOL: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Bool);
+    pub const REF: Self = PreludeTypePath::Indirection(PreludeIndirectionTypePath::Ref);
+    pub const REF_MUT: Self = PreludeTypePath::Indirection(PreludeIndirectionTypePath::RefMut);
     pub const NEVER: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Never);
+    pub const ARRAY: Self = PreludeTypePath::Container(PreludeContainerTypePath::Array);
     pub const VEC: Self = PreludeTypePath::Container(PreludeContainerTypePath::Vec);
+    pub const SLICE: Self = PreludeTypePath::Container(PreludeContainerTypePath::Slice);
     pub const CYCLIC_SLICE: Self =
         PreludeTypePath::Container(PreludeContainerTypePath::CyclicSlice);
 }

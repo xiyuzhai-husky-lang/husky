@@ -12,13 +12,13 @@
                 ValItemTraceData {
                     path: TracePath(
                         Id {
-                            value: 538,
+                            value: 488,
                         },
                     ),
                     val_item_path: FugitivePath(
                         ItemPathId(
                             Id {
-                                value: 500,
+                                value: 505,
                             },
                         ),
                     ),

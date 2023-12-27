@@ -765,7 +765,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::SemaPrefixTypeOpr,
@@ -794,7 +794,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            5,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {

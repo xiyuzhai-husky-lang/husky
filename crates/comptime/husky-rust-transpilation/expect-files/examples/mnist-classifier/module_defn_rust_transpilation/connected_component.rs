@@ -1,7 +1,8 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConnectedComponentDistribution {
     pub row_start: i32,
     pub row_end: i32,
@@ -21,7 +22,8 @@ impl ConnectedComponentDistribution {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>,
 }
@@ -42,7 +44,8 @@ pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
 }
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConnectedComponent {
     pub mask: mnist::BinaryImage28,
 }
@@ -57,11 +60,11 @@ impl ConnectedComponent {
 
 #[rustfmt::skip]
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
-    let mut y = a | (x | x << 1 | x >> 1);
-    let mut z = a | (y | y << 1 | y >> 1);
+    let mut y = a & (x | x << 1 | x >> 1);
+    let mut z = a & (y | y << 1 | y >> 1);
     while z != y {
         y = z;
-        z = a | (y | y << 1 | y >> 1)
+        z = a & (y | y << 1 | y >> 1)
     }
     return y;
 }
@@ -84,7 +87,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                     {
                         let old_row = mask[(i + 1) as usize];
                         let new_row = old_row | crate::connected_component::horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
-                        if (new_row != 0) {
+                        if (new_row == 0) {
                             break;
                         }
                         if old_row != new_row {
@@ -117,13 +120,13 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
 
 #[rustfmt::skip]
 impl crate::connected_component::ConnectedComponent {
-    #[ad_hoc_task_dependency::memoized_field_return_ref(1)]
-pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 1, return_ref)]
+    pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
         crate::raw_contour::find_raw_contours(&self)
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref(2)]
-pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 2, return_ref)]
+    pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
         let mut raw_contours = self.raw_contours().collect_leashes();
         let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
@@ -132,8 +135,8 @@ pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
         return crate::connected_component::EffHoles::__constructor(matches);
     }
 
-    #[ad_hoc_task_dependency::memoized_field(3)]
-pub fn max_hole_ilen(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 3)]
+    pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
         let raw_contours = &self.raw_contours();
         for i in (0 + 1)..raw_contours.ilen() {
@@ -145,8 +148,8 @@ pub fn max_hole_ilen(&'static self) -> f32 {
         return max_hole_ilen as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(4)]
-pub fn max_row_span(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 4)]
+    pub fn max_row_span(&'static self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
             max_row = max_row.max(self.mask[i as usize].span())
@@ -154,8 +157,8 @@ pub fn max_row_span(&'static self) -> f32 {
         return max_row as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(5)]
-pub fn row_span_sum(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 5)]
+    pub fn row_span_sum(&'static self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
             row_span_sum += self.mask[i as usize].span()
@@ -163,8 +166,8 @@ pub fn row_span_sum(&'static self) -> f32 {
         return row_span_sum as f32;
     }
 
-    #[ad_hoc_task_dependency::memoized_field_return_ref(6)]
-pub fn distribution(&'static self) -> crate::connected_component::ConnectedComponentDistribution {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 6, return_ref)]
+    pub fn distribution(&'static self) -> crate::connected_component::ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
             {
@@ -177,7 +180,7 @@ pub fn distribution(&'static self) -> crate::connected_component::ConnectedCompo
         let mut row_end = row_start + 1;
         while row_end < 29 {
             {
-                if (self.mask[row_end as usize] != 0) {
+                if (self.mask[row_end as usize] == 0) {
                     break;
                 }
             }
@@ -196,13 +199,13 @@ pub fn distribution(&'static self) -> crate::connected_component::ConnectedCompo
         return crate::connected_component::ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
-    #[ad_hoc_task_dependency::memoized_field(7)]
-pub fn upper_mass(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 7)]
+    pub fn upper_mass(&'static self) -> f32 {
         self.distribution().upper_mass as f32
     }
 
-    #[ad_hoc_task_dependency::memoized_field(8)]
-pub fn lower_mass(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 8)]
+    pub fn lower_mass(&'static self) -> f32 {
         self.distribution().lower_mass as f32
     }
 
