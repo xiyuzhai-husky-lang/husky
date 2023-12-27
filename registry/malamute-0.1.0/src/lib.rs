@@ -8,11 +8,60 @@ use husky_core::*;
 
 ad_hoc_task_dependency::init_crate!();
 
-#[ad_hoc_task_dependency::value_conversion]
+// #[ad_hoc_task_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum Class<Label> {
     Known(Label),
     Unknown,
+}
+impl<Label> __WeakStatic for Class<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static + Copy,
+{
+    type Static = Class<<Label as __WeakStatic>::Static>;
+    unsafe fn into_static(self) -> Self::Static {
+        self
+    }
+}
+impl<Label> __Static for Class<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static + Copy,
+{
+    type Frozen = Class<Label>;
+    unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+
+    fn copy(&self) -> Box<dyn __StaticDyn> {
+        Box::new(*self)
+    }
+}
+
+impl<Label> __Frozen for Class<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static + Copy,
+{
+    type Static = Class<Label>;
+    type Stand = ();
+    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+        todo!()
+    }
+}
+impl<Label> __FromValue for Class<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static + Copy,
+{
+    fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
+        value.into_owned()
+    }
+}
+impl<Label> __IntoValue for Class<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static + Copy,
+{
+    fn into_value(self) -> __Value {
+        __Value::from_owned(self)
+    }
 }
 
 #[ad_hoc_task_dependency::value_conversion]

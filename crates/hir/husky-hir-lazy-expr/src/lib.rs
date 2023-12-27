@@ -2,13 +2,13 @@
 #![feature(trait_upcasting)]
 pub mod builder;
 pub mod db;
-mod expr;
+pub mod expr;
 pub mod helpers;
 mod pattern;
 mod pattern_expr;
 mod region;
 pub mod source_map;
-mod stmt;
+pub mod stmt;
 pub mod variable;
 
 pub use self::expr::*;

@@ -37,7 +37,7 @@ impl<C, B, E> std::ops::Try for ValControlFlow<C, B, E> {
             ValControlFlow::LoopBreak(b) => {
                 std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b))
             }
-            ValControlFlow::Return(b) => std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b)),
+            ValControlFlow::Return(b) => std::ops::ControlFlow::Break(ValControlFlow::Return(b)),
             ValControlFlow::Undefined => std::ops::ControlFlow::Break(ValControlFlow::Undefined),
             ValControlFlow::Err(e) => std::ops::ControlFlow::Break(ValControlFlow::Err(e)),
         }

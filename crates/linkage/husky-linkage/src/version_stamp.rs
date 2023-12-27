@@ -105,11 +105,8 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::StructField { self_ty, .. } => {
-            let hir_defn: HirDefn = self_ty.ty_path(db).hir_defn(db).unwrap().into();
-            builder.add(hir_defn);
-            builder.add_template_arguments(self_ty.template_arguments(db))
-        }
+        &LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
+        &LinkageData::TypeDefault { ty } => builder.add_ty(ty),
         LinkageData::TypeVariantConstructor {
             path,
             instantiation,
@@ -176,6 +173,20 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         item: impl HasVersionStamp<VersionStamp: Into<LinkageVersionStampDependency>>,
     ) {
         self.substamps.push(item.version_stamp(self.db).into())
+    }
+
+    fn add_ty(&mut self, ty: LinkageType) {
+        match ty {
+            LinkageType::PathLeading(ty) => self.add_ty_path_leading(ty),
+            LinkageType::Ritchie(_) => (),
+        }
+    }
+
+    fn add_ty_path_leading(&mut self, ty: LinkageTypePathLeading) {
+        let db = self.db;
+        let hir_defn: HirDefn = ty.ty_path(db).hir_defn(db).unwrap().into();
+        self.add(hir_defn);
+        self.add_template_arguments(ty.template_arguments(db))
     }
 
     fn add_instantiation(&mut self, instantiation: &LinkageInstantiation) {

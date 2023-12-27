@@ -138,6 +138,13 @@ macro_rules! impl_is_fn_linkage_impl_source {
     };
 }
 
+#[macro_export]
+macro_rules! ty_default_linkage_impl {
+    ($ty: ty) => {
+        fn_linkage_impl!(|| <$ty as Default>::default())
+    };
+}
+
 // unveils
 
 pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPointer> {

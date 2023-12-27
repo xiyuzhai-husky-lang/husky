@@ -264,17 +264,17 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         has_control_flow
     }
 
-    fn infer_new_stmt_aux(&mut self, hir_lazy_stmt: &HirLazyStmt) -> HasControlFlow {
+    fn infer_new_stmt_aux(&mut self, hir_lazy_stmt: &HirLazyStmtData) -> HasControlFlow {
         match *hir_lazy_stmt {
-            HirLazyStmt::Let {
+            HirLazyStmtData::Let {
                 pattern: _,
                 initial_value,
             } => self.expr_has_control_flow(initial_value),
-            HirLazyStmt::Return { result: _ } => HasControlFlow::True,
-            HirLazyStmt::Require { .. } => HasControlFlow::True,
-            HirLazyStmt::Assert { ref condition } => self.condition_has_control_flow(condition),
-            HirLazyStmt::Eval { expr_idx, .. } => self.expr_has_control_flow(expr_idx),
-            HirLazyStmt::IfElse {
+            HirLazyStmtData::Return { result: _ } => HasControlFlow::True,
+            HirLazyStmtData::Require { .. } => HasControlFlow::True,
+            HirLazyStmtData::Assert { ref condition } => self.condition_has_control_flow(condition),
+            HirLazyStmtData::Eval { expr_idx, .. } => self.expr_has_control_flow(expr_idx),
+            HirLazyStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -289,7 +289,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 HasControlFlow::False
             }
             // ad hoc
-            HirLazyStmt::Match {} => HasControlFlow::False,
+            HirLazyStmtData::Match {} => HasControlFlow::False,
         }
     }
 

@@ -43,14 +43,18 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Return => todo!(),
             ValOpn::Require => {
                 let arguments: &[_] = val_repr.arguments(db);
-                debug_assert_eq!(arguments.len(), 1);
+                debug_assert_eq!(arguments.len(), 2);
                 let ValArgumentRepr::Ordinary(condition) = arguments[0] else {
                     unreachable!()
                 };
-                if !self.eval_val_repr(condition)?.to_bool() {
-                    todo!()
+                if self.eval_val_repr(condition)?.to_bool() {
+                    ValControlFlow::Continue(().into())
+                } else {
+                    let ValArgumentRepr::Ordinary(default) = arguments[1] else {
+                        unreachable!()
+                    };
+                    ValControlFlow::Return(self.eval_val_repr(default)?)
                 }
-                ValControlFlow::Continue(().into())
             }
             ValOpn::Assert => {
                 let arguments: &[_] = val_repr.arguments(db);
@@ -96,7 +100,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::ValItemLazilyDefined(path) => {
                 let expansion = val_repr.expansion(db).unwrap();
-                self.eval_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
+                self.eval_root_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
@@ -199,21 +203,27 @@ impl<Task: IsTask> DevRuntime<Task> {
         }
     }
 
+    fn eval_root_stmts(
+        &self,
+        stmt_val_reprs: &[ValRepr],
+    ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
+        match self.eval_stmts(stmt_val_reprs) {
+            ValControlFlow::Continue(value) | ValControlFlow::Return(value) => {
+                ValControlFlow::Continue(value)
+            }
+            ValControlFlow::LoopContinue => unreachable!(),
+            ValControlFlow::LoopBreak(_) => unreachable!(),
+            ValControlFlow::Undefined => unreachable!(),
+            ValControlFlow::Err(e) => ValControlFlow::Err(e),
+        }
+    }
+
     fn eval_stmts(
         &self,
         stmt_val_reprs: &[ValRepr],
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
-            match self.eval_val_repr(stmt_val_repr) {
-                ValControlFlow::Continue(value) => {
-                    let () = value.into();
-                }
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopBreak(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => unreachable!(),
-                ValControlFlow::Err(_) => todo!(),
-            }
+            let _: () = self.eval_val_repr(stmt_val_repr)?.into();
         }
         self.eval_val_repr(*stmt_val_reprs.last().unwrap())
     }

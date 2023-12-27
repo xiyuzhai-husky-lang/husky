@@ -1,6 +1,7 @@
 pub use crate::{FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value};
 pub use husky_linkage_impl::standard::ugly::*;
 pub use husky_ml_task_prelude::ugly::*;
+pub use husky_standard_value::ugly::*;
 pub use husky_task_prelude::ugly::*;
 
 use husky_linkage_impl::standard::LinkageImpl;

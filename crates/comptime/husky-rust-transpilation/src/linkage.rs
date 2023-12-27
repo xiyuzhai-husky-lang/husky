@@ -126,6 +126,10 @@ impl TranspileToRustWith<()> for Linkage {
                     }
                 })
             }
+            LinkageData::TypeDefault { ty } => builder
+                .macro_call(RustMacroName::TypeDefault, |builder| {
+                    ty.transpile_to_rust(builder)
+                }),
             LinkageData::VecConstructor { element_ty } => {
                 builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                     builder.bracketed(RustBracket::Vertical, |builder| {
