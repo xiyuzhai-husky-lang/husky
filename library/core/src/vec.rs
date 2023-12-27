@@ -10,7 +10,9 @@ pub trait __VecX {
     fn pop_with_largest_opt_f32(
         &mut self,
         f: fn(Self::Element) -> Option<f32>,
-    ) -> Option<Self::Element>;
+    ) -> Option<Self::Element>
+    where
+        Self::Element: Copy;
 
     fn cyclic_slice_leashed(
         &'static self,
@@ -30,8 +32,21 @@ impl<T> __VecX for Vec<T> {
         self.iter().collect()
     }
 
-    fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) -> Option<T> {
-        todo!()
+    fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) -> Option<T>
+    where
+        T: Copy,
+    {
+        let mut imax = None;
+        let mut vmax = f32::MIN;
+        for i in 0..self.len() {
+            if let Some(v) = f(self[i]) {
+                if v > vmax {
+                    imax = Some(i);
+                    vmax = v
+                }
+            }
+        }
+        imax.map(|imax| self.remove(imax))
     }
 
     fn cyclic_slice_leashed(

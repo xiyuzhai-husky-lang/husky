@@ -1,4 +1,7 @@
-use crate::{template_argument::ty::LinkageType, *};
+use crate::{
+    template_argument::ty::{LinkageType, LinkageTypePathLeading},
+    *,
+};
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
@@ -6,7 +9,9 @@ use husky_entity_path::{
     AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeItemPath, TypeVariantPath,
 };
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
-use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
+use husky_hir_decl::{
+    parameter::template::item_hir_template_parameter_stats, HasHirDecl, TypeHirDecl,
+};
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{
@@ -58,13 +63,13 @@ pub enum LinkageData {
         path: TypePath,
         instantiation: LinkageInstantiation,
     },
+    StructField {
+        self_ty: LinkageTypePathLeading,
+        field: LinkageStructField,
+    },
     TypeVariantConstructor {
         path: TypeVariantPath,
         instantiation: LinkageInstantiation,
-    },
-    PropsStructField {
-        self_ty: LinkageType,
-        ident: Ident,
     },
     Index,
     FunctionGnItem {
@@ -74,6 +79,12 @@ pub enum LinkageData {
     VecConstructor {
         element_ty: LinkageType,
     },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum LinkageStructField {
+    Tuple,
+    Props { ident: Ident },
 }
 
 impl Linkage {
@@ -103,8 +114,15 @@ impl Linkage {
         linkage_instantiation: &LinkageInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let self_ty = LinkageType::from_hir(self_ty, Some(linkage_instantiation), db);
-        let data = LinkageData::PropsStructField { self_ty, ident };
+        let LinkageType::PathLeading(self_ty) =
+            LinkageType::from_hir(self_ty, Some(linkage_instantiation), db)
+        else {
+            unreachable!()
+        };
+        let data = LinkageData::StructField {
+            self_ty,
+            field: LinkageStructField::Props { ident },
+        };
         Self::new(db, data)
     }
 
@@ -438,18 +456,51 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 TypeKind::Enum => smallvec![],
                 TypeKind::Inductive => unreachable!(),
                 TypeKind::Record => unreachable!(),
-                TypeKind::Struct => LinkageInstantiation::from_javelin(instantiation, db)
-                    .into_iter()
-                    .map(|instantiation| {
-                        Linkage::new(
-                            db,
-                            LinkageData::TypeConstructor {
+                TypeKind::Struct => {
+                    let fields: Vec<LinkageStructField> = match path.hir_decl(db).unwrap() {
+                        TypeHirDecl::PropsStruct(hir_decl) => hir_decl
+                            .fields(db)
+                            .iter()
+                            .map(|field| LinkageStructField::Props {
+                                ident: field.ident(),
+                            })
+                            .collect(),
+                        TypeHirDecl::UnitStruct(_) => vec![],
+                        TypeHirDecl::TupleStruct(_) => todo!(),
+                        TypeHirDecl::Union(_) => todo!(),
+                        _ => unreachable!(),
+                    };
+                    LinkageInstantiation::from_javelin(instantiation, db)
+                        .into_iter()
+                        .map(|instantiation| {
+                            let self_ty = LinkageTypePathLeading::new(
+                                db,
                                 path,
-                                instantiation,
-                            },
-                        )
-                    })
-                    .collect(),
+                                instantiation
+                                    .symbol_resolutions()
+                                    .iter()
+                                    .map(|(_, res)| match *res {
+                                        LinkageTermSymbolResolution::Explicit(arg) => arg,
+                                        LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                                        LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
+                                    })
+                                    .collect(),
+                            );
+                            [Linkage::new(
+                                db,
+                                LinkageData::TypeConstructor {
+                                    path,
+                                    instantiation,
+                                },
+                            )]
+                            .into_iter()
+                            .chain(fields.iter().map(move |&field| {
+                                Linkage::new(db, LinkageData::StructField { self_ty, field })
+                            }))
+                        })
+                        .flatten()
+                        .collect()
+                }
                 TypeKind::Structure => unreachable!(),
                 TypeKind::Extern => {
                     p!(path.debug(db));
