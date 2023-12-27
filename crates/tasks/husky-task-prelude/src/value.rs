@@ -1,5 +1,6 @@
 pub trait IsValue:
-    Sized
+    std::fmt::Debug
+    + Sized
     + PartialEq
     + PartialOrd
     + std::ops::Add<Self, Output = Self>

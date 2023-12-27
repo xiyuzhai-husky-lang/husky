@@ -25,7 +25,7 @@ where
         label0: Label,
     ) -> Result<Self, ()> {
         let mut stalks: Vec<Stalk> = vec![];
-        for i in 0..50000 {
+        for i in 0..500 {
             let input_id = __InputId::from_index(i);
             if let Some(stalk) =
                 Self::from_features_aux(val_domain_repr, input_id, arguments, label0)?

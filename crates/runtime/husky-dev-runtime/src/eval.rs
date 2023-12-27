@@ -39,7 +39,7 @@ impl<Task: IsTask> DevRuntime<Task> {
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         // todo: consider domain
         let db = self.db();
-        match val_repr.opn(db) {
+        let result = match val_repr.opn(db) {
             ValOpn::Return => todo!(),
             ValOpn::Require => {
                 let arguments: &[_] = val_repr.arguments(db);
@@ -104,11 +104,12 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                linkage_impl.eval(
+                let control_flow = linkage_impl.eval(
                     val_repr.into(),
                     dev_eval_context::<Task::DevAscension>(),
                     unsafe { std::mem::transmute(val_repr.arguments(db) as &[ValArgumentRepr]) },
-                )
+                );
+                control_flow
             }
             ValOpn::FunctionGn(_) => todo!(),
             ValOpn::Prefix(_) => todo!(),
@@ -200,7 +201,8 @@ impl<Task: IsTask> DevRuntime<Task> {
                 let index = self.eval_val_repr(index)?.to_usize();
                 ValControlFlow::Continue(owner.index(index))
             }
-        }
+        };
+        result
     }
 
     fn eval_root_stmts(
@@ -272,4 +274,5 @@ fn val_repr_eval_works() {
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
+    todo!();
 }
