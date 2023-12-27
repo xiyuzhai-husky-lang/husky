@@ -79,6 +79,9 @@ pub enum LinkageData {
     VecConstructor {
         element_ty: LinkageType,
     },
+    TypeDefault {
+        ty: LinkageType,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -294,6 +297,19 @@ impl Linkage {
                     linkage_instantiation,
                     db,
                 ),
+            },
+        )
+    }
+
+    pub fn new_ty_default(
+        ty: HirType,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkageData::TypeDefault {
+                ty: LinkageType::from_hir(ty, Some(linkage_instantiation), db),
             },
         )
     }
@@ -514,6 +530,17 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             LinkageData::VecConstructor {
                 element_ty: LinkageType::from_javelin(
                     element_ty,
+                    // ad hoc
+                    &LinkageInstantiation::new_empty(false),
+                    db
+                )
+            },
+        )],
+        JavelinData::TypeDefault { ty } => smallvec![Linkage::new(
+            db,
+            LinkageData::TypeDefault {
+                ty: LinkageType::from_javelin(
+                    ty,
                     // ad hoc
                     &LinkageInstantiation::new_empty(false),
                     db

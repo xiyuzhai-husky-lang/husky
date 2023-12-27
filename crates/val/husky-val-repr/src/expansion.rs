@@ -9,7 +9,7 @@ use husky_hir_lazy_expr::{
     variable::HirLazyVariableMap,
     HirLazyBeVariablesPattern, HirLazyCallListItemGroup, HirLazyCondition, HirLazyExprData,
     HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr,
-    HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
+    HirLazyStmtData, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 
 use husky_hir_ty::{
@@ -172,7 +172,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
         stmt: HirLazyStmtIdx,
     ) -> Option<ValRepr> {
         let (opn, arguments) = match self.hir_lazy_expr_region_data.hir_lazy_stmt_arena()[stmt] {
-            HirLazyStmt::Let {
+            HirLazyStmtData::Let {
                 ref pattern,
                 initial_value,
             } => {
@@ -198,25 +198,43 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     HirLazyPatternExpr::Range { start: _, end: _ } => todo!(),
                 }
             }
-            HirLazyStmt::Return { result } => (
+            HirLazyStmtData::Return { result } => (
                 ValOpn::Return,
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, result)
                 )],
             ),
-            HirLazyStmt::Require { ref condition } => (
-                ValOpn::Require,
-                smallvec![ValArgumentRepr::Ordinary(
-                    self.build_condition(val_domain_repr_guard, condition)
-                )],
-            ),
-            HirLazyStmt::Assert { ref condition } => (
+            HirLazyStmtData::Require {
+                ref condition,
+                return_ty,
+            } => {
+                let db = self.db;
+                let default = val_domain_repr_guard.new_expr_val_repr(
+                    ValOpn::Linkage(Linkage::new_ty_default(
+                        return_ty,
+                        &self.linkage_instantiation,
+                        db,
+                    )),
+                    smallvec![],
+                    HasControlFlow::False,
+                );
+                (
+                    ValOpn::Require,
+                    smallvec![
+                        ValArgumentRepr::Ordinary(
+                            self.build_condition(val_domain_repr_guard, condition)
+                        ),
+                        ValArgumentRepr::Ordinary(default)
+                    ],
+                )
+            }
+            HirLazyStmtData::Assert { ref condition } => (
                 ValOpn::Assert,
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_condition(val_domain_repr_guard, condition)
                 )],
             ),
-            HirLazyStmt::Eval {
+            HirLazyStmtData::Eval {
                 expr_idx,
                 discarded,
             } => {
@@ -232,7 +250,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     false => return Some(expr_val_repr),
                 }
             }
-            HirLazyStmt::IfElse {
+            HirLazyStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -267,7 +285,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 }
                 (ValOpn::Branches, branches)
             }
-            HirLazyStmt::Match {} => todo!(),
+            HirLazyStmtData::Match {} => todo!(),
         };
         let val_repr = val_domain_repr_guard.new_stmt_val_repr(opn, arguments);
         self.hir_lazy_stmt_val_repr_map.insert_new(stmt, val_repr);

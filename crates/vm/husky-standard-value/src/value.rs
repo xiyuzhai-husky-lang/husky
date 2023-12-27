@@ -85,8 +85,17 @@ impl Value {
         Value::Box(Box::new(t))
     }
 
-    pub fn into_owned<T>(self) -> T {
-        todo!()
+    pub fn into_owned<T>(self) -> T
+    where
+        T: 'static,
+    {
+        match self {
+            Value::Box(slf) => *(slf as Box<dyn std::any::Any>).downcast().unwrap(),
+            Value::Leash(slf) => *(slf.copy_dyn() as Box<dyn std::any::Any>)
+                .downcast()
+                .unwrap(),
+            _ => unreachable!("self is {self:?}"),
+        }
     }
 
     pub fn from_ref<'a, T>(t: &'a T) -> Self {
@@ -301,6 +310,7 @@ impl IsValue for Value {
             Value::OptionLeash(opt) => opt.is_some(),
             Value::OptionSizedRef(opt) => opt.is_some(),
             Value::OptionSizedMut(opt) => opt.is_some(),
+            Value::Leash(opt) => opt.is_some_dyn(),
             _ => unreachable!(),
         }
     }

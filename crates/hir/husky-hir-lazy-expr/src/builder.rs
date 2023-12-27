@@ -67,7 +67,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub(crate) fn alloc_stmts(
         &mut self,
         sema_stmt_indices: Vec<SemaStmtIdx>,
-        hir_eager_stmts: Vec<HirLazyStmt>,
+        hir_eager_stmts: Vec<HirLazyStmtData>,
     ) -> HirLazyStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
         let hir_stmt_idx_range = self.hir_lazy_stmt_arena.alloc_batch(hir_eager_stmts);
@@ -199,6 +199,10 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn fluffy_terms(&self) -> &FluffyTerms {
         self.sema_expr_region_data.fluffy_term_region().terms()
+    }
+
+    pub(crate) fn sema_expr_region_data(&self) -> &'a SemaExprRegionData {
+        self.sema_expr_region_data
     }
 }
 

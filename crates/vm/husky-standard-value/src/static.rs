@@ -9,12 +9,20 @@ pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Static = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
 
+    fn copy(&self) -> Box<dyn StaticDyn> {
+        panic!(
+            "type `{}` is not copyable",
+            std::any::type_name_of_val(self)
+        )
+    }
+
     fn is_some(&self) -> bool {
         panic!(
             "type `{}` is not an Option",
             std::any::type_name_of_val(self)
         )
     }
+
     fn is_none(&self) -> bool {
         panic!(
             "type `{}` is not an Option",
@@ -53,6 +61,8 @@ pub trait StaticDyn:
     fn is_none_dyn(&self) -> bool;
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
+
+    fn copy_dyn(&self) -> Box<dyn StaticDyn>;
 }
 
 impl<T> StaticDyn for T
@@ -77,6 +87,10 @@ where
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
         self.index_ref(index)
+    }
+
+    fn copy_dyn(&self) -> Box<dyn StaticDyn> {
+        self.copy()
     }
 }
 

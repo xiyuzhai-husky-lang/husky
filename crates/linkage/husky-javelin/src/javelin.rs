@@ -23,6 +23,9 @@ pub enum JavelinData {
     VecConstructor {
         element_ty: JavelinType,
     },
+    TypeDefault {
+        ty: JavelinType,
+    },
 }
 
 /// package javelins are package amazon javelins and valkyrie javelins

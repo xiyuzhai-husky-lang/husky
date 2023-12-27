@@ -145,6 +145,10 @@ impl SemaExprRegionData {
             Err(_) => todo!(),
         }
     }
+
+    pub fn return_ty(&self) -> Option<EtherealTerm> {
+        self.return_ty
+    }
 }
 
 #[salsa::tracked(jar = SemaExprJar)]

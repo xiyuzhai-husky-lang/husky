@@ -106,25 +106,15 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                 }
             }
 
-            // todo: value generics
-            impl #generics __FromValue for #self_ty {
+            impl #generics __FromValue for #self_ty where #impl_from_value_generic_constraints {
                 fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
-                    // ad hoc
-                    // let __Value::EnumU8(index_raw) = value else {
-                    //     unreachable!()
-                    // };
-                    // unsafe {
-                    //     std::mem::transmute(index_raw)
-                    // }
-                    todo!()
+                    value.into_owned()
                 }
             }
 
-            // todo: value generics
-            impl #generics __IntoValue for #self_ty {
+            impl #generics __IntoValue for #self_ty where #impl_into_value_generic_constraints {
                 fn into_value(self) -> __Value {
-                    // ad hoc
-                    todo!("enum into value")
+                    __Value::from_owned(self)
                 }
             }
         }

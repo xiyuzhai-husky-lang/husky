@@ -34,7 +34,7 @@ impl __U32X for u32 {
 
     /// count ones
     fn co(self) -> i32 {
-        todo!()
+        self.count_ones() as i32
     }
 
     fn right_mass(self) -> i32 {
